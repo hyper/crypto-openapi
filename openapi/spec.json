@@ -3553,6 +3553,13 @@
           "created"
         ]
       }
+    },
+    "securitySchemes": {
+      "API Key": {
+        "name": "API Key",
+        "type": "apiKey",
+        "in": "header"
+      }
     }
   }
 }
