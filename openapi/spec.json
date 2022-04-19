@@ -3555,8 +3555,8 @@
       }
     },
     "securitySchemes": {
-      "API Key": {
-        "name": "API Key",
+      "ApiKey": {
+        "name": "ApiKey",
         "type": "apiKey",
         "in": "header"
       }
