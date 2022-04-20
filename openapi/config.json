@@ -1,0 +1,5 @@
+{
+  "removeOperationIdPrefix": true,
+  "supportsES6": true,
+  "useObjectParameters": true
+}
