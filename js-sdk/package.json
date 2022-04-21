@@ -15,10 +15,11 @@
   },
   "dependencies": {
     "es6-promise": "^4.2.4",
-    "whatwg-fetch": "^3.0.0",
-    "url-parse": "^1.4.3"
+    "url-parse": "^1.4.3",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
+    "@types/node": "^17.0.25",
     "prettier": "^2.2.1",
     "typescript": "^3.9.3"
   }

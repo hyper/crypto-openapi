@@ -31,7 +31,6 @@ class UserAgentMiddleware implements Middleware {
 }
 
 export class Crypto {
-  public readonly _configuration: Configuration;
   public readonly customers: CustomersApi;
   public readonly fees: FeesApi;
   public readonly invoices: InvoicesApi;
@@ -57,8 +56,6 @@ export class Crypto {
         },
       },
     });
-
-    this._configuration = config;
 
     this.customers = new CustomersApi(config);
     this.fees = new FeesApi(config);
