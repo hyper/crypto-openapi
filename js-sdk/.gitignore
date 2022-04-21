@@ -1,0 +1,5 @@
+/dist
+/src/openapi/*
+!/src/openapi/.openapi-generator-ignore
+
+node_modules
