@@ -349,10 +349,9 @@
       }
     },
     "securitySchemes": {
-      "ApiKey": {
-        "in": "header",
-        "name": "ApiKey",
-        "type": "apiKey"
+      "bearerAuth": {
+        "scheme": "bearer",
+        "type": "http"
       }
     }
   },

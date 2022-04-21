@@ -41,7 +41,7 @@ export class Crypto {
   public readonly wallets: WalletsApi;
   public readonly webhooks: WebhooksApi;
 
-  public constructor(apiKey: string) {
+  public constructor(token: string) {
     const baseUrl = 'https://crypto.hyper.co/';
 
     const baseServer = new ServerConfiguration<any>(baseUrl, {});
@@ -49,7 +49,13 @@ export class Crypto {
     const config = createConfiguration({
       baseServer,
       promiseMiddleware: [new UserAgentMiddleware()],
-      authMethods: { ApiKey: apiKey },
+      authMethods: {
+        bearerAuth: {
+          tokenProvider: {
+            getToken: () => token,
+          },
+        },
+      },
     });
 
     this._configuration = config;
