@@ -49,10 +49,9 @@ export class Crypto {
       baseServer,
       promiseMiddleware: [new UserAgentMiddleware()],
       authMethods: {
-        bearerAuth: {
-          tokenProvider: {
-            getToken: () => token,
-          },
+        default: {
+          getName: () => 'bearerAuth',
+          applySecurityAuthentication: (context: RequestContext) => context.setHeaderParam('Authorization', 'Bearer ' + token),
         },
       },
     });
