@@ -41,7 +41,7 @@ export class Crypto {
   public readonly webhooks: WebhooksApi;
 
   public constructor(token: string) {
-    const baseUrl = 'https://crypto.hyper.co/';
+    const baseUrl = 'http://localhost:7070/v1';
 
     const baseServer = new ServerConfiguration<any>(baseUrl, {});
 
