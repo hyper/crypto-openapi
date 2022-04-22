@@ -1,4 +1,3 @@
-/dist
 /src/openapi/*
 !/src/openapi/models/Set.ts
 !/src/openapi/.openapi-generator-ignore
