@@ -50,8 +50,9 @@ export class Crypto {
       promiseMiddleware: [new UserAgentMiddleware()],
       authMethods: {
         default: {
-          getName: () => 'bearerAuth',
-          applySecurityAuthentication: (context: RequestContext) => context.setHeaderParam('Authorization', 'Bearer ' + token),
+          getName: () => 'ApiKey',
+          applySecurityAuthentication: (context: RequestContext) =>
+            context.setHeaderParam('Authorization', 'Bearer ' + token),
         },
       },
     });

@@ -25,7 +25,7 @@ export interface TokenProvider {
 /**
  * Applies http authentication to the request context.
  */
-export class BearerAuthAuthentication implements SecurityAuthentication {
+export class ApiKeyAuthentication implements SecurityAuthentication {
     /**
      * Configures the http authentication with the required details.
      *
@@ -34,7 +34,7 @@ export class BearerAuthAuthentication implements SecurityAuthentication {
     public constructor(private tokenProvider: TokenProvider) {}
 
     public getName(): string {
-        return "bearerAuth";
+        return "ApiKey";
     }
 
     public async applySecurityAuthentication(context: RequestContext) {
@@ -45,7 +45,7 @@ export class BearerAuthAuthentication implements SecurityAuthentication {
 
 export type AuthMethods = {
     "default"?: SecurityAuthentication,
-    "bearerAuth"?: SecurityAuthentication
+    "ApiKey"?: SecurityAuthentication
 }
 
 export type ApiKeyConfiguration = string;
@@ -55,7 +55,7 @@ export type OAuth2Configuration = { accessToken: string };
 
 export type AuthMethodsConfiguration = {
     "default"?: SecurityAuthentication,
-    "bearerAuth"?: HttpBearerConfiguration
+    "ApiKey"?: HttpBearerConfiguration
 }
 
 /**
@@ -70,9 +70,9 @@ export function configureAuthMethods(config: AuthMethodsConfiguration | undefine
     }
     authMethods["default"] = config["default"]
 
-    if (config["bearerAuth"]) {
-        authMethods["bearerAuth"] = new BearerAuthAuthentication(
-            config["bearerAuth"]["tokenProvider"]
+    if (config["ApiKey"]) {
+        authMethods["ApiKey"] = new ApiKeyAuthentication(
+            config["ApiKey"]["tokenProvider"]
         );
     }
 

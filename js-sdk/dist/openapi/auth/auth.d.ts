@@ -6,7 +6,7 @@ export interface SecurityAuthentication {
 export interface TokenProvider {
     getToken(): Promise<string> | string;
 }
-export declare class BearerAuthAuthentication implements SecurityAuthentication {
+export declare class ApiKeyAuthentication implements SecurityAuthentication {
     private tokenProvider;
     constructor(tokenProvider: TokenProvider);
     getName(): string;
@@ -14,7 +14,7 @@ export declare class BearerAuthAuthentication implements SecurityAuthentication 
 }
 export declare type AuthMethods = {
     "default"?: SecurityAuthentication;
-    "bearerAuth"?: SecurityAuthentication;
+    "ApiKey"?: SecurityAuthentication;
 };
 export declare type ApiKeyConfiguration = string;
 export declare type HttpBasicConfiguration = {
@@ -29,6 +29,6 @@ export declare type OAuth2Configuration = {
 };
 export declare type AuthMethodsConfiguration = {
     "default"?: SecurityAuthentication;
-    "bearerAuth"?: HttpBearerConfiguration;
+    "ApiKey"?: HttpBearerConfiguration;
 };
 export declare function configureAuthMethods(config: AuthMethodsConfiguration | undefined): AuthMethods;

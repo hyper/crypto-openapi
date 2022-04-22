@@ -9,13 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.configureAuthMethods = exports.BearerAuthAuthentication = void 0;
-class BearerAuthAuthentication {
+exports.configureAuthMethods = exports.ApiKeyAuthentication = void 0;
+class ApiKeyAuthentication {
     constructor(tokenProvider) {
         this.tokenProvider = tokenProvider;
     }
     getName() {
-        return "bearerAuth";
+        return "ApiKey";
     }
     applySecurityAuthentication(context) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -23,15 +23,15 @@ class BearerAuthAuthentication {
         });
     }
 }
-exports.BearerAuthAuthentication = BearerAuthAuthentication;
+exports.ApiKeyAuthentication = ApiKeyAuthentication;
 function configureAuthMethods(config) {
     let authMethods = {};
     if (!config) {
         return authMethods;
     }
     authMethods["default"] = config["default"];
-    if (config["bearerAuth"]) {
-        authMethods["bearerAuth"] = new BearerAuthAuthentication(config["bearerAuth"]["tokenProvider"]);
+    if (config["ApiKey"]) {
+        authMethods["ApiKey"] = new ApiKeyAuthentication(config["ApiKey"]["tokenProvider"]);
     }
     return authMethods;
 }

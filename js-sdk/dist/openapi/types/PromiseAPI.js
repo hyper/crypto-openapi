@@ -6,20 +6,20 @@ class PromiseCustomersApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_1.ObservableCustomersApi(configuration, requestFactory, responseProcessor);
     }
-    create(inlineObject, _options) {
-        const result = this.api.create(inlineObject, _options);
+    create(prismAccount, inlineObject, _options) {
+        const result = this.api.create(prismAccount, inlineObject, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, _options) {
-        const result = this.api.list(limit, page, sort, expand, _options);
+    list(limit, page, sort, expand, prismAccount, _options) {
+        const result = this.api.list(limit, page, sort, expand, prismAccount, _options);
         return result.toPromise();
     }
-    retrieve(customerId, _options) {
-        const result = this.api.retrieve(customerId, _options);
+    retrieve(customerId, prismAccount, _options) {
+        const result = this.api.retrieve(customerId, prismAccount, _options);
         return result.toPromise();
     }
-    update(customerId, _options) {
-        const result = this.api.update(customerId, _options);
+    update(customerId, prismAccount, _options) {
+        const result = this.api.update(customerId, prismAccount, _options);
         return result.toPromise();
     }
 }
@@ -29,20 +29,20 @@ class PromiseFeesApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_2.ObservableFeesApi(configuration, requestFactory, responseProcessor);
     }
-    _delete(feeId, _options) {
-        const result = this.api._delete(feeId, _options);
+    _delete(feeId, prismAccount, _options) {
+        const result = this.api._delete(feeId, prismAccount, _options);
         return result.toPromise();
     }
-    create(inlineObject1, _options) {
-        const result = this.api.create(inlineObject1, _options);
+    create(prismAccount, inlineObject1, _options) {
+        const result = this.api.create(prismAccount, inlineObject1, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, _options) {
-        const result = this.api.list(limit, page, sort, expand, _options);
+    list(limit, page, sort, expand, prismAccount, _options) {
+        const result = this.api.list(limit, page, sort, expand, prismAccount, _options);
         return result.toPromise();
     }
-    retrieve(feeId, _options) {
-        const result = this.api.retrieve(feeId, _options);
+    retrieve(feeId, prismAccount, _options) {
+        const result = this.api.retrieve(feeId, prismAccount, _options);
         return result.toPromise();
     }
 }
@@ -52,20 +52,20 @@ class PromiseInvoicesApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_3.ObservableInvoicesApi(configuration, requestFactory, responseProcessor);
     }
-    create(inlineObject2, _options) {
-        const result = this.api.create(inlineObject2, _options);
+    create(prismAccount, inlineObject2, _options) {
+        const result = this.api.create(prismAccount, inlineObject2, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, _options) {
-        const result = this.api.list(limit, page, sort, expand, _options);
+    list(limit, page, sort, expand, prismAccount, _options) {
+        const result = this.api.list(limit, page, sort, expand, prismAccount, _options);
         return result.toPromise();
     }
-    retrieve(invoiceId, _options) {
-        const result = this.api.retrieve(invoiceId, _options);
+    retrieve(invoiceId, prismAccount, _options) {
+        const result = this.api.retrieve(invoiceId, prismAccount, _options);
         return result.toPromise();
     }
-    update(invoiceId, _options) {
-        const result = this.api.update(invoiceId, _options);
+    update(invoiceId, prismAccount, _options) {
+        const result = this.api.update(invoiceId, prismAccount, _options);
         return result.toPromise();
     }
 }
@@ -75,12 +75,12 @@ class PromiseLogsApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_4.ObservableLogsApi(configuration, requestFactory, responseProcessor);
     }
-    list(limit, page, sort, expand, _options) {
-        const result = this.api.list(limit, page, sort, expand, _options);
+    list(limit, page, sort, expand, prismAccount, _options) {
+        const result = this.api.list(limit, page, sort, expand, prismAccount, _options);
         return result.toPromise();
     }
-    retrieve(logId, _options) {
-        const result = this.api.retrieve(logId, _options);
+    retrieve(logId, prismAccount, _options) {
+        const result = this.api.retrieve(logId, prismAccount, _options);
         return result.toPromise();
     }
 }
@@ -90,12 +90,12 @@ class PromisePaymentsApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_5.ObservablePaymentsApi(configuration, requestFactory, responseProcessor);
     }
-    list(limit, page, sort, expand, _options) {
-        const result = this.api.list(limit, page, sort, expand, _options);
+    list(limit, page, sort, expand, prismAccount, _options) {
+        const result = this.api.list(limit, page, sort, expand, prismAccount, _options);
         return result.toPromise();
     }
-    retrieve(paymentId, _options) {
-        const result = this.api.retrieve(paymentId, _options);
+    retrieve(paymentId, prismAccount, _options) {
+        const result = this.api.retrieve(paymentId, prismAccount, _options);
         return result.toPromise();
     }
 }
@@ -105,24 +105,24 @@ class PromiseProductsApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_6.ObservableProductsApi(configuration, requestFactory, responseProcessor);
     }
-    _delete(productId, _options) {
-        const result = this.api._delete(productId, _options);
+    _delete(productId, prismAccount, _options) {
+        const result = this.api._delete(productId, prismAccount, _options);
         return result.toPromise();
     }
-    create(inlineObject3, _options) {
-        const result = this.api.create(inlineObject3, _options);
+    create(prismAccount, inlineObject3, _options) {
+        const result = this.api.create(prismAccount, inlineObject3, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, _options) {
-        const result = this.api.list(limit, page, sort, expand, _options);
+    list(limit, page, sort, expand, prismAccount, _options) {
+        const result = this.api.list(limit, page, sort, expand, prismAccount, _options);
         return result.toPromise();
     }
-    retrieve(productId, _options) {
-        const result = this.api.retrieve(productId, _options);
+    retrieve(productId, prismAccount, _options) {
+        const result = this.api.retrieve(productId, prismAccount, _options);
         return result.toPromise();
     }
-    update(productId, _options) {
-        const result = this.api.update(productId, _options);
+    update(productId, prismAccount, _options) {
+        const result = this.api.update(productId, prismAccount, _options);
         return result.toPromise();
     }
 }
@@ -132,24 +132,24 @@ class PromiseWalletsApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_7.ObservableWalletsApi(configuration, requestFactory, responseProcessor);
     }
-    _delete(walletId, _options) {
-        const result = this.api._delete(walletId, _options);
+    _delete(walletId, prismAccount, _options) {
+        const result = this.api._delete(walletId, prismAccount, _options);
         return result.toPromise();
     }
-    create(inlineObject4, _options) {
-        const result = this.api.create(inlineObject4, _options);
+    create(prismAccount, inlineObject4, _options) {
+        const result = this.api.create(prismAccount, inlineObject4, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, _options) {
-        const result = this.api.list(limit, page, sort, expand, _options);
+    list(limit, page, sort, expand, prismAccount, _options) {
+        const result = this.api.list(limit, page, sort, expand, prismAccount, _options);
         return result.toPromise();
     }
-    retrieve(walletId, limit, page, sort, expand, _options) {
-        const result = this.api.retrieve(walletId, limit, page, sort, expand, _options);
+    retrieve(walletId, limit, page, sort, expand, prismAccount, _options) {
+        const result = this.api.retrieve(walletId, limit, page, sort, expand, prismAccount, _options);
         return result.toPromise();
     }
-    update(walletId, _options) {
-        const result = this.api.update(walletId, _options);
+    update(walletId, prismAccount, _options) {
+        const result = this.api.update(walletId, prismAccount, _options);
         return result.toPromise();
     }
 }
@@ -159,24 +159,24 @@ class PromiseWebhooksApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_8.ObservableWebhooksApi(configuration, requestFactory, responseProcessor);
     }
-    _delete(webhookId, _options) {
-        const result = this.api._delete(webhookId, _options);
+    _delete(webhookId, prismAccount, _options) {
+        const result = this.api._delete(webhookId, prismAccount, _options);
         return result.toPromise();
     }
-    create(inlineObject5, _options) {
-        const result = this.api.create(inlineObject5, _options);
+    create(prismAccount, inlineObject5, _options) {
+        const result = this.api.create(prismAccount, inlineObject5, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, _options) {
-        const result = this.api.list(limit, page, sort, expand, _options);
+    list(limit, page, sort, expand, prismAccount, _options) {
+        const result = this.api.list(limit, page, sort, expand, prismAccount, _options);
         return result.toPromise();
     }
-    retrieve(webhookId, _options) {
-        const result = this.api.retrieve(webhookId, _options);
+    retrieve(webhookId, prismAccount, _options) {
+        const result = this.api.retrieve(webhookId, prismAccount, _options);
         return result.toPromise();
     }
-    update(webhookId, _options) {
-        const result = this.api.update(webhookId, _options);
+    update(webhookId, prismAccount, _options) {
+        const result = this.api.update(webhookId, prismAccount, _options);
         return result.toPromise();
     }
 }

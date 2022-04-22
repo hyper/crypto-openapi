@@ -21,14 +21,16 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Delete Webhook By Id
      * @param webhookId 
+     * @param prismAccount 
      */
-    public async _delete(webhookId: string, _options?: Configuration): Promise<RequestContext> {
+    public async _delete(webhookId: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'webhookId' is not null or undefined
         if (webhookId === null || webhookId === undefined) {
             throw new RequiredError("WebhooksApi", "_delete", "webhookId");
         }
+
 
 
         // Path Params
@@ -38,6 +40,9 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
 
 
         
@@ -51,10 +56,12 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Create Webhook
+     * @param prismAccount 
      * @param inlineObject5 
      */
-    public async create(inlineObject5?: InlineObject5, _options?: Configuration): Promise<RequestContext> {
+    public async create(prismAccount?: string, inlineObject5?: InlineObject5, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
         // Path Params
@@ -63,6 +70,9 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
 
 
         // Body Params
@@ -91,9 +101,11 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
+     * @param prismAccount 
      */
-    public async list(limit?: number, page?: number, sort?: any, expand?: string, _options?: Configuration): Promise<RequestContext> {
+    public async list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -126,6 +138,9 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("expand", ObjectSerializer.serialize(expand, "string", ""));
         }
 
+        // Header Params
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
+
 
         
         const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
@@ -139,14 +154,16 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Retrieve Webhook By Id
      * @param webhookId 
+     * @param prismAccount 
      */
-    public async retrieve(webhookId: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieve(webhookId: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'webhookId' is not null or undefined
         if (webhookId === null || webhookId === undefined) {
             throw new RequiredError("WebhooksApi", "retrieve", "webhookId");
         }
+
 
 
         // Path Params
@@ -156,6 +173,9 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
 
 
         
@@ -170,14 +190,16 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Update Webhook By Id
      * @param webhookId 
+     * @param prismAccount 
      */
-    public async update(webhookId: string, _options?: Configuration): Promise<RequestContext> {
+    public async update(webhookId: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'webhookId' is not null or undefined
         if (webhookId === null || webhookId === undefined) {
             throw new RequiredError("WebhooksApi", "update", "webhookId");
         }
+
 
 
         // Path Params
@@ -187,6 +209,9 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PATCH);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
 
 
         

@@ -7,16 +7,16 @@ class ObjectCustomersApi {
         this.api = new ObservableAPI_1.ObservableCustomersApi(configuration, requestFactory, responseProcessor);
     }
     create(param = {}, options) {
-        return this.api.create(param.inlineObject, options).toPromise();
+        return this.api.create(param.prismAccount, param.inlineObject, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.customerId, options).toPromise();
+        return this.api.retrieve(param.customerId, param.prismAccount, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.customerId, options).toPromise();
+        return this.api.update(param.customerId, param.prismAccount, options).toPromise();
     }
 }
 exports.ObjectCustomersApi = ObjectCustomersApi;
@@ -26,16 +26,16 @@ class ObjectFeesApi {
         this.api = new ObservableAPI_2.ObservableFeesApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
-        return this.api._delete(param.feeId, options).toPromise();
+        return this.api._delete(param.feeId, param.prismAccount, options).toPromise();
     }
     create(param = {}, options) {
-        return this.api.create(param.inlineObject1, options).toPromise();
+        return this.api.create(param.prismAccount, param.inlineObject1, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.feeId, options).toPromise();
+        return this.api.retrieve(param.feeId, param.prismAccount, options).toPromise();
     }
 }
 exports.ObjectFeesApi = ObjectFeesApi;
@@ -45,16 +45,16 @@ class ObjectInvoicesApi {
         this.api = new ObservableAPI_3.ObservableInvoicesApi(configuration, requestFactory, responseProcessor);
     }
     create(param = {}, options) {
-        return this.api.create(param.inlineObject2, options).toPromise();
+        return this.api.create(param.prismAccount, param.inlineObject2, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.invoiceId, options).toPromise();
+        return this.api.retrieve(param.invoiceId, param.prismAccount, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.invoiceId, options).toPromise();
+        return this.api.update(param.invoiceId, param.prismAccount, options).toPromise();
     }
 }
 exports.ObjectInvoicesApi = ObjectInvoicesApi;
@@ -64,10 +64,10 @@ class ObjectLogsApi {
         this.api = new ObservableAPI_4.ObservableLogsApi(configuration, requestFactory, responseProcessor);
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.logId, options).toPromise();
+        return this.api.retrieve(param.logId, param.prismAccount, options).toPromise();
     }
 }
 exports.ObjectLogsApi = ObjectLogsApi;
@@ -77,10 +77,10 @@ class ObjectPaymentsApi {
         this.api = new ObservableAPI_5.ObservablePaymentsApi(configuration, requestFactory, responseProcessor);
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.paymentId, options).toPromise();
+        return this.api.retrieve(param.paymentId, param.prismAccount, options).toPromise();
     }
 }
 exports.ObjectPaymentsApi = ObjectPaymentsApi;
@@ -90,19 +90,19 @@ class ObjectProductsApi {
         this.api = new ObservableAPI_6.ObservableProductsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
-        return this.api._delete(param.productId, options).toPromise();
+        return this.api._delete(param.productId, param.prismAccount, options).toPromise();
     }
     create(param = {}, options) {
-        return this.api.create(param.inlineObject3, options).toPromise();
+        return this.api.create(param.prismAccount, param.inlineObject3, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.productId, options).toPromise();
+        return this.api.retrieve(param.productId, param.prismAccount, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.productId, options).toPromise();
+        return this.api.update(param.productId, param.prismAccount, options).toPromise();
     }
 }
 exports.ObjectProductsApi = ObjectProductsApi;
@@ -112,19 +112,19 @@ class ObjectWalletsApi {
         this.api = new ObservableAPI_7.ObservableWalletsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
-        return this.api._delete(param.walletId, options).toPromise();
+        return this.api._delete(param.walletId, param.prismAccount, options).toPromise();
     }
     create(param = {}, options) {
-        return this.api.create(param.inlineObject4, options).toPromise();
+        return this.api.create(param.prismAccount, param.inlineObject4, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.walletId, param.limit, param.page, param.sort, param.expand, options).toPromise();
+        return this.api.retrieve(param.walletId, param.limit, param.page, param.sort, param.expand, param.prismAccount, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.walletId, options).toPromise();
+        return this.api.update(param.walletId, param.prismAccount, options).toPromise();
     }
 }
 exports.ObjectWalletsApi = ObjectWalletsApi;
@@ -134,19 +134,19 @@ class ObjectWebhooksApi {
         this.api = new ObservableAPI_8.ObservableWebhooksApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
-        return this.api._delete(param.webhookId, options).toPromise();
+        return this.api._delete(param.webhookId, param.prismAccount, options).toPromise();
     }
     create(param = {}, options) {
-        return this.api.create(param.inlineObject5, options).toPromise();
+        return this.api.create(param.prismAccount, param.inlineObject5, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.webhookId, options).toPromise();
+        return this.api.retrieve(param.webhookId, param.prismAccount, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.webhookId, options).toPromise();
+        return this.api.update(param.webhookId, param.prismAccount, options).toPromise();
     }
 }
 exports.ObjectWebhooksApi = ObjectWebhooksApi;

@@ -21,14 +21,16 @@ export class FeesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Delete Fee By Id
      * @param feeId 
+     * @param prismAccount 
      */
-    public async _delete(feeId: string, _options?: Configuration): Promise<RequestContext> {
+    public async _delete(feeId: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'feeId' is not null or undefined
         if (feeId === null || feeId === undefined) {
             throw new RequiredError("FeesApi", "_delete", "feeId");
         }
+
 
 
         // Path Params
@@ -38,6 +40,9 @@ export class FeesApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
 
 
         
@@ -51,10 +56,12 @@ export class FeesApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Create Fee
+     * @param prismAccount 
      * @param inlineObject1 
      */
-    public async create(inlineObject1?: InlineObject1, _options?: Configuration): Promise<RequestContext> {
+    public async create(prismAccount?: string, inlineObject1?: InlineObject1, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
         // Path Params
@@ -63,6 +70,9 @@ export class FeesApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
 
 
         // Body Params
@@ -91,9 +101,11 @@ export class FeesApiRequestFactory extends BaseAPIRequestFactory {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
+     * @param prismAccount 
      */
-    public async list(limit?: number, page?: number, sort?: any, expand?: string, _options?: Configuration): Promise<RequestContext> {
+    public async list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -126,6 +138,9 @@ export class FeesApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("expand", ObjectSerializer.serialize(expand, "string", ""));
         }
 
+        // Header Params
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
+
 
         
         const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
@@ -139,14 +154,16 @@ export class FeesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Retrieve Fee By Id
      * @param feeId 
+     * @param prismAccount 
      */
-    public async retrieve(feeId: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieve(feeId: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'feeId' is not null or undefined
         if (feeId === null || feeId === undefined) {
             throw new RequiredError("FeesApi", "retrieve", "feeId");
         }
+
 
 
         // Path Params
@@ -156,6 +173,9 @@ export class FeesApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
 
 
         

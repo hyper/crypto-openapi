@@ -28,6 +28,8 @@ const apiInstance = new .ProductsApi(configuration);
 let body:.ProductsApiDeleteRequest = {
   // string
   productId: "productId_example",
+  // string (optional)
+  prismAccount: "Prism-Account_example",
 };
 
 apiInstance._delete(body).then((data:any) => {
@@ -41,6 +43,7 @@ apiInstance._delete(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | [**string**] |  | defaults to undefined
+ **prismAccount** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -80,6 +83,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .ProductsApi(configuration);
 
 let body:.ProductsApiCreateRequest = {
+  // string (optional)
+  prismAccount: "Prism-Account_example",
   // InlineObject3 (optional)
   inlineObject3: {
     amount: 3.14,
@@ -100,6 +105,7 @@ apiInstance.create(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inlineObject3** | **InlineObject3**|  |
+ **prismAccount** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -147,6 +153,8 @@ let body:.ProductsApiListRequest = {
   sort: null,
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
+  // string (optional)
+  prismAccount: "Prism-Account_example",
 };
 
 apiInstance.list(body).then((data:any) => {
@@ -163,6 +171,7 @@ Name | Type | Description  | Notes
  **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
  **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
+ **prismAccount** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -203,6 +212,8 @@ const apiInstance = new .ProductsApi(configuration);
 let body:.ProductsApiRetrieveRequest = {
   // string
   productId: "productId_example",
+  // string (optional)
+  prismAccount: "Prism-Account_example",
 };
 
 apiInstance.retrieve(body).then((data:any) => {
@@ -216,6 +227,7 @@ apiInstance.retrieve(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | [**string**] |  | defaults to undefined
+ **prismAccount** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -257,6 +269,8 @@ const apiInstance = new .ProductsApi(configuration);
 let body:.ProductsApiUpdateRequest = {
   // string
   productId: "productId_example",
+  // string (optional)
+  prismAccount: "Prism-Account_example",
 };
 
 apiInstance.update(body).then((data:any) => {
@@ -270,6 +284,7 @@ apiInstance.update(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | [**string**] |  | defaults to undefined
+ **prismAccount** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

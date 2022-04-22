@@ -29,6 +29,7 @@ import { InlineResponse2008 } from '../models/InlineResponse2008';
 import { InlineResponse2009 } from '../models/InlineResponse2009';
 import { CustomersApiRequestFactory, CustomersApiResponseProcessor } from "../apis/CustomersApi";
 export interface CustomersApiCreateRequest {
+    prismAccount?: string;
     inlineObject?: InlineObject;
 }
 export interface CustomersApiListRequest {
@@ -36,12 +37,15 @@ export interface CustomersApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
+    prismAccount?: string;
 }
 export interface CustomersApiRetrieveRequest {
     customerId: string;
+    prismAccount?: string;
 }
 export interface CustomersApiUpdateRequest {
     customerId: string;
+    prismAccount?: string;
 }
 export declare class ObjectCustomersApi {
     private api;
@@ -54,8 +58,10 @@ export declare class ObjectCustomersApi {
 import { FeesApiRequestFactory, FeesApiResponseProcessor } from "../apis/FeesApi";
 export interface FeesApiDeleteRequest {
     feeId: string;
+    prismAccount?: string;
 }
 export interface FeesApiCreateRequest {
+    prismAccount?: string;
     inlineObject1?: InlineObject1;
 }
 export interface FeesApiListRequest {
@@ -63,9 +69,11 @@ export interface FeesApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
+    prismAccount?: string;
 }
 export interface FeesApiRetrieveRequest {
     feeId: string;
+    prismAccount?: string;
 }
 export declare class ObjectFeesApi {
     private api;
@@ -77,6 +85,7 @@ export declare class ObjectFeesApi {
 }
 import { InvoicesApiRequestFactory, InvoicesApiResponseProcessor } from "../apis/InvoicesApi";
 export interface InvoicesApiCreateRequest {
+    prismAccount?: string;
     inlineObject2?: InlineObject2;
 }
 export interface InvoicesApiListRequest {
@@ -84,12 +93,15 @@ export interface InvoicesApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
+    prismAccount?: string;
 }
 export interface InvoicesApiRetrieveRequest {
     invoiceId: string;
+    prismAccount?: string;
 }
 export interface InvoicesApiUpdateRequest {
     invoiceId: string;
+    prismAccount?: string;
 }
 export declare class ObjectInvoicesApi {
     private api;
@@ -105,9 +117,11 @@ export interface LogsApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
+    prismAccount?: string;
 }
 export interface LogsApiRetrieveRequest {
     logId: string;
+    prismAccount?: string;
 }
 export declare class ObjectLogsApi {
     private api;
@@ -121,9 +135,11 @@ export interface PaymentsApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
+    prismAccount?: string;
 }
 export interface PaymentsApiRetrieveRequest {
     paymentId: string;
+    prismAccount?: string;
 }
 export declare class ObjectPaymentsApi {
     private api;
@@ -134,8 +150,10 @@ export declare class ObjectPaymentsApi {
 import { ProductsApiRequestFactory, ProductsApiResponseProcessor } from "../apis/ProductsApi";
 export interface ProductsApiDeleteRequest {
     productId: string;
+    prismAccount?: string;
 }
 export interface ProductsApiCreateRequest {
+    prismAccount?: string;
     inlineObject3?: InlineObject3;
 }
 export interface ProductsApiListRequest {
@@ -143,12 +161,15 @@ export interface ProductsApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
+    prismAccount?: string;
 }
 export interface ProductsApiRetrieveRequest {
     productId: string;
+    prismAccount?: string;
 }
 export interface ProductsApiUpdateRequest {
     productId: string;
+    prismAccount?: string;
 }
 export declare class ObjectProductsApi {
     private api;
@@ -162,8 +183,10 @@ export declare class ObjectProductsApi {
 import { WalletsApiRequestFactory, WalletsApiResponseProcessor } from "../apis/WalletsApi";
 export interface WalletsApiDeleteRequest {
     walletId: string;
+    prismAccount?: string;
 }
 export interface WalletsApiCreateRequest {
+    prismAccount?: string;
     inlineObject4?: InlineObject4;
 }
 export interface WalletsApiListRequest {
@@ -171,6 +194,7 @@ export interface WalletsApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
+    prismAccount?: string;
 }
 export interface WalletsApiRetrieveRequest {
     walletId: string;
@@ -178,9 +202,11 @@ export interface WalletsApiRetrieveRequest {
     page?: number;
     sort?: any;
     expand?: string;
+    prismAccount?: string;
 }
 export interface WalletsApiUpdateRequest {
     walletId: string;
+    prismAccount?: string;
 }
 export declare class ObjectWalletsApi {
     private api;
@@ -194,8 +220,10 @@ export declare class ObjectWalletsApi {
 import { WebhooksApiRequestFactory, WebhooksApiResponseProcessor } from "../apis/WebhooksApi";
 export interface WebhooksApiDeleteRequest {
     webhookId: string;
+    prismAccount?: string;
 }
 export interface WebhooksApiCreateRequest {
+    prismAccount?: string;
     inlineObject5?: InlineObject5;
 }
 export interface WebhooksApiListRequest {
@@ -203,12 +231,15 @@ export interface WebhooksApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
+    prismAccount?: string;
 }
 export interface WebhooksApiRetrieveRequest {
     webhookId: string;
+    prismAccount?: string;
 }
 export interface WebhooksApiUpdateRequest {
     webhookId: string;
+    prismAccount?: string;
 }
 export declare class ObjectWebhooksApi {
     private api;

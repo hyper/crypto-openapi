@@ -34,10 +34,10 @@ export declare class ObservableCustomersApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: CustomersApiRequestFactory, responseProcessor?: CustomersApiResponseProcessor);
-    create(inlineObject?: InlineObject, _options?: Configuration): Observable<InlineResponse2001>;
-    list(limit?: number, page?: number, sort?: any, expand?: string, _options?: Configuration): Observable<InlineResponse200>;
-    retrieve(customerId: string, _options?: Configuration): Observable<InlineResponse2001>;
-    update(customerId: string, _options?: Configuration): Observable<InlineResponse2002>;
+    create(prismAccount?: string, inlineObject?: InlineObject, _options?: Configuration): Observable<InlineResponse2001>;
+    list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse200>;
+    retrieve(customerId: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse2001>;
+    update(customerId: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse2002>;
 }
 import { FeesApiRequestFactory, FeesApiResponseProcessor } from "../apis/FeesApi";
 export declare class ObservableFeesApi {
@@ -45,10 +45,10 @@ export declare class ObservableFeesApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: FeesApiRequestFactory, responseProcessor?: FeesApiResponseProcessor);
-    _delete(feeId: string, _options?: Configuration): Observable<void>;
-    create(inlineObject1?: InlineObject1, _options?: Configuration): Observable<InlineResponse2004>;
-    list(limit?: number, page?: number, sort?: any, expand?: string, _options?: Configuration): Observable<InlineResponse2003>;
-    retrieve(feeId: string, _options?: Configuration): Observable<InlineResponse2005>;
+    _delete(feeId: string, prismAccount?: string, _options?: Configuration): Observable<void>;
+    create(prismAccount?: string, inlineObject1?: InlineObject1, _options?: Configuration): Observable<InlineResponse2004>;
+    list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse2003>;
+    retrieve(feeId: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse2005>;
 }
 import { InvoicesApiRequestFactory, InvoicesApiResponseProcessor } from "../apis/InvoicesApi";
 export declare class ObservableInvoicesApi {
@@ -56,10 +56,10 @@ export declare class ObservableInvoicesApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: InvoicesApiRequestFactory, responseProcessor?: InvoicesApiResponseProcessor);
-    create(inlineObject2?: InlineObject2, _options?: Configuration): Observable<InlineResponse2007>;
-    list(limit?: number, page?: number, sort?: any, expand?: string, _options?: Configuration): Observable<InlineResponse2006>;
-    retrieve(invoiceId: string, _options?: Configuration): Observable<InlineResponse2008>;
-    update(invoiceId: string, _options?: Configuration): Observable<InlineResponse2008>;
+    create(prismAccount?: string, inlineObject2?: InlineObject2, _options?: Configuration): Observable<InlineResponse2007>;
+    list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse2006>;
+    retrieve(invoiceId: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse2008>;
+    update(invoiceId: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse2008>;
 }
 import { LogsApiRequestFactory, LogsApiResponseProcessor } from "../apis/LogsApi";
 export declare class ObservableLogsApi {
@@ -67,8 +67,8 @@ export declare class ObservableLogsApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: LogsApiRequestFactory, responseProcessor?: LogsApiResponseProcessor);
-    list(limit?: number, page?: number, sort?: any, expand?: string, _options?: Configuration): Observable<InlineResponse2009>;
-    retrieve(logId: string, _options?: Configuration): Observable<InlineResponse20010>;
+    list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse2009>;
+    retrieve(logId: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse20010>;
 }
 import { PaymentsApiRequestFactory, PaymentsApiResponseProcessor } from "../apis/PaymentsApi";
 export declare class ObservablePaymentsApi {
@@ -76,8 +76,8 @@ export declare class ObservablePaymentsApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: PaymentsApiRequestFactory, responseProcessor?: PaymentsApiResponseProcessor);
-    list(limit?: number, page?: number, sort?: any, expand?: string, _options?: Configuration): Observable<InlineResponse20011>;
-    retrieve(paymentId: string, _options?: Configuration): Observable<InlineResponse20012>;
+    list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse20011>;
+    retrieve(paymentId: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse20012>;
 }
 import { ProductsApiRequestFactory, ProductsApiResponseProcessor } from "../apis/ProductsApi";
 export declare class ObservableProductsApi {
@@ -85,11 +85,11 @@ export declare class ObservableProductsApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: ProductsApiRequestFactory, responseProcessor?: ProductsApiResponseProcessor);
-    _delete(productId: string, _options?: Configuration): Observable<void>;
-    create(inlineObject3?: InlineObject3, _options?: Configuration): Observable<InlineResponse20014>;
-    list(limit?: number, page?: number, sort?: any, expand?: string, _options?: Configuration): Observable<InlineResponse20013>;
-    retrieve(productId: string, _options?: Configuration): Observable<InlineResponse20015>;
-    update(productId: string, _options?: Configuration): Observable<InlineResponse20016>;
+    _delete(productId: string, prismAccount?: string, _options?: Configuration): Observable<void>;
+    create(prismAccount?: string, inlineObject3?: InlineObject3, _options?: Configuration): Observable<InlineResponse20014>;
+    list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse20013>;
+    retrieve(productId: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse20015>;
+    update(productId: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse20016>;
 }
 import { WalletsApiRequestFactory, WalletsApiResponseProcessor } from "../apis/WalletsApi";
 export declare class ObservableWalletsApi {
@@ -97,11 +97,11 @@ export declare class ObservableWalletsApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: WalletsApiRequestFactory, responseProcessor?: WalletsApiResponseProcessor);
-    _delete(walletId: string, _options?: Configuration): Observable<void>;
-    create(inlineObject4?: InlineObject4, _options?: Configuration): Observable<InlineResponse20018>;
-    list(limit?: number, page?: number, sort?: any, expand?: string, _options?: Configuration): Observable<InlineResponse20017>;
-    retrieve(walletId: string, limit?: number, page?: number, sort?: any, expand?: string, _options?: Configuration): Observable<InlineResponse20018>;
-    update(walletId: string, _options?: Configuration): Observable<InlineResponse20018>;
+    _delete(walletId: string, prismAccount?: string, _options?: Configuration): Observable<void>;
+    create(prismAccount?: string, inlineObject4?: InlineObject4, _options?: Configuration): Observable<InlineResponse20018>;
+    list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse20017>;
+    retrieve(walletId: string, limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse20018>;
+    update(walletId: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse20018>;
 }
 import { WebhooksApiRequestFactory, WebhooksApiResponseProcessor } from "../apis/WebhooksApi";
 export declare class ObservableWebhooksApi {
@@ -109,9 +109,9 @@ export declare class ObservableWebhooksApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: WebhooksApiRequestFactory, responseProcessor?: WebhooksApiResponseProcessor);
-    _delete(webhookId: string, _options?: Configuration): Observable<void>;
-    create(inlineObject5?: InlineObject5, _options?: Configuration): Observable<InlineResponse20020>;
-    list(limit?: number, page?: number, sort?: any, expand?: string, _options?: Configuration): Observable<InlineResponse20019>;
-    retrieve(webhookId: string, _options?: Configuration): Observable<InlineResponse20021>;
-    update(webhookId: string, _options?: Configuration): Observable<InlineResponse20020>;
+    _delete(webhookId: string, prismAccount?: string, _options?: Configuration): Observable<void>;
+    create(prismAccount?: string, inlineObject5?: InlineObject5, _options?: Configuration): Observable<InlineResponse20020>;
+    list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse20019>;
+    retrieve(webhookId: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse20021>;
+    update(webhookId: string, prismAccount?: string, _options?: Configuration): Observable<InlineResponse20020>;
 }

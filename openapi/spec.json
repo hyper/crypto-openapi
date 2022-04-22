@@ -349,7 +349,7 @@
       }
     },
     "securitySchemes": {
-      "bearerAuth": {
+      "ApiKey": {
         "scheme": "bearer",
         "type": "http"
       }
@@ -398,6 +398,13 @@
             "description": "Specifies which fields to populate in the response.",
             "in": "query",
             "name": "expand",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Prism-Account",
             "schema": {
               "type": "string"
             }
@@ -534,6 +541,15 @@
       },
       "post": {
         "operationId": "customers_create",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -742,6 +758,15 @@
     "/customers/{customerId}": {
       "get": {
         "operationId": "customers_retrieve",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
@@ -865,6 +890,15 @@
       ],
       "patch": {
         "operationId": "customers_update",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
@@ -1013,6 +1047,13 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1113,6 +1154,15 @@
       },
       "post": {
         "operationId": "fees_create",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -1226,6 +1276,15 @@
     "/fees/{feeId}": {
       "delete": {
         "operationId": "fees_delete",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -1239,6 +1298,15 @@
       },
       "get": {
         "operationId": "fees_retrieve",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
@@ -1358,6 +1426,13 @@
             "description": "Specifies which fields to populate in the response.",
             "in": "query",
             "name": "expand",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Prism-Account",
             "schema": {
               "type": "string"
             }
@@ -1489,6 +1564,15 @@
       "post": {
         "description": "",
         "operationId": "invoices_create",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -1680,6 +1764,15 @@
     "/invoices/{invoiceId}": {
       "get": {
         "operationId": "invoices_retrieve",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
@@ -1774,6 +1867,15 @@
       ],
       "patch": {
         "operationId": "invoices_update",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
@@ -1891,6 +1993,13 @@
             "description": "Specifies which fields to populate in the response.",
             "in": "query",
             "name": "expand",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Prism-Account",
             "schema": {
               "type": "string"
             }
@@ -2126,6 +2235,15 @@
     "/logs/{logId}": {
       "get": {
         "operationId": "logs_retrieve",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
@@ -2372,6 +2490,13 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2490,6 +2615,15 @@
     "/payments/{paymentId}": {
       "get": {
         "operationId": "payments_retrieve",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
@@ -2622,6 +2756,13 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2718,6 +2859,15 @@
       },
       "post": {
         "operationId": "products_create",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -2827,6 +2977,15 @@
     "/products/{productId}": {
       "delete": {
         "operationId": "products_delete",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -2840,6 +2999,15 @@
       },
       "get": {
         "operationId": "products_retrieve",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
@@ -2921,6 +3089,15 @@
       ],
       "patch": {
         "operationId": "products_update",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
@@ -3022,6 +3199,13 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -3103,6 +3287,15 @@
       "parameters": [],
       "post": {
         "operationId": "wallets_create",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -3193,6 +3386,15 @@
     "/wallets/{walletId}": {
       "delete": {
         "operationId": "wallets_delete",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -3234,6 +3436,13 @@
             "description": "Specifies which fields to populate in the response.",
             "in": "query",
             "name": "expand",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Prism-Account",
             "schema": {
               "type": "string"
             }
@@ -3310,6 +3519,15 @@
       ],
       "patch": {
         "operationId": "wallets_update",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
@@ -3396,6 +3614,13 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -3473,6 +3698,15 @@
       },
       "post": {
         "operationId": "webhooks_create",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -3579,6 +3813,15 @@
     "/webhooks/{webhookId}": {
       "delete": {
         "operationId": "webhooks_delete",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -3593,6 +3836,15 @@
       "get": {
         "description": "",
         "operationId": "webhooks_retrieve",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
@@ -3661,6 +3913,15 @@
       ],
       "patch": {
         "operationId": "webhooks_update",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {

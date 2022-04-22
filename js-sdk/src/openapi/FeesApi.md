@@ -27,6 +27,8 @@ const apiInstance = new .FeesApi(configuration);
 let body:.FeesApiDeleteRequest = {
   // string
   feeId: "feeId_example",
+  // string (optional)
+  prismAccount: "Prism-Account_example",
 };
 
 apiInstance._delete(body).then((data:any) => {
@@ -40,6 +42,7 @@ apiInstance._delete(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **feeId** | [**string**] |  | defaults to undefined
+ **prismAccount** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -79,6 +82,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .FeesApi(configuration);
 
 let body:.FeesApiCreateRequest = {
+  // string (optional)
+  prismAccount: "Prism-Account_example",
   // InlineObject1 (optional)
   inlineObject1: {
     description: "description_example",
@@ -99,6 +104,7 @@ apiInstance.create(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inlineObject1** | **InlineObject1**|  |
+ **prismAccount** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -145,6 +151,8 @@ let body:.FeesApiListRequest = {
   sort: null,
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
+  // string (optional)
+  prismAccount: "Prism-Account_example",
 };
 
 apiInstance.list(body).then((data:any) => {
@@ -161,6 +169,7 @@ Name | Type | Description  | Notes
  **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
  **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
+ **prismAccount** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -201,6 +210,8 @@ const apiInstance = new .FeesApi(configuration);
 let body:.FeesApiRetrieveRequest = {
   // string
   feeId: "feeId_example",
+  // string (optional)
+  prismAccount: "Prism-Account_example",
 };
 
 apiInstance.retrieve(body).then((data:any) => {
@@ -214,6 +225,7 @@ apiInstance.retrieve(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **feeId** | [**string**] |  | defaults to undefined
+ **prismAccount** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

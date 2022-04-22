@@ -6,10 +6,10 @@ import { InlineResponse2006 } from '../models/InlineResponse2006';
 import { InlineResponse2007 } from '../models/InlineResponse2007';
 import { InlineResponse2008 } from '../models/InlineResponse2008';
 export declare class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
-    create(inlineObject2?: InlineObject2, _options?: Configuration): Promise<RequestContext>;
-    list(limit?: number, page?: number, sort?: any, expand?: string, _options?: Configuration): Promise<RequestContext>;
-    retrieve(invoiceId: string, _options?: Configuration): Promise<RequestContext>;
-    update(invoiceId: string, _options?: Configuration): Promise<RequestContext>;
+    create(prismAccount?: string, inlineObject2?: InlineObject2, _options?: Configuration): Promise<RequestContext>;
+    list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext>;
+    retrieve(invoiceId: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext>;
+    update(invoiceId: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class InvoicesApiResponseProcessor {
     create(response: ResponseContext): Promise<InlineResponse2007>;

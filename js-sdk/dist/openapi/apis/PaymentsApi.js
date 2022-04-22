@@ -16,7 +16,7 @@ const ObjectSerializer_1 = require("../models/ObjectSerializer");
 const exception_1 = require("./exception");
 const util_1 = require("../util");
 class PaymentsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
-    list(limit, page, sort, expand, _options) {
+    list(limit, page, sort, expand, prismAccount, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -35,6 +35,7 @@ class PaymentsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             if (expand !== undefined) {
                 requestContext.setQueryParam("expand", ObjectSerializer_1.ObjectSerializer.serialize(expand, "string", ""));
             }
+            requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prismAccount, "string", ""));
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
                 yield (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
@@ -42,7 +43,7 @@ class PaymentsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    retrieve(paymentId, _options) {
+    retrieve(paymentId, prismAccount, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -53,6 +54,7 @@ class PaymentsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
                 .replace('{' + 'paymentId' + '}', encodeURIComponent(String(paymentId)));
             const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
             requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+            requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prismAccount, "string", ""));
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
                 yield (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
@@ -66,7 +68,7 @@ class PaymentsApiResponseProcessor {
     list(response) {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-            if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse20011", "");
                 return body;
             }
@@ -80,11 +82,11 @@ class PaymentsApiResponseProcessor {
     retrieve(response) {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-            if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse20012", "");
                 return body;
             }
-            if ((0, util_1.isCodeInRange)("404", response.httpStatusCode)) {
+            if (util_1.isCodeInRange("404", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {

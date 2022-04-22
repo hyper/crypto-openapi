@@ -31,6 +31,8 @@ let body:.PaymentsApiListRequest = {
   sort: null,
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
+  // string (optional)
+  prismAccount: "Prism-Account_example",
 };
 
 apiInstance.list(body).then((data:any) => {
@@ -47,6 +49,7 @@ Name | Type | Description  | Notes
  **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
  **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
+ **prismAccount** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -87,6 +90,8 @@ const apiInstance = new .PaymentsApi(configuration);
 let body:.PaymentsApiRetrieveRequest = {
   // string
   paymentId: "paymentId_example",
+  // string (optional)
+  prismAccount: "Prism-Account_example",
 };
 
 apiInstance.retrieve(body).then((data:any) => {
@@ -100,6 +105,7 @@ apiInstance.retrieve(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **paymentId** | [**string**] |  | defaults to undefined
+ **prismAccount** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

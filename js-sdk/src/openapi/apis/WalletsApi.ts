@@ -20,14 +20,16 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Delete Wallet By Id
      * @param walletId 
+     * @param prismAccount 
      */
-    public async _delete(walletId: string, _options?: Configuration): Promise<RequestContext> {
+    public async _delete(walletId: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'walletId' is not null or undefined
         if (walletId === null || walletId === undefined) {
             throw new RequiredError("WalletsApi", "_delete", "walletId");
         }
+
 
 
         // Path Params
@@ -37,6 +39,9 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
 
 
         
@@ -50,10 +55,12 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Create Wallet
+     * @param prismAccount 
      * @param inlineObject4 
      */
-    public async create(inlineObject4?: InlineObject4, _options?: Configuration): Promise<RequestContext> {
+    public async create(prismAccount?: string, inlineObject4?: InlineObject4, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
         // Path Params
@@ -62,6 +69,9 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
 
 
         // Body Params
@@ -90,9 +100,11 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
+     * @param prismAccount 
      */
-    public async list(limit?: number, page?: number, sort?: any, expand?: string, _options?: Configuration): Promise<RequestContext> {
+    public async list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -125,6 +137,9 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("expand", ObjectSerializer.serialize(expand, "string", ""));
         }
 
+        // Header Params
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
+
 
         
         const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
@@ -142,14 +157,16 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
+     * @param prismAccount 
      */
-    public async retrieve(walletId: string, limit?: number, page?: number, sort?: any, expand?: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieve(walletId: string, limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'walletId' is not null or undefined
         if (walletId === null || walletId === undefined) {
             throw new RequiredError("WalletsApi", "retrieve", "walletId");
         }
+
 
 
 
@@ -184,6 +201,9 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("expand", ObjectSerializer.serialize(expand, "string", ""));
         }
 
+        // Header Params
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
+
 
         
         const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
@@ -197,14 +217,16 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Update Wallet By Id
      * @param walletId 
+     * @param prismAccount 
      */
-    public async update(walletId: string, _options?: Configuration): Promise<RequestContext> {
+    public async update(walletId: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'walletId' is not null or undefined
         if (walletId === null || walletId === undefined) {
             throw new RequiredError("WalletsApi", "update", "walletId");
         }
+
 
 
         // Path Params
@@ -214,6 +236,9 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PATCH);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
 
 
         

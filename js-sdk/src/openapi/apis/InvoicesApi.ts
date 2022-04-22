@@ -20,10 +20,12 @@ export class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Create Invoice
+     * @param prismAccount 
      * @param inlineObject2 
      */
-    public async create(inlineObject2?: InlineObject2, _options?: Configuration): Promise<RequestContext> {
+    public async create(prismAccount?: string, inlineObject2?: InlineObject2, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
         // Path Params
@@ -32,6 +34,9 @@ export class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
 
 
         // Body Params
@@ -62,9 +67,11 @@ export class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
+     * @param prismAccount 
      */
-    public async list(limit?: number, page?: number, sort?: any, expand?: string, _options?: Configuration): Promise<RequestContext> {
+    public async list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -97,6 +104,9 @@ export class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("expand", ObjectSerializer.serialize(expand, "string", ""));
         }
 
+        // Header Params
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
+
 
         
         const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
@@ -110,14 +120,16 @@ export class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Retrieve Invoice By Id
      * @param invoiceId 
+     * @param prismAccount 
      */
-    public async retrieve(invoiceId: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieve(invoiceId: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'invoiceId' is not null or undefined
         if (invoiceId === null || invoiceId === undefined) {
             throw new RequiredError("InvoicesApi", "retrieve", "invoiceId");
         }
+
 
 
         // Path Params
@@ -127,6 +139,9 @@ export class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
 
 
         
@@ -141,14 +156,16 @@ export class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Update Invoice By Id
      * @param invoiceId 
+     * @param prismAccount 
      */
-    public async update(invoiceId: string, _options?: Configuration): Promise<RequestContext> {
+    public async update(invoiceId: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'invoiceId' is not null or undefined
         if (invoiceId === null || invoiceId === undefined) {
             throw new RequiredError("InvoicesApi", "update", "invoiceId");
         }
+
 
 
         // Path Params
@@ -158,6 +175,9 @@ export class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PATCH);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
 
 
         
