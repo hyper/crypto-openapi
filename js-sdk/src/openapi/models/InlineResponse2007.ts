@@ -10,102 +10,41 @@
  * Do not edit the class manually.
  */
 
+import { Set } from './Set';
+import { Webhook } from './Webhook';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse2007 {
-    'account': string;
-    'amount': number;
-    'chain': string;
-    'created': string;
-    'currency': string;
-    'customer': string;
-    'due': string;
-    'id': string;
-    'number': string;
-    'product': string;
-    'status': string;
-    'transaction': string;
-    'wallet': string;
+    'data': Set<Webhook>;
+    'hasMore': boolean;
+    'page': number;
+    'total': number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "account",
-            "baseName": "account",
-            "type": "string",
+            "name": "data",
+            "baseName": "data",
+            "type": "Set<Webhook>",
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
+            "name": "hasMore",
+            "baseName": "has_more",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "page",
+            "baseName": "page",
             "type": "number",
             "format": ""
         },
         {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "created",
-            "baseName": "created",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "due",
-            "baseName": "due",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "number",
-            "baseName": "number",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "product",
-            "baseName": "product",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "status",
-            "baseName": "status",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "transaction",
-            "baseName": "transaction",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "wallet",
-            "baseName": "wallet",
-            "type": "string",
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
             "format": ""
         }    ];
 

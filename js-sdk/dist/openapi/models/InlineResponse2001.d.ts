@@ -1,12 +1,10 @@
-import { InlineResponse200BillingDetails } from './InlineResponse200BillingDetails';
+import { Fee } from './Fee';
+import { Set } from './Set';
 export declare class InlineResponse2001 {
-    'account': string;
-    'billingDetails': InlineResponse200BillingDetails;
-    'created'?: string;
-    'email': string;
-    'id'?: string;
-    'name': string;
-    'phone': string;
+    'data': Set<Fee>;
+    'hasMore': boolean;
+    'page': number;
+    'total': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

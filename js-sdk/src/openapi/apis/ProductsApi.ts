@@ -9,10 +9,8 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { InlineObject3 } from '../models/InlineObject3';
-import { InlineResponse20013 } from '../models/InlineResponse20013';
-import { InlineResponse20014 } from '../models/InlineResponse20014';
-import { InlineResponse20015 } from '../models/InlineResponse20015';
-import { InlineResponse20016 } from '../models/InlineResponse20016';
+import { InlineResponse2005 } from '../models/InlineResponse2005';
+import { Product } from '../models/Product';
 
 /**
  * no description
@@ -155,15 +153,17 @@ export class ProductsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Retrieve Product By Id
      * @param productId 
+     * @param expand Specifies which fields to populate in the response.
      * @param prismAccount 
      */
-    public async retrieve(productId: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieve(productId: string, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'productId' is not null or undefined
         if (productId === null || productId === undefined) {
             throw new RequiredError("ProductsApi", "retrieve", "productId");
         }
+
 
 
 
@@ -174,6 +174,11 @@ export class ProductsApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (expand !== undefined) {
+            requestContext.setQueryParam("expand", ObjectSerializer.serialize(expand, "string", ""));
+        }
 
         // Header Params
         requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
@@ -263,13 +268,13 @@ export class ProductsApiResponseProcessor {
      * @params response Response returned by the server for a request to create
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async create(response: ResponseContext): Promise<InlineResponse20014 > {
+     public async create(response: ResponseContext): Promise<Product > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20014 = ObjectSerializer.deserialize(
+            const body: Product = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20014", ""
-            ) as InlineResponse20014;
+                "Product", ""
+            ) as Product;
             return body;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
@@ -278,10 +283,10 @@ export class ProductsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20014 = ObjectSerializer.deserialize(
+            const body: Product = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20014", ""
-            ) as InlineResponse20014;
+                "Product", ""
+            ) as Product;
             return body;
         }
 
@@ -295,22 +300,22 @@ export class ProductsApiResponseProcessor {
      * @params response Response returned by the server for a request to list
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async list(response: ResponseContext): Promise<InlineResponse20013 > {
+     public async list(response: ResponseContext): Promise<InlineResponse2005 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20013 = ObjectSerializer.deserialize(
+            const body: InlineResponse2005 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20013", ""
-            ) as InlineResponse20013;
+                "InlineResponse2005", ""
+            ) as InlineResponse2005;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20013 = ObjectSerializer.deserialize(
+            const body: InlineResponse2005 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20013", ""
-            ) as InlineResponse20013;
+                "InlineResponse2005", ""
+            ) as InlineResponse2005;
             return body;
         }
 
@@ -324,13 +329,13 @@ export class ProductsApiResponseProcessor {
      * @params response Response returned by the server for a request to retrieve
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async retrieve(response: ResponseContext): Promise<InlineResponse20015 > {
+     public async retrieve(response: ResponseContext): Promise<Product > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20015 = ObjectSerializer.deserialize(
+            const body: Product = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20015", ""
-            ) as InlineResponse20015;
+                "Product", ""
+            ) as Product;
             return body;
         }
         if (isCodeInRange("404", response.httpStatusCode)) {
@@ -339,10 +344,10 @@ export class ProductsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20015 = ObjectSerializer.deserialize(
+            const body: Product = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20015", ""
-            ) as InlineResponse20015;
+                "Product", ""
+            ) as Product;
             return body;
         }
 
@@ -356,13 +361,13 @@ export class ProductsApiResponseProcessor {
      * @params response Response returned by the server for a request to update
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async update(response: ResponseContext): Promise<InlineResponse20016 > {
+     public async update(response: ResponseContext): Promise<Product > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20016 = ObjectSerializer.deserialize(
+            const body: Product = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20016", ""
-            ) as InlineResponse20016;
+                "Product", ""
+            ) as Product;
             return body;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
@@ -374,10 +379,10 @@ export class ProductsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20016 = ObjectSerializer.deserialize(
+            const body: Product = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20016", ""
-            ) as InlineResponse20016;
+                "Product", ""
+            ) as Product;
             return body;
         }
 

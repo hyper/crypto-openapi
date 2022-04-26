@@ -10,15 +10,14 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse2003Data } from './InlineResponse2003Data';
+import { Log } from './Log';
 import { Set } from './Set';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse2003 {
-    'data': Set<InlineResponse2003Data>;
-    'hasMore': boolean;
+    'data': Set<Log>;
+    'hasMore': string;
     'page': number;
-    'total': number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -26,24 +25,18 @@ export class InlineResponse2003 {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Set<InlineResponse2003Data>",
+            "type": "Set<Log>",
             "format": ""
         },
         {
             "name": "hasMore",
             "baseName": "has_more",
-            "type": "boolean",
+            "type": "string",
             "format": ""
         },
         {
             "name": "page",
             "baseName": "page",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "total",
-            "baseName": "total",
             "type": "number",
             "format": ""
         }    ];

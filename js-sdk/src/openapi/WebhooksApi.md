@@ -69,7 +69,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
-> InlineResponse20020 create()
+> Webhook create()
 
 
 ### Example
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20020**
+**Webhook**
 
 ### Authorization
 
@@ -132,7 +132,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> InlineResponse20019 list()
+> InlineResponse2007 list()
 
 
 ### Example
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20019**
+**InlineResponse2007**
 
 ### Authorization
 
@@ -197,7 +197,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> InlineResponse20021 retrieve()
+> Webhook retrieve()
 
 
 ### Example
@@ -213,6 +213,8 @@ const apiInstance = new .WebhooksApi(configuration);
 let body:.WebhooksApiRetrieveRequest = {
   // string
   webhookId: "webhookId_example",
+  // string | Specifies which fields to populate in the response. (optional)
+  expand: "expand_example",
   // string (optional)
   prismAccount: "Prism-Account_example",
 };
@@ -228,12 +230,13 @@ apiInstance.retrieve(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhookId** | [**string**] |  | defaults to undefined
+ **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
  **prismAccount** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**InlineResponse20021**
+**Webhook**
 
 ### Authorization
 
@@ -254,7 +257,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update**
-> InlineResponse20020 update()
+> Webhook update()
 
 
 ### Example
@@ -290,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20020**
+**Webhook**
 
 ### Authorization
 

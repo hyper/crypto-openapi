@@ -14,7 +14,7 @@ InlineResponse200.attributeTypeMap = [
     {
         "name": "data",
         "baseName": "data",
-        "type": "Set<InlineResponse200Data>",
+        "type": "Set<Customer>",
         "format": ""
     },
     {

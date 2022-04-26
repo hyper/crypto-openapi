@@ -69,7 +69,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
-> InlineResponse20014 create()
+> Product create()
 
 
 ### Example
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20014**
+**Product**
 
 ### Authorization
 
@@ -131,7 +131,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> InlineResponse20013 list()
+> InlineResponse2005 list()
 
 
 ### Example
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20013**
+**InlineResponse2005**
 
 ### Authorization
 
@@ -196,7 +196,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> InlineResponse20015 retrieve()
+> Product retrieve()
 
 
 ### Example
@@ -212,6 +212,8 @@ const apiInstance = new .ProductsApi(configuration);
 let body:.ProductsApiRetrieveRequest = {
   // string
   productId: "productId_example",
+  // string | Specifies which fields to populate in the response. (optional)
+  expand: "expand_example",
   // string (optional)
   prismAccount: "Prism-Account_example",
 };
@@ -227,12 +229,13 @@ apiInstance.retrieve(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | [**string**] |  | defaults to undefined
+ **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
  **prismAccount** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**InlineResponse20015**
+**Product**
 
 ### Authorization
 
@@ -253,7 +256,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update**
-> InlineResponse20016 update()
+> Product update()
 
 
 ### Example
@@ -289,7 +292,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20016**
+**Product**
 
 ### Authorization
 

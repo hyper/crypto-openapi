@@ -68,7 +68,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
-> InlineResponse2004 create()
+> Fee create()
 
 
 ### Example
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2004**
+**Fee**
 
 ### Authorization
 
@@ -129,7 +129,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> InlineResponse2003 list()
+> InlineResponse2001 list()
 
 
 ### Example
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2003**
+**InlineResponse2001**
 
 ### Authorization
 
@@ -194,7 +194,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> InlineResponse2005 retrieve()
+> Fee retrieve()
 
 
 ### Example
@@ -210,6 +210,8 @@ const apiInstance = new .FeesApi(configuration);
 let body:.FeesApiRetrieveRequest = {
   // string
   feeId: "feeId_example",
+  // string | Specifies which fields to populate in the response. (optional)
+  expand: "expand_example",
   // string (optional)
   prismAccount: "Prism-Account_example",
 };
@@ -225,12 +227,13 @@ apiInstance.retrieve(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **feeId** | [**string**] |  | defaults to undefined
+ **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
  **prismAccount** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**InlineResponse2005**
+**Fee**
 
 ### Authorization
 

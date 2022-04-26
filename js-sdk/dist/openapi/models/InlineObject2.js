@@ -60,12 +60,6 @@ InlineObject2.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "status",
-        "baseName": "status",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "transaction",
         "baseName": "transaction",
         "type": "string",

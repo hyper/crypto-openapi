@@ -43,7 +43,7 @@ class LogsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    retrieve(logId, prismAccount, _options) {
+    retrieve(logId, expand, prismAccount, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -54,6 +54,9 @@ class LogsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
                 .replace('{' + 'logId' + '}', encodeURIComponent(String(logId)));
             const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
             requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+            if (expand !== undefined) {
+                requestContext.setQueryParam("expand", ObjectSerializer_1.ObjectSerializer.serialize(expand, "string", ""));
+            }
             requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prismAccount, "string", ""));
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
@@ -69,11 +72,11 @@ class LogsApiResponseProcessor {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
             if (util_1.isCodeInRange("200", response.httpStatusCode)) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse2009", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse2003", "");
                 return body;
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse2009", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse2003", "");
                 return body;
             }
             throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);
@@ -83,11 +86,11 @@ class LogsApiResponseProcessor {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
             if (util_1.isCodeInRange("200", response.httpStatusCode)) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse20010", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Log", "");
                 return body;
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse20010", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Log", "");
                 return body;
             }
             throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);

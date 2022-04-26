@@ -13,7 +13,7 @@ class ObjectCustomersApi {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.customerId, param.prismAccount, options).toPromise();
+        return this.api.retrieve(param.customerId, param.expand, param.prismAccount, options).toPromise();
     }
     update(param, options) {
         return this.api.update(param.customerId, param.prismAccount, options).toPromise();
@@ -35,7 +35,7 @@ class ObjectFeesApi {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.feeId, param.prismAccount, options).toPromise();
+        return this.api.retrieve(param.feeId, param.expand, param.prismAccount, options).toPromise();
     }
 }
 exports.ObjectFeesApi = ObjectFeesApi;
@@ -51,7 +51,7 @@ class ObjectInvoicesApi {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.invoiceId, param.prismAccount, options).toPromise();
+        return this.api.retrieve(param.invoiceId, param.expand, param.prismAccount, options).toPromise();
     }
     update(param, options) {
         return this.api.update(param.invoiceId, param.prismAccount, options).toPromise();
@@ -67,7 +67,7 @@ class ObjectLogsApi {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.logId, param.prismAccount, options).toPromise();
+        return this.api.retrieve(param.logId, param.expand, param.prismAccount, options).toPromise();
     }
 }
 exports.ObjectLogsApi = ObjectLogsApi;
@@ -80,7 +80,7 @@ class ObjectPaymentsApi {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.paymentId, param.prismAccount, options).toPromise();
+        return this.api.retrieve(param.paymentId, param.expand, param.prismAccount, options).toPromise();
     }
 }
 exports.ObjectPaymentsApi = ObjectPaymentsApi;
@@ -99,7 +99,7 @@ class ObjectProductsApi {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.productId, param.prismAccount, options).toPromise();
+        return this.api.retrieve(param.productId, param.expand, param.prismAccount, options).toPromise();
     }
     update(param, options) {
         return this.api.update(param.productId, param.prismAccount, options).toPromise();
@@ -121,7 +121,7 @@ class ObjectWalletsApi {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.walletId, param.limit, param.page, param.sort, param.expand, param.prismAccount, options).toPromise();
+        return this.api.retrieve(param.walletId, param.expand, param.prismAccount, options).toPromise();
     }
     update(param, options) {
         return this.api.update(param.walletId, param.prismAccount, options).toPromise();
@@ -143,7 +143,7 @@ class ObjectWebhooksApi {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.webhookId, param.prismAccount, options).toPromise();
+        return this.api.retrieve(param.webhookId, param.expand, param.prismAccount, options).toPromise();
     }
     update(param, options) {
         return this.api.update(param.webhookId, param.prismAccount, options).toPromise();

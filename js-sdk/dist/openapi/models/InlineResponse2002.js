@@ -12,45 +12,27 @@ exports.InlineResponse2002 = InlineResponse2002;
 InlineResponse2002.discriminator = undefined;
 InlineResponse2002.attributeTypeMap = [
     {
-        "name": "account",
-        "baseName": "account",
-        "type": "string",
+        "name": "data",
+        "baseName": "data",
+        "type": "Set<Invoice>",
         "format": ""
     },
     {
-        "name": "billingDetails",
-        "baseName": "billing_details",
-        "type": "InlineResponse200BillingDetails",
+        "name": "hasMore",
+        "baseName": "has_more",
+        "type": "boolean",
         "format": ""
     },
     {
-        "name": "created",
-        "baseName": "created",
-        "type": "string",
+        "name": "page",
+        "baseName": "page",
+        "type": "number",
         "format": ""
     },
     {
-        "name": "email",
-        "baseName": "email",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "id",
-        "baseName": "id",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "name",
-        "baseName": "name",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "phone",
-        "baseName": "phone",
-        "type": "string",
+        "name": "total",
+        "baseName": "total",
+        "type": "number",
         "format": ""
     }
 ];

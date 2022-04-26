@@ -14,7 +14,7 @@ InlineResponse2006.attributeTypeMap = [
     {
         "name": "data",
         "baseName": "data",
-        "type": "Set<InlineResponse2006Data>",
+        "type": "Set<Wallet>",
         "format": ""
     },
     {

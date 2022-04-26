@@ -8,10 +8,9 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
+import { Fee } from '../models/Fee';
 import { InlineObject1 } from '../models/InlineObject1';
-import { InlineResponse2003 } from '../models/InlineResponse2003';
-import { InlineResponse2004 } from '../models/InlineResponse2004';
-import { InlineResponse2005 } from '../models/InlineResponse2005';
+import { InlineResponse2001 } from '../models/InlineResponse2001';
 
 /**
  * no description
@@ -154,15 +153,17 @@ export class FeesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Retrieve Fee By Id
      * @param feeId 
+     * @param expand Specifies which fields to populate in the response.
      * @param prismAccount 
      */
-    public async retrieve(feeId: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieve(feeId: string, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'feeId' is not null or undefined
         if (feeId === null || feeId === undefined) {
             throw new RequiredError("FeesApi", "retrieve", "feeId");
         }
+
 
 
 
@@ -173,6 +174,11 @@ export class FeesApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (expand !== undefined) {
+            requestContext.setQueryParam("expand", ObjectSerializer.serialize(expand, "string", ""));
+        }
 
         // Header Params
         requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
@@ -226,22 +232,22 @@ export class FeesApiResponseProcessor {
      * @params response Response returned by the server for a request to create
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async create(response: ResponseContext): Promise<InlineResponse2004 > {
+     public async create(response: ResponseContext): Promise<Fee > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2004 = ObjectSerializer.deserialize(
+            const body: Fee = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2004", ""
-            ) as InlineResponse2004;
+                "Fee", ""
+            ) as Fee;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2004 = ObjectSerializer.deserialize(
+            const body: Fee = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2004", ""
-            ) as InlineResponse2004;
+                "Fee", ""
+            ) as Fee;
             return body;
         }
 
@@ -255,22 +261,22 @@ export class FeesApiResponseProcessor {
      * @params response Response returned by the server for a request to list
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async list(response: ResponseContext): Promise<InlineResponse2003 > {
+     public async list(response: ResponseContext): Promise<InlineResponse2001 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2003 = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2003", ""
-            ) as InlineResponse2003;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2003 = ObjectSerializer.deserialize(
+            const body: InlineResponse2001 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2003", ""
-            ) as InlineResponse2003;
+                "InlineResponse2001", ""
+            ) as InlineResponse2001;
             return body;
         }
 
@@ -284,22 +290,22 @@ export class FeesApiResponseProcessor {
      * @params response Response returned by the server for a request to retrieve
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async retrieve(response: ResponseContext): Promise<InlineResponse2005 > {
+     public async retrieve(response: ResponseContext): Promise<Fee > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2005 = ObjectSerializer.deserialize(
+            const body: Fee = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2005", ""
-            ) as InlineResponse2005;
+                "Fee", ""
+            ) as Fee;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2005 = ObjectSerializer.deserialize(
+            const body: Fee = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2005", ""
-            ) as InlineResponse2005;
+                "Fee", ""
+            ) as Fee;
             return body;
         }
 

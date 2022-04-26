@@ -10,80 +10,40 @@
  * Do not edit the class manually.
  */
 
+import { Product } from './Product';
+import { Set } from './Set';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse2005 {
-    'account': string;
-    'amount': number;
-    'created': string;
-    'currency': string;
-    'description': string;
-    'id'?: string;
-    'invoice': string;
-    'percent': number;
-    'to': string;
-    'usdAmount': number;
+    'data': Set<Product>;
+    'hasMore': boolean;
+    'page': number;
+    'total': number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "account",
-            "baseName": "account",
-            "type": "string",
+            "name": "data",
+            "baseName": "data",
+            "type": "Set<Product>",
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
+            "name": "hasMore",
+            "baseName": "has_more",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "page",
+            "baseName": "page",
             "type": "number",
             "format": ""
         },
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "description",
-            "baseName": "description",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "invoice",
-            "baseName": "invoice",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "percent",
-            "baseName": "percent",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "to",
-            "baseName": "to",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "usdAmount",
-            "baseName": "usd_amount",
+            "name": "total",
+            "baseName": "total",
             "type": "number",
             "format": ""
         }    ];

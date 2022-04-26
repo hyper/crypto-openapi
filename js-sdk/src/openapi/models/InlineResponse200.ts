@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse200Data } from './InlineResponse200Data';
+import { Customer } from './Customer';
 import { Set } from './Set';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse200 {
-    'data': Set<InlineResponse200Data>;
+    'data': Set<Customer>;
     'hasMore': boolean;
     'page': number;
     'total': number;
@@ -26,7 +26,7 @@ export class InlineResponse200 {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Set<InlineResponse200Data>",
+            "type": "Set<Customer>",
             "format": ""
         },
         {

@@ -10,61 +10,41 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse200BillingDetails } from './InlineResponse200BillingDetails';
+import { Fee } from './Fee';
+import { Set } from './Set';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse2001 {
-    'account': string;
-    'billingDetails': InlineResponse200BillingDetails;
-    'created'?: string;
-    'email': string;
-    'id'?: string;
-    'name': string;
-    'phone': string;
+    'data': Set<Fee>;
+    'hasMore': boolean;
+    'page': number;
+    'total': number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "account",
-            "baseName": "account",
-            "type": "string",
+            "name": "data",
+            "baseName": "data",
+            "type": "Set<Fee>",
             "format": ""
         },
         {
-            "name": "billingDetails",
-            "baseName": "billing_details",
-            "type": "InlineResponse200BillingDetails",
+            "name": "hasMore",
+            "baseName": "has_more",
+            "type": "boolean",
             "format": ""
         },
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "string",
+            "name": "page",
+            "baseName": "page",
+            "type": "number",
             "format": ""
         },
         {
-            "name": "email",
-            "baseName": "email",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "phone",
-            "baseName": "phone",
-            "type": "string",
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
             "format": ""
         }    ];
 

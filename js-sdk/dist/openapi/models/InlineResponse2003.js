@@ -14,24 +14,18 @@ InlineResponse2003.attributeTypeMap = [
     {
         "name": "data",
         "baseName": "data",
-        "type": "Set<InlineResponse2003Data>",
+        "type": "Set<Log>",
         "format": ""
     },
     {
         "name": "hasMore",
         "baseName": "has_more",
-        "type": "boolean",
+        "type": "string",
         "format": ""
     },
     {
         "name": "page",
         "baseName": "page",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "total",
-        "baseName": "total",
         "type": "number",
         "format": ""
     }

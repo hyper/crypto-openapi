@@ -9,9 +9,8 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { InlineObject5 } from '../models/InlineObject5';
-import { InlineResponse20019 } from '../models/InlineResponse20019';
-import { InlineResponse20020 } from '../models/InlineResponse20020';
-import { InlineResponse20021 } from '../models/InlineResponse20021';
+import { InlineResponse2007 } from '../models/InlineResponse2007';
+import { Webhook } from '../models/Webhook';
 
 /**
  * no description
@@ -154,15 +153,17 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Retrieve Webhook By Id
      * @param webhookId 
+     * @param expand Specifies which fields to populate in the response.
      * @param prismAccount 
      */
-    public async retrieve(webhookId: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieve(webhookId: string, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'webhookId' is not null or undefined
         if (webhookId === null || webhookId === undefined) {
             throw new RequiredError("WebhooksApi", "retrieve", "webhookId");
         }
+
 
 
 
@@ -173,6 +174,11 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (expand !== undefined) {
+            requestContext.setQueryParam("expand", ObjectSerializer.serialize(expand, "string", ""));
+        }
 
         // Header Params
         requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
@@ -262,22 +268,22 @@ export class WebhooksApiResponseProcessor {
      * @params response Response returned by the server for a request to create
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async create(response: ResponseContext): Promise<InlineResponse20020 > {
+     public async create(response: ResponseContext): Promise<Webhook > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20020 = ObjectSerializer.deserialize(
+            const body: Webhook = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20020", ""
-            ) as InlineResponse20020;
+                "Webhook", ""
+            ) as Webhook;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20020 = ObjectSerializer.deserialize(
+            const body: Webhook = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20020", ""
-            ) as InlineResponse20020;
+                "Webhook", ""
+            ) as Webhook;
             return body;
         }
 
@@ -291,22 +297,22 @@ export class WebhooksApiResponseProcessor {
      * @params response Response returned by the server for a request to list
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async list(response: ResponseContext): Promise<InlineResponse20019 > {
+     public async list(response: ResponseContext): Promise<InlineResponse2007 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20019 = ObjectSerializer.deserialize(
+            const body: InlineResponse2007 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20019", ""
-            ) as InlineResponse20019;
+                "InlineResponse2007", ""
+            ) as InlineResponse2007;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20019 = ObjectSerializer.deserialize(
+            const body: InlineResponse2007 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20019", ""
-            ) as InlineResponse20019;
+                "InlineResponse2007", ""
+            ) as InlineResponse2007;
             return body;
         }
 
@@ -320,13 +326,13 @@ export class WebhooksApiResponseProcessor {
      * @params response Response returned by the server for a request to retrieve
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async retrieve(response: ResponseContext): Promise<InlineResponse20021 > {
+     public async retrieve(response: ResponseContext): Promise<Webhook > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20021 = ObjectSerializer.deserialize(
+            const body: Webhook = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20021", ""
-            ) as InlineResponse20021;
+                "Webhook", ""
+            ) as Webhook;
             return body;
         }
         if (isCodeInRange("404", response.httpStatusCode)) {
@@ -335,10 +341,10 @@ export class WebhooksApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20021 = ObjectSerializer.deserialize(
+            const body: Webhook = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20021", ""
-            ) as InlineResponse20021;
+                "Webhook", ""
+            ) as Webhook;
             return body;
         }
 
@@ -352,13 +358,13 @@ export class WebhooksApiResponseProcessor {
      * @params response Response returned by the server for a request to update
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async update(response: ResponseContext): Promise<InlineResponse20020 > {
+     public async update(response: ResponseContext): Promise<Webhook > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20020 = ObjectSerializer.deserialize(
+            const body: Webhook = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20020", ""
-            ) as InlineResponse20020;
+                "Webhook", ""
+            ) as Webhook;
             return body;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
@@ -367,10 +373,10 @@ export class WebhooksApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20020 = ObjectSerializer.deserialize(
+            const body: Webhook = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20020", ""
-            ) as InlineResponse20020;
+                "Webhook", ""
+            ) as Webhook;
             return body;
         }
 

@@ -8,10 +8,9 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
+import { Customer } from '../models/Customer';
 import { InlineObject } from '../models/InlineObject';
 import { InlineResponse200 } from '../models/InlineResponse200';
-import { InlineResponse2001 } from '../models/InlineResponse2001';
-import { InlineResponse2002 } from '../models/InlineResponse2002';
 
 /**
  * no description
@@ -118,15 +117,17 @@ export class CustomersApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Retrieve Customer By Id
      * @param customerId 
+     * @param expand Specifies which fields to populate in the response.
      * @param prismAccount 
      */
-    public async retrieve(customerId: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieve(customerId: string, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'customerId' is not null or undefined
         if (customerId === null || customerId === undefined) {
             throw new RequiredError("CustomersApi", "retrieve", "customerId");
         }
+
 
 
 
@@ -137,6 +138,11 @@ export class CustomersApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (expand !== undefined) {
+            requestContext.setQueryParam("expand", ObjectSerializer.serialize(expand, "string", ""));
+        }
 
         // Header Params
         requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
@@ -198,22 +204,22 @@ export class CustomersApiResponseProcessor {
      * @params response Response returned by the server for a request to create
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async create(response: ResponseContext): Promise<InlineResponse2001 > {
+     public async create(response: ResponseContext): Promise<Customer > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: Customer = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "Customer", ""
+            ) as Customer;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: Customer = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "Customer", ""
+            ) as Customer;
             return body;
         }
 
@@ -259,13 +265,13 @@ export class CustomersApiResponseProcessor {
      * @params response Response returned by the server for a request to retrieve
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async retrieve(response: ResponseContext): Promise<InlineResponse2001 > {
+     public async retrieve(response: ResponseContext): Promise<Customer > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: Customer = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "Customer", ""
+            ) as Customer;
             return body;
         }
         if (isCodeInRange("404", response.httpStatusCode)) {
@@ -274,10 +280,10 @@ export class CustomersApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: Customer = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "Customer", ""
+            ) as Customer;
             return body;
         }
 
@@ -291,13 +297,13 @@ export class CustomersApiResponseProcessor {
      * @params response Response returned by the server for a request to update
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async update(response: ResponseContext): Promise<InlineResponse2002 > {
+     public async update(response: ResponseContext): Promise<Customer > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2002 = ObjectSerializer.deserialize(
+            const body: Customer = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2002", ""
-            ) as InlineResponse2002;
+                "Customer", ""
+            ) as Customer;
             return body;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
@@ -306,10 +312,10 @@ export class CustomersApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2002 = ObjectSerializer.deserialize(
+            const body: Customer = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2002", ""
-            ) as InlineResponse2002;
+                "Customer", ""
+            ) as Customer;
             return body;
         }
 

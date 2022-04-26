@@ -1,17 +1,10 @@
+import { Set } from './Set';
+import { Webhook } from './Webhook';
 export declare class InlineResponse2007 {
-    'account': string;
-    'amount': number;
-    'chain': string;
-    'created': string;
-    'currency': string;
-    'customer': string;
-    'due': string;
-    'id': string;
-    'number': string;
-    'product': string;
-    'status': string;
-    'transaction': string;
-    'wallet': string;
+    'data': Set<Webhook>;
+    'hasMore': boolean;
+    'page': number;
+    'total': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

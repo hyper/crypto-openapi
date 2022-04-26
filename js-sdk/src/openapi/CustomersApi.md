@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **create**
-> InlineResponse2001 create()
+> Customer create()
 
 
 ### Example
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2001**
+**Customer**
 
 ### Authorization
 
@@ -148,7 +148,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> InlineResponse2001 retrieve()
+> Customer retrieve()
 
 
 ### Example
@@ -164,6 +164,8 @@ const apiInstance = new .CustomersApi(configuration);
 let body:.CustomersApiRetrieveRequest = {
   // string
   customerId: "customerId_example",
+  // string | Specifies which fields to populate in the response. (optional)
+  expand: "expand_example",
   // string (optional)
   prismAccount: "Prism-Account_example",
 };
@@ -179,12 +181,13 @@ apiInstance.retrieve(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customerId** | [**string**] |  | defaults to undefined
+ **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
  **prismAccount** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**InlineResponse2001**
+**Customer**
 
 ### Authorization
 
@@ -205,7 +208,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update**
-> InlineResponse2002 update()
+> Customer update()
 
 
 ### Example
@@ -241,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2002**
+**Customer**
 
 ### Authorization
 

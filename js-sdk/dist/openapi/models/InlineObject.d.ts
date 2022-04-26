@@ -1,7 +1,7 @@
-import { InlineResponse200BillingDetails } from './InlineResponse200BillingDetails';
+import { CustomersBillingDetails } from './CustomersBillingDetails';
 export declare class InlineObject {
     'account': string;
-    'billingDetails': InlineResponse200BillingDetails;
+    'billingDetails': CustomersBillingDetails;
     'email': string;
     'name': string;
     'phone': string;

@@ -4,6 +4,8 @@ export * from './AccountBranding';
 export * from './Customer';
 export * from './CustomerBillingDetails';
 export * from './CustomerBillingDetailsAddress';
+export * from './CustomersBillingDetails';
+export * from './CustomersBillingDetailsAddress';
 export * from './Fee';
 export * from './InlineObject';
 export * from './InlineObject1';
@@ -13,42 +15,14 @@ export * from './InlineObject4';
 export * from './InlineObject5';
 export * from './InlineResponse200';
 export * from './InlineResponse2001';
-export * from './InlineResponse20010';
-export * from './InlineResponse20010Request';
-export * from './InlineResponse20010RequestBody';
-export * from './InlineResponse20010RequestHeaders';
-export * from './InlineResponse20010Response';
-export * from './InlineResponse20010ResponseBody';
-export * from './InlineResponse20010ResponseBodyBranding';
-export * from './InlineResponse20011';
-export * from './InlineResponse20011Data';
-export * from './InlineResponse20012';
-export * from './InlineResponse20013';
-export * from './InlineResponse20013Data';
-export * from './InlineResponse20014';
-export * from './InlineResponse20015';
-export * from './InlineResponse20016';
-export * from './InlineResponse20017';
-export * from './InlineResponse20017Data';
-export * from './InlineResponse20018';
-export * from './InlineResponse20019';
-export * from './InlineResponse20019Data';
 export * from './InlineResponse2002';
-export * from './InlineResponse20020';
-export * from './InlineResponse20021';
 export * from './InlineResponse2003';
-export * from './InlineResponse2003Data';
 export * from './InlineResponse2004';
 export * from './InlineResponse2005';
 export * from './InlineResponse2006';
-export * from './InlineResponse2006Data';
 export * from './InlineResponse2007';
-export * from './InlineResponse2008';
-export * from './InlineResponse2009';
-export * from './InlineResponse200BillingDetails';
-export * from './InlineResponse200BillingDetailsAddress';
-export * from './InlineResponse200Data';
 export * from './Invoice';
+export * from './Log';
 export * from './Payment';
 export * from './Product';
 export * from './Wallet';
@@ -60,6 +34,8 @@ import { AccountBranding } from './AccountBranding';
 import { Customer } from './Customer';
 import { CustomerBillingDetails } from './CustomerBillingDetails';
 import { CustomerBillingDetailsAddress } from './CustomerBillingDetailsAddress';
+import { CustomersBillingDetails } from './CustomersBillingDetails';
+import { CustomersBillingDetailsAddress } from './CustomersBillingDetailsAddress';
 import { Fee } from './Fee';
 import { InlineObject } from './InlineObject';
 import { InlineObject1 } from './InlineObject1';
@@ -69,42 +45,14 @@ import { InlineObject4 } from './InlineObject4';
 import { InlineObject5 } from './InlineObject5';
 import { InlineResponse200 } from './InlineResponse200';
 import { InlineResponse2001 } from './InlineResponse2001';
-import { InlineResponse20010 } from './InlineResponse20010';
-import { InlineResponse20010Request } from './InlineResponse20010Request';
-import { InlineResponse20010RequestBody } from './InlineResponse20010RequestBody';
-import { InlineResponse20010RequestHeaders } from './InlineResponse20010RequestHeaders';
-import { InlineResponse20010Response } from './InlineResponse20010Response';
-import { InlineResponse20010ResponseBody } from './InlineResponse20010ResponseBody';
-import { InlineResponse20010ResponseBodyBranding } from './InlineResponse20010ResponseBodyBranding';
-import { InlineResponse20011 } from './InlineResponse20011';
-import { InlineResponse20011Data } from './InlineResponse20011Data';
-import { InlineResponse20012 } from './InlineResponse20012';
-import { InlineResponse20013 } from './InlineResponse20013';
-import { InlineResponse20013Data } from './InlineResponse20013Data';
-import { InlineResponse20014 } from './InlineResponse20014';
-import { InlineResponse20015 } from './InlineResponse20015';
-import { InlineResponse20016 } from './InlineResponse20016';
-import { InlineResponse20017 } from './InlineResponse20017';
-import { InlineResponse20017Data } from './InlineResponse20017Data';
-import { InlineResponse20018 } from './InlineResponse20018';
-import { InlineResponse20019 } from './InlineResponse20019';
-import { InlineResponse20019Data } from './InlineResponse20019Data';
 import { InlineResponse2002 } from './InlineResponse2002';
-import { InlineResponse20020 } from './InlineResponse20020';
-import { InlineResponse20021 } from './InlineResponse20021';
 import { InlineResponse2003 } from './InlineResponse2003';
-import { InlineResponse2003Data } from './InlineResponse2003Data';
 import { InlineResponse2004 } from './InlineResponse2004';
 import { InlineResponse2005 } from './InlineResponse2005';
 import { InlineResponse2006 } from './InlineResponse2006';
-import { InlineResponse2006Data } from './InlineResponse2006Data';
 import { InlineResponse2007 } from './InlineResponse2007';
-import { InlineResponse2008 } from './InlineResponse2008';
-import { InlineResponse2009 } from './InlineResponse2009';
-import { InlineResponse200BillingDetails } from './InlineResponse200BillingDetails';
-import { InlineResponse200BillingDetailsAddress } from './InlineResponse200BillingDetailsAddress';
-import { InlineResponse200Data } from './InlineResponse200Data';
 import { Invoice   , InvoiceChainEnum   , InvoiceCurrencyEnum      , InvoiceStatusEnum     } from './Invoice';
+import { Log      , LogMethodEnum      } from './Log';
 import { Payment         , PaymentStatusEnum     } from './Payment';
 import { Product      , ProductCurrencyEnum    } from './Product';
 import { Wallet      , WalletCustomerEnum   } from './Wallet';
@@ -134,6 +82,7 @@ let enumsMap: Set<string> = new Set<string>([
     "InvoiceChainEnum",
     "InvoiceCurrencyEnum",
     "InvoiceStatusEnum",
+    "LogMethodEnum",
     "PaymentStatusEnum",
     "ProductCurrencyEnum",
     "WalletCustomerEnum",
@@ -146,6 +95,8 @@ let typeMap: {[index: string]: any} = {
     "Customer": Customer,
     "CustomerBillingDetails": CustomerBillingDetails,
     "CustomerBillingDetailsAddress": CustomerBillingDetailsAddress,
+    "CustomersBillingDetails": CustomersBillingDetails,
+    "CustomersBillingDetailsAddress": CustomersBillingDetailsAddress,
     "Fee": Fee,
     "InlineObject": InlineObject,
     "InlineObject1": InlineObject1,
@@ -155,42 +106,14 @@ let typeMap: {[index: string]: any} = {
     "InlineObject5": InlineObject5,
     "InlineResponse200": InlineResponse200,
     "InlineResponse2001": InlineResponse2001,
-    "InlineResponse20010": InlineResponse20010,
-    "InlineResponse20010Request": InlineResponse20010Request,
-    "InlineResponse20010RequestBody": InlineResponse20010RequestBody,
-    "InlineResponse20010RequestHeaders": InlineResponse20010RequestHeaders,
-    "InlineResponse20010Response": InlineResponse20010Response,
-    "InlineResponse20010ResponseBody": InlineResponse20010ResponseBody,
-    "InlineResponse20010ResponseBodyBranding": InlineResponse20010ResponseBodyBranding,
-    "InlineResponse20011": InlineResponse20011,
-    "InlineResponse20011Data": InlineResponse20011Data,
-    "InlineResponse20012": InlineResponse20012,
-    "InlineResponse20013": InlineResponse20013,
-    "InlineResponse20013Data": InlineResponse20013Data,
-    "InlineResponse20014": InlineResponse20014,
-    "InlineResponse20015": InlineResponse20015,
-    "InlineResponse20016": InlineResponse20016,
-    "InlineResponse20017": InlineResponse20017,
-    "InlineResponse20017Data": InlineResponse20017Data,
-    "InlineResponse20018": InlineResponse20018,
-    "InlineResponse20019": InlineResponse20019,
-    "InlineResponse20019Data": InlineResponse20019Data,
     "InlineResponse2002": InlineResponse2002,
-    "InlineResponse20020": InlineResponse20020,
-    "InlineResponse20021": InlineResponse20021,
     "InlineResponse2003": InlineResponse2003,
-    "InlineResponse2003Data": InlineResponse2003Data,
     "InlineResponse2004": InlineResponse2004,
     "InlineResponse2005": InlineResponse2005,
     "InlineResponse2006": InlineResponse2006,
-    "InlineResponse2006Data": InlineResponse2006Data,
     "InlineResponse2007": InlineResponse2007,
-    "InlineResponse2008": InlineResponse2008,
-    "InlineResponse2009": InlineResponse2009,
-    "InlineResponse200BillingDetails": InlineResponse200BillingDetails,
-    "InlineResponse200BillingDetailsAddress": InlineResponse200BillingDetailsAddress,
-    "InlineResponse200Data": InlineResponse200Data,
     "Invoice": Invoice,
+    "Log": Log,
     "Payment": Payment,
     "Product": Product,
     "Wallet": Wallet,

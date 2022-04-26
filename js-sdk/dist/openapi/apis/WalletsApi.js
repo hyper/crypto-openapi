@@ -83,7 +83,7 @@ class WalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    retrieve(walletId, limit, page, sort, expand, prismAccount, _options) {
+    retrieve(walletId, expand, prismAccount, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -94,15 +94,6 @@ class WalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
                 .replace('{' + 'walletId' + '}', encodeURIComponent(String(walletId)));
             const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
             requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-            if (limit !== undefined) {
-                requestContext.setQueryParam("limit", ObjectSerializer_1.ObjectSerializer.serialize(limit, "number", ""));
-            }
-            if (page !== undefined) {
-                requestContext.setQueryParam("page", ObjectSerializer_1.ObjectSerializer.serialize(page, "number", ""));
-            }
-            if (sort !== undefined) {
-                requestContext.setQueryParam("sort", ObjectSerializer_1.ObjectSerializer.serialize(sort, "any", ""));
-            }
             if (expand !== undefined) {
                 requestContext.setQueryParam("expand", ObjectSerializer_1.ObjectSerializer.serialize(expand, "string", ""));
             }
@@ -156,14 +147,14 @@ class WalletsApiResponseProcessor {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
             if (util_1.isCodeInRange("200", response.httpStatusCode)) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse20018", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Wallet", "");
                 return body;
             }
             if (util_1.isCodeInRange("400", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Bad Request", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse20018", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Wallet", "");
                 return body;
             }
             throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);
@@ -173,14 +164,14 @@ class WalletsApiResponseProcessor {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
             if (util_1.isCodeInRange("200", response.httpStatusCode)) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse20017", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse2006", "");
                 return body;
             }
             if (util_1.isCodeInRange("404", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse20017", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse2006", "");
                 return body;
             }
             throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);
@@ -190,14 +181,14 @@ class WalletsApiResponseProcessor {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
             if (util_1.isCodeInRange("200", response.httpStatusCode)) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse20018", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Wallet", "");
                 return body;
             }
             if (util_1.isCodeInRange("404", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse20018", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Wallet", "");
                 return body;
             }
             throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);
@@ -207,7 +198,7 @@ class WalletsApiResponseProcessor {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
             if (util_1.isCodeInRange("200", response.httpStatusCode)) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse20018", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Wallet", "");
                 return body;
             }
             if (util_1.isCodeInRange("400", response.httpStatusCode)) {
@@ -217,7 +208,7 @@ class WalletsApiResponseProcessor {
                 throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse20018", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Wallet", "");
                 return body;
             }
             throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);

@@ -8,8 +8,8 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { InlineResponse20011 } from '../models/InlineResponse20011';
-import { InlineResponse20012 } from '../models/InlineResponse20012';
+import { InlineResponse2004 } from '../models/InlineResponse2004';
+import { Payment } from '../models/Payment';
 
 /**
  * no description
@@ -75,15 +75,17 @@ export class PaymentsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Retrieve Payment By Id
      * @param paymentId 
+     * @param expand Specifies which fields to populate in the response.
      * @param prismAccount 
      */
-    public async retrieve(paymentId: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieve(paymentId: string, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'paymentId' is not null or undefined
         if (paymentId === null || paymentId === undefined) {
             throw new RequiredError("PaymentsApi", "retrieve", "paymentId");
         }
+
 
 
 
@@ -94,6 +96,11 @@ export class PaymentsApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (expand !== undefined) {
+            requestContext.setQueryParam("expand", ObjectSerializer.serialize(expand, "string", ""));
+        }
 
         // Header Params
         requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
@@ -119,22 +126,22 @@ export class PaymentsApiResponseProcessor {
      * @params response Response returned by the server for a request to list
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async list(response: ResponseContext): Promise<InlineResponse20011 > {
+     public async list(response: ResponseContext): Promise<InlineResponse2004 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20011 = ObjectSerializer.deserialize(
+            const body: InlineResponse2004 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20011", ""
-            ) as InlineResponse20011;
+                "InlineResponse2004", ""
+            ) as InlineResponse2004;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20011 = ObjectSerializer.deserialize(
+            const body: InlineResponse2004 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20011", ""
-            ) as InlineResponse20011;
+                "InlineResponse2004", ""
+            ) as InlineResponse2004;
             return body;
         }
 
@@ -148,13 +155,13 @@ export class PaymentsApiResponseProcessor {
      * @params response Response returned by the server for a request to retrieve
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async retrieve(response: ResponseContext): Promise<InlineResponse20012 > {
+     public async retrieve(response: ResponseContext): Promise<Payment > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20012 = ObjectSerializer.deserialize(
+            const body: Payment = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20012", ""
-            ) as InlineResponse20012;
+                "Payment", ""
+            ) as Payment;
             return body;
         }
         if (isCodeInRange("404", response.httpStatusCode)) {
@@ -163,10 +170,10 @@ export class PaymentsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20012 = ObjectSerializer.deserialize(
+            const body: Payment = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20012", ""
-            ) as InlineResponse20012;
+                "Payment", ""
+            ) as Payment;
             return body;
         }
 

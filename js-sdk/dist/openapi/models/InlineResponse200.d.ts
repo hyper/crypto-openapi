@@ -1,7 +1,7 @@
-import { InlineResponse200Data } from './InlineResponse200Data';
+import { Customer } from './Customer';
 import { Set } from './Set';
 export declare class InlineResponse200 {
-    'data': Set<InlineResponse200Data>;
+    'data': Set<Customer>;
     'hasMore': boolean;
     'page': number;
     'total': number;

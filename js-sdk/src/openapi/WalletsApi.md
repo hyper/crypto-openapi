@@ -69,7 +69,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
-> InlineResponse20018 create()
+> Wallet create()
 
 
 ### Example
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20018**
+**Wallet**
 
 ### Authorization
 
@@ -131,7 +131,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> InlineResponse20017 list()
+> InlineResponse2006 list()
 
 
 ### Example
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20017**
+**InlineResponse2006**
 
 ### Authorization
 
@@ -197,7 +197,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> InlineResponse20018 retrieve()
+> Wallet retrieve()
 
 
 ### Example
@@ -213,12 +213,6 @@ const apiInstance = new .WalletsApi(configuration);
 let body:.WalletsApiRetrieveRequest = {
   // string
   walletId: "walletId_example",
-  // number | A limit on the number of objects to be returned between 1 and 100. (optional)
-  limit: 3.14,
-  // number | Index of the page to be returned in a paginated response. (optional)
-  page: 3.14,
-  // any | Specifies whether documents are sorted in an ascending or descending order. (optional)
-  sort: null,
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
   // string (optional)
@@ -236,16 +230,13 @@ apiInstance.retrieve(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **walletId** | [**string**] |  | defaults to undefined
- **limit** | [**number**] | A limit on the number of objects to be returned between 1 and 100. | (optional) defaults to undefined
- **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
- **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
  **prismAccount** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**InlineResponse20018**
+**Wallet**
 
 ### Authorization
 
@@ -266,7 +257,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update**
-> InlineResponse20018 update()
+> Wallet update()
 
 
 ### Example
@@ -302,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20018**
+**Wallet**
 
 ### Authorization
 

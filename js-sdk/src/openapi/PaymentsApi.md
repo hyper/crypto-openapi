@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **list**
-> InlineResponse20011 list()
+> InlineResponse2004 list()
 
 
 ### Example
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse20011**
+**InlineResponse2004**
 
 ### Authorization
 
@@ -74,7 +74,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> InlineResponse20012 retrieve()
+> Payment retrieve()
 
 
 ### Example
@@ -90,6 +90,8 @@ const apiInstance = new .PaymentsApi(configuration);
 let body:.PaymentsApiRetrieveRequest = {
   // string
   paymentId: "paymentId_example",
+  // string | Specifies which fields to populate in the response. (optional)
+  expand: "expand_example",
   // string (optional)
   prismAccount: "Prism-Account_example",
 };
@@ -105,12 +107,13 @@ apiInstance.retrieve(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **paymentId** | [**string**] |  | defaults to undefined
+ **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
  **prismAccount** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**InlineResponse20012**
+**Payment**
 
 ### Authorization
 

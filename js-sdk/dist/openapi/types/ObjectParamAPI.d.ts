@@ -1,4 +1,6 @@
 import { Configuration } from '../configuration';
+import { Customer } from '../models/Customer';
+import { Fee } from '../models/Fee';
 import { InlineObject } from '../models/InlineObject';
 import { InlineObject1 } from '../models/InlineObject1';
 import { InlineObject2 } from '../models/InlineObject2';
@@ -7,26 +9,18 @@ import { InlineObject4 } from '../models/InlineObject4';
 import { InlineObject5 } from '../models/InlineObject5';
 import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
-import { InlineResponse20010 } from '../models/InlineResponse20010';
-import { InlineResponse20011 } from '../models/InlineResponse20011';
-import { InlineResponse20012 } from '../models/InlineResponse20012';
-import { InlineResponse20013 } from '../models/InlineResponse20013';
-import { InlineResponse20014 } from '../models/InlineResponse20014';
-import { InlineResponse20015 } from '../models/InlineResponse20015';
-import { InlineResponse20016 } from '../models/InlineResponse20016';
-import { InlineResponse20017 } from '../models/InlineResponse20017';
-import { InlineResponse20018 } from '../models/InlineResponse20018';
-import { InlineResponse20019 } from '../models/InlineResponse20019';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
-import { InlineResponse20020 } from '../models/InlineResponse20020';
-import { InlineResponse20021 } from '../models/InlineResponse20021';
 import { InlineResponse2003 } from '../models/InlineResponse2003';
 import { InlineResponse2004 } from '../models/InlineResponse2004';
 import { InlineResponse2005 } from '../models/InlineResponse2005';
 import { InlineResponse2006 } from '../models/InlineResponse2006';
 import { InlineResponse2007 } from '../models/InlineResponse2007';
-import { InlineResponse2008 } from '../models/InlineResponse2008';
-import { InlineResponse2009 } from '../models/InlineResponse2009';
+import { Invoice } from '../models/Invoice';
+import { Log } from '../models/Log';
+import { Payment } from '../models/Payment';
+import { Product } from '../models/Product';
+import { Wallet } from '../models/Wallet';
+import { Webhook } from '../models/Webhook';
 import { CustomersApiRequestFactory, CustomersApiResponseProcessor } from "../apis/CustomersApi";
 export interface CustomersApiCreateRequest {
     prismAccount?: string;
@@ -41,6 +35,7 @@ export interface CustomersApiListRequest {
 }
 export interface CustomersApiRetrieveRequest {
     customerId: string;
+    expand?: string;
     prismAccount?: string;
 }
 export interface CustomersApiUpdateRequest {
@@ -50,10 +45,10 @@ export interface CustomersApiUpdateRequest {
 export declare class ObjectCustomersApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: CustomersApiRequestFactory, responseProcessor?: CustomersApiResponseProcessor);
-    create(param?: CustomersApiCreateRequest, options?: Configuration): Promise<InlineResponse2001>;
+    create(param?: CustomersApiCreateRequest, options?: Configuration): Promise<Customer>;
     list(param?: CustomersApiListRequest, options?: Configuration): Promise<InlineResponse200>;
-    retrieve(param: CustomersApiRetrieveRequest, options?: Configuration): Promise<InlineResponse2001>;
-    update(param: CustomersApiUpdateRequest, options?: Configuration): Promise<InlineResponse2002>;
+    retrieve(param: CustomersApiRetrieveRequest, options?: Configuration): Promise<Customer>;
+    update(param: CustomersApiUpdateRequest, options?: Configuration): Promise<Customer>;
 }
 import { FeesApiRequestFactory, FeesApiResponseProcessor } from "../apis/FeesApi";
 export interface FeesApiDeleteRequest {
@@ -73,15 +68,16 @@ export interface FeesApiListRequest {
 }
 export interface FeesApiRetrieveRequest {
     feeId: string;
+    expand?: string;
     prismAccount?: string;
 }
 export declare class ObjectFeesApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: FeesApiRequestFactory, responseProcessor?: FeesApiResponseProcessor);
     _delete(param: FeesApiDeleteRequest, options?: Configuration): Promise<void>;
-    create(param?: FeesApiCreateRequest, options?: Configuration): Promise<InlineResponse2004>;
-    list(param?: FeesApiListRequest, options?: Configuration): Promise<InlineResponse2003>;
-    retrieve(param: FeesApiRetrieveRequest, options?: Configuration): Promise<InlineResponse2005>;
+    create(param?: FeesApiCreateRequest, options?: Configuration): Promise<Fee>;
+    list(param?: FeesApiListRequest, options?: Configuration): Promise<InlineResponse2001>;
+    retrieve(param: FeesApiRetrieveRequest, options?: Configuration): Promise<Fee>;
 }
 import { InvoicesApiRequestFactory, InvoicesApiResponseProcessor } from "../apis/InvoicesApi";
 export interface InvoicesApiCreateRequest {
@@ -97,6 +93,7 @@ export interface InvoicesApiListRequest {
 }
 export interface InvoicesApiRetrieveRequest {
     invoiceId: string;
+    expand?: string;
     prismAccount?: string;
 }
 export interface InvoicesApiUpdateRequest {
@@ -106,10 +103,10 @@ export interface InvoicesApiUpdateRequest {
 export declare class ObjectInvoicesApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: InvoicesApiRequestFactory, responseProcessor?: InvoicesApiResponseProcessor);
-    create(param?: InvoicesApiCreateRequest, options?: Configuration): Promise<InlineResponse2007>;
-    list(param?: InvoicesApiListRequest, options?: Configuration): Promise<InlineResponse2006>;
-    retrieve(param: InvoicesApiRetrieveRequest, options?: Configuration): Promise<InlineResponse2008>;
-    update(param: InvoicesApiUpdateRequest, options?: Configuration): Promise<InlineResponse2008>;
+    create(param?: InvoicesApiCreateRequest, options?: Configuration): Promise<Invoice>;
+    list(param?: InvoicesApiListRequest, options?: Configuration): Promise<InlineResponse2002>;
+    retrieve(param: InvoicesApiRetrieveRequest, options?: Configuration): Promise<Invoice>;
+    update(param: InvoicesApiUpdateRequest, options?: Configuration): Promise<Invoice>;
 }
 import { LogsApiRequestFactory, LogsApiResponseProcessor } from "../apis/LogsApi";
 export interface LogsApiListRequest {
@@ -121,13 +118,14 @@ export interface LogsApiListRequest {
 }
 export interface LogsApiRetrieveRequest {
     logId: string;
+    expand?: string;
     prismAccount?: string;
 }
 export declare class ObjectLogsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: LogsApiRequestFactory, responseProcessor?: LogsApiResponseProcessor);
-    list(param?: LogsApiListRequest, options?: Configuration): Promise<InlineResponse2009>;
-    retrieve(param: LogsApiRetrieveRequest, options?: Configuration): Promise<InlineResponse20010>;
+    list(param?: LogsApiListRequest, options?: Configuration): Promise<InlineResponse2003>;
+    retrieve(param: LogsApiRetrieveRequest, options?: Configuration): Promise<Log>;
 }
 import { PaymentsApiRequestFactory, PaymentsApiResponseProcessor } from "../apis/PaymentsApi";
 export interface PaymentsApiListRequest {
@@ -139,13 +137,14 @@ export interface PaymentsApiListRequest {
 }
 export interface PaymentsApiRetrieveRequest {
     paymentId: string;
+    expand?: string;
     prismAccount?: string;
 }
 export declare class ObjectPaymentsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: PaymentsApiRequestFactory, responseProcessor?: PaymentsApiResponseProcessor);
-    list(param?: PaymentsApiListRequest, options?: Configuration): Promise<InlineResponse20011>;
-    retrieve(param: PaymentsApiRetrieveRequest, options?: Configuration): Promise<InlineResponse20012>;
+    list(param?: PaymentsApiListRequest, options?: Configuration): Promise<InlineResponse2004>;
+    retrieve(param: PaymentsApiRetrieveRequest, options?: Configuration): Promise<Payment>;
 }
 import { ProductsApiRequestFactory, ProductsApiResponseProcessor } from "../apis/ProductsApi";
 export interface ProductsApiDeleteRequest {
@@ -165,6 +164,7 @@ export interface ProductsApiListRequest {
 }
 export interface ProductsApiRetrieveRequest {
     productId: string;
+    expand?: string;
     prismAccount?: string;
 }
 export interface ProductsApiUpdateRequest {
@@ -175,10 +175,10 @@ export declare class ObjectProductsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: ProductsApiRequestFactory, responseProcessor?: ProductsApiResponseProcessor);
     _delete(param: ProductsApiDeleteRequest, options?: Configuration): Promise<void>;
-    create(param?: ProductsApiCreateRequest, options?: Configuration): Promise<InlineResponse20014>;
-    list(param?: ProductsApiListRequest, options?: Configuration): Promise<InlineResponse20013>;
-    retrieve(param: ProductsApiRetrieveRequest, options?: Configuration): Promise<InlineResponse20015>;
-    update(param: ProductsApiUpdateRequest, options?: Configuration): Promise<InlineResponse20016>;
+    create(param?: ProductsApiCreateRequest, options?: Configuration): Promise<Product>;
+    list(param?: ProductsApiListRequest, options?: Configuration): Promise<InlineResponse2005>;
+    retrieve(param: ProductsApiRetrieveRequest, options?: Configuration): Promise<Product>;
+    update(param: ProductsApiUpdateRequest, options?: Configuration): Promise<Product>;
 }
 import { WalletsApiRequestFactory, WalletsApiResponseProcessor } from "../apis/WalletsApi";
 export interface WalletsApiDeleteRequest {
@@ -198,9 +198,6 @@ export interface WalletsApiListRequest {
 }
 export interface WalletsApiRetrieveRequest {
     walletId: string;
-    limit?: number;
-    page?: number;
-    sort?: any;
     expand?: string;
     prismAccount?: string;
 }
@@ -212,10 +209,10 @@ export declare class ObjectWalletsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: WalletsApiRequestFactory, responseProcessor?: WalletsApiResponseProcessor);
     _delete(param: WalletsApiDeleteRequest, options?: Configuration): Promise<void>;
-    create(param?: WalletsApiCreateRequest, options?: Configuration): Promise<InlineResponse20018>;
-    list(param?: WalletsApiListRequest, options?: Configuration): Promise<InlineResponse20017>;
-    retrieve(param: WalletsApiRetrieveRequest, options?: Configuration): Promise<InlineResponse20018>;
-    update(param: WalletsApiUpdateRequest, options?: Configuration): Promise<InlineResponse20018>;
+    create(param?: WalletsApiCreateRequest, options?: Configuration): Promise<Wallet>;
+    list(param?: WalletsApiListRequest, options?: Configuration): Promise<InlineResponse2006>;
+    retrieve(param: WalletsApiRetrieveRequest, options?: Configuration): Promise<Wallet>;
+    update(param: WalletsApiUpdateRequest, options?: Configuration): Promise<Wallet>;
 }
 import { WebhooksApiRequestFactory, WebhooksApiResponseProcessor } from "../apis/WebhooksApi";
 export interface WebhooksApiDeleteRequest {
@@ -235,6 +232,7 @@ export interface WebhooksApiListRequest {
 }
 export interface WebhooksApiRetrieveRequest {
     webhookId: string;
+    expand?: string;
     prismAccount?: string;
 }
 export interface WebhooksApiUpdateRequest {
@@ -245,8 +243,8 @@ export declare class ObjectWebhooksApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: WebhooksApiRequestFactory, responseProcessor?: WebhooksApiResponseProcessor);
     _delete(param: WebhooksApiDeleteRequest, options?: Configuration): Promise<void>;
-    create(param?: WebhooksApiCreateRequest, options?: Configuration): Promise<InlineResponse20020>;
-    list(param?: WebhooksApiListRequest, options?: Configuration): Promise<InlineResponse20019>;
-    retrieve(param: WebhooksApiRetrieveRequest, options?: Configuration): Promise<InlineResponse20021>;
-    update(param: WebhooksApiUpdateRequest, options?: Configuration): Promise<InlineResponse20020>;
+    create(param?: WebhooksApiCreateRequest, options?: Configuration): Promise<Webhook>;
+    list(param?: WebhooksApiListRequest, options?: Configuration): Promise<InlineResponse2007>;
+    retrieve(param: WebhooksApiRetrieveRequest, options?: Configuration): Promise<Webhook>;
+    update(param: WebhooksApiUpdateRequest, options?: Configuration): Promise<Webhook>;
 }

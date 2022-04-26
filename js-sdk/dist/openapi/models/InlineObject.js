@@ -20,7 +20,7 @@ InlineObject.attributeTypeMap = [
     {
         "name": "billingDetails",
         "baseName": "billing_details",
-        "type": "InlineResponse200BillingDetails",
+        "type": "CustomersBillingDetails",
         "format": ""
     },
     {

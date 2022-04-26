@@ -212,6 +212,54 @@
         "title": "fInvoice",
         "type": "object"
       },
+      "Log": {
+        "properties": {
+          "api_key": {
+            "type": "string"
+          },
+          "body": {
+            "type": "object"
+          },
+          "created": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "headers": {
+            "type": "object"
+          },
+          "id": {
+            "type": "string"
+          },
+          "ip": {
+            "type": "string"
+          },
+          "method": {
+            "enum": ["POST", "PATCH", "DELETE"],
+            "type": "string"
+          },
+          "origin": {
+            "type": "string"
+          },
+          "query": {
+            "type": "object"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "ip",
+          "method",
+          "url",
+          "api_key",
+          "query",
+          "created"
+        ],
+        "title": "Log",
+        "type": "object",
+        "x-internal": true
+      },
       "Payment": {
         "properties": {
           "_id": {
@@ -419,72 +467,7 @@
                   "properties": {
                     "data": {
                       "items": {
-                        "properties": {
-                          "account": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "billing_details": {
-                            "properties": {
-                              "address": {
-                                "properties": {
-                                  "city": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  },
-                                  "country": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  },
-                                  "line1": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  },
-                                  "line2": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  },
-                                  "postal_code": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  },
-                                  "state": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "city",
-                                  "country",
-                                  "line1",
-                                  "line2",
-                                  "postal_code",
-                                  "state"
-                                ],
-                                "type": "object"
-                              }
-                            },
-                            "required": ["address"],
-                            "type": "object"
-                          },
-                          "email": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "id": {
-                            "type": "string"
-                          },
-                          "name": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "phone": {
-                            "minLength": 1,
-                            "type": "string"
-                          }
-                        },
-                        "required": ["account", "name", "email", "phone"],
-                        "type": "object"
+                        "$ref": "#/components/schemas/Customer"
                       },
                       "minItems": 1,
                       "type": "array",
@@ -651,100 +634,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "billing_details": {
-                      "properties": {
-                        "address": {
-                          "properties": {
-                            "city": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "country": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "line1": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "line2": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "postal_code": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "state": {
-                              "minLength": 1,
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "city",
-                            "country",
-                            "line1",
-                            "line2",
-                            "postal_code",
-                            "state"
-                          ],
-                          "type": "object"
-                        }
-                      },
-                      "required": ["address"],
-                      "type": "object"
-                    },
-                    "created": {
-                      "type": "string"
-                    },
-                    "email": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "phone": {
-                      "minLength": 1,
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "account",
-                    "name",
-                    "email",
-                    "phone",
-                    "billing_details"
-                  ],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "t",
-                      "billing_details": {
-                        "address": {
-                          "city": "p",
-                          "country": "ruh",
-                          "line1": "ag",
-                          "line2": "e",
-                          "postal_code": "e",
-                          "state": "e"
-                        }
-                      },
-                      "email": "t",
-                      "name": "t",
-                      "phone": "t"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Customer"
                 }
               }
             },
@@ -760,6 +650,14 @@
         "operationId": "customers_retrieve",
         "parameters": [
           {
+            "description": "Specifies which fields to populate in the response.",
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -772,100 +670,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "billing_details": {
-                      "properties": {
-                        "address": {
-                          "properties": {
-                            "city": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "country": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "line1": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "line2": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "postal_code": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "state": {
-                              "minLength": 1,
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "city",
-                            "country",
-                            "line1",
-                            "line2",
-                            "postal_code",
-                            "state"
-                          ],
-                          "type": "object"
-                        }
-                      },
-                      "required": ["address"],
-                      "type": "object"
-                    },
-                    "created": {
-                      "type": "string"
-                    },
-                    "email": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "phone": {
-                      "minLength": 1,
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "account",
-                    "name",
-                    "email",
-                    "phone",
-                    "billing_details"
-                  ],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "t",
-                      "billing_details": {
-                        "address": {
-                          "city": "p",
-                          "country": "ruh",
-                          "line1": "ag",
-                          "line2": "e",
-                          "postal_code": "e",
-                          "state": "e"
-                        }
-                      },
-                      "email": "t",
-                      "name": "t",
-                      "phone": "t"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Customer"
                 }
               }
             },
@@ -904,103 +709,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "billing_details": {
-                      "properties": {
-                        "address": {
-                          "properties": {
-                            "city": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "country": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "line1": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "line2": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "postal_code": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "state": {
-                              "minLength": 1,
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "city",
-                            "country",
-                            "line1",
-                            "line2",
-                            "postal_code",
-                            "state"
-                          ],
-                          "type": "object"
-                        }
-                      },
-                      "required": ["address"],
-                      "type": "object"
-                    },
-                    "created": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "email": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "phone": {
-                      "minLength": 1,
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "account",
-                    "name",
-                    "email",
-                    "phone",
-                    "billing_details",
-                    "created"
-                  ],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "acct_p82RIso0f9EOvdJoFTYIK",
-                      "billing_details": {
-                        "address": {
-                          "city": "Palo Alto",
-                          "country": "US",
-                          "line1": "123 Main St",
-                          "line2": "Apt 8",
-                          "postal_code": "94301",
-                          "state": "CA"
-                        }
-                      },
-                      "created": "1650314907042",
-                      "email": "lebron+8@hyper.co",
-                      "name": "Lebon Jame the 8",
-                      "phone": "+18888888888"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Customer"
                 }
               }
             },
@@ -1065,47 +774,7 @@
                   "properties": {
                     "data": {
                       "items": {
-                        "properties": {
-                          "account": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "amount": {
-                            "type": "number"
-                          },
-                          "created": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "description": {},
-                          "id": {
-                            "type": "string"
-                          },
-                          "invoice": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "percent": {
-                            "type": "number"
-                          },
-                          "usd_amount": {
-                            "type": "number"
-                          },
-                          "wallet": {
-                            "minLength": 1,
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "account",
-                          "invoice",
-                          "wallet",
-                          "percent",
-                          "amount",
-                          "usd_amount",
-                          "created"
-                        ],
-                        "type": "object"
+                        "$ref": "#/components/schemas/Fee"
                       },
                       "minItems": 1,
                       "type": "array",
@@ -1203,66 +872,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "amount": {
-                      "type": "number"
-                    },
-                    "created": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "description": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "invoice": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "percent": {
-                      "type": "number"
-                    },
-                    "usd_amount": {
-                      "type": "number"
-                    },
-                    "wallet": {
-                      "minLength": 1,
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "account",
-                    "invoice",
-                    "wallet",
-                    "percent",
-                    "amount",
-                    "usd_amount",
-                    "created"
-                  ],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "acct_p82RIso0f9EOvdJoFTYIK",
-                      "amount": 0.02,
-                      "created": "1650314886146",
-                      "currency": "eth",
-                      "description": null,
-                      "id": "sneed",
-                      "invoice": "in_bV55Zc1noFSSBI0CKYoxS",
-                      "percent": 2,
-                      "usd_amount": 6021,
-                      "wallet": "wal_OQPDWnLFRD1BzVdIXp5jd"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Fee"
                 }
               }
             },
@@ -1300,6 +910,14 @@
         "operationId": "fees_retrieve",
         "parameters": [
           {
+            "description": "Specifies which fields to populate in the response.",
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -1312,70 +930,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "amount": {
-                      "type": "number"
-                    },
-                    "created": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "currency": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "description": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "string"
-                    },
-                    "invoice": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "percent": {
-                      "type": "number"
-                    },
-                    "to": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "usd_amount": {
-                      "type": "number"
-                    }
-                  },
-                  "required": [
-                    "account",
-                    "invoice",
-                    "to",
-                    "percent",
-                    "description",
-                    "currency",
-                    "amount",
-                    "usd_amount",
-                    "created"
-                  ],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "acct_N1nX5NcznNujnha1y6Bg6",
-                      "amount": 0.1,
-                      "created": "1649298213179",
-                      "currency": "eth",
-                      "description": "sng",
-                      "invoice": "in_1zHvrCOWeJYQKIhbfeNvJ",
-                      "percent": 2,
-                      "to": "wal_DRDa9af1pbFiMuaULWWKu",
-                      "usd_amount": 31805
-                    }
-                  }
+                  "$ref": "#/components/schemas/Fee"
                 }
               }
             },
@@ -1447,69 +1002,7 @@
                   "properties": {
                     "data": {
                       "items": {
-                        "properties": {
-                          "account": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "amount": {
-                            "type": "number"
-                          },
-                          "chain": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "created": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "currency": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "customer": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "due": {},
-                          "id": {
-                            "type": "string"
-                          },
-                          "number": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "product": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "status": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "transaction": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "wallet": {
-                            "minLength": 1,
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "account",
-                          "status",
-                          "chain",
-                          "amount",
-                          "currency",
-                          "product",
-                          "customer",
-                          "wallet",
-                          "transaction",
-                          "number",
-                          "created"
-                        ],
-                        "type": "object"
+                        "$ref": "#/components/schemas/Invoice"
                       },
                       "minItems": 1,
                       "type": "array",
@@ -1607,10 +1100,6 @@
                     "minLength": 1,
                     "type": "string"
                   },
-                  "status": {
-                    "minLength": 1,
-                    "type": "string"
-                  },
                   "transaction": {
                     "minLength": 1,
                     "type": "string"
@@ -1662,95 +1151,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "amount": {
-                      "type": "number"
-                    },
-                    "chain": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "created": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "currency": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "customer": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "due": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "id": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "number": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "product": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "status": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "transaction": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "wallet": {
-                      "minLength": 1,
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "account",
-                    "status",
-                    "chain",
-                    "amount",
-                    "currency",
-                    "product",
-                    "customer",
-                    "wallet",
-                    "transaction",
-                    "due",
-                    "number",
-                    "created"
-                  ],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "acct_p82RIso0f9EOvdJoFTYIK",
-                      "amount": 0,
-                      "chain": "eth",
-                      "created": "1650314881865",
-                      "currency": "eth",
-                      "customer": "cus_W54yfTK4NCsfBx4mhXHez",
-                      "deleted": false,
-                      "deleted_at": null,
-                      "due": "1650314881865",
-                      "id": "s",
-                      "number": "ACC-0000000",
-                      "product": "prod_AKjVX2GYDjwrZjTkFJWeF",
-                      "status": "open",
-                      "transaction": "0x0000000000000000000000000000000000000001",
-                      "wallet": "wal_6H6IKtkbVu3yNMdPYtEXe"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Invoice"
                 }
               }
             },
@@ -1766,6 +1167,14 @@
         "operationId": "invoices_retrieve",
         "parameters": [
           {
+            "description": "Specifies which fields to populate in the response.",
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -1778,71 +1187,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "amount": {
-                      "type": "number"
-                    },
-                    "chain": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "created": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "currency": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "due": {
-                      "type": "number"
-                    },
-                    "id": {
-                      "type": "string"
-                    },
-                    "number": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "product": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "status": {
-                      "minLength": 1,
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "account",
-                    "status",
-                    "chain",
-                    "amount",
-                    "currency",
-                    "product",
-                    "due",
-                    "number",
-                    "created"
-                  ],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "acct_N1nX5NcznNujnha1y6Bg6",
-                      "amount": 1,
-                      "chain": "eth",
-                      "created": "1649293812717",
-                      "currency": "eth",
-                      "due": 1649293812717,
-                      "number": "TEST14-0000000",
-                      "product": "prod_C13MtZ9PCHAUuEDRjtcR0",
-                      "status": "open"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Invoice"
                 }
               }
             },
@@ -1881,71 +1226,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "amount": {
-                      "type": "number"
-                    },
-                    "chain": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "created": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "currency": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "due": {
-                      "type": "number"
-                    },
-                    "id": {
-                      "type": "string"
-                    },
-                    "number": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "product": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "status": {
-                      "minLength": 1,
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "account",
-                    "status",
-                    "chain",
-                    "amount",
-                    "currency",
-                    "product",
-                    "due",
-                    "number",
-                    "created"
-                  ],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "acct_N1nX5NcznNujnha1y6Bg6",
-                      "amount": 1,
-                      "chain": "eth",
-                      "created": "1649293812717",
-                      "currency": "eth",
-                      "due": 1649293812717,
-                      "number": "TEST14-0000000",
-                      "product": "prod_C13MtZ9PCHAUuEDRjtcR0",
-                      "status": "open"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Invoice"
                 }
               }
             },
@@ -2014,152 +1295,7 @@
                   "properties": {
                     "data": {
                       "items": {
-                        "properties": {
-                          "account": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "created": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "request": {
-                            "properties": {
-                              "api_key": {
-                                "minLength": 1,
-                                "type": "string"
-                              },
-                              "body": {
-                                "properties": {
-                                  "invoice_prefix": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  }
-                                },
-                                "required": ["invoice_prefix"],
-                                "type": "object"
-                              },
-                              "headers": {
-                                "properties": {
-                                  "accept": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  },
-                                  "accept-encoding": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  },
-                                  "connection": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  },
-                                  "content-length": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  },
-                                  "content-type": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  },
-                                  "host": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  },
-                                  "postman-token": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  },
-                                  "user-agent": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "content-type",
-                                  "user-agent",
-                                  "accept",
-                                  "postman-token",
-                                  "host",
-                                  "accept-encoding",
-                                  "connection",
-                                  "content-length"
-                                ],
-                                "type": "object"
-                              },
-                              "ip": {
-                                "minLength": 1,
-                                "type": "string"
-                              },
-                              "method": {
-                                "minLength": 1,
-                                "type": "string"
-                              },
-                              "url": {
-                                "minLength": 1,
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "ip",
-                              "headers",
-                              "method",
-                              "body",
-                              "url",
-                              "api_key"
-                            ],
-                            "type": "object"
-                          },
-                          "response": {
-                            "properties": {
-                              "body": {
-                                "properties": {
-                                  "_id": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  },
-                                  "branding": {
-                                    "properties": {
-                                      "background": {},
-                                      "color": {
-                                        "minLength": 1,
-                                        "type": "string"
-                                      },
-                                      "logo": {}
-                                    },
-                                    "required": ["color"],
-                                    "type": "object"
-                                  },
-                                  "created": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  },
-                                  "invoice_prefix": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  },
-                                  "name": {
-                                    "minLength": 1,
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "branding",
-                                  "_id",
-                                  "name",
-                                  "invoice_prefix",
-                                  "created"
-                                ],
-                                "type": "object"
-                              },
-                              "status": {
-                                "type": "number"
-                              }
-                            },
-                            "required": ["body", "status"],
-                            "type": "object"
-                          }
-                        },
-                        "required": ["account", "created"]
+                        "$ref": "#/components/schemas/Log"
                       },
                       "minItems": 1,
                       "type": "array",
@@ -2237,6 +1373,14 @@
         "operationId": "logs_retrieve",
         "parameters": [
           {
+            "description": "Specifies which fields to populate in the response.",
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -2250,193 +1394,7 @@
               "application/json": {
                 "examples": {},
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "created": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "request": {
-                      "properties": {
-                        "api_key": {
-                          "minLength": 1,
-                          "type": "string"
-                        },
-                        "body": {
-                          "properties": {
-                            "invoice_prefix": {
-                              "minLength": 1,
-                              "type": "string"
-                            }
-                          },
-                          "required": ["invoice_prefix"],
-                          "type": "object"
-                        },
-                        "headers": {
-                          "properties": {
-                            "accept": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "accept-encoding": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "connection": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "content-length": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "content-type": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "host": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "postman-token": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "user-agent": {
-                              "minLength": 1,
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "content-type",
-                            "user-agent",
-                            "accept",
-                            "postman-token",
-                            "host",
-                            "accept-encoding",
-                            "connection",
-                            "content-length"
-                          ],
-                          "type": "object"
-                        },
-                        "ip": {
-                          "minLength": 1,
-                          "type": "string"
-                        },
-                        "method": {
-                          "minLength": 1,
-                          "type": "string"
-                        },
-                        "url": {
-                          "minLength": 1,
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "ip",
-                        "headers",
-                        "method",
-                        "body",
-                        "url",
-                        "api_key"
-                      ],
-                      "type": "object"
-                    },
-                    "response": {
-                      "properties": {
-                        "body": {
-                          "properties": {
-                            "_id": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "branding": {
-                              "properties": {
-                                "background": {},
-                                "color": {
-                                  "minLength": 1,
-                                  "type": "string"
-                                },
-                                "logo": {}
-                              },
-                              "required": ["color"],
-                              "type": "object"
-                            },
-                            "created": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "invoice_prefix": {
-                              "minLength": 1,
-                              "type": "string"
-                            },
-                            "name": {
-                              "minLength": 1,
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "branding",
-                            "_id",
-                            "name",
-                            "invoice_prefix",
-                            "created"
-                          ],
-                          "type": "object"
-                        },
-                        "status": {
-                          "type": "number"
-                        }
-                      },
-                      "required": ["body", "status"],
-                      "type": "object"
-                    }
-                  },
-                  "required": ["account", "request", "response", "created"],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "acct_N1nX5NcznNujnha1y6Bg6",
-                      "created": "1649195876611",
-                      "request": {
-                        "api_key": "sk_bJQr************uGW1i",
-                        "body": {
-                          "invoice_prefix": "Testing"
-                        },
-                        "headers": {
-                          "accept": "*/*",
-                          "accept-encoding": "gzip, deflate, br",
-                          "connection": "keep-alive",
-                          "content-length": "35",
-                          "content-type": "application/json",
-                          "host": "localhost:7000",
-                          "postman-token": "5cfa23e3-804f-40a6-9e67-3c8562d00dd6",
-                          "user-agent": "PostmanRuntime/7.29.0"
-                        },
-                        "ip": "::1",
-                        "method": "PATCH",
-                        "url": "/v1/accounts/acct_N1nX5NcznNujnha1y6Bg6"
-                      },
-                      "response": {
-                        "body": {
-                          "_id": "acct_N1nX5NcznNujnha1y6Bg6",
-                          "branding": {
-                            "background": null,
-                            "color": "#FFFFFF",
-                            "logo": null
-                          },
-                          "created": "1649132233130",
-                          "invoice_prefix": "TESTING",
-                          "name": "Develop"
-                        },
-                        "status": 200
-                      }
-                    }
-                  }
+                  "$ref": "#/components/schemas/Log"
                 }
               }
             },
@@ -2508,62 +1466,7 @@
                   "properties": {
                     "data": {
                       "items": {
-                        "properties": {
-                          "account": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "amount": {
-                            "type": "number"
-                          },
-                          "currency": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "customer": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "error_message": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "exchange_rate": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "id": {
-                            "type": "string"
-                          },
-                          "invoice": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "status": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "usd_amount": {
-                            "type": "number"
-                          },
-                          "wallet": {
-                            "minLength": 1,
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "account",
-                          "currency",
-                          "amount",
-                          "usd_amount",
-                          "exchange_rate",
-                          "invoice",
-                          "customer",
-                          "status",
-                          "wallet",
-                          "error_message"
-                        ],
-                        "type": "object"
+                        "$ref": "#/components/schemas/Payment"
                       },
                       "minItems": 1,
                       "type": "array",
@@ -2617,6 +1520,14 @@
         "operationId": "payments_retrieve",
         "parameters": [
           {
+            "description": "Specifies which fields to populate in the response.",
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -2629,77 +1540,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "amount": {
-                      "type": "number"
-                    },
-                    "currency": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "customer": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "error_message": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "exchange_rate": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "string"
-                    },
-                    "invoice": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "status": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "usd_amount": {
-                      "type": "number"
-                    },
-                    "wallet": {
-                      "minLength": 1,
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "account",
-                    "currency",
-                    "amount",
-                    "usd_amount",
-                    "exchange_rate",
-                    "invoice",
-                    "customer",
-                    "status",
-                    "wallet",
-                    "error_message"
-                  ],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "acct",
-                      "amount": 4000,
-                      "currency": "string",
-                      "customer": "s",
-                      "error_message": "piggle",
-                      "exchange_rate": "string",
-                      "invoice": "string",
-                      "status": "s",
-                      "usd_amount": 23,
-                      "wallet": "piggle"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Payment"
                 }
               }
             },
@@ -2774,43 +1615,7 @@
                   "properties": {
                     "data": {
                       "items": {
-                        "properties": {
-                          "account": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "amount": {
-                            "type": "number"
-                          },
-                          "chain": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "created": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "currency": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "id": {
-                            "type": "string"
-                          },
-                          "name": {
-                            "minLength": 1,
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "account",
-                          "name",
-                          "amount",
-                          "chain",
-                          "currency",
-                          "created"
-                        ],
-                        "type": "object"
+                        "$ref": "#/components/schemas/Product"
                       },
                       "minItems": 1,
                       "type": "array",
@@ -2909,58 +1714,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "amount": {
-                      "type": "number"
-                    },
-                    "chain": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "created": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "currency": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "id": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "name": {
-                      "minLength": 1,
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "account",
-                    "name",
-                    "amount",
-                    "chain",
-                    "currency",
-                    "created"
-                  ],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "acct_p82RIso0f9EOvdJoFTYIK",
-                      "amount": 100,
-                      "base_currency": null,
-                      "chain": "eth",
-                      "created": "1650314884047",
-                      "currency": "eth",
-                      "id": "str",
-                      "name": "Product 1"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Product"
                 }
               }
             },
@@ -3001,6 +1755,14 @@
         "operationId": "products_retrieve",
         "parameters": [
           {
+            "description": "Specifies which fields to populate in the response.",
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -3013,58 +1775,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "amount": {
-                      "type": "number"
-                    },
-                    "base_currency": {
-                      "type": "string"
-                    },
-                    "chain": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "created": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "currency": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "minLength": 1,
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "account",
-                    "name",
-                    "amount",
-                    "chain",
-                    "currency",
-                    "created"
-                  ],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "acct_N1nX5NcznNujnha1y6Bg6",
-                      "amount": 1,
-                      "base_currency": null,
-                      "chain": "eth",
-                      "created": "1649293370029",
-                      "currency": "eth",
-                      "name": "Test Product"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Product"
                 }
               }
             },
@@ -3103,53 +1814,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "amount": {
-                      "type": "number"
-                    },
-                    "base_currency": {},
-                    "chain": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "created": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "currency": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "name": {
-                      "minLength": 1,
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "account",
-                    "name",
-                    "amount",
-                    "chain",
-                    "currency",
-                    "created"
-                  ],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "acct_N1nX5NcznNujnha1y6Bg6",
-                      "amount": 1,
-                      "base_currency": null,
-                      "chain": "eth",
-                      "created": "1649293370029",
-                      "currency": "eth",
-                      "name": "Test Product"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Product"
                 }
               }
             },
@@ -3217,29 +1882,7 @@
                   "properties": {
                     "data": {
                       "items": {
-                        "properties": {
-                          "account": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "address": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "chain": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "created": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "id": {
-                            "type": "string"
-                          }
-                        },
-                        "required": ["account", "chain", "address", "created"],
-                        "type": "object"
+                        "$ref": "#/components/schemas/Wallet"
                       },
                       "minItems": 0,
                       "type": "array",
@@ -3338,38 +1981,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "address": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "chain": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "created": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "string"
-                    }
-                  },
-                  "required": ["account", "chain", "address", "created"],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "acct_N1nX5NcznNujnha1y6Bg6",
-                      "address": "0x7be26fCf555F77c40318Bc0BC55f69B920C60eeD",
-                      "chain": "eth",
-                      "created": "1649297674007"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Wallet"
                 }
               }
             },
@@ -3411,28 +2023,6 @@
         "operationId": "wallets_retrieve",
         "parameters": [
           {
-            "description": "A limit on the number of objects to be returned between 1 and 100.",
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "number"
-            }
-          },
-          {
-            "description": "Index of the page to be returned in a paginated response.",
-            "in": "query",
-            "name": "page",
-            "schema": {
-              "type": "number"
-            }
-          },
-          {
-            "description": "Specifies whether documents are sorted in an ascending or descending order.",
-            "in": "query",
-            "name": "sort",
-            "schema": {}
-          },
-          {
             "description": "Specifies which fields to populate in the response.",
             "in": "query",
             "name": "expand",
@@ -3463,38 +2053,7 @@
                   }
                 },
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "address": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "chain": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "created": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "string"
-                    }
-                  },
-                  "required": ["account", "chain", "address", "created"],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "acct_N1nX5NcznNujnha1y6Bg6",
-                      "address": "0x7be26fCf555F77c40318Bc0BC55f69B920C60eeD",
-                      "chain": "eth",
-                      "created": "1649297674007"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Wallet"
                 }
               }
             },
@@ -3533,38 +2092,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "address": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "chain": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "created": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "string"
-                    }
-                  },
-                  "required": ["account", "chain", "address", "created"],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "acct_N1nX5NcznNujnha1y6Bg6",
-                      "address": "0x7be26fCf555F77c40318Bc0BC55f69B920C60eeD",
-                      "chain": "eth",
-                      "created": "1649297674007"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Wallet"
                 }
               }
             },
@@ -3632,30 +2160,7 @@
                   "properties": {
                     "data": {
                       "items": {
-                        "properties": {
-                          "account": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "created": {
-                            "type": "string"
-                          },
-                          "endpoint_url": {
-                            "minLength": 1,
-                            "type": "string"
-                          },
-                          "event_types": {
-                            "items": {
-                              "type": "object"
-                            },
-                            "type": "array"
-                          },
-                          "id": {
-                            "type": "string"
-                          }
-                        },
-                        "required": ["account", "endpoint_url"],
-                        "type": "object"
+                        "$ref": "#/components/schemas/Webhook"
                       },
                       "minItems": 1,
                       "type": "array",
@@ -3757,49 +2262,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "created": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "endpoint_url": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "event_types": {
-                      "items": {
-                        "properties": {},
-                        "required": []
-                      },
-                      "type": "array"
-                    },
-                    "id": {
-                      "minLength": 1,
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "account",
-                    "endpoint_url",
-                    "event_types",
-                    "created"
-                  ],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "str",
-                      "created": "d",
-                      "endpoint_url": "s",
-                      "event_types": ["s", "a"],
-                      "id": "s"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Webhook"
                 }
               }
             },
@@ -3838,6 +2301,14 @@
         "operationId": "webhooks_retrieve",
         "parameters": [
           {
+            "description": "Specifies which fields to populate in the response.",
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -3850,45 +2321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "created": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "endpoint_url": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "event_types": {
-                      "items": {
-                        "type": "object"
-                      },
-                      "type": "array"
-                    },
-                    "id": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "account",
-                    "endpoint_url",
-                    "event_types",
-                    "created"
-                  ],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "str",
-                      "created": "d",
-                      "endpoint_url": "s",
-                      "event_types": ["s", "a"]
-                    }
-                  }
+                  "$ref": "#/components/schemas/Webhook"
                 }
               }
             },
@@ -3927,49 +2360,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "properties": {
-                    "account": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "created": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "endpoint_url": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "event_types": {
-                      "items": {
-                        "properties": {},
-                        "required": []
-                      },
-                      "type": "array"
-                    },
-                    "id": {
-                      "minLength": 1,
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "account",
-                    "endpoint_url",
-                    "event_types",
-                    "created"
-                  ],
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "account": "str",
-                      "created": "d",
-                      "endpoint_url": "s",
-                      "event_types": ["s", "a"],
-                      "id": "s"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Webhook"
                 }
               }
             },

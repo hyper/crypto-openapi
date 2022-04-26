@@ -9,9 +9,8 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { InlineObject2 } from '../models/InlineObject2';
-import { InlineResponse2006 } from '../models/InlineResponse2006';
-import { InlineResponse2007 } from '../models/InlineResponse2007';
-import { InlineResponse2008 } from '../models/InlineResponse2008';
+import { InlineResponse2002 } from '../models/InlineResponse2002';
+import { Invoice } from '../models/Invoice';
 
 /**
  * no description
@@ -120,15 +119,17 @@ export class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Retrieve Invoice By Id
      * @param invoiceId 
+     * @param expand Specifies which fields to populate in the response.
      * @param prismAccount 
      */
-    public async retrieve(invoiceId: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieve(invoiceId: string, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'invoiceId' is not null or undefined
         if (invoiceId === null || invoiceId === undefined) {
             throw new RequiredError("InvoicesApi", "retrieve", "invoiceId");
         }
+
 
 
 
@@ -139,6 +140,11 @@ export class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (expand !== undefined) {
+            requestContext.setQueryParam("expand", ObjectSerializer.serialize(expand, "string", ""));
+        }
 
         // Header Params
         requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
@@ -200,22 +206,22 @@ export class InvoicesApiResponseProcessor {
      * @params response Response returned by the server for a request to create
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async create(response: ResponseContext): Promise<InlineResponse2007 > {
+     public async create(response: ResponseContext): Promise<Invoice > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2007 = ObjectSerializer.deserialize(
+            const body: Invoice = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2007", ""
-            ) as InlineResponse2007;
+                "Invoice", ""
+            ) as Invoice;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2007 = ObjectSerializer.deserialize(
+            const body: Invoice = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2007", ""
-            ) as InlineResponse2007;
+                "Invoice", ""
+            ) as Invoice;
             return body;
         }
 
@@ -229,22 +235,22 @@ export class InvoicesApiResponseProcessor {
      * @params response Response returned by the server for a request to list
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async list(response: ResponseContext): Promise<InlineResponse2006 > {
+     public async list(response: ResponseContext): Promise<InlineResponse2002 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2006 = ObjectSerializer.deserialize(
+            const body: InlineResponse2002 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2006", ""
-            ) as InlineResponse2006;
+                "InlineResponse2002", ""
+            ) as InlineResponse2002;
             return body;
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2006 = ObjectSerializer.deserialize(
+            const body: InlineResponse2002 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2006", ""
-            ) as InlineResponse2006;
+                "InlineResponse2002", ""
+            ) as InlineResponse2002;
             return body;
         }
 
@@ -258,13 +264,13 @@ export class InvoicesApiResponseProcessor {
      * @params response Response returned by the server for a request to retrieve
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async retrieve(response: ResponseContext): Promise<InlineResponse2008 > {
+     public async retrieve(response: ResponseContext): Promise<Invoice > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2008 = ObjectSerializer.deserialize(
+            const body: Invoice = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2008", ""
-            ) as InlineResponse2008;
+                "Invoice", ""
+            ) as Invoice;
             return body;
         }
         if (isCodeInRange("404", response.httpStatusCode)) {
@@ -273,10 +279,10 @@ export class InvoicesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2008 = ObjectSerializer.deserialize(
+            const body: Invoice = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2008", ""
-            ) as InlineResponse2008;
+                "Invoice", ""
+            ) as Invoice;
             return body;
         }
 
@@ -290,13 +296,13 @@ export class InvoicesApiResponseProcessor {
      * @params response Response returned by the server for a request to update
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async update(response: ResponseContext): Promise<InlineResponse2008 > {
+     public async update(response: ResponseContext): Promise<Invoice > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2008 = ObjectSerializer.deserialize(
+            const body: Invoice = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2008", ""
-            ) as InlineResponse2008;
+                "Invoice", ""
+            ) as Invoice;
             return body;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
@@ -308,10 +314,10 @@ export class InvoicesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2008 = ObjectSerializer.deserialize(
+            const body: Invoice = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2008", ""
-            ) as InlineResponse2008;
+                "Invoice", ""
+            ) as Invoice;
             return body;
         }
 

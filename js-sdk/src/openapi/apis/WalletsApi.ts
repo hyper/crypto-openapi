@@ -9,8 +9,8 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { InlineObject4 } from '../models/InlineObject4';
-import { InlineResponse20017 } from '../models/InlineResponse20017';
-import { InlineResponse20018 } from '../models/InlineResponse20018';
+import { InlineResponse2006 } from '../models/InlineResponse2006';
+import { Wallet } from '../models/Wallet';
 
 /**
  * no description
@@ -153,22 +153,16 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Retrieve Wallet By Id
      * @param walletId 
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
      * @param prismAccount 
      */
-    public async retrieve(walletId: string, limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieve(walletId: string, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'walletId' is not null or undefined
         if (walletId === null || walletId === undefined) {
             throw new RequiredError("WalletsApi", "retrieve", "walletId");
         }
-
-
-
 
 
 
@@ -180,21 +174,6 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (limit !== undefined) {
-            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
-        }
-
-        // Query Params
-        if (page !== undefined) {
-            requestContext.setQueryParam("page", ObjectSerializer.serialize(page, "number", ""));
-        }
-
-        // Query Params
-        if (sort !== undefined) {
-            requestContext.setQueryParam("sort", ObjectSerializer.serialize(sort, "any", ""));
-        }
 
         // Query Params
         if (expand !== undefined) {
@@ -289,13 +268,13 @@ export class WalletsApiResponseProcessor {
      * @params response Response returned by the server for a request to create
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async create(response: ResponseContext): Promise<InlineResponse20018 > {
+     public async create(response: ResponseContext): Promise<Wallet > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20018 = ObjectSerializer.deserialize(
+            const body: Wallet = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20018", ""
-            ) as InlineResponse20018;
+                "Wallet", ""
+            ) as Wallet;
             return body;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
@@ -304,10 +283,10 @@ export class WalletsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20018 = ObjectSerializer.deserialize(
+            const body: Wallet = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20018", ""
-            ) as InlineResponse20018;
+                "Wallet", ""
+            ) as Wallet;
             return body;
         }
 
@@ -321,13 +300,13 @@ export class WalletsApiResponseProcessor {
      * @params response Response returned by the server for a request to list
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async list(response: ResponseContext): Promise<InlineResponse20017 > {
+     public async list(response: ResponseContext): Promise<InlineResponse2006 > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20017 = ObjectSerializer.deserialize(
+            const body: InlineResponse2006 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20017", ""
-            ) as InlineResponse20017;
+                "InlineResponse2006", ""
+            ) as InlineResponse2006;
             return body;
         }
         if (isCodeInRange("404", response.httpStatusCode)) {
@@ -336,10 +315,10 @@ export class WalletsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20017 = ObjectSerializer.deserialize(
+            const body: InlineResponse2006 = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20017", ""
-            ) as InlineResponse20017;
+                "InlineResponse2006", ""
+            ) as InlineResponse2006;
             return body;
         }
 
@@ -353,13 +332,13 @@ export class WalletsApiResponseProcessor {
      * @params response Response returned by the server for a request to retrieve
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async retrieve(response: ResponseContext): Promise<InlineResponse20018 > {
+     public async retrieve(response: ResponseContext): Promise<Wallet > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20018 = ObjectSerializer.deserialize(
+            const body: Wallet = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20018", ""
-            ) as InlineResponse20018;
+                "Wallet", ""
+            ) as Wallet;
             return body;
         }
         if (isCodeInRange("404", response.httpStatusCode)) {
@@ -368,10 +347,10 @@ export class WalletsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20018 = ObjectSerializer.deserialize(
+            const body: Wallet = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20018", ""
-            ) as InlineResponse20018;
+                "Wallet", ""
+            ) as Wallet;
             return body;
         }
 
@@ -385,13 +364,13 @@ export class WalletsApiResponseProcessor {
      * @params response Response returned by the server for a request to update
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async update(response: ResponseContext): Promise<InlineResponse20018 > {
+     public async update(response: ResponseContext): Promise<Wallet > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse20018 = ObjectSerializer.deserialize(
+            const body: Wallet = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20018", ""
-            ) as InlineResponse20018;
+                "Wallet", ""
+            ) as Wallet;
             return body;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
@@ -403,10 +382,10 @@ export class WalletsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse20018 = ObjectSerializer.deserialize(
+            const body: Wallet = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse20018", ""
-            ) as InlineResponse20018;
+                "Wallet", ""
+            ) as Wallet;
             return body;
         }
 

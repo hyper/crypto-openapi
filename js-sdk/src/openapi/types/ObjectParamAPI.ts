@@ -8,6 +8,8 @@ import { AccountBranding } from '../models/AccountBranding';
 import { Customer } from '../models/Customer';
 import { CustomerBillingDetails } from '../models/CustomerBillingDetails';
 import { CustomerBillingDetailsAddress } from '../models/CustomerBillingDetailsAddress';
+import { CustomersBillingDetails } from '../models/CustomersBillingDetails';
+import { CustomersBillingDetailsAddress } from '../models/CustomersBillingDetailsAddress';
 import { Fee } from '../models/Fee';
 import { InlineObject } from '../models/InlineObject';
 import { InlineObject1 } from '../models/InlineObject1';
@@ -17,42 +19,14 @@ import { InlineObject4 } from '../models/InlineObject4';
 import { InlineObject5 } from '../models/InlineObject5';
 import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
-import { InlineResponse20010 } from '../models/InlineResponse20010';
-import { InlineResponse20010Request } from '../models/InlineResponse20010Request';
-import { InlineResponse20010RequestBody } from '../models/InlineResponse20010RequestBody';
-import { InlineResponse20010RequestHeaders } from '../models/InlineResponse20010RequestHeaders';
-import { InlineResponse20010Response } from '../models/InlineResponse20010Response';
-import { InlineResponse20010ResponseBody } from '../models/InlineResponse20010ResponseBody';
-import { InlineResponse20010ResponseBodyBranding } from '../models/InlineResponse20010ResponseBodyBranding';
-import { InlineResponse20011 } from '../models/InlineResponse20011';
-import { InlineResponse20011Data } from '../models/InlineResponse20011Data';
-import { InlineResponse20012 } from '../models/InlineResponse20012';
-import { InlineResponse20013 } from '../models/InlineResponse20013';
-import { InlineResponse20013Data } from '../models/InlineResponse20013Data';
-import { InlineResponse20014 } from '../models/InlineResponse20014';
-import { InlineResponse20015 } from '../models/InlineResponse20015';
-import { InlineResponse20016 } from '../models/InlineResponse20016';
-import { InlineResponse20017 } from '../models/InlineResponse20017';
-import { InlineResponse20017Data } from '../models/InlineResponse20017Data';
-import { InlineResponse20018 } from '../models/InlineResponse20018';
-import { InlineResponse20019 } from '../models/InlineResponse20019';
-import { InlineResponse20019Data } from '../models/InlineResponse20019Data';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
-import { InlineResponse20020 } from '../models/InlineResponse20020';
-import { InlineResponse20021 } from '../models/InlineResponse20021';
 import { InlineResponse2003 } from '../models/InlineResponse2003';
-import { InlineResponse2003Data } from '../models/InlineResponse2003Data';
 import { InlineResponse2004 } from '../models/InlineResponse2004';
 import { InlineResponse2005 } from '../models/InlineResponse2005';
 import { InlineResponse2006 } from '../models/InlineResponse2006';
-import { InlineResponse2006Data } from '../models/InlineResponse2006Data';
 import { InlineResponse2007 } from '../models/InlineResponse2007';
-import { InlineResponse2008 } from '../models/InlineResponse2008';
-import { InlineResponse2009 } from '../models/InlineResponse2009';
-import { InlineResponse200BillingDetails } from '../models/InlineResponse200BillingDetails';
-import { InlineResponse200BillingDetailsAddress } from '../models/InlineResponse200BillingDetailsAddress';
-import { InlineResponse200Data } from '../models/InlineResponse200Data';
 import { Invoice } from '../models/Invoice';
+import { Log } from '../models/Log';
 import { Payment } from '../models/Payment';
 import { Product } from '../models/Product';
 import { Wallet } from '../models/Wallet';
@@ -117,6 +91,12 @@ export interface CustomersApiRetrieveRequest {
      */
     customerId: string
     /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof CustomersApiretrieve
+     */
+    expand?: string
+    /**
      * 
      * @type string
      * @memberof CustomersApiretrieve
@@ -150,7 +130,7 @@ export class ObjectCustomersApi {
      * Create Customer
      * @param param the request object
      */
-    public create(param: CustomersApiCreateRequest = {}, options?: Configuration): Promise<InlineResponse2001> {
+    public create(param: CustomersApiCreateRequest = {}, options?: Configuration): Promise<Customer> {
         return this.api.create(param.prismAccount, param.inlineObject,  options).toPromise();
     }
 
@@ -166,15 +146,15 @@ export class ObjectCustomersApi {
      * Retrieve Customer By Id
      * @param param the request object
      */
-    public retrieve(param: CustomersApiRetrieveRequest, options?: Configuration): Promise<InlineResponse2001> {
-        return this.api.retrieve(param.customerId, param.prismAccount,  options).toPromise();
+    public retrieve(param: CustomersApiRetrieveRequest, options?: Configuration): Promise<Customer> {
+        return this.api.retrieve(param.customerId, param.expand, param.prismAccount,  options).toPromise();
     }
 
     /**
      * Update Customer By Id
      * @param param the request object
      */
-    public update(param: CustomersApiUpdateRequest, options?: Configuration): Promise<InlineResponse2002> {
+    public update(param: CustomersApiUpdateRequest, options?: Configuration): Promise<Customer> {
         return this.api.update(param.customerId, param.prismAccount,  options).toPromise();
     }
 
@@ -254,6 +234,12 @@ export interface FeesApiRetrieveRequest {
      */
     feeId: string
     /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof FeesApiretrieve
+     */
+    expand?: string
+    /**
      * 
      * @type string
      * @memberof FeesApiretrieve
@@ -280,7 +266,7 @@ export class ObjectFeesApi {
      * Create Fee
      * @param param the request object
      */
-    public create(param: FeesApiCreateRequest = {}, options?: Configuration): Promise<InlineResponse2004> {
+    public create(param: FeesApiCreateRequest = {}, options?: Configuration): Promise<Fee> {
         return this.api.create(param.prismAccount, param.inlineObject1,  options).toPromise();
     }
 
@@ -288,7 +274,7 @@ export class ObjectFeesApi {
      * List Fees
      * @param param the request object
      */
-    public list(param: FeesApiListRequest = {}, options?: Configuration): Promise<InlineResponse2003> {
+    public list(param: FeesApiListRequest = {}, options?: Configuration): Promise<InlineResponse2001> {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
     }
 
@@ -296,8 +282,8 @@ export class ObjectFeesApi {
      * Retrieve Fee By Id
      * @param param the request object
      */
-    public retrieve(param: FeesApiRetrieveRequest, options?: Configuration): Promise<InlineResponse2005> {
-        return this.api.retrieve(param.feeId, param.prismAccount,  options).toPromise();
+    public retrieve(param: FeesApiRetrieveRequest, options?: Configuration): Promise<Fee> {
+        return this.api.retrieve(param.feeId, param.expand, param.prismAccount,  options).toPromise();
     }
 
 }
@@ -361,6 +347,12 @@ export interface InvoicesApiRetrieveRequest {
      */
     invoiceId: string
     /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof InvoicesApiretrieve
+     */
+    expand?: string
+    /**
      * 
      * @type string
      * @memberof InvoicesApiretrieve
@@ -394,7 +386,7 @@ export class ObjectInvoicesApi {
      * Create Invoice
      * @param param the request object
      */
-    public create(param: InvoicesApiCreateRequest = {}, options?: Configuration): Promise<InlineResponse2007> {
+    public create(param: InvoicesApiCreateRequest = {}, options?: Configuration): Promise<Invoice> {
         return this.api.create(param.prismAccount, param.inlineObject2,  options).toPromise();
     }
 
@@ -402,7 +394,7 @@ export class ObjectInvoicesApi {
      * List Invoices
      * @param param the request object
      */
-    public list(param: InvoicesApiListRequest = {}, options?: Configuration): Promise<InlineResponse2006> {
+    public list(param: InvoicesApiListRequest = {}, options?: Configuration): Promise<InlineResponse2002> {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
     }
 
@@ -410,15 +402,15 @@ export class ObjectInvoicesApi {
      * Retrieve Invoice By Id
      * @param param the request object
      */
-    public retrieve(param: InvoicesApiRetrieveRequest, options?: Configuration): Promise<InlineResponse2008> {
-        return this.api.retrieve(param.invoiceId, param.prismAccount,  options).toPromise();
+    public retrieve(param: InvoicesApiRetrieveRequest, options?: Configuration): Promise<Invoice> {
+        return this.api.retrieve(param.invoiceId, param.expand, param.prismAccount,  options).toPromise();
     }
 
     /**
      * Update Invoice By Id
      * @param param the request object
      */
-    public update(param: InvoicesApiUpdateRequest, options?: Configuration): Promise<InlineResponse2008> {
+    public update(param: InvoicesApiUpdateRequest, options?: Configuration): Promise<Invoice> {
         return this.api.update(param.invoiceId, param.prismAccount,  options).toPromise();
     }
 
@@ -468,6 +460,12 @@ export interface LogsApiRetrieveRequest {
      */
     logId: string
     /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof LogsApiretrieve
+     */
+    expand?: string
+    /**
      * 
      * @type string
      * @memberof LogsApiretrieve
@@ -486,7 +484,7 @@ export class ObjectLogsApi {
      * List Logs
      * @param param the request object
      */
-    public list(param: LogsApiListRequest = {}, options?: Configuration): Promise<InlineResponse2009> {
+    public list(param: LogsApiListRequest = {}, options?: Configuration): Promise<InlineResponse2003> {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
     }
 
@@ -494,8 +492,8 @@ export class ObjectLogsApi {
      * Retrieve Log By Id
      * @param param the request object
      */
-    public retrieve(param: LogsApiRetrieveRequest, options?: Configuration): Promise<InlineResponse20010> {
-        return this.api.retrieve(param.logId, param.prismAccount,  options).toPromise();
+    public retrieve(param: LogsApiRetrieveRequest, options?: Configuration): Promise<Log> {
+        return this.api.retrieve(param.logId, param.expand, param.prismAccount,  options).toPromise();
     }
 
 }
@@ -544,6 +542,12 @@ export interface PaymentsApiRetrieveRequest {
      */
     paymentId: string
     /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof PaymentsApiretrieve
+     */
+    expand?: string
+    /**
      * 
      * @type string
      * @memberof PaymentsApiretrieve
@@ -562,7 +566,7 @@ export class ObjectPaymentsApi {
      * List Payments
      * @param param the request object
      */
-    public list(param: PaymentsApiListRequest = {}, options?: Configuration): Promise<InlineResponse20011> {
+    public list(param: PaymentsApiListRequest = {}, options?: Configuration): Promise<InlineResponse2004> {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
     }
 
@@ -570,8 +574,8 @@ export class ObjectPaymentsApi {
      * Retrieve Payment By Id
      * @param param the request object
      */
-    public retrieve(param: PaymentsApiRetrieveRequest, options?: Configuration): Promise<InlineResponse20012> {
-        return this.api.retrieve(param.paymentId, param.prismAccount,  options).toPromise();
+    public retrieve(param: PaymentsApiRetrieveRequest, options?: Configuration): Promise<Payment> {
+        return this.api.retrieve(param.paymentId, param.expand, param.prismAccount,  options).toPromise();
     }
 
 }
@@ -650,6 +654,12 @@ export interface ProductsApiRetrieveRequest {
      */
     productId: string
     /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof ProductsApiretrieve
+     */
+    expand?: string
+    /**
      * 
      * @type string
      * @memberof ProductsApiretrieve
@@ -691,7 +701,7 @@ export class ObjectProductsApi {
      * Create Product
      * @param param the request object
      */
-    public create(param: ProductsApiCreateRequest = {}, options?: Configuration): Promise<InlineResponse20014> {
+    public create(param: ProductsApiCreateRequest = {}, options?: Configuration): Promise<Product> {
         return this.api.create(param.prismAccount, param.inlineObject3,  options).toPromise();
     }
 
@@ -699,7 +709,7 @@ export class ObjectProductsApi {
      * List Products
      * @param param the request object
      */
-    public list(param: ProductsApiListRequest = {}, options?: Configuration): Promise<InlineResponse20013> {
+    public list(param: ProductsApiListRequest = {}, options?: Configuration): Promise<InlineResponse2005> {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
     }
 
@@ -707,15 +717,15 @@ export class ObjectProductsApi {
      * Retrieve Product By Id
      * @param param the request object
      */
-    public retrieve(param: ProductsApiRetrieveRequest, options?: Configuration): Promise<InlineResponse20015> {
-        return this.api.retrieve(param.productId, param.prismAccount,  options).toPromise();
+    public retrieve(param: ProductsApiRetrieveRequest, options?: Configuration): Promise<Product> {
+        return this.api.retrieve(param.productId, param.expand, param.prismAccount,  options).toPromise();
     }
 
     /**
      * Update Product By Id
      * @param param the request object
      */
-    public update(param: ProductsApiUpdateRequest, options?: Configuration): Promise<InlineResponse20016> {
+    public update(param: ProductsApiUpdateRequest, options?: Configuration): Promise<Product> {
         return this.api.update(param.productId, param.prismAccount,  options).toPromise();
     }
 
@@ -795,24 +805,6 @@ export interface WalletsApiRetrieveRequest {
      */
     walletId: string
     /**
-     * A limit on the number of objects to be returned between 1 and 100.
-     * @type number
-     * @memberof WalletsApiretrieve
-     */
-    limit?: number
-    /**
-     * Index of the page to be returned in a paginated response.
-     * @type number
-     * @memberof WalletsApiretrieve
-     */
-    page?: number
-    /**
-     * Specifies whether documents are sorted in an ascending or descending order.
-     * @type any
-     * @memberof WalletsApiretrieve
-     */
-    sort?: any
-    /**
      * Specifies which fields to populate in the response.
      * @type string
      * @memberof WalletsApiretrieve
@@ -860,7 +852,7 @@ export class ObjectWalletsApi {
      * Create Wallet
      * @param param the request object
      */
-    public create(param: WalletsApiCreateRequest = {}, options?: Configuration): Promise<InlineResponse20018> {
+    public create(param: WalletsApiCreateRequest = {}, options?: Configuration): Promise<Wallet> {
         return this.api.create(param.prismAccount, param.inlineObject4,  options).toPromise();
     }
 
@@ -868,7 +860,7 @@ export class ObjectWalletsApi {
      * List Wallets
      * @param param the request object
      */
-    public list(param: WalletsApiListRequest = {}, options?: Configuration): Promise<InlineResponse20017> {
+    public list(param: WalletsApiListRequest = {}, options?: Configuration): Promise<InlineResponse2006> {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
     }
 
@@ -876,15 +868,15 @@ export class ObjectWalletsApi {
      * Retrieve Wallet By Id
      * @param param the request object
      */
-    public retrieve(param: WalletsApiRetrieveRequest, options?: Configuration): Promise<InlineResponse20018> {
-        return this.api.retrieve(param.walletId, param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
+    public retrieve(param: WalletsApiRetrieveRequest, options?: Configuration): Promise<Wallet> {
+        return this.api.retrieve(param.walletId, param.expand, param.prismAccount,  options).toPromise();
     }
 
     /**
      * Update Wallet By Id
      * @param param the request object
      */
-    public update(param: WalletsApiUpdateRequest, options?: Configuration): Promise<InlineResponse20018> {
+    public update(param: WalletsApiUpdateRequest, options?: Configuration): Promise<Wallet> {
         return this.api.update(param.walletId, param.prismAccount,  options).toPromise();
     }
 
@@ -964,6 +956,12 @@ export interface WebhooksApiRetrieveRequest {
      */
     webhookId: string
     /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof WebhooksApiretrieve
+     */
+    expand?: string
+    /**
      * 
      * @type string
      * @memberof WebhooksApiretrieve
@@ -1005,7 +1003,7 @@ export class ObjectWebhooksApi {
      * Create Webhook
      * @param param the request object
      */
-    public create(param: WebhooksApiCreateRequest = {}, options?: Configuration): Promise<InlineResponse20020> {
+    public create(param: WebhooksApiCreateRequest = {}, options?: Configuration): Promise<Webhook> {
         return this.api.create(param.prismAccount, param.inlineObject5,  options).toPromise();
     }
 
@@ -1013,7 +1011,7 @@ export class ObjectWebhooksApi {
      * List Webhooks
      * @param param the request object
      */
-    public list(param: WebhooksApiListRequest = {}, options?: Configuration): Promise<InlineResponse20019> {
+    public list(param: WebhooksApiListRequest = {}, options?: Configuration): Promise<InlineResponse2007> {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
     }
 
@@ -1021,15 +1019,15 @@ export class ObjectWebhooksApi {
      * Retrieve Webhook By Id
      * @param param the request object
      */
-    public retrieve(param: WebhooksApiRetrieveRequest, options?: Configuration): Promise<InlineResponse20021> {
-        return this.api.retrieve(param.webhookId, param.prismAccount,  options).toPromise();
+    public retrieve(param: WebhooksApiRetrieveRequest, options?: Configuration): Promise<Webhook> {
+        return this.api.retrieve(param.webhookId, param.expand, param.prismAccount,  options).toPromise();
     }
 
     /**
      * Update Webhook By Id
      * @param param the request object
      */
-    public update(param: WebhooksApiUpdateRequest, options?: Configuration): Promise<InlineResponse20020> {
+    public update(param: WebhooksApiUpdateRequest, options?: Configuration): Promise<Webhook> {
         return this.api.update(param.webhookId, param.prismAccount,  options).toPromise();
     }
 

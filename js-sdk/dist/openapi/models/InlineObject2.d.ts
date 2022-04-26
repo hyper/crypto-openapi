@@ -7,7 +7,6 @@ export declare class InlineObject2 {
     'due'?: any;
     'number': string;
     'product'?: string;
-    'status': string;
     'transaction': string;
     'wallet': string;
     static readonly discriminator: string | undefined;

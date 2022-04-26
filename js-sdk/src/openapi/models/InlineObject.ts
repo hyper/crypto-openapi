@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 
-import { InlineResponse200BillingDetails } from './InlineResponse200BillingDetails';
+import { CustomersBillingDetails } from './CustomersBillingDetails';
 import { HttpFile } from '../http/http';
 
 export class InlineObject {
     'account': string;
-    'billingDetails': InlineResponse200BillingDetails;
+    'billingDetails': CustomersBillingDetails;
     'email': string;
     'name': string;
     'phone': string;
@@ -32,7 +32,7 @@ export class InlineObject {
         {
             "name": "billingDetails",
             "baseName": "billing_details",
-            "type": "InlineResponse200BillingDetails",
+            "type": "CustomersBillingDetails",
             "format": ""
         },
         {

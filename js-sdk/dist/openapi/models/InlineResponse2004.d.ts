@@ -1,13 +1,10 @@
+import { Payment } from './Payment';
+import { Set } from './Set';
 export declare class InlineResponse2004 {
-    'account': string;
-    'amount': number;
-    'created': string;
-    'description'?: string;
-    'id': string;
-    'invoice': string;
-    'percent': number;
-    'usdAmount': number;
-    'wallet': string;
+    'data': Set<Payment>;
+    'hasMore': boolean;
+    'page': number;
+    'total': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

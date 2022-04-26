@@ -14,8 +14,8 @@ class PromiseCustomersApi {
         const result = this.api.list(limit, page, sort, expand, prismAccount, _options);
         return result.toPromise();
     }
-    retrieve(customerId, prismAccount, _options) {
-        const result = this.api.retrieve(customerId, prismAccount, _options);
+    retrieve(customerId, expand, prismAccount, _options) {
+        const result = this.api.retrieve(customerId, expand, prismAccount, _options);
         return result.toPromise();
     }
     update(customerId, prismAccount, _options) {
@@ -41,8 +41,8 @@ class PromiseFeesApi {
         const result = this.api.list(limit, page, sort, expand, prismAccount, _options);
         return result.toPromise();
     }
-    retrieve(feeId, prismAccount, _options) {
-        const result = this.api.retrieve(feeId, prismAccount, _options);
+    retrieve(feeId, expand, prismAccount, _options) {
+        const result = this.api.retrieve(feeId, expand, prismAccount, _options);
         return result.toPromise();
     }
 }
@@ -60,8 +60,8 @@ class PromiseInvoicesApi {
         const result = this.api.list(limit, page, sort, expand, prismAccount, _options);
         return result.toPromise();
     }
-    retrieve(invoiceId, prismAccount, _options) {
-        const result = this.api.retrieve(invoiceId, prismAccount, _options);
+    retrieve(invoiceId, expand, prismAccount, _options) {
+        const result = this.api.retrieve(invoiceId, expand, prismAccount, _options);
         return result.toPromise();
     }
     update(invoiceId, prismAccount, _options) {
@@ -79,8 +79,8 @@ class PromiseLogsApi {
         const result = this.api.list(limit, page, sort, expand, prismAccount, _options);
         return result.toPromise();
     }
-    retrieve(logId, prismAccount, _options) {
-        const result = this.api.retrieve(logId, prismAccount, _options);
+    retrieve(logId, expand, prismAccount, _options) {
+        const result = this.api.retrieve(logId, expand, prismAccount, _options);
         return result.toPromise();
     }
 }
@@ -94,8 +94,8 @@ class PromisePaymentsApi {
         const result = this.api.list(limit, page, sort, expand, prismAccount, _options);
         return result.toPromise();
     }
-    retrieve(paymentId, prismAccount, _options) {
-        const result = this.api.retrieve(paymentId, prismAccount, _options);
+    retrieve(paymentId, expand, prismAccount, _options) {
+        const result = this.api.retrieve(paymentId, expand, prismAccount, _options);
         return result.toPromise();
     }
 }
@@ -117,8 +117,8 @@ class PromiseProductsApi {
         const result = this.api.list(limit, page, sort, expand, prismAccount, _options);
         return result.toPromise();
     }
-    retrieve(productId, prismAccount, _options) {
-        const result = this.api.retrieve(productId, prismAccount, _options);
+    retrieve(productId, expand, prismAccount, _options) {
+        const result = this.api.retrieve(productId, expand, prismAccount, _options);
         return result.toPromise();
     }
     update(productId, prismAccount, _options) {
@@ -144,8 +144,8 @@ class PromiseWalletsApi {
         const result = this.api.list(limit, page, sort, expand, prismAccount, _options);
         return result.toPromise();
     }
-    retrieve(walletId, limit, page, sort, expand, prismAccount, _options) {
-        const result = this.api.retrieve(walletId, limit, page, sort, expand, prismAccount, _options);
+    retrieve(walletId, expand, prismAccount, _options) {
+        const result = this.api.retrieve(walletId, expand, prismAccount, _options);
         return result.toPromise();
     }
     update(walletId, prismAccount, _options) {
@@ -171,8 +171,8 @@ class PromiseWebhooksApi {
         const result = this.api.list(limit, page, sort, expand, prismAccount, _options);
         return result.toPromise();
     }
-    retrieve(webhookId, prismAccount, _options) {
-        const result = this.api.retrieve(webhookId, prismAccount, _options);
+    retrieve(webhookId, expand, prismAccount, _options) {
+        const result = this.api.retrieve(webhookId, expand, prismAccount, _options);
         return result.toPromise();
     }
     update(webhookId, prismAccount, _options) {

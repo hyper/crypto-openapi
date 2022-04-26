@@ -21,7 +21,6 @@ export class InlineObject2 {
     'due'?: any;
     'number': string;
     'product'?: string;
-    'status': string;
     'transaction': string;
     'wallet': string;
 
@@ -73,12 +72,6 @@ export class InlineObject2 {
         {
             "name": "product",
             "baseName": "product",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "status",
-            "baseName": "status",
             "type": "string",
             "format": ""
         },

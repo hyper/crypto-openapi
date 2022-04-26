@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **create**
-> InlineResponse2007 create()
+> Invoice create()
 
 
 ### Example
@@ -37,7 +37,6 @@ let body:.InvoicesApiCreateRequest = {
     due: null,
     number: "number_example",
     product: "product_example",
-    status: "status_example",
     transaction: "transaction_example",
     wallet: "wallet_example",
   },
@@ -59,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2007**
+**Invoice**
 
 ### Authorization
 
@@ -79,7 +78,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> InlineResponse2006 list()
+> InlineResponse2002 list()
 
 
 ### Example
@@ -124,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2006**
+**InlineResponse2002**
 
 ### Authorization
 
@@ -144,7 +143,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> InlineResponse2008 retrieve()
+> Invoice retrieve()
 
 
 ### Example
@@ -160,6 +159,8 @@ const apiInstance = new .InvoicesApi(configuration);
 let body:.InvoicesApiRetrieveRequest = {
   // string
   invoiceId: "invoiceId_example",
+  // string | Specifies which fields to populate in the response. (optional)
+  expand: "expand_example",
   // string (optional)
   prismAccount: "Prism-Account_example",
 };
@@ -175,12 +176,13 @@ apiInstance.retrieve(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **invoiceId** | [**string**] |  | defaults to undefined
+ **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
  **prismAccount** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**InlineResponse2008**
+**Invoice**
 
 ### Authorization
 
@@ -201,7 +203,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update**
-> InlineResponse2008 update()
+> Invoice update()
 
 
 ### Example
@@ -237,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2008**
+**Invoice**
 
 ### Authorization
 
