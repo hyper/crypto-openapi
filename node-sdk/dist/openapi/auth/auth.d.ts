@@ -1,34 +1,36 @@
-import { RequestContext } from "../http/http";
+import { RequestContext } from '../http/http';
 export interface SecurityAuthentication {
-    getName(): string;
-    applySecurityAuthentication(context: RequestContext): void | Promise<void>;
+  getName(): string;
+  applySecurityAuthentication(context: RequestContext): void | Promise<void>;
 }
 export interface TokenProvider {
-    getToken(): Promise<string> | string;
+  getToken(): Promise<string> | string;
 }
 export declare class ApiKeyAuthentication implements SecurityAuthentication {
-    private tokenProvider;
-    constructor(tokenProvider: TokenProvider);
-    getName(): string;
-    applySecurityAuthentication(context: RequestContext): Promise<void>;
+  private tokenProvider;
+  constructor(tokenProvider: TokenProvider);
+  getName(): string;
+  applySecurityAuthentication(context: RequestContext): Promise<void>;
 }
 export declare type AuthMethods = {
-    "default"?: SecurityAuthentication;
-    "ApiKey"?: SecurityAuthentication;
+  default?: SecurityAuthentication;
+  ApiKey?: SecurityAuthentication;
 };
 export declare type ApiKeyConfiguration = string;
 export declare type HttpBasicConfiguration = {
-    "username": string;
-    "password": string;
+  username: string;
+  password: string;
 };
 export declare type HttpBearerConfiguration = {
-    tokenProvider: TokenProvider;
+  tokenProvider: TokenProvider;
 };
 export declare type OAuth2Configuration = {
-    accessToken: string;
+  accessToken: string;
 };
 export declare type AuthMethodsConfiguration = {
-    "default"?: SecurityAuthentication;
-    "ApiKey"?: HttpBearerConfiguration;
+  default?: SecurityAuthentication;
+  ApiKey?: HttpBearerConfiguration;
 };
-export declare function configureAuthMethods(config: AuthMethodsConfiguration | undefined): AuthMethods;
+export declare function configureAuthMethods(
+  config: AuthMethodsConfiguration | undefined
+): AuthMethods;

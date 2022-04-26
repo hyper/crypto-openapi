@@ -1,17 +1,17 @@
 export declare class AccountBranding {
-    'logo'?: string;
-    static readonly discriminator: string | undefined;
-    static readonly attributeTypeMap: Array<{
-        name: string;
-        baseName: string;
-        type: string;
-        format: string;
-    }>;
-    static getAttributeTypeMap(): {
-        name: string;
-        baseName: string;
-        type: string;
-        format: string;
-    }[];
-    constructor();
+  'logo'?: string;
+  static readonly discriminator: string | undefined;
+  static readonly attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+    format: string;
+  }>;
+  static getAttributeTypeMap(): {
+    name: string;
+    baseName: string;
+    type: string;
+    format: string;
+  }[];
+  constructor();
 }

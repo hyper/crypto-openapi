@@ -1,22 +1,20 @@
 # .ProductsApi
 
-All URIs are relative to *http://localhost:7070/v1*
+All URIs are relative to _http://localhost:7070/v1_
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**_delete**](ProductsApi.md#_delete) | **DELETE** /products/{productId} | Delete Product By Id
-[**create**](ProductsApi.md#create) | **POST** /products | Create Product
-[**list**](ProductsApi.md#list) | **GET** /products | List Products
-[**retrieve**](ProductsApi.md#retrieve) | **GET** /products/{productId} | Retrieve Product By Id
-[**update**](ProductsApi.md#update) | **PATCH** /products/{productId} | Update Product By Id
+| Method                                  | HTTP request                     | Description            |
+| --------------------------------------- | -------------------------------- | ---------------------- |
+| [**\_delete**](ProductsApi.md#_delete)  | **DELETE** /products/{productId} | Delete Product By Id   |
+| [**create**](ProductsApi.md#create)     | **POST** /products               | Create Product         |
+| [**list**](ProductsApi.md#list)         | **GET** /products                | List Products          |
+| [**retrieve**](ProductsApi.md#retrieve) | **GET** /products/{productId}    | Retrieve Product By Id |
+| [**update**](ProductsApi.md#update)     | **PATCH** /products/{productId}  | Update Product By Id   |
 
+# **\_delete**
 
-# **_delete**
-> void _delete()
-
+> void \_delete()
 
 ### Example
-
 
 ```typescript
 import {  } from '';
@@ -37,14 +35,12 @@ apiInstance._delete(body).then((data:any) => {
 }).catch((error:any) => console.error(error));
 ```
 
-
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **productId** | [**string**] |  | defaults to undefined
- **prismAccount** | [**string**] |  | (optional) defaults to undefined
-
+| Name             | Type         | Description | Notes                            |
+| ---------------- | ------------ | ----------- | -------------------------------- |
+| **productId**    | [**string**] |             | defaults to undefined            |
+| **prismAccount** | [**string**] |             | (optional) defaults to undefined |
 
 ### Return type
 
@@ -56,24 +52,23 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**404** | Not Found |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **404**     | Not Found   | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
+
 > Product create()
 
-
 ### Example
-
 
 ```typescript
 import {  } from '';
@@ -99,14 +94,12 @@ apiInstance.create(body).then((data:any) => {
 }).catch((error:any) => console.error(error));
 ```
 
-
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **inlineObject3** | **InlineObject3**|  |
- **prismAccount** | [**string**] |  | (optional) defaults to undefined
-
+| Name              | Type              | Description | Notes                            |
+| ----------------- | ----------------- | ----------- | -------------------------------- |
+| **inlineObject3** | **InlineObject3** |             |
+| **prismAccount**  | [**string**]      |             | (optional) defaults to undefined |
 
 ### Return type
 
@@ -118,24 +111,23 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad Request |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
+
 > InlineResponse2005 list()
 
-
 ### Example
-
 
 ```typescript
 import {  } from '';
@@ -162,17 +154,15 @@ apiInstance.list(body).then((data:any) => {
 }).catch((error:any) => console.error(error));
 ```
 
-
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | [**number**] | A limit on the number of objects to be returned between 1 and 100. | (optional) defaults to undefined
- **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
- **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
- **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prismAccount** | [**string**] |  | (optional) defaults to undefined
-
+| Name             | Type         | Description                                                                 | Notes                            |
+| ---------------- | ------------ | --------------------------------------------------------------------------- | -------------------------------- |
+| **limit**        | [**number**] | A limit on the number of objects to be returned between 1 and 100.          | (optional) defaults to undefined |
+| **page**         | [**number**] | Index of the page to be returned in a paginated response.                   | (optional) defaults to undefined |
+| **sort**         | **any**      | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined |
+| **expand**       | [**string**] | Specifies which fields to populate in the response.                         | (optional) defaults to undefined |
+| **prismAccount** | [**string**] |                                                                             | (optional) defaults to undefined |
 
 ### Return type
 
@@ -184,23 +174,22 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
+
 > Product retrieve()
 
-
 ### Example
-
 
 ```typescript
 import {  } from '';
@@ -223,15 +212,13 @@ apiInstance.retrieve(body).then((data:any) => {
 }).catch((error:any) => console.error(error));
 ```
 
-
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **productId** | [**string**] |  | defaults to undefined
- **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prismAccount** | [**string**] |  | (optional) defaults to undefined
-
+| Name             | Type         | Description                                         | Notes                            |
+| ---------------- | ------------ | --------------------------------------------------- | -------------------------------- |
+| **productId**    | [**string**] |                                                     | defaults to undefined            |
+| **expand**       | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined |
+| **prismAccount** | [**string**] |                                                     | (optional) defaults to undefined |
 
 ### Return type
 
@@ -243,24 +230,23 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**404** | Not Found |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **404**     | Not Found   | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update**
+
 > Product update()
 
-
 ### Example
-
 
 ```typescript
 import {  } from '';
@@ -281,14 +267,12 @@ apiInstance.update(body).then((data:any) => {
 }).catch((error:any) => console.error(error));
 ```
 
-
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **productId** | [**string**] |  | defaults to undefined
- **prismAccount** | [**string**] |  | (optional) defaults to undefined
-
+| Name             | Type         | Description | Notes                            |
+| ---------------- | ------------ | ----------- | -------------------------------- |
+| **productId**    | [**string**] |             | defaults to undefined            |
+| **prismAccount** | [**string**] |             | (optional) defaults to undefined |
 
 ### Return type
 
@@ -300,17 +284,15 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad Request |  -  |
-**404** | Not Found |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **404**     | Not Found   | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-

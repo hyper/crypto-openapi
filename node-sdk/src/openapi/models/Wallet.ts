@@ -13,68 +13,71 @@
 import { HttpFile } from '../http/http';
 
 export class Wallet {
-    'id': string;
-    'account': string;
-    'address'?: string;
-    'admin'?: boolean;
-    'chain': string;
-    'created': Date;
-    'customer'?: WalletCustomerEnum;
+  'id': string;
+  'account': string;
+  'address'?: string;
+  'admin'?: boolean;
+  'chain': string;
+  'created': Date;
+  'customer'?: WalletCustomerEnum;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "id",
-            "baseName": "_id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "account",
-            "baseName": "account",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "address",
-            "baseName": "address",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "admin",
-            "baseName": "admin",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "WalletCustomerEnum",
-            "format": ""
-        }    ];
+  static readonly attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+    format: string;
+  }> = [
+    {
+      name: 'id',
+      baseName: '_id',
+      type: 'string',
+      format: '',
+    },
+    {
+      name: 'account',
+      baseName: 'account',
+      type: 'string',
+      format: '',
+    },
+    {
+      name: 'address',
+      baseName: 'address',
+      type: 'string',
+      format: '',
+    },
+    {
+      name: 'admin',
+      baseName: 'admin',
+      type: 'boolean',
+      format: '',
+    },
+    {
+      name: 'chain',
+      baseName: 'chain',
+      type: 'string',
+      format: '',
+    },
+    {
+      name: 'created',
+      baseName: 'created',
+      type: 'Date',
+      format: 'date-time',
+    },
+    {
+      name: 'customer',
+      baseName: 'customer',
+      type: 'WalletCustomerEnum',
+      format: '',
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return Wallet.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return Wallet.attributeTypeMap;
+  }
 
-    public constructor() {
-    }
+  public constructor() {}
 }
 
-
-export type WalletCustomerEnum = "succeeded" | "failed" ;
-
+export type WalletCustomerEnum = 'succeeded' | 'failed';

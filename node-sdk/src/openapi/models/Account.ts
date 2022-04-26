@@ -14,65 +14,69 @@ import { AccountBranding } from './AccountBranding';
 import { HttpFile } from '../http/http';
 
 export class Account {
-    'branding'?: AccountBranding;
-    'created': Date;
-    'ethWallet'?: any;
-    'id': string;
-    'invoicePrefix'?: string;
-    'name'?: string;
-    'solWallet'?: any;
+  'branding'?: AccountBranding;
+  'created': Date;
+  'ethWallet'?: any;
+  'id': string;
+  'invoicePrefix'?: string;
+  'name'?: string;
+  'solWallet'?: any;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "branding",
-            "baseName": "branding",
-            "type": "AccountBranding",
-            "format": ""
-        },
-        {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
-            "name": "ethWallet",
-            "baseName": "eth_wallet",
-            "type": "any",
-            "format": ""
-        },
-        {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "invoicePrefix",
-            "baseName": "invoice_prefix",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "solWallet",
-            "baseName": "sol_wallet",
-            "type": "any",
-            "format": ""
-        }    ];
+  static readonly attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+    format: string;
+  }> = [
+    {
+      name: 'branding',
+      baseName: 'branding',
+      type: 'AccountBranding',
+      format: '',
+    },
+    {
+      name: 'created',
+      baseName: 'created',
+      type: 'Date',
+      format: 'date-time',
+    },
+    {
+      name: 'ethWallet',
+      baseName: 'eth_wallet',
+      type: 'any',
+      format: '',
+    },
+    {
+      name: 'id',
+      baseName: 'id',
+      type: 'string',
+      format: '',
+    },
+    {
+      name: 'invoicePrefix',
+      baseName: 'invoice_prefix',
+      type: 'string',
+      format: '',
+    },
+    {
+      name: 'name',
+      baseName: 'name',
+      type: 'string',
+      format: '',
+    },
+    {
+      name: 'solWallet',
+      baseName: 'sol_wallet',
+      type: 'any',
+      format: '',
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return Account.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return Account.attributeTypeMap;
+  }
 
-    public constructor() {
-    }
+  public constructor() {}
 }
-

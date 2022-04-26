@@ -13,75 +13,78 @@
 import { HttpFile } from '../http/http';
 
 export class Product {
-    'id': string;
-    'account': string;
-    'amount': number;
-    'baseCurrency'?: string;
-    'chain'?: string;
-    'created': Date;
-    'currency': ProductCurrencyEnum;
-    'name': string;
+  'id': string;
+  'account': string;
+  'amount': number;
+  'baseCurrency'?: string;
+  'chain'?: string;
+  'created': Date;
+  'currency': ProductCurrencyEnum;
+  'name': string;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "id",
-            "baseName": "_id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "account",
-            "baseName": "account",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "baseCurrency",
-            "baseName": "base_currency",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "ProductCurrencyEnum",
-            "format": ""
-        },
-        {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        }    ];
+  static readonly attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+    format: string;
+  }> = [
+    {
+      name: 'id',
+      baseName: '_id',
+      type: 'string',
+      format: '',
+    },
+    {
+      name: 'account',
+      baseName: 'account',
+      type: 'string',
+      format: '',
+    },
+    {
+      name: 'amount',
+      baseName: 'amount',
+      type: 'number',
+      format: '',
+    },
+    {
+      name: 'baseCurrency',
+      baseName: 'base_currency',
+      type: 'string',
+      format: '',
+    },
+    {
+      name: 'chain',
+      baseName: 'chain',
+      type: 'string',
+      format: '',
+    },
+    {
+      name: 'created',
+      baseName: 'created',
+      type: 'Date',
+      format: 'date-time',
+    },
+    {
+      name: 'currency',
+      baseName: 'currency',
+      type: 'ProductCurrencyEnum',
+      format: '',
+    },
+    {
+      name: 'name',
+      baseName: 'name',
+      type: 'string',
+      format: '',
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return Product.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return Product.attributeTypeMap;
+  }
 
-    public constructor() {
-    }
+  public constructor() {}
 }
 
-
-export type ProductCurrencyEnum = "succeeded" | "failed" ;
-
+export type ProductCurrencyEnum = 'succeeded' | 'failed';

@@ -1,21 +1,19 @@
 # .FeesApi
 
-All URIs are relative to *http://localhost:7070/v1*
+All URIs are relative to _http://localhost:7070/v1_
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**_delete**](FeesApi.md#_delete) | **DELETE** /fees/{feeId} | Delete Fee By Id
-[**create**](FeesApi.md#create) | **POST** /fees | Create Fee
-[**list**](FeesApi.md#list) | **GET** /fees | List Fees
-[**retrieve**](FeesApi.md#retrieve) | **GET** /fees/{feeId} | Retrieve Fee By Id
+| Method                              | HTTP request             | Description        |
+| ----------------------------------- | ------------------------ | ------------------ |
+| [**\_delete**](FeesApi.md#_delete)  | **DELETE** /fees/{feeId} | Delete Fee By Id   |
+| [**create**](FeesApi.md#create)     | **POST** /fees           | Create Fee         |
+| [**list**](FeesApi.md#list)         | **GET** /fees            | List Fees          |
+| [**retrieve**](FeesApi.md#retrieve) | **GET** /fees/{feeId}    | Retrieve Fee By Id |
 
+# **\_delete**
 
-# **_delete**
-> void _delete()
-
+> void \_delete()
 
 ### Example
-
 
 ```typescript
 import {  } from '';
@@ -36,14 +34,12 @@ apiInstance._delete(body).then((data:any) => {
 }).catch((error:any) => console.error(error));
 ```
 
-
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **feeId** | [**string**] |  | defaults to undefined
- **prismAccount** | [**string**] |  | (optional) defaults to undefined
-
+| Name             | Type         | Description | Notes                            |
+| ---------------- | ------------ | ----------- | -------------------------------- |
+| **feeId**        | [**string**] |             | defaults to undefined            |
+| **prismAccount** | [**string**] |             | (optional) defaults to undefined |
 
 ### Return type
 
@@ -55,24 +51,23 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**404** | Not Found |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **404**     | Not Found   | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
+
 > Fee create()
 
-
 ### Example
-
 
 ```typescript
 import {  } from '';
@@ -98,14 +93,12 @@ apiInstance.create(body).then((data:any) => {
 }).catch((error:any) => console.error(error));
 ```
 
-
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **inlineObject1** | **InlineObject1**|  |
- **prismAccount** | [**string**] |  | (optional) defaults to undefined
-
+| Name              | Type              | Description | Notes                            |
+| ----------------- | ----------------- | ----------- | -------------------------------- |
+| **inlineObject1** | **InlineObject1** |             |
+| **prismAccount**  | [**string**]      |             | (optional) defaults to undefined |
 
 ### Return type
 
@@ -117,23 +110,22 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
+
 > InlineResponse2001 list()
 
-
 ### Example
-
 
 ```typescript
 import {  } from '';
@@ -160,17 +152,15 @@ apiInstance.list(body).then((data:any) => {
 }).catch((error:any) => console.error(error));
 ```
 
-
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | [**number**] | A limit on the number of objects to be returned between 1 and 100. | (optional) defaults to undefined
- **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
- **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
- **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prismAccount** | [**string**] |  | (optional) defaults to undefined
-
+| Name             | Type         | Description                                                                 | Notes                            |
+| ---------------- | ------------ | --------------------------------------------------------------------------- | -------------------------------- |
+| **limit**        | [**number**] | A limit on the number of objects to be returned between 1 and 100.          | (optional) defaults to undefined |
+| **page**         | [**number**] | Index of the page to be returned in a paginated response.                   | (optional) defaults to undefined |
+| **sort**         | **any**      | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined |
+| **expand**       | [**string**] | Specifies which fields to populate in the response.                         | (optional) defaults to undefined |
+| **prismAccount** | [**string**] |                                                                             | (optional) defaults to undefined |
 
 ### Return type
 
@@ -182,23 +172,22 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
+
 > Fee retrieve()
 
-
 ### Example
-
 
 ```typescript
 import {  } from '';
@@ -221,15 +210,13 @@ apiInstance.retrieve(body).then((data:any) => {
 }).catch((error:any) => console.error(error));
 ```
 
-
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **feeId** | [**string**] |  | defaults to undefined
- **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prismAccount** | [**string**] |  | (optional) defaults to undefined
-
+| Name             | Type         | Description                                         | Notes                            |
+| ---------------- | ------------ | --------------------------------------------------- | -------------------------------- |
+| **feeId**        | [**string**] |                                                     | defaults to undefined            |
+| **expand**       | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined |
+| **prismAccount** | [**string**] |                                                     | (optional) defaults to undefined |
 
 ### Return type
 
@@ -241,15 +228,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-

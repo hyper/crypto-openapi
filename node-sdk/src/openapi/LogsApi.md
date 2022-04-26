@@ -1,19 +1,17 @@
 # .LogsApi
 
-All URIs are relative to *http://localhost:7070/v1*
+All URIs are relative to _http://localhost:7070/v1_
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**list**](LogsApi.md#list) | **GET** /logs | List Logs
-[**retrieve**](LogsApi.md#retrieve) | **GET** /logs/{logId} | Retrieve Log By Id
-
+| Method                              | HTTP request          | Description        |
+| ----------------------------------- | --------------------- | ------------------ |
+| [**list**](LogsApi.md#list)         | **GET** /logs         | List Logs          |
+| [**retrieve**](LogsApi.md#retrieve) | **GET** /logs/{logId} | Retrieve Log By Id |
 
 # **list**
+
 > InlineResponse2003 list()
 
-
 ### Example
-
 
 ```typescript
 import {  } from '';
@@ -40,17 +38,15 @@ apiInstance.list(body).then((data:any) => {
 }).catch((error:any) => console.error(error));
 ```
 
-
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | [**number**] | A limit on the number of objects to be returned between 1 and 100. | (optional) defaults to undefined
- **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
- **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
- **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prismAccount** | [**string**] |  | (optional) defaults to undefined
-
+| Name             | Type         | Description                                                                 | Notes                            |
+| ---------------- | ------------ | --------------------------------------------------------------------------- | -------------------------------- |
+| **limit**        | [**number**] | A limit on the number of objects to be returned between 1 and 100.          | (optional) defaults to undefined |
+| **page**         | [**number**] | Index of the page to be returned in a paginated response.                   | (optional) defaults to undefined |
+| **sort**         | **any**      | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined |
+| **expand**       | [**string**] | Specifies which fields to populate in the response.                         | (optional) defaults to undefined |
+| **prismAccount** | [**string**] |                                                                             | (optional) defaults to undefined |
 
 ### Return type
 
@@ -62,23 +58,22 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
+
 > Log retrieve()
 
-
 ### Example
-
 
 ```typescript
 import {  } from '';
@@ -101,15 +96,13 @@ apiInstance.retrieve(body).then((data:any) => {
 }).catch((error:any) => console.error(error));
 ```
 
-
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **logId** | [**string**] |  | defaults to undefined
- **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prismAccount** | [**string**] |  | (optional) defaults to undefined
-
+| Name             | Type         | Description                                         | Notes                            |
+| ---------------- | ------------ | --------------------------------------------------- | -------------------------------- |
+| **logId**        | [**string**] |                                                     | defaults to undefined            |
+| **expand**       | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined |
+| **prismAccount** | [**string**] |                                                     | (optional) defaults to undefined |
 
 ### Return type
 
@@ -121,15 +114,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-

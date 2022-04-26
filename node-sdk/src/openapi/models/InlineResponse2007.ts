@@ -15,44 +15,48 @@ import { Webhook } from './Webhook';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse2007 {
-    'data': Set<Webhook>;
-    'hasMore': boolean;
-    'page': number;
-    'total': number;
+  'data': Set<Webhook>;
+  'hasMore': boolean;
+  'page': number;
+  'total': number;
 
-    static readonly discriminator: string | undefined = undefined;
+  static readonly discriminator: string | undefined = undefined;
 
-    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "data",
-            "baseName": "data",
-            "type": "Set<Webhook>",
-            "format": ""
-        },
-        {
-            "name": "hasMore",
-            "baseName": "has_more",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "page",
-            "baseName": "page",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "total",
-            "baseName": "total",
-            "type": "number",
-            "format": ""
-        }    ];
+  static readonly attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+    format: string;
+  }> = [
+    {
+      name: 'data',
+      baseName: 'data',
+      type: 'Set<Webhook>',
+      format: '',
+    },
+    {
+      name: 'hasMore',
+      baseName: 'has_more',
+      type: 'boolean',
+      format: '',
+    },
+    {
+      name: 'page',
+      baseName: 'page',
+      type: 'number',
+      format: '',
+    },
+    {
+      name: 'total',
+      baseName: 'total',
+      type: 'number',
+      format: '',
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return InlineResponse2007.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return InlineResponse2007.attributeTypeMap;
+  }
 
-    public constructor() {
-    }
+  public constructor() {}
 }
-
