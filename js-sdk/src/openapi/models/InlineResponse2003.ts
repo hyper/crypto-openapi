@@ -18,6 +18,7 @@ export class InlineResponse2003 {
     'data': Set<Log>;
     'hasMore': string;
     'page': number;
+    'total': number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -37,6 +38,12 @@ export class InlineResponse2003 {
         {
             "name": "page",
             "baseName": "page",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "total",
+            "baseName": "total",
             "type": "number",
             "format": ""
         }    ];

@@ -49,5 +49,7 @@ export class ServerConfiguration<T extends { [key: string]: string }> implements
 }
 
 export const server1 = new ServerConfiguration<{  }>("http://localhost:7070/v1", {  })
+export const server2 = new ServerConfiguration<{  }>("https://prism-api-staging.herokuapp.com/v1", {  })
+export const server3 = new ServerConfiguration<{  }>("https://api.prism.com/v1", {  })
 
-export const servers = [server1];
+export const servers = [server1, server2, server3];

@@ -1307,9 +1307,12 @@
                     },
                     "page": {
                       "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
                     }
                   },
-                  "required": ["data", "page", "has_more"],
+                  "required": ["data", "has_more", "page", "total"],
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -2377,7 +2380,16 @@
   },
   "servers": [
     {
+      "description": "develop",
       "url": "http://localhost:7070/v1"
+    },
+    {
+      "description": "staging",
+      "url": "https://prism-api-staging.herokuapp.com/v1"
+    },
+    {
+      "description": "production",
+      "url": "https://api.prism.com/v1"
     }
   ],
   "tags": [
