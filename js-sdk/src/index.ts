@@ -119,9 +119,9 @@ class CustomersApiLayer {
 
   public async create(
     data: CustomersApiCreateRequest['inlineObject'],
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<Customer> {
-    return this.api.create({ prismAccount, inlineObject: data });
+    return this.api.create({ prismAccount: options?.prismAccount, inlineObject: data });
   }
 
   public async retrieve(
