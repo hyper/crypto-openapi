@@ -112,7 +112,7 @@ class InvoicesApiResponseProcessor {
     create(response) {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
+            if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Invoice", "");
                 return body;
             }
@@ -126,7 +126,7 @@ class InvoicesApiResponseProcessor {
     list(response) {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
+            if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse2002", "");
                 return body;
             }
@@ -140,11 +140,11 @@ class InvoicesApiResponseProcessor {
     retrieve(response) {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
+            if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Invoice", "");
                 return body;
             }
-            if (util_1.isCodeInRange("404", response.httpStatusCode)) {
+            if ((0, util_1.isCodeInRange)("404", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
@@ -157,14 +157,14 @@ class InvoicesApiResponseProcessor {
     update(response) {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
+            if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Invoice", "");
                 return body;
             }
-            if (util_1.isCodeInRange("400", response.httpStatusCode)) {
+            if ((0, util_1.isCodeInRange)("400", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Bad Request", undefined, response.headers);
             }
-            if (util_1.isCodeInRange("404", response.httpStatusCode)) {
+            if ((0, util_1.isCodeInRange)("404", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {

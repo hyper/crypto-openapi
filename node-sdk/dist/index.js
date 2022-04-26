@@ -1,13 +1,17 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
 }));
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -19,25 +23,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Crypto = void 0;
+exports.Prism = void 0;
 const index_1 = require("./openapi/index");
 __exportStar(require("./openapi/models/all"), exports);
 __exportStar(require("./openapi/apis/exception"), exports);
 const VERSION = '0.0.0';
 class UserAgentMiddleware {
     pre(context) {
-        context.setHeaderParam('User-Agent', `hyper-crypto-node/${VERSION}/javascript`);
+        context.setHeaderParam('User-Agent', `prism-node/${VERSION}/javascript`);
         return Promise.resolve(context);
     }
     post(context) {
         return Promise.resolve(context);
     }
 }
-class Crypto {
-    constructor(token) {
-        const baseUrl = 'http://localhost:7070/v1';
+class Prism {
+    constructor(token, options) {
+        var _a;
+        const baseUrl = (_a = options === null || options === void 0 ? void 0 : options.serverURL) !== null && _a !== void 0 ? _a : 'https://api.prism.co/v1';
         const baseServer = new index_1.ServerConfiguration(baseUrl, {});
-        const config = index_1.createConfiguration({
+        const config = (0, index_1.createConfiguration)({
             baseServer,
             promiseMiddleware: [new UserAgentMiddleware()],
             authMethods: {
@@ -57,7 +62,7 @@ class Crypto {
         this.webhooks = new WebhooksApiLayer(config);
     }
 }
-exports.Crypto = Crypto;
+exports.Prism = Prism;
 class CustomersApiLayer {
     constructor(config) {
         this.api = new index_1.CustomersApi(config);

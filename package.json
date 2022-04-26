@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "format": "prettier . --write",
-    "generate:js": "yarn openapi-generator-cli generate -i openapi/spec.json -g typescript -o node-sdk/src/openapi -c node-sdk/openapi-generator-config.json"
+    "generate:js": "yarn openapi-generator-cli generate -i openapi/spec.json -g typescript -o node-sdk/src/openapi -c node-sdk/openapi-generator-config.json && cd node-sdk && yarn build"
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.4.26",
