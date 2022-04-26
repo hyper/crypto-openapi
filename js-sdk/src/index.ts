@@ -138,7 +138,7 @@ class CustomersApiLayer {
     data: Omit<CustomersApiUpdateRequest, 'prismAccount' | 'customerId'>
   ): Promise<Customer> {
     return this.api.update({ prismAccount, customerId, ...data });
-  };
+  }
 
   public async list(
     prismAccount: string,
@@ -147,7 +147,6 @@ class CustomersApiLayer {
     return this.api.list({ prismAccount, ...params });
   }
 }
-
 
 class FeesApiLayer {
   private readonly api: FeesApi;
@@ -179,7 +178,6 @@ class FeesApiLayer {
   }
 }
 
-
 class InvoicesApiLayer {
   private readonly api: InvoicesApi;
 
@@ -208,7 +206,7 @@ class InvoicesApiLayer {
     data: Omit<InvoicesApiUpdateRequest, 'prismAccount' | 'invoiceId'>
   ): Promise<Invoice> {
     return this.api.update({ prismAccount, invoiceId, ...data });
-  };
+  }
 
   public async list(
     prismAccount: string,
@@ -241,7 +239,6 @@ class LogsApiLayer {
   }
 }
 
-
 class PaymentsApiLayer {
   private readonly api: PaymentsApi;
 
@@ -264,7 +261,6 @@ class PaymentsApiLayer {
     return this.api.list({ prismAccount, ...params });
   }
 }
-
 
 class ProductsApiLayer {
   private readonly api: ProductsApi;
@@ -294,7 +290,7 @@ class ProductsApiLayer {
     data: Omit<ProductsApiUpdateRequest, 'prismAccount' | 'productId'>
   ): Promise<Product> {
     return this.api.update({ prismAccount, productId, ...data });
-  };
+  }
 
   public async list(
     prismAccount: string,
@@ -332,7 +328,7 @@ class WalletsApiLayer {
     data: Omit<WalletsApiUpdateRequest, 'prismAccount' | 'walletId'>
   ): Promise<Wallet> {
     return this.api.update({ prismAccount, walletId, ...data });
-  };
+  }
 
   public async list(
     prismAccount: string,
@@ -370,7 +366,7 @@ class WebhooksApiLayer {
     data: Omit<WebhooksApiUpdateRequest, 'prismAccount' | 'webhookId'>
   ): Promise<Customer> {
     return this.api.update({ prismAccount, webhookId, ...data });
-  };
+  }
 
   public async list(
     prismAccount: string,
@@ -379,4 +375,3 @@ class WebhooksApiLayer {
     return this.api.list({ prismAccount, ...params });
   }
 }
-
