@@ -15,59 +15,111 @@ export declare class Crypto {
 declare class CustomersApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(prismAccount: string, data: CustomersApiCreateRequest['inlineObject']): Promise<Customer>;
-    retrieve(prismAccount: string, customerId: string, params: Omit<CustomersApiRetrieveRequest, 'prismAccount' | 'customerId'>): Promise<Customer>;
-    update(prismAccount: string, customerId: string, data: Omit<CustomersApiUpdateRequest, 'prismAccount' | 'customerId'>): Promise<Customer>;
-    list(prismAccount: string, params: Omit<CustomersApiListRequest, 'prismAccount'>): Promise<InlineResponse200>;
+    create(data: CustomersApiCreateRequest['inlineObject'], { prismAccount }: {
+        prismAccount: string;
+    }): Promise<Customer>;
+    retrieve(customerId: string, params: Omit<CustomersApiRetrieveRequest, 'prismAccount' | 'customerId'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<Customer>;
+    update(customerId: string, data: Omit<CustomersApiUpdateRequest, 'prismAccount' | 'customerId'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<Customer>;
+    list(params: Omit<CustomersApiListRequest, 'prismAccount'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<InlineResponse200>;
 }
 declare class FeesApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(prismAccount: string, data: FeesApiCreateRequest['inlineObject1']): Promise<Fee>;
-    retrieve(prismAccount: string, feeId: string, params: Omit<FeesApiRetrieveRequest, 'prismAccount' | 'feeId'>): Promise<Fee>;
-    list(prismAccount: string, params: Omit<FeesApiListRequest, 'prismAccount'>): Promise<InlineResponse2001>;
+    create(data: FeesApiCreateRequest['inlineObject1'], { prismAccount }: {
+        prismAccount: string;
+    }): Promise<Fee>;
+    retrieve(feeId: string, params: Omit<FeesApiRetrieveRequest, 'prismAccount' | 'feeId'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<Fee>;
+    list(params: Omit<FeesApiListRequest, 'prismAccount'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<InlineResponse2001>;
 }
 declare class InvoicesApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(prismAccount: string, data: InvoicesApiCreateRequest['inlineObject2']): Promise<Invoice>;
-    retrieve(prismAccount: string, invoiceId: string, params: Omit<InvoicesApiRetrieveRequest, 'prismAccount' | 'invoiceId'>): Promise<Invoice>;
-    update(prismAccount: string, invoiceId: string, data: Omit<InvoicesApiUpdateRequest, 'prismAccount' | 'invoiceId'>): Promise<Invoice>;
-    list(prismAccount: string, params: Omit<InvoicesApiListRequest, 'prismAccount'>): Promise<InlineResponse2002>;
+    create(data: InvoicesApiCreateRequest['inlineObject2'], { prismAccount }: {
+        prismAccount: string;
+    }): Promise<Invoice>;
+    retrieve(invoiceId: string, params: Omit<InvoicesApiRetrieveRequest, 'prismAccount' | 'invoiceId'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<Invoice>;
+    update(invoiceId: string, data: Omit<InvoicesApiUpdateRequest, 'prismAccount' | 'invoiceId'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<Invoice>;
+    list(params: Omit<InvoicesApiListRequest, 'prismAccount'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<InlineResponse2002>;
 }
 declare class LogsApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    retrieve(prismAccount: string, logId: string, params: Omit<LogsApiRetrieveRequest, 'prismAccount' | 'logId'>): Promise<Log>;
-    list(prismAccount: string, params: Omit<LogsApiListRequest, 'prismAccount'>): Promise<InlineResponse2003>;
+    retrieve(logId: string, params: Omit<LogsApiRetrieveRequest, 'prismAccount' | 'logId'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<Log>;
+    list(params: Omit<LogsApiListRequest, 'prismAccount'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<InlineResponse2003>;
 }
 declare class PaymentsApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    retrieve(prismAccount: string, paymentId: string, params: Omit<PaymentsApiRetrieveRequest, 'prismAccount' | 'paymentId'>): Promise<Payment>;
-    list(prismAccount: string, params: Omit<PaymentsApiListRequest, 'prismAccount'>): Promise<InlineResponse2004>;
+    retrieve(paymentId: string, params: Omit<PaymentsApiRetrieveRequest, 'prismAccount' | 'paymentId'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<Payment>;
+    list(params: Omit<PaymentsApiListRequest, 'prismAccount'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<InlineResponse2004>;
 }
 declare class ProductsApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(prismAccount: string, data: ProductsApiCreateRequest['inlineObject3']): Promise<Product>;
-    retrieve(prismAccount: string, productId: string, params: Omit<ProductsApiRetrieveRequest, 'prismAccount' | 'productId'>): Promise<Product>;
-    update(prismAccount: string, productId: string, data: Omit<ProductsApiUpdateRequest, 'prismAccount' | 'productId'>): Promise<Product>;
-    list(prismAccount: string, params: Omit<ProductsApiListRequest, 'prismAccount'>): Promise<InlineResponse2005>;
+    create(data: ProductsApiCreateRequest['inlineObject3'], { prismAccount }: {
+        prismAccount: string;
+    }): Promise<Product>;
+    retrieve(productId: string, params: Omit<ProductsApiRetrieveRequest, 'prismAccount' | 'productId'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<Product>;
+    update(productId: string, data: Omit<ProductsApiUpdateRequest, 'prismAccount' | 'productId'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<Product>;
+    list(params: Omit<ProductsApiListRequest, 'prismAccount'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<InlineResponse2005>;
 }
 declare class WalletsApiLayer {
     private readonly api;
     constructor(config: Configuration);
     create(prismAccount: string, data: WalletsApiCreateRequest['inlineObject4']): Promise<Wallet>;
-    retrieve(prismAccount: string, walletId: string, params: Omit<WalletsApiRetrieveRequest, 'prismAccount' | 'walletId'>): Promise<Wallet>;
-    update(prismAccount: string, walletId: string, data: Omit<WalletsApiUpdateRequest, 'prismAccount' | 'walletId'>): Promise<Wallet>;
-    list(prismAccount: string, params: Omit<WalletsApiListRequest, 'prismAccount'>): Promise<InlineResponse2006>;
+    retrieve(walletId: string, params: Omit<WalletsApiRetrieveRequest, 'prismAccount' | 'walletId'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<Wallet>;
+    update(walletId: string, data: Omit<WalletsApiUpdateRequest, 'prismAccount' | 'walletId'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<Wallet>;
+    list(params: Omit<WalletsApiListRequest, 'prismAccount'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<InlineResponse2006>;
 }
 declare class WebhooksApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(prismAccount: string, data: WebhooksApiCreateRequest['inlineObject5']): Promise<Customer>;
-    retrieve(prismAccount: string, webhookId: string, params: Omit<WebhooksApiRetrieveRequest, 'prismAccount' | 'webhookId'>): Promise<Customer>;
-    update(prismAccount: string, webhookId: string, data: Omit<WebhooksApiUpdateRequest, 'prismAccount' | 'webhookId'>): Promise<Customer>;
-    list(prismAccount: string, params: Omit<WebhooksApiListRequest, 'prismAccount'>): Promise<InlineResponse2007>;
+    create(data: WebhooksApiCreateRequest['inlineObject5'], { prismAccount }: {
+        prismAccount: string;
+    }): Promise<Customer>;
+    retrieve(webhookId: string, params: Omit<WebhooksApiRetrieveRequest, 'prismAccount' | 'webhookId'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<Customer>;
+    update(webhookId: string, data: Omit<WebhooksApiUpdateRequest, 'prismAccount' | 'webhookId'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<Customer>;
+    list(params: Omit<WebhooksApiListRequest, 'prismAccount'>, { prismAccount }: {
+        prismAccount: string;
+    }): Promise<InlineResponse2007>;
 }
