@@ -86,7 +86,7 @@ export class Prism {
   public readonly wallets: WalletsApiLayer;
   public readonly webhooks: WebhooksApiLayer;
 
-  public constructor(token: string, options?: PrismOptions | undefined) {
+  public constructor(token: string, options?: PrismOptions) {
     const baseUrl = options?.serverURL ?? 'https://api.prism.co/v1';
 
     const baseServer = new ServerConfiguration<any>(baseUrl, {});

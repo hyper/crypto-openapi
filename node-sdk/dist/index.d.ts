@@ -57,7 +57,7 @@ export declare class Prism {
   readonly products: ProductsApiLayer;
   readonly wallets: WalletsApiLayer;
   readonly webhooks: WebhooksApiLayer;
-  constructor(token: string, options?: PrismOptions | undefined);
+  constructor(token: string, options?: PrismOptions);
 }
 declare class CustomersApiLayer {
   private readonly api;
