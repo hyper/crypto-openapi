@@ -127,24 +127,24 @@ class CustomersApiLayer {
   public async retrieve(
     customerId: string,
     params: Omit<CustomersApiRetrieveRequest, 'prismAccount' | 'customerId'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<Customer> {
-    return this.api.retrieve({ prismAccount, customerId, ...params });
+    return this.api.retrieve({ prismAccount: options?.prismAccount, customerId, ...params });
   }
 
   public async update(
     customerId: string,
     data: Omit<CustomersApiUpdateRequest, 'prismAccount' | 'customerId'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<Customer> {
-    return this.api.update({ prismAccount, customerId, ...data });
+    return this.api.update({ prismAccount: options?.prismAccount, customerId, ...data });
   }
 
   public async list(
     params: Omit<CustomersApiListRequest, 'prismAccount'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<InlineResponse200> {
-    return this.api.list({ prismAccount, ...params });
+    return this.api.list({ prismAccount: options?.prismAccount, ...params });
   }
 }
 
@@ -157,24 +157,24 @@ class FeesApiLayer {
 
   public async create(
     data: FeesApiCreateRequest['inlineObject1'],
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<Fee> {
-    return this.api.create({ prismAccount, inlineObject1: data });
+    return this.api.create({ prismAccount: options?.prismAccount, inlineObject1: data });
   }
 
   public async retrieve(
     feeId: string,
     params: Omit<FeesApiRetrieveRequest, 'prismAccount' | 'feeId'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<Fee> {
-    return this.api.retrieve({ prismAccount, feeId, ...params });
+    return this.api.retrieve({ prismAccount: options?.prismAccount, feeId, ...params });
   }
 
   public async list(
     params: Omit<FeesApiListRequest, 'prismAccount'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<InlineResponse2001> {
-    return this.api.list({ prismAccount, ...params });
+    return this.api.list({ prismAccount: options?.prismAccount, ...params });
   }
 }
 
@@ -187,32 +187,32 @@ class InvoicesApiLayer {
 
   public async create(
     data: InvoicesApiCreateRequest['inlineObject2'],
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<Invoice> {
-    return this.api.create({ prismAccount, inlineObject2: data });
+    return this.api.create({ prismAccount: options?.prismAccount, inlineObject2: data });
   }
 
   public async retrieve(
     invoiceId: string,
     params: Omit<InvoicesApiRetrieveRequest, 'prismAccount' | 'invoiceId'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<Invoice> {
-    return this.api.retrieve({ prismAccount, invoiceId, ...params });
+    return this.api.retrieve({ prismAccount: options?.prismAccount, invoiceId, ...params });
   }
 
   public async update(
     invoiceId: string,
     data: Omit<InvoicesApiUpdateRequest, 'prismAccount' | 'invoiceId'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<Invoice> {
-    return this.api.update({ prismAccount, invoiceId, ...data });
+    return this.api.update({ prismAccount: options?.prismAccount, invoiceId, ...data });
   }
 
   public async list(
     params: Omit<InvoicesApiListRequest, 'prismAccount'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<InlineResponse2002> {
-    return this.api.list({ prismAccount, ...params });
+    return this.api.list({ prismAccount: options?.prismAccount, ...params });
   }
 }
 
@@ -226,16 +226,16 @@ class LogsApiLayer {
   public async retrieve(
     logId: string,
     params: Omit<LogsApiRetrieveRequest, 'prismAccount' | 'logId'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<Log> {
-    return this.api.retrieve({ prismAccount, logId, ...params });
+    return this.api.retrieve({ prismAccount: options?.prismAccount, logId, ...params });
   }
 
   public async list(
     params: Omit<LogsApiListRequest, 'prismAccount'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<InlineResponse2003> {
-    return this.api.list({ prismAccount, ...params });
+    return this.api.list({ prismAccount: options?.prismAccount, ...params });
   }
 }
 
@@ -249,16 +249,16 @@ class PaymentsApiLayer {
   public async retrieve(
     paymentId: string,
     params: Omit<PaymentsApiRetrieveRequest, 'prismAccount' | 'paymentId'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<Payment> {
-    return this.api.retrieve({ prismAccount, paymentId, ...params });
+    return this.api.retrieve({ prismAccount: options?.prismAccount, paymentId, ...params });
   }
 
   public async list(
     params: Omit<PaymentsApiListRequest, 'prismAccount'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<InlineResponse2004> {
-    return this.api.list({ prismAccount, ...params });
+    return this.api.list({ prismAccount: options?.prismAccount, ...params });
   }
 }
 
@@ -271,32 +271,32 @@ class ProductsApiLayer {
 
   public async create(
     data: ProductsApiCreateRequest['inlineObject3'],
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<Product> {
-    return this.api.create({ prismAccount, inlineObject3: data });
+    return this.api.create({ prismAccount: options?.prismAccount, inlineObject3: data });
   }
 
   public async retrieve(
     productId: string,
     params: Omit<ProductsApiRetrieveRequest, 'prismAccount' | 'productId'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<Product> {
-    return this.api.retrieve({ prismAccount, productId, ...params });
+    return this.api.retrieve({ prismAccount: options?.prismAccount, productId, ...params });
   }
 
   public async update(
     productId: string,
     data: Omit<ProductsApiUpdateRequest, 'prismAccount' | 'productId'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<Product> {
-    return this.api.update({ prismAccount, productId, ...data });
+    return this.api.update({ prismAccount: options?.prismAccount, productId, ...data });
   }
 
   public async list(
     params: Omit<ProductsApiListRequest, 'prismAccount'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<InlineResponse2005> {
-    return this.api.list({ prismAccount, ...params });
+    return this.api.list({ prismAccount: options?.prismAccount, ...params });
   }
 }
 
@@ -308,33 +308,33 @@ class WalletsApiLayer {
   }
 
   public async create(
-    prismAccount: string,
-    data: WalletsApiCreateRequest['inlineObject4']
+    data: WalletsApiCreateRequest['inlineObject4'],
+    options?: { prismAccount: string },
   ): Promise<Wallet> {
-    return this.api.create({ prismAccount, inlineObject4: data });
+    return this.api.create({ prismAccount: options?.prismAccount, inlineObject4: data });
   }
 
   public async retrieve(
     walletId: string,
     params: Omit<WalletsApiRetrieveRequest, 'prismAccount' | 'walletId'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<Wallet> {
-    return this.api.retrieve({ prismAccount, walletId, ...params });
+    return this.api.retrieve({ prismAccount: options?.prismAccount, walletId, ...params });
   }
 
   public async update(
     walletId: string,
     data: Omit<WalletsApiUpdateRequest, 'prismAccount' | 'walletId'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<Wallet> {
-    return this.api.update({ prismAccount, walletId, ...data });
+    return this.api.update({ prismAccount: options?.prismAccount, walletId, ...data });
   }
 
   public async list(
     params: Omit<WalletsApiListRequest, 'prismAccount'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<InlineResponse2006> {
-    return this.api.list({ prismAccount, ...params });
+    return this.api.list({ prismAccount: options?.prismAccount, ...params });
   }
 }
 
@@ -347,31 +347,31 @@ class WebhooksApiLayer {
 
   public async create(
     data: WebhooksApiCreateRequest['inlineObject5'],
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<Customer> {
-    return this.api.create({ prismAccount, inlineObject5: data });
+    return this.api.create({ prismAccount: options?.prismAccount, inlineObject5: data });
   }
 
   public async retrieve(
     webhookId: string,
     params: Omit<WebhooksApiRetrieveRequest, 'prismAccount' | 'webhookId'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<Customer> {
-    return this.api.retrieve({ prismAccount, webhookId, ...params });
+    return this.api.retrieve({ prismAccount: options?.prismAccount, webhookId, ...params });
   }
 
   public async update(
     webhookId: string,
     data: Omit<WebhooksApiUpdateRequest, 'prismAccount' | 'webhookId'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<Customer> {
-    return this.api.update({ prismAccount, webhookId, ...data });
+    return this.api.update({ prismAccount: options?.prismAccount, webhookId, ...data });
   }
 
   public async list(
     params: Omit<WebhooksApiListRequest, 'prismAccount'>,
-    { prismAccount }: { prismAccount: string },
+    options?: { prismAccount: string },
   ): Promise<InlineResponse2007> {
-    return this.api.list({ prismAccount, ...params });
+    return this.api.list({ prismAccount: options?.prismAccount, ...params });
   }
 }
