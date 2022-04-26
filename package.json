@@ -1,8 +1,8 @@
 {
-  "name": "crypto-openapi",
+  "name": "prism-openapi",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/hyper/crypto-openapi.git",
+  "repository": "https://github.com/hyper/prism-openapi.git",
   "author": "sid <hi@sid.fyi>",
   "license": "MIT",
   "scripts": {
@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.4.26",
+    "@types/node": "^17.0.29",
     "prettier": "^2.6.2",
     "prettier-plugin-sort-json": "^0.0.2"
   }

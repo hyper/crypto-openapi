@@ -405,13 +405,13 @@
   },
   "info": {
     "contact": {
-      "email": "support@hyper.co",
-      "name": "Hyper",
-      "url": "https://hyper.co"
+      "email": "support@prism.com",
+      "name": "Prism",
+      "url": "https://prism.com"
     },
-    "description": "The API for Hyper's Crypto payments processor",
-    "termsOfService": "https://hyper.co/terms",
-    "title": "Crypto",
+    "description": "The API for Prism",
+    "termsOfService": "https://prism.com/terms",
+    "title": "Prism",
     "version": "1.0"
   },
   "openapi": "3.0.0",

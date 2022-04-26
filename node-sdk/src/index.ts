@@ -63,7 +63,7 @@ const VERSION = '0.0.0';
 
 class UserAgentMiddleware implements Middleware {
   public pre(context: RequestContext): Promise<RequestContext> {
-    context.setHeaderParam('User-Agent', `hyper-crypto-node/${VERSION}/javascript`);
+    context.setHeaderParam('User-Agent', `prism-node/${VERSION}/javascript`);
     return Promise.resolve(context);
   }
 
@@ -72,7 +72,11 @@ class UserAgentMiddleware implements Middleware {
   }
 }
 
-export class Crypto {
+export interface PrismOptions {
+  serverURL?: string;
+}
+
+export class Prism {
   public readonly customers: CustomersApiLayer;
   public readonly fees: FeesApiLayer;
   public readonly invoices: InvoicesApiLayer;
@@ -82,8 +86,8 @@ export class Crypto {
   public readonly wallets: WalletsApiLayer;
   public readonly webhooks: WebhooksApiLayer;
 
-  public constructor(token: string) {
-    const baseUrl = 'http://localhost:7070/v1';
+  public constructor(token: string, options: PrismOptions) {
+    const baseUrl = options?.serverURL ?? 'https://api.prism.co/v1';
 
     const baseServer = new ServerConfiguration<any>(baseUrl, {});
 
