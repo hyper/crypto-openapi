@@ -891,7 +891,7 @@
                       },
                       "minItems": 1,
                       "type": "array",
-                      "uniqueItems": false
+                      "uniqueItems": true
                     },
                     "has_more": {
                       "type": "boolean"
@@ -1194,7 +1194,7 @@
                       },
                       "minItems": 1,
                       "type": "array",
-                      "uniqueItems": false
+                      "uniqueItems": true
                     },
                     "has_more": {
                       "type": "boolean"
@@ -1431,7 +1431,7 @@
                       },
                       "minItems": 1,
                       "type": "array",
-                      "uniqueItems": false
+                      "uniqueItems": true
                     },
                     "has_more": {
                       "type": "boolean"
@@ -1775,7 +1775,7 @@
                       },
                       "minItems": 1,
                       "type": "array",
-                      "uniqueItems": false
+                      "uniqueItems": true
                     },
                     "has_more": {
                       "minLength": 1,
@@ -1952,7 +1952,7 @@
                       },
                       "minItems": 1,
                       "type": "array",
-                      "uniqueItems": false
+                      "uniqueItems": true
                     },
                     "has_more": {
                       "type": "boolean"
@@ -2341,7 +2341,7 @@
                       },
                       "minItems": 1,
                       "type": "array",
-                      "uniqueItems": false
+                      "uniqueItems": true
                     },
                     "has_more": {
                       "type": "boolean"
@@ -2805,7 +2805,7 @@
                       },
                       "minItems": 0,
                       "type": "array",
-                      "uniqueItems": false
+                      "uniqueItems": true
                     },
                     "has_more": {
                       "type": "boolean"
@@ -3097,7 +3097,7 @@
                       },
                       "minItems": 1,
                       "type": "array",
-                      "uniqueItems": false
+                      "uniqueItems": true
                     },
                     "has_more": {
                       "type": "boolean"
