@@ -29,7 +29,7 @@ let body:.WebhooksApiDeleteRequest = {
   // string
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prismAccount: "Prism-Account_example",
+  prism_account: "Prism-Account_example",
 };
 
 apiInstance._delete(body).then((data:any) => {
@@ -43,7 +43,7 @@ apiInstance._delete(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -84,13 +84,13 @@ const apiInstance = new .WebhooksApi(configuration);
 
 let body:.WebhooksApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prismAccount: "Prism-Account_example",
+  prism_account: "Prism-Account_example",
   // WebhookData (optional)
-  webhookData: {
+  webhook_data: {
     account: "account_example",
-    endpointUrl: "endpointUrl_example",
-    eventTypes: [
-      "eventTypes_example",
+    endpoint_url: "endpoint_url_example",
+    event_types: [
+      "event_types_example",
     ],
     secret: "secret_example",
   },
@@ -106,8 +106,8 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhookData** | **WebhookData**|  |
- **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **webhook_data** | **WebhookData**|  |
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -155,7 +155,7 @@ let body:.WebhooksApiListRequest = {
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prismAccount: "Prism-Account_example",
+  prism_account: "Prism-Account_example",
 };
 
 apiInstance.list(body).then((data:any) => {
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
  **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
  **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -217,7 +217,7 @@ let body:.WebhooksApiRetrieveRequest = {
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prismAccount: "Prism-Account_example",
+  prism_account: "Prism-Account_example",
 };
 
 apiInstance.retrieve(body).then((data:any) => {
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -275,7 +275,7 @@ let body:.WebhooksApiUpdateRequest = {
   // string
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prismAccount: "Prism-Account_example",
+  prism_account: "Prism-Account_example",
 };
 
 apiInstance.update(body).then((data:any) => {
@@ -289,7 +289,7 @@ apiInstance.update(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type

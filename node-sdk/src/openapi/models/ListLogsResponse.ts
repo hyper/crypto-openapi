@@ -16,7 +16,7 @@ import { HttpFile } from '../http/http';
 
 export class ListLogsResponse {
     'data': Set<Log>;
-    'hasMore': string;
+    'has_more': string;
     'page': number;
     'total': number;
 
@@ -30,7 +30,7 @@ export class ListLogsResponse {
             "format": ""
         },
         {
-            "name": "hasMore",
+            "name": "has_more",
             "baseName": "has_more",
             "type": "string",
             "format": ""

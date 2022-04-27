@@ -26,7 +26,7 @@ export class Transaction {
     'currency': TransactionCurrencyEnum;
     'customer'?: string | Customer;
     'invoice': string | Invoice;
-    'platformAccount'?: string | Account;
+    'platform_account'?: string | Account;
     'product'?: string | Product;
     'status': TransactionStatusEnum;
     'wallet'?: string | Wallet;
@@ -74,7 +74,7 @@ export class Transaction {
             "format": ""
         },
         {
-            "name": "platformAccount",
+            "name": "platform_account",
             "baseName": "platform_account",
             "type": "string | Account",
             "format": ""

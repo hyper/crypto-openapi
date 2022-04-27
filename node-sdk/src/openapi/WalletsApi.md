@@ -29,7 +29,7 @@ let body:.WalletsApiDeleteRequest = {
   // string
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prismAccount: "Prism-Account_example",
+  prism_account: "Prism-Account_example",
   // string (optional)
   expand: "expand_example",
 };
@@ -45,7 +45,7 @@ apiInstance._delete(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
  **expand** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -87,9 +87,9 @@ const apiInstance = new .WalletsApi(configuration);
 
 let body:.WalletsApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prismAccount: "Prism-Account_example",
+  prism_account: "Prism-Account_example",
   // WalletData (optional)
-  walletData: {
+  wallet_data: {
     account: "account_example",
     address: "address_example",
     chain: "chain_example",
@@ -107,8 +107,8 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **walletData** | **WalletData**|  |
- **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **wallet_data** | **WalletData**|  |
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -157,7 +157,7 @@ let body:.WalletsApiListRequest = {
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prismAccount: "Prism-Account_example",
+  prism_account: "Prism-Account_example",
 };
 
 apiInstance.list(body).then((data:any) => {
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
  **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
  **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -219,7 +219,7 @@ let body:.WalletsApiRetrieveRequest = {
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prismAccount: "Prism-Account_example",
+  prism_account: "Prism-Account_example",
 };
 
 apiInstance.retrieve(body).then((data:any) => {
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -277,7 +277,7 @@ let body:.WalletsApiUpdateRequest = {
   // string
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prismAccount: "Prism-Account_example",
+  prism_account: "Prism-Account_example",
 };
 
 apiInstance.update(body).then((data:any) => {
@@ -291,7 +291,7 @@ apiInstance.update(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type

@@ -72,11 +72,11 @@ export class ObservableCustomersApi {
 
     /**
      * Create Customer
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
-     * @param customerData 
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param customer_data 
      */
-    public create(prismAccount?: string, customerData?: CustomerData, _options?: Configuration): Observable<Customer> {
-        const requestContextPromise = this.requestFactory.create(prismAccount, customerData, _options);
+    public create(prism_account?: string, customer_data?: CustomerData, _options?: Configuration): Observable<Customer> {
+        const requestContextPromise = this.requestFactory.create(prism_account, customer_data, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -100,10 +100,10 @@ export class ObservableCustomersApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Observable<ListCustomersResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prismAccount, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListCustomersResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -125,10 +125,10 @@ export class ObservableCustomersApi {
      * Retrieve Customer By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prismAccount?: string, _options?: Configuration): Observable<Customer> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prismAccount, _options);
+    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Customer> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -149,10 +149,10 @@ export class ObservableCustomersApi {
     /**
      * Update Customer By Id
      * @param id 
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public update(id: string, prismAccount?: string, _options?: Configuration): Observable<Customer> {
-        const requestContextPromise = this.requestFactory.update(id, prismAccount, _options);
+    public update(id: string, prism_account?: string, _options?: Configuration): Observable<Customer> {
+        const requestContextPromise = this.requestFactory.update(id, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -191,10 +191,10 @@ export class ObservableFeesApi {
     /**
      * Delete Fee By Id
      * @param id 
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public _delete(id: string, prismAccount?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory._delete(id, prismAccount, _options);
+    public _delete(id: string, prism_account?: string, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory._delete(id, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -214,11 +214,11 @@ export class ObservableFeesApi {
 
     /**
      * Create Fee
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
-     * @param feeData 
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param fee_data 
      */
-    public create(prismAccount?: string, feeData?: FeeData, _options?: Configuration): Observable<Fee> {
-        const requestContextPromise = this.requestFactory.create(prismAccount, feeData, _options);
+    public create(prism_account?: string, fee_data?: FeeData, _options?: Configuration): Observable<Fee> {
+        const requestContextPromise = this.requestFactory.create(prism_account, fee_data, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -242,10 +242,10 @@ export class ObservableFeesApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Observable<ListFeesResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prismAccount, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListFeesResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -267,10 +267,10 @@ export class ObservableFeesApi {
      * Retrieve Fee By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prismAccount?: string, _options?: Configuration): Observable<Fee> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prismAccount, _options);
+    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Fee> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -308,11 +308,11 @@ export class ObservableInvoicesApi {
 
     /**
      * Create Invoice
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
-     * @param invoiceData 
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param invoice_data 
      */
-    public create(prismAccount?: string, invoiceData?: InvoiceData, _options?: Configuration): Observable<Invoice> {
-        const requestContextPromise = this.requestFactory.create(prismAccount, invoiceData, _options);
+    public create(prism_account?: string, invoice_data?: InvoiceData, _options?: Configuration): Observable<Invoice> {
+        const requestContextPromise = this.requestFactory.create(prism_account, invoice_data, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -336,10 +336,10 @@ export class ObservableInvoicesApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Observable<ListInvoicesResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prismAccount, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListInvoicesResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -360,11 +360,11 @@ export class ObservableInvoicesApi {
     /**
      * Poll Invoice By ID
      * @param id 
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
      */
-    public poll(id: string, prismAccount?: string, expand?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.poll(id, prismAccount, expand, _options);
+    public poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory.poll(id, prism_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -386,10 +386,10 @@ export class ObservableInvoicesApi {
      * Retrieve Invoice By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prismAccount?: string, _options?: Configuration): Observable<Invoice> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prismAccount, _options);
+    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Invoice> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -410,10 +410,10 @@ export class ObservableInvoicesApi {
     /**
      * Update Invoice By Id
      * @param id 
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public update(id: string, prismAccount?: string, _options?: Configuration): Observable<Invoice> {
-        const requestContextPromise = this.requestFactory.update(id, prismAccount, _options);
+    public update(id: string, prism_account?: string, _options?: Configuration): Observable<Invoice> {
+        const requestContextPromise = this.requestFactory.update(id, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -455,10 +455,10 @@ export class ObservableLogsApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Observable<ListLogsResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prismAccount, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListLogsResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -480,10 +480,10 @@ export class ObservableLogsApi {
      * Retrieve Log By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prismAccount?: string, _options?: Configuration): Observable<Log> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prismAccount, _options);
+    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Log> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -525,10 +525,10 @@ export class ObservablePaymentsApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Observable<ListPaymentsResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prismAccount, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListPaymentsResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -550,10 +550,10 @@ export class ObservablePaymentsApi {
      * Retrieve Payment By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prismAccount?: string, _options?: Configuration): Observable<Payment> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prismAccount, _options);
+    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Payment> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -592,10 +592,10 @@ export class ObservablePayoutWalletsApi {
     /**
      * Delete Payout Wallet By ID
      * @param id 
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public _delete(id: string, prismAccount?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory._delete(id, prismAccount, _options);
+    public _delete(id: string, prism_account?: string, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory._delete(id, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -615,11 +615,11 @@ export class ObservablePayoutWalletsApi {
 
     /**
      * Create Payout Wallets
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
-     * @param payoutWalletData 
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param payout_wallet_data 
      */
-    public create(prismAccount?: string, payoutWalletData?: PayoutWalletData, _options?: Configuration): Observable<PayoutWallet> {
-        const requestContextPromise = this.requestFactory.create(prismAccount, payoutWalletData, _options);
+    public create(prism_account?: string, payout_wallet_data?: PayoutWalletData, _options?: Configuration): Observable<PayoutWallet> {
+        const requestContextPromise = this.requestFactory.create(prism_account, payout_wallet_data, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -639,15 +639,15 @@ export class ObservablePayoutWalletsApi {
 
     /**
      * List Payout Wallets
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      * @param limit A limit on the number of objects to be returned between 1 and 100.
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
      * @param data 
      */
-    public list(prismAccount?: string, limit?: number, page?: number, sort?: any, expand?: string, data?: Data, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.list(prismAccount, limit, page, sort, expand, data, _options);
+    public list(prism_account?: string, limit?: number, page?: number, sort?: any, expand?: string, data?: Data, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory.list(prism_account, limit, page, sort, expand, data, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -668,11 +668,11 @@ export class ObservablePayoutWalletsApi {
     /**
      * Retrieve Payout Wallet By ID
      * @param id 
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
      */
-    public retrieve(id: string, prismAccount?: string, expand?: string, _options?: Configuration): Observable<PayoutWallet> {
-        const requestContextPromise = this.requestFactory.retrieve(id, prismAccount, expand, _options);
+    public retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<PayoutWallet> {
+        const requestContextPromise = this.requestFactory.retrieve(id, prism_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -693,10 +693,10 @@ export class ObservablePayoutWalletsApi {
     /**
      * Update Payout Wallet By ID
      * @param id 
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public update(id: string, prismAccount?: string, _options?: Configuration): Observable<PayoutWallet> {
-        const requestContextPromise = this.requestFactory.update(id, prismAccount, _options);
+    public update(id: string, prism_account?: string, _options?: Configuration): Observable<PayoutWallet> {
+        const requestContextPromise = this.requestFactory.update(id, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -735,10 +735,10 @@ export class ObservableProductsApi {
     /**
      * Delete Product By Id
      * @param id 
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public _delete(id: string, prismAccount?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory._delete(id, prismAccount, _options);
+    public _delete(id: string, prism_account?: string, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory._delete(id, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -758,11 +758,11 @@ export class ObservableProductsApi {
 
     /**
      * Create Product
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
-     * @param productData 
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param product_data 
      */
-    public create(prismAccount?: string, productData?: ProductData, _options?: Configuration): Observable<Product> {
-        const requestContextPromise = this.requestFactory.create(prismAccount, productData, _options);
+    public create(prism_account?: string, product_data?: ProductData, _options?: Configuration): Observable<Product> {
+        const requestContextPromise = this.requestFactory.create(prism_account, product_data, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -786,10 +786,10 @@ export class ObservableProductsApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Observable<ListProductsResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prismAccount, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListProductsResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -811,10 +811,10 @@ export class ObservableProductsApi {
      * Retrieve Product By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prismAccount?: string, _options?: Configuration): Observable<Product> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prismAccount, _options);
+    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Product> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -835,10 +835,10 @@ export class ObservableProductsApi {
     /**
      * Update Product By Id
      * @param id 
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public update(id: string, prismAccount?: string, _options?: Configuration): Observable<Product> {
-        const requestContextPromise = this.requestFactory.update(id, prismAccount, _options);
+    public update(id: string, prism_account?: string, _options?: Configuration): Observable<Product> {
+        const requestContextPromise = this.requestFactory.update(id, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -876,11 +876,11 @@ export class ObservableTransfersApi {
 
     /**
      * Create Transfer
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
-     * @param transferData 
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param transfer_data 
      */
-    public create(prismAccount?: string, transferData?: TransferData, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory.create(prismAccount, transferData, _options);
+    public create(prism_account?: string, transfer_data?: TransferData, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory.create(prism_account, transfer_data, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -904,10 +904,10 @@ export class ObservableTransfersApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Observable<ListTransfersResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prismAccount, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListTransfersResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -928,11 +928,11 @@ export class ObservableTransfersApi {
     /**
      * Retrieve Transfer By ID
      * @param id 
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
      */
-    public retrieve(id: string, prismAccount?: string, expand?: string, _options?: Configuration): Observable<Transfer> {
-        const requestContextPromise = this.requestFactory.retrieve(id, prismAccount, expand, _options);
+    public retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<Transfer> {
+        const requestContextPromise = this.requestFactory.retrieve(id, prism_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -971,11 +971,11 @@ export class ObservableWalletsApi {
     /**
      * Delete Wallet By Id
      * @param id 
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      * @param expand 
      */
-    public _delete(id: string, prismAccount?: string, expand?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory._delete(id, prismAccount, expand, _options);
+    public _delete(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory._delete(id, prism_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -995,11 +995,11 @@ export class ObservableWalletsApi {
 
     /**
      * Create Wallet
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
-     * @param walletData 
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param wallet_data 
      */
-    public create(prismAccount?: string, walletData?: WalletData, _options?: Configuration): Observable<Wallet> {
-        const requestContextPromise = this.requestFactory.create(prismAccount, walletData, _options);
+    public create(prism_account?: string, wallet_data?: WalletData, _options?: Configuration): Observable<Wallet> {
+        const requestContextPromise = this.requestFactory.create(prism_account, wallet_data, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1023,10 +1023,10 @@ export class ObservableWalletsApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Observable<ListWalletsResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prismAccount, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListWalletsResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1048,10 +1048,10 @@ export class ObservableWalletsApi {
      * Retrieve Wallet By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prismAccount?: string, _options?: Configuration): Observable<Wallet> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prismAccount, _options);
+    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Wallet> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1072,10 +1072,10 @@ export class ObservableWalletsApi {
     /**
      * Update Wallet By Id
      * @param id 
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public update(id: string, prismAccount?: string, _options?: Configuration): Observable<Wallet> {
-        const requestContextPromise = this.requestFactory.update(id, prismAccount, _options);
+    public update(id: string, prism_account?: string, _options?: Configuration): Observable<Wallet> {
+        const requestContextPromise = this.requestFactory.update(id, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1114,10 +1114,10 @@ export class ObservableWebhooksApi {
     /**
      * Delete Webhook By Id
      * @param id 
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public _delete(id: string, prismAccount?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory._delete(id, prismAccount, _options);
+    public _delete(id: string, prism_account?: string, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory._delete(id, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1137,11 +1137,11 @@ export class ObservableWebhooksApi {
 
     /**
      * Create Webhook
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
-     * @param webhookData 
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param webhook_data 
      */
-    public create(prismAccount?: string, webhookData?: WebhookData, _options?: Configuration): Observable<Webhook> {
-        const requestContextPromise = this.requestFactory.create(prismAccount, webhookData, _options);
+    public create(prism_account?: string, webhook_data?: WebhookData, _options?: Configuration): Observable<Webhook> {
+        const requestContextPromise = this.requestFactory.create(prism_account, webhook_data, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1165,10 +1165,10 @@ export class ObservableWebhooksApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Observable<ListWebhooksResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prismAccount, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListWebhooksResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1190,10 +1190,10 @@ export class ObservableWebhooksApi {
      * Retrieve Webhook By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prismAccount?: string, _options?: Configuration): Observable<Webhook> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prismAccount, _options);
+    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Webhook> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1214,10 +1214,10 @@ export class ObservableWebhooksApi {
     /**
      * Update Webhook By Id
      * @param id 
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public update(id: string, prismAccount?: string, _options?: Configuration): Observable<Webhook> {
-        const requestContextPromise = this.requestFactory.update(id, prismAccount, _options);
+    public update(id: string, prism_account?: string, _options?: Configuration): Observable<Webhook> {
+        const requestContextPromise = this.requestFactory.update(id, prism_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);

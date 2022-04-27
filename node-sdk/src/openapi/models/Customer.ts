@@ -21,7 +21,7 @@ export class Customer {
     'id': string;
     'test': boolean;
     'account'?: string | Account;
-    'billingDetails'?: CustomerAllOfBillingDetails;
+    'billing_details'?: CustomerAllOfBillingDetails;
     'email'?: string;
     'name'?: string;
     'phone'?: string;
@@ -54,7 +54,7 @@ export class Customer {
             "format": ""
         },
         {
-            "name": "billingDetails",
+            "name": "billing_details",
             "baseName": "billing_details",
             "type": "CustomerAllOfBillingDetails",
             "format": ""

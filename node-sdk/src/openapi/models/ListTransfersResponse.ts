@@ -15,7 +15,7 @@ import { HttpFile } from '../http/http';
 
 export class ListTransfersResponse {
     'data'?: Array<Transfer>;
-    'hasMore'?: boolean;
+    'has_more'?: boolean;
     'page'?: number;
     'total'?: number;
 
@@ -29,7 +29,7 @@ export class ListTransfersResponse {
             "format": ""
         },
         {
-            "name": "hasMore",
+            "name": "has_more",
             "baseName": "has_more",
             "type": "boolean",
             "format": ""

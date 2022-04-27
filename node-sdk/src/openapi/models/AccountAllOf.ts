@@ -17,13 +17,13 @@ import { HttpFile } from '../http/http';
 
 export class AccountAllOf {
     'branding'?: AccountAllOfBranding;
-    'connectedAccounts'?: Array<string> | Array<Account>;
-    'ethWallet'?: PayoutWallet;
-    'invoicePrefix'?: string;
+    'connected_accounts'?: Array<string> | Array<Account>;
+    'eth_wallet'?: PayoutWallet;
+    'invoice_prefix'?: string;
     'name': string;
-    'parentAccount'?: string | Account;
-    'platformAccount': boolean;
-    'solWallet'?: PayoutWallet;
+    'parent_account'?: string | Account;
+    'platform_account': boolean;
+    'sol_wallet'?: PayoutWallet;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -35,19 +35,19 @@ export class AccountAllOf {
             "format": ""
         },
         {
-            "name": "connectedAccounts",
+            "name": "connected_accounts",
             "baseName": "connected_accounts",
             "type": "Array<string> | Array<Account>",
             "format": ""
         },
         {
-            "name": "ethWallet",
+            "name": "eth_wallet",
             "baseName": "eth_wallet",
             "type": "PayoutWallet",
             "format": ""
         },
         {
-            "name": "invoicePrefix",
+            "name": "invoice_prefix",
             "baseName": "invoice_prefix",
             "type": "string",
             "format": ""
@@ -59,19 +59,19 @@ export class AccountAllOf {
             "format": ""
         },
         {
-            "name": "parentAccount",
+            "name": "parent_account",
             "baseName": "parent_account",
             "type": "string | Account",
             "format": ""
         },
         {
-            "name": "platformAccount",
+            "name": "platform_account",
             "baseName": "platform_account",
             "type": "boolean",
             "format": ""
         },
         {
-            "name": "solWallet",
+            "name": "sol_wallet",
             "baseName": "sol_wallet",
             "type": "PayoutWallet",
             "format": ""

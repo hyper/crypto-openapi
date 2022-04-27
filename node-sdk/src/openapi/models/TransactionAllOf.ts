@@ -24,7 +24,7 @@ export class TransactionAllOf {
     'currency': TransactionAllOfCurrencyEnum;
     'customer'?: string | Customer;
     'invoice': string | Invoice;
-    'platformAccount'?: string | Account;
+    'platform_account'?: string | Account;
     'product'?: string | Product;
     'status': TransactionAllOfStatusEnum;
     'wallet'?: string | Wallet;
@@ -69,7 +69,7 @@ export class TransactionAllOf {
             "format": ""
         },
         {
-            "name": "platformAccount",
+            "name": "platform_account",
             "baseName": "platform_account",
             "type": "string | Account",
             "format": ""

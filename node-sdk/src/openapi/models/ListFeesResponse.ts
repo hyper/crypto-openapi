@@ -16,7 +16,7 @@ import { HttpFile } from '../http/http';
 
 export class ListFeesResponse {
     'data': Set<Fee>;
-    'hasMore': boolean;
+    'has_more': boolean;
     'page': number;
     'total': number;
 
@@ -30,7 +30,7 @@ export class ListFeesResponse {
             "format": ""
         },
         {
-            "name": "hasMore",
+            "name": "has_more",
             "baseName": "has_more",
             "type": "boolean",
             "format": ""

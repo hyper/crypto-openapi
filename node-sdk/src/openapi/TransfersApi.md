@@ -25,9 +25,9 @@ const apiInstance = new .TransfersApi(configuration);
 
 let body:.TransfersApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prismAccount: "Prism-Account_example",
+  prism_account: "Prism-Account_example",
   // TransferData (optional)
-  transferData: {
+  transfer_data: {
     account: "account_example",
     amount: "amount_example",
     description: "description_example",
@@ -47,8 +47,8 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **transferData** | **TransferData**|  |
- **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **transfer_data** | **TransferData**|  |
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -97,7 +97,7 @@ let body:.TransfersApiListRequest = {
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prismAccount: "Prism-Account_example",
+  prism_account: "Prism-Account_example",
 };
 
 apiInstance.list(body).then((data:any) => {
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
  **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
  **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -156,7 +156,7 @@ let body:.TransfersApiRetrieveRequest = {
   // string
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prismAccount: "Prism-Account_example",
+  prism_account: "Prism-Account_example",
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
 };
@@ -172,7 +172,7 @@ apiInstance.retrieve(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
 
 

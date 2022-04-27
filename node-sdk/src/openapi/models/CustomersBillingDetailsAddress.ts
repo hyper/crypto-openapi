@@ -17,7 +17,7 @@ export class CustomersBillingDetailsAddress {
     'country'?: string;
     'line1'?: string;
     'line2'?: string;
-    'postalCode'?: string;
+    'postal_code'?: string;
     'state'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -48,7 +48,7 @@ export class CustomersBillingDetailsAddress {
             "format": ""
         },
         {
-            "name": "postalCode",
+            "name": "postal_code",
             "baseName": "postal_code",
             "type": "string",
             "format": ""

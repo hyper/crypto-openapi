@@ -26,11 +26,11 @@ export class Payment {
     'amount': number;
     'currency': string;
     'customer': string | Customer;
-    'errorMessage'?: string;
-    'exchangeRate': number;
+    'error_message'?: string;
+    'exchange_rate': number;
     'invoice': string | Invoice;
     'status': PaymentStatusEnum;
-    'usdAmount': number;
+    'usd_amount': number;
     'wallet': string | Wallet;
 
     static readonly discriminator: string | undefined = undefined;
@@ -79,13 +79,13 @@ export class Payment {
             "format": ""
         },
         {
-            "name": "errorMessage",
+            "name": "error_message",
             "baseName": "error_message",
             "type": "string",
             "format": ""
         },
         {
-            "name": "exchangeRate",
+            "name": "exchange_rate",
             "baseName": "exchange_rate",
             "type": "number",
             "format": ""
@@ -103,7 +103,7 @@ export class Payment {
             "format": ""
         },
         {
-            "name": "usdAmount",
+            "name": "usd_amount",
             "baseName": "usd_amount",
             "type": "number",
             "format": ""

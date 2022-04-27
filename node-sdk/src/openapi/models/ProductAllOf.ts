@@ -16,7 +16,7 @@ import { HttpFile } from '../http/http';
 export class ProductAllOf {
     'account': string | Account;
     'amount': number;
-    'baseCurrency'?: string;
+    'base_currency'?: string;
     'chain'?: string;
     'currency': ProductAllOfCurrencyEnum;
     'name': string;
@@ -37,7 +37,7 @@ export class ProductAllOf {
             "format": ""
         },
         {
-            "name": "baseCurrency",
+            "name": "base_currency",
             "baseName": "base_currency",
             "type": "string",
             "format": ""

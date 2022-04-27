@@ -26,7 +26,7 @@ export class Transfer {
     'description'?: string;
     'invoice': string | Invoice;
     'percent': number;
-    'usdAmount': number;
+    'usd_amount': number;
     'wallet': string | Wallet;
 
     static readonly discriminator: string | undefined = undefined;
@@ -81,7 +81,7 @@ export class Transfer {
             "format": ""
         },
         {
-            "name": "usdAmount",
+            "name": "usd_amount",
             "baseName": "usd_amount",
             "type": "number",
             "format": ""

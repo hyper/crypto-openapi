@@ -20,8 +20,8 @@ export class Webhook {
     'id': string;
     'test': boolean;
     'account': string | Account;
-    'endpointUrl': string;
-    'eventTypes': Array<string>;
+    'endpoint_url': string;
+    'event_types': Array<string>;
     'secret': string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -52,13 +52,13 @@ export class Webhook {
             "format": ""
         },
         {
-            "name": "endpointUrl",
+            "name": "endpoint_url",
             "baseName": "endpoint_url",
             "type": "string",
             "format": ""
         },
         {
-            "name": "eventTypes",
+            "name": "event_types",
             "baseName": "event_types",
             "type": "Array<string>",
             "format": ""

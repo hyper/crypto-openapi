@@ -14,8 +14,8 @@ import { HttpFile } from '../http/http';
 
 export class WebhookData {
     'account': string;
-    'endpointUrl': string;
-    'eventTypes': Array<string>;
+    'endpoint_url': string;
+    'event_types': Array<string>;
     'secret'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -28,13 +28,13 @@ export class WebhookData {
             "format": ""
         },
         {
-            "name": "endpointUrl",
+            "name": "endpoint_url",
             "baseName": "endpoint_url",
             "type": "string",
             "format": ""
         },
         {
-            "name": "eventTypes",
+            "name": "event_types",
             "baseName": "event_types",
             "type": "Array<string>",
             "format": ""

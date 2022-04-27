@@ -18,7 +18,7 @@ export class Log {
     'created': Date;
     'id': string;
     'test': boolean;
-    'apiKey': string;
+    'api_key': string;
     'body'?: any;
     'headers'?: any;
     'ip': string;
@@ -49,7 +49,7 @@ export class Log {
             "format": ""
         },
         {
-            "name": "apiKey",
+            "name": "api_key",
             "baseName": "api_key",
             "type": "string",
             "format": ""

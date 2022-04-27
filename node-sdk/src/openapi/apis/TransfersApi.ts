@@ -19,10 +19,10 @@ export class TransfersApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Create Transfer
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
-     * @param transferData 
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param transfer_data 
      */
-    public async create(prismAccount?: string, transferData?: TransferData, _options?: Configuration): Promise<RequestContext> {
+    public async create(prism_account?: string, transfer_data?: TransferData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -35,7 +35,7 @@ export class TransfersApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
 
 
         // Body Params
@@ -44,7 +44,7 @@ export class TransfersApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(transferData, "TransferData", ""),
+            ObjectSerializer.serialize(transfer_data, "TransferData", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -64,9 +64,9 @@ export class TransfersApiRequestFactory extends BaseAPIRequestFactory {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public async list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
+    public async list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -102,7 +102,7 @@ export class TransfersApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
 
 
         
@@ -117,10 +117,10 @@ export class TransfersApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Retrieve Transfer By ID
      * @param id 
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
      */
-    public async retrieve(id: string, prismAccount?: string, expand?: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -145,7 +145,7 @@ export class TransfersApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
 
 
         

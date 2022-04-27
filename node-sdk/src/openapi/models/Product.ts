@@ -21,7 +21,7 @@ export class Product {
     'test': boolean;
     'account': string | Account;
     'amount': number;
-    'baseCurrency'?: string;
+    'base_currency'?: string;
     'chain'?: string;
     'currency': ProductCurrencyEnum;
     'name': string;
@@ -60,7 +60,7 @@ export class Product {
             "format": ""
         },
         {
-            "name": "baseCurrency",
+            "name": "base_currency",
             "baseName": "base_currency",
             "type": "string",
             "format": ""

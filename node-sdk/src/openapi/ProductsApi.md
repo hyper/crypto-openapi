@@ -29,7 +29,7 @@ let body:.ProductsApiDeleteRequest = {
   // string
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prismAccount: "Prism-Account_example",
+  prism_account: "Prism-Account_example",
 };
 
 apiInstance._delete(body).then((data:any) => {
@@ -43,7 +43,7 @@ apiInstance._delete(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -84,9 +84,9 @@ const apiInstance = new .ProductsApi(configuration);
 
 let body:.ProductsApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prismAccount: "Prism-Account_example",
+  prism_account: "Prism-Account_example",
   // ProductData (optional)
-  productData: {
+  product_data: {
     amount: 3.14,
     chain: "chain_example",
     currency: "currency_example",
@@ -104,8 +104,8 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **productData** | **ProductData**|  |
- **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **product_data** | **ProductData**|  |
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -154,7 +154,7 @@ let body:.ProductsApiListRequest = {
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prismAccount: "Prism-Account_example",
+  prism_account: "Prism-Account_example",
 };
 
 apiInstance.list(body).then((data:any) => {
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
  **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
  **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -215,7 +215,7 @@ let body:.ProductsApiRetrieveRequest = {
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prismAccount: "Prism-Account_example",
+  prism_account: "Prism-Account_example",
 };
 
 apiInstance.retrieve(body).then((data:any) => {
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -273,7 +273,7 @@ let body:.ProductsApiUpdateRequest = {
   // string
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prismAccount: "Prism-Account_example",
+  prism_account: "Prism-Account_example",
 };
 
 apiInstance.update(body).then((data:any) => {
@@ -287,7 +287,7 @@ apiInstance.update(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type

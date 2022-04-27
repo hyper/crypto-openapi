@@ -13,7 +13,7 @@
 import { HttpFile } from '../http/http';
 
 export class LogAllOf {
-    'apiKey': string;
+    'api_key': string;
     'body'?: any;
     'created': Date;
     'headers'?: any;
@@ -27,7 +27,7 @@ export class LogAllOf {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "apiKey",
+            "name": "api_key",
             "baseName": "api_key",
             "type": "string",
             "format": ""

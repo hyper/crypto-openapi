@@ -28,7 +28,7 @@ export class Fee {
     'internal'?: boolean;
     'invoice'?: string | Invoice;
     'percent'?: number;
-    'usdAmount'?: number;
+    'usd_amount'?: number;
     'wallet'?: string | Wallet;
 
     static readonly discriminator: string | undefined = undefined;
@@ -95,7 +95,7 @@ export class Fee {
             "format": ""
         },
         {
-            "name": "usdAmount",
+            "name": "usd_amount",
             "baseName": "usd_amount",
             "type": "number",
             "format": ""

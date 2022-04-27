@@ -16,8 +16,8 @@ import { HttpFile } from '../http/http';
 export class WebhookAllOf {
     'account': string | Account;
     'created': Date;
-    'endpointUrl': string;
-    'eventTypes': Array<string>;
+    'endpoint_url': string;
+    'event_types': Array<string>;
     'secret': string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -36,13 +36,13 @@ export class WebhookAllOf {
             "format": "date-time"
         },
         {
-            "name": "endpointUrl",
+            "name": "endpoint_url",
             "baseName": "endpoint_url",
             "type": "string",
             "format": ""
         },
         {
-            "name": "eventTypes",
+            "name": "event_types",
             "baseName": "event_types",
             "type": "Array<string>",
             "format": ""

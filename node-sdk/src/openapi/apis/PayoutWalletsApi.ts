@@ -20,9 +20,9 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Delete Payout Wallet By ID
      * @param id 
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public async _delete(id: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
+    public async _delete(id: string, prism_account?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -41,7 +41,7 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
 
 
         
@@ -55,10 +55,10 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Create Payout Wallets
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
-     * @param payoutWalletData 
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param payout_wallet_data 
      */
-    public async create(prismAccount?: string, payoutWalletData?: PayoutWalletData, _options?: Configuration): Promise<RequestContext> {
+    public async create(prism_account?: string, payout_wallet_data?: PayoutWalletData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -71,7 +71,7 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
 
 
         // Body Params
@@ -80,7 +80,7 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(payoutWalletData, "PayoutWalletData", ""),
+            ObjectSerializer.serialize(payout_wallet_data, "PayoutWalletData", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -96,14 +96,14 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * List Payout Wallets
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      * @param limit A limit on the number of objects to be returned between 1 and 100.
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
      * @param data 
      */
-    public async list(prismAccount?: string, limit?: number, page?: number, sort?: any, expand?: string, data?: Data, _options?: Configuration): Promise<RequestContext> {
+    public async list(prism_account?: string, limit?: number, page?: number, sort?: any, expand?: string, data?: Data, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -140,7 +140,7 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
 
 
         // Body Params
@@ -166,10 +166,10 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Retrieve Payout Wallet By ID
      * @param id 
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
      */
-    public async retrieve(id: string, prismAccount?: string, expand?: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -194,7 +194,7 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
 
 
         
@@ -209,9 +209,9 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Update Payout Wallet By ID
      * @param id 
-     * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public async update(id: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext> {
+    public async update(id: string, prism_account?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -230,7 +230,7 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prismAccount, "string", ""));
+        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
 
 
         

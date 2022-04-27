@@ -15,7 +15,7 @@ import { HttpFile } from '../http/http';
 
 export class CustomerData {
     'account': string;
-    'billingDetails'?: CustomersBillingDetails;
+    'billing_details'?: CustomersBillingDetails;
     'email'?: string;
     'name'?: string;
     'phone'?: string;
@@ -30,7 +30,7 @@ export class CustomerData {
             "format": ""
         },
         {
-            "name": "billingDetails",
+            "name": "billing_details",
             "baseName": "billing_details",
             "type": "CustomersBillingDetails",
             "format": ""

@@ -16,7 +16,7 @@ import { HttpFile } from '../http/http';
 
 export class CustomerAllOf {
     'account'?: string | Account;
-    'billingDetails'?: CustomerAllOfBillingDetails;
+    'billing_details'?: CustomerAllOfBillingDetails;
     'email'?: string;
     'name'?: string;
     'phone'?: string;
@@ -31,7 +31,7 @@ export class CustomerAllOf {
             "format": ""
         },
         {
-            "name": "billingDetails",
+            "name": "billing_details",
             "baseName": "billing_details",
             "type": "CustomerAllOfBillingDetails",
             "format": ""

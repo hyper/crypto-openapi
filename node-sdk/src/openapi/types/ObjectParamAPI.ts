@@ -62,13 +62,13 @@ export interface CustomersApiCreateRequest {
      * @type string
      * @memberof CustomersApicreate
      */
-    prismAccount?: string
+    prism_account?: string
     /**
      * 
      * @type CustomerData
      * @memberof CustomersApicreate
      */
-    customerData?: CustomerData
+    customer_data?: CustomerData
 }
 
 export interface CustomersApiListRequest {
@@ -101,7 +101,7 @@ export interface CustomersApiListRequest {
      * @type string
      * @memberof CustomersApilist
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export interface CustomersApiRetrieveRequest {
@@ -122,7 +122,7 @@ export interface CustomersApiRetrieveRequest {
      * @type string
      * @memberof CustomersApiretrieve
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export interface CustomersApiUpdateRequest {
@@ -137,7 +137,7 @@ export interface CustomersApiUpdateRequest {
      * @type string
      * @memberof CustomersApiupdate
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export class ObjectCustomersApi {
@@ -152,7 +152,7 @@ export class ObjectCustomersApi {
      * @param param the request object
      */
     public create(param: CustomersApiCreateRequest = {}, options?: Configuration): Promise<Customer> {
-        return this.api.create(param.prismAccount, param.customerData,  options).toPromise();
+        return this.api.create(param.prism_account, param.customer_data,  options).toPromise();
     }
 
     /**
@@ -160,7 +160,7 @@ export class ObjectCustomersApi {
      * @param param the request object
      */
     public list(param: CustomersApiListRequest = {}, options?: Configuration): Promise<ListCustomersResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -168,7 +168,7 @@ export class ObjectCustomersApi {
      * @param param the request object
      */
     public retrieve(param: CustomersApiRetrieveRequest, options?: Configuration): Promise<Customer> {
-        return this.api.retrieve(param.id, param.expand, param.prismAccount,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -176,7 +176,7 @@ export class ObjectCustomersApi {
      * @param param the request object
      */
     public update(param: CustomersApiUpdateRequest, options?: Configuration): Promise<Customer> {
-        return this.api.update(param.id, param.prismAccount,  options).toPromise();
+        return this.api.update(param.id, param.prism_account,  options).toPromise();
     }
 
 }
@@ -196,7 +196,7 @@ export interface FeesApiDeleteRequest {
      * @type string
      * @memberof FeesApi_delete
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export interface FeesApiCreateRequest {
@@ -205,13 +205,13 @@ export interface FeesApiCreateRequest {
      * @type string
      * @memberof FeesApicreate
      */
-    prismAccount?: string
+    prism_account?: string
     /**
      * 
      * @type FeeData
      * @memberof FeesApicreate
      */
-    feeData?: FeeData
+    fee_data?: FeeData
 }
 
 export interface FeesApiListRequest {
@@ -244,7 +244,7 @@ export interface FeesApiListRequest {
      * @type string
      * @memberof FeesApilist
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export interface FeesApiRetrieveRequest {
@@ -265,7 +265,7 @@ export interface FeesApiRetrieveRequest {
      * @type string
      * @memberof FeesApiretrieve
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export class ObjectFeesApi {
@@ -280,7 +280,7 @@ export class ObjectFeesApi {
      * @param param the request object
      */
     public _delete(param: FeesApiDeleteRequest, options?: Configuration): Promise<void> {
-        return this.api._delete(param.id, param.prismAccount,  options).toPromise();
+        return this.api._delete(param.id, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -288,7 +288,7 @@ export class ObjectFeesApi {
      * @param param the request object
      */
     public create(param: FeesApiCreateRequest = {}, options?: Configuration): Promise<Fee> {
-        return this.api.create(param.prismAccount, param.feeData,  options).toPromise();
+        return this.api.create(param.prism_account, param.fee_data,  options).toPromise();
     }
 
     /**
@@ -296,7 +296,7 @@ export class ObjectFeesApi {
      * @param param the request object
      */
     public list(param: FeesApiListRequest = {}, options?: Configuration): Promise<ListFeesResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -304,7 +304,7 @@ export class ObjectFeesApi {
      * @param param the request object
      */
     public retrieve(param: FeesApiRetrieveRequest, options?: Configuration): Promise<Fee> {
-        return this.api.retrieve(param.id, param.expand, param.prismAccount,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
     }
 
 }
@@ -318,13 +318,13 @@ export interface InvoicesApiCreateRequest {
      * @type string
      * @memberof InvoicesApicreate
      */
-    prismAccount?: string
+    prism_account?: string
     /**
      * 
      * @type InvoiceData
      * @memberof InvoicesApicreate
      */
-    invoiceData?: InvoiceData
+    invoice_data?: InvoiceData
 }
 
 export interface InvoicesApiListRequest {
@@ -357,7 +357,7 @@ export interface InvoicesApiListRequest {
      * @type string
      * @memberof InvoicesApilist
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export interface InvoicesApiPollRequest {
@@ -372,7 +372,7 @@ export interface InvoicesApiPollRequest {
      * @type string
      * @memberof InvoicesApipoll
      */
-    prismAccount?: string
+    prism_account?: string
     /**
      * Specifies which fields to populate in the response.
      * @type string
@@ -399,7 +399,7 @@ export interface InvoicesApiRetrieveRequest {
      * @type string
      * @memberof InvoicesApiretrieve
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export interface InvoicesApiUpdateRequest {
@@ -414,7 +414,7 @@ export interface InvoicesApiUpdateRequest {
      * @type string
      * @memberof InvoicesApiupdate
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export class ObjectInvoicesApi {
@@ -429,7 +429,7 @@ export class ObjectInvoicesApi {
      * @param param the request object
      */
     public create(param: InvoicesApiCreateRequest = {}, options?: Configuration): Promise<Invoice> {
-        return this.api.create(param.prismAccount, param.invoiceData,  options).toPromise();
+        return this.api.create(param.prism_account, param.invoice_data,  options).toPromise();
     }
 
     /**
@@ -437,7 +437,7 @@ export class ObjectInvoicesApi {
      * @param param the request object
      */
     public list(param: InvoicesApiListRequest = {}, options?: Configuration): Promise<ListInvoicesResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -445,7 +445,7 @@ export class ObjectInvoicesApi {
      * @param param the request object
      */
     public poll(param: InvoicesApiPollRequest, options?: Configuration): Promise<void> {
-        return this.api.poll(param.id, param.prismAccount, param.expand,  options).toPromise();
+        return this.api.poll(param.id, param.prism_account, param.expand,  options).toPromise();
     }
 
     /**
@@ -453,7 +453,7 @@ export class ObjectInvoicesApi {
      * @param param the request object
      */
     public retrieve(param: InvoicesApiRetrieveRequest, options?: Configuration): Promise<Invoice> {
-        return this.api.retrieve(param.id, param.expand, param.prismAccount,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -461,7 +461,7 @@ export class ObjectInvoicesApi {
      * @param param the request object
      */
     public update(param: InvoicesApiUpdateRequest, options?: Configuration): Promise<Invoice> {
-        return this.api.update(param.id, param.prismAccount,  options).toPromise();
+        return this.api.update(param.id, param.prism_account,  options).toPromise();
     }
 
 }
@@ -499,7 +499,7 @@ export interface LogsApiListRequest {
      * @type string
      * @memberof LogsApilist
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export interface LogsApiRetrieveRequest {
@@ -520,7 +520,7 @@ export interface LogsApiRetrieveRequest {
      * @type string
      * @memberof LogsApiretrieve
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export class ObjectLogsApi {
@@ -535,7 +535,7 @@ export class ObjectLogsApi {
      * @param param the request object
      */
     public list(param: LogsApiListRequest = {}, options?: Configuration): Promise<ListLogsResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -543,7 +543,7 @@ export class ObjectLogsApi {
      * @param param the request object
      */
     public retrieve(param: LogsApiRetrieveRequest, options?: Configuration): Promise<Log> {
-        return this.api.retrieve(param.id, param.expand, param.prismAccount,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
     }
 
 }
@@ -581,7 +581,7 @@ export interface PaymentsApiListRequest {
      * @type string
      * @memberof PaymentsApilist
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export interface PaymentsApiRetrieveRequest {
@@ -602,7 +602,7 @@ export interface PaymentsApiRetrieveRequest {
      * @type string
      * @memberof PaymentsApiretrieve
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export class ObjectPaymentsApi {
@@ -617,7 +617,7 @@ export class ObjectPaymentsApi {
      * @param param the request object
      */
     public list(param: PaymentsApiListRequest = {}, options?: Configuration): Promise<ListPaymentsResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -625,7 +625,7 @@ export class ObjectPaymentsApi {
      * @param param the request object
      */
     public retrieve(param: PaymentsApiRetrieveRequest, options?: Configuration): Promise<Payment> {
-        return this.api.retrieve(param.id, param.expand, param.prismAccount,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
     }
 
 }
@@ -645,7 +645,7 @@ export interface PayoutWalletsApiDeleteRequest {
      * @type string
      * @memberof PayoutWalletsApi_delete
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export interface PayoutWalletsApiCreateRequest {
@@ -654,13 +654,13 @@ export interface PayoutWalletsApiCreateRequest {
      * @type string
      * @memberof PayoutWalletsApicreate
      */
-    prismAccount?: string
+    prism_account?: string
     /**
      * 
      * @type PayoutWalletData
      * @memberof PayoutWalletsApicreate
      */
-    payoutWalletData?: PayoutWalletData
+    payout_wallet_data?: PayoutWalletData
 }
 
 export interface PayoutWalletsApiListRequest {
@@ -669,7 +669,7 @@ export interface PayoutWalletsApiListRequest {
      * @type string
      * @memberof PayoutWalletsApilist
      */
-    prismAccount?: string
+    prism_account?: string
     /**
      * A limit on the number of objects to be returned between 1 and 100.
      * @type number
@@ -714,7 +714,7 @@ export interface PayoutWalletsApiRetrieveRequest {
      * @type string
      * @memberof PayoutWalletsApiretrieve
      */
-    prismAccount?: string
+    prism_account?: string
     /**
      * Specifies which fields to populate in the response.
      * @type string
@@ -735,7 +735,7 @@ export interface PayoutWalletsApiUpdateRequest {
      * @type string
      * @memberof PayoutWalletsApiupdate
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export class ObjectPayoutWalletsApi {
@@ -750,7 +750,7 @@ export class ObjectPayoutWalletsApi {
      * @param param the request object
      */
     public _delete(param: PayoutWalletsApiDeleteRequest, options?: Configuration): Promise<void> {
-        return this.api._delete(param.id, param.prismAccount,  options).toPromise();
+        return this.api._delete(param.id, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -758,7 +758,7 @@ export class ObjectPayoutWalletsApi {
      * @param param the request object
      */
     public create(param: PayoutWalletsApiCreateRequest = {}, options?: Configuration): Promise<PayoutWallet> {
-        return this.api.create(param.prismAccount, param.payoutWalletData,  options).toPromise();
+        return this.api.create(param.prism_account, param.payout_wallet_data,  options).toPromise();
     }
 
     /**
@@ -766,7 +766,7 @@ export class ObjectPayoutWalletsApi {
      * @param param the request object
      */
     public list(param: PayoutWalletsApiListRequest = {}, options?: Configuration): Promise<void> {
-        return this.api.list(param.prismAccount, param.limit, param.page, param.sort, param.expand, param.data,  options).toPromise();
+        return this.api.list(param.prism_account, param.limit, param.page, param.sort, param.expand, param.data,  options).toPromise();
     }
 
     /**
@@ -774,7 +774,7 @@ export class ObjectPayoutWalletsApi {
      * @param param the request object
      */
     public retrieve(param: PayoutWalletsApiRetrieveRequest, options?: Configuration): Promise<PayoutWallet> {
-        return this.api.retrieve(param.id, param.prismAccount, param.expand,  options).toPromise();
+        return this.api.retrieve(param.id, param.prism_account, param.expand,  options).toPromise();
     }
 
     /**
@@ -782,7 +782,7 @@ export class ObjectPayoutWalletsApi {
      * @param param the request object
      */
     public update(param: PayoutWalletsApiUpdateRequest, options?: Configuration): Promise<PayoutWallet> {
-        return this.api.update(param.id, param.prismAccount,  options).toPromise();
+        return this.api.update(param.id, param.prism_account,  options).toPromise();
     }
 
 }
@@ -802,7 +802,7 @@ export interface ProductsApiDeleteRequest {
      * @type string
      * @memberof ProductsApi_delete
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export interface ProductsApiCreateRequest {
@@ -811,13 +811,13 @@ export interface ProductsApiCreateRequest {
      * @type string
      * @memberof ProductsApicreate
      */
-    prismAccount?: string
+    prism_account?: string
     /**
      * 
      * @type ProductData
      * @memberof ProductsApicreate
      */
-    productData?: ProductData
+    product_data?: ProductData
 }
 
 export interface ProductsApiListRequest {
@@ -850,7 +850,7 @@ export interface ProductsApiListRequest {
      * @type string
      * @memberof ProductsApilist
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export interface ProductsApiRetrieveRequest {
@@ -871,7 +871,7 @@ export interface ProductsApiRetrieveRequest {
      * @type string
      * @memberof ProductsApiretrieve
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export interface ProductsApiUpdateRequest {
@@ -886,7 +886,7 @@ export interface ProductsApiUpdateRequest {
      * @type string
      * @memberof ProductsApiupdate
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export class ObjectProductsApi {
@@ -901,7 +901,7 @@ export class ObjectProductsApi {
      * @param param the request object
      */
     public _delete(param: ProductsApiDeleteRequest, options?: Configuration): Promise<void> {
-        return this.api._delete(param.id, param.prismAccount,  options).toPromise();
+        return this.api._delete(param.id, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -909,7 +909,7 @@ export class ObjectProductsApi {
      * @param param the request object
      */
     public create(param: ProductsApiCreateRequest = {}, options?: Configuration): Promise<Product> {
-        return this.api.create(param.prismAccount, param.productData,  options).toPromise();
+        return this.api.create(param.prism_account, param.product_data,  options).toPromise();
     }
 
     /**
@@ -917,7 +917,7 @@ export class ObjectProductsApi {
      * @param param the request object
      */
     public list(param: ProductsApiListRequest = {}, options?: Configuration): Promise<ListProductsResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -925,7 +925,7 @@ export class ObjectProductsApi {
      * @param param the request object
      */
     public retrieve(param: ProductsApiRetrieveRequest, options?: Configuration): Promise<Product> {
-        return this.api.retrieve(param.id, param.expand, param.prismAccount,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -933,7 +933,7 @@ export class ObjectProductsApi {
      * @param param the request object
      */
     public update(param: ProductsApiUpdateRequest, options?: Configuration): Promise<Product> {
-        return this.api.update(param.id, param.prismAccount,  options).toPromise();
+        return this.api.update(param.id, param.prism_account,  options).toPromise();
     }
 
 }
@@ -947,13 +947,13 @@ export interface TransfersApiCreateRequest {
      * @type string
      * @memberof TransfersApicreate
      */
-    prismAccount?: string
+    prism_account?: string
     /**
      * 
      * @type TransferData
      * @memberof TransfersApicreate
      */
-    transferData?: TransferData
+    transfer_data?: TransferData
 }
 
 export interface TransfersApiListRequest {
@@ -986,7 +986,7 @@ export interface TransfersApiListRequest {
      * @type string
      * @memberof TransfersApilist
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export interface TransfersApiRetrieveRequest {
@@ -1001,7 +1001,7 @@ export interface TransfersApiRetrieveRequest {
      * @type string
      * @memberof TransfersApiretrieve
      */
-    prismAccount?: string
+    prism_account?: string
     /**
      * Specifies which fields to populate in the response.
      * @type string
@@ -1022,7 +1022,7 @@ export class ObjectTransfersApi {
      * @param param the request object
      */
     public create(param: TransfersApiCreateRequest = {}, options?: Configuration): Promise<void> {
-        return this.api.create(param.prismAccount, param.transferData,  options).toPromise();
+        return this.api.create(param.prism_account, param.transfer_data,  options).toPromise();
     }
 
     /**
@@ -1030,7 +1030,7 @@ export class ObjectTransfersApi {
      * @param param the request object
      */
     public list(param: TransfersApiListRequest = {}, options?: Configuration): Promise<ListTransfersResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -1038,7 +1038,7 @@ export class ObjectTransfersApi {
      * @param param the request object
      */
     public retrieve(param: TransfersApiRetrieveRequest, options?: Configuration): Promise<Transfer> {
-        return this.api.retrieve(param.id, param.prismAccount, param.expand,  options).toPromise();
+        return this.api.retrieve(param.id, param.prism_account, param.expand,  options).toPromise();
     }
 
 }
@@ -1058,7 +1058,7 @@ export interface WalletsApiDeleteRequest {
      * @type string
      * @memberof WalletsApi_delete
      */
-    prismAccount?: string
+    prism_account?: string
     /**
      * 
      * @type string
@@ -1073,13 +1073,13 @@ export interface WalletsApiCreateRequest {
      * @type string
      * @memberof WalletsApicreate
      */
-    prismAccount?: string
+    prism_account?: string
     /**
      * 
      * @type WalletData
      * @memberof WalletsApicreate
      */
-    walletData?: WalletData
+    wallet_data?: WalletData
 }
 
 export interface WalletsApiListRequest {
@@ -1112,7 +1112,7 @@ export interface WalletsApiListRequest {
      * @type string
      * @memberof WalletsApilist
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export interface WalletsApiRetrieveRequest {
@@ -1133,7 +1133,7 @@ export interface WalletsApiRetrieveRequest {
      * @type string
      * @memberof WalletsApiretrieve
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export interface WalletsApiUpdateRequest {
@@ -1148,7 +1148,7 @@ export interface WalletsApiUpdateRequest {
      * @type string
      * @memberof WalletsApiupdate
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export class ObjectWalletsApi {
@@ -1163,7 +1163,7 @@ export class ObjectWalletsApi {
      * @param param the request object
      */
     public _delete(param: WalletsApiDeleteRequest, options?: Configuration): Promise<void> {
-        return this.api._delete(param.id, param.prismAccount, param.expand,  options).toPromise();
+        return this.api._delete(param.id, param.prism_account, param.expand,  options).toPromise();
     }
 
     /**
@@ -1171,7 +1171,7 @@ export class ObjectWalletsApi {
      * @param param the request object
      */
     public create(param: WalletsApiCreateRequest = {}, options?: Configuration): Promise<Wallet> {
-        return this.api.create(param.prismAccount, param.walletData,  options).toPromise();
+        return this.api.create(param.prism_account, param.wallet_data,  options).toPromise();
     }
 
     /**
@@ -1179,7 +1179,7 @@ export class ObjectWalletsApi {
      * @param param the request object
      */
     public list(param: WalletsApiListRequest = {}, options?: Configuration): Promise<ListWalletsResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -1187,7 +1187,7 @@ export class ObjectWalletsApi {
      * @param param the request object
      */
     public retrieve(param: WalletsApiRetrieveRequest, options?: Configuration): Promise<Wallet> {
-        return this.api.retrieve(param.id, param.expand, param.prismAccount,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -1195,7 +1195,7 @@ export class ObjectWalletsApi {
      * @param param the request object
      */
     public update(param: WalletsApiUpdateRequest, options?: Configuration): Promise<Wallet> {
-        return this.api.update(param.id, param.prismAccount,  options).toPromise();
+        return this.api.update(param.id, param.prism_account,  options).toPromise();
     }
 
 }
@@ -1215,7 +1215,7 @@ export interface WebhooksApiDeleteRequest {
      * @type string
      * @memberof WebhooksApi_delete
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export interface WebhooksApiCreateRequest {
@@ -1224,13 +1224,13 @@ export interface WebhooksApiCreateRequest {
      * @type string
      * @memberof WebhooksApicreate
      */
-    prismAccount?: string
+    prism_account?: string
     /**
      * 
      * @type WebhookData
      * @memberof WebhooksApicreate
      */
-    webhookData?: WebhookData
+    webhook_data?: WebhookData
 }
 
 export interface WebhooksApiListRequest {
@@ -1263,7 +1263,7 @@ export interface WebhooksApiListRequest {
      * @type string
      * @memberof WebhooksApilist
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export interface WebhooksApiRetrieveRequest {
@@ -1284,7 +1284,7 @@ export interface WebhooksApiRetrieveRequest {
      * @type string
      * @memberof WebhooksApiretrieve
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export interface WebhooksApiUpdateRequest {
@@ -1299,7 +1299,7 @@ export interface WebhooksApiUpdateRequest {
      * @type string
      * @memberof WebhooksApiupdate
      */
-    prismAccount?: string
+    prism_account?: string
 }
 
 export class ObjectWebhooksApi {
@@ -1314,7 +1314,7 @@ export class ObjectWebhooksApi {
      * @param param the request object
      */
     public _delete(param: WebhooksApiDeleteRequest, options?: Configuration): Promise<void> {
-        return this.api._delete(param.id, param.prismAccount,  options).toPromise();
+        return this.api._delete(param.id, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -1322,7 +1322,7 @@ export class ObjectWebhooksApi {
      * @param param the request object
      */
     public create(param: WebhooksApiCreateRequest = {}, options?: Configuration): Promise<Webhook> {
-        return this.api.create(param.prismAccount, param.webhookData,  options).toPromise();
+        return this.api.create(param.prism_account, param.webhook_data,  options).toPromise();
     }
 
     /**
@@ -1330,7 +1330,7 @@ export class ObjectWebhooksApi {
      * @param param the request object
      */
     public list(param: WebhooksApiListRequest = {}, options?: Configuration): Promise<ListWebhooksResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -1338,7 +1338,7 @@ export class ObjectWebhooksApi {
      * @param param the request object
      */
     public retrieve(param: WebhooksApiRetrieveRequest, options?: Configuration): Promise<Webhook> {
-        return this.api.retrieve(param.id, param.expand, param.prismAccount,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -1346,7 +1346,7 @@ export class ObjectWebhooksApi {
      * @param param the request object
      */
     public update(param: WebhooksApiUpdateRequest, options?: Configuration): Promise<Webhook> {
-        return this.api.update(param.id, param.prismAccount,  options).toPromise();
+        return this.api.update(param.id, param.prism_account,  options).toPromise();
     }
 
 }
