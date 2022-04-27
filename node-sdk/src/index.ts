@@ -122,10 +122,10 @@ class CustomersApiLayer {
   }
 
   public async create(
-    data: CustomersApiCreateRequest['inlineObject'],
+    customerData: CustomersApiCreateRequest['customerData'],
     options?: { prismAccount: string }
   ): Promise<Customer> {
-    return this.api.create({ prismAccount: options?.prismAccount, inlineObject: data });
+    return this.api.create({ ...options, customerData });
   }
 
   public async retrieve(
@@ -133,7 +133,7 @@ class CustomersApiLayer {
     params?: Omit<CustomersApiRetrieveRequest, 'prismAccount' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Customer> {
-    return this.api.retrieve({ prismAccount: options?.prismAccount, id, ...params });
+    return this.api.retrieve({ ...options, id, ...params });
   }
 
   public async update(
@@ -141,14 +141,14 @@ class CustomersApiLayer {
     data: Omit<CustomersApiUpdateRequest, 'prismAccount' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Customer> {
-    return this.api.update({ prismAccount: options?.prismAccount, id, ...data });
+    return this.api.update({ ...options, id, ...data });
   }
 
   public async list(
     params?: Omit<CustomersApiListRequest, 'prismAccount'>,
     options?: { prismAccount: string }
   ): Promise<InlineResponse200> {
-    return this.api.list({ prismAccount: options?.prismAccount, ...params });
+    return this.api.list({ ...options, ...params });
   }
 }
 
@@ -160,10 +160,10 @@ class FeesApiLayer {
   }
 
   public async create(
-    data: FeesApiCreateRequest['inlineObject1'],
+    feeData: FeesApiCreateRequest['feeData'],
     options?: { prismAccount: string }
   ): Promise<Fee> {
-    return this.api.create({ prismAccount: options?.prismAccount, inlineObject1: data });
+    return this.api.create({ ...options, feeData });
   }
 
   public async retrieve(
@@ -171,14 +171,14 @@ class FeesApiLayer {
     params?: Omit<FeesApiRetrieveRequest, 'prismAccount' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Fee> {
-    return this.api.retrieve({ prismAccount: options?.prismAccount, id, ...params });
+    return this.api.retrieve({ ...options, id, ...params });
   }
 
   public async list(
     params?: Omit<FeesApiListRequest, 'prismAccount'>,
     options?: { prismAccount: string }
   ): Promise<InlineResponse2001> {
-    return this.api.list({ prismAccount: options?.prismAccount, ...params });
+    return this.api.list({ ...options, ...params });
   }
 }
 
@@ -190,10 +190,10 @@ class InvoicesApiLayer {
   }
 
   public async create(
-    data: InvoicesApiCreateRequest['inlineObject2'],
+    invoiceData: InvoicesApiCreateRequest['invoiceData'],
     options?: { prismAccount: string }
   ): Promise<Invoice> {
-    return this.api.create({ prismAccount: options?.prismAccount, inlineObject2: data });
+    return this.api.create({ ...options, invoiceData });
   }
 
   public async retrieve(
@@ -201,7 +201,7 @@ class InvoicesApiLayer {
     params?: Omit<InvoicesApiRetrieveRequest, 'prismAccount' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Invoice> {
-    return this.api.retrieve({ prismAccount: options?.prismAccount, id, ...params });
+    return this.api.retrieve({ ...options, id, ...params });
   }
 
   public async update(
@@ -209,14 +209,14 @@ class InvoicesApiLayer {
     data: Omit<InvoicesApiUpdateRequest, 'prismAccount' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Invoice> {
-    return this.api.update({ prismAccount: options?.prismAccount, id, ...data });
+    return this.api.update({ ...options, id, ...data });
   }
 
   public async list(
     params?: Omit<InvoicesApiListRequest, 'prismAccount'>,
     options?: { prismAccount: string }
   ): Promise<InlineResponse2002> {
-    return this.api.list({ prismAccount: options?.prismAccount, ...params });
+    return this.api.list({ ...options, ...params });
   }
 }
 
@@ -232,14 +232,14 @@ class LogsApiLayer {
     params?: Omit<LogsApiRetrieveRequest, 'prismAccount' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Log> {
-    return this.api.retrieve({ prismAccount: options?.prismAccount, id, ...params });
+    return this.api.retrieve({ ...options, id, ...params });
   }
 
   public async list(
     params?: Omit<LogsApiListRequest, 'prismAccount'>,
     options?: { prismAccount: string }
   ): Promise<InlineResponse2003> {
-    return this.api.list({ prismAccount: options?.prismAccount, ...params });
+    return this.api.list({ ...options, ...params });
   }
 }
 
@@ -255,14 +255,14 @@ class PaymentsApiLayer {
     params?: Omit<PaymentsApiRetrieveRequest, 'prismAccount' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Payment> {
-    return this.api.retrieve({ prismAccount: options?.prismAccount, id, ...params });
+    return this.api.retrieve({ ...options, id, ...params });
   }
 
   public async list(
     params?: Omit<PaymentsApiListRequest, 'prismAccount'>,
     options?: { prismAccount: string }
   ): Promise<InlineResponse2004> {
-    return this.api.list({ prismAccount: options?.prismAccount, ...params });
+    return this.api.list({ ...options, ...params });
   }
 }
 
@@ -274,10 +274,10 @@ class ProductsApiLayer {
   }
 
   public async create(
-    data: ProductsApiCreateRequest['inlineObject5'],
+    productData: ProductsApiCreateRequest['productData'],
     options?: { prismAccount: string }
   ): Promise<Product> {
-    return this.api.create({ prismAccount: options?.prismAccount, inlineObject5: data });
+    return this.api.create({ ...options, productData });
   }
 
   public async retrieve(
@@ -285,7 +285,7 @@ class ProductsApiLayer {
     params?: Omit<ProductsApiRetrieveRequest, 'prismAccount' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Product> {
-    return this.api.retrieve({ prismAccount: options?.prismAccount, id, ...params });
+    return this.api.retrieve({ ...options, id, ...params });
   }
 
   public async update(
@@ -293,14 +293,14 @@ class ProductsApiLayer {
     data: Omit<ProductsApiUpdateRequest, 'prismAccount' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Product> {
-    return this.api.update({ prismAccount: options?.prismAccount, id, ...data });
+    return this.api.update({ ...options, id, ...data });
   }
 
   public async list(
     params?: Omit<ProductsApiListRequest, 'prismAccount'>,
     options?: { prismAccount: string }
   ): Promise<InlineResponse2005> {
-    return this.api.list({ prismAccount: options?.prismAccount, ...params });
+    return this.api.list({ ...options, ...params });
   }
 }
 
@@ -312,10 +312,10 @@ class WalletsApiLayer {
   }
 
   public async create(
-    data: WalletsApiCreateRequest['inlineObject7'],
+    walletData: WalletsApiCreateRequest['walletData'],
     options?: { prismAccount: string }
   ): Promise<Wallet> {
-    return this.api.create({ prismAccount: options?.prismAccount, inlineObject7: data });
+    return this.api.create({ ...options, walletData });
   }
 
   public async retrieve(
@@ -323,7 +323,7 @@ class WalletsApiLayer {
     params?: Omit<WalletsApiRetrieveRequest, 'prismAccount' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Wallet> {
-    return this.api.retrieve({ prismAccount: options?.prismAccount, id, ...params });
+    return this.api.retrieve({ ...options, id, ...params });
   }
 
   public async update(
@@ -331,14 +331,14 @@ class WalletsApiLayer {
     data: Omit<WalletsApiUpdateRequest, 'prismAccount' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Wallet> {
-    return this.api.update({ prismAccount: options?.prismAccount, id, ...data });
+    return this.api.update({ ...options, id, ...data });
   }
 
   public async list(
     params?: Omit<WalletsApiListRequest, 'prismAccount'>,
     options?: { prismAccount: string }
   ): Promise<InlineResponse2007> {
-    return this.api.list({ prismAccount: options?.prismAccount, ...params });
+    return this.api.list({ ...options, ...params });
   }
 }
 
@@ -350,10 +350,10 @@ class WebhooksApiLayer {
   }
 
   public async create(
-    data: WebhooksApiCreateRequest['inlineObject8'],
+    webhookData: WebhooksApiCreateRequest['webhookData'],
     options?: { prismAccount: string }
   ): Promise<Customer> {
-    return this.api.create({ prismAccount: options?.prismAccount, inlineObject8: data });
+    return this.api.create({ ...options, webhookData });
   }
 
   public async retrieve(
@@ -361,7 +361,7 @@ class WebhooksApiLayer {
     params?: Omit<WebhooksApiRetrieveRequest, 'prismAccount' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Customer> {
-    return this.api.retrieve({ prismAccount: options?.prismAccount, id, ...params });
+    return this.api.retrieve({ ...options, id, ...params });
   }
 
   public async update(
@@ -369,13 +369,13 @@ class WebhooksApiLayer {
     data: Omit<WebhooksApiUpdateRequest, 'prismAccount' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Customer> {
-    return this.api.update({ prismAccount: options?.prismAccount, id, ...data });
+    return this.api.update({ ...options, id, ...data });
   }
 
   public async list(
     params?: Omit<WebhooksApiListRequest, 'prismAccount'>,
     options?: { prismAccount: string }
   ): Promise<InlineResponse2008> {
-    return this.api.list({ prismAccount: options?.prismAccount, ...params });
+    return this.api.list({ ...options, ...params });
   }
 }

@@ -1,21 +1,16 @@
 export * from './APIKey';
+export * from './APIKeyAllOf';
 export * from './Account';
 export * from './AccountBranding';
 export * from './Customer';
 export * from './CustomerBillingDetails';
 export * from './CustomerBillingDetailsAddress';
+export * from './CustomerData';
 export * from './CustomersBillingDetails';
 export * from './CustomersBillingDetailsAddress';
+export * from './Data';
 export * from './Fee';
-export * from './InlineObject';
-export * from './InlineObject1';
-export * from './InlineObject2';
-export * from './InlineObject3';
-export * from './InlineObject4';
-export * from './InlineObject5';
-export * from './InlineObject6';
-export * from './InlineObject7';
-export * from './InlineObject8';
+export * from './FeeData';
 export * from './InlineResponse200';
 export * from './InlineResponse2001';
 export * from './InlineResponse2002';
@@ -26,33 +21,35 @@ export * from './InlineResponse2006';
 export * from './InlineResponse2007';
 export * from './InlineResponse2008';
 export * from './Invoice';
+export * from './InvoiceData';
 export * from './Log';
+export * from './Model';
 export * from './Payment';
 export * from './PayoutWallet';
+export * from './PayoutWalletData';
 export * from './Product';
+export * from './ProductData';
 export * from './Transaction';
 export * from './Transfer';
+export * from './TransferData';
 export * from './Wallet';
+export * from './WalletData';
 export * from './Webhook';
+export * from './WebhookData';
 
-import { APIKey     , APIKeyTypeEnum   } from './APIKey';
+import { APIKey      , APIKeyTypeEnum   } from './APIKey';
+import { APIKeyAllOf     , APIKeyAllOfTypeEnum   } from './APIKeyAllOf';
 import { Account } from './Account';
 import { AccountBranding } from './AccountBranding';
 import { Customer } from './Customer';
 import { CustomerBillingDetails } from './CustomerBillingDetails';
 import { CustomerBillingDetailsAddress } from './CustomerBillingDetailsAddress';
+import { CustomerData } from './CustomerData';
 import { CustomersBillingDetails } from './CustomersBillingDetails';
 import { CustomersBillingDetailsAddress } from './CustomersBillingDetailsAddress';
+import { Data } from './Data';
 import { Fee } from './Fee';
-import { InlineObject } from './InlineObject';
-import { InlineObject1 } from './InlineObject1';
-import { InlineObject2 } from './InlineObject2';
-import { InlineObject3 } from './InlineObject3';
-import { InlineObject4 } from './InlineObject4';
-import { InlineObject5 } from './InlineObject5';
-import { InlineObject6 } from './InlineObject6';
-import { InlineObject7 } from './InlineObject7';
-import { InlineObject8 } from './InlineObject8';
+import { FeeData } from './FeeData';
 import { InlineResponse200 } from './InlineResponse200';
 import { InlineResponse2001 } from './InlineResponse2001';
 import { InlineResponse2002 } from './InlineResponse2002';
@@ -63,14 +60,21 @@ import { InlineResponse2006 } from './InlineResponse2006';
 import { InlineResponse2007 } from './InlineResponse2007';
 import { InlineResponse2008 } from './InlineResponse2008';
 import { Invoice  , InvoiceChainEnum   , InvoiceCurrencyEnum       , InvoiceStatusEnum     } from './Invoice';
+import { InvoiceData } from './InvoiceData';
 import { Log      , LogMethodEnum      } from './Log';
+import { Model } from './Model';
 import { Payment         , PaymentStatusEnum     } from './Payment';
 import { PayoutWallet   , PayoutWalletChainEnum     } from './PayoutWallet';
+import { PayoutWalletData } from './PayoutWalletData';
 import { Product     , ProductCurrencyEnum     } from './Product';
+import { ProductData } from './ProductData';
 import { Transaction  , TransactionChainEnum   , TransactionCurrencyEnum       , TransactionStatusEnum    } from './Transaction';
 import { Transfer } from './Transfer';
+import { TransferData } from './TransferData';
 import { Wallet   , WalletChainEnum      } from './Wallet';
+import { WalletData } from './WalletData';
 import { Webhook } from './Webhook';
+import { WebhookData } from './WebhookData';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -93,6 +97,7 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 let enumsMap: Set<string> = new Set<string>([
     "APIKeyTypeEnum",
+    "APIKeyAllOfTypeEnum",
     "InvoiceChainEnum",
     "InvoiceCurrencyEnum",
     "InvoiceStatusEnum",
@@ -108,23 +113,18 @@ let enumsMap: Set<string> = new Set<string>([
 
 let typeMap: {[index: string]: any} = {
     "APIKey": APIKey,
+    "APIKeyAllOf": APIKeyAllOf,
     "Account": Account,
     "AccountBranding": AccountBranding,
     "Customer": Customer,
     "CustomerBillingDetails": CustomerBillingDetails,
     "CustomerBillingDetailsAddress": CustomerBillingDetailsAddress,
+    "CustomerData": CustomerData,
     "CustomersBillingDetails": CustomersBillingDetails,
     "CustomersBillingDetailsAddress": CustomersBillingDetailsAddress,
+    "Data": Data,
     "Fee": Fee,
-    "InlineObject": InlineObject,
-    "InlineObject1": InlineObject1,
-    "InlineObject2": InlineObject2,
-    "InlineObject3": InlineObject3,
-    "InlineObject4": InlineObject4,
-    "InlineObject5": InlineObject5,
-    "InlineObject6": InlineObject6,
-    "InlineObject7": InlineObject7,
-    "InlineObject8": InlineObject8,
+    "FeeData": FeeData,
     "InlineResponse200": InlineResponse200,
     "InlineResponse2001": InlineResponse2001,
     "InlineResponse2002": InlineResponse2002,
@@ -135,14 +135,21 @@ let typeMap: {[index: string]: any} = {
     "InlineResponse2007": InlineResponse2007,
     "InlineResponse2008": InlineResponse2008,
     "Invoice": Invoice,
+    "InvoiceData": InvoiceData,
     "Log": Log,
+    "Model": Model,
     "Payment": Payment,
     "PayoutWallet": PayoutWallet,
+    "PayoutWalletData": PayoutWalletData,
     "Product": Product,
+    "ProductData": ProductData,
     "Transaction": Transaction,
     "Transfer": Transfer,
+    "TransferData": TransferData,
     "Wallet": Wallet,
+    "WalletData": WalletData,
     "Webhook": Webhook,
+    "WebhookData": WebhookData,
 }
 
 export class ObjectSerializer {

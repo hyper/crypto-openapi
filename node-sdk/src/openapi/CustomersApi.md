@@ -27,8 +27,8 @@ const apiInstance = new .CustomersApi(configuration);
 let body:.CustomersApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prismAccount: "Prism-Account_example",
-  // InlineObject (optional)
-  inlineObject: {
+  // CustomerData (optional)
+  customerData: {
     account: "account_example",
     billingDetails: {
       address: {
@@ -56,7 +56,7 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject** | **InlineObject**|  |
+ **customerData** | **CustomerData**|  |
  **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 

@@ -2,50 +2,67 @@
   "components": {
     "schemas": {
       "APIKey": {
-        "description": "",
-        "properties": {
-          "account": {
-            "oneOf": [
-              {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
+            "properties": {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "admin": {
+                "default": false,
+                "type": "boolean"
+              },
+              "created": {
+                "format": "date-time",
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Account"
+              "id": {
+                "type": "string"
+              },
+              "key": {
+                "type": "string"
+              },
+              "type": {
+                "enum": ["publishable", "secret", "restricted"],
+                "type": "string"
               }
-            ]
-          },
-          "admin": {
-            "type": "boolean"
-          },
-          "created": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "key": {
-            "type": "string"
-          },
-          "type": {
-            "enum": ["publishable", "secret", "restricted"],
-            "type": "string"
+            },
+            "required": ["id", "created", "account", "key", "type", "admin"],
+            "type": "object"
           }
-        },
-        "required": ["id", "created", "key", "type"],
+        ],
+        "description": "",
         "title": "API Key",
-        "type": "object",
         "x-internal": true
       },
       "Account": {
+        "description": "",
         "properties": {
           "branding": {
             "properties": {
               "logo": {
+                "default": null,
                 "type": "string"
               }
             },
             "type": "object"
+          },
+          "connected_accounts": {
+            "items": {
+              "oneOf": [{}],
+              "type": "string"
+            },
+            "type": "array"
           },
           "created": {
             "format": "date-time",
@@ -55,21 +72,34 @@
             "$ref": "#/components/schemas/PayoutWallet"
           },
           "id": {
-            "pattern": "acct_[A-Za-z0-9]",
+            "pattern": "^[a-z]{2,4}_[A-Za-z0-9]{21}$",
             "type": "string"
           },
           "invoice_prefix": {
+            "default": null,
             "pattern": "^[A-Z]{3,12}$",
             "type": "string"
           },
           "name": {
             "type": "string"
           },
+          "parent_account": {
+            "oneOf": [{}],
+            "type": "string"
+          },
+          "platform_account": {
+            "default": false,
+            "type": "boolean"
+          },
           "sol_wallet": {
             "$ref": "#/components/schemas/PayoutWallet"
+          },
+          "test": {
+            "default": false,
+            "type": "boolean"
           }
         },
-        "required": ["id", "created", "name"],
+        "required": ["name"],
         "title": "Account",
         "type": "object",
         "x-internal": true
@@ -327,6 +357,25 @@
         "title": "Log",
         "type": "object",
         "x-internal": true
+      },
+      "Model": {
+        "properties": {
+          "created": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
+            "pattern": "^[a-z]{2,4}_[A-Za-z0-9]{21}$",
+            "type": "string"
+          },
+          "test": {
+            "default": false,
+            "type": "boolean"
+          }
+        },
+        "required": ["id", "created", "test"],
+        "title": "Model",
+        "type": "object"
       },
       "Payment": {
         "properties": {
@@ -881,6 +930,7 @@
         "requestBody": {
           "content": {
             "application/json": {
+              "examples": {},
               "schema": {
                 "description": "",
                 "properties": {
@@ -936,6 +986,7 @@
                   }
                 },
                 "required": ["account"],
+                "title": "CustomerData",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -957,7 +1008,8 @@
                 }
               }
             }
-          }
+          },
+          "description": ""
         },
         "responses": {
           "200": {
@@ -1191,6 +1243,7 @@
                   }
                 },
                 "required": ["invoice", "wallet", "percent"],
+                "title": "FeeData",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -1465,6 +1518,7 @@
                   "transaction",
                   "wallet"
                 ],
+                "title": "InvoiceData",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -1596,7 +1650,7 @@
     "/invoices/{id}/poll": {
       "get": {
         "description": "",
-        "operationId": "get-invoices-invoiceId-poll",
+        "operationId": "invoices_poll",
         "parameters": [
           {
             "description": "The ID of the connected Prism account you are making a request on behalf on.",
@@ -1620,8 +1674,8 @@
             "description": "OK"
           }
         },
-        "summary": "Your GET endpoint",
-        "tags": []
+        "summary": "Poll Invoice By ID",
+        "tags": ["Invoices"]
       },
       "parameters": [
         {
@@ -1965,7 +2019,7 @@
     "/payout_wallets": {
       "get": {
         "description": "",
-        "operationId": "get-payout_wallets",
+        "operationId": "payout-wallets_list",
         "parameters": [
           {
             "description": "The ID of the connected Prism account you are making a request on behalf on.",
@@ -2028,18 +2082,19 @@
                     "type": "number"
                   }
                 },
+                "title": "Data",
                 "type": "object"
               }
             }
           }
         },
         "responses": {},
-        "summary": "Your GET endpoint",
-        "tags": []
+        "summary": "List Payout Wallets",
+        "tags": ["PayoutWallets"]
       },
       "parameters": [],
       "post": {
-        "operationId": "post-payout_wallets",
+        "operationId": "payout-wallets_create",
         "parameters": [
           {
             "description": "The ID of the connected Prism account you are making a request on behalf on.",
@@ -2066,6 +2121,7 @@
                   }
                 },
                 "required": ["account", "chain", "address"],
+                "title": "PayoutWalletData",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -2093,12 +2149,13 @@
             "description": "Bad Request"
           }
         },
-        "summary": ""
+        "summary": "Create Payout Wallets",
+        "tags": ["PayoutWallets"]
       }
     },
     "/payout_wallets/{id}": {
       "delete": {
-        "operationId": "delete-payout_wallets-id",
+        "operationId": "payout-wallets_delete",
         "parameters": [
           {
             "description": "The ID of the connected Prism account you are making a request on behalf on.",
@@ -2117,10 +2174,11 @@
             "description": "Not Found"
           }
         },
-        "summary": ""
+        "summary": "Delete Payout Wallet By ID",
+        "tags": ["PayoutWallets"]
       },
       "get": {
-        "operationId": "get-payout_wallets-payout_wallet_id",
+        "operationId": "payout-wallets_retrieve",
         "parameters": [
           {
             "description": "The ID of the connected Prism account you are making a request on behalf on.",
@@ -2154,8 +2212,8 @@
             "description": "Not Found"
           }
         },
-        "summary": "Your GET endpoint",
-        "tags": []
+        "summary": "Retrieve Payout Wallet By ID",
+        "tags": ["PayoutWallets"]
       },
       "parameters": [
         {
@@ -2168,7 +2226,7 @@
         }
       ],
       "patch": {
-        "operationId": "patch-payout_wallets-id",
+        "operationId": "payout-wallets_update",
         "parameters": [
           {
             "description": "The ID of the connected Prism account you are making a request on behalf on.",
@@ -2191,7 +2249,8 @@
             "description": "OK"
           }
         },
-        "summary": ""
+        "summary": "Update Payout Wallet By ID",
+        "tags": ["PayoutWallets"]
       }
     },
     "/products": {
@@ -2328,6 +2387,7 @@
                   }
                 },
                 "required": ["name", "amount", "chain", "currency"],
+                "title": "ProductData",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -2468,7 +2528,7 @@
     },
     "/transfers": {
       "get": {
-        "operationId": "get-transfers",
+        "operationId": "transfers_list",
         "parameters": [
           {
             "description": "A limit on the number of objects to be returned between 1 and 100.",
@@ -2539,58 +2599,11 @@
             "description": "OK"
           }
         },
-        "summary": "Your GET endpoint",
-        "tags": []
-      }
-    },
-    "/transfers/{id}": {
-      "get": {
-        "operationId": "get-transfers-transferId",
-        "parameters": [
-          {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Transfer"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        },
-        "summary": "Your GET endpoint",
-        "tags": []
+        "summary": "List Transfers",
+        "tags": ["Transfers"]
       },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ],
       "post": {
-        "operationId": "post-transfers-id",
+        "operationId": "transfers_create",
         "parameters": [
           {
             "description": "The ID of the connected Prism account you are making a request on behalf on.",
@@ -2626,6 +2639,7 @@
                   }
                 },
                 "required": ["account", "invoice", "wallet"],
+                "title": "TransferData",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -2650,8 +2664,56 @@
             "description": "Bad Request"
           }
         },
-        "summary": ""
+        "summary": "Create Transfer",
+        "tags": ["Transfers"]
       }
+    },
+    "/transfers/{id}": {
+      "get": {
+        "operationId": "transfers_retrieve",
+        "parameters": [
+          {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Specifies which fields to populate in the response.",
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transfer"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "summary": "Retrieve Transfer By ID",
+        "tags": ["Transfers"]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
     },
     "/wallets": {
       "get": {
@@ -2787,6 +2849,7 @@
                   }
                 },
                 "required": ["account", "chain", "address", "customer"],
+                "title": "WalletData",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -3077,6 +3140,7 @@
                   }
                 },
                 "required": ["account", "endpoint_url", "event_types"],
+                "title": "WebhookData",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -3240,6 +3304,9 @@
     },
     {
       "name": "Payments"
+    },
+    {
+      "name": "PayoutWallets"
     },
     {
       "name": "Products"

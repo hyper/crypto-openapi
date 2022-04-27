@@ -8,9 +8,9 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { InlineObject5 } from '../models/InlineObject5';
 import { InlineResponse2005 } from '../models/InlineResponse2005';
 import { Product } from '../models/Product';
+import { ProductData } from '../models/ProductData';
 
 /**
  * no description
@@ -56,9 +56,9 @@ export class ProductsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Create Product
      * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
-     * @param inlineObject5 
+     * @param productData 
      */
-    public async create(prismAccount?: string, inlineObject5?: InlineObject5, _options?: Configuration): Promise<RequestContext> {
+    public async create(prismAccount?: string, productData?: ProductData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -80,7 +80,7 @@ export class ProductsApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(inlineObject5, "InlineObject5", ""),
+            ObjectSerializer.serialize(productData, "ProductData", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

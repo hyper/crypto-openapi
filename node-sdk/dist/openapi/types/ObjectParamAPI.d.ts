@@ -1,15 +1,9 @@
 import { Configuration } from '../configuration';
 import { Customer } from '../models/Customer';
+import { CustomerData } from '../models/CustomerData';
+import { Data } from '../models/Data';
 import { Fee } from '../models/Fee';
-import { InlineObject } from '../models/InlineObject';
-import { InlineObject1 } from '../models/InlineObject1';
-import { InlineObject2 } from '../models/InlineObject2';
-import { InlineObject3 } from '../models/InlineObject3';
-import { InlineObject4 } from '../models/InlineObject4';
-import { InlineObject5 } from '../models/InlineObject5';
-import { InlineObject6 } from '../models/InlineObject6';
-import { InlineObject7 } from '../models/InlineObject7';
-import { InlineObject8 } from '../models/InlineObject8';
+import { FeeData } from '../models/FeeData';
 import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
@@ -20,17 +14,23 @@ import { InlineResponse2006 } from '../models/InlineResponse2006';
 import { InlineResponse2007 } from '../models/InlineResponse2007';
 import { InlineResponse2008 } from '../models/InlineResponse2008';
 import { Invoice } from '../models/Invoice';
+import { InvoiceData } from '../models/InvoiceData';
 import { Log } from '../models/Log';
 import { Payment } from '../models/Payment';
 import { PayoutWallet } from '../models/PayoutWallet';
+import { PayoutWalletData } from '../models/PayoutWalletData';
 import { Product } from '../models/Product';
+import { ProductData } from '../models/ProductData';
 import { Transfer } from '../models/Transfer';
+import { TransferData } from '../models/TransferData';
 import { Wallet } from '../models/Wallet';
+import { WalletData } from '../models/WalletData';
 import { Webhook } from '../models/Webhook';
+import { WebhookData } from '../models/WebhookData';
 import { CustomersApiRequestFactory, CustomersApiResponseProcessor } from "../apis/CustomersApi";
 export interface CustomersApiCreateRequest {
     prismAccount?: string;
-    inlineObject?: InlineObject;
+    customerData?: CustomerData;
 }
 export interface CustomersApiListRequest {
     limit?: number;
@@ -56,67 +56,6 @@ export declare class ObjectCustomersApi {
     retrieve(param: CustomersApiRetrieveRequest, options?: Configuration): Promise<Customer>;
     update(param: CustomersApiUpdateRequest, options?: Configuration): Promise<Customer>;
 }
-import { DefaultApiRequestFactory, DefaultApiResponseProcessor } from "../apis/DefaultApi";
-export interface DefaultApiGetInvoicesInvoiceIdPollRequest {
-    id: string;
-    prismAccount?: string;
-    expand?: string;
-}
-export interface DefaultApiGetTransfersRequest {
-    limit?: number;
-    page?: number;
-    sort?: any;
-    expand?: string;
-    prismAccount?: string;
-}
-export interface DefaultApiGetTransfersTransferIdRequest {
-    id: string;
-    prismAccount?: string;
-    expand?: string;
-}
-export interface DefaultApiPostTransfersIdRequest {
-    id: string;
-    prismAccount?: string;
-    inlineObject6?: InlineObject6;
-}
-export interface DefaultApiWalletsRequest {
-    prismAccount?: string;
-    limit?: number;
-    page?: number;
-    sort?: any;
-    expand?: string;
-    inlineObject3?: InlineObject3;
-}
-export interface DefaultApiWalletsIdRequest {
-    id: string;
-    prismAccount?: string;
-}
-export interface DefaultApiWalletsId0Request {
-    id: string;
-    prismAccount?: string;
-}
-export interface DefaultApiWalletsPayoutWalletIdRequest {
-    id: string;
-    prismAccount?: string;
-    expand?: string;
-}
-export interface DefaultApiWallets0Request {
-    prismAccount?: string;
-    inlineObject4?: InlineObject4;
-}
-export declare class ObjectDefaultApi {
-    private api;
-    constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor);
-    getInvoicesInvoiceIdPoll(param: DefaultApiGetInvoicesInvoiceIdPollRequest, options?: Configuration): Promise<void>;
-    getTransfers(param?: DefaultApiGetTransfersRequest, options?: Configuration): Promise<InlineResponse2006>;
-    getTransfersTransferId(param: DefaultApiGetTransfersTransferIdRequest, options?: Configuration): Promise<Transfer>;
-    postTransfersId(param: DefaultApiPostTransfersIdRequest, options?: Configuration): Promise<void>;
-    wallets(param?: DefaultApiWalletsRequest, options?: Configuration): Promise<void>;
-    walletsId(param: DefaultApiWalletsIdRequest, options?: Configuration): Promise<void>;
-    walletsId_1(param: DefaultApiWalletsId0Request, options?: Configuration): Promise<PayoutWallet>;
-    walletsPayoutWalletId(param: DefaultApiWalletsPayoutWalletIdRequest, options?: Configuration): Promise<PayoutWallet>;
-    wallets_2(param?: DefaultApiWallets0Request, options?: Configuration): Promise<PayoutWallet>;
-}
 import { FeesApiRequestFactory, FeesApiResponseProcessor } from "../apis/FeesApi";
 export interface FeesApiDeleteRequest {
     id: string;
@@ -124,7 +63,7 @@ export interface FeesApiDeleteRequest {
 }
 export interface FeesApiCreateRequest {
     prismAccount?: string;
-    inlineObject1?: InlineObject1;
+    feeData?: FeeData;
 }
 export interface FeesApiListRequest {
     limit?: number;
@@ -149,7 +88,7 @@ export declare class ObjectFeesApi {
 import { InvoicesApiRequestFactory, InvoicesApiResponseProcessor } from "../apis/InvoicesApi";
 export interface InvoicesApiCreateRequest {
     prismAccount?: string;
-    inlineObject2?: InlineObject2;
+    invoiceData?: InvoiceData;
 }
 export interface InvoicesApiListRequest {
     limit?: number;
@@ -157,6 +96,11 @@ export interface InvoicesApiListRequest {
     sort?: any;
     expand?: string;
     prismAccount?: string;
+}
+export interface InvoicesApiPollRequest {
+    id: string;
+    prismAccount?: string;
+    expand?: string;
 }
 export interface InvoicesApiRetrieveRequest {
     id: string;
@@ -172,6 +116,7 @@ export declare class ObjectInvoicesApi {
     constructor(configuration: Configuration, requestFactory?: InvoicesApiRequestFactory, responseProcessor?: InvoicesApiResponseProcessor);
     create(param?: InvoicesApiCreateRequest, options?: Configuration): Promise<Invoice>;
     list(param?: InvoicesApiListRequest, options?: Configuration): Promise<InlineResponse2002>;
+    poll(param: InvoicesApiPollRequest, options?: Configuration): Promise<void>;
     retrieve(param: InvoicesApiRetrieveRequest, options?: Configuration): Promise<Invoice>;
     update(param: InvoicesApiUpdateRequest, options?: Configuration): Promise<Invoice>;
 }
@@ -213,6 +158,41 @@ export declare class ObjectPaymentsApi {
     list(param?: PaymentsApiListRequest, options?: Configuration): Promise<InlineResponse2004>;
     retrieve(param: PaymentsApiRetrieveRequest, options?: Configuration): Promise<Payment>;
 }
+import { PayoutWalletsApiRequestFactory, PayoutWalletsApiResponseProcessor } from "../apis/PayoutWalletsApi";
+export interface PayoutWalletsApiDeleteRequest {
+    id: string;
+    prismAccount?: string;
+}
+export interface PayoutWalletsApiCreateRequest {
+    prismAccount?: string;
+    payoutWalletData?: PayoutWalletData;
+}
+export interface PayoutWalletsApiListRequest {
+    prismAccount?: string;
+    limit?: number;
+    page?: number;
+    sort?: any;
+    expand?: string;
+    data?: Data;
+}
+export interface PayoutWalletsApiRetrieveRequest {
+    id: string;
+    prismAccount?: string;
+    expand?: string;
+}
+export interface PayoutWalletsApiUpdateRequest {
+    id: string;
+    prismAccount?: string;
+}
+export declare class ObjectPayoutWalletsApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: PayoutWalletsApiRequestFactory, responseProcessor?: PayoutWalletsApiResponseProcessor);
+    _delete(param: PayoutWalletsApiDeleteRequest, options?: Configuration): Promise<void>;
+    create(param?: PayoutWalletsApiCreateRequest, options?: Configuration): Promise<PayoutWallet>;
+    list(param?: PayoutWalletsApiListRequest, options?: Configuration): Promise<void>;
+    retrieve(param: PayoutWalletsApiRetrieveRequest, options?: Configuration): Promise<PayoutWallet>;
+    update(param: PayoutWalletsApiUpdateRequest, options?: Configuration): Promise<PayoutWallet>;
+}
 import { ProductsApiRequestFactory, ProductsApiResponseProcessor } from "../apis/ProductsApi";
 export interface ProductsApiDeleteRequest {
     id: string;
@@ -220,7 +200,7 @@ export interface ProductsApiDeleteRequest {
 }
 export interface ProductsApiCreateRequest {
     prismAccount?: string;
-    inlineObject5?: InlineObject5;
+    productData?: ProductData;
 }
 export interface ProductsApiListRequest {
     limit?: number;
@@ -247,6 +227,30 @@ export declare class ObjectProductsApi {
     retrieve(param: ProductsApiRetrieveRequest, options?: Configuration): Promise<Product>;
     update(param: ProductsApiUpdateRequest, options?: Configuration): Promise<Product>;
 }
+import { TransfersApiRequestFactory, TransfersApiResponseProcessor } from "../apis/TransfersApi";
+export interface TransfersApiCreateRequest {
+    prismAccount?: string;
+    transferData?: TransferData;
+}
+export interface TransfersApiListRequest {
+    limit?: number;
+    page?: number;
+    sort?: any;
+    expand?: string;
+    prismAccount?: string;
+}
+export interface TransfersApiRetrieveRequest {
+    id: string;
+    prismAccount?: string;
+    expand?: string;
+}
+export declare class ObjectTransfersApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: TransfersApiRequestFactory, responseProcessor?: TransfersApiResponseProcessor);
+    create(param?: TransfersApiCreateRequest, options?: Configuration): Promise<void>;
+    list(param?: TransfersApiListRequest, options?: Configuration): Promise<InlineResponse2006>;
+    retrieve(param: TransfersApiRetrieveRequest, options?: Configuration): Promise<Transfer>;
+}
 import { WalletsApiRequestFactory, WalletsApiResponseProcessor } from "../apis/WalletsApi";
 export interface WalletsApiDeleteRequest {
     id: string;
@@ -255,7 +259,7 @@ export interface WalletsApiDeleteRequest {
 }
 export interface WalletsApiCreateRequest {
     prismAccount?: string;
-    inlineObject7?: InlineObject7;
+    walletData?: WalletData;
 }
 export interface WalletsApiListRequest {
     limit?: number;
@@ -289,7 +293,7 @@ export interface WebhooksApiDeleteRequest {
 }
 export interface WebhooksApiCreateRequest {
     prismAccount?: string;
-    inlineObject8?: InlineObject8;
+    webhookData?: WebhookData;
 }
 export interface WebhooksApiListRequest {
     limit?: number;

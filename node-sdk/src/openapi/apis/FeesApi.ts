@@ -9,7 +9,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { Fee } from '../models/Fee';
-import { InlineObject1 } from '../models/InlineObject1';
+import { FeeData } from '../models/FeeData';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 
 /**
@@ -56,9 +56,9 @@ export class FeesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Create Fee
      * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
-     * @param inlineObject1 
+     * @param feeData 
      */
-    public async create(prismAccount?: string, inlineObject1?: InlineObject1, _options?: Configuration): Promise<RequestContext> {
+    public async create(prismAccount?: string, feeData?: FeeData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -80,7 +80,7 @@ export class FeesApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(inlineObject1, "InlineObject1", ""),
+            ObjectSerializer.serialize(feeData, "FeeData", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

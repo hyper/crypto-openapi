@@ -2,12 +2,16 @@ import { AccountBranding } from './AccountBranding';
 import { PayoutWallet } from './PayoutWallet';
 export declare class Account {
     'branding'?: AccountBranding;
-    'created': Date;
+    'connectedAccounts'?: Array<any>;
+    'created'?: Date;
     'ethWallet'?: PayoutWallet;
-    'id': string;
+    'id'?: string;
     'invoicePrefix'?: string;
     'name': string;
+    'parentAccount'?: any;
+    'platformAccount'?: boolean;
     'solWallet'?: PayoutWallet;
+    'test'?: boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

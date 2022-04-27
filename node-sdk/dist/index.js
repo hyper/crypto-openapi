@@ -62,24 +62,24 @@ class CustomersApiLayer {
     constructor(config) {
         this.api = new index_1.CustomersApi(config);
     }
-    create(data, options) {
+    create(customerData, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, inlineObject: data });
+            return this.api.create(Object.assign(Object.assign({}, options), { customerData }));
         });
     }
     retrieve(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.retrieve(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, id }, params));
+            return this.api.retrieve(Object.assign(Object.assign(Object.assign({}, options), { id }), params));
         });
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, id }, data));
+            return this.api.update(Object.assign(Object.assign(Object.assign({}, options), { id }), data));
         });
     }
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.list(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount }, params));
+            return this.api.list(Object.assign(Object.assign({}, options), params));
         });
     }
 }
@@ -87,19 +87,19 @@ class FeesApiLayer {
     constructor(config) {
         this.api = new index_1.FeesApi(config);
     }
-    create(data, options) {
+    create(feeData, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, inlineObject1: data });
+            return this.api.create(Object.assign(Object.assign({}, options), { feeData }));
         });
     }
     retrieve(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.retrieve(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, id }, params));
+            return this.api.retrieve(Object.assign(Object.assign(Object.assign({}, options), { id }), params));
         });
     }
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.list(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount }, params));
+            return this.api.list(Object.assign(Object.assign({}, options), params));
         });
     }
 }
@@ -107,24 +107,24 @@ class InvoicesApiLayer {
     constructor(config) {
         this.api = new index_1.InvoicesApi(config);
     }
-    create(data, options) {
+    create(invoiceData, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, inlineObject2: data });
+            return this.api.create(Object.assign(Object.assign({}, options), { invoiceData }));
         });
     }
     retrieve(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.retrieve(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, id }, params));
+            return this.api.retrieve(Object.assign(Object.assign(Object.assign({}, options), { id }), params));
         });
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, id }, data));
+            return this.api.update(Object.assign(Object.assign(Object.assign({}, options), { id }), data));
         });
     }
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.list(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount }, params));
+            return this.api.list(Object.assign(Object.assign({}, options), params));
         });
     }
 }
@@ -134,12 +134,12 @@ class LogsApiLayer {
     }
     retrieve(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.retrieve(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, id }, params));
+            return this.api.retrieve(Object.assign(Object.assign(Object.assign({}, options), { id }), params));
         });
     }
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.list(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount }, params));
+            return this.api.list(Object.assign(Object.assign({}, options), params));
         });
     }
 }
@@ -149,12 +149,12 @@ class PaymentsApiLayer {
     }
     retrieve(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.retrieve(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, id }, params));
+            return this.api.retrieve(Object.assign(Object.assign(Object.assign({}, options), { id }), params));
         });
     }
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.list(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount }, params));
+            return this.api.list(Object.assign(Object.assign({}, options), params));
         });
     }
 }
@@ -162,24 +162,24 @@ class ProductsApiLayer {
     constructor(config) {
         this.api = new index_1.ProductsApi(config);
     }
-    create(data, options) {
+    create(productData, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, inlineObject5: data });
+            return this.api.create(Object.assign(Object.assign({}, options), { productData }));
         });
     }
     retrieve(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.retrieve(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, id }, params));
+            return this.api.retrieve(Object.assign(Object.assign(Object.assign({}, options), { id }), params));
         });
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, id }, data));
+            return this.api.update(Object.assign(Object.assign(Object.assign({}, options), { id }), data));
         });
     }
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.list(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount }, params));
+            return this.api.list(Object.assign(Object.assign({}, options), params));
         });
     }
 }
@@ -187,24 +187,24 @@ class WalletsApiLayer {
     constructor(config) {
         this.api = new index_1.WalletsApi(config);
     }
-    create(data, options) {
+    create(walletData, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, inlineObject7: data });
+            return this.api.create(Object.assign(Object.assign({}, options), { walletData }));
         });
     }
     retrieve(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.retrieve(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, id }, params));
+            return this.api.retrieve(Object.assign(Object.assign(Object.assign({}, options), { id }), params));
         });
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, id }, data));
+            return this.api.update(Object.assign(Object.assign(Object.assign({}, options), { id }), data));
         });
     }
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.list(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount }, params));
+            return this.api.list(Object.assign(Object.assign({}, options), params));
         });
     }
 }
@@ -212,24 +212,24 @@ class WebhooksApiLayer {
     constructor(config) {
         this.api = new index_1.WebhooksApi(config);
     }
-    create(data, options) {
+    create(webhookData, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, inlineObject8: data });
+            return this.api.create(Object.assign(Object.assign({}, options), { webhookData }));
         });
     }
     retrieve(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.retrieve(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, id }, params));
+            return this.api.retrieve(Object.assign(Object.assign(Object.assign({}, options), { id }), params));
         });
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount, id }, data));
+            return this.api.update(Object.assign(Object.assign(Object.assign({}, options), { id }), data));
         });
     }
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.list(Object.assign({ prismAccount: options === null || options === void 0 ? void 0 : options.prismAccount }, params));
+            return this.api.list(Object.assign(Object.assign({}, options), params));
         });
     }
 }

@@ -85,8 +85,8 @@ const apiInstance = new .ProductsApi(configuration);
 let body:.ProductsApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prismAccount: "Prism-Account_example",
-  // InlineObject5 (optional)
-  inlineObject5: {
+  // ProductData (optional)
+  productData: {
     amount: 3.14,
     chain: "chain_example",
     currency: "currency_example",
@@ -104,7 +104,7 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject5** | **InlineObject5**|  |
+ **productData** | **ProductData**|  |
  **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 

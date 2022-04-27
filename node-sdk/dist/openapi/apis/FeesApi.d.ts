@@ -2,11 +2,11 @@ import { BaseAPIRequestFactory } from './baseapi';
 import { Configuration } from '../configuration';
 import { RequestContext, ResponseContext } from '../http/http';
 import { Fee } from '../models/Fee';
-import { InlineObject1 } from '../models/InlineObject1';
+import { FeeData } from '../models/FeeData';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 export declare class FeesApiRequestFactory extends BaseAPIRequestFactory {
     _delete(id: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext>;
-    create(prismAccount?: string, inlineObject1?: InlineObject1, _options?: Configuration): Promise<RequestContext>;
+    create(prismAccount?: string, feeData?: FeeData, _options?: Configuration): Promise<RequestContext>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext>;
     retrieve(id: string, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext>;
 }

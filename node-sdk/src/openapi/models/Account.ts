@@ -16,12 +16,16 @@ import { HttpFile } from '../http/http';
 
 export class Account {
     'branding'?: AccountBranding;
-    'created': Date;
+    'connectedAccounts'?: Array<any>;
+    'created'?: Date;
     'ethWallet'?: PayoutWallet;
-    'id': string;
+    'id'?: string;
     'invoicePrefix'?: string;
     'name': string;
+    'parentAccount'?: any;
+    'platformAccount'?: boolean;
     'solWallet'?: PayoutWallet;
+    'test'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -30,6 +34,12 @@ export class Account {
             "name": "branding",
             "baseName": "branding",
             "type": "AccountBranding",
+            "format": ""
+        },
+        {
+            "name": "connectedAccounts",
+            "baseName": "connected_accounts",
+            "type": "Array<any>",
             "format": ""
         },
         {
@@ -63,9 +73,27 @@ export class Account {
             "format": ""
         },
         {
+            "name": "parentAccount",
+            "baseName": "parent_account",
+            "type": "any",
+            "format": ""
+        },
+        {
+            "name": "platformAccount",
+            "baseName": "platform_account",
+            "type": "boolean",
+            "format": ""
+        },
+        {
             "name": "solWallet",
             "baseName": "sol_wallet",
             "type": "PayoutWallet",
+            "format": ""
+        },
+        {
+            "name": "test",
+            "baseName": "test",
+            "type": "boolean",
             "format": ""
         }    ];
 

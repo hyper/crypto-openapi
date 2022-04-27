@@ -18,7 +18,7 @@ export declare class Prism {
 declare class CustomersApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: CustomersApiCreateRequest['inlineObject'], options?: {
+    create(customerData: CustomersApiCreateRequest['customerData'], options?: {
         prismAccount: string;
     }): Promise<Customer>;
     retrieve(id: string, params?: Omit<CustomersApiRetrieveRequest, 'prismAccount' | 'id'>, options?: {
@@ -34,7 +34,7 @@ declare class CustomersApiLayer {
 declare class FeesApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: FeesApiCreateRequest['inlineObject1'], options?: {
+    create(feeData: FeesApiCreateRequest['feeData'], options?: {
         prismAccount: string;
     }): Promise<Fee>;
     retrieve(id: string, params?: Omit<FeesApiRetrieveRequest, 'prismAccount' | 'id'>, options?: {
@@ -47,7 +47,7 @@ declare class FeesApiLayer {
 declare class InvoicesApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: InvoicesApiCreateRequest['inlineObject2'], options?: {
+    create(invoiceData: InvoicesApiCreateRequest['invoiceData'], options?: {
         prismAccount: string;
     }): Promise<Invoice>;
     retrieve(id: string, params?: Omit<InvoicesApiRetrieveRequest, 'prismAccount' | 'id'>, options?: {
@@ -83,7 +83,7 @@ declare class PaymentsApiLayer {
 declare class ProductsApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: ProductsApiCreateRequest['inlineObject5'], options?: {
+    create(productData: ProductsApiCreateRequest['productData'], options?: {
         prismAccount: string;
     }): Promise<Product>;
     retrieve(id: string, params?: Omit<ProductsApiRetrieveRequest, 'prismAccount' | 'id'>, options?: {
@@ -99,7 +99,7 @@ declare class ProductsApiLayer {
 declare class WalletsApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: WalletsApiCreateRequest['inlineObject7'], options?: {
+    create(walletData: WalletsApiCreateRequest['walletData'], options?: {
         prismAccount: string;
     }): Promise<Wallet>;
     retrieve(id: string, params?: Omit<WalletsApiRetrieveRequest, 'prismAccount' | 'id'>, options?: {
@@ -115,7 +115,7 @@ declare class WalletsApiLayer {
 declare class WebhooksApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: WebhooksApiCreateRequest['inlineObject8'], options?: {
+    create(webhookData: WebhooksApiCreateRequest['webhookData'], options?: {
         prismAccount: string;
     }): Promise<Customer>;
     retrieve(id: string, params?: Omit<WebhooksApiRetrieveRequest, 'prismAccount' | 'id'>, options?: {

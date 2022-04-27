@@ -12,18 +12,6 @@ exports.APIKey = APIKey;
 APIKey.discriminator = undefined;
 APIKey.attributeTypeMap = [
     {
-        "name": "account",
-        "baseName": "account",
-        "type": "string | Account",
-        "format": ""
-    },
-    {
-        "name": "admin",
-        "baseName": "admin",
-        "type": "boolean",
-        "format": ""
-    },
-    {
         "name": "created",
         "baseName": "created",
         "type": "Date",
@@ -33,6 +21,24 @@ APIKey.attributeTypeMap = [
         "name": "id",
         "baseName": "id",
         "type": "string",
+        "format": ""
+    },
+    {
+        "name": "test",
+        "baseName": "test",
+        "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "account",
+        "baseName": "account",
+        "type": "string | Account",
+        "format": ""
+    },
+    {
+        "name": "admin",
+        "baseName": "admin",
+        "type": "boolean",
         "format": ""
     },
     {

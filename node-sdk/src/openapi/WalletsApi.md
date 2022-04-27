@@ -88,8 +88,8 @@ const apiInstance = new .WalletsApi(configuration);
 let body:.WalletsApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prismAccount: "Prism-Account_example",
-  // InlineObject7 (optional)
-  inlineObject7: {
+  // WalletData (optional)
+  walletData: {
     account: "account_example",
     address: "address_example",
     chain: "chain_example",
@@ -107,7 +107,7 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject7** | **InlineObject7**|  |
+ **walletData** | **WalletData**|  |
  **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 

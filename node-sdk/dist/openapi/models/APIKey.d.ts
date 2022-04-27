@@ -1,9 +1,10 @@
 import { Account } from './Account';
 export declare class APIKey {
-    'account'?: string | Account;
-    'admin'?: boolean;
     'created': Date;
     'id': string;
+    'test': boolean;
+    'account': string | Account;
+    'admin': boolean;
     'key': string;
     'type': APIKeyTypeEnum;
     static readonly discriminator: string | undefined;

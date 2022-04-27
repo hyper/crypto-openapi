@@ -1,12 +1,12 @@
 import { BaseAPIRequestFactory } from './baseapi';
 import { Configuration } from '../configuration';
 import { RequestContext, ResponseContext } from '../http/http';
-import { InlineObject8 } from '../models/InlineObject8';
 import { InlineResponse2008 } from '../models/InlineResponse2008';
 import { Webhook } from '../models/Webhook';
+import { WebhookData } from '../models/WebhookData';
 export declare class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
     _delete(id: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext>;
-    create(prismAccount?: string, inlineObject8?: InlineObject8, _options?: Configuration): Promise<RequestContext>;
+    create(prismAccount?: string, webhookData?: WebhookData, _options?: Configuration): Promise<RequestContext>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext>;
     retrieve(id: string, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext>;
     update(id: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext>;

@@ -85,8 +85,8 @@ const apiInstance = new .WebhooksApi(configuration);
 let body:.WebhooksApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prismAccount: "Prism-Account_example",
-  // InlineObject8 (optional)
-  inlineObject8: {
+  // WebhookData (optional)
+  webhookData: {
     account: "account_example",
     endpointUrl: "endpointUrl_example",
     eventTypes: [
@@ -106,7 +106,7 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject8** | **InlineObject8**|  |
+ **webhookData** | **WebhookData**|  |
  **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 

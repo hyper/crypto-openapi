@@ -9,7 +9,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { Customer } from '../models/Customer';
-import { InlineObject } from '../models/InlineObject';
+import { CustomerData } from '../models/CustomerData';
 import { InlineResponse200 } from '../models/InlineResponse200';
 
 /**
@@ -20,9 +20,9 @@ export class CustomersApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Create Customer
      * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
-     * @param inlineObject 
+     * @param customerData 
      */
-    public async create(prismAccount?: string, inlineObject?: InlineObject, _options?: Configuration): Promise<RequestContext> {
+    public async create(prismAccount?: string, customerData?: CustomerData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -44,7 +44,7 @@ export class CustomersApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(inlineObject, "InlineObject", ""),
+            ObjectSerializer.serialize(customerData, "CustomerData", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

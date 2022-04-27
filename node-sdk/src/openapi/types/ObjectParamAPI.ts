@@ -3,23 +3,18 @@ import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
 import { APIKey } from '../models/APIKey';
+import { APIKeyAllOf } from '../models/APIKeyAllOf';
 import { Account } from '../models/Account';
 import { AccountBranding } from '../models/AccountBranding';
 import { Customer } from '../models/Customer';
 import { CustomerBillingDetails } from '../models/CustomerBillingDetails';
 import { CustomerBillingDetailsAddress } from '../models/CustomerBillingDetailsAddress';
+import { CustomerData } from '../models/CustomerData';
 import { CustomersBillingDetails } from '../models/CustomersBillingDetails';
 import { CustomersBillingDetailsAddress } from '../models/CustomersBillingDetailsAddress';
+import { Data } from '../models/Data';
 import { Fee } from '../models/Fee';
-import { InlineObject } from '../models/InlineObject';
-import { InlineObject1 } from '../models/InlineObject1';
-import { InlineObject2 } from '../models/InlineObject2';
-import { InlineObject3 } from '../models/InlineObject3';
-import { InlineObject4 } from '../models/InlineObject4';
-import { InlineObject5 } from '../models/InlineObject5';
-import { InlineObject6 } from '../models/InlineObject6';
-import { InlineObject7 } from '../models/InlineObject7';
-import { InlineObject8 } from '../models/InlineObject8';
+import { FeeData } from '../models/FeeData';
 import { InlineResponse200 } from '../models/InlineResponse200';
 import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse2002 } from '../models/InlineResponse2002';
@@ -30,14 +25,21 @@ import { InlineResponse2006 } from '../models/InlineResponse2006';
 import { InlineResponse2007 } from '../models/InlineResponse2007';
 import { InlineResponse2008 } from '../models/InlineResponse2008';
 import { Invoice } from '../models/Invoice';
+import { InvoiceData } from '../models/InvoiceData';
 import { Log } from '../models/Log';
+import { Model } from '../models/Model';
 import { Payment } from '../models/Payment';
 import { PayoutWallet } from '../models/PayoutWallet';
+import { PayoutWalletData } from '../models/PayoutWalletData';
 import { Product } from '../models/Product';
+import { ProductData } from '../models/ProductData';
 import { Transaction } from '../models/Transaction';
 import { Transfer } from '../models/Transfer';
+import { TransferData } from '../models/TransferData';
 import { Wallet } from '../models/Wallet';
+import { WalletData } from '../models/WalletData';
 import { Webhook } from '../models/Webhook';
+import { WebhookData } from '../models/WebhookData';
 
 import { ObservableCustomersApi } from "./ObservableAPI";
 import { CustomersApiRequestFactory, CustomersApiResponseProcessor} from "../apis/CustomersApi";
@@ -51,10 +53,10 @@ export interface CustomersApiCreateRequest {
     prismAccount?: string
     /**
      * 
-     * @type InlineObject
+     * @type CustomerData
      * @memberof CustomersApicreate
      */
-    inlineObject?: InlineObject
+    customerData?: CustomerData
 }
 
 export interface CustomersApiListRequest {
@@ -138,7 +140,7 @@ export class ObjectCustomersApi {
      * @param param the request object
      */
     public create(param: CustomersApiCreateRequest = {}, options?: Configuration): Promise<Customer> {
-        return this.api.create(param.prismAccount, param.inlineObject,  options).toPromise();
+        return this.api.create(param.prismAccount, param.customerData,  options).toPromise();
     }
 
     /**
@@ -163,287 +165,6 @@ export class ObjectCustomersApi {
      */
     public update(param: CustomersApiUpdateRequest, options?: Configuration): Promise<Customer> {
         return this.api.update(param.id, param.prismAccount,  options).toPromise();
-    }
-
-}
-
-import { ObservableDefaultApi } from "./ObservableAPI";
-import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
-
-export interface DefaultApiGetInvoicesInvoiceIdPollRequest {
-    /**
-     * 
-     * @type string
-     * @memberof DefaultApigetInvoicesInvoiceIdPoll
-     */
-    id: string
-    /**
-     * The ID of the connected Prism account you are making a request on behalf on.
-     * @type string
-     * @memberof DefaultApigetInvoicesInvoiceIdPoll
-     */
-    prismAccount?: string
-    /**
-     * Specifies which fields to populate in the response.
-     * @type string
-     * @memberof DefaultApigetInvoicesInvoiceIdPoll
-     */
-    expand?: string
-}
-
-export interface DefaultApiGetTransfersRequest {
-    /**
-     * A limit on the number of objects to be returned between 1 and 100.
-     * @type number
-     * @memberof DefaultApigetTransfers
-     */
-    limit?: number
-    /**
-     * Index of the page to be returned in a paginated response.
-     * @type number
-     * @memberof DefaultApigetTransfers
-     */
-    page?: number
-    /**
-     * Specifies whether documents are sorted in an ascending or descending order.
-     * @type any
-     * @memberof DefaultApigetTransfers
-     */
-    sort?: any
-    /**
-     * Specifies which fields to populate in the response.
-     * @type string
-     * @memberof DefaultApigetTransfers
-     */
-    expand?: string
-    /**
-     * The ID of the connected Prism account you are making a request on behalf on.
-     * @type string
-     * @memberof DefaultApigetTransfers
-     */
-    prismAccount?: string
-}
-
-export interface DefaultApiGetTransfersTransferIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof DefaultApigetTransfersTransferId
-     */
-    id: string
-    /**
-     * The ID of the connected Prism account you are making a request on behalf on.
-     * @type string
-     * @memberof DefaultApigetTransfersTransferId
-     */
-    prismAccount?: string
-    /**
-     * Specifies which fields to populate in the response.
-     * @type string
-     * @memberof DefaultApigetTransfersTransferId
-     */
-    expand?: string
-}
-
-export interface DefaultApiPostTransfersIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof DefaultApipostTransfersId
-     */
-    id: string
-    /**
-     * The ID of the connected Prism account you are making a request on behalf on.
-     * @type string
-     * @memberof DefaultApipostTransfersId
-     */
-    prismAccount?: string
-    /**
-     * 
-     * @type InlineObject6
-     * @memberof DefaultApipostTransfersId
-     */
-    inlineObject6?: InlineObject6
-}
-
-export interface DefaultApiWalletsRequest {
-    /**
-     * The ID of the connected Prism account you are making a request on behalf on.
-     * @type string
-     * @memberof DefaultApiwallets
-     */
-    prismAccount?: string
-    /**
-     * A limit on the number of objects to be returned between 1 and 100.
-     * @type number
-     * @memberof DefaultApiwallets
-     */
-    limit?: number
-    /**
-     * Index of the page to be returned in a paginated response.
-     * @type number
-     * @memberof DefaultApiwallets
-     */
-    page?: number
-    /**
-     * Specifies whether documents are sorted in an ascending or descending order.
-     * @type any
-     * @memberof DefaultApiwallets
-     */
-    sort?: any
-    /**
-     * Specifies which fields to populate in the response.
-     * @type string
-     * @memberof DefaultApiwallets
-     */
-    expand?: string
-    /**
-     * 
-     * @type InlineObject3
-     * @memberof DefaultApiwallets
-     */
-    inlineObject3?: InlineObject3
-}
-
-export interface DefaultApiWalletsIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof DefaultApiwalletsId
-     */
-    id: string
-    /**
-     * The ID of the connected Prism account you are making a request on behalf on.
-     * @type string
-     * @memberof DefaultApiwalletsId
-     */
-    prismAccount?: string
-}
-
-export interface DefaultApiWalletsId0Request {
-    /**
-     * 
-     * @type string
-     * @memberof DefaultApiwalletsId_1
-     */
-    id: string
-    /**
-     * The ID of the connected Prism account you are making a request on behalf on.
-     * @type string
-     * @memberof DefaultApiwalletsId_1
-     */
-    prismAccount?: string
-}
-
-export interface DefaultApiWalletsPayoutWalletIdRequest {
-    /**
-     * 
-     * @type string
-     * @memberof DefaultApiwalletsPayoutWalletId
-     */
-    id: string
-    /**
-     * The ID of the connected Prism account you are making a request on behalf on.
-     * @type string
-     * @memberof DefaultApiwalletsPayoutWalletId
-     */
-    prismAccount?: string
-    /**
-     * Specifies which fields to populate in the response.
-     * @type string
-     * @memberof DefaultApiwalletsPayoutWalletId
-     */
-    expand?: string
-}
-
-export interface DefaultApiWallets0Request {
-    /**
-     * The ID of the connected Prism account you are making a request on behalf on.
-     * @type string
-     * @memberof DefaultApiwallets_2
-     */
-    prismAccount?: string
-    /**
-     * 
-     * @type InlineObject4
-     * @memberof DefaultApiwallets_2
-     */
-    inlineObject4?: InlineObject4
-}
-
-export class ObjectDefaultApi {
-    private api: ObservableDefaultApi
-
-    public constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor) {
-        this.api = new ObservableDefaultApi(configuration, requestFactory, responseProcessor);
-    }
-
-    /**
-     * Your GET endpoint
-     * @param param the request object
-     */
-    public getInvoicesInvoiceIdPoll(param: DefaultApiGetInvoicesInvoiceIdPollRequest, options?: Configuration): Promise<void> {
-        return this.api.getInvoicesInvoiceIdPoll(param.id, param.prismAccount, param.expand,  options).toPromise();
-    }
-
-    /**
-     * Your GET endpoint
-     * @param param the request object
-     */
-    public getTransfers(param: DefaultApiGetTransfersRequest = {}, options?: Configuration): Promise<InlineResponse2006> {
-        return this.api.getTransfers(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
-    }
-
-    /**
-     * Your GET endpoint
-     * @param param the request object
-     */
-    public getTransfersTransferId(param: DefaultApiGetTransfersTransferIdRequest, options?: Configuration): Promise<Transfer> {
-        return this.api.getTransfersTransferId(param.id, param.prismAccount, param.expand,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public postTransfersId(param: DefaultApiPostTransfersIdRequest, options?: Configuration): Promise<void> {
-        return this.api.postTransfersId(param.id, param.prismAccount, param.inlineObject6,  options).toPromise();
-    }
-
-    /**
-     * Your GET endpoint
-     * @param param the request object
-     */
-    public wallets(param: DefaultApiWalletsRequest = {}, options?: Configuration): Promise<void> {
-        return this.api.wallets(param.prismAccount, param.limit, param.page, param.sort, param.expand, param.inlineObject3,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public walletsId(param: DefaultApiWalletsIdRequest, options?: Configuration): Promise<void> {
-        return this.api.walletsId(param.id, param.prismAccount,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public walletsId_1(param: DefaultApiWalletsId0Request, options?: Configuration): Promise<PayoutWallet> {
-        return this.api.walletsId_1(param.id, param.prismAccount,  options).toPromise();
-    }
-
-    /**
-     * Your GET endpoint
-     * @param param the request object
-     */
-    public walletsPayoutWalletId(param: DefaultApiWalletsPayoutWalletIdRequest, options?: Configuration): Promise<PayoutWallet> {
-        return this.api.walletsPayoutWalletId(param.id, param.prismAccount, param.expand,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public wallets_2(param: DefaultApiWallets0Request = {}, options?: Configuration): Promise<PayoutWallet> {
-        return this.api.wallets_2(param.prismAccount, param.inlineObject4,  options).toPromise();
     }
 
 }
@@ -475,10 +196,10 @@ export interface FeesApiCreateRequest {
     prismAccount?: string
     /**
      * 
-     * @type InlineObject1
+     * @type FeeData
      * @memberof FeesApicreate
      */
-    inlineObject1?: InlineObject1
+    feeData?: FeeData
 }
 
 export interface FeesApiListRequest {
@@ -555,7 +276,7 @@ export class ObjectFeesApi {
      * @param param the request object
      */
     public create(param: FeesApiCreateRequest = {}, options?: Configuration): Promise<Fee> {
-        return this.api.create(param.prismAccount, param.inlineObject1,  options).toPromise();
+        return this.api.create(param.prismAccount, param.feeData,  options).toPromise();
     }
 
     /**
@@ -588,10 +309,10 @@ export interface InvoicesApiCreateRequest {
     prismAccount?: string
     /**
      * 
-     * @type InlineObject2
+     * @type InvoiceData
      * @memberof InvoicesApicreate
      */
-    inlineObject2?: InlineObject2
+    invoiceData?: InvoiceData
 }
 
 export interface InvoicesApiListRequest {
@@ -625,6 +346,27 @@ export interface InvoicesApiListRequest {
      * @memberof InvoicesApilist
      */
     prismAccount?: string
+}
+
+export interface InvoicesApiPollRequest {
+    /**
+     * 
+     * @type string
+     * @memberof InvoicesApipoll
+     */
+    id: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof InvoicesApipoll
+     */
+    prismAccount?: string
+    /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof InvoicesApipoll
+     */
+    expand?: string
 }
 
 export interface InvoicesApiRetrieveRequest {
@@ -675,7 +417,7 @@ export class ObjectInvoicesApi {
      * @param param the request object
      */
     public create(param: InvoicesApiCreateRequest = {}, options?: Configuration): Promise<Invoice> {
-        return this.api.create(param.prismAccount, param.inlineObject2,  options).toPromise();
+        return this.api.create(param.prismAccount, param.invoiceData,  options).toPromise();
     }
 
     /**
@@ -684,6 +426,14 @@ export class ObjectInvoicesApi {
      */
     public list(param: InvoicesApiListRequest = {}, options?: Configuration): Promise<InlineResponse2002> {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
+    }
+
+    /**
+     * Poll Invoice By ID
+     * @param param the request object
+     */
+    public poll(param: InvoicesApiPollRequest, options?: Configuration): Promise<void> {
+        return this.api.poll(param.id, param.prismAccount, param.expand,  options).toPromise();
     }
 
     /**
@@ -868,6 +618,163 @@ export class ObjectPaymentsApi {
 
 }
 
+import { ObservablePayoutWalletsApi } from "./ObservableAPI";
+import { PayoutWalletsApiRequestFactory, PayoutWalletsApiResponseProcessor} from "../apis/PayoutWalletsApi";
+
+export interface PayoutWalletsApiDeleteRequest {
+    /**
+     * 
+     * @type string
+     * @memberof PayoutWalletsApi_delete
+     */
+    id: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof PayoutWalletsApi_delete
+     */
+    prismAccount?: string
+}
+
+export interface PayoutWalletsApiCreateRequest {
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof PayoutWalletsApicreate
+     */
+    prismAccount?: string
+    /**
+     * 
+     * @type PayoutWalletData
+     * @memberof PayoutWalletsApicreate
+     */
+    payoutWalletData?: PayoutWalletData
+}
+
+export interface PayoutWalletsApiListRequest {
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof PayoutWalletsApilist
+     */
+    prismAccount?: string
+    /**
+     * A limit on the number of objects to be returned between 1 and 100.
+     * @type number
+     * @memberof PayoutWalletsApilist
+     */
+    limit?: number
+    /**
+     * Index of the page to be returned in a paginated response.
+     * @type number
+     * @memberof PayoutWalletsApilist
+     */
+    page?: number
+    /**
+     * Specifies whether documents are sorted in an ascending or descending order.
+     * @type any
+     * @memberof PayoutWalletsApilist
+     */
+    sort?: any
+    /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof PayoutWalletsApilist
+     */
+    expand?: string
+    /**
+     * 
+     * @type Data
+     * @memberof PayoutWalletsApilist
+     */
+    data?: Data
+}
+
+export interface PayoutWalletsApiRetrieveRequest {
+    /**
+     * 
+     * @type string
+     * @memberof PayoutWalletsApiretrieve
+     */
+    id: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof PayoutWalletsApiretrieve
+     */
+    prismAccount?: string
+    /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof PayoutWalletsApiretrieve
+     */
+    expand?: string
+}
+
+export interface PayoutWalletsApiUpdateRequest {
+    /**
+     * 
+     * @type string
+     * @memberof PayoutWalletsApiupdate
+     */
+    id: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof PayoutWalletsApiupdate
+     */
+    prismAccount?: string
+}
+
+export class ObjectPayoutWalletsApi {
+    private api: ObservablePayoutWalletsApi
+
+    public constructor(configuration: Configuration, requestFactory?: PayoutWalletsApiRequestFactory, responseProcessor?: PayoutWalletsApiResponseProcessor) {
+        this.api = new ObservablePayoutWalletsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Delete Payout Wallet By ID
+     * @param param the request object
+     */
+    public _delete(param: PayoutWalletsApiDeleteRequest, options?: Configuration): Promise<void> {
+        return this.api._delete(param.id, param.prismAccount,  options).toPromise();
+    }
+
+    /**
+     * Create Payout Wallets
+     * @param param the request object
+     */
+    public create(param: PayoutWalletsApiCreateRequest = {}, options?: Configuration): Promise<PayoutWallet> {
+        return this.api.create(param.prismAccount, param.payoutWalletData,  options).toPromise();
+    }
+
+    /**
+     * List Payout Wallets
+     * @param param the request object
+     */
+    public list(param: PayoutWalletsApiListRequest = {}, options?: Configuration): Promise<void> {
+        return this.api.list(param.prismAccount, param.limit, param.page, param.sort, param.expand, param.data,  options).toPromise();
+    }
+
+    /**
+     * Retrieve Payout Wallet By ID
+     * @param param the request object
+     */
+    public retrieve(param: PayoutWalletsApiRetrieveRequest, options?: Configuration): Promise<PayoutWallet> {
+        return this.api.retrieve(param.id, param.prismAccount, param.expand,  options).toPromise();
+    }
+
+    /**
+     * Update Payout Wallet By ID
+     * @param param the request object
+     */
+    public update(param: PayoutWalletsApiUpdateRequest, options?: Configuration): Promise<PayoutWallet> {
+        return this.api.update(param.id, param.prismAccount,  options).toPromise();
+    }
+
+}
+
 import { ObservableProductsApi } from "./ObservableAPI";
 import { ProductsApiRequestFactory, ProductsApiResponseProcessor} from "../apis/ProductsApi";
 
@@ -895,10 +802,10 @@ export interface ProductsApiCreateRequest {
     prismAccount?: string
     /**
      * 
-     * @type InlineObject5
+     * @type ProductData
      * @memberof ProductsApicreate
      */
-    inlineObject5?: InlineObject5
+    productData?: ProductData
 }
 
 export interface ProductsApiListRequest {
@@ -990,7 +897,7 @@ export class ObjectProductsApi {
      * @param param the request object
      */
     public create(param: ProductsApiCreateRequest = {}, options?: Configuration): Promise<Product> {
-        return this.api.create(param.prismAccount, param.inlineObject5,  options).toPromise();
+        return this.api.create(param.prismAccount, param.productData,  options).toPromise();
     }
 
     /**
@@ -1015,6 +922,111 @@ export class ObjectProductsApi {
      */
     public update(param: ProductsApiUpdateRequest, options?: Configuration): Promise<Product> {
         return this.api.update(param.id, param.prismAccount,  options).toPromise();
+    }
+
+}
+
+import { ObservableTransfersApi } from "./ObservableAPI";
+import { TransfersApiRequestFactory, TransfersApiResponseProcessor} from "../apis/TransfersApi";
+
+export interface TransfersApiCreateRequest {
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof TransfersApicreate
+     */
+    prismAccount?: string
+    /**
+     * 
+     * @type TransferData
+     * @memberof TransfersApicreate
+     */
+    transferData?: TransferData
+}
+
+export interface TransfersApiListRequest {
+    /**
+     * A limit on the number of objects to be returned between 1 and 100.
+     * @type number
+     * @memberof TransfersApilist
+     */
+    limit?: number
+    /**
+     * Index of the page to be returned in a paginated response.
+     * @type number
+     * @memberof TransfersApilist
+     */
+    page?: number
+    /**
+     * Specifies whether documents are sorted in an ascending or descending order.
+     * @type any
+     * @memberof TransfersApilist
+     */
+    sort?: any
+    /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof TransfersApilist
+     */
+    expand?: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof TransfersApilist
+     */
+    prismAccount?: string
+}
+
+export interface TransfersApiRetrieveRequest {
+    /**
+     * 
+     * @type string
+     * @memberof TransfersApiretrieve
+     */
+    id: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof TransfersApiretrieve
+     */
+    prismAccount?: string
+    /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof TransfersApiretrieve
+     */
+    expand?: string
+}
+
+export class ObjectTransfersApi {
+    private api: ObservableTransfersApi
+
+    public constructor(configuration: Configuration, requestFactory?: TransfersApiRequestFactory, responseProcessor?: TransfersApiResponseProcessor) {
+        this.api = new ObservableTransfersApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Create Transfer
+     * @param param the request object
+     */
+    public create(param: TransfersApiCreateRequest = {}, options?: Configuration): Promise<void> {
+        return this.api.create(param.prismAccount, param.transferData,  options).toPromise();
+    }
+
+    /**
+     * List Transfers
+     * @param param the request object
+     */
+    public list(param: TransfersApiListRequest = {}, options?: Configuration): Promise<InlineResponse2006> {
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prismAccount,  options).toPromise();
+    }
+
+    /**
+     * Retrieve Transfer By ID
+     * @param param the request object
+     */
+    public retrieve(param: TransfersApiRetrieveRequest, options?: Configuration): Promise<Transfer> {
+        return this.api.retrieve(param.id, param.prismAccount, param.expand,  options).toPromise();
     }
 
 }
@@ -1052,10 +1064,10 @@ export interface WalletsApiCreateRequest {
     prismAccount?: string
     /**
      * 
-     * @type InlineObject7
+     * @type WalletData
      * @memberof WalletsApicreate
      */
-    inlineObject7?: InlineObject7
+    walletData?: WalletData
 }
 
 export interface WalletsApiListRequest {
@@ -1147,7 +1159,7 @@ export class ObjectWalletsApi {
      * @param param the request object
      */
     public create(param: WalletsApiCreateRequest = {}, options?: Configuration): Promise<Wallet> {
-        return this.api.create(param.prismAccount, param.inlineObject7,  options).toPromise();
+        return this.api.create(param.prismAccount, param.walletData,  options).toPromise();
     }
 
     /**
@@ -1203,10 +1215,10 @@ export interface WebhooksApiCreateRequest {
     prismAccount?: string
     /**
      * 
-     * @type InlineObject8
+     * @type WebhookData
      * @memberof WebhooksApicreate
      */
-    inlineObject8?: InlineObject8
+    webhookData?: WebhookData
 }
 
 export interface WebhooksApiListRequest {
@@ -1298,7 +1310,7 @@ export class ObjectWebhooksApi {
      * @param param the request object
      */
     public create(param: WebhooksApiCreateRequest = {}, options?: Configuration): Promise<Webhook> {
-        return this.api.create(param.prismAccount, param.inlineObject8,  options).toPromise();
+        return this.api.create(param.prismAccount, param.webhookData,  options).toPromise();
     }
 
     /**

@@ -8,9 +8,9 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { InlineObject7 } from '../models/InlineObject7';
 import { InlineResponse2007 } from '../models/InlineResponse2007';
 import { Wallet } from '../models/Wallet';
+import { WalletData } from '../models/WalletData';
 
 /**
  * no description
@@ -63,9 +63,9 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Create Wallet
      * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
-     * @param inlineObject7 
+     * @param walletData 
      */
-    public async create(prismAccount?: string, inlineObject7?: InlineObject7, _options?: Configuration): Promise<RequestContext> {
+    public async create(prismAccount?: string, walletData?: WalletData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -87,7 +87,7 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(inlineObject7, "InlineObject7", ""),
+            ObjectSerializer.serialize(walletData, "WalletData", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

@@ -8,9 +8,9 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { InlineObject8 } from '../models/InlineObject8';
 import { InlineResponse2008 } from '../models/InlineResponse2008';
 import { Webhook } from '../models/Webhook';
+import { WebhookData } from '../models/WebhookData';
 
 /**
  * no description
@@ -56,9 +56,9 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Create Webhook
      * @param prismAccount The ID of the connected Prism account you are making a request on behalf on.
-     * @param inlineObject8 
+     * @param webhookData 
      */
-    public async create(prismAccount?: string, inlineObject8?: InlineObject8, _options?: Configuration): Promise<RequestContext> {
+    public async create(prismAccount?: string, webhookData?: WebhookData, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -80,7 +80,7 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(inlineObject8, "InlineObject8", ""),
+            ObjectSerializer.serialize(webhookData, "WebhookData", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

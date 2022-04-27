@@ -12,23 +12,18 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ObjectSerializer = void 0;
 __exportStar(require("./APIKey"), exports);
+__exportStar(require("./APIKeyAllOf"), exports);
 __exportStar(require("./Account"), exports);
 __exportStar(require("./AccountBranding"), exports);
 __exportStar(require("./Customer"), exports);
 __exportStar(require("./CustomerBillingDetails"), exports);
 __exportStar(require("./CustomerBillingDetailsAddress"), exports);
+__exportStar(require("./CustomerData"), exports);
 __exportStar(require("./CustomersBillingDetails"), exports);
 __exportStar(require("./CustomersBillingDetailsAddress"), exports);
+__exportStar(require("./Data"), exports);
 __exportStar(require("./Fee"), exports);
-__exportStar(require("./InlineObject"), exports);
-__exportStar(require("./InlineObject1"), exports);
-__exportStar(require("./InlineObject2"), exports);
-__exportStar(require("./InlineObject3"), exports);
-__exportStar(require("./InlineObject4"), exports);
-__exportStar(require("./InlineObject5"), exports);
-__exportStar(require("./InlineObject6"), exports);
-__exportStar(require("./InlineObject7"), exports);
-__exportStar(require("./InlineObject8"), exports);
+__exportStar(require("./FeeData"), exports);
 __exportStar(require("./InlineResponse200"), exports);
 __exportStar(require("./InlineResponse2001"), exports);
 __exportStar(require("./InlineResponse2002"), exports);
@@ -39,32 +34,34 @@ __exportStar(require("./InlineResponse2006"), exports);
 __exportStar(require("./InlineResponse2007"), exports);
 __exportStar(require("./InlineResponse2008"), exports);
 __exportStar(require("./Invoice"), exports);
+__exportStar(require("./InvoiceData"), exports);
 __exportStar(require("./Log"), exports);
+__exportStar(require("./Model"), exports);
 __exportStar(require("./Payment"), exports);
 __exportStar(require("./PayoutWallet"), exports);
+__exportStar(require("./PayoutWalletData"), exports);
 __exportStar(require("./Product"), exports);
+__exportStar(require("./ProductData"), exports);
 __exportStar(require("./Transaction"), exports);
 __exportStar(require("./Transfer"), exports);
+__exportStar(require("./TransferData"), exports);
 __exportStar(require("./Wallet"), exports);
+__exportStar(require("./WalletData"), exports);
 __exportStar(require("./Webhook"), exports);
+__exportStar(require("./WebhookData"), exports);
 const APIKey_1 = require("./APIKey");
+const APIKeyAllOf_1 = require("./APIKeyAllOf");
 const Account_1 = require("./Account");
 const AccountBranding_1 = require("./AccountBranding");
 const Customer_1 = require("./Customer");
 const CustomerBillingDetails_1 = require("./CustomerBillingDetails");
 const CustomerBillingDetailsAddress_1 = require("./CustomerBillingDetailsAddress");
+const CustomerData_1 = require("./CustomerData");
 const CustomersBillingDetails_1 = require("./CustomersBillingDetails");
 const CustomersBillingDetailsAddress_1 = require("./CustomersBillingDetailsAddress");
+const Data_1 = require("./Data");
 const Fee_1 = require("./Fee");
-const InlineObject_1 = require("./InlineObject");
-const InlineObject1_1 = require("./InlineObject1");
-const InlineObject2_1 = require("./InlineObject2");
-const InlineObject3_1 = require("./InlineObject3");
-const InlineObject4_1 = require("./InlineObject4");
-const InlineObject5_1 = require("./InlineObject5");
-const InlineObject6_1 = require("./InlineObject6");
-const InlineObject7_1 = require("./InlineObject7");
-const InlineObject8_1 = require("./InlineObject8");
+const FeeData_1 = require("./FeeData");
 const InlineResponse200_1 = require("./InlineResponse200");
 const InlineResponse2001_1 = require("./InlineResponse2001");
 const InlineResponse2002_1 = require("./InlineResponse2002");
@@ -75,14 +72,21 @@ const InlineResponse2006_1 = require("./InlineResponse2006");
 const InlineResponse2007_1 = require("./InlineResponse2007");
 const InlineResponse2008_1 = require("./InlineResponse2008");
 const Invoice_1 = require("./Invoice");
+const InvoiceData_1 = require("./InvoiceData");
 const Log_1 = require("./Log");
+const Model_1 = require("./Model");
 const Payment_1 = require("./Payment");
 const PayoutWallet_1 = require("./PayoutWallet");
+const PayoutWalletData_1 = require("./PayoutWalletData");
 const Product_1 = require("./Product");
+const ProductData_1 = require("./ProductData");
 const Transaction_1 = require("./Transaction");
 const Transfer_1 = require("./Transfer");
+const TransferData_1 = require("./TransferData");
 const Wallet_1 = require("./Wallet");
+const WalletData_1 = require("./WalletData");
 const Webhook_1 = require("./Webhook");
+const WebhookData_1 = require("./WebhookData");
 let primitives = [
     "string",
     "boolean",
@@ -100,6 +104,7 @@ const supportedMediaTypes = {
 };
 let enumsMap = new Set([
     "APIKeyTypeEnum",
+    "APIKeyAllOfTypeEnum",
     "InvoiceChainEnum",
     "InvoiceCurrencyEnum",
     "InvoiceStatusEnum",
@@ -114,23 +119,18 @@ let enumsMap = new Set([
 ]);
 let typeMap = {
     "APIKey": APIKey_1.APIKey,
+    "APIKeyAllOf": APIKeyAllOf_1.APIKeyAllOf,
     "Account": Account_1.Account,
     "AccountBranding": AccountBranding_1.AccountBranding,
     "Customer": Customer_1.Customer,
     "CustomerBillingDetails": CustomerBillingDetails_1.CustomerBillingDetails,
     "CustomerBillingDetailsAddress": CustomerBillingDetailsAddress_1.CustomerBillingDetailsAddress,
+    "CustomerData": CustomerData_1.CustomerData,
     "CustomersBillingDetails": CustomersBillingDetails_1.CustomersBillingDetails,
     "CustomersBillingDetailsAddress": CustomersBillingDetailsAddress_1.CustomersBillingDetailsAddress,
+    "Data": Data_1.Data,
     "Fee": Fee_1.Fee,
-    "InlineObject": InlineObject_1.InlineObject,
-    "InlineObject1": InlineObject1_1.InlineObject1,
-    "InlineObject2": InlineObject2_1.InlineObject2,
-    "InlineObject3": InlineObject3_1.InlineObject3,
-    "InlineObject4": InlineObject4_1.InlineObject4,
-    "InlineObject5": InlineObject5_1.InlineObject5,
-    "InlineObject6": InlineObject6_1.InlineObject6,
-    "InlineObject7": InlineObject7_1.InlineObject7,
-    "InlineObject8": InlineObject8_1.InlineObject8,
+    "FeeData": FeeData_1.FeeData,
     "InlineResponse200": InlineResponse200_1.InlineResponse200,
     "InlineResponse2001": InlineResponse2001_1.InlineResponse2001,
     "InlineResponse2002": InlineResponse2002_1.InlineResponse2002,
@@ -141,14 +141,21 @@ let typeMap = {
     "InlineResponse2007": InlineResponse2007_1.InlineResponse2007,
     "InlineResponse2008": InlineResponse2008_1.InlineResponse2008,
     "Invoice": Invoice_1.Invoice,
+    "InvoiceData": InvoiceData_1.InvoiceData,
     "Log": Log_1.Log,
+    "Model": Model_1.Model,
     "Payment": Payment_1.Payment,
     "PayoutWallet": PayoutWallet_1.PayoutWallet,
+    "PayoutWalletData": PayoutWalletData_1.PayoutWalletData,
     "Product": Product_1.Product,
+    "ProductData": ProductData_1.ProductData,
     "Transaction": Transaction_1.Transaction,
     "Transfer": Transfer_1.Transfer,
+    "TransferData": TransferData_1.TransferData,
     "Wallet": Wallet_1.Wallet,
+    "WalletData": WalletData_1.WalletData,
     "Webhook": Webhook_1.Webhook,
+    "WebhookData": WebhookData_1.WebhookData,
 };
 class ObjectSerializer {
     static findCorrectType(data, expectedType) {

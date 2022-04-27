@@ -18,6 +18,12 @@ Account.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "connectedAccounts",
+        "baseName": "connected_accounts",
+        "type": "Array<any>",
+        "format": ""
+    },
+    {
         "name": "created",
         "baseName": "created",
         "type": "Date",
@@ -48,9 +54,27 @@ Account.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "parentAccount",
+        "baseName": "parent_account",
+        "type": "any",
+        "format": ""
+    },
+    {
+        "name": "platformAccount",
+        "baseName": "platform_account",
+        "type": "boolean",
+        "format": ""
+    },
+    {
         "name": "solWallet",
         "baseName": "sol_wallet",
         "type": "PayoutWallet",
+        "format": ""
+    },
+    {
+        "name": "test",
+        "baseName": "test",
+        "type": "boolean",
         "format": ""
     }
 ];
