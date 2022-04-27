@@ -1,44 +1,20 @@
 import { BaseAPIRequestFactory } from './baseapi';
 import { Configuration } from '../configuration';
 import { RequestContext, ResponseContext } from '../http/http';
-import { InlineObject4 } from '../models/InlineObject4';
-import { InlineResponse2006 } from '../models/InlineResponse2006';
+import { InlineObject7 } from '../models/InlineObject7';
+import { InlineResponse2007 } from '../models/InlineResponse2007';
 import { Wallet } from '../models/Wallet';
 export declare class WalletsApiRequestFactory extends BaseAPIRequestFactory {
-  _delete(
-    walletId: string,
-    prismAccount?: string,
-    _options?: Configuration
-  ): Promise<RequestContext>;
-  create(
-    prismAccount?: string,
-    inlineObject4?: InlineObject4,
-    _options?: Configuration
-  ): Promise<RequestContext>;
-  list(
-    limit?: number,
-    page?: number,
-    sort?: any,
-    expand?: string,
-    prismAccount?: string,
-    _options?: Configuration
-  ): Promise<RequestContext>;
-  retrieve(
-    walletId: string,
-    expand?: string,
-    prismAccount?: string,
-    _options?: Configuration
-  ): Promise<RequestContext>;
-  update(
-    walletId: string,
-    prismAccount?: string,
-    _options?: Configuration
-  ): Promise<RequestContext>;
+    _delete(id: string, prismAccount?: string, expand?: string, _options?: Configuration): Promise<RequestContext>;
+    create(prismAccount?: string, inlineObject7?: InlineObject7, _options?: Configuration): Promise<RequestContext>;
+    list(limit?: number, page?: number, sort?: any, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext>;
+    retrieve(id: string, expand?: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext>;
+    update(id: string, prismAccount?: string, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class WalletsApiResponseProcessor {
-  _delete(response: ResponseContext): Promise<void>;
-  create(response: ResponseContext): Promise<Wallet>;
-  list(response: ResponseContext): Promise<InlineResponse2006>;
-  retrieve(response: ResponseContext): Promise<Wallet>;
-  update(response: ResponseContext): Promise<Wallet>;
+    _delete(response: ResponseContext): Promise<void>;
+    create(response: ResponseContext): Promise<Wallet>;
+    list(response: ResponseContext): Promise<InlineResponse2007>;
+    retrieve(response: ResponseContext): Promise<Wallet>;
+    update(response: ResponseContext): Promise<Wallet>;
 }

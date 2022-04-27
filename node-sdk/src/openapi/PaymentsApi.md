@@ -1,17 +1,19 @@
 # .PaymentsApi
 
-All URIs are relative to _http://localhost:7070/v1_
+All URIs are relative to *http://localhost:7070/v1*
 
-| Method                                  | HTTP request                  | Description            |
-| --------------------------------------- | ----------------------------- | ---------------------- |
-| [**list**](PaymentsApi.md#list)         | **GET** /payments             | List Payments          |
-| [**retrieve**](PaymentsApi.md#retrieve) | **GET** /payments/{paymentId} | Retrieve Payment By Id |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**list**](PaymentsApi.md#list) | **GET** /payments | List Payments
+[**retrieve**](PaymentsApi.md#retrieve) | **GET** /payments/{id} | Retrieve Payment By Id
+
 
 # **list**
-
 > InlineResponse2004 list()
 
+
 ### Example
+
 
 ```typescript
 import {  } from '';
@@ -29,7 +31,7 @@ let body:.PaymentsApiListRequest = {
   sort: null,
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
-  // string (optional)
+  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prismAccount: "Prism-Account_example",
 };
 
@@ -38,15 +40,17 @@ apiInstance.list(body).then((data:any) => {
 }).catch((error:any) => console.error(error));
 ```
 
+
 ### Parameters
 
-| Name             | Type         | Description                                                                 | Notes                            |
-| ---------------- | ------------ | --------------------------------------------------------------------------- | -------------------------------- |
-| **limit**        | [**number**] | A limit on the number of objects to be returned between 1 and 100.          | (optional) defaults to undefined |
-| **page**         | [**number**] | Index of the page to be returned in a paginated response.                   | (optional) defaults to undefined |
-| **sort**         | **any**      | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined |
-| **expand**       | [**string**] | Specifies which fields to populate in the response.                         | (optional) defaults to undefined |
-| **prismAccount** | [**string**] |                                                                             | (optional) defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | [**number**] | A limit on the number of objects to be returned between 1 and 100. | (optional) defaults to undefined
+ **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
+ **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
+ **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
+ **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+
 
 ### Return type
 
@@ -58,22 +62,23 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-
 > Payment retrieve()
 
+
 ### Example
+
 
 ```typescript
 import {  } from '';
@@ -84,10 +89,10 @@ const apiInstance = new .PaymentsApi(configuration);
 
 let body:.PaymentsApiRetrieveRequest = {
   // string
-  paymentId: "paymentId_example",
+  id: "id_example",
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
-  // string (optional)
+  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prismAccount: "Prism-Account_example",
 };
 
@@ -96,13 +101,15 @@ apiInstance.retrieve(body).then((data:any) => {
 }).catch((error:any) => console.error(error));
 ```
 
+
 ### Parameters
 
-| Name             | Type         | Description                                         | Notes                            |
-| ---------------- | ------------ | --------------------------------------------------- | -------------------------------- |
-| **paymentId**    | [**string**] |                                                     | defaults to undefined            |
-| **expand**       | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined |
-| **prismAccount** | [**string**] |                                                     | (optional) defaults to undefined |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**string**] |  | defaults to undefined
+ **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
+ **prismAccount** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+
 
 ### Return type
 
@@ -114,14 +121,16 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+

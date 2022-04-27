@@ -11,52 +11,47 @@
  */
 
 import { Log } from './Log';
-import { Set } from './Set';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse2003 {
-  'data': Set<Log>;
-  'hasMore': string;
-  'page': number;
-  'total': number;
+    'data': Array<Log>;
+    'hasMore': string;
+    'page': number;
+    'total': number;
 
-  static readonly discriminator: string | undefined = undefined;
+    static readonly discriminator: string | undefined = undefined;
 
-  static readonly attributeTypeMap: Array<{
-    name: string;
-    baseName: string;
-    type: string;
-    format: string;
-  }> = [
-    {
-      name: 'data',
-      baseName: 'data',
-      type: 'Set<Log>',
-      format: '',
-    },
-    {
-      name: 'hasMore',
-      baseName: 'has_more',
-      type: 'string',
-      format: '',
-    },
-    {
-      name: 'page',
-      baseName: 'page',
-      type: 'number',
-      format: '',
-    },
-    {
-      name: 'total',
-      baseName: 'total',
-      type: 'number',
-      format: '',
-    },
-  ];
+    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<Log>",
+            "format": ""
+        },
+        {
+            "name": "hasMore",
+            "baseName": "has_more",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "page",
+            "baseName": "page",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
+            "format": ""
+        }    ];
 
-  static getAttributeTypeMap() {
-    return InlineResponse2003.attributeTypeMap;
-  }
+    static getAttributeTypeMap() {
+        return InlineResponse2003.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+

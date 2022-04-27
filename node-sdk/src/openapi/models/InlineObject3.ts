@@ -10,51 +10,48 @@
  * Do not edit the class manually.
  */
 
+import { PayoutWallet } from './PayoutWallet';
 import { HttpFile } from '../http/http';
 
 export class InlineObject3 {
-  'amount': number;
-  'chain': string;
-  'currency': string;
-  'name': string;
+    'data'?: Array<PayoutWallet>;
+    'hasMore'?: boolean;
+    'page'?: number;
+    'total'?: number;
 
-  static readonly discriminator: string | undefined = undefined;
+    static readonly discriminator: string | undefined = undefined;
 
-  static readonly attributeTypeMap: Array<{
-    name: string;
-    baseName: string;
-    type: string;
-    format: string;
-  }> = [
-    {
-      name: 'amount',
-      baseName: 'amount',
-      type: 'number',
-      format: '',
-    },
-    {
-      name: 'chain',
-      baseName: 'chain',
-      type: 'string',
-      format: '',
-    },
-    {
-      name: 'currency',
-      baseName: 'currency',
-      type: 'string',
-      format: '',
-    },
-    {
-      name: 'name',
-      baseName: 'name',
-      type: 'string',
-      format: '',
-    },
-  ];
+    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<PayoutWallet>",
+            "format": ""
+        },
+        {
+            "name": "hasMore",
+            "baseName": "has_more",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "page",
+            "baseName": "page",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
+            "format": ""
+        }    ];
 
-  static getAttributeTypeMap() {
-    return InlineObject3.attributeTypeMap;
-  }
+    static getAttributeTypeMap() {
+        return InlineObject3.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+

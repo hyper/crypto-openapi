@@ -13,27 +13,23 @@
 import { HttpFile } from '../http/http';
 
 export class AccountBranding {
-  'logo'?: string;
+    'logo'?: string;
 
-  static readonly discriminator: string | undefined = undefined;
+    static readonly discriminator: string | undefined = undefined;
 
-  static readonly attributeTypeMap: Array<{
-    name: string;
-    baseName: string;
-    type: string;
-    format: string;
-  }> = [
-    {
-      name: 'logo',
-      baseName: 'logo',
-      type: 'string',
-      format: '',
-    },
-  ];
+    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "logo",
+            "baseName": "logo",
+            "type": "string",
+            "format": ""
+        }    ];
 
-  static getAttributeTypeMap() {
-    return AccountBranding.attributeTypeMap;
-  }
+    static getAttributeTypeMap() {
+        return AccountBranding.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+

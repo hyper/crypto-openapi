@@ -13,92 +13,89 @@
 import { HttpFile } from '../http/http';
 
 export class Log {
-  'apiKey': string;
-  'body'?: any;
-  'created': Date;
-  'headers'?: any;
-  'id': string;
-  'ip': string;
-  'method': LogMethodEnum;
-  'origin'?: string;
-  'query': any;
-  'url': string;
+    'apiKey': string;
+    'body'?: any;
+    'created': Date;
+    'headers'?: any;
+    'id': string;
+    'ip': string;
+    'method': LogMethodEnum;
+    'origin'?: string;
+    'query': any;
+    'url': string;
 
-  static readonly discriminator: string | undefined = undefined;
+    static readonly discriminator: string | undefined = undefined;
 
-  static readonly attributeTypeMap: Array<{
-    name: string;
-    baseName: string;
-    type: string;
-    format: string;
-  }> = [
-    {
-      name: 'apiKey',
-      baseName: 'api_key',
-      type: 'string',
-      format: '',
-    },
-    {
-      name: 'body',
-      baseName: 'body',
-      type: 'any',
-      format: '',
-    },
-    {
-      name: 'created',
-      baseName: 'created',
-      type: 'Date',
-      format: 'date-time',
-    },
-    {
-      name: 'headers',
-      baseName: 'headers',
-      type: 'any',
-      format: '',
-    },
-    {
-      name: 'id',
-      baseName: 'id',
-      type: 'string',
-      format: '',
-    },
-    {
-      name: 'ip',
-      baseName: 'ip',
-      type: 'string',
-      format: '',
-    },
-    {
-      name: 'method',
-      baseName: 'method',
-      type: 'LogMethodEnum',
-      format: '',
-    },
-    {
-      name: 'origin',
-      baseName: 'origin',
-      type: 'string',
-      format: '',
-    },
-    {
-      name: 'query',
-      baseName: 'query',
-      type: 'any',
-      format: '',
-    },
-    {
-      name: 'url',
-      baseName: 'url',
-      type: 'string',
-      format: '',
-    },
-  ];
+    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "apiKey",
+            "baseName": "api_key",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "body",
+            "baseName": "body",
+            "type": "any",
+            "format": ""
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "Date",
+            "format": "date-time"
+        },
+        {
+            "name": "headers",
+            "baseName": "headers",
+            "type": "any",
+            "format": ""
+        },
+        {
+            "name": "id",
+            "baseName": "id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "ip",
+            "baseName": "ip",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "method",
+            "baseName": "method",
+            "type": "LogMethodEnum",
+            "format": ""
+        },
+        {
+            "name": "origin",
+            "baseName": "origin",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "query",
+            "baseName": "query",
+            "type": "any",
+            "format": ""
+        },
+        {
+            "name": "url",
+            "baseName": "url",
+            "type": "string",
+            "format": ""
+        }    ];
 
-  static getAttributeTypeMap() {
-    return Log.attributeTypeMap;
-  }
+    static getAttributeTypeMap() {
+        return Log.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
 
-export type LogMethodEnum = 'POST' | 'PATCH' | 'DELETE';
+
+export type LogMethodEnum = "POST" | "PATCH" | "DELETE" ;
+

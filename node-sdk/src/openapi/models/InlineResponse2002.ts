@@ -11,52 +11,47 @@
  */
 
 import { Invoice } from './Invoice';
-import { Set } from './Set';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse2002 {
-  'data': Set<Invoice>;
-  'hasMore': boolean;
-  'page': number;
-  'total': number;
+    'data': Array<Invoice>;
+    'hasMore': boolean;
+    'page': number;
+    'total': number;
 
-  static readonly discriminator: string | undefined = undefined;
+    static readonly discriminator: string | undefined = undefined;
 
-  static readonly attributeTypeMap: Array<{
-    name: string;
-    baseName: string;
-    type: string;
-    format: string;
-  }> = [
-    {
-      name: 'data',
-      baseName: 'data',
-      type: 'Set<Invoice>',
-      format: '',
-    },
-    {
-      name: 'hasMore',
-      baseName: 'has_more',
-      type: 'boolean',
-      format: '',
-    },
-    {
-      name: 'page',
-      baseName: 'page',
-      type: 'number',
-      format: '',
-    },
-    {
-      name: 'total',
-      baseName: 'total',
-      type: 'number',
-      format: '',
-    },
-  ];
+    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<Invoice>",
+            "format": ""
+        },
+        {
+            "name": "hasMore",
+            "baseName": "has_more",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "page",
+            "baseName": "page",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
+            "format": ""
+        }    ];
 
-  static getAttributeTypeMap() {
-    return InlineResponse2002.attributeTypeMap;
-  }
+    static getAttributeTypeMap() {
+        return InlineResponse2002.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+

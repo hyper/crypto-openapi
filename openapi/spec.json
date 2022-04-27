@@ -1,10 +1,18 @@
 {
   "components": {
     "schemas": {
-      "API-Key": {
+      "APIKey": {
+        "description": "",
         "properties": {
           "account": {
-            "type": "string"
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Account"
+              }
+            ]
           },
           "admin": {
             "type": "boolean"
@@ -24,7 +32,7 @@
             "type": "string"
           }
         },
-        "required": ["id", "created"],
+        "required": ["id", "created", "key", "type"],
         "title": "API Key",
         "type": "object",
         "x-internal": true
@@ -44,7 +52,7 @@
             "type": "string"
           },
           "eth_wallet": {
-            "type": "object"
+            "$ref": "#/components/schemas/PayoutWallet"
           },
           "id": {
             "pattern": "acct_[A-Za-z0-9]",
@@ -58,21 +66,26 @@
             "type": "string"
           },
           "sol_wallet": {
-            "type": "object"
+            "$ref": "#/components/schemas/PayoutWallet"
           }
         },
-        "required": ["id", "created"],
+        "required": ["id", "created", "name"],
         "title": "Account",
         "type": "object",
         "x-internal": true
       },
       "Customer": {
         "properties": {
-          "_id": {
-            "type": "string"
-          },
           "account": {
-            "type": "string"
+            "oneOf": [
+              {
+                "properties": {},
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Account"
+              }
+            ]
           },
           "billing_details": {
             "properties": {
@@ -109,6 +122,9 @@
           "email": {
             "type": "string"
           },
+          "id": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
@@ -116,17 +132,22 @@
             "type": "string"
           }
         },
-        "required": ["_id", "created"],
+        "required": ["id", "created"],
         "title": "Customer",
         "type": "object"
       },
       "Fee": {
         "properties": {
-          "_id": {
-            "type": "string"
-          },
           "account": {
-            "type": "string"
+            "oneOf": [
+              {
+                "properties": {},
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Account"
+              }
+            ]
           },
           "amount": {
             "type": "number"
@@ -141,11 +162,22 @@
           "description": {
             "type": "string"
           },
+          "id": {
+            "type": "string"
+          },
           "internal": {
             "type": "boolean"
           },
           "invoice": {
-            "type": "string"
+            "oneOf": [
+              {
+                "properties": {},
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Invoice"
+              }
+            ]
           },
           "percent": {
             "type": "number"
@@ -154,20 +186,32 @@
             "type": "number"
           },
           "wallet": {
-            "type": "string"
+            "oneOf": [
+              {
+                "properties": {},
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Wallet"
+              }
+            ]
           }
         },
-        "required": ["_id", "created"],
+        "required": ["id", "created"],
         "title": "Fee",
         "type": "object"
       },
       "Invoice": {
         "properties": {
-          "_id": {
-            "type": "string"
-          },
           "account": {
-            "type": "string"
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Account"
+              }
+            ]
           },
           "amount": {
             "type": "number"
@@ -185,17 +229,34 @@
             "type": "string"
           },
           "customer": {
-            "type": "string"
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Customer"
+              }
+            ]
           },
           "due": {
             "format": "date-time",
+            "type": "string"
+          },
+          "id": {
             "type": "string"
           },
           "number": {
             "type": "string"
           },
           "product": {
-            "type": "string"
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Product"
+              }
+            ]
           },
           "status": {
             "enum": ["open", "paid", "unpaid", "void"],
@@ -205,11 +266,18 @@
             "type": "string"
           },
           "wallet": {
-            "type": "string"
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Wallet"
+              }
+            ]
           }
         },
-        "required": ["_id", "created"],
-        "title": "fInvoice",
+        "required": ["id", "created"],
+        "title": "Invoice",
         "type": "object"
       },
       "Log": {
@@ -262,11 +330,16 @@
       },
       "Payment": {
         "properties": {
-          "_id": {
-            "type": "string"
-          },
           "account": {
-            "type": "string"
+            "oneOf": [
+              {
+                "properties": {},
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Account"
+              }
+            ]
           },
           "amount": {
             "type": "number"
@@ -279,7 +352,15 @@
             "type": "string"
           },
           "customer": {
-            "type": "string"
+            "oneOf": [
+              {
+                "properties": {},
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Customer"
+              }
+            ]
           },
           "error_message": {
             "type": "string"
@@ -287,8 +368,19 @@
           "exchange_rate": {
             "type": "number"
           },
-          "invoice": {
+          "id": {
             "type": "string"
+          },
+          "invoice": {
+            "oneOf": [
+              {
+                "properties": {},
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Invoice"
+              }
+            ]
           },
           "status": {
             "enum": ["succeeded", "failed"],
@@ -298,20 +390,68 @@
             "type": "number"
           },
           "wallet": {
+            "oneOf": [
+              {
+                "properties": {},
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Wallet"
+              }
+            ]
+          }
+        },
+        "required": ["id", "created"],
+        "title": "Payment",
+        "type": "object"
+      },
+      "PayoutWallet": {
+        "properties": {
+          "account": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Account"
+              }
+            ]
+          },
+          "address": {
+            "type": "string"
+          },
+          "admin": {
+            "default": true,
+            "type": "boolean"
+          },
+          "chain": {
+            "enum": ["eth", "sol"],
+            "type": "string"
+          },
+          "created": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
             "type": "string"
           }
         },
-        "required": ["account", "wallet", "_id", "created"],
-        "title": "Payment",
+        "required": ["id", "account", "address", "admin", "chain", "created"],
+        "title": "Payout Wallet",
         "type": "object"
       },
       "Product": {
         "properties": {
-          "_id": {
-            "type": "string"
-          },
           "account": {
-            "type": "string"
+            "oneOf": [
+              {
+                "properties": {},
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Account"
+              }
+            ]
           },
           "amount": {
             "type": "number"
@@ -330,21 +470,197 @@
             "enum": ["succeeded", "failed"],
             "type": "string"
           },
+          "id": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           }
         },
-        "required": ["account", "name", "amount", "currency", "_id", "created"],
-        "title": "Payment",
+        "required": ["id", "amount", "created", "currency", "name"],
+        "title": "Product",
+        "type": "object"
+      },
+      "Transaction": {
+        "properties": {
+          "account": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Account"
+              }
+            ]
+          },
+          "amount": {
+            "exclusiveMinimum": true,
+            "minimum": 0,
+            "type": "number"
+          },
+          "chain": {
+            "default": "pending",
+            "enum": ["eth", "sol"],
+            "type": "string"
+          },
+          "created": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "currency": {
+            "default": "eth",
+            "enum": ["eth", "sol"],
+            "type": "string"
+          },
+          "customer": {
+            "oneOf": [
+              {
+                "properties": {},
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Customer"
+              }
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "invoice": {
+            "oneOf": [
+              {
+                "default": null,
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Invoice"
+              }
+            ]
+          },
+          "platform_account": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Account"
+              }
+            ]
+          },
+          "product": {
+            "oneOf": [
+              {
+                "properties": {},
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Product"
+              }
+            ]
+          },
+          "status": {
+            "default": "pending",
+            "enum": ["pending", "failed", "succeeded", "canceled", "refunded"],
+            "type": "string"
+          },
+          "wallet": {
+            "oneOf": [
+              {
+                "properties": {},
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Wallet"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "invoice",
+          "status",
+          "chain",
+          "amount",
+          "currency",
+          "created"
+        ],
+        "title": "Transaction",
+        "type": "object"
+      },
+      "Transfer": {
+        "properties": {
+          "account": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Account"
+              }
+            ]
+          },
+          "amount": {
+            "exclusiveMinimum": true,
+            "minimum": 0,
+            "type": "number"
+          },
+          "created": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "description": {
+            "nullable": true,
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "invoice": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Invoice"
+              }
+            ]
+          },
+          "percent": {
+            "exclusiveMinimum": true,
+            "maximum": 100,
+            "minimum": 0,
+            "type": "number"
+          },
+          "usd_amount": {
+            "exclusiveMinimum": false,
+            "type": "number"
+          },
+          "wallet": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Wallet"
+              }
+            ]
+          }
+        },
+        "required": ["id", "percent", "amount", "usd_amount", "created"],
+        "title": "Transfer",
         "type": "object"
       },
       "Wallet": {
         "properties": {
-          "_id": {
-            "type": "string"
-          },
           "account": {
-            "type": "string"
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Account"
+              }
+            ]
           },
           "address": {
             "type": "string"
@@ -353,6 +669,7 @@
             "type": "boolean"
           },
           "chain": {
+            "enum": ["eth", "sol"],
             "type": "string"
           },
           "created": {
@@ -360,22 +677,35 @@
             "type": "string"
           },
           "customer": {
-            "enum": ["succeeded", "failed"],
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Customer"
+              }
+            ]
+          },
+          "id": {
             "type": "string"
           }
         },
-        "required": ["account", "chain", "_id", "created"],
-        "title": "Payment",
+        "required": ["id", "chain", "address", "created"],
+        "title": "Wallet",
         "type": "object"
       },
       "Webhook": {
         "description": "",
         "properties": {
-          "_id": {
-            "type": "string"
-          },
           "account": {
-            "type": "string"
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Account"
+              }
+            ]
           },
           "created": {
             "format": "date-time",
@@ -389,9 +719,22 @@
               "type": "string"
             },
             "type": "array"
+          },
+          "id": {
+            "type": "string"
+          },
+          "secret": {
+            "type": "string"
           }
         },
-        "required": ["account", "endpoint_url", "_id", "created"],
+        "required": [
+          "id",
+          "account",
+          "endpoint_url",
+          "event_types",
+          "secret",
+          "created"
+        ],
         "title": "Webhook",
         "type": "object"
       }
@@ -451,6 +794,7 @@
             }
           },
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -471,7 +815,7 @@
                       },
                       "minItems": 1,
                       "type": "array",
-                      "uniqueItems": true
+                      "uniqueItems": false
                     },
                     "has_more": {
                       "type": "boolean"
@@ -483,7 +827,7 @@
                       "type": "number"
                     }
                   },
-                  "required": ["data", "total", "page", "has_more"],
+                  "required": ["data", "has_more", "page", "total"],
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -526,6 +870,7 @@
         "operationId": "customers_create",
         "parameters": [
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -572,18 +917,9 @@
                             "type": "string"
                           }
                         },
-                        "required": [
-                          "city",
-                          "country",
-                          "line1",
-                          "line2",
-                          "postal_code",
-                          "state"
-                        ],
                         "type": "object"
                       }
                     },
-                    "required": ["address"],
                     "type": "object"
                   },
                   "email": {
@@ -599,13 +935,7 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "account",
-                  "name",
-                  "email",
-                  "phone",
-                  "billing_details"
-                ],
+                "required": ["account"],
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -639,13 +969,16 @@
               }
             },
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         },
         "summary": "Create Customer",
         "tags": ["Customers"]
       }
     },
-    "/customers/{customerId}": {
+    "/customers/{id}": {
       "get": {
         "operationId": "customers_retrieve",
         "parameters": [
@@ -658,6 +991,7 @@
             }
           },
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -686,7 +1020,7 @@
       "parameters": [
         {
           "in": "path",
-          "name": "customerId",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -697,6 +1031,7 @@
         "operationId": "customers_update",
         "parameters": [
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -758,6 +1093,7 @@
             }
           },
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -778,7 +1114,7 @@
                       },
                       "minItems": 1,
                       "type": "array",
-                      "uniqueItems": true
+                      "uniqueItems": false
                     },
                     "has_more": {
                       "type": "boolean"
@@ -790,7 +1126,7 @@
                       "type": "number"
                     }
                   },
-                  "required": ["data", "total", "page", "has_more"],
+                  "required": ["data", "has_more", "page", "total"],
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -825,6 +1161,7 @@
         "operationId": "fees_create",
         "parameters": [
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -877,17 +1214,21 @@
               }
             },
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         },
         "summary": "Create Fee",
         "tags": ["Fees"]
       }
     },
-    "/fees/{feeId}": {
+    "/fees/{id}": {
       "delete": {
         "operationId": "fees_delete",
         "parameters": [
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -918,6 +1259,7 @@
             }
           },
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -943,7 +1285,7 @@
       "parameters": [
         {
           "in": "path",
-          "name": "feeId",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -986,6 +1328,7 @@
             }
           },
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -1006,7 +1349,7 @@
                       },
                       "minItems": 1,
                       "type": "array",
-                      "uniqueItems": true
+                      "uniqueItems": false
                     },
                     "has_more": {
                       "type": "boolean"
@@ -1018,7 +1361,7 @@
                       "type": "number"
                     }
                   },
-                  "required": ["data", "total", "page", "has_more"],
+                  "required": ["data", "has_more", "page", "total"],
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -1059,6 +1402,7 @@
         "operationId": "invoices_create",
         "parameters": [
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -1091,7 +1435,9 @@
                     "minLength": 1,
                     "type": "string"
                   },
-                  "due": {},
+                  "due": {
+                    "type": "string"
+                  },
                   "number": {
                     "minLength": 1,
                     "type": "string"
@@ -1111,14 +1457,13 @@
                 },
                 "required": [
                   "account",
-                  "status",
-                  "chain",
                   "amount",
+                  "chain",
                   "currency",
                   "customer",
-                  "wallet",
+                  "number",
                   "transaction",
-                  "number"
+                  "wallet"
                 ],
                 "type": "object",
                 "x-examples": {
@@ -1156,13 +1501,16 @@
               }
             },
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         },
         "summary": "Create Invoice",
         "tags": ["Invoices"]
       }
     },
-    "/invoices/{invoiceId}": {
+    "/invoices/{id}": {
       "get": {
         "operationId": "invoices_retrieve",
         "parameters": [
@@ -1175,6 +1523,7 @@
             }
           },
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -1203,7 +1552,7 @@
       "parameters": [
         {
           "in": "path",
-          "name": "invoiceId",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -1214,6 +1563,7 @@
         "operationId": "invoices_update",
         "parameters": [
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -1242,6 +1592,47 @@
         "summary": "Update Invoice By Id",
         "tags": ["Invoices"]
       }
+    },
+    "/invoices/{id}/poll": {
+      "get": {
+        "description": "",
+        "operationId": "get-invoices-invoiceId-poll",
+        "parameters": [
+          {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Specifies which fields to populate in the response.",
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Your GET endpoint",
+        "tags": []
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
     },
     "/logs": {
       "get": {
@@ -1279,6 +1670,7 @@
             }
           },
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -1299,7 +1691,7 @@
                       },
                       "minItems": 1,
                       "type": "array",
-                      "uniqueItems": true
+                      "uniqueItems": false
                     },
                     "has_more": {
                       "minLength": 1,
@@ -1371,7 +1763,7 @@
       },
       "parameters": []
     },
-    "/logs/{logId}": {
+    "/logs/{id}": {
       "get": {
         "operationId": "logs_retrieve",
         "parameters": [
@@ -1384,6 +1776,7 @@
             }
           },
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -1410,7 +1803,7 @@
       "parameters": [
         {
           "in": "path",
-          "name": "logId",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -1453,6 +1846,7 @@
             }
           },
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -1473,7 +1867,7 @@
                       },
                       "minItems": 1,
                       "type": "array",
-                      "uniqueItems": true
+                      "uniqueItems": false
                     },
                     "has_more": {
                       "type": "boolean"
@@ -1485,7 +1879,7 @@
                       "type": "number"
                     }
                   },
-                  "required": ["data", "total", "page", "has_more"],
+                  "required": ["data", "has_more", "page", "total"],
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -1518,7 +1912,7 @@
         "tags": ["Payments"]
       }
     },
-    "/payments/{paymentId}": {
+    "/payments/{id}": {
       "get": {
         "operationId": "payments_retrieve",
         "parameters": [
@@ -1531,6 +1925,7 @@
             }
           },
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -1559,13 +1954,245 @@
       "parameters": [
         {
           "in": "path",
-          "name": "paymentId",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
           }
         }
       ]
+    },
+    "/payout_wallets": {
+      "get": {
+        "description": "",
+        "operationId": "get-payout_wallets",
+        "parameters": [
+          {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "A limit on the number of objects to be returned between 1 and 100.",
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "description": "Index of the page to be returned in a paginated response.",
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "description": "Specifies whether documents are sorted in an ascending or descending order.",
+            "in": "query",
+            "name": "sort",
+            "schema": {}
+          },
+          {
+            "description": "Specifies which fields to populate in the response.",
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "examples": {},
+              "schema": {
+                "properties": {
+                  "data": {
+                    "items": {
+                      "$ref": "#/components/schemas/PayoutWallet"
+                    },
+                    "type": "array"
+                  },
+                  "has_more": {
+                    "type": "boolean"
+                  },
+                  "page": {
+                    "type": "number"
+                  },
+                  "total": {
+                    "type": "number"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {},
+        "summary": "Your GET endpoint",
+        "tags": []
+      },
+      "parameters": [],
+      "post": {
+        "operationId": "post-payout_wallets",
+        "parameters": [
+          {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "account": {
+                    "type": "string"
+                  },
+                  "address": {
+                    "type": "string"
+                  },
+                  "chain": {
+                    "type": "string"
+                  }
+                },
+                "required": ["account", "chain", "address"],
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "account": "t",
+                    "address": "x",
+                    "chain": "eth"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PayoutWallet"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "summary": ""
+      }
+    },
+    "/payout_wallets/{id}": {
+      "delete": {
+        "operationId": "delete-payout_wallets-id",
+        "parameters": [
+          {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "summary": ""
+      },
+      "get": {
+        "operationId": "get-payout_wallets-payout_wallet_id",
+        "parameters": [
+          {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Specifies which fields to populate in the response.",
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PayoutWallet"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "summary": "Your GET endpoint",
+        "tags": []
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "patch": {
+        "operationId": "patch-payout_wallets-id",
+        "parameters": [
+          {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PayoutWallet"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "summary": ""
+      }
     },
     "/products": {
       "get": {
@@ -1602,6 +2229,7 @@
             }
           },
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -1622,7 +2250,7 @@
                       },
                       "minItems": 1,
                       "type": "array",
-                      "uniqueItems": true
+                      "uniqueItems": false
                     },
                     "has_more": {
                       "type": "boolean"
@@ -1634,7 +2262,7 @@
                       "type": "number"
                     }
                   },
-                  "required": ["data", "total", "page", "has_more"],
+                  "required": ["data", "has_more", "page", "total"],
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -1669,6 +2297,7 @@
         "operationId": "products_create",
         "parameters": [
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -1731,11 +2360,12 @@
         "tags": ["Products"]
       }
     },
-    "/products/{productId}": {
+    "/products/{id}": {
       "delete": {
         "operationId": "products_delete",
         "parameters": [
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -1766,6 +2396,7 @@
             }
           },
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -1794,7 +2425,7 @@
       "parameters": [
         {
           "in": "path",
-          "name": "productId",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -1805,6 +2436,7 @@
         "operationId": "products_update",
         "parameters": [
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -1832,6 +2464,193 @@
         },
         "summary": "Update Product By Id",
         "tags": ["Products"]
+      }
+    },
+    "/transfers": {
+      "get": {
+        "operationId": "get-transfers",
+        "parameters": [
+          {
+            "description": "A limit on the number of objects to be returned between 1 and 100.",
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "description": "Index of the page to be returned in a paginated response.",
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "description": "Specifies whether documents are sorted in an ascending or descending order.",
+            "in": "query",
+            "name": "sort",
+            "schema": {}
+          },
+          {
+            "description": "Specifies which fields to populate in the response.",
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {},
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Transfer"
+                      },
+                      "type": "array"
+                    },
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "summary": "Your GET endpoint",
+        "tags": []
+      }
+    },
+    "/transfers/{id}": {
+      "get": {
+        "operationId": "get-transfers-transferId",
+        "parameters": [
+          {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Specifies which fields to populate in the response.",
+            "in": "query",
+            "name": "expand",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transfer"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "summary": "Your GET endpoint",
+        "tags": []
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "post-transfers-id",
+        "parameters": [
+          {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
+            "in": "header",
+            "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "account": {
+                    "type": "string"
+                  },
+                  "amount": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "invoice": {
+                    "type": "string"
+                  },
+                  "percent": {
+                    "type": "integer"
+                  },
+                  "wallet": {
+                    "type": "string"
+                  }
+                },
+                "required": ["account", "invoice", "wallet"],
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "account": "eth",
+                    "amount": "e",
+                    "description": "oo",
+                    "invoice": "E",
+                    "percent": 3,
+                    "usd_amount": 3,
+                    "wallet": "e"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "summary": ""
       }
     },
     "/wallets": {
@@ -1869,6 +2688,7 @@
             }
           },
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -1889,7 +2709,7 @@
                       },
                       "minItems": 0,
                       "type": "array",
-                      "uniqueItems": true
+                      "uniqueItems": false
                     },
                     "has_more": {
                       "type": "boolean"
@@ -1901,7 +2721,7 @@
                       "type": "number"
                     }
                   },
-                  "required": ["data", "total", "page", "has_more"],
+                  "required": ["data", "has_more", "page", "total"],
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -1935,6 +2755,7 @@
         "operationId": "wallets_create",
         "parameters": [
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -1998,13 +2819,21 @@
         "tags": ["Wallets"]
       }
     },
-    "/wallets/{walletId}": {
+    "/wallets/{id}": {
       "delete": {
         "operationId": "wallets_delete",
         "parameters": [
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "expand",
             "schema": {
               "type": "string"
             }
@@ -2034,6 +2863,7 @@
             }
           },
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -2072,7 +2902,7 @@
       "parameters": [
         {
           "in": "path",
-          "name": "walletId",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -2083,6 +2913,7 @@
         "operationId": "wallets_update",
         "parameters": [
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -2147,6 +2978,7 @@
             }
           },
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -2167,7 +2999,7 @@
                       },
                       "minItems": 1,
                       "type": "array",
-                      "uniqueItems": true
+                      "uniqueItems": false
                     },
                     "has_more": {
                       "type": "boolean"
@@ -2179,7 +3011,7 @@
                       "type": "number"
                     }
                   },
-                  "required": ["data", "total", "page", "has_more"],
+                  "required": ["data", "has_more", "page", "total"],
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -2199,6 +3031,9 @@
               }
             },
             "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
           }
         },
         "summary": "List Webhooks",
@@ -2208,6 +3043,7 @@
         "operationId": "webhooks_create",
         "parameters": [
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -2231,8 +3067,7 @@
                   },
                   "event_types": {
                     "items": {
-                      "properties": {},
-                      "required": []
+                      "type": "string"
                     },
                     "type": "array"
                   },
@@ -2241,12 +3076,7 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "account",
-                  "endpoint_url",
-                  "event_types",
-                  "secret"
-                ],
+                "required": ["account", "endpoint_url", "event_types"],
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -2276,11 +3106,12 @@
         "tags": ["Webhooks"]
       }
     },
-    "/webhooks/{webhookId}": {
+    "/webhooks/{id}": {
       "delete": {
         "operationId": "webhooks_delete",
         "parameters": [
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -2312,6 +3143,7 @@
             }
           },
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
@@ -2340,7 +3172,7 @@
       "parameters": [
         {
           "in": "path",
-          "name": "webhookId",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -2351,6 +3183,7 @@
         "operationId": "webhooks_update",
         "parameters": [
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {

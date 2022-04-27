@@ -14,27 +14,23 @@ import { CustomersBillingDetailsAddress } from './CustomersBillingDetailsAddress
 import { HttpFile } from '../http/http';
 
 export class CustomersBillingDetails {
-  'address': CustomersBillingDetailsAddress;
+    'address'?: CustomersBillingDetailsAddress;
 
-  static readonly discriminator: string | undefined = undefined;
+    static readonly discriminator: string | undefined = undefined;
 
-  static readonly attributeTypeMap: Array<{
-    name: string;
-    baseName: string;
-    type: string;
-    format: string;
-  }> = [
-    {
-      name: 'address',
-      baseName: 'address',
-      type: 'CustomersBillingDetailsAddress',
-      format: '',
-    },
-  ];
+    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "address",
+            "baseName": "address",
+            "type": "CustomersBillingDetailsAddress",
+            "format": ""
+        }    ];
 
-  static getAttributeTypeMap() {
-    return CustomersBillingDetails.attributeTypeMap;
-  }
+    static getAttributeTypeMap() {
+        return CustomersBillingDetails.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+

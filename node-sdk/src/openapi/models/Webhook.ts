@@ -10,58 +10,62 @@
  * Do not edit the class manually.
  */
 
+import { Account } from './Account';
 import { HttpFile } from '../http/http';
 
 export class Webhook {
-  'id': string;
-  'account': string;
-  'created': Date;
-  'endpointUrl': string;
-  'eventTypes'?: Array<string>;
+    'account': string | Account;
+    'created': Date;
+    'endpointUrl': string;
+    'eventTypes': Array<string>;
+    'id': string;
+    'secret': string;
 
-  static readonly discriminator: string | undefined = undefined;
+    static readonly discriminator: string | undefined = undefined;
 
-  static readonly attributeTypeMap: Array<{
-    name: string;
-    baseName: string;
-    type: string;
-    format: string;
-  }> = [
-    {
-      name: 'id',
-      baseName: '_id',
-      type: 'string',
-      format: '',
-    },
-    {
-      name: 'account',
-      baseName: 'account',
-      type: 'string',
-      format: '',
-    },
-    {
-      name: 'created',
-      baseName: 'created',
-      type: 'Date',
-      format: 'date-time',
-    },
-    {
-      name: 'endpointUrl',
-      baseName: 'endpoint_url',
-      type: 'string',
-      format: '',
-    },
-    {
-      name: 'eventTypes',
-      baseName: 'event_types',
-      type: 'Array<string>',
-      format: '',
-    },
-  ];
+    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "account",
+            "baseName": "account",
+            "type": "string | Account",
+            "format": ""
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "Date",
+            "format": "date-time"
+        },
+        {
+            "name": "endpointUrl",
+            "baseName": "endpoint_url",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "eventTypes",
+            "baseName": "event_types",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "id",
+            "baseName": "id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "secret",
+            "baseName": "secret",
+            "type": "string",
+            "format": ""
+        }    ];
 
-  static getAttributeTypeMap() {
-    return Webhook.attributeTypeMap;
-  }
+    static getAttributeTypeMap() {
+        return Webhook.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+

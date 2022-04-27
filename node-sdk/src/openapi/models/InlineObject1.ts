@@ -13,48 +13,44 @@
 import { HttpFile } from '../http/http';
 
 export class InlineObject1 {
-  'description'?: string;
-  'invoice': string;
-  'percent': number;
-  'wallet': string;
+    'description'?: string;
+    'invoice': string;
+    'percent': number;
+    'wallet': string;
 
-  static readonly discriminator: string | undefined = undefined;
+    static readonly discriminator: string | undefined = undefined;
 
-  static readonly attributeTypeMap: Array<{
-    name: string;
-    baseName: string;
-    type: string;
-    format: string;
-  }> = [
-    {
-      name: 'description',
-      baseName: 'description',
-      type: 'string',
-      format: '',
-    },
-    {
-      name: 'invoice',
-      baseName: 'invoice',
-      type: 'string',
-      format: '',
-    },
-    {
-      name: 'percent',
-      baseName: 'percent',
-      type: 'number',
-      format: '',
-    },
-    {
-      name: 'wallet',
-      baseName: 'wallet',
-      type: 'string',
-      format: '',
-    },
-  ];
+    static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "description",
+            "baseName": "description",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "invoice",
+            "baseName": "invoice",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "percent",
+            "baseName": "percent",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "wallet",
+            "baseName": "wallet",
+            "type": "string",
+            "format": ""
+        }    ];
 
-  static getAttributeTypeMap() {
-    return InlineObject1.attributeTypeMap;
-  }
+    static getAttributeTypeMap() {
+        return InlineObject1.attributeTypeMap;
+    }
 
-  public constructor() {}
+    public constructor() {
+    }
 }
+
