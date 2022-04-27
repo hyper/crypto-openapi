@@ -1,7 +1,76 @@
 {
   "components": {
     "schemas": {
-      "APIKey": {
+      "Account": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
+            "properties": {
+              "branding": {
+                "properties": {
+                  "logo": {
+                    "default": null,
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "connected_accounts": {
+                "oneOf": [
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "items": {
+                      "$ref": "#/components/schemas/Account"
+                    },
+                    "type": "array"
+                  }
+                ]
+              },
+              "eth_wallet": {
+                "$ref": "#/components/schemas/PayoutWallet"
+              },
+              "invoice_prefix": {
+                "default": null,
+                "pattern": "^[A-Z]{3,12}$",
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "parent_account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "platform_account": {
+                "default": false,
+                "type": "boolean"
+              },
+              "sol_wallet": {
+                "$ref": "#/components/schemas/PayoutWallet"
+              }
+            },
+            "required": ["name", "platform_account"],
+            "type": "object"
+          }
+        ],
+        "description": "",
+        "title": "Account",
+        "x-internal": true
+      },
+      "ApiKey": {
         "allOf": [
           {
             "$ref": "#/components/schemas/Model"
@@ -22,13 +91,6 @@
                 "default": false,
                 "type": "boolean"
               },
-              "created": {
-                "format": "date-time",
-                "type": "string"
-              },
-              "id": {
-                "type": "string"
-              },
               "key": {
                 "type": "string"
               },
@@ -37,325 +99,268 @@
                 "type": "string"
               }
             },
-            "required": ["id", "created", "account", "key", "type", "admin"],
+            "required": ["account", "key", "type", "admin"],
             "type": "object"
           }
         ],
         "description": "",
-        "title": "API Key",
-        "x-internal": true
-      },
-      "Account": {
-        "description": "",
-        "properties": {
-          "branding": {
-            "properties": {
-              "logo": {
-                "default": null,
-                "type": "string"
-              }
-            },
-            "type": "object"
-          },
-          "connected_accounts": {
-            "items": {
-              "oneOf": [{}],
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "created": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "eth_wallet": {
-            "$ref": "#/components/schemas/PayoutWallet"
-          },
-          "id": {
-            "pattern": "^[a-z]{2,4}_[A-Za-z0-9]{21}$",
-            "type": "string"
-          },
-          "invoice_prefix": {
-            "default": null,
-            "pattern": "^[A-Z]{3,12}$",
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "parent_account": {
-            "oneOf": [{}],
-            "type": "string"
-          },
-          "platform_account": {
-            "default": false,
-            "type": "boolean"
-          },
-          "sol_wallet": {
-            "$ref": "#/components/schemas/PayoutWallet"
-          },
-          "test": {
-            "default": false,
-            "type": "boolean"
-          }
-        },
-        "required": ["name"],
-        "title": "Account",
-        "type": "object",
+        "title": "ApiKey",
         "x-internal": true
       },
       "Customer": {
-        "properties": {
-          "account": {
-            "oneOf": [
-              {
-                "properties": {},
-                "type": "string"
-              },
-              {
-                "$ref": "#/components/schemas/Account"
-              }
-            ]
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
           },
-          "billing_details": {
+          {
             "properties": {
-              "address": {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "billing_details": {
                 "properties": {
-                  "city": {
-                    "type": "string"
-                  },
-                  "country": {
-                    "type": "string"
-                  },
-                  "line1": {
-                    "type": "string"
-                  },
-                  "line2": {
-                    "type": "string"
-                  },
-                  "postal_code": {
-                    "type": "string"
-                  },
-                  "state": {
-                    "type": "string"
+                  "address": {
+                    "properties": {
+                      "city": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string"
+                      },
+                      "line1": {
+                        "type": "string"
+                      },
+                      "line2": {
+                        "type": "string"
+                      },
+                      "postal_code": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "type": "object"
+              },
+              "email": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
               }
             },
             "type": "object"
-          },
-          "created": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "phone": {
-            "type": "string"
           }
-        },
-        "required": ["id", "created"],
-        "title": "Customer",
-        "type": "object"
+        ],
+        "title": "Customer"
       },
       "Fee": {
-        "properties": {
-          "account": {
-            "oneOf": [
-              {
-                "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
+            "properties": {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "amount": {
+                "type": "number"
+              },
+              "currency": {
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Account"
-              }
-            ]
-          },
-          "amount": {
-            "type": "number"
-          },
-          "created": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "currency": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "internal": {
-            "type": "boolean"
-          },
-          "invoice": {
-            "oneOf": [
-              {
-                "properties": {},
+              "description": {
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Invoice"
-              }
-            ]
-          },
-          "percent": {
-            "type": "number"
-          },
-          "usd_amount": {
-            "type": "number"
-          },
-          "wallet": {
-            "oneOf": [
-              {
-                "properties": {},
-                "type": "string"
+              "internal": {
+                "type": "boolean"
               },
-              {
-                "$ref": "#/components/schemas/Wallet"
+              "invoice": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Invoice"
+                  }
+                ]
+              },
+              "percent": {
+                "type": "number"
+              },
+              "usd_amount": {
+                "type": "number"
+              },
+              "wallet": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Wallet"
+                  }
+                ]
               }
-            ]
+            },
+            "type": "object"
           }
-        },
-        "required": ["id", "created"],
-        "title": "Fee",
-        "type": "object"
+        ],
+        "title": "Fee"
       },
       "Invoice": {
-        "properties": {
-          "account": {
-            "oneOf": [
-              {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
+            "properties": {
+              "": {
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Account"
-              }
-            ]
-          },
-          "amount": {
-            "type": "number"
-          },
-          "chain": {
-            "enum": ["eth", "sol"],
-            "type": "string"
-          },
-          "created": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "currency": {
-            "enum": ["eth", "sol"],
-            "type": "string"
-          },
-          "customer": {
-            "oneOf": [
-              {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "amount": {
+                "type": "number"
+              },
+              "chain": {
+                "enum": ["eth", "sol"],
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Customer"
-              }
-            ]
-          },
-          "due": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "number": {
-            "type": "string"
-          },
-          "product": {
-            "oneOf": [
-              {
+              "currency": {
+                "enum": ["eth", "sol"],
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Product"
-              }
-            ]
-          },
-          "status": {
-            "enum": ["open", "paid", "unpaid", "void"],
-            "type": "string"
-          },
-          "transaction": {
-            "type": "string"
-          },
-          "wallet": {
-            "oneOf": [
-              {
+              "customer": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                ]
+              },
+              "due": {
+                "format": "date-time",
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Wallet"
+              "number": {
+                "type": "string"
+              },
+              "product": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                ]
+              },
+              "status": {
+                "enum": ["open", "paid", "unpaid", "void"],
+                "type": "string"
+              },
+              "transaction": {
+                "type": "string"
+              },
+              "wallet": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Wallet"
+                  }
+                ]
               }
-            ]
+            },
+            "required": [
+              "account",
+              "amount",
+              "chain",
+              "currency",
+              "customer",
+              "number",
+              "status",
+              "wallet"
+            ],
+            "type": "object"
           }
-        },
-        "required": ["id", "created"],
-        "title": "Invoice",
-        "type": "object"
+        ],
+        "title": "Invoice"
       },
       "Log": {
-        "properties": {
-          "api_key": {
-            "type": "string"
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
           },
-          "body": {
+          {
+            "properties": {
+              "api_key": {
+                "type": "string"
+              },
+              "body": {
+                "type": "object"
+              },
+              "created": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "headers": {
+                "type": "object"
+              },
+              "ip": {
+                "type": "string"
+              },
+              "method": {
+                "enum": ["POST", "PATCH", "DELETE"],
+                "type": "string"
+              },
+              "origin": {
+                "type": "string"
+              },
+              "query": {
+                "type": "object"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": ["api_key", "created", "ip", "method", "query", "url"],
             "type": "object"
-          },
-          "created": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "headers": {
-            "type": "object"
-          },
-          "id": {
-            "type": "string"
-          },
-          "ip": {
-            "type": "string"
-          },
-          "method": {
-            "enum": ["POST", "PATCH", "DELETE"],
-            "type": "string"
-          },
-          "origin": {
-            "type": "string"
-          },
-          "query": {
-            "type": "object"
-          },
-          "url": {
-            "type": "string"
           }
-        },
-        "required": [
-          "id",
-          "ip",
-          "method",
-          "url",
-          "api_key",
-          "query",
-          "created"
         ],
         "title": "Log",
-        "type": "object",
         "x-internal": true
       },
       "Model": {
@@ -378,414 +383,436 @@
         "type": "object"
       },
       "Payment": {
-        "properties": {
-          "account": {
-            "oneOf": [
-              {
-                "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
+            "properties": {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "amount": {
+                "type": "number"
+              },
+              "currency": {
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Account"
-              }
-            ]
-          },
-          "amount": {
-            "type": "number"
-          },
-          "created": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "currency": {
-            "type": "string"
-          },
-          "customer": {
-            "oneOf": [
-              {
-                "properties": {},
+              "customer": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                ]
+              },
+              "error_message": {
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Customer"
-              }
-            ]
-          },
-          "error_message": {
-            "type": "string"
-          },
-          "exchange_rate": {
-            "type": "number"
-          },
-          "id": {
-            "type": "string"
-          },
-          "invoice": {
-            "oneOf": [
-              {
-                "properties": {},
+              "exchange_rate": {
+                "type": "number"
+              },
+              "invoice": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Invoice"
+                  }
+                ]
+              },
+              "status": {
+                "enum": ["succeeded", "failed"],
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Invoice"
-              }
-            ]
-          },
-          "status": {
-            "enum": ["succeeded", "failed"],
-            "type": "string"
-          },
-          "usd_amount": {
-            "type": "number"
-          },
-          "wallet": {
-            "oneOf": [
-              {
-                "properties": {},
-                "type": "string"
+              "usd_amount": {
+                "type": "number"
               },
-              {
-                "$ref": "#/components/schemas/Wallet"
+              "wallet": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Wallet"
+                  }
+                ]
               }
-            ]
+            },
+            "required": [
+              "account",
+              "amount",
+              "currency",
+              "customer",
+              "exchange_rate",
+              "invoice",
+              "status",
+              "usd_amount",
+              "wallet"
+            ],
+            "type": "object"
           }
-        },
-        "required": ["id", "created"],
-        "title": "Payment",
-        "type": "object"
+        ],
+        "title": "Payment"
       },
       "PayoutWallet": {
-        "properties": {
-          "account": {
-            "oneOf": [
-              {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
+            "properties": {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "address": {
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Account"
+              "admin": {
+                "default": true,
+                "type": "boolean"
+              },
+              "chain": {
+                "enum": ["eth", "sol"],
+                "type": "string"
               }
-            ]
-          },
-          "address": {
-            "type": "string"
-          },
-          "admin": {
-            "default": true,
-            "type": "boolean"
-          },
-          "chain": {
-            "enum": ["eth", "sol"],
-            "type": "string"
-          },
-          "created": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
+            },
+            "required": ["account", "address", "admin", "chain"],
+            "type": "object"
           }
-        },
-        "required": ["id", "account", "address", "admin", "chain", "created"],
-        "title": "Payout Wallet",
-        "type": "object"
+        ],
+        "title": "PayoutWallet"
       },
       "Product": {
-        "properties": {
-          "account": {
-            "oneOf": [
-              {
-                "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
+            "properties": {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "amount": {
+                "type": "number"
+              },
+              "base_currency": {
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Account"
+              "chain": {
+                "type": "string"
+              },
+              "currency": {
+                "enum": ["succeeded", "failed"],
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
               }
-            ]
-          },
-          "amount": {
-            "type": "number"
-          },
-          "base_currency": {
-            "type": "string"
-          },
-          "chain": {
-            "type": "string"
-          },
-          "created": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "currency": {
-            "enum": ["succeeded", "failed"],
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
+            },
+            "required": ["account", "amount", "currency", "name"],
+            "type": "object"
           }
-        },
-        "required": ["id", "amount", "created", "currency", "name"],
-        "title": "Product",
-        "type": "object"
+        ],
+        "title": "Product"
       },
       "Transaction": {
-        "properties": {
-          "account": {
-            "oneOf": [
-              {
+        "allOf": [
+          {
+            "properties": {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "amount": {
+                "exclusiveMinimum": true,
+                "minimum": 0,
+                "type": "number"
+              },
+              "chain": {
+                "default": "pending",
+                "enum": ["eth", "sol"],
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Account"
-              }
-            ]
-          },
-          "amount": {
-            "exclusiveMinimum": true,
-            "minimum": 0,
-            "type": "number"
-          },
-          "chain": {
-            "default": "pending",
-            "enum": ["eth", "sol"],
-            "type": "string"
-          },
-          "created": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "currency": {
-            "default": "eth",
-            "enum": ["eth", "sol"],
-            "type": "string"
-          },
-          "customer": {
-            "oneOf": [
-              {
-                "properties": {},
+              "currency": {
+                "default": "eth",
+                "enum": ["eth", "sol"],
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Customer"
-              }
-            ]
-          },
-          "id": {
-            "type": "string"
-          },
-          "invoice": {
-            "oneOf": [
-              {
-                "default": null,
+              "customer": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                ]
+              },
+              "invoice": {
+                "oneOf": [
+                  {
+                    "default": null,
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Invoice"
+                  }
+                ]
+              },
+              "platform_account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "product": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                ]
+              },
+              "status": {
+                "default": "pending",
+                "enum": [
+                  "pending",
+                  "failed",
+                  "succeeded",
+                  "canceled",
+                  "refunded"
+                ],
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Invoice"
+              "wallet": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Wallet"
+                  }
+                ]
               }
-            ]
+            },
+            "required": ["invoice", "status", "chain", "amount", "currency"],
+            "type": "object"
           },
-          "platform_account": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/components/schemas/Account"
-              }
-            ]
-          },
-          "product": {
-            "oneOf": [
-              {
-                "properties": {},
-                "type": "string"
-              },
-              {
-                "$ref": "#/components/schemas/Product"
-              }
-            ]
-          },
-          "status": {
-            "default": "pending",
-            "enum": ["pending", "failed", "succeeded", "canceled", "refunded"],
-            "type": "string"
-          },
-          "wallet": {
-            "oneOf": [
-              {
-                "properties": {},
-                "type": "string"
-              },
-              {
-                "$ref": "#/components/schemas/Wallet"
-              }
-            ]
+          {
+            "$ref": "#/components/schemas/Model"
           }
-        },
-        "required": [
-          "id",
-          "invoice",
-          "status",
-          "chain",
-          "amount",
-          "currency",
-          "created"
         ],
-        "title": "Transaction",
-        "type": "object"
+        "title": "Transaction"
       },
       "Transfer": {
-        "properties": {
-          "account": {
-            "oneOf": [
-              {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
+            "properties": {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "amount": {
+                "exclusiveMinimum": true,
+                "minimum": 0,
+                "type": "number"
+              },
+              "description": {
+                "nullable": true,
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Account"
-              }
-            ]
-          },
-          "amount": {
-            "exclusiveMinimum": true,
-            "minimum": 0,
-            "type": "number"
-          },
-          "created": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "description": {
-            "nullable": true,
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "invoice": {
-            "oneOf": [
-              {
-                "type": "string"
+              "invoice": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Invoice"
+                  }
+                ]
               },
-              {
-                "$ref": "#/components/schemas/Invoice"
-              }
-            ]
-          },
-          "percent": {
-            "exclusiveMinimum": true,
-            "maximum": 100,
-            "minimum": 0,
-            "type": "number"
-          },
-          "usd_amount": {
-            "exclusiveMinimum": false,
-            "type": "number"
-          },
-          "wallet": {
-            "oneOf": [
-              {
-                "type": "string"
+              "percent": {
+                "exclusiveMinimum": true,
+                "maximum": 100,
+                "minimum": 0,
+                "type": "number"
               },
-              {
-                "$ref": "#/components/schemas/Wallet"
+              "usd_amount": {
+                "exclusiveMinimum": false,
+                "type": "number"
+              },
+              "wallet": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Wallet"
+                  }
+                ]
               }
-            ]
+            },
+            "required": [
+              "account",
+              "invoice",
+              "wallet",
+              "percent",
+              "amount",
+              "usd_amount"
+            ],
+            "type": "object"
           }
-        },
-        "required": ["id", "percent", "amount", "usd_amount", "created"],
-        "title": "Transfer",
-        "type": "object"
+        ],
+        "title": "Transfer"
       },
       "Wallet": {
-        "properties": {
-          "account": {
-            "oneOf": [
-              {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
+            "properties": {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "address": {
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Account"
-              }
-            ]
-          },
-          "address": {
-            "type": "string"
-          },
-          "admin": {
-            "type": "boolean"
-          },
-          "chain": {
-            "enum": ["eth", "sol"],
-            "type": "string"
-          },
-          "created": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "customer": {
-            "oneOf": [
-              {
+              "admin": {
+                "type": "boolean"
+              },
+              "chain": {
+                "enum": ["eth", "sol"],
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Customer"
+              "customer": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                ]
               }
-            ]
-          },
-          "id": {
-            "type": "string"
+            },
+            "required": ["account", "chain", "address", "admin", "customer"],
+            "type": "object"
           }
-        },
-        "required": ["id", "chain", "address", "created"],
+        ],
         "title": "Wallet",
-        "type": "object"
+        "x-examples": {
+          "example-1": {
+            "account": "string",
+            "address": "string",
+            "admin": true,
+            "chain": "eth",
+            "created": "2019-08-24T14:15:22Z",
+            "customer": "string",
+            "id": "string",
+            "test": false
+          }
+        }
       },
       "Webhook": {
-        "description": "",
-        "properties": {
-          "account": {
-            "oneOf": [
-              {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
+            "properties": {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "created": {
+                "format": "date-time",
                 "type": "string"
               },
-              {
-                "$ref": "#/components/schemas/Account"
+              "endpoint_url": {
+                "type": "string"
+              },
+              "event_types": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "secret": {
+                "type": "string"
               }
-            ]
-          },
-          "created": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "endpoint_url": {
-            "type": "string"
-          },
-          "event_types": {
-            "items": {
-              "type": "string"
             },
-            "type": "array"
-          },
-          "id": {
-            "type": "string"
-          },
-          "secret": {
-            "type": "string"
+            "required": [
+              "account",
+              "endpoint_url",
+              "event_types",
+              "secret",
+              "created"
+            ],
+            "type": "object"
           }
-        },
-        "required": [
-          "id",
-          "account",
-          "endpoint_url",
-          "event_types",
-          "secret",
-          "created"
         ],
-        "title": "Webhook",
-        "type": "object"
+        "description": "",
+        "title": "Webhook"
       }
     },
     "securitySchemes": {
@@ -877,6 +904,7 @@
                     }
                   },
                   "required": ["data", "has_more", "page", "total"],
+                  "title": "ListCustomersResponse",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -1179,6 +1207,7 @@
                     }
                   },
                   "required": ["data", "has_more", "page", "total"],
+                  "title": "ListFeesResponse",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -1415,6 +1444,7 @@
                     }
                   },
                   "required": ["data", "has_more", "page", "total"],
+                  "title": "ListInvoicesResponse",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -1759,6 +1789,7 @@
                     }
                   },
                   "required": ["data", "has_more", "page", "total"],
+                  "title": "ListLogsResponse",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -1934,6 +1965,7 @@
                     }
                   },
                   "required": ["data", "has_more", "page", "total"],
+                  "title": "ListPaymentsResponse",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -2322,6 +2354,7 @@
                     }
                   },
                   "required": ["data", "has_more", "page", "total"],
+                  "title": "ListProductsResponse",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -2592,6 +2625,7 @@
                       "type": "number"
                     }
                   },
+                  "title": "ListTransfersResponse",
                   "type": "object"
                 }
               }
@@ -2784,6 +2818,7 @@
                     }
                   },
                   "required": ["data", "has_more", "page", "total"],
+                  "title": "ListWalletsResponse",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -3075,6 +3110,7 @@
                     }
                   },
                   "required": ["data", "has_more", "page", "total"],
+                  "title": "ListWebhooksResponse",
                   "type": "object",
                   "x-examples": {
                     "example-1": {

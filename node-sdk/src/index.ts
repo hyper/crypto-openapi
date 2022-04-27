@@ -16,19 +16,16 @@ import {
   CustomersApiRetrieveRequest,
   CustomersApiCreateRequest,
   CustomersApiUpdateRequest,
-  InlineResponse200,
   Fee,
   FeesApiCreateRequest,
   FeesApiRetrieveRequest,
-  InlineResponse2001,
   InvoicesApiCreateRequest,
   Invoice,
   InvoicesApiRetrieveRequest,
   InvoicesApiUpdateRequest,
   InvoicesApiListRequest,
-  InlineResponse2002,
   LogsApiRetrieveRequest,
-  InlineResponse2003,
+  ListProductsResponse,
   LogsApiListRequest,
   FeesApiListRequest,
   CustomersApiListRequest,
@@ -36,12 +33,10 @@ import {
   PaymentsApiRetrieveRequest,
   Payment,
   PaymentsApiListRequest,
-  InlineResponse2004,
   ProductsApiCreateRequest,
   ProductsApiRetrieveRequest,
   ProductsApiUpdateRequest,
   Product,
-  InlineResponse2005,
   ProductsApiListRequest,
   WalletsApiCreateRequest,
   WalletsApiUpdateRequest,
@@ -52,9 +47,14 @@ import {
   WebhooksApiUpdateRequest,
   WebhooksApiListRequest,
   Wallet,
-  InlineResponse2007,
-  InlineResponse2008,
   servers,
+  ListCustomersResponse,
+  ListInvoicesResponse,
+  ListLogsResponse,
+  ListWebhooksResponse,
+  ListWalletsResponse,
+  ListFeesResponse,
+  ListPaymentsResponse,
 } from './openapi/index';
 export * from './openapi/models/all';
 export * from './openapi/apis/exception';
@@ -147,7 +147,7 @@ class CustomersApiLayer {
   public async list(
     params?: Omit<CustomersApiListRequest, 'prismAccount'>,
     options?: { prismAccount: string }
-  ): Promise<InlineResponse200> {
+  ): Promise<ListCustomersResponse> {
     return this.api.list({ ...options, ...params });
   }
 }
@@ -177,7 +177,7 @@ class FeesApiLayer {
   public async list(
     params?: Omit<FeesApiListRequest, 'prismAccount'>,
     options?: { prismAccount: string }
-  ): Promise<InlineResponse2001> {
+  ): Promise<ListFeesResponse> {
     return this.api.list({ ...options, ...params });
   }
 }
@@ -215,7 +215,7 @@ class InvoicesApiLayer {
   public async list(
     params?: Omit<InvoicesApiListRequest, 'prismAccount'>,
     options?: { prismAccount: string }
-  ): Promise<InlineResponse2002> {
+  ): Promise<ListInvoicesResponse> {
     return this.api.list({ ...options, ...params });
   }
 }
@@ -238,7 +238,7 @@ class LogsApiLayer {
   public async list(
     params?: Omit<LogsApiListRequest, 'prismAccount'>,
     options?: { prismAccount: string }
-  ): Promise<InlineResponse2003> {
+  ): Promise<ListLogsResponse> {
     return this.api.list({ ...options, ...params });
   }
 }
@@ -261,7 +261,7 @@ class PaymentsApiLayer {
   public async list(
     params?: Omit<PaymentsApiListRequest, 'prismAccount'>,
     options?: { prismAccount: string }
-  ): Promise<InlineResponse2004> {
+  ): Promise<ListPaymentsResponse> {
     return this.api.list({ ...options, ...params });
   }
 }
@@ -299,7 +299,7 @@ class ProductsApiLayer {
   public async list(
     params?: Omit<ProductsApiListRequest, 'prismAccount'>,
     options?: { prismAccount: string }
-  ): Promise<InlineResponse2005> {
+  ): Promise<ListProductsResponse> {
     return this.api.list({ ...options, ...params });
   }
 }
@@ -337,7 +337,7 @@ class WalletsApiLayer {
   public async list(
     params?: Omit<WalletsApiListRequest, 'prismAccount'>,
     options?: { prismAccount: string }
-  ): Promise<InlineResponse2007> {
+  ): Promise<ListWalletsResponse> {
     return this.api.list({ ...options, ...params });
   }
 }
@@ -375,7 +375,7 @@ class WebhooksApiLayer {
   public async list(
     params?: Omit<WebhooksApiListRequest, 'prismAccount'>,
     options?: { prismAccount: string }
-  ): Promise<InlineResponse2008> {
+  ): Promise<ListWebhooksResponse> {
     return this.api.list({ ...options, ...params });
   }
 }
