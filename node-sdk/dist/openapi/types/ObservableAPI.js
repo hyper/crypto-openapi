@@ -12,62 +12,62 @@ class ObservableCustomersApi {
     }
     create(prismAccount, inlineObject, _options) {
         const requestContextPromise = this.requestFactory.create(prismAccount, inlineObject, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.create(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
         }));
     }
     list(limit, page, sort, expand, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.list(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
         }));
     }
     retrieve(id, expand, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.retrieve(id, expand, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.retrieve(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
         }));
     }
     update(id, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.update(id, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.update(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
         }));
     }
 }
@@ -81,137 +81,137 @@ class ObservableDefaultApi {
     }
     getInvoicesInvoiceIdPoll(id, prismAccount, expand, _options) {
         const requestContextPromise = this.requestFactory.getInvoicesInvoiceIdPoll(id, prismAccount, expand, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.getInvoicesInvoiceIdPoll(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.getInvoicesInvoiceIdPoll(rsp)));
         }));
     }
     getTransfers(limit, page, sort, expand, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.getTransfers(limit, page, sort, expand, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.getTransfers(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.getTransfers(rsp)));
         }));
     }
     getTransfersTransferId(id, prismAccount, expand, _options) {
         const requestContextPromise = this.requestFactory.getTransfersTransferId(id, prismAccount, expand, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.getTransfersTransferId(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.getTransfersTransferId(rsp)));
         }));
     }
     postTransfersId(id, prismAccount, inlineObject6, _options) {
         const requestContextPromise = this.requestFactory.postTransfersId(id, prismAccount, inlineObject6, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.postTransfersId(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.postTransfersId(rsp)));
         }));
     }
     wallets(prismAccount, limit, page, sort, expand, inlineObject3, _options) {
         const requestContextPromise = this.requestFactory.wallets(prismAccount, limit, page, sort, expand, inlineObject3, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.wallets(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.wallets(rsp)));
         }));
     }
     walletsId(id, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.walletsId(id, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.walletsId(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.walletsId(rsp)));
         }));
     }
     walletsId_1(id, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.walletsId_1(id, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.walletsId_1(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.walletsId_1(rsp)));
         }));
     }
     walletsPayoutWalletId(id, prismAccount, expand, _options) {
         const requestContextPromise = this.requestFactory.walletsPayoutWalletId(id, prismAccount, expand, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.walletsPayoutWalletId(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.walletsPayoutWalletId(rsp)));
         }));
     }
     wallets_2(prismAccount, inlineObject4, _options) {
         const requestContextPromise = this.requestFactory.wallets_2(prismAccount, inlineObject4, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.wallets_2(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.wallets_2(rsp)));
         }));
     }
 }
@@ -225,62 +225,62 @@ class ObservableFeesApi {
     }
     _delete(id, prismAccount, _options) {
         const requestContextPromise = this.requestFactory._delete(id, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor._delete(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete(rsp)));
         }));
     }
     create(prismAccount, inlineObject1, _options) {
         const requestContextPromise = this.requestFactory.create(prismAccount, inlineObject1, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.create(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
         }));
     }
     list(limit, page, sort, expand, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.list(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
         }));
     }
     retrieve(id, expand, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.retrieve(id, expand, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.retrieve(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
         }));
     }
 }
@@ -294,62 +294,62 @@ class ObservableInvoicesApi {
     }
     create(prismAccount, inlineObject2, _options) {
         const requestContextPromise = this.requestFactory.create(prismAccount, inlineObject2, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.create(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
         }));
     }
     list(limit, page, sort, expand, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.list(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
         }));
     }
     retrieve(id, expand, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.retrieve(id, expand, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.retrieve(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
         }));
     }
     update(id, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.update(id, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.update(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
         }));
     }
 }
@@ -363,32 +363,32 @@ class ObservableLogsApi {
     }
     list(limit, page, sort, expand, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.list(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
         }));
     }
     retrieve(id, expand, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.retrieve(id, expand, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.retrieve(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
         }));
     }
 }
@@ -402,32 +402,32 @@ class ObservablePaymentsApi {
     }
     list(limit, page, sort, expand, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.list(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
         }));
     }
     retrieve(id, expand, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.retrieve(id, expand, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.retrieve(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
         }));
     }
 }
@@ -441,77 +441,77 @@ class ObservableProductsApi {
     }
     _delete(id, prismAccount, _options) {
         const requestContextPromise = this.requestFactory._delete(id, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor._delete(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete(rsp)));
         }));
     }
     create(prismAccount, inlineObject5, _options) {
         const requestContextPromise = this.requestFactory.create(prismAccount, inlineObject5, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.create(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
         }));
     }
     list(limit, page, sort, expand, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.list(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
         }));
     }
     retrieve(id, expand, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.retrieve(id, expand, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.retrieve(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
         }));
     }
     update(id, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.update(id, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.update(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
         }));
     }
 }
@@ -525,77 +525,77 @@ class ObservableWalletsApi {
     }
     _delete(id, prismAccount, expand, _options) {
         const requestContextPromise = this.requestFactory._delete(id, prismAccount, expand, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor._delete(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete(rsp)));
         }));
     }
     create(prismAccount, inlineObject7, _options) {
         const requestContextPromise = this.requestFactory.create(prismAccount, inlineObject7, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.create(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
         }));
     }
     list(limit, page, sort, expand, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.list(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
         }));
     }
     retrieve(id, expand, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.retrieve(id, expand, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.retrieve(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
         }));
     }
     update(id, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.update(id, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.update(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
         }));
     }
 }
@@ -609,77 +609,77 @@ class ObservableWebhooksApi {
     }
     _delete(id, prismAccount, _options) {
         const requestContextPromise = this.requestFactory._delete(id, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor._delete(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete(rsp)));
         }));
     }
     create(prismAccount, inlineObject8, _options) {
         const requestContextPromise = this.requestFactory.create(prismAccount, inlineObject8, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.create(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
         }));
     }
     list(limit, page, sort, expand, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.list(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
         }));
     }
     retrieve(id, expand, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.retrieve(id, expand, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.retrieve(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
         }));
     }
     update(id, prismAccount, _options) {
         const requestContextPromise = this.requestFactory.update(id, prismAccount, _options);
-        let middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => middleware.pre(ctx)));
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
         }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe((0, rxjsStub_2.mergeMap)((response) => {
-            let middlewarePostObservable = (0, rxjsStub_1.of)(response);
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
             for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)((rsp) => middleware.post(rsp)));
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)((rsp) => this.responseProcessor.update(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
         }));
     }
 }

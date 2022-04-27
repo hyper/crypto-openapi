@@ -232,7 +232,7 @@ class DefaultApiResponseProcessor {
     getInvoicesInvoiceIdPoll(response) {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-            if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
                 return;
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
@@ -245,7 +245,7 @@ class DefaultApiResponseProcessor {
     getTransfers(response) {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-            if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse2006", "");
                 return body;
             }
@@ -259,7 +259,7 @@ class DefaultApiResponseProcessor {
     getTransfersTransferId(response) {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-            if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Transfer", "");
                 return body;
             }
@@ -273,10 +273,10 @@ class DefaultApiResponseProcessor {
     postTransfersId(response) {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-            if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
                 return;
             }
-            if ((0, util_1.isCodeInRange)("400", response.httpStatusCode)) {
+            if (util_1.isCodeInRange("400", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Bad Request", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
@@ -298,10 +298,10 @@ class DefaultApiResponseProcessor {
     walletsId(response) {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-            if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
                 return;
             }
-            if ((0, util_1.isCodeInRange)("404", response.httpStatusCode)) {
+            if (util_1.isCodeInRange("404", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
@@ -314,7 +314,7 @@ class DefaultApiResponseProcessor {
     walletsId_1(response) {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-            if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "PayoutWallet", "");
                 return body;
             }
@@ -328,11 +328,11 @@ class DefaultApiResponseProcessor {
     walletsPayoutWalletId(response) {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-            if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "PayoutWallet", "");
                 return body;
             }
-            if ((0, util_1.isCodeInRange)("404", response.httpStatusCode)) {
+            if (util_1.isCodeInRange("404", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
@@ -345,11 +345,11 @@ class DefaultApiResponseProcessor {
     wallets_2(response) {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-            if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "PayoutWallet", "");
                 return body;
             }
-            if ((0, util_1.isCodeInRange)("400", response.httpStatusCode)) {
+            if (util_1.isCodeInRange("400", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Bad Request", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {

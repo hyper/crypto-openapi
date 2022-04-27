@@ -24,7 +24,7 @@ class IsomorphicFetchHttpLibrary {
             };
             return new http_1.ResponseContext(resp.status, headers, body);
         });
-        return (0, rxjsStub_1.from)(resultPromise);
+        return rxjsStub_1.from(resultPromise);
     }
 }
 exports.IsomorphicFetchHttpLibrary = IsomorphicFetchHttpLibrary;
