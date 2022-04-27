@@ -7,10 +7,10 @@ class PromiseMiddlewareWrapper {
         this.middleware = middleware;
     }
     pre(context) {
-        return rxjsStub_1.from(this.middleware.pre(context));
+        return (0, rxjsStub_1.from)(this.middleware.pre(context));
     }
     post(context) {
-        return rxjsStub_1.from(this.middleware.post(context));
+        return (0, rxjsStub_1.from)(this.middleware.post(context));
     }
 }
 exports.PromiseMiddlewareWrapper = PromiseMiddlewareWrapper;

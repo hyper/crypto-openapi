@@ -1,13 +1,17 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
 }));
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -38,7 +42,7 @@ class Prism {
     constructor(token, options) {
         const envs = ['dev', 'stg', 'prd'];
         const baseServer = (options === null || options === void 0 ? void 0 : options.env) ? index_1.servers[envs.indexOf(options.env)] : index_1.servers[2];
-        const config = index_1.createConfiguration({
+        const config = (0, index_1.createConfiguration)({
             baseServer,
             promiseMiddleware: [new UserAgentMiddleware()],
             authMethods: {
@@ -65,22 +69,22 @@ class CustomersApiLayer {
     }
     create(customerData, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { customer_data: customerData }));
+            return this.api.create(Object.assign(Object.assign({}, (0, convertCasing_1.default)(options)), { customer_data: customerData }));
         });
     }
     retrieve(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+            return this.api.retrieve(Object.assign(Object.assign({ id }, (0, convertCasing_1.default)(options)), params));
         });
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), data));
+            return this.api.update(Object.assign(Object.assign({ id }, (0, convertCasing_1.default)(options)), data));
         });
     }
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+            return this.api.list(Object.assign(Object.assign({}, (0, convertCasing_1.default)(options)), params));
         });
     }
 }
@@ -90,17 +94,17 @@ class FeesApiLayer {
     }
     create(feeData, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { fee_data: feeData }));
+            return this.api.create(Object.assign(Object.assign({}, (0, convertCasing_1.default)(options)), { fee_data: feeData }));
         });
     }
     retrieve(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+            return this.api.retrieve(Object.assign(Object.assign({ id }, (0, convertCasing_1.default)(options)), params));
         });
     }
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+            return this.api.list(Object.assign(Object.assign({}, (0, convertCasing_1.default)(options)), params));
         });
     }
 }
@@ -110,22 +114,22 @@ class InvoicesApiLayer {
     }
     create(invoiceData, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { invoice_data: invoiceData }));
+            return this.api.create(Object.assign(Object.assign({}, (0, convertCasing_1.default)(options)), { invoice_data: invoiceData }));
         });
     }
     retrieve(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+            return this.api.retrieve(Object.assign(Object.assign({ id }, (0, convertCasing_1.default)(options)), params));
         });
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), data));
+            return this.api.update(Object.assign(Object.assign({ id }, (0, convertCasing_1.default)(options)), data));
         });
     }
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+            return this.api.list(Object.assign(Object.assign({}, (0, convertCasing_1.default)(options)), params));
         });
     }
 }
@@ -135,12 +139,12 @@ class LogsApiLayer {
     }
     retrieve(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+            return this.api.retrieve(Object.assign(Object.assign({ id }, (0, convertCasing_1.default)(options)), params));
         });
     }
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+            return this.api.list(Object.assign(Object.assign({}, (0, convertCasing_1.default)(options)), params));
         });
     }
 }
@@ -150,12 +154,12 @@ class PaymentsApiLayer {
     }
     retrieve(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+            return this.api.retrieve(Object.assign(Object.assign({ id }, (0, convertCasing_1.default)(options)), params));
         });
     }
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+            return this.api.list(Object.assign(Object.assign({}, (0, convertCasing_1.default)(options)), params));
         });
     }
 }
@@ -165,22 +169,22 @@ class ProductsApiLayer {
     }
     create(productData, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { product_data: productData }));
+            return this.api.create(Object.assign(Object.assign({}, (0, convertCasing_1.default)(options)), { product_data: productData }));
         });
     }
     retrieve(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+            return this.api.retrieve(Object.assign(Object.assign({ id }, (0, convertCasing_1.default)(options)), params));
         });
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), data));
+            return this.api.update(Object.assign(Object.assign({ id }, (0, convertCasing_1.default)(options)), data));
         });
     }
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+            return this.api.list(Object.assign(Object.assign({}, (0, convertCasing_1.default)(options)), params));
         });
     }
 }
@@ -190,22 +194,22 @@ class WalletsApiLayer {
     }
     create(walletData, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { wallet_data: walletData }));
+            return this.api.create(Object.assign(Object.assign({}, (0, convertCasing_1.default)(options)), { wallet_data: walletData }));
         });
     }
     retrieve(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+            return this.api.retrieve(Object.assign(Object.assign({ id }, (0, convertCasing_1.default)(options)), params));
         });
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), data));
+            return this.api.update(Object.assign(Object.assign({ id }, (0, convertCasing_1.default)(options)), data));
         });
     }
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+            return this.api.list(Object.assign(Object.assign({}, (0, convertCasing_1.default)(options)), params));
         });
     }
 }
@@ -215,22 +219,22 @@ class WebhooksApiLayer {
     }
     create(webhookData, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { webhook_data: webhookData }));
+            return this.api.create(Object.assign(Object.assign({}, (0, convertCasing_1.default)(options)), { webhook_data: webhookData }));
         });
     }
     retrieve(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+            return this.api.retrieve(Object.assign(Object.assign({ id }, (0, convertCasing_1.default)(options)), params));
         });
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), data));
+            return this.api.update(Object.assign(Object.assign({ id }, (0, convertCasing_1.default)(options)), data));
         });
     }
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+            return this.api.list(Object.assign(Object.assign({}, (0, convertCasing_1.default)(options)), params));
         });
     }
 }

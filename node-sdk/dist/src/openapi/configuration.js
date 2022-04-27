@@ -10,7 +10,7 @@ function createConfiguration(conf = {}) {
         baseServer: conf.baseServer !== undefined ? conf.baseServer : servers_1.server1,
         httpApi: conf.httpApi || new isomorphic_fetch_1.IsomorphicFetchHttpLibrary(),
         middleware: conf.middleware || [],
-        authMethods: auth_1.configureAuthMethods(conf.authMethods)
+        authMethods: (0, auth_1.configureAuthMethods)(conf.authMethods)
     };
     if (conf.promiseMiddleware) {
         conf.promiseMiddleware.forEach(m => configuration.middleware.push(new middleware_1.PromiseMiddlewareWrapper(m)));
