@@ -1,4 +1,6 @@
 {
   "removeOperationIdPrefix": true,
-  "useObjectParameters": true
+  "useObjectParameters": true,
+  "paramNaming": "original",
+  "enumPropertyNaming": "original"
 }
