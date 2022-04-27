@@ -89,7 +89,7 @@ export class Prism {
   public constructor(token: string, options?: PrismOptions) {
     const envs = ['dev', 'stg', 'prd'];
 
-    const baseServer = options?.env ? servers[envs.indexOf(options.env)] : servers[0];
+    const baseServer = options?.env ? servers[envs.indexOf(options.env)] : servers[2];
 
     const config = createConfiguration({
       baseServer,
