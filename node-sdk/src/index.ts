@@ -1,5 +1,4 @@
 import {
-  ServerConfiguration,
   Configuration,
   createConfiguration,
   CustomersApi,
@@ -55,6 +54,7 @@ import {
   WebhooksApiListRequest,
   Wallet,
   InlineResponse2007,
+  servers,
 } from './openapi/index';
 export * from './openapi/models/all';
 export * from './openapi/apis/exception';
@@ -73,7 +73,7 @@ class UserAgentMiddleware implements Middleware {
 }
 
 export interface PrismOptions {
-  serverURL?: string;
+  env?: string;
 }
 
 export class Prism {
@@ -87,9 +87,9 @@ export class Prism {
   public readonly webhooks: WebhooksApiLayer;
 
   public constructor(token: string, options?: PrismOptions) {
-    const baseUrl = options?.serverURL ?? 'https://api.prism.co/v1';
+    const envs = ['dev', 'stg', 'prd'];
 
-    const baseServer = new ServerConfiguration<any>(baseUrl, {});
+    const baseServer = options?.env ? servers[envs.indexOf(options.env)] : servers[0];
 
     const config = createConfiguration({
       baseServer,

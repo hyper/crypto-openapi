@@ -46,7 +46,7 @@ import {
 export * from './openapi/models/all';
 export * from './openapi/apis/exception';
 export interface PrismOptions {
-  serverURL?: string;
+  env?: string;
 }
 export declare class Prism {
   readonly customers: CustomersApiLayer;

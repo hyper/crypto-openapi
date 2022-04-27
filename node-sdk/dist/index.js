@@ -69,13 +69,10 @@ class UserAgentMiddleware {
 }
 class Prism {
   constructor(token, options) {
-    var _a;
-    const baseUrl =
-      (_a = options === null || options === void 0 ? void 0 : options.serverURL) !== null &&
-      _a !== void 0
-        ? _a
-        : 'https://api.prism.co/v1';
-    const baseServer = new index_1.ServerConfiguration(baseUrl, {});
+    const envs = ['dev', 'stg', 'prd'];
+    const baseServer = (options === null || options === void 0 ? void 0 : options.env)
+      ? index_1.servers[envs.indexOf(options.env)]
+      : index_1.servers[0];
     const config = index_1.createConfiguration({
       baseServer,
       promiseMiddleware: [new UserAgentMiddleware()],
