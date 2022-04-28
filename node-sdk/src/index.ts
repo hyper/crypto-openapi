@@ -15,14 +15,12 @@ import {
   Customer,
   CustomersApiRetrieveRequest,
   CustomersApiCreateRequest,
-  CustomersApiUpdateRequest,
   Fee,
   FeesApiCreateRequest,
   FeesApiRetrieveRequest,
   InvoicesApiCreateRequest,
   Invoice,
   InvoicesApiRetrieveRequest,
-  InvoicesApiUpdateRequest,
   InvoicesApiListRequest,
   LogsApiRetrieveRequest,
   ListProductsResponse,
@@ -35,16 +33,13 @@ import {
   PaymentsApiListRequest,
   ProductsApiCreateRequest,
   ProductsApiRetrieveRequest,
-  ProductsApiUpdateRequest,
   Product,
   ProductsApiListRequest,
   WalletsApiCreateRequest,
-  WalletsApiUpdateRequest,
   WalletsApiRetrieveRequest,
   WalletsApiListRequest,
   WebhooksApiCreateRequest,
   WebhooksApiRetrieveRequest,
-  WebhooksApiUpdateRequest,
   WebhooksApiListRequest,
   Wallet,
   servers,
@@ -54,8 +49,8 @@ import {
   ListWebhooksResponse,
   ListWalletsResponse,
   ListFeesResponse,
-  ListPaymentsResponse,
-} from './openapi/index';
+  ListPaymentsResponse, InlineObject1, InlineObject, InlineObject2, InlineObject3, InlineObject4
+} from "./openapi/index";
 import convertCasing from './helpers/convertCasing';
 export * from './openapi/models/all';
 export * from './openapi/apis/exception';
@@ -139,7 +134,7 @@ class CustomersApiLayer {
 
   public async update(
     id: string,
-    data: Omit<CustomersApiUpdateRequest, 'prismAccount' | 'id'>,
+    data: Omit<InlineObject, 'prismAccount' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Customer> {
     return this.api.update({ id, ...convertCasing(options), ...data });
@@ -207,7 +202,7 @@ class InvoicesApiLayer {
 
   public async update(
     id: string,
-    data: Omit<InvoicesApiUpdateRequest, 'prismAccount' | 'id'>,
+    data: Omit<InlineObject1, 'prismAccount' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Invoice> {
     return this.api.update({ id, ...convertCasing(options), ...data });
@@ -291,7 +286,7 @@ class ProductsApiLayer {
 
   public async update(
     id: string,
-    data: Omit<ProductsApiUpdateRequest, 'prismAccount' | 'id'>,
+    data: Omit<InlineObject2, 'prismAccount' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Product> {
     return this.api.update({ id, ...convertCasing(options), ...data });
@@ -329,7 +324,7 @@ class WalletsApiLayer {
 
   public async update(
     id: string,
-    data: Omit<WalletsApiUpdateRequest, 'prismAccount' | 'id'>,
+    data: Omit<InlineObject3, 'prismAccount' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Wallet> {
     return this.api.update({ id, ...convertCasing(options), ...data });
@@ -367,7 +362,7 @@ class WebhooksApiLayer {
 
   public async update(
     id: string,
-    data: Omit<WebhooksApiUpdateRequest, 'prismAccount' | 'id'>,
+    data: Omit<InlineObject4, 'prismAccount' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Customer> {
     return this.api.update({ id, ...convertCasing(options), ...data });

@@ -1,4 +1,4 @@
-import { Configuration, Customer, CustomersApiRetrieveRequest, CustomersApiCreateRequest, CustomersApiUpdateRequest, Fee, FeesApiCreateRequest, FeesApiRetrieveRequest, InvoicesApiCreateRequest, Invoice, InvoicesApiRetrieveRequest, InvoicesApiUpdateRequest, InvoicesApiListRequest, LogsApiRetrieveRequest, ListProductsResponse, LogsApiListRequest, FeesApiListRequest, CustomersApiListRequest, Log, PaymentsApiRetrieveRequest, Payment, PaymentsApiListRequest, ProductsApiCreateRequest, ProductsApiRetrieveRequest, ProductsApiUpdateRequest, Product, ProductsApiListRequest, WalletsApiCreateRequest, WalletsApiUpdateRequest, WalletsApiRetrieveRequest, WalletsApiListRequest, WebhooksApiCreateRequest, WebhooksApiRetrieveRequest, WebhooksApiUpdateRequest, WebhooksApiListRequest, Wallet, ListCustomersResponse, ListInvoicesResponse, ListLogsResponse, ListWebhooksResponse, ListWalletsResponse, ListFeesResponse, ListPaymentsResponse } from './openapi/index';
+import { Configuration, Customer, CustomersApiRetrieveRequest, CustomersApiCreateRequest, Fee, FeesApiCreateRequest, FeesApiRetrieveRequest, InvoicesApiCreateRequest, Invoice, InvoicesApiRetrieveRequest, InvoicesApiListRequest, LogsApiRetrieveRequest, ListProductsResponse, LogsApiListRequest, FeesApiListRequest, CustomersApiListRequest, Log, PaymentsApiRetrieveRequest, Payment, PaymentsApiListRequest, ProductsApiCreateRequest, ProductsApiRetrieveRequest, Product, ProductsApiListRequest, WalletsApiCreateRequest, WalletsApiRetrieveRequest, WalletsApiListRequest, WebhooksApiCreateRequest, WebhooksApiRetrieveRequest, WebhooksApiListRequest, Wallet, ListCustomersResponse, ListInvoicesResponse, ListLogsResponse, ListWebhooksResponse, ListWalletsResponse, ListFeesResponse, ListPaymentsResponse, InlineObject1, InlineObject, InlineObject2, InlineObject3, InlineObject4 } from "./openapi/index";
 export * from './openapi/models/all';
 export * from './openapi/apis/exception';
 export interface PrismOptions {
@@ -24,7 +24,7 @@ declare class CustomersApiLayer {
     retrieve(id: string, params?: Omit<CustomersApiRetrieveRequest, 'prismAccount' | 'id'>, options?: {
         prismAccount: string;
     }): Promise<Customer>;
-    update(id: string, data: Omit<CustomersApiUpdateRequest, 'prismAccount' | 'id'>, options?: {
+    update(id: string, data: Omit<InlineObject, 'prismAccount' | 'id'>, options?: {
         prismAccount: string;
     }): Promise<Customer>;
     list(params?: Omit<CustomersApiListRequest, 'prismAccount'>, options?: {
@@ -53,7 +53,7 @@ declare class InvoicesApiLayer {
     retrieve(id: string, params?: Omit<InvoicesApiRetrieveRequest, 'prismAccount' | 'id'>, options?: {
         prismAccount: string;
     }): Promise<Invoice>;
-    update(id: string, data: Omit<InvoicesApiUpdateRequest, 'prismAccount' | 'id'>, options?: {
+    update(id: string, data: Omit<InlineObject1, 'prismAccount' | 'id'>, options?: {
         prismAccount: string;
     }): Promise<Invoice>;
     list(params?: Omit<InvoicesApiListRequest, 'prismAccount'>, options?: {
@@ -89,7 +89,7 @@ declare class ProductsApiLayer {
     retrieve(id: string, params?: Omit<ProductsApiRetrieveRequest, 'prismAccount' | 'id'>, options?: {
         prismAccount: string;
     }): Promise<Product>;
-    update(id: string, data: Omit<ProductsApiUpdateRequest, 'prismAccount' | 'id'>, options?: {
+    update(id: string, data: Omit<InlineObject2, 'prismAccount' | 'id'>, options?: {
         prismAccount: string;
     }): Promise<Product>;
     list(params?: Omit<ProductsApiListRequest, 'prismAccount'>, options?: {
@@ -105,7 +105,7 @@ declare class WalletsApiLayer {
     retrieve(id: string, params?: Omit<WalletsApiRetrieveRequest, 'prismAccount' | 'id'>, options?: {
         prismAccount: string;
     }): Promise<Wallet>;
-    update(id: string, data: Omit<WalletsApiUpdateRequest, 'prismAccount' | 'id'>, options?: {
+    update(id: string, data: Omit<InlineObject3, 'prismAccount' | 'id'>, options?: {
         prismAccount: string;
     }): Promise<Wallet>;
     list(params?: Omit<WalletsApiListRequest, 'prismAccount'>, options?: {
@@ -121,7 +121,7 @@ declare class WebhooksApiLayer {
     retrieve(id: string, params?: Omit<WebhooksApiRetrieveRequest, 'prismAccount' | 'id'>, options?: {
         prismAccount: string;
     }): Promise<Customer>;
-    update(id: string, data: Omit<WebhooksApiUpdateRequest, 'prismAccount' | 'id'>, options?: {
+    update(id: string, data: Omit<InlineObject4, 'prismAccount' | 'id'>, options?: {
         prismAccount: string;
     }): Promise<Customer>;
     list(params?: Omit<WebhooksApiListRequest, 'prismAccount'>, options?: {

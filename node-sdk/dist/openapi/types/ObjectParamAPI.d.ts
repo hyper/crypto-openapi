@@ -4,6 +4,11 @@ import { CustomerData } from '../models/CustomerData';
 import { Data } from '../models/Data';
 import { Fee } from '../models/Fee';
 import { FeeData } from '../models/FeeData';
+import { InlineObject } from '../models/InlineObject';
+import { InlineObject1 } from '../models/InlineObject1';
+import { InlineObject2 } from '../models/InlineObject2';
+import { InlineObject3 } from '../models/InlineObject3';
+import { InlineObject4 } from '../models/InlineObject4';
 import { Invoice } from '../models/Invoice';
 import { InvoiceData } from '../models/InvoiceData';
 import { ListCustomersResponse } from '../models/ListCustomersResponse';
@@ -47,7 +52,7 @@ export interface CustomersApiRetrieveRequest {
 export interface CustomersApiUpdateRequest {
     id: string;
     prism_account?: string;
-    customer?: Customer;
+    inline_object?: InlineObject;
 }
 export declare class ObjectCustomersApi {
     private api;
@@ -111,7 +116,7 @@ export interface InvoicesApiRetrieveRequest {
 export interface InvoicesApiUpdateRequest {
     id: string;
     prism_account?: string;
-    invoice?: Invoice;
+    inline_object1?: InlineObject1;
 }
 export declare class ObjectInvoicesApi {
     private api;
@@ -185,7 +190,7 @@ export interface PayoutWalletsApiRetrieveRequest {
 export interface PayoutWalletsApiUpdateRequest {
     id: string;
     prism_account?: string;
-    payout_wallet?: PayoutWallet;
+    body?: any;
 }
 export declare class ObjectPayoutWalletsApi {
     private api;
@@ -220,7 +225,7 @@ export interface ProductsApiRetrieveRequest {
 export interface ProductsApiUpdateRequest {
     id: string;
     prism_account?: string;
-    product?: Product;
+    inline_object2?: InlineObject2;
 }
 export declare class ObjectProductsApi {
     private api;
@@ -280,7 +285,7 @@ export interface WalletsApiRetrieveRequest {
 export interface WalletsApiUpdateRequest {
     id: string;
     prism_account?: string;
-    wallet?: Wallet;
+    inline_object3?: InlineObject3;
 }
 export declare class ObjectWalletsApi {
     private api;
@@ -315,7 +320,7 @@ export interface WebhooksApiRetrieveRequest {
 export interface WebhooksApiUpdateRequest {
     id: string;
     prism_account?: string;
-    webhook?: Webhook;
+    inline_object4?: InlineObject4;
 }
 export declare class ObjectWebhooksApi {
     private api;

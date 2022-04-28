@@ -276,8 +276,13 @@ let body:.WebhooksApiUpdateRequest = {
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // Webhook (optional)
-  webhook: null,
+  // InlineObject4 (optional)
+  inline_object4: {
+    endpoint_url: "endpoint_url_example",
+    event_types: [
+      "event_types_example",
+    ],
+  },
 };
 
 apiInstance.update(body).then((data:any) => {
@@ -290,7 +295,7 @@ apiInstance.update(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhook** | **Webhook**|  |
+ **inline_object4** | **InlineObject4**|  |
  **id** | [**string**] |  | defaults to undefined
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 

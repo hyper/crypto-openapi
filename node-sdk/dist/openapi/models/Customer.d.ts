@@ -1,5 +1,5 @@
 import { Account } from './Account';
-import { CustomerAllOfBillingDetails } from './CustomerAllOfBillingDetails';
+import { CustomersIdBillingDetails } from './CustomersIdBillingDetails';
 import { Wallet } from './Wallet';
 export declare class Customer {
     'id': string;
@@ -7,7 +7,7 @@ export declare class Customer {
     'test': boolean;
     'object': string;
     'account'?: string | Account;
-    'billing_details'?: CustomerAllOfBillingDetails;
+    'billing_details'?: CustomersIdBillingDetails;
     'email'?: string;
     'name'?: string;
     'phone'?: string;

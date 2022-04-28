@@ -44,7 +44,7 @@ Customer.attributeTypeMap = [
     {
         "name": "billing_details",
         "baseName": "billing_details",
-        "type": "CustomerAllOfBillingDetails",
+        "type": "CustomersIdBillingDetails",
         "format": ""
     },
     {

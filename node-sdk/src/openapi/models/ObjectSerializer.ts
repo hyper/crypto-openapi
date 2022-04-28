@@ -5,15 +5,20 @@ export * from './ApiKey';
 export * from './ApiKeyAllOf';
 export * from './Customer';
 export * from './CustomerAllOf';
-export * from './CustomerAllOfBillingDetails';
-export * from './CustomerAllOfBillingDetailsAddress';
 export * from './CustomerData';
 export * from './CustomersBillingDetails';
 export * from './CustomersBillingDetailsAddress';
+export * from './CustomersIdBillingDetails';
+export * from './CustomersIdBillingDetailsAddress';
 export * from './Data';
 export * from './Fee';
 export * from './FeeAllOf';
 export * from './FeeData';
+export * from './InlineObject';
+export * from './InlineObject1';
+export * from './InlineObject2';
+export * from './InlineObject3';
+export * from './InlineObject4';
 export * from './Invoice';
 export * from './InvoiceAllOf';
 export * from './InvoiceData';
@@ -56,15 +61,20 @@ import { ApiKey      , ApiKeyTypeEnum    } from './ApiKey';
 import { ApiKeyAllOf  , ApiKeyAllOfTypeEnum    } from './ApiKeyAllOf';
 import { Customer } from './Customer';
 import { CustomerAllOf } from './CustomerAllOf';
-import { CustomerAllOfBillingDetails } from './CustomerAllOfBillingDetails';
-import { CustomerAllOfBillingDetailsAddress } from './CustomerAllOfBillingDetailsAddress';
 import { CustomerData } from './CustomerData';
 import { CustomersBillingDetails } from './CustomersBillingDetails';
 import { CustomersBillingDetailsAddress } from './CustomersBillingDetailsAddress';
+import { CustomersIdBillingDetails } from './CustomersIdBillingDetails';
+import { CustomersIdBillingDetailsAddress } from './CustomersIdBillingDetailsAddress';
 import { Data } from './Data';
 import { Fee } from './Fee';
 import { FeeAllOf } from './FeeAllOf';
 import { FeeData } from './FeeData';
+import { InlineObject } from './InlineObject';
+import { InlineObject1 } from './InlineObject1';
+import { InlineObject2 } from './InlineObject2';
+import { InlineObject3 } from './InlineObject3';
+import { InlineObject4 } from './InlineObject4';
 import { Invoice      , InvoiceChainEnum  , InvoiceCurrencyEnum      , InvoiceStatusEnum        } from './Invoice';
 import { InvoiceAllOf  , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum      , InvoiceAllOfStatusEnum        } from './InvoiceAllOf';
 import { InvoiceData } from './InvoiceData';
@@ -154,15 +164,20 @@ let typeMap: {[index: string]: any} = {
     "ApiKeyAllOf": ApiKeyAllOf,
     "Customer": Customer,
     "CustomerAllOf": CustomerAllOf,
-    "CustomerAllOfBillingDetails": CustomerAllOfBillingDetails,
-    "CustomerAllOfBillingDetailsAddress": CustomerAllOfBillingDetailsAddress,
     "CustomerData": CustomerData,
     "CustomersBillingDetails": CustomersBillingDetails,
     "CustomersBillingDetailsAddress": CustomersBillingDetailsAddress,
+    "CustomersIdBillingDetails": CustomersIdBillingDetails,
+    "CustomersIdBillingDetailsAddress": CustomersIdBillingDetailsAddress,
     "Data": Data,
     "Fee": Fee,
     "FeeAllOf": FeeAllOf,
     "FeeData": FeeData,
+    "InlineObject": InlineObject,
+    "InlineObject1": InlineObject1,
+    "InlineObject2": InlineObject2,
+    "InlineObject3": InlineObject3,
+    "InlineObject4": InlineObject4,
     "Invoice": Invoice,
     "InvoiceAllOf": InvoiceAllOf,
     "InvoiceData": InvoiceData,

@@ -18,8 +18,8 @@ class PromiseCustomersApi {
         const result = this.api.retrieve(id, expand, prism_account, _options);
         return result.toPromise();
     }
-    update(id, prism_account, customer, _options) {
-        const result = this.api.update(id, prism_account, customer, _options);
+    update(id, prism_account, inline_object, _options) {
+        const result = this.api.update(id, prism_account, inline_object, _options);
         return result.toPromise();
     }
 }
@@ -68,8 +68,8 @@ class PromiseInvoicesApi {
         const result = this.api.retrieve(id, expand, prism_account, _options);
         return result.toPromise();
     }
-    update(id, prism_account, invoice, _options) {
-        const result = this.api.update(id, prism_account, invoice, _options);
+    update(id, prism_account, inline_object1, _options) {
+        const result = this.api.update(id, prism_account, inline_object1, _options);
         return result.toPromise();
     }
 }
@@ -125,8 +125,8 @@ class PromisePayoutWalletsApi {
         const result = this.api.retrieve(id, prism_account, expand, _options);
         return result.toPromise();
     }
-    update(id, prism_account, payout_wallet, _options) {
-        const result = this.api.update(id, prism_account, payout_wallet, _options);
+    update(id, prism_account, body, _options) {
+        const result = this.api.update(id, prism_account, body, _options);
         return result.toPromise();
     }
 }
@@ -152,8 +152,8 @@ class PromiseProductsApi {
         const result = this.api.retrieve(id, expand, prism_account, _options);
         return result.toPromise();
     }
-    update(id, prism_account, product, _options) {
-        const result = this.api.update(id, prism_account, product, _options);
+    update(id, prism_account, inline_object2, _options) {
+        const result = this.api.update(id, prism_account, inline_object2, _options);
         return result.toPromise();
     }
 }
@@ -198,8 +198,8 @@ class PromiseWalletsApi {
         const result = this.api.retrieve(id, expand, prism_account, _options);
         return result.toPromise();
     }
-    update(id, prism_account, wallet, _options) {
-        const result = this.api.update(id, prism_account, wallet, _options);
+    update(id, prism_account, inline_object3, _options) {
+        const result = this.api.update(id, prism_account, inline_object3, _options);
         return result.toPromise();
     }
 }
@@ -225,8 +225,8 @@ class PromiseWebhooksApi {
         const result = this.api.retrieve(id, expand, prism_account, _options);
         return result.toPromise();
     }
-    update(id, prism_account, webhook, _options) {
-        const result = this.api.update(id, prism_account, webhook, _options);
+    update(id, prism_account, inline_object4, _options) {
+        const result = this.api.update(id, prism_account, inline_object4, _options);
         return result.toPromise();
     }
 }

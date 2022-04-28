@@ -227,8 +227,22 @@ let body:.CustomersApiUpdateRequest = {
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // Customer (optional)
-  customer: null,
+  // InlineObject (optional)
+  inline_object: {
+    billing_details: {
+      address: {
+        city: "city_example",
+        country: "country_example",
+        line1: "line1_example",
+        line2: "line2_example",
+        postal_code: "postal_code_example",
+        state: "state_example",
+      },
+    },
+    email: "email_example",
+    name: "name_example",
+    phone: "phone_example",
+  },
 };
 
 apiInstance.update(body).then((data:any) => {
@@ -241,7 +255,7 @@ apiInstance.update(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer** | **Customer**|  |
+ **inline_object** | **InlineObject**|  |
  **id** | [**string**] |  | defaults to undefined
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 

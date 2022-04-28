@@ -1,6 +1,7 @@
 import { BaseAPIRequestFactory } from './baseapi';
 import { Configuration } from '../configuration';
 import { RequestContext, ResponseContext } from '../http/http';
+import { InlineObject1 } from '../models/InlineObject1';
 import { Invoice } from '../models/Invoice';
 import { InvoiceData } from '../models/InvoiceData';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
@@ -9,7 +10,7 @@ export declare class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
     poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
-    update(id: string, prism_account?: string, invoice?: Invoice, _options?: Configuration): Promise<RequestContext>;
+    update(id: string, prism_account?: string, inline_object1?: InlineObject1, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class InvoicesApiResponseProcessor {
     create(response: ResponseContext): Promise<Invoice>;

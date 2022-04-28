@@ -903,21 +903,18 @@
         "properties": {
           "id": {
             "type": "string",
-            "pattern": "^[a-z]{2,4}_[A-Za-z0-9]{21}$",
-            "readOnly": true
+            "pattern": "^[a-z]{2,4}_[A-Za-z0-9]{21}$"
           },
           "created": {
             "type": "string",
-            "format": "date-time",
-            "readOnly": true
+            "format": "date-time"
           },
           "test": {
             "type": "boolean",
             "default": false
           },
           "object": {
-            "type": "string",
-            "readOnly": true
+            "type": "string"
           }
         },
         "required": [
@@ -1268,7 +1265,63 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Customer"
+                "type": "object",
+                "properties": {
+                  "billing_details": {
+                    "type": "object",
+                    "properties": {
+                      "address": {
+                        "type": "object",
+                        "properties": {
+                          "city": {
+                            "type": "string"
+                          },
+                          "country": {
+                            "type": "string"
+                          },
+                          "line1": {
+                            "type": "string"
+                          },
+                          "line2": {
+                            "type": "string"
+                          },
+                          "postal_code": {
+                            "type": "string"
+                          },
+                          "state": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  }
+                },
+                "x-examples": {
+                  "example-1": {
+                    "billing_details": {
+                      "address": {
+                        "city": "string",
+                        "country": "string",
+                        "line1": "string",
+                        "line2": "string",
+                        "postal_code": "string",
+                        "state": "string"
+                      }
+                    },
+                    "email": "string",
+                    "name": "string",
+                    "phone": "string"
+                  }
+                }
               },
               "examples": {}
             }
@@ -1847,7 +1900,29 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Invoice"
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "integer"
+                  },
+                  "chain": {
+                    "type": "string"
+                  },
+                  "currency": {
+                    "type": "string"
+                  },
+                  "due": {
+                    "type": "string"
+                  }
+                },
+                "x-examples": {
+                  "example-1": {
+                    "amount": 0,
+                    "chain": "eth",
+                    "currency": "eth",
+                    "due": "2019-08-24T14:15:22Z"
+                  }
+                }
               }
             }
           }
@@ -2541,7 +2616,33 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Product"
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "integer"
+                  },
+                  "base_currency": {
+                    "type": "string"
+                  },
+                  "chain": {
+                    "type": "string"
+                  },
+                  "currency": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "x-examples": {
+                  "example-1": {
+                    "amount": 0,
+                    "base_currency": "string",
+                    "chain": "string",
+                    "currency": "succeeded",
+                    "name": "string"
+                  }
+                }
               },
               "examples": {}
             }
@@ -3063,7 +3164,18 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Wallet"
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "account": "string",
+                    "chain": "eth"
+                  }
+                },
+                "properties": {
+                  "chain": {
+                    "type": "string"
+                  }
+                }
               },
               "examples": {}
             }
@@ -3299,7 +3411,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PayoutWallet"
+                "type": "object",
+                "properties": {}
               }
             },
             "application/xml": {
@@ -3639,7 +3752,26 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Webhook"
+                "type": "object",
+                "properties": {
+                  "endpoint_url": {
+                    "type": "string"
+                  },
+                  "event_types": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "x-examples": {
+                  "example-1": {
+                    "endpoint_url": "string",
+                    "event_types": [
+                      "string"
+                    ]
+                  }
+                }
               },
               "examples": {}
             }
