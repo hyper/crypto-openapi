@@ -18,20 +18,15 @@ __exportStar(require("./ApiKey"), exports);
 __exportStar(require("./ApiKeyAllOf"), exports);
 __exportStar(require("./Customer"), exports);
 __exportStar(require("./CustomerAllOf"), exports);
+__exportStar(require("./CustomerAllOfBillingDetails"), exports);
+__exportStar(require("./CustomerAllOfBillingDetailsAddress"), exports);
 __exportStar(require("./CustomerData"), exports);
 __exportStar(require("./CustomersBillingDetails"), exports);
 __exportStar(require("./CustomersBillingDetailsAddress"), exports);
-__exportStar(require("./CustomersIdBillingDetails"), exports);
-__exportStar(require("./CustomersIdBillingDetailsAddress"), exports);
 __exportStar(require("./Data"), exports);
 __exportStar(require("./Fee"), exports);
 __exportStar(require("./FeeAllOf"), exports);
 __exportStar(require("./FeeData"), exports);
-__exportStar(require("./InlineObject"), exports);
-__exportStar(require("./InlineObject1"), exports);
-__exportStar(require("./InlineObject2"), exports);
-__exportStar(require("./InlineObject3"), exports);
-__exportStar(require("./InlineObject4"), exports);
 __exportStar(require("./Invoice"), exports);
 __exportStar(require("./InvoiceAllOf"), exports);
 __exportStar(require("./InvoiceData"), exports);
@@ -73,20 +68,15 @@ const ApiKey_1 = require("./ApiKey");
 const ApiKeyAllOf_1 = require("./ApiKeyAllOf");
 const Customer_1 = require("./Customer");
 const CustomerAllOf_1 = require("./CustomerAllOf");
+const CustomerAllOfBillingDetails_1 = require("./CustomerAllOfBillingDetails");
+const CustomerAllOfBillingDetailsAddress_1 = require("./CustomerAllOfBillingDetailsAddress");
 const CustomerData_1 = require("./CustomerData");
 const CustomersBillingDetails_1 = require("./CustomersBillingDetails");
 const CustomersBillingDetailsAddress_1 = require("./CustomersBillingDetailsAddress");
-const CustomersIdBillingDetails_1 = require("./CustomersIdBillingDetails");
-const CustomersIdBillingDetailsAddress_1 = require("./CustomersIdBillingDetailsAddress");
 const Data_1 = require("./Data");
 const Fee_1 = require("./Fee");
 const FeeAllOf_1 = require("./FeeAllOf");
 const FeeData_1 = require("./FeeData");
-const InlineObject_1 = require("./InlineObject");
-const InlineObject1_1 = require("./InlineObject1");
-const InlineObject2_1 = require("./InlineObject2");
-const InlineObject3_1 = require("./InlineObject3");
-const InlineObject4_1 = require("./InlineObject4");
 const Invoice_1 = require("./Invoice");
 const InvoiceAllOf_1 = require("./InvoiceAllOf");
 const InvoiceData_1 = require("./InvoiceData");
@@ -170,20 +160,15 @@ let typeMap = {
     "ApiKeyAllOf": ApiKeyAllOf_1.ApiKeyAllOf,
     "Customer": Customer_1.Customer,
     "CustomerAllOf": CustomerAllOf_1.CustomerAllOf,
+    "CustomerAllOfBillingDetails": CustomerAllOfBillingDetails_1.CustomerAllOfBillingDetails,
+    "CustomerAllOfBillingDetailsAddress": CustomerAllOfBillingDetailsAddress_1.CustomerAllOfBillingDetailsAddress,
     "CustomerData": CustomerData_1.CustomerData,
     "CustomersBillingDetails": CustomersBillingDetails_1.CustomersBillingDetails,
     "CustomersBillingDetailsAddress": CustomersBillingDetailsAddress_1.CustomersBillingDetailsAddress,
-    "CustomersIdBillingDetails": CustomersIdBillingDetails_1.CustomersIdBillingDetails,
-    "CustomersIdBillingDetailsAddress": CustomersIdBillingDetailsAddress_1.CustomersIdBillingDetailsAddress,
     "Data": Data_1.Data,
     "Fee": Fee_1.Fee,
     "FeeAllOf": FeeAllOf_1.FeeAllOf,
     "FeeData": FeeData_1.FeeData,
-    "InlineObject": InlineObject_1.InlineObject,
-    "InlineObject1": InlineObject1_1.InlineObject1,
-    "InlineObject2": InlineObject2_1.InlineObject2,
-    "InlineObject3": InlineObject3_1.InlineObject3,
-    "InlineObject4": InlineObject4_1.InlineObject4,
     "Invoice": Invoice_1.Invoice,
     "InvoiceAllOf": InvoiceAllOf_1.InvoiceAllOf,
     "InvoiceData": InvoiceData_1.InvoiceData,

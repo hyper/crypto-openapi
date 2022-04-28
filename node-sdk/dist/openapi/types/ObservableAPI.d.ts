@@ -5,11 +5,6 @@ import { CustomerData } from '../models/CustomerData';
 import { Data } from '../models/Data';
 import { Fee } from '../models/Fee';
 import { FeeData } from '../models/FeeData';
-import { InlineObject } from '../models/InlineObject';
-import { InlineObject1 } from '../models/InlineObject1';
-import { InlineObject2 } from '../models/InlineObject2';
-import { InlineObject3 } from '../models/InlineObject3';
-import { InlineObject4 } from '../models/InlineObject4';
 import { Invoice } from '../models/Invoice';
 import { InvoiceData } from '../models/InvoiceData';
 import { ListCustomersResponse } from '../models/ListCustomersResponse';
@@ -42,7 +37,7 @@ export declare class ObservableCustomersApi {
     create(prism_account?: string, customer_data?: CustomerData, _options?: Configuration): Observable<Customer>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListCustomersResponse>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Customer>;
-    update(id: string, prism_account?: string, inline_object?: InlineObject, _options?: Configuration): Observable<Customer>;
+    update(id: string, prism_account?: string, customer?: Customer, _options?: Configuration): Observable<Customer>;
 }
 import { FeesApiRequestFactory, FeesApiResponseProcessor } from "../apis/FeesApi";
 export declare class ObservableFeesApi {
@@ -65,7 +60,7 @@ export declare class ObservableInvoicesApi {
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListInvoicesResponse>;
     poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<void>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Invoice>;
-    update(id: string, prism_account?: string, inline_object1?: InlineObject1, _options?: Configuration): Observable<Invoice>;
+    update(id: string, prism_account?: string, invoice?: Invoice, _options?: Configuration): Observable<Invoice>;
 }
 import { LogsApiRequestFactory, LogsApiResponseProcessor } from "../apis/LogsApi";
 export declare class ObservableLogsApi {
@@ -95,7 +90,7 @@ export declare class ObservablePayoutWalletsApi {
     create(prism_account?: string, payout_wallet_data?: PayoutWalletData, _options?: Configuration): Observable<PayoutWallet>;
     list(prism_account?: string, limit?: number, page?: number, sort?: any, expand?: string, data?: Data, _options?: Configuration): Observable<void>;
     retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<PayoutWallet>;
-    update(id: string, prism_account?: string, body?: any, _options?: Configuration): Observable<PayoutWallet>;
+    update(id: string, prism_account?: string, payout_wallet?: PayoutWallet, _options?: Configuration): Observable<PayoutWallet>;
 }
 import { ProductsApiRequestFactory, ProductsApiResponseProcessor } from "../apis/ProductsApi";
 export declare class ObservableProductsApi {
@@ -107,7 +102,7 @@ export declare class ObservableProductsApi {
     create(prism_account?: string, product_data?: ProductData, _options?: Configuration): Observable<Product>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListProductsResponse>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Product>;
-    update(id: string, prism_account?: string, inline_object2?: InlineObject2, _options?: Configuration): Observable<Product>;
+    update(id: string, prism_account?: string, product?: Product, _options?: Configuration): Observable<Product>;
 }
 import { TransfersApiRequestFactory, TransfersApiResponseProcessor } from "../apis/TransfersApi";
 export declare class ObservableTransfersApi {
@@ -129,7 +124,7 @@ export declare class ObservableWalletsApi {
     create(prism_account?: string, wallet_data?: WalletData, _options?: Configuration): Observable<Wallet>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListWalletsResponse>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Wallet>;
-    update(id: string, prism_account?: string, inline_object3?: InlineObject3, _options?: Configuration): Observable<Wallet>;
+    update(id: string, prism_account?: string, wallet?: Wallet, _options?: Configuration): Observable<Wallet>;
 }
 import { WebhooksApiRequestFactory, WebhooksApiResponseProcessor } from "../apis/WebhooksApi";
 export declare class ObservableWebhooksApi {
@@ -141,5 +136,5 @@ export declare class ObservableWebhooksApi {
     create(prism_account?: string, webhook_data?: WebhookData, _options?: Configuration): Observable<Webhook>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListWebhooksResponse>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Webhook>;
-    update(id: string, prism_account?: string, inline_object4?: InlineObject4, _options?: Configuration): Observable<Webhook>;
+    update(id: string, prism_account?: string, webhook?: Webhook, _options?: Configuration): Observable<Webhook>;
 }

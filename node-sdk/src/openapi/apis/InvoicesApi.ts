@@ -8,7 +8,6 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { InlineObject1 } from '../models/InlineObject1';
 import { Invoice } from '../models/Invoice';
 import { InvoiceData } from '../models/InvoiceData';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
@@ -207,9 +206,9 @@ export class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
      * Update Invoice By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object1 
+     * @param invoice 
      */
-    public async update(id: string, prism_account?: string, inline_object1?: InlineObject1, _options?: Configuration): Promise<RequestContext> {
+    public async update(id: string, prism_account?: string, invoice?: Invoice, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -238,7 +237,7 @@ export class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(inline_object1, "InlineObject1", ""),
+            ObjectSerializer.serialize(invoice, "Invoice", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

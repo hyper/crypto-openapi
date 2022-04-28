@@ -8,7 +8,6 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { InlineObject2 } from '../models/InlineObject2';
 import { ListProductsResponse } from '../models/ListProductsResponse';
 import { Product } from '../models/Product';
 import { ProductData } from '../models/ProductData';
@@ -198,9 +197,9 @@ export class ProductsApiRequestFactory extends BaseAPIRequestFactory {
      * Update Product By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object2 
+     * @param product 
      */
-    public async update(id: string, prism_account?: string, inline_object2?: InlineObject2, _options?: Configuration): Promise<RequestContext> {
+    public async update(id: string, prism_account?: string, product?: Product, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -229,7 +228,7 @@ export class ProductsApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(inline_object2, "InlineObject2", ""),
+            ObjectSerializer.serialize(product, "Product", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

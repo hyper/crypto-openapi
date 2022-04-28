@@ -11,13 +11,13 @@
  */
 
 import { Account } from './Account';
-import { CustomersIdBillingDetails } from './CustomersIdBillingDetails';
+import { CustomerAllOfBillingDetails } from './CustomerAllOfBillingDetails';
 import { Wallet } from './Wallet';
 import { HttpFile } from '../http/http';
 
 export class CustomerAllOf {
     'account'?: string | Account;
-    'billing_details'?: CustomersIdBillingDetails;
+    'billing_details'?: CustomerAllOfBillingDetails;
     'email'?: string;
     'name'?: string;
     'phone'?: string;
@@ -35,7 +35,7 @@ export class CustomerAllOf {
         {
             "name": "billing_details",
             "baseName": "billing_details",
-            "type": "CustomersIdBillingDetails",
+            "type": "CustomerAllOfBillingDetails",
             "format": ""
         },
         {

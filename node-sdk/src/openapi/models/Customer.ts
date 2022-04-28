@@ -12,7 +12,7 @@
 
 import { Account } from './Account';
 import { CustomerAllOf } from './CustomerAllOf';
-import { CustomersIdBillingDetails } from './CustomersIdBillingDetails';
+import { CustomerAllOfBillingDetails } from './CustomerAllOfBillingDetails';
 import { Model } from './Model';
 import { Wallet } from './Wallet';
 import { HttpFile } from '../http/http';
@@ -23,7 +23,7 @@ export class Customer {
     'test': boolean;
     'object': string;
     'account'?: string | Account;
-    'billing_details'?: CustomersIdBillingDetails;
+    'billing_details'?: CustomerAllOfBillingDetails;
     'email'?: string;
     'name'?: string;
     'phone'?: string;
@@ -65,7 +65,7 @@ export class Customer {
         {
             "name": "billing_details",
             "baseName": "billing_details",
-            "type": "CustomersIdBillingDetails",
+            "type": "CustomerAllOfBillingDetails",
             "format": ""
         },
         {

@@ -10,20 +10,15 @@ import { ApiKey } from '../models/ApiKey';
 import { ApiKeyAllOf } from '../models/ApiKeyAllOf';
 import { Customer } from '../models/Customer';
 import { CustomerAllOf } from '../models/CustomerAllOf';
+import { CustomerAllOfBillingDetails } from '../models/CustomerAllOfBillingDetails';
+import { CustomerAllOfBillingDetailsAddress } from '../models/CustomerAllOfBillingDetailsAddress';
 import { CustomerData } from '../models/CustomerData';
 import { CustomersBillingDetails } from '../models/CustomersBillingDetails';
 import { CustomersBillingDetailsAddress } from '../models/CustomersBillingDetailsAddress';
-import { CustomersIdBillingDetails } from '../models/CustomersIdBillingDetails';
-import { CustomersIdBillingDetailsAddress } from '../models/CustomersIdBillingDetailsAddress';
 import { Data } from '../models/Data';
 import { Fee } from '../models/Fee';
 import { FeeAllOf } from '../models/FeeAllOf';
 import { FeeData } from '../models/FeeData';
-import { InlineObject } from '../models/InlineObject';
-import { InlineObject1 } from '../models/InlineObject1';
-import { InlineObject2 } from '../models/InlineObject2';
-import { InlineObject3 } from '../models/InlineObject3';
-import { InlineObject4 } from '../models/InlineObject4';
 import { Invoice } from '../models/Invoice';
 import { InvoiceAllOf } from '../models/InvoiceAllOf';
 import { InvoiceData } from '../models/InvoiceData';
@@ -155,10 +150,10 @@ export class ObservableCustomersApi {
      * Update Customer By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object 
+     * @param customer 
      */
-    public update(id: string, prism_account?: string, inline_object?: InlineObject, _options?: Configuration): Observable<Customer> {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, inline_object, _options);
+    public update(id: string, prism_account?: string, customer?: Customer, _options?: Configuration): Observable<Customer> {
+        const requestContextPromise = this.requestFactory.update(id, prism_account, customer, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -417,10 +412,10 @@ export class ObservableInvoicesApi {
      * Update Invoice By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object1 
+     * @param invoice 
      */
-    public update(id: string, prism_account?: string, inline_object1?: InlineObject1, _options?: Configuration): Observable<Invoice> {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, inline_object1, _options);
+    public update(id: string, prism_account?: string, invoice?: Invoice, _options?: Configuration): Observable<Invoice> {
+        const requestContextPromise = this.requestFactory.update(id, prism_account, invoice, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -701,10 +696,10 @@ export class ObservablePayoutWalletsApi {
      * Update Payout Wallet By ID
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param body 
+     * @param payout_wallet 
      */
-    public update(id: string, prism_account?: string, body?: any, _options?: Configuration): Observable<PayoutWallet> {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, body, _options);
+    public update(id: string, prism_account?: string, payout_wallet?: PayoutWallet, _options?: Configuration): Observable<PayoutWallet> {
+        const requestContextPromise = this.requestFactory.update(id, prism_account, payout_wallet, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -844,10 +839,10 @@ export class ObservableProductsApi {
      * Update Product By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object2 
+     * @param product 
      */
-    public update(id: string, prism_account?: string, inline_object2?: InlineObject2, _options?: Configuration): Observable<Product> {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, inline_object2, _options);
+    public update(id: string, prism_account?: string, product?: Product, _options?: Configuration): Observable<Product> {
+        const requestContextPromise = this.requestFactory.update(id, prism_account, product, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1082,10 +1077,10 @@ export class ObservableWalletsApi {
      * Update Wallet By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object3 
+     * @param wallet 
      */
-    public update(id: string, prism_account?: string, inline_object3?: InlineObject3, _options?: Configuration): Observable<Wallet> {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, inline_object3, _options);
+    public update(id: string, prism_account?: string, wallet?: Wallet, _options?: Configuration): Observable<Wallet> {
+        const requestContextPromise = this.requestFactory.update(id, prism_account, wallet, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1225,10 +1220,10 @@ export class ObservableWebhooksApi {
      * Update Webhook By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object4 
+     * @param webhook 
      */
-    public update(id: string, prism_account?: string, inline_object4?: InlineObject4, _options?: Configuration): Observable<Webhook> {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, inline_object4, _options);
+    public update(id: string, prism_account?: string, webhook?: Webhook, _options?: Configuration): Observable<Webhook> {
+        const requestContextPromise = this.requestFactory.update(id, prism_account, webhook, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);

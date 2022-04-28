@@ -274,14 +274,8 @@ let body:.ProductsApiUpdateRequest = {
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // InlineObject2 (optional)
-  inline_object2: {
-    amount: 1,
-    base_currency: "base_currency_example",
-    chain: "chain_example",
-    currency: "currency_example",
-    name: "name_example",
-  },
+  // Product (optional)
+  product: null,
 };
 
 apiInstance.update(body).then((data:any) => {
@@ -294,7 +288,7 @@ apiInstance.update(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object2** | **InlineObject2**|  |
+ **product** | **Product**|  |
  **id** | [**string**] |  | defaults to undefined
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 

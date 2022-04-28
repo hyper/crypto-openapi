@@ -903,18 +903,21 @@
         "properties": {
           "id": {
             "type": "string",
-            "pattern": "^[a-z]{2,4}_[A-Za-z0-9]{21}$"
+            "pattern": "^[a-z]{2,4}_[A-Za-z0-9]{21}$",
+            "readOnly": true
           },
           "created": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "readOnly": true
           },
           "test": {
             "type": "boolean",
             "default": false
           },
           "object": {
-            "type": "string"
+            "type": "string",
+            "readOnly": true
           }
         },
         "required": [
@@ -1265,63 +1268,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "billing_details": {
-                    "type": "object",
-                    "properties": {
-                      "address": {
-                        "type": "object",
-                        "properties": {
-                          "city": {
-                            "type": "string"
-                          },
-                          "country": {
-                            "type": "string"
-                          },
-                          "line1": {
-                            "type": "string"
-                          },
-                          "line2": {
-                            "type": "string"
-                          },
-                          "postal_code": {
-                            "type": "string"
-                          },
-                          "state": {
-                            "type": "string"
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "email": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "phone": {
-                    "type": "string"
-                  }
-                },
-                "x-examples": {
-                  "example-1": {
-                    "billing_details": {
-                      "address": {
-                        "city": "string",
-                        "country": "string",
-                        "line1": "string",
-                        "line2": "string",
-                        "postal_code": "string",
-                        "state": "string"
-                      }
-                    },
-                    "email": "string",
-                    "name": "string",
-                    "phone": "string"
-                  }
-                }
+                "$ref": "#/components/schemas/Customer"
               },
               "examples": {}
             }
@@ -1900,29 +1847,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "amount": {
-                    "type": "integer"
-                  },
-                  "chain": {
-                    "type": "string"
-                  },
-                  "currency": {
-                    "type": "string"
-                  },
-                  "due": {
-                    "type": "string"
-                  }
-                },
-                "x-examples": {
-                  "example-1": {
-                    "amount": 0,
-                    "chain": "eth",
-                    "currency": "eth",
-                    "due": "2019-08-24T14:15:22Z"
-                  }
-                }
+                "$ref": "#/components/schemas/Invoice"
               }
             }
           }
@@ -2616,33 +2541,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "amount": {
-                    "type": "integer"
-                  },
-                  "base_currency": {
-                    "type": "string"
-                  },
-                  "chain": {
-                    "type": "string"
-                  },
-                  "currency": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  }
-                },
-                "x-examples": {
-                  "example-1": {
-                    "amount": 0,
-                    "base_currency": "string",
-                    "chain": "string",
-                    "currency": "succeeded",
-                    "name": "string"
-                  }
-                }
+                "$ref": "#/components/schemas/Product"
               },
               "examples": {}
             }
@@ -3164,18 +3063,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "x-examples": {
-                  "example-1": {
-                    "account": "string",
-                    "chain": "eth"
-                  }
-                },
-                "properties": {
-                  "chain": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "#/components/schemas/Wallet"
               },
               "examples": {}
             }
@@ -3411,8 +3299,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {}
+                "$ref": "#/components/schemas/PayoutWallet"
               }
             },
             "application/xml": {
@@ -3752,26 +3639,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "endpoint_url": {
-                    "type": "string"
-                  },
-                  "event_types": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "x-examples": {
-                  "example-1": {
-                    "endpoint_url": "string",
-                    "event_types": [
-                      "string"
-                    ]
-                  }
-                }
+                "$ref": "#/components/schemas/Webhook"
               },
               "examples": {}
             }

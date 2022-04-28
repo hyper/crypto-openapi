@@ -20,7 +20,7 @@ CustomerAllOf.attributeTypeMap = [
     {
         "name": "billing_details",
         "baseName": "billing_details",
-        "type": "CustomersIdBillingDetails",
+        "type": "CustomerAllOfBillingDetails",
         "format": ""
     },
     {

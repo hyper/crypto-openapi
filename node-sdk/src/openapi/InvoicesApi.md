@@ -282,13 +282,8 @@ let body:.InvoicesApiUpdateRequest = {
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // InlineObject1 (optional)
-  inline_object1: {
-    amount: 1,
-    chain: "chain_example",
-    currency: "currency_example",
-    due: "due_example",
-  },
+  // Invoice (optional)
+  invoice: null,
 };
 
 apiInstance.update(body).then((data:any) => {
@@ -301,7 +296,7 @@ apiInstance.update(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object1** | **InlineObject1**|  |
+ **invoice** | **Invoice**|  |
  **id** | [**string**] |  | defaults to undefined
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 

@@ -1,7 +1,6 @@
 import { BaseAPIRequestFactory } from './baseapi';
 import { Configuration } from '../configuration';
 import { RequestContext, ResponseContext } from '../http/http';
-import { InlineObject4 } from '../models/InlineObject4';
 import { ListWebhooksResponse } from '../models/ListWebhooksResponse';
 import { Webhook } from '../models/Webhook';
 import { WebhookData } from '../models/WebhookData';
@@ -10,7 +9,7 @@ export declare class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
     create(prism_account?: string, webhook_data?: WebhookData, _options?: Configuration): Promise<RequestContext>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
-    update(id: string, prism_account?: string, inline_object4?: InlineObject4, _options?: Configuration): Promise<RequestContext>;
+    update(id: string, prism_account?: string, webhook?: Webhook, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class WebhooksApiResponseProcessor {
     _delete(response: ResponseContext): Promise<void>;

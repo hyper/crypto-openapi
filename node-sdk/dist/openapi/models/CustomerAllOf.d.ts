@@ -1,9 +1,9 @@
 import { Account } from './Account';
-import { CustomersIdBillingDetails } from './CustomersIdBillingDetails';
+import { CustomerAllOfBillingDetails } from './CustomerAllOfBillingDetails';
 import { Wallet } from './Wallet';
 export declare class CustomerAllOf {
     'account'?: string | Account;
-    'billing_details'?: CustomersIdBillingDetails;
+    'billing_details'?: CustomerAllOfBillingDetails;
     'email'?: string;
     'name'?: string;
     'phone'?: string;
