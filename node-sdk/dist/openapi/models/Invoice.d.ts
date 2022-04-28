@@ -21,8 +21,8 @@ export declare class Invoice {
     'status': InvoiceStatusEnum;
     'transaction'?: string;
     'wallet': string | Wallet;
-    'fees'?: Array<Fee>;
-    'transfers'?: Array<Transfer>;
+    'fees': Array<Fee>;
+    'transfers': Array<Transfer>;
     'payments'?: Array<Payment>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

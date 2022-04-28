@@ -358,7 +358,9 @@
               "customer",
               "number",
               "status",
-              "wallet"
+              "wallet",
+              "fees",
+              "transfers"
             ]
           }
         ]
