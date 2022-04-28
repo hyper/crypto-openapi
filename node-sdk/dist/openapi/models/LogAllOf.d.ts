@@ -8,6 +8,7 @@ export declare class LogAllOf {
     'origin'?: string;
     'query': any;
     'url': string;
+    'success': boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

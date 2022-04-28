@@ -12,21 +12,27 @@ exports.Log = Log;
 Log.discriminator = undefined;
 Log.attributeTypeMap = [
     {
-        "name": "created",
-        "baseName": "created",
-        "type": "Date",
-        "format": "date-time"
-    },
-    {
         "name": "id",
         "baseName": "id",
         "type": "string",
         "format": ""
     },
     {
+        "name": "created",
+        "baseName": "created",
+        "type": "Date",
+        "format": "date-time"
+    },
+    {
         "name": "test",
         "baseName": "test",
         "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "object",
+        "baseName": "object",
+        "type": "string",
         "format": ""
     },
     {
@@ -75,6 +81,12 @@ Log.attributeTypeMap = [
         "name": "url",
         "baseName": "url",
         "type": "string",
+        "format": ""
+    },
+    {
+        "name": "success",
+        "baseName": "success",
+        "type": "boolean",
         "format": ""
     }
 ];

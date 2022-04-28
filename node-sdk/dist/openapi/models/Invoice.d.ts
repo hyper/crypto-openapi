@@ -1,12 +1,15 @@
 import { Account } from './Account';
 import { Customer } from './Customer';
+import { Fee } from './Fee';
+import { Payment } from './Payment';
 import { Product } from './Product';
+import { Transfer } from './Transfer';
 import { Wallet } from './Wallet';
 export declare class Invoice {
-    'created': Date;
     'id': string;
+    'created': Date;
     'test': boolean;
-    ''?: string;
+    'object': string;
     'account': string | Account;
     'amount': number;
     'chain': InvoiceChainEnum;
@@ -18,6 +21,9 @@ export declare class Invoice {
     'status': InvoiceStatusEnum;
     'transaction'?: string;
     'wallet': string | Wallet;
+    'fees'?: Array<Fee>;
+    'transfers'?: Array<Transfer>;
+    'payments'?: Array<Payment>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

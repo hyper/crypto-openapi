@@ -11,15 +11,17 @@
  */
 
 import { Account } from './Account';
-import { CustomerAllOfBillingDetails } from './CustomerAllOfBillingDetails';
+import { CustomersIdBillingDetails } from './CustomersIdBillingDetails';
+import { Wallet } from './Wallet';
 import { HttpFile } from '../http/http';
 
 export class CustomerAllOf {
     'account'?: string | Account;
-    'billing_details'?: CustomerAllOfBillingDetails;
+    'billing_details'?: CustomersIdBillingDetails;
     'email'?: string;
     'name'?: string;
     'phone'?: string;
+    'wallets'?: Array<Wallet>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -33,7 +35,7 @@ export class CustomerAllOf {
         {
             "name": "billing_details",
             "baseName": "billing_details",
-            "type": "CustomerAllOfBillingDetails",
+            "type": "CustomersIdBillingDetails",
             "format": ""
         },
         {
@@ -52,6 +54,12 @@ export class CustomerAllOf {
             "name": "phone",
             "baseName": "phone",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "wallets",
+            "baseName": "wallets",
+            "type": "Array<Wallet>",
             "format": ""
         }    ];
 

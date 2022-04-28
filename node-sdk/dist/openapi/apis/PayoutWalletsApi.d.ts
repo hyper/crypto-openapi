@@ -9,7 +9,7 @@ export declare class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactor
     create(prism_account?: string, payout_wallet_data?: PayoutWalletData, _options?: Configuration): Promise<RequestContext>;
     list(prism_account?: string, limit?: number, page?: number, sort?: any, expand?: string, data?: Data, _options?: Configuration): Promise<RequestContext>;
     retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext>;
-    update(id: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
+    update(id: string, prism_account?: string, body?: any, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class PayoutWalletsApiResponseProcessor {
     _delete(response: ResponseContext): Promise<void>;

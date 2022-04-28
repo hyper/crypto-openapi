@@ -16,40 +16,22 @@ import { PayoutWallet } from './PayoutWallet';
 import { HttpFile } from '../http/http';
 
 export class AccountAllOf {
-    'branding'?: AccountAllOfBranding;
-    'connected_accounts'?: Array<string> | Array<Account>;
-    'eth_wallet'?: PayoutWallet;
-    'invoice_prefix'?: string;
-    'name': string;
     'parent_account'?: string | Account;
+    'name': string;
+    'branding'?: AccountAllOfBranding;
+    'invoice_prefix'?: string;
+    'connected_accounts'?: Array<string> | Array<Account>;
     'platform_account': boolean;
+    'eth_wallet'?: PayoutWallet;
     'sol_wallet'?: PayoutWallet;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "branding",
-            "baseName": "branding",
-            "type": "AccountAllOfBranding",
-            "format": ""
-        },
-        {
-            "name": "connected_accounts",
-            "baseName": "connected_accounts",
-            "type": "Array<string> | Array<Account>",
-            "format": ""
-        },
-        {
-            "name": "eth_wallet",
-            "baseName": "eth_wallet",
-            "type": "PayoutWallet",
-            "format": ""
-        },
-        {
-            "name": "invoice_prefix",
-            "baseName": "invoice_prefix",
-            "type": "string",
+            "name": "parent_account",
+            "baseName": "parent_account",
+            "type": "string | Account",
             "format": ""
         },
         {
@@ -59,15 +41,33 @@ export class AccountAllOf {
             "format": ""
         },
         {
-            "name": "parent_account",
-            "baseName": "parent_account",
-            "type": "string | Account",
+            "name": "branding",
+            "baseName": "branding",
+            "type": "AccountAllOfBranding",
+            "format": ""
+        },
+        {
+            "name": "invoice_prefix",
+            "baseName": "invoice_prefix",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "connected_accounts",
+            "baseName": "connected_accounts",
+            "type": "Array<string> | Array<Account>",
             "format": ""
         },
         {
             "name": "platform_account",
             "baseName": "platform_account",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "eth_wallet",
+            "baseName": "eth_wallet",
+            "type": "PayoutWallet",
             "format": ""
         },
         {

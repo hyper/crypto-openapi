@@ -1,6 +1,7 @@
 import { BaseAPIRequestFactory } from './baseapi';
 import { Configuration } from '../configuration';
 import { RequestContext, ResponseContext } from '../http/http';
+import { InlineObject3 } from '../models/InlineObject3';
 import { ListWalletsResponse } from '../models/ListWalletsResponse';
 import { Wallet } from '../models/Wallet';
 import { WalletData } from '../models/WalletData';
@@ -9,7 +10,7 @@ export declare class WalletsApiRequestFactory extends BaseAPIRequestFactory {
     create(prism_account?: string, wallet_data?: WalletData, _options?: Configuration): Promise<RequestContext>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
-    update(id: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
+    update(id: string, prism_account?: string, inline_object3?: InlineObject3, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class WalletsApiResponseProcessor {
     _delete(response: ResponseContext): Promise<void>;

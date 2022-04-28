@@ -22,6 +22,7 @@ export class LogAllOf {
     'origin'?: string;
     'query': any;
     'url': string;
+    'success': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -78,6 +79,12 @@ export class LogAllOf {
             "name": "url",
             "baseName": "url",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "success",
+            "baseName": "success",
+            "type": "boolean",
             "format": ""
         }    ];
 

@@ -12,29 +12,26 @@
 
 import { Account } from './Account';
 import { CustomerAllOf } from './CustomerAllOf';
-import { CustomerAllOfBillingDetails } from './CustomerAllOfBillingDetails';
+import { CustomersIdBillingDetails } from './CustomersIdBillingDetails';
 import { Model } from './Model';
+import { Wallet } from './Wallet';
 import { HttpFile } from '../http/http';
 
 export class Customer {
-    'created': Date;
     'id': string;
+    'created': Date;
     'test': boolean;
+    'object': string;
     'account'?: string | Account;
-    'billing_details'?: CustomerAllOfBillingDetails;
+    'billing_details'?: CustomersIdBillingDetails;
     'email'?: string;
     'name'?: string;
     'phone'?: string;
+    'wallets'?: Array<Wallet>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
         {
             "name": "id",
             "baseName": "id",
@@ -42,9 +39,21 @@ export class Customer {
             "format": ""
         },
         {
+            "name": "created",
+            "baseName": "created",
+            "type": "Date",
+            "format": "date-time"
+        },
+        {
             "name": "test",
             "baseName": "test",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "object",
+            "baseName": "object",
+            "type": "string",
             "format": ""
         },
         {
@@ -56,7 +65,7 @@ export class Customer {
         {
             "name": "billing_details",
             "baseName": "billing_details",
-            "type": "CustomerAllOfBillingDetails",
+            "type": "CustomersIdBillingDetails",
             "format": ""
         },
         {
@@ -75,6 +84,12 @@ export class Customer {
             "name": "phone",
             "baseName": "phone",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "wallets",
+            "baseName": "wallets",
+            "type": "Array<Wallet>",
             "format": ""
         }    ];
 

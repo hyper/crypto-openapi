@@ -16,9 +16,10 @@ import { ProductAllOf } from './ProductAllOf';
 import { HttpFile } from '../http/http';
 
 export class Product {
-    'created': Date;
     'id': string;
+    'created': Date;
     'test': boolean;
+    'object': string;
     'account': string | Account;
     'amount': number;
     'base_currency'?: string;
@@ -30,21 +31,27 @@ export class Product {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
             "name": "id",
             "baseName": "id",
             "type": "string",
             "format": ""
         },
         {
+            "name": "created",
+            "baseName": "created",
+            "type": "Date",
+            "format": "date-time"
+        },
+        {
             "name": "test",
             "baseName": "test",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "object",
+            "baseName": "object",
+            "type": "string",
             "format": ""
         },
         {

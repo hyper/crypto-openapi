@@ -88,8 +88,8 @@ let body:.PayoutWalletsApiCreateRequest = {
   // PayoutWalletData (optional)
   payout_wallet_data: {
     account: "account_example",
-    address: "address_example",
     chain: "chain_example",
+    address: "address_example",
   },
 };
 
@@ -278,6 +278,8 @@ let body:.PayoutWalletsApiUpdateRequest = {
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
+  // any (optional)
+  body: {},
 };
 
 apiInstance.update(body).then((data:any) => {
@@ -290,6 +292,7 @@ apiInstance.update(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | **any**|  |
  **id** | [**string**] |  | defaults to undefined
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
@@ -304,7 +307,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json
 
 

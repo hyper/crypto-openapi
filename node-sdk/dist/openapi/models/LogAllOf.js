@@ -64,6 +64,12 @@ LogAllOf.attributeTypeMap = [
         "baseName": "url",
         "type": "string",
         "format": ""
+    },
+    {
+        "name": "success",
+        "baseName": "success",
+        "type": "boolean",
+        "format": ""
     }
 ];
 //# sourceMappingURL=LogAllOf.js.map

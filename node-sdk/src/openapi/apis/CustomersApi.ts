@@ -10,6 +10,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 import { Customer } from '../models/Customer';
 import { CustomerData } from '../models/CustomerData';
+import { InlineObject } from '../models/InlineObject';
 import { ListCustomersResponse } from '../models/ListCustomersResponse';
 
 /**
@@ -161,14 +162,16 @@ export class CustomersApiRequestFactory extends BaseAPIRequestFactory {
      * Update Customer By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param inline_object 
      */
-    public async update(id: string, prism_account?: string, _options?: Configuration): Promise<RequestContext> {
+    public async update(id: string, prism_account?: string, inline_object?: InlineObject, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new RequiredError("CustomersApi", "update", "id");
         }
+
 
 
 
@@ -183,6 +186,17 @@ export class CustomersApiRequestFactory extends BaseAPIRequestFactory {
         // Header Params
         requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
 
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(inline_object, "InlineObject", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
 
         
         const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default

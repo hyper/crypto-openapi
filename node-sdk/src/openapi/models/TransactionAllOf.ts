@@ -19,14 +19,14 @@ import { HttpFile } from '../http/http';
 
 export class TransactionAllOf {
     'account'?: string | Account;
-    'amount': number;
-    'chain': TransactionAllOfChainEnum;
-    'currency': TransactionAllOfCurrencyEnum;
-    'customer'?: string | Customer;
-    'invoice': string | Invoice;
     'platform_account'?: string | Account;
-    'product'?: string | Product;
+    'invoice': string | Invoice;
     'status': TransactionAllOfStatusEnum;
+    'chain': TransactionAllOfChainEnum;
+    'amount': number;
+    'currency': TransactionAllOfCurrencyEnum;
+    'product'?: string | Product;
+    'customer'?: string | Customer;
     'wallet'?: string | Wallet;
 
     static readonly discriminator: string | undefined = undefined;
@@ -39,27 +39,9 @@ export class TransactionAllOf {
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "TransactionAllOfChainEnum",
-            "format": ""
-        },
-        {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "TransactionAllOfCurrencyEnum",
-            "format": ""
-        },
-        {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string | Customer",
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string | Account",
             "format": ""
         },
         {
@@ -69,9 +51,27 @@ export class TransactionAllOf {
             "format": ""
         },
         {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string | Account",
+            "name": "status",
+            "baseName": "status",
+            "type": "TransactionAllOfStatusEnum",
+            "format": ""
+        },
+        {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "TransactionAllOfChainEnum",
+            "format": ""
+        },
+        {
+            "name": "amount",
+            "baseName": "amount",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "TransactionAllOfCurrencyEnum",
             "format": ""
         },
         {
@@ -81,9 +81,9 @@ export class TransactionAllOf {
             "format": ""
         },
         {
-            "name": "status",
-            "baseName": "status",
-            "type": "TransactionAllOfStatusEnum",
+            "name": "customer",
+            "baseName": "customer",
+            "type": "string | Customer",
             "format": ""
         },
         {
@@ -102,7 +102,7 @@ export class TransactionAllOf {
 }
 
 
+export type TransactionAllOfStatusEnum = "pending" | "failed" | "succeeded" | "canceled" | "refunded" ;
 export type TransactionAllOfChainEnum = "eth" | "sol" ;
 export type TransactionAllOfCurrencyEnum = "eth" | "sol" ;
-export type TransactionAllOfStatusEnum = "pending" | "failed" | "succeeded" | "canceled" | "refunded" ;
 

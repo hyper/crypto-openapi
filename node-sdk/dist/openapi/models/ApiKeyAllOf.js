@@ -18,12 +18,6 @@ ApiKeyAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "admin",
-        "baseName": "admin",
-        "type": "boolean",
-        "format": ""
-    },
-    {
         "name": "key",
         "baseName": "key",
         "type": "string",
@@ -33,6 +27,12 @@ ApiKeyAllOf.attributeTypeMap = [
         "name": "type",
         "baseName": "type",
         "type": "ApiKeyAllOfTypeEnum",
+        "format": ""
+    },
+    {
+        "name": "admin",
+        "baseName": "admin",
+        "type": "boolean",
         "format": ""
     }
 ];

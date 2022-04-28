@@ -1,7 +1,8 @@
 export declare class Model {
-    'created': Date;
     'id': string;
+    'created': Date;
     'test': boolean;
+    'object': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

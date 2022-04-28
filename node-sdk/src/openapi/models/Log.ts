@@ -15,9 +15,10 @@ import { Model } from './Model';
 import { HttpFile } from '../http/http';
 
 export class Log {
-    'created': Date;
     'id': string;
+    'created': Date;
     'test': boolean;
+    'object': string;
     'api_key': string;
     'body'?: any;
     'headers'?: any;
@@ -26,16 +27,11 @@ export class Log {
     'origin'?: string;
     'query': any;
     'url': string;
+    'success': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
         {
             "name": "id",
             "baseName": "id",
@@ -43,9 +39,21 @@ export class Log {
             "format": ""
         },
         {
+            "name": "created",
+            "baseName": "created",
+            "type": "Date",
+            "format": "date-time"
+        },
+        {
             "name": "test",
             "baseName": "test",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "object",
+            "baseName": "object",
+            "type": "string",
             "format": ""
         },
         {
@@ -94,6 +102,12 @@ export class Log {
             "name": "url",
             "baseName": "url",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "success",
+            "baseName": "success",
+            "type": "boolean",
             "format": ""
         }    ];
 

@@ -210,14 +210,16 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
      * Update Payout Wallet By ID
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param body 
      */
-    public async update(id: string, prism_account?: string, _options?: Configuration): Promise<RequestContext> {
+    public async update(id: string, prism_account?: string, body?: any, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new RequiredError("PayoutWalletsApi", "update", "id");
         }
+
 
 
 
@@ -232,6 +234,19 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
         // Header Params
         requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
 
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json",
+        
+            "application/xml"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(body, "any", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
 
         
         const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default

@@ -21,18 +21,19 @@ import { HttpFile } from '../http/http';
 
 export class Transaction {
     'account'?: string | Account;
-    'amount': number;
-    'chain': TransactionChainEnum;
-    'currency': TransactionCurrencyEnum;
-    'customer'?: string | Customer;
-    'invoice': string | Invoice;
     'platform_account'?: string | Account;
-    'product'?: string | Product;
+    'invoice': string | Invoice;
     'status': TransactionStatusEnum;
+    'chain': TransactionChainEnum;
+    'amount': number;
+    'currency': TransactionCurrencyEnum;
+    'product'?: string | Product;
+    'customer'?: string | Customer;
     'wallet'?: string | Wallet;
-    'created': Date;
     'id': string;
+    'created': Date;
     'test': boolean;
+    'object': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -44,27 +45,9 @@ export class Transaction {
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "TransactionChainEnum",
-            "format": ""
-        },
-        {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "TransactionCurrencyEnum",
-            "format": ""
-        },
-        {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string | Customer",
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string | Account",
             "format": ""
         },
         {
@@ -74,9 +57,27 @@ export class Transaction {
             "format": ""
         },
         {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string | Account",
+            "name": "status",
+            "baseName": "status",
+            "type": "TransactionStatusEnum",
+            "format": ""
+        },
+        {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "TransactionChainEnum",
+            "format": ""
+        },
+        {
+            "name": "amount",
+            "baseName": "amount",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "TransactionCurrencyEnum",
             "format": ""
         },
         {
@@ -86,9 +87,9 @@ export class Transaction {
             "format": ""
         },
         {
-            "name": "status",
-            "baseName": "status",
-            "type": "TransactionStatusEnum",
+            "name": "customer",
+            "baseName": "customer",
+            "type": "string | Customer",
             "format": ""
         },
         {
@@ -98,21 +99,27 @@ export class Transaction {
             "format": ""
         },
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
             "name": "id",
             "baseName": "id",
             "type": "string",
             "format": ""
         },
         {
+            "name": "created",
+            "baseName": "created",
+            "type": "Date",
+            "format": "date-time"
+        },
+        {
             "name": "test",
             "baseName": "test",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "object",
+            "baseName": "object",
+            "type": "string",
             "format": ""
         }    ];
 
@@ -125,7 +132,7 @@ export class Transaction {
 }
 
 
+export type TransactionStatusEnum = "pending" | "failed" | "succeeded" | "canceled" | "refunded" ;
 export type TransactionChainEnum = "eth" | "sol" ;
 export type TransactionCurrencyEnum = "eth" | "sol" ;
-export type TransactionStatusEnum = "pending" | "failed" | "succeeded" | "canceled" | "refunded" ;
 

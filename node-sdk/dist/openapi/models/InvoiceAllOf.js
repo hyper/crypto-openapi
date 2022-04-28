@@ -12,12 +12,6 @@ exports.InvoiceAllOf = InvoiceAllOf;
 InvoiceAllOf.discriminator = undefined;
 InvoiceAllOf.attributeTypeMap = [
     {
-        "name": "",
-        "baseName": "",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "account",
         "baseName": "account",
         "type": "string | Account",
@@ -81,6 +75,24 @@ InvoiceAllOf.attributeTypeMap = [
         "name": "wallet",
         "baseName": "wallet",
         "type": "string | Wallet",
+        "format": ""
+    },
+    {
+        "name": "fees",
+        "baseName": "fees",
+        "type": "Array<Fee>",
+        "format": ""
+    },
+    {
+        "name": "transfers",
+        "baseName": "transfers",
+        "type": "Array<Transfer>",
+        "format": ""
+    },
+    {
+        "name": "payments",
+        "baseName": "payments",
+        "type": "Array<Payment>",
         "format": ""
     }
 ];

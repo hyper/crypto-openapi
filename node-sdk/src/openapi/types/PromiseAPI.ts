@@ -9,15 +9,20 @@ import { ApiKey } from '../models/ApiKey';
 import { ApiKeyAllOf } from '../models/ApiKeyAllOf';
 import { Customer } from '../models/Customer';
 import { CustomerAllOf } from '../models/CustomerAllOf';
-import { CustomerAllOfBillingDetails } from '../models/CustomerAllOfBillingDetails';
-import { CustomerAllOfBillingDetailsAddress } from '../models/CustomerAllOfBillingDetailsAddress';
 import { CustomerData } from '../models/CustomerData';
 import { CustomersBillingDetails } from '../models/CustomersBillingDetails';
 import { CustomersBillingDetailsAddress } from '../models/CustomersBillingDetailsAddress';
+import { CustomersIdBillingDetails } from '../models/CustomersIdBillingDetails';
+import { CustomersIdBillingDetailsAddress } from '../models/CustomersIdBillingDetailsAddress';
 import { Data } from '../models/Data';
 import { Fee } from '../models/Fee';
 import { FeeAllOf } from '../models/FeeAllOf';
 import { FeeData } from '../models/FeeData';
+import { InlineObject } from '../models/InlineObject';
+import { InlineObject1 } from '../models/InlineObject1';
+import { InlineObject2 } from '../models/InlineObject2';
+import { InlineObject3 } from '../models/InlineObject3';
+import { InlineObject4 } from '../models/InlineObject4';
 import { Invoice } from '../models/Invoice';
 import { InvoiceAllOf } from '../models/InvoiceAllOf';
 import { InvoiceData } from '../models/InvoiceData';
@@ -104,9 +109,10 @@ export class PromiseCustomersApi {
      * Update Customer By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param inline_object 
      */
-    public update(id: string, prism_account?: string, _options?: Configuration): Promise<Customer> {
-        const result = this.api.update(id, prism_account, _options);
+    public update(id: string, prism_account?: string, inline_object?: InlineObject, _options?: Configuration): Promise<Customer> {
+        const result = this.api.update(id, prism_account, inline_object, _options);
         return result.toPromise();
     }
 
@@ -241,9 +247,10 @@ export class PromiseInvoicesApi {
      * Update Invoice By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param inline_object1 
      */
-    public update(id: string, prism_account?: string, _options?: Configuration): Promise<Invoice> {
-        const result = this.api.update(id, prism_account, _options);
+    public update(id: string, prism_account?: string, inline_object1?: InlineObject1, _options?: Configuration): Promise<Invoice> {
+        const result = this.api.update(id, prism_account, inline_object1, _options);
         return result.toPromise();
     }
 
@@ -401,9 +408,10 @@ export class PromisePayoutWalletsApi {
      * Update Payout Wallet By ID
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param body 
      */
-    public update(id: string, prism_account?: string, _options?: Configuration): Promise<PayoutWallet> {
-        const result = this.api.update(id, prism_account, _options);
+    public update(id: string, prism_account?: string, body?: any, _options?: Configuration): Promise<PayoutWallet> {
+        const result = this.api.update(id, prism_account, body, _options);
         return result.toPromise();
     }
 
@@ -474,9 +482,10 @@ export class PromiseProductsApi {
      * Update Product By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param inline_object2 
      */
-    public update(id: string, prism_account?: string, _options?: Configuration): Promise<Product> {
-        const result = this.api.update(id, prism_account, _options);
+    public update(id: string, prism_account?: string, inline_object2?: InlineObject2, _options?: Configuration): Promise<Product> {
+        const result = this.api.update(id, prism_account, inline_object2, _options);
         return result.toPromise();
     }
 
@@ -601,9 +610,10 @@ export class PromiseWalletsApi {
      * Update Wallet By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param inline_object3 
      */
-    public update(id: string, prism_account?: string, _options?: Configuration): Promise<Wallet> {
-        const result = this.api.update(id, prism_account, _options);
+    public update(id: string, prism_account?: string, inline_object3?: InlineObject3, _options?: Configuration): Promise<Wallet> {
+        const result = this.api.update(id, prism_account, inline_object3, _options);
         return result.toPromise();
     }
 
@@ -674,9 +684,10 @@ export class PromiseWebhooksApi {
      * Update Webhook By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param inline_object4 
      */
-    public update(id: string, prism_account?: string, _options?: Configuration): Promise<Webhook> {
-        const result = this.api.update(id, prism_account, _options);
+    public update(id: string, prism_account?: string, inline_object4?: InlineObject4, _options?: Configuration): Promise<Webhook> {
+        const result = this.api.update(id, prism_account, inline_object4, _options);
         return result.toPromise();
     }
 

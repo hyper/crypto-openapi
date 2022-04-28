@@ -5,18 +5,19 @@ import { Product } from './Product';
 import { Wallet } from './Wallet';
 export declare class Transaction {
     'account'?: string | Account;
-    'amount': number;
-    'chain': TransactionChainEnum;
-    'currency': TransactionCurrencyEnum;
-    'customer'?: string | Customer;
-    'invoice': string | Invoice;
     'platform_account'?: string | Account;
-    'product'?: string | Product;
+    'invoice': string | Invoice;
     'status': TransactionStatusEnum;
+    'chain': TransactionChainEnum;
+    'amount': number;
+    'currency': TransactionCurrencyEnum;
+    'product'?: string | Product;
+    'customer'?: string | Customer;
     'wallet'?: string | Wallet;
-    'created': Date;
     'id': string;
+    'created': Date;
     'test': boolean;
+    'object': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
@@ -32,6 +33,6 @@ export declare class Transaction {
     }[];
     constructor();
 }
+export declare type TransactionStatusEnum = "pending" | "failed" | "succeeded" | "canceled" | "refunded";
 export declare type TransactionChainEnum = "eth" | "sol";
 export declare type TransactionCurrencyEnum = "eth" | "sol";
-export declare type TransactionStatusEnum = "pending" | "failed" | "succeeded" | "canceled" | "refunded";

@@ -12,17 +12,20 @@
 
 import { Account } from './Account';
 import { Customer } from './Customer';
+import { Fee } from './Fee';
 import { InvoiceAllOf } from './InvoiceAllOf';
 import { Model } from './Model';
+import { Payment } from './Payment';
 import { Product } from './Product';
+import { Transfer } from './Transfer';
 import { Wallet } from './Wallet';
 import { HttpFile } from '../http/http';
 
 export class Invoice {
-    'created': Date;
     'id': string;
+    'created': Date;
     'test': boolean;
-    ''?: string;
+    'object': string;
     'account': string | Account;
     'amount': number;
     'chain': InvoiceChainEnum;
@@ -34,21 +37,24 @@ export class Invoice {
     'status': InvoiceStatusEnum;
     'transaction'?: string;
     'wallet': string | Wallet;
+    'fees'?: Array<Fee>;
+    'transfers'?: Array<Transfer>;
+    'payments'?: Array<Payment>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
             "name": "id",
             "baseName": "id",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "Date",
+            "format": "date-time"
         },
         {
             "name": "test",
@@ -57,8 +63,8 @@ export class Invoice {
             "format": ""
         },
         {
-            "name": "",
-            "baseName": "",
+            "name": "object",
+            "baseName": "object",
             "type": "string",
             "format": ""
         },
@@ -126,6 +132,24 @@ export class Invoice {
             "name": "wallet",
             "baseName": "wallet",
             "type": "string | Wallet",
+            "format": ""
+        },
+        {
+            "name": "fees",
+            "baseName": "fees",
+            "type": "Array<Fee>",
+            "format": ""
+        },
+        {
+            "name": "transfers",
+            "baseName": "transfers",
+            "type": "Array<Transfer>",
+            "format": ""
+        },
+        {
+            "name": "payments",
+            "baseName": "payments",
+            "type": "Array<Payment>",
             "format": ""
         }    ];
 

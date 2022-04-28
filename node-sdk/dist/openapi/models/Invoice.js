@@ -12,16 +12,16 @@ exports.Invoice = Invoice;
 Invoice.discriminator = undefined;
 Invoice.attributeTypeMap = [
     {
-        "name": "created",
-        "baseName": "created",
-        "type": "Date",
-        "format": "date-time"
-    },
-    {
         "name": "id",
         "baseName": "id",
         "type": "string",
         "format": ""
+    },
+    {
+        "name": "created",
+        "baseName": "created",
+        "type": "Date",
+        "format": "date-time"
     },
     {
         "name": "test",
@@ -30,8 +30,8 @@ Invoice.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "",
-        "baseName": "",
+        "name": "object",
+        "baseName": "object",
         "type": "string",
         "format": ""
     },
@@ -99,6 +99,24 @@ Invoice.attributeTypeMap = [
         "name": "wallet",
         "baseName": "wallet",
         "type": "string | Wallet",
+        "format": ""
+    },
+    {
+        "name": "fees",
+        "baseName": "fees",
+        "type": "Array<Fee>",
+        "format": ""
+    },
+    {
+        "name": "transfers",
+        "baseName": "transfers",
+        "type": "Array<Transfer>",
+        "format": ""
+    },
+    {
+        "name": "payments",
+        "baseName": "payments",
+        "type": "Array<Payment>",
         "format": ""
     }
 ];

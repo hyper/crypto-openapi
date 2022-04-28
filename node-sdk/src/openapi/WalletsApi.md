@@ -278,6 +278,10 @@ let body:.WalletsApiUpdateRequest = {
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
+  // InlineObject3 (optional)
+  inline_object3: {
+    chain: "chain_example",
+  },
 };
 
 apiInstance.update(body).then((data:any) => {
@@ -290,6 +294,7 @@ apiInstance.update(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **inline_object3** | **InlineObject3**|  |
  **id** | [**string**] |  | defaults to undefined
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
@@ -304,7 +309,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

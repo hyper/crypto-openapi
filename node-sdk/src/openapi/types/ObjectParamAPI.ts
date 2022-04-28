@@ -9,15 +9,20 @@ import { ApiKey } from '../models/ApiKey';
 import { ApiKeyAllOf } from '../models/ApiKeyAllOf';
 import { Customer } from '../models/Customer';
 import { CustomerAllOf } from '../models/CustomerAllOf';
-import { CustomerAllOfBillingDetails } from '../models/CustomerAllOfBillingDetails';
-import { CustomerAllOfBillingDetailsAddress } from '../models/CustomerAllOfBillingDetailsAddress';
 import { CustomerData } from '../models/CustomerData';
 import { CustomersBillingDetails } from '../models/CustomersBillingDetails';
 import { CustomersBillingDetailsAddress } from '../models/CustomersBillingDetailsAddress';
+import { CustomersIdBillingDetails } from '../models/CustomersIdBillingDetails';
+import { CustomersIdBillingDetailsAddress } from '../models/CustomersIdBillingDetailsAddress';
 import { Data } from '../models/Data';
 import { Fee } from '../models/Fee';
 import { FeeAllOf } from '../models/FeeAllOf';
 import { FeeData } from '../models/FeeData';
+import { InlineObject } from '../models/InlineObject';
+import { InlineObject1 } from '../models/InlineObject1';
+import { InlineObject2 } from '../models/InlineObject2';
+import { InlineObject3 } from '../models/InlineObject3';
+import { InlineObject4 } from '../models/InlineObject4';
 import { Invoice } from '../models/Invoice';
 import { InvoiceAllOf } from '../models/InvoiceAllOf';
 import { InvoiceData } from '../models/InvoiceData';
@@ -138,6 +143,12 @@ export interface CustomersApiUpdateRequest {
      * @memberof CustomersApiupdate
      */
     prism_account?: string
+    /**
+     * 
+     * @type InlineObject
+     * @memberof CustomersApiupdate
+     */
+    inline_object?: InlineObject
 }
 
 export class ObjectCustomersApi {
@@ -176,7 +187,7 @@ export class ObjectCustomersApi {
      * @param param the request object
      */
     public update(param: CustomersApiUpdateRequest, options?: Configuration): Promise<Customer> {
-        return this.api.update(param.id, param.prism_account,  options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.inline_object,  options).toPromise();
     }
 
 }
@@ -415,6 +426,12 @@ export interface InvoicesApiUpdateRequest {
      * @memberof InvoicesApiupdate
      */
     prism_account?: string
+    /**
+     * 
+     * @type InlineObject1
+     * @memberof InvoicesApiupdate
+     */
+    inline_object1?: InlineObject1
 }
 
 export class ObjectInvoicesApi {
@@ -461,7 +478,7 @@ export class ObjectInvoicesApi {
      * @param param the request object
      */
     public update(param: InvoicesApiUpdateRequest, options?: Configuration): Promise<Invoice> {
-        return this.api.update(param.id, param.prism_account,  options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.inline_object1,  options).toPromise();
     }
 
 }
@@ -736,6 +753,12 @@ export interface PayoutWalletsApiUpdateRequest {
      * @memberof PayoutWalletsApiupdate
      */
     prism_account?: string
+    /**
+     * 
+     * @type any
+     * @memberof PayoutWalletsApiupdate
+     */
+    body?: any
 }
 
 export class ObjectPayoutWalletsApi {
@@ -782,7 +805,7 @@ export class ObjectPayoutWalletsApi {
      * @param param the request object
      */
     public update(param: PayoutWalletsApiUpdateRequest, options?: Configuration): Promise<PayoutWallet> {
-        return this.api.update(param.id, param.prism_account,  options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.body,  options).toPromise();
     }
 
 }
@@ -887,6 +910,12 @@ export interface ProductsApiUpdateRequest {
      * @memberof ProductsApiupdate
      */
     prism_account?: string
+    /**
+     * 
+     * @type InlineObject2
+     * @memberof ProductsApiupdate
+     */
+    inline_object2?: InlineObject2
 }
 
 export class ObjectProductsApi {
@@ -933,7 +962,7 @@ export class ObjectProductsApi {
      * @param param the request object
      */
     public update(param: ProductsApiUpdateRequest, options?: Configuration): Promise<Product> {
-        return this.api.update(param.id, param.prism_account,  options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.inline_object2,  options).toPromise();
     }
 
 }
@@ -1149,6 +1178,12 @@ export interface WalletsApiUpdateRequest {
      * @memberof WalletsApiupdate
      */
     prism_account?: string
+    /**
+     * 
+     * @type InlineObject3
+     * @memberof WalletsApiupdate
+     */
+    inline_object3?: InlineObject3
 }
 
 export class ObjectWalletsApi {
@@ -1195,7 +1230,7 @@ export class ObjectWalletsApi {
      * @param param the request object
      */
     public update(param: WalletsApiUpdateRequest, options?: Configuration): Promise<Wallet> {
-        return this.api.update(param.id, param.prism_account,  options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.inline_object3,  options).toPromise();
     }
 
 }
@@ -1300,6 +1335,12 @@ export interface WebhooksApiUpdateRequest {
      * @memberof WebhooksApiupdate
      */
     prism_account?: string
+    /**
+     * 
+     * @type InlineObject4
+     * @memberof WebhooksApiupdate
+     */
+    inline_object4?: InlineObject4
 }
 
 export class ObjectWebhooksApi {
@@ -1346,7 +1387,7 @@ export class ObjectWebhooksApi {
      * @param param the request object
      */
     public update(param: WebhooksApiUpdateRequest, options?: Configuration): Promise<Webhook> {
-        return this.api.update(param.id, param.prism_account,  options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.inline_object4,  options).toPromise();
     }
 
 }

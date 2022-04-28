@@ -16,9 +16,10 @@ import { WebhookAllOf } from './WebhookAllOf';
 import { HttpFile } from '../http/http';
 
 export class Webhook {
-    'created': Date;
     'id': string;
+    'created': Date;
     'test': boolean;
+    'object': string;
     'account': string | Account;
     'endpoint_url': string;
     'event_types': Array<string>;
@@ -28,21 +29,27 @@ export class Webhook {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
             "name": "id",
             "baseName": "id",
             "type": "string",
             "format": ""
         },
         {
+            "name": "created",
+            "baseName": "created",
+            "type": "Date",
+            "format": "date-time"
+        },
+        {
             "name": "test",
             "baseName": "test",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "object",
+            "baseName": "object",
+            "type": "string",
             "format": ""
         },
         {

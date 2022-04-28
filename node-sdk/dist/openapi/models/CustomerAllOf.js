@@ -20,7 +20,7 @@ CustomerAllOf.attributeTypeMap = [
     {
         "name": "billing_details",
         "baseName": "billing_details",
-        "type": "CustomerAllOfBillingDetails",
+        "type": "CustomersIdBillingDetails",
         "format": ""
     },
     {
@@ -39,6 +39,12 @@ CustomerAllOf.attributeTypeMap = [
         "name": "phone",
         "baseName": "phone",
         "type": "string",
+        "format": ""
+    },
+    {
+        "name": "wallets",
+        "baseName": "wallets",
+        "type": "Array<Wallet>",
         "format": ""
     }
 ];

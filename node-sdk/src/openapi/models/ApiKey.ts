@@ -16,28 +16,29 @@ import { Model } from './Model';
 import { HttpFile } from '../http/http';
 
 export class ApiKey {
-    'created': Date;
     'id': string;
+    'created': Date;
     'test': boolean;
+    'object': string;
     'account': string | Account;
-    'admin': boolean;
     'key': string;
     'type': ApiKeyTypeEnum;
+    'admin': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
             "name": "id",
             "baseName": "id",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "Date",
+            "format": "date-time"
         },
         {
             "name": "test",
@@ -46,15 +47,15 @@ export class ApiKey {
             "format": ""
         },
         {
-            "name": "account",
-            "baseName": "account",
-            "type": "string | Account",
+            "name": "object",
+            "baseName": "object",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "admin",
-            "baseName": "admin",
-            "type": "boolean",
+            "name": "account",
+            "baseName": "account",
+            "type": "string | Account",
             "format": ""
         },
         {
@@ -67,6 +68,12 @@ export class ApiKey {
             "name": "type",
             "baseName": "type",
             "type": "ApiKeyTypeEnum",
+            "format": ""
+        },
+        {
+            "name": "admin",
+            "baseName": "admin",
+            "type": "boolean",
             "format": ""
         }    ];
 
