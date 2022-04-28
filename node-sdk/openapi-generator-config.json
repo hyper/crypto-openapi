@@ -1,5 +1,5 @@
 {
+  "modelPropertyNaming": "snake_case",
   "removeOperationIdPrefix": true,
-  "useObjectParameters": true,
-  "modelPropertyNaming": "snake_case"
+  "useObjectParameters": true
 }
