@@ -34,6 +34,12 @@ InlineObject1.attributeTypeMap = [
         "baseName": "due",
         "type": "string",
         "format": ""
+    },
+    {
+        "name": "transaction",
+        "baseName": "transaction",
+        "type": "string",
+        "format": ""
     }
 ];
 //# sourceMappingURL=InlineObject1.js.map

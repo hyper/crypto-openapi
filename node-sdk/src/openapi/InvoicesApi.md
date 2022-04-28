@@ -288,6 +288,7 @@ let body:.InvoicesApiUpdateRequest = {
     chain: "chain_example",
     currency: "currency_example",
     due: "due_example",
+    transaction: "transaction_example",
   },
 };
 

@@ -17,6 +17,7 @@ export class InlineObject1 {
     'chain'?: string;
     'currency'?: string;
     'due'?: string;
+    'transaction'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -42,6 +43,12 @@ export class InlineObject1 {
         {
             "name": "due",
             "baseName": "due",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "transaction",
+            "baseName": "transaction",
             "type": "string",
             "format": ""
         }    ];

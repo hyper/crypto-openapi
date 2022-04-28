@@ -3,6 +3,7 @@ export declare class InlineObject1 {
     'chain'?: string;
     'currency'?: string;
     'due'?: string;
+    'transaction'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

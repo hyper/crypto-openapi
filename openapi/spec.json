@@ -1901,6 +1901,14 @@
             "application/json": {
               "schema": {
                 "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "amount": 0,
+                    "chain": "eth",
+                    "currency": "eth",
+                    "due": "2019-08-24T14:15:22Z"
+                  }
+                },
                 "properties": {
                   "amount": {
                     "type": "integer"
@@ -1913,14 +1921,9 @@
                   },
                   "due": {
                     "type": "string"
-                  }
-                },
-                "x-examples": {
-                  "example-1": {
-                    "amount": 0,
-                    "chain": "eth",
-                    "currency": "eth",
-                    "due": "2019-08-24T14:15:22Z"
+                  },
+                  "transaction": {
+                    "type": "string"
                   }
                 }
               }
