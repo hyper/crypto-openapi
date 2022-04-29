@@ -27,3 +27,6 @@
 /tsconfig.json
 /.gitignore
 /git_push.sh
+
+/http/http.ts
+/http/isomorphic-fetch.ts

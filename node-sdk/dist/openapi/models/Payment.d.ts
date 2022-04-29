@@ -3,10 +3,10 @@ import { Customer } from './Customer';
 import { Invoice } from './Invoice';
 import { Wallet } from './Wallet';
 export declare class Payment {
-    'id': string;
     'created': Date;
-    'test': boolean;
+    'id': string;
     'object': string;
+    'test': boolean;
     'account': string | Account;
     'amount': number;
     'currency': string;

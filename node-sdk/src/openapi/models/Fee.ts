@@ -18,10 +18,10 @@ import { Wallet } from './Wallet';
 import { HttpFile } from '../http/http';
 
 export class Fee {
-    'id': string;
     'created': Date;
-    'test': boolean;
+    'id': string;
     'object': string;
+    'test': boolean;
     'account'?: string | Account;
     'amount'?: number;
     'currency'?: string;
@@ -36,27 +36,27 @@ export class Fee {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "created",
             "baseName": "created",
             "type": "Date",
             "format": "date-time"
         },
         {
-            "name": "test",
-            "baseName": "test",
-            "type": "boolean",
+            "name": "id",
+            "baseName": "id",
+            "type": "string",
             "format": ""
         },
         {
             "name": "object",
             "baseName": "object",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "test",
+            "baseName": "test",
+            "type": "boolean",
             "format": ""
         },
         {

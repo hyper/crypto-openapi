@@ -3,12 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.IsomorphicFetchHttpLibrary = void 0;
 const http_1 = require("./http");
 const rxjsStub_1 = require("../rxjsStub");
-require("whatwg-fetch");
+const isomorphic_unfetch_1 = require("isomorphic-unfetch");
 class IsomorphicFetchHttpLibrary {
     send(request) {
         let method = request.getHttpMethod().toString();
         let body = request.getBody();
-        const resultPromise = fetch(request.getUrl(), {
+        const resultPromise = isomorphic_unfetch_1.default(request.getUrl(), {
             method: method,
             body: body,
             headers: request.getHeaders(),

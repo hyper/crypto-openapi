@@ -60,15 +60,15 @@ LogAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "url",
-        "baseName": "url",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "success",
         "baseName": "success",
         "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "url",
+        "baseName": "url",
+        "type": "string",
         "format": ""
     }
 ];

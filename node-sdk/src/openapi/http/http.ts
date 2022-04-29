@@ -1,5 +1,3 @@
-// typings of url-parse are incorrect...
-// @ts-ignore
 import * as URLParse from "url-parse";
 import { Observable, from } from '../rxjsStub';
 
@@ -18,6 +16,23 @@ export enum HttpMethod {
     OPTIONS = "OPTIONS",
     TRACE = "TRACE",
     PATCH = "PATCH"
+}
+
+function qsStringify(queryParams: Record<string, any>) {
+    const res: string[] = [];
+    queryParams.forEach((paramName: string) => {
+      if (queryParams.hasOwnProperty(paramName)) {
+        const value = queryParams[paramName];
+
+        if (Array.isArray(value)) {
+          value.forEach(v => res.push(`${encodeURIComponent(paramName)}=${encodeURIComponent(v)}`));
+        } else {
+          res.push(`${encodeURIComponent(paramName)}=${encodeURIComponent(value)}`);
+        }
+      }
+    });
+
+    return res.join('&');
 }
 
 /**
@@ -43,7 +58,7 @@ export type RequestBody = undefined | string | FormData | URLSearchParams;
 export class RequestContext {
     private headers: { [key: string]: string } = {};
     private body: RequestBody = undefined;
-    private url: URLParse;
+    private url: URLParse<Record<string, string | undefined>>;
 
     /**
      * Creates the request context using a http method and request resource url
@@ -60,7 +75,7 @@ export class RequestContext {
      *
      */
     public getUrl(): string {
-        return this.url.toString();
+        return this.url.toString(qsStringify);
     }
 
     /**

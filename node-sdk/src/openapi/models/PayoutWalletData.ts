@@ -14,8 +14,8 @@ import { HttpFile } from '../http/http';
 
 export class PayoutWalletData {
     'account': string;
-    'chain': string;
     'address': string;
+    'chain': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -27,14 +27,14 @@ export class PayoutWalletData {
             "format": ""
         },
         {
-            "name": "chain",
-            "baseName": "chain",
+            "name": "address",
+            "baseName": "address",
             "type": "string",
             "format": ""
         },
         {
-            "name": "address",
-            "baseName": "address",
+            "name": "chain",
+            "baseName": "chain",
             "type": "string",
             "format": ""
         }    ];

@@ -18,20 +18,8 @@ TransferAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "invoice",
-        "baseName": "invoice",
-        "type": "string | Invoice",
-        "format": ""
-    },
-    {
-        "name": "wallet",
-        "baseName": "wallet",
-        "type": "string | Wallet",
-        "format": ""
-    },
-    {
-        "name": "percent",
-        "baseName": "percent",
+        "name": "amount",
+        "baseName": "amount",
         "type": "number",
         "format": ""
     },
@@ -42,8 +30,14 @@ TransferAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "amount",
-        "baseName": "amount",
+        "name": "invoice",
+        "baseName": "invoice",
+        "type": "string | Invoice",
+        "format": ""
+    },
+    {
+        "name": "percent",
+        "baseName": "percent",
         "type": "number",
         "format": ""
     },
@@ -51,6 +45,12 @@ TransferAllOf.attributeTypeMap = [
         "name": "usd_amount",
         "baseName": "usd_amount",
         "type": "number",
+        "format": ""
+    },
+    {
+        "name": "wallet",
+        "baseName": "wallet",
+        "type": "string | Wallet",
         "format": ""
     }
 ];

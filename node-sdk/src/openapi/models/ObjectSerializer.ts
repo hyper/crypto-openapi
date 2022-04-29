@@ -57,8 +57,8 @@ export * from './WebhookData';
 import { Account } from './Account';
 import { AccountAllOf } from './AccountAllOf';
 import { AccountAllOfBranding } from './AccountAllOfBranding';
-import { ApiKey      , ApiKeyTypeEnum    } from './ApiKey';
-import { ApiKeyAllOf  , ApiKeyAllOfTypeEnum    } from './ApiKeyAllOf';
+import { ApiKey       , ApiKeyTypeEnum   } from './ApiKey';
+import { ApiKeyAllOf   , ApiKeyAllOfTypeEnum   } from './ApiKeyAllOf';
 import { Customer } from './Customer';
 import { CustomerAllOf } from './CustomerAllOf';
 import { CustomerData } from './CustomerData';
@@ -75,8 +75,8 @@ import { InlineObject1 } from './InlineObject1';
 import { InlineObject2 } from './InlineObject2';
 import { InlineObject3 } from './InlineObject3';
 import { InlineObject4 } from './InlineObject4';
-import { Invoice      , InvoiceChainEnum  , InvoiceCurrencyEnum      , InvoiceStatusEnum        } from './Invoice';
-import { InvoiceAllOf  , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum      , InvoiceAllOfStatusEnum        } from './InvoiceAllOf';
+import { Invoice      , InvoiceChainEnum  , InvoiceCurrencyEnum        , InvoiceStatusEnum      } from './Invoice';
+import { InvoiceAllOf  , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum        , InvoiceAllOfStatusEnum      } from './InvoiceAllOf';
 import { InvoiceData } from './InvoiceData';
 import { ListCustomersResponse } from './ListCustomersResponse';
 import { ListFeesResponse } from './ListFeesResponse';
@@ -98,13 +98,13 @@ import { PayoutWalletData } from './PayoutWalletData';
 import { Product        , ProductCurrencyEnum    } from './Product';
 import { ProductAllOf    , ProductAllOfCurrencyEnum    } from './ProductAllOf';
 import { ProductData } from './ProductData';
-import { Transaction   , TransactionStatusEnum  , TransactionChainEnum   , TransactionCurrencyEnum          } from './Transaction';
-import { TransactionAllOf   , TransactionAllOfStatusEnum  , TransactionAllOfChainEnum   , TransactionAllOfCurrencyEnum      } from './TransactionAllOf';
+import { Transaction  , TransactionChainEnum  , TransactionCurrencyEnum      , TransactionStatusEnum        } from './Transaction';
+import { TransactionAllOf  , TransactionAllOfChainEnum  , TransactionAllOfCurrencyEnum      , TransactionAllOfStatusEnum    } from './TransactionAllOf';
 import { Transfer } from './Transfer';
 import { TransferAllOf } from './TransferAllOf';
 import { TransferData } from './TransferData';
-import { Wallet     , WalletChainEnum      } from './Wallet';
-import { WalletAllOf , WalletAllOfChainEnum      } from './WalletAllOf';
+import { Wallet       , WalletChainEnum    } from './Wallet';
+import { WalletAllOf   , WalletAllOfChainEnum    } from './WalletAllOf';
 import { WalletData } from './WalletData';
 import { Webhook } from './Webhook';
 import { WebhookAllOf } from './WebhookAllOf';
@@ -146,12 +146,12 @@ let enumsMap: Set<string> = new Set<string>([
     "PayoutWalletAllOfChainEnum",
     "ProductCurrencyEnum",
     "ProductAllOfCurrencyEnum",
-    "TransactionStatusEnum",
     "TransactionChainEnum",
     "TransactionCurrencyEnum",
-    "TransactionAllOfStatusEnum",
+    "TransactionStatusEnum",
     "TransactionAllOfChainEnum",
     "TransactionAllOfCurrencyEnum",
+    "TransactionAllOfStatusEnum",
     "WalletChainEnum",
     "WalletAllOfChainEnum",
 ]);

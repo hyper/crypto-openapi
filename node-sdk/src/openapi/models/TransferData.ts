@@ -14,11 +14,11 @@ import { HttpFile } from '../http/http';
 
 export class TransferData {
     'account': string;
-    'invoice': string;
-    'wallet': string;
-    'percent'?: number;
-    'description'?: string;
     'amount'?: string;
+    'description'?: string;
+    'invoice': string;
+    'percent'?: number;
+    'wallet': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -30,14 +30,20 @@ export class TransferData {
             "format": ""
         },
         {
-            "name": "invoice",
-            "baseName": "invoice",
+            "name": "amount",
+            "baseName": "amount",
             "type": "string",
             "format": ""
         },
         {
-            "name": "wallet",
-            "baseName": "wallet",
+            "name": "description",
+            "baseName": "description",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "invoice",
+            "baseName": "invoice",
             "type": "string",
             "format": ""
         },
@@ -48,14 +54,8 @@ export class TransferData {
             "format": ""
         },
         {
-            "name": "description",
-            "baseName": "description",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "amount",
-            "baseName": "amount",
+            "name": "wallet",
+            "baseName": "wallet",
             "type": "string",
             "format": ""
         }    ];

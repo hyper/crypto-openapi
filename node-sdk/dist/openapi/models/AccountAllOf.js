@@ -12,27 +12,9 @@ exports.AccountAllOf = AccountAllOf;
 AccountAllOf.discriminator = undefined;
 AccountAllOf.attributeTypeMap = [
     {
-        "name": "parent_account",
-        "baseName": "parent_account",
-        "type": "string | Account",
-        "format": ""
-    },
-    {
-        "name": "name",
-        "baseName": "name",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "branding",
         "baseName": "branding",
         "type": "AccountAllOfBranding",
-        "format": ""
-    },
-    {
-        "name": "invoice_prefix",
-        "baseName": "invoice_prefix",
-        "type": "string",
         "format": ""
     },
     {
@@ -42,15 +24,33 @@ AccountAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "boolean",
-        "format": ""
-    },
-    {
         "name": "eth_wallet",
         "baseName": "eth_wallet",
         "type": "PayoutWallet",
+        "format": ""
+    },
+    {
+        "name": "invoice_prefix",
+        "baseName": "invoice_prefix",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "name",
+        "baseName": "name",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "parent_account",
+        "baseName": "parent_account",
+        "type": "string | Account",
+        "format": ""
+    },
+    {
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "boolean",
         "format": ""
     },
     {

@@ -49,8 +49,13 @@ import {
   ListWebhooksResponse,
   ListWalletsResponse,
   ListFeesResponse,
-  ListPaymentsResponse, InlineObject1, InlineObject, InlineObject2, InlineObject3, InlineObject4
-} from "./openapi/index";
+  ListPaymentsResponse,
+  InlineObject1,
+  InlineObject,
+  InlineObject2,
+  InlineObject3,
+  InlineObject4,
+} from './openapi/index';
 import convertCasing from './helpers/convertCasing';
 export * from './openapi/models/all';
 export * from './openapi/apis/exception';

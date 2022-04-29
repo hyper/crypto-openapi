@@ -17,25 +17,19 @@ import { WalletAllOf } from './WalletAllOf';
 import { HttpFile } from '../http/http';
 
 export class Wallet {
-    'id': string;
     'created': Date;
-    'test': boolean;
+    'id': string;
     'object': string;
+    'test': boolean;
     'account': string | Account;
-    'chain': WalletChainEnum;
     'address': string;
     'admin': boolean;
+    'chain': WalletChainEnum;
     'customer': string | Customer;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
         {
             "name": "created",
             "baseName": "created",
@@ -43,9 +37,9 @@ export class Wallet {
             "format": "date-time"
         },
         {
-            "name": "test",
-            "baseName": "test",
-            "type": "boolean",
+            "name": "id",
+            "baseName": "id",
+            "type": "string",
             "format": ""
         },
         {
@@ -55,15 +49,15 @@ export class Wallet {
             "format": ""
         },
         {
-            "name": "account",
-            "baseName": "account",
-            "type": "string | Account",
+            "name": "test",
+            "baseName": "test",
+            "type": "boolean",
             "format": ""
         },
         {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "WalletChainEnum",
+            "name": "account",
+            "baseName": "account",
+            "type": "string | Account",
             "format": ""
         },
         {
@@ -76,6 +70,12 @@ export class Wallet {
             "name": "admin",
             "baseName": "admin",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "WalletChainEnum",
             "format": ""
         },
         {

@@ -1,10 +1,10 @@
 export declare class TransferData {
     'account': string;
-    'invoice': string;
-    'wallet': string;
-    'percent'?: number;
-    'description'?: string;
     'amount'?: string;
+    'description'?: string;
+    'invoice': string;
+    'percent'?: number;
+    'wallet': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

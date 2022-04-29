@@ -18,14 +18,14 @@ PayoutWalletData.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "chain",
-        "baseName": "chain",
+        "name": "address",
+        "baseName": "address",
         "type": "string",
         "format": ""
     },
     {
-        "name": "address",
-        "baseName": "address",
+        "name": "chain",
+        "baseName": "chain",
         "type": "string",
         "format": ""
     }

@@ -15,10 +15,10 @@ import { HttpFile } from '../http/http';
 
 export class WebhookAllOf {
     'account': string | Account;
+    'created': Date;
     'endpoint_url': string;
     'event_types': Array<string>;
     'secret': string;
-    'created': Date;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -28,6 +28,12 @@ export class WebhookAllOf {
             "baseName": "account",
             "type": "string | Account",
             "format": ""
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "Date",
+            "format": "date-time"
         },
         {
             "name": "endpoint_url",
@@ -46,12 +52,6 @@ export class WebhookAllOf {
             "baseName": "secret",
             "type": "string",
             "format": ""
-        },
-        {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
         }    ];
 
     static getAttributeTypeMap() {

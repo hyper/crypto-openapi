@@ -1,14 +1,14 @@
 import { Account } from './Account';
 import { Customer } from './Customer';
 export declare class Wallet {
-    'id': string;
     'created': Date;
-    'test': boolean;
+    'id': string;
     'object': string;
+    'test': boolean;
     'account': string | Account;
-    'chain': WalletChainEnum;
     'address': string;
     'admin': boolean;
+    'chain': WalletChainEnum;
     'customer': string | Customer;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

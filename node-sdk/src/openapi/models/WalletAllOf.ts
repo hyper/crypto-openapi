@@ -16,9 +16,9 @@ import { HttpFile } from '../http/http';
 
 export class WalletAllOf {
     'account': string | Account;
-    'chain': WalletAllOfChainEnum;
     'address': string;
     'admin': boolean;
+    'chain': WalletAllOfChainEnum;
     'customer': string | Customer;
 
     static readonly discriminator: string | undefined = undefined;
@@ -31,12 +31,6 @@ export class WalletAllOf {
             "format": ""
         },
         {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "WalletAllOfChainEnum",
-            "format": ""
-        },
-        {
             "name": "address",
             "baseName": "address",
             "type": "string",
@@ -46,6 +40,12 @@ export class WalletAllOf {
             "name": "admin",
             "baseName": "admin",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "WalletAllOfChainEnum",
             "format": ""
         },
         {

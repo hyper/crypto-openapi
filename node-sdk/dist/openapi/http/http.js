@@ -35,6 +35,21 @@ var HttpMethod;
     HttpMethod["TRACE"] = "TRACE";
     HttpMethod["PATCH"] = "PATCH";
 })(HttpMethod = exports.HttpMethod || (exports.HttpMethod = {}));
+function qsStringify(queryParams) {
+    const res = [];
+    queryParams.forEach((paramName) => {
+        if (queryParams.hasOwnProperty(paramName)) {
+            const value = queryParams[paramName];
+            if (Array.isArray(value)) {
+                value.forEach(v => res.push(`${encodeURIComponent(paramName)}=${encodeURIComponent(v)}`));
+            }
+            else {
+                res.push(`${encodeURIComponent(paramName)}=${encodeURIComponent(value)}`);
+            }
+        }
+    });
+    return res.join('&');
+}
 class HttpException extends Error {
     constructor(msg) {
         super(msg);
@@ -49,7 +64,7 @@ class RequestContext {
         this.url = new URLParse(url, true);
     }
     getUrl() {
-        return this.url.toString();
+        return this.url.toString(qsStringify);
     }
     setUrl(url) {
         this.url = new URLParse(url, true);
