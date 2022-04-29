@@ -7,7 +7,7 @@ import { Transfer } from '../models/Transfer';
 export declare class TransfersApiRequestFactory extends BaseAPIRequestFactory {
     create(prism_account?: string, create_transfer_body?: CreateTransferBody, _options?: Configuration): Promise<RequestContext>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
-    retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext>;
+    retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class TransfersApiResponseProcessor {
     create(response: ResponseContext): Promise<Transfer>;

@@ -117,10 +117,10 @@ export class TransfersApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Retrieve Transfer By ID
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public async retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined

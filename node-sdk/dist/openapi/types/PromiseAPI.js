@@ -60,8 +60,8 @@ class PromiseInvoicesApi {
         const result = this.api.list(limit, page, sort, expand, prism_account, _options);
         return result.toPromise();
     }
-    poll(id, prism_account, expand, _options) {
-        const result = this.api.poll(id, prism_account, expand, _options);
+    poll(id, expand, prism_account, _options) {
+        const result = this.api.poll(id, expand, prism_account, _options);
         return result.toPromise();
     }
     retrieve(id, expand, prism_account, _options) {
@@ -117,12 +117,12 @@ class PromisePayoutWalletsApi {
         const result = this.api.create(prism_account, create_payout_wallet_body, _options);
         return result.toPromise();
     }
-    list(prism_account, limit, page, sort, expand, _options) {
-        const result = this.api.list(prism_account, limit, page, sort, expand, _options);
+    list(limit, page, sort, expand, prism_account, _options) {
+        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
         return result.toPromise();
     }
-    retrieve(id, prism_account, expand, _options) {
-        const result = this.api.retrieve(id, prism_account, expand, _options);
+    retrieve(id, expand, prism_account, _options) {
+        const result = this.api.retrieve(id, expand, prism_account, _options);
         return result.toPromise();
     }
     update(id, prism_account, update_payout_wallet_body, _options) {
@@ -171,8 +171,8 @@ class PromiseTransfersApi {
         const result = this.api.list(limit, page, sort, expand, prism_account, _options);
         return result.toPromise();
     }
-    retrieve(id, prism_account, expand, _options) {
-        const result = this.api.retrieve(id, prism_account, expand, _options);
+    retrieve(id, expand, prism_account, _options) {
+        const result = this.api.retrieve(id, expand, prism_account, _options);
         return result.toPromise();
     }
 }
@@ -182,8 +182,8 @@ class PromiseWalletsApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_9.ObservableWalletsApi(configuration, requestFactory, responseProcessor);
     }
-    _delete(id, prism_account, expand, _options) {
-        const result = this.api._delete(id, prism_account, expand, _options);
+    _delete(id, expand, prism_account, _options) {
+        const result = this.api._delete(id, expand, prism_account, _options);
         return result.toPromise();
     }
     create(prism_account, create_wallet_body, _options) {

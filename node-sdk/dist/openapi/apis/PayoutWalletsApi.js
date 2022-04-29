@@ -56,7 +56,7 @@ class PayoutWalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    list(prism_account, limit, page, sort, expand, _options) {
+    list(limit, page, sort, expand, prism_account, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -83,7 +83,7 @@ class PayoutWalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    retrieve(id, prism_account, expand, _options) {
+    retrieve(id, expand, prism_account, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;

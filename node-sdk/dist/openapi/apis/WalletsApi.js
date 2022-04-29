@@ -16,7 +16,7 @@ const ObjectSerializer_1 = require("../models/ObjectSerializer");
 const exception_1 = require("./exception");
 const util_1 = require("../util");
 class WalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
-    _delete(id, prism_account, expand, _options) {
+    _delete(id, expand, prism_account, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;

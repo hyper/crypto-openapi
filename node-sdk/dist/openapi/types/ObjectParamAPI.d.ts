@@ -106,8 +106,8 @@ export interface InvoicesApiListRequest {
 }
 export interface InvoicesApiPollRequest {
     id: string;
-    prism_account?: string;
     expand?: string;
+    prism_account?: string;
 }
 export interface InvoicesApiRetrieveRequest {
     id: string;
@@ -176,16 +176,16 @@ export interface PayoutWalletsApiCreateRequest {
     create_payout_wallet_body?: CreatePayoutWalletBody;
 }
 export interface PayoutWalletsApiListRequest {
-    prism_account?: string;
     limit?: number;
     page?: number;
     sort?: any;
     expand?: string;
+    prism_account?: string;
 }
 export interface PayoutWalletsApiRetrieveRequest {
     id: string;
-    prism_account?: string;
     expand?: string;
+    prism_account?: string;
 }
 export interface PayoutWalletsApiUpdateRequest {
     id: string;
@@ -250,8 +250,8 @@ export interface TransfersApiListRequest {
 }
 export interface TransfersApiRetrieveRequest {
     id: string;
-    prism_account?: string;
     expand?: string;
+    prism_account?: string;
 }
 export declare class ObjectTransfersApi {
     private api;
@@ -263,8 +263,8 @@ export declare class ObjectTransfersApi {
 import { WalletsApiRequestFactory, WalletsApiResponseProcessor } from "../apis/WalletsApi";
 export interface WalletsApiDeleteRequest {
     id: string;
-    prism_account?: string;
     expand?: string;
+    prism_account?: string;
 }
 export interface WalletsApiCreateRequest {
     prism_account?: string;

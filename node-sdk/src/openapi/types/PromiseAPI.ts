@@ -225,11 +225,11 @@ export class PromiseInvoicesApi {
     /**
      * Poll Invoice By ID
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<void> {
-        const result = this.api.poll(id, prism_account, expand, _options);
+    public poll(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<void> {
+        const result = this.api.poll(id, expand, prism_account, _options);
         return result.toPromise();
     }
 
@@ -382,25 +382,25 @@ export class PromisePayoutWalletsApi {
 
     /**
      * List Payout Wallets
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      * @param limit A limit on the number of objects to be returned between 1 and 100.
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public list(prism_account?: string, limit?: number, page?: number, sort?: any, expand?: string, _options?: Configuration): Promise<ListPayoutWalletsResponse> {
-        const result = this.api.list(prism_account, limit, page, sort, expand, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<ListPayoutWalletsResponse> {
+        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
         return result.toPromise();
     }
 
     /**
      * Retrieve Payout Wallet By ID
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<PayoutWallet> {
-        const result = this.api.retrieve(id, prism_account, expand, _options);
+    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<PayoutWallet> {
+        const result = this.api.retrieve(id, expand, prism_account, _options);
         return result.toPromise();
     }
 
@@ -534,11 +534,11 @@ export class PromiseTransfersApi {
     /**
      * Retrieve Transfer By ID
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<Transfer> {
-        const result = this.api.retrieve(id, prism_account, expand, _options);
+    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Transfer> {
+        const result = this.api.retrieve(id, expand, prism_account, _options);
         return result.toPromise();
     }
 
@@ -564,11 +564,11 @@ export class PromiseWalletsApi {
     /**
      * Delete Wallet By Id
      * @param id 
+     * @param expand Specifies which fields to populate in the response.
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param expand 
      */
-    public _delete(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<void> {
-        const result = this.api._delete(id, prism_account, expand, _options);
+    public _delete(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<void> {
+        const result = this.api._delete(id, expand, prism_account, _options);
         return result.toPromise();
     }
 

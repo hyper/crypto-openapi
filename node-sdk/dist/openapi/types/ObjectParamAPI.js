@@ -51,7 +51,7 @@ class ObjectInvoicesApi {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
     }
     poll(param, options) {
-        return this.api.poll(param.id, param.prism_account, param.expand, options).toPromise();
+        return this.api.poll(param.id, param.expand, param.prism_account, options).toPromise();
     }
     retrieve(param, options) {
         return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
@@ -99,10 +99,10 @@ class ObjectPayoutWalletsApi {
         return this.api.create(param.prism_account, param.create_payout_wallet_body, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.prism_account, param.limit, param.page, param.sort, param.expand, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.id, param.prism_account, param.expand, options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
     }
     update(param, options) {
         return this.api.update(param.id, param.prism_account, param.update_payout_wallet_body, options).toPromise();
@@ -143,7 +143,7 @@ class ObjectTransfersApi {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.id, param.prism_account, param.expand, options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
     }
 }
 exports.ObjectTransfersApi = ObjectTransfersApi;
@@ -153,7 +153,7 @@ class ObjectWalletsApi {
         this.api = new ObservableAPI_9.ObservableWalletsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
-        return this.api._delete(param.id, param.prism_account, param.expand, options).toPromise();
+        return this.api._delete(param.id, param.expand, param.prism_account, options).toPromise();
     }
     create(param = {}, options) {
         return this.api.create(param.prism_account, param.create_wallet_body, options).toPromise();

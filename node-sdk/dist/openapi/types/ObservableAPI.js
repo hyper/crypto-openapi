@@ -178,8 +178,8 @@ class ObservableInvoicesApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
         }));
     }
-    poll(id, prism_account, expand, _options) {
-        const requestContextPromise = this.requestFactory.poll(id, prism_account, expand, _options);
+    poll(id, expand, prism_account, _options) {
+        const requestContextPromise = this.requestFactory.poll(id, expand, prism_account, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -340,8 +340,8 @@ class ObservablePayoutWalletsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
         }));
     }
-    list(prism_account, limit, page, sort, expand, _options) {
-        const requestContextPromise = this.requestFactory.list(prism_account, limit, page, sort, expand, _options);
+    list(limit, page, sort, expand, prism_account, _options) {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -355,8 +355,8 @@ class ObservablePayoutWalletsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
         }));
     }
-    retrieve(id, prism_account, expand, _options) {
-        const requestContextPromise = this.requestFactory.retrieve(id, prism_account, expand, _options);
+    retrieve(id, expand, prism_account, _options) {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -508,8 +508,8 @@ class ObservableTransfersApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
         }));
     }
-    retrieve(id, prism_account, expand, _options) {
-        const requestContextPromise = this.requestFactory.retrieve(id, prism_account, expand, _options);
+    retrieve(id, expand, prism_account, _options) {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -532,8 +532,8 @@ class ObservableWalletsApi {
         this.requestFactory = requestFactory || new WalletsApi_1.WalletsApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new WalletsApi_1.WalletsApiResponseProcessor();
     }
-    _delete(id, prism_account, expand, _options) {
-        const requestContextPromise = this.requestFactory._delete(id, prism_account, expand, _options);
+    _delete(id, expand, prism_account, _options) {
+        const requestContextPromise = this.requestFactory._delete(id, expand, prism_account, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));

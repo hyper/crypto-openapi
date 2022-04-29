@@ -144,8 +144,6 @@ const configuration = .createConfiguration();
 const apiInstance = new .PayoutWalletsApi(configuration);
 
 let body:.PayoutWalletsApiListRequest = {
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
   // number | A limit on the number of objects to be returned between 1 and 100. (optional)
   limit: 3.14,
   // number | Index of the page to be returned in a paginated response. (optional)
@@ -154,6 +152,8 @@ let body:.PayoutWalletsApiListRequest = {
   sort: null,
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
+  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
+  prism_account: "Prism-Account_example",
 };
 
 apiInstance.list(body).then((data:any) => {
@@ -166,11 +166,11 @@ apiInstance.list(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
  **limit** | [**number**] | A limit on the number of objects to be returned between 1 and 100. | (optional) defaults to undefined
  **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
  **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -211,10 +211,10 @@ const apiInstance = new .PayoutWalletsApi(configuration);
 let body:.PayoutWalletsApiRetrieveRequest = {
   // string
   id: "id_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
+  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
+  prism_account: "Prism-Account_example",
 };
 
 apiInstance.retrieve(body).then((data:any) => {
@@ -228,8 +228,8 @@ apiInstance.retrieve(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type

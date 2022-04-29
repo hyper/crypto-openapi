@@ -380,17 +380,17 @@ export interface InvoicesApiPollRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
-     * @type string
-     * @memberof InvoicesApipoll
-     */
-    prism_account?: string
-    /**
      * Specifies which fields to populate in the response.
      * @type string
      * @memberof InvoicesApipoll
      */
     expand?: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof InvoicesApipoll
+     */
+    prism_account?: string
 }
 
 export interface InvoicesApiRetrieveRequest {
@@ -463,7 +463,7 @@ export class ObjectInvoicesApi {
      * @param param the request object
      */
     public poll(param: InvoicesApiPollRequest, options?: Configuration): Promise<void> {
-        return this.api.poll(param.id, param.prism_account, param.expand,  options).toPromise();
+        return this.api.poll(param.id, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -683,12 +683,6 @@ export interface PayoutWalletsApiCreateRequest {
 
 export interface PayoutWalletsApiListRequest {
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
-     * @type string
-     * @memberof PayoutWalletsApilist
-     */
-    prism_account?: string
-    /**
      * A limit on the number of objects to be returned between 1 and 100.
      * @type number
      * @memberof PayoutWalletsApilist
@@ -712,6 +706,12 @@ export interface PayoutWalletsApiListRequest {
      * @memberof PayoutWalletsApilist
      */
     expand?: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof PayoutWalletsApilist
+     */
+    prism_account?: string
 }
 
 export interface PayoutWalletsApiRetrieveRequest {
@@ -722,17 +722,17 @@ export interface PayoutWalletsApiRetrieveRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
-     * @type string
-     * @memberof PayoutWalletsApiretrieve
-     */
-    prism_account?: string
-    /**
      * Specifies which fields to populate in the response.
      * @type string
      * @memberof PayoutWalletsApiretrieve
      */
     expand?: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof PayoutWalletsApiretrieve
+     */
+    prism_account?: string
 }
 
 export interface PayoutWalletsApiUpdateRequest {
@@ -784,7 +784,7 @@ export class ObjectPayoutWalletsApi {
      * @param param the request object
      */
     public list(param: PayoutWalletsApiListRequest = {}, options?: Configuration): Promise<ListPayoutWalletsResponse> {
-        return this.api.list(param.prism_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -792,7 +792,7 @@ export class ObjectPayoutWalletsApi {
      * @param param the request object
      */
     public retrieve(param: PayoutWalletsApiRetrieveRequest, options?: Configuration): Promise<PayoutWallet> {
-        return this.api.retrieve(param.id, param.prism_account, param.expand,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -1021,17 +1021,17 @@ export interface TransfersApiRetrieveRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
-     * @type string
-     * @memberof TransfersApiretrieve
-     */
-    prism_account?: string
-    /**
      * Specifies which fields to populate in the response.
      * @type string
      * @memberof TransfersApiretrieve
      */
     expand?: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof TransfersApiretrieve
+     */
+    prism_account?: string
 }
 
 export class ObjectTransfersApi {
@@ -1062,7 +1062,7 @@ export class ObjectTransfersApi {
      * @param param the request object
      */
     public retrieve(param: TransfersApiRetrieveRequest, options?: Configuration): Promise<Transfer> {
-        return this.api.retrieve(param.id, param.prism_account, param.expand,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
     }
 
 }
@@ -1078,17 +1078,17 @@ export interface WalletsApiDeleteRequest {
      */
     id: string
     /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof WalletsApi_delete
+     */
+    expand?: string
+    /**
      * The ID of the connected Prism account you are making a request on behalf on.
      * @type string
      * @memberof WalletsApi_delete
      */
     prism_account?: string
-    /**
-     * 
-     * @type string
-     * @memberof WalletsApi_delete
-     */
-    expand?: string
 }
 
 export interface WalletsApiCreateRequest {
@@ -1193,7 +1193,7 @@ export class ObjectWalletsApi {
      * @param param the request object
      */
     public _delete(param: WalletsApiDeleteRequest, options?: Configuration): Promise<void> {
-        return this.api._delete(param.id, param.prism_account, param.expand,  options).toPromise();
+        return this.api._delete(param.id, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**

@@ -64,7 +64,7 @@ class TransfersApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    retrieve(id, prism_account, expand, _options) {
+    retrieve(id, expand, prism_account, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;

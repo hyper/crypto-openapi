@@ -1,5 +1,50 @@
 {
   "components": {
+    "parameters": {
+      "Prism-Account": {
+        "description": "The ID of the connected Prism account you are making a request on behalf on.",
+        "in": "header",
+        "name": "Prism-Account",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "expand": {
+        "description": "Specifies which fields to populate in the response.",
+        "in": "query",
+        "name": "expand",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "limit": {
+        "description": "A limit on the number of objects to be returned between 1 and 100.",
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "type": "number"
+        }
+      },
+      "page": {
+        "description": "Index of the page to be returned in a paginated response.",
+        "in": "query",
+        "name": "page",
+        "required": false,
+        "schema": {
+          "type": "number"
+        }
+      },
+      "sort": {
+        "description": "Specifies whether documents are sorted in an ascending or descending order.",
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {}
+      }
+    },
+    "responses": {},
     "schemas": {
       "Account": {
         "allOf": [
@@ -878,42 +923,19 @@
         "operationId": "customers_list",
         "parameters": [
           {
-            "description": "A limit on the number of objects to be returned between 1 and 100.",
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/limit"
           },
           {
-            "description": "Index of the page to be returned in a paginated response.",
-            "in": "query",
-            "name": "page",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/page"
           },
           {
-            "description": "Specifies whether documents are sorted in an ascending or descending order.",
-            "in": "query",
-            "name": "sort",
-            "schema": {}
+            "$ref": "#/components/parameters/sort"
           },
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -985,18 +1007,12 @@
         "operationId": "customers_create",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
-              "examples": {},
               "schema": {
                 "description": "",
                 "properties": {
@@ -1101,20 +1117,10 @@
         "operationId": "customers_retrieve",
         "parameters": [
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -1149,18 +1155,12 @@
         "operationId": "customers_update",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
-              "examples": {},
               "schema": {
                 "properties": {
                   "billing_details": {
@@ -1248,42 +1248,19 @@
         "operationId": "fees_list",
         "parameters": [
           {
-            "description": "A limit on the number of objects to be returned between 1 and 100.",
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/limit"
           },
           {
-            "description": "Index of the page to be returned in a paginated response.",
-            "in": "query",
-            "name": "page",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/page"
           },
           {
-            "description": "Specifies whether documents are sorted in an ascending or descending order.",
-            "in": "query",
-            "name": "sort",
-            "schema": {}
+            "$ref": "#/components/parameters/sort"
           },
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -1347,12 +1324,7 @@
         "operationId": "fees_create",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "requestBody": {
@@ -1415,12 +1387,7 @@
         "operationId": "fees_delete",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -1438,20 +1405,10 @@
         "operationId": "fees_retrieve",
         "parameters": [
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -1485,42 +1442,19 @@
         "operationId": "invoices_list",
         "parameters": [
           {
-            "description": "A limit on the number of objects to be returned between 1 and 100.",
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/limit"
           },
           {
-            "description": "Index of the page to be returned in a paginated response.",
-            "in": "query",
-            "name": "page",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/page"
           },
           {
-            "description": "Specifies whether documents are sorted in an ascending or descending order.",
-            "in": "query",
-            "name": "sort",
-            "schema": {}
+            "$ref": "#/components/parameters/sort"
           },
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -1590,12 +1524,7 @@
         "operationId": "invoices_create",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "requestBody": {
@@ -1698,20 +1627,10 @@
         "operationId": "invoices_retrieve",
         "parameters": [
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -1746,12 +1665,7 @@
         "operationId": "invoices_update",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "requestBody": {
@@ -1817,20 +1731,10 @@
         "operationId": "invoices_poll",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -1858,42 +1762,19 @@
         "operationId": "logs_list",
         "parameters": [
           {
-            "description": "A limit on the number of objects to be returned between 1 and 100.",
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/limit"
           },
           {
-            "description": "Index of the page to be returned in a paginated response.",
-            "in": "query",
-            "name": "page",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/page"
           },
           {
-            "description": "Specifies whether documents are sorted in an ascending or descending order.",
-            "in": "query",
-            "name": "sort",
-            "schema": {}
+            "$ref": "#/components/parameters/sort"
           },
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -1979,35 +1860,23 @@
         "summary": "List Logs",
         "tags": ["Logs"],
         "x-internal": false
-      },
-      "parameters": []
+      }
     },
     "/logs/{id}": {
       "get": {
         "operationId": "logs_retrieve",
         "parameters": [
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
           "200": {
             "content": {
               "application/json": {
-                "examples": {},
                 "schema": {
                   "$ref": "#/components/schemas/Log"
                 }
@@ -2035,42 +1904,19 @@
         "operationId": "payments_list",
         "parameters": [
           {
-            "description": "A limit on the number of objects to be returned between 1 and 100.",
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/limit"
           },
           {
-            "description": "Index of the page to be returned in a paginated response.",
-            "in": "query",
-            "name": "page",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/page"
           },
           {
-            "description": "Specifies whether documents are sorted in an ascending or descending order.",
-            "in": "query",
-            "name": "sort",
-            "schema": {}
+            "$ref": "#/components/parameters/sort"
           },
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -2137,20 +1983,10 @@
         "operationId": "payments_retrieve",
         "parameters": [
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -2188,42 +2024,19 @@
         "operationId": "payout-wallets_list",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/limit"
           },
           {
-            "description": "A limit on the number of objects to be returned between 1 and 100.",
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/page"
           },
           {
-            "description": "Index of the page to be returned in a paginated response.",
-            "in": "query",
-            "name": "page",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/sort"
           },
           {
-            "description": "Specifies whether documents are sorted in an ascending or descending order.",
-            "in": "query",
-            "name": "sort",
-            "schema": {}
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -2259,17 +2072,11 @@
         "summary": "List Payout Wallets",
         "tags": ["PayoutWallets"]
       },
-      "parameters": [],
       "post": {
         "operationId": "payout-wallets_create",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "requestBody": {
@@ -2325,12 +2132,7 @@
         "operationId": "payout-wallets_delete",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -2348,20 +2150,10 @@
         "operationId": "payout-wallets_retrieve",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -2396,12 +2188,7 @@
         "operationId": "payout-wallets_update",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "requestBody": {
@@ -2440,42 +2227,19 @@
         "operationId": "products_list",
         "parameters": [
           {
-            "description": "A limit on the number of objects to be returned between 1 and 100.",
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/limit"
           },
           {
-            "description": "Index of the page to be returned in a paginated response.",
-            "in": "query",
-            "name": "page",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/page"
           },
           {
-            "description": "Specifies whether documents are sorted in an ascending or descending order.",
-            "in": "query",
-            "name": "sort",
-            "schema": {}
+            "$ref": "#/components/parameters/sort"
           },
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -2539,12 +2303,7 @@
         "operationId": "products_create",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "requestBody": {
@@ -2608,12 +2367,7 @@
         "operationId": "products_delete",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -2631,20 +2385,10 @@
         "operationId": "products_retrieve",
         "parameters": [
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -2679,18 +2423,12 @@
         "operationId": "products_update",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
-              "examples": {},
               "schema": {
                 "properties": {
                   "amount": {
@@ -2751,49 +2489,25 @@
         "operationId": "transfers_list",
         "parameters": [
           {
-            "description": "A limit on the number of objects to be returned between 1 and 100.",
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/limit"
           },
           {
-            "description": "Index of the page to be returned in a paginated response.",
-            "in": "query",
-            "name": "page",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/page"
           },
           {
-            "description": "Specifies whether documents are sorted in an ascending or descending order.",
-            "in": "query",
-            "name": "sort",
-            "schema": {}
+            "$ref": "#/components/parameters/sort"
           },
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
           "200": {
             "content": {
               "application/json": {
-                "examples": {},
                 "schema": {
                   "properties": {
                     "data": {
@@ -2827,12 +2541,7 @@
         "operationId": "transfers_create",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "requestBody": {
@@ -2901,20 +2610,10 @@
         "operationId": "transfers_retrieve",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -2948,42 +2647,19 @@
         "operationId": "wallets_list",
         "parameters": [
           {
-            "description": "A limit on the number of objects to be returned between 1 and 100.",
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/limit"
           },
           {
-            "description": "Index of the page to be returned in a paginated response.",
-            "in": "query",
-            "name": "page",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/page"
           },
           {
-            "description": "Specifies whether documents are sorted in an ascending or descending order.",
-            "in": "query",
-            "name": "sort",
-            "schema": {}
+            "$ref": "#/components/parameters/sort"
           },
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -3041,17 +2717,11 @@
         "summary": "List Wallets",
         "tags": ["Wallets"]
       },
-      "parameters": [],
       "post": {
         "operationId": "wallets_create",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "requestBody": {
@@ -3116,19 +2786,10 @@
         "operationId": "wallets_delete",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -3147,20 +2808,10 @@
         "operationId": "wallets_retrieve",
         "parameters": [
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -3205,18 +2856,12 @@
         "operationId": "wallets_update",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
-              "examples": {},
               "schema": {
                 "properties": {
                   "chain": {
@@ -3262,42 +2907,19 @@
         "operationId": "webhooks_list",
         "parameters": [
           {
-            "description": "A limit on the number of objects to be returned between 1 and 100.",
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/limit"
           },
           {
-            "description": "Index of the page to be returned in a paginated response.",
-            "in": "query",
-            "name": "page",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/page"
           },
           {
-            "description": "Specifies whether documents are sorted in an ascending or descending order.",
-            "in": "query",
-            "name": "sort",
-            "schema": {}
+            "$ref": "#/components/parameters/sort"
           },
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -3358,12 +2980,7 @@
         "operationId": "webhooks_create",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "requestBody": {
@@ -3451,20 +3068,10 @@
         "operationId": "webhooks_retrieve",
         "parameters": [
           {
-            "description": "Specifies which fields to populate in the response.",
-            "in": "query",
-            "name": "expand",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/expand"
           },
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "responses": {
@@ -3499,18 +3106,12 @@
         "operationId": "webhooks_update",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
-            "in": "header",
-            "name": "Prism-Account",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Prism-Account"
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
-              "examples": {},
               "schema": {
                 "properties": {
                   "endpoint_url": {
