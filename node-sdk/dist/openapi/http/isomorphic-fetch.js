@@ -3,16 +3,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.IsomorphicFetchHttpLibrary = void 0;
 const http_1 = require("./http");
 const rxjsStub_1 = require("../rxjsStub");
-const isomorphic_unfetch_1 = require("isomorphic-unfetch");
+const axios_1 = require("axios");
 class IsomorphicFetchHttpLibrary {
     send(request) {
         let method = request.getHttpMethod().toString();
         let body = request.getBody();
-        const resultPromise = isomorphic_unfetch_1.default(request.getUrl(), {
+        const resultPromise = axios_1.default.request({
+            url: request.getUrl(),
             method: method,
-            body: body,
+            data: body,
             headers: request.getHeaders(),
-            credentials: "same-origin"
+            withCredentials: true,
         }).then((resp) => {
             const headers = {};
             resp.headers.forEach((value, name) => {
