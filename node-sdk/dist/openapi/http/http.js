@@ -37,7 +37,7 @@ var HttpMethod;
 })(HttpMethod = exports.HttpMethod || (exports.HttpMethod = {}));
 function qsStringify(queryParams) {
     const res = [];
-    queryParams.forEach((paramName) => {
+    for (const paramName in queryParams) {
         if (queryParams.hasOwnProperty(paramName)) {
             const value = queryParams[paramName];
             if (Array.isArray(value)) {
@@ -47,7 +47,7 @@ function qsStringify(queryParams) {
                 res.push(`${encodeURIComponent(paramName)}=${encodeURIComponent(value)}`);
             }
         }
-    });
+    }
     return res.join('&');
 }
 class HttpException extends Error {

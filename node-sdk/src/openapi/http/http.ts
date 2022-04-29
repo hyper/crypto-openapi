@@ -20,17 +20,18 @@ export enum HttpMethod {
 
 function qsStringify(queryParams: Record<string, any>) {
     const res: string[] = [];
-    queryParams.forEach((paramName: string) => {
-      if (queryParams.hasOwnProperty(paramName)) {
-        const value = queryParams[paramName];
 
-        if (Array.isArray(value)) {
-          value.forEach(v => res.push(`${encodeURIComponent(paramName)}=${encodeURIComponent(v)}`));
-        } else {
-          res.push(`${encodeURIComponent(paramName)}=${encodeURIComponent(value)}`);
+    for (const paramName in queryParams) {
+        if (queryParams.hasOwnProperty(paramName)) {
+            const value = queryParams[paramName];
+    
+            if (Array.isArray(value)) {
+                value.forEach(v => res.push(`${encodeURIComponent(paramName)}=${encodeURIComponent(v)}`));
+            } else {
+                res.push(`${encodeURIComponent(paramName)}=${encodeURIComponent(value)}`);
+            }
         }
-      }
-    });
+    }
 
     return res.join('&');
 }
