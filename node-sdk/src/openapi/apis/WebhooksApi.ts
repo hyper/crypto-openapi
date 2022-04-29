@@ -259,6 +259,9 @@ export class WebhooksApiResponseProcessor {
         if (isCodeInRange("200", response.httpStatusCode)) {
             return;
         }
+        if (isCodeInRange("401", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
         if (isCodeInRange("404", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Not Found", undefined, response.headers);
         }
@@ -291,6 +294,12 @@ export class WebhooksApiResponseProcessor {
             ) as Webhook;
             return body;
         }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
+        }
+        if (isCodeInRange("401", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
@@ -319,6 +328,9 @@ export class WebhooksApiResponseProcessor {
                 "ListWebhooksResponse", ""
             ) as ListWebhooksResponse;
             return body;
+        }
+        if (isCodeInRange("401", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
         }
         if (isCodeInRange("404", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Not Found", undefined, response.headers);
@@ -351,6 +363,9 @@ export class WebhooksApiResponseProcessor {
                 "Webhook", ""
             ) as Webhook;
             return body;
+        }
+        if (isCodeInRange("401", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
         }
         if (isCodeInRange("404", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Not Found", undefined, response.headers);
@@ -386,6 +401,12 @@ export class WebhooksApiResponseProcessor {
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
+        }
+        if (isCodeInRange("401", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Not Found", undefined, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml

@@ -18,14 +18,20 @@ CreateTransferBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "invoice",
-        "baseName": "invoice",
+        "name": "amount",
+        "baseName": "amount",
         "type": "string",
         "format": ""
     },
     {
-        "name": "wallet",
-        "baseName": "wallet",
+        "name": "description",
+        "baseName": "description",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "invoice",
+        "baseName": "invoice",
         "type": "string",
         "format": ""
     },
@@ -36,14 +42,8 @@ CreateTransferBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "description",
-        "baseName": "description",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "amount",
-        "baseName": "amount",
+        "name": "wallet",
+        "baseName": "wallet",
         "type": "string",
         "format": ""
     }

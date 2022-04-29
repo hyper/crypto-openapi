@@ -22,34 +22,28 @@ import { Wallet } from './Wallet';
 import { HttpFile } from '../http/http';
 
 export class Invoice {
-    'id': string;
     'created': Date;
-    'test': boolean;
+    'id': string;
     'object': string;
+    'test': boolean;
     'account': string | Account;
     'amount': number;
     'chain': InvoiceChainEnum;
     'currency': InvoiceCurrencyEnum;
     'customer': string | Customer;
     'due'?: Date;
+    'fees': Array<Fee>;
     'number': string;
+    'payments'?: Array<Payment>;
     'product'?: string | Product;
     'status': InvoiceStatusEnum;
     'transaction'?: string;
-    'wallet': string | Wallet;
-    'fees': Array<Fee>;
     'transfers': Array<Transfer>;
-    'payments'?: Array<Payment>;
+    'wallet': string | Wallet;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
         {
             "name": "created",
             "baseName": "created",
@@ -57,15 +51,21 @@ export class Invoice {
             "format": "date-time"
         },
         {
-            "name": "test",
-            "baseName": "test",
-            "type": "boolean",
+            "name": "id",
+            "baseName": "id",
+            "type": "string",
             "format": ""
         },
         {
             "name": "object",
             "baseName": "object",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "test",
+            "baseName": "test",
+            "type": "boolean",
             "format": ""
         },
         {
@@ -105,9 +105,21 @@ export class Invoice {
             "format": "date-time"
         },
         {
+            "name": "fees",
+            "baseName": "fees",
+            "type": "Array<Fee>",
+            "format": ""
+        },
+        {
             "name": "number",
             "baseName": "number",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "payments",
+            "baseName": "payments",
+            "type": "Array<Payment>",
             "format": ""
         },
         {
@@ -129,27 +141,15 @@ export class Invoice {
             "format": ""
         },
         {
-            "name": "wallet",
-            "baseName": "wallet",
-            "type": "string | Wallet",
-            "format": ""
-        },
-        {
-            "name": "fees",
-            "baseName": "fees",
-            "type": "Array<Fee>",
-            "format": ""
-        },
-        {
             "name": "transfers",
             "baseName": "transfers",
             "type": "Array<Transfer>",
             "format": ""
         },
         {
-            "name": "payments",
-            "baseName": "payments",
-            "type": "Array<Payment>",
+            "name": "wallet",
+            "baseName": "wallet",
+            "type": "string | Wallet",
             "format": ""
         }    ];
 

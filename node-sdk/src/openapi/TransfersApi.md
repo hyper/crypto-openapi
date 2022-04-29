@@ -29,11 +29,11 @@ let body:.TransfersApiCreateRequest = {
   // CreateTransferBody (optional)
   create_transfer_body: {
     account: "account_example",
-    invoice: "invoice_example",
-    wallet: "wallet_example",
-    percent: 1,
-    description: "description_example",
     amount: "amount_example",
+    description: "description_example",
+    invoice: "invoice_example",
+    percent: 1,
+    wallet: "wallet_example",
   },
 };
 
@@ -70,6 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -135,6 +136,8 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -194,6 +197,8 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 

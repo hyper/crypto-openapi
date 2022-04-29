@@ -15,10 +15,10 @@ import { Model } from './Model';
 import { HttpFile } from '../http/http';
 
 export class Log {
-    'id': string;
     'created': Date;
-    'test': boolean;
+    'id': string;
     'object': string;
+    'test': boolean;
     'api_key': string;
     'body'?: any;
     'headers'?: any;
@@ -26,18 +26,12 @@ export class Log {
     'method': LogMethodEnum;
     'origin'?: string;
     'query': any;
-    'url': string;
     'success': boolean;
+    'url': string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
         {
             "name": "created",
             "baseName": "created",
@@ -45,15 +39,21 @@ export class Log {
             "format": "date-time"
         },
         {
-            "name": "test",
-            "baseName": "test",
-            "type": "boolean",
+            "name": "id",
+            "baseName": "id",
+            "type": "string",
             "format": ""
         },
         {
             "name": "object",
             "baseName": "object",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "test",
+            "baseName": "test",
+            "type": "boolean",
             "format": ""
         },
         {
@@ -99,15 +99,15 @@ export class Log {
             "format": ""
         },
         {
-            "name": "url",
-            "baseName": "url",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "success",
             "baseName": "success",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "url",
+            "baseName": "url",
+            "type": "string",
             "format": ""
         }    ];
 

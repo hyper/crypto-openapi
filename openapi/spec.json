@@ -44,7 +44,17 @@
         "schema": {}
       }
     },
-    "responses": {},
+    "responses": {
+      "400": {
+        "description": "Bad Request"
+      },
+      "401": {
+        "description": "Unauthorized"
+      },
+      "404": {
+        "description": "Not Found"
+      }
+    },
     "schemas": {
       "Account": {
         "allOf": [
@@ -996,8 +1006,11 @@
             },
             "description": "OK"
           },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
           "404": {
-            "description": "Not Found"
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "List Customers",
@@ -1105,7 +1118,10 @@
             "description": "OK"
           },
           "400": {
-            "description": "Bad Request"
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
           }
         },
         "summary": "Create Customer",
@@ -1134,8 +1150,11 @@
             },
             "description": "OK"
           },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
           "404": {
-            "description": "Not Found"
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Retrieve Customer By Id",
@@ -1236,7 +1255,13 @@
             "description": "OK"
           },
           "400": {
-            "description": "Bad Request"
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Update Customer By Id",
@@ -1315,6 +1340,12 @@
               }
             },
             "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "List Fees",
@@ -1375,7 +1406,10 @@
             "description": "OK"
           },
           "400": {
-            "description": "Bad Request"
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
           }
         },
         "summary": "Create Fee",
@@ -1394,8 +1428,11 @@
           "200": {
             "description": "OK"
           },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
           "404": {
-            "description": "Not Found"
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Delete Fee By Id",
@@ -1421,6 +1458,12 @@
               }
             },
             "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Retrieve Fee By Id",
@@ -1514,6 +1557,12 @@
               }
             },
             "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "List Invoices",
@@ -1615,7 +1664,10 @@
             "description": "OK"
           },
           "400": {
-            "description": "Bad Request"
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
           }
         },
         "summary": "Create Invoice",
@@ -1644,8 +1696,11 @@
             },
             "description": "OK"
           },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
           "404": {
-            "description": "Not Found"
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Retrieve Invoice By Id",
@@ -1715,10 +1770,13 @@
             "description": "OK"
           },
           "400": {
-            "description": "Bad Request"
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
           },
           "404": {
-            "description": "Not Found"
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Update Invoice By Id",
@@ -1740,6 +1798,12 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Poll Invoice By ID",
@@ -1855,6 +1919,12 @@
               }
             },
             "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "List Logs",
@@ -1883,6 +1953,12 @@
               }
             },
             "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Retrieve Log By Id",
@@ -1972,6 +2048,12 @@
               }
             },
             "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "List Payments",
@@ -2000,8 +2082,11 @@
             },
             "description": "OK"
           },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
           "404": {
-            "description": "Not Found"
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Retrieve Payment By Id",
@@ -2067,6 +2152,12 @@
               }
             },
             "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "List Payout Wallets",
@@ -2120,7 +2211,10 @@
             "description": "OK"
           },
           "400": {
-            "description": "Bad Request"
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
           }
         },
         "summary": "Create Payout Wallets",
@@ -2139,8 +2233,11 @@
           "200": {
             "description": "OK"
           },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
           "404": {
-            "description": "Not Found"
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Delete Payout Wallet By ID",
@@ -2167,8 +2264,11 @@
             },
             "description": "OK"
           },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
           "404": {
-            "description": "Not Found"
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Retrieve Payout Wallet By ID",
@@ -2216,6 +2316,15 @@
               }
             },
             "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Update Payout Wallet By ID",
@@ -2294,6 +2403,12 @@
               }
             },
             "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "List Products",
@@ -2355,7 +2470,10 @@
             "description": "OK"
           },
           "400": {
-            "description": "Bad Request"
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
           }
         },
         "summary": "Create Product",
@@ -2374,8 +2492,11 @@
           "200": {
             "description": "OK"
           },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
           "404": {
-            "description": "Not Found"
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Delete Product By Id",
@@ -2402,8 +2523,11 @@
             },
             "description": "OK"
           },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
           "404": {
-            "description": "Not Found"
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Retrieve Product By Id",
@@ -2474,10 +2598,13 @@
             "description": "OK"
           },
           "400": {
-            "description": "Bad Request"
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
           },
           "404": {
-            "description": "Not Found"
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Update Product By Id",
@@ -2532,6 +2659,12 @@
               }
             },
             "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "List Transfers",
@@ -2598,7 +2731,10 @@
             "description": "OK"
           },
           "400": {
-            "description": "Bad Request"
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
           }
         },
         "summary": "Create Transfer",
@@ -2626,6 +2762,12 @@
               }
             },
             "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Retrieve Transfer By ID",
@@ -2710,8 +2852,11 @@
             },
             "description": "OK"
           },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
           "404": {
-            "description": "Not Found"
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "List Wallets",
@@ -2774,7 +2919,10 @@
             "description": "OK"
           },
           "400": {
-            "description": "Bad Request"
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
           }
         },
         "summary": "Create Wallet",
@@ -2796,8 +2944,11 @@
           "200": {
             "description": "OK"
           },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
           "404": {
-            "description": "Not Found"
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Delete Wallet By Id",
@@ -2835,8 +2986,11 @@
             },
             "description": "OK"
           },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
           "404": {
-            "description": "Not Found"
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Retrieve Wallet By Id",
@@ -2892,10 +3046,13 @@
             "description": "OK"
           },
           "400": {
-            "description": "Bad Request"
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
           },
           "404": {
-            "description": "Not Found"
+            "$ref": "#/components/responses/400"
           }
         },
         "summary": "Update Wallet By Id",
@@ -2969,8 +3126,11 @@
             },
             "description": "OK"
           },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
           "404": {
-            "description": "Not Found"
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "List Webhooks",
@@ -3033,6 +3193,12 @@
               }
             },
             "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
           }
         },
         "summary": "Create Webhook",
@@ -3056,8 +3222,11 @@
           "200": {
             "description": "OK"
           },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
           "404": {
-            "description": "Not Found"
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Delete Webhook By Id",
@@ -3085,8 +3254,11 @@
             },
             "description": "OK"
           },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
           "404": {
-            "description": "Not Found"
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Retrieve Webhook By Id",
@@ -3148,7 +3320,13 @@
             "description": "OK"
           },
           "400": {
-            "description": "Bad Request"
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
         "summary": "Update Webhook By Id",

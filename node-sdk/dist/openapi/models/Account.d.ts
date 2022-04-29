@@ -1,17 +1,17 @@
 import { AccountAllOfBranding } from './AccountAllOfBranding';
 import { PayoutWallet } from './PayoutWallet';
 export declare class Account {
-    'id': string;
     'created': Date;
-    'test': boolean;
+    'id': string;
     'object': string;
-    'parent_account'?: string | Account;
-    'name': string;
+    'test': boolean;
     'branding'?: AccountAllOfBranding;
-    'invoice_prefix'?: string;
     'connected_accounts'?: Array<string> | Array<Account>;
-    'platform_account': boolean;
     'eth_wallet'?: PayoutWallet;
+    'invoice_prefix'?: string;
+    'name': string;
+    'parent_account'?: string | Account;
+    'platform_account': boolean;
     'sol_wallet'?: PayoutWallet;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

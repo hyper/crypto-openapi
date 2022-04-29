@@ -75,6 +75,12 @@ class LogsApiResponseProcessor {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ListLogsResponse", "");
                 return body;
             }
+            if (util_1.isCodeInRange("401", response.httpStatusCode)) {
+                throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+            }
+            if (util_1.isCodeInRange("404", response.httpStatusCode)) {
+                throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);
+            }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ListLogsResponse", "");
                 return body;
@@ -88,6 +94,12 @@ class LogsApiResponseProcessor {
             if (util_1.isCodeInRange("200", response.httpStatusCode)) {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Log", "");
                 return body;
+            }
+            if (util_1.isCodeInRange("401", response.httpStatusCode)) {
+                throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+            }
+            if (util_1.isCodeInRange("404", response.httpStatusCode)) {
+                throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Log", "");

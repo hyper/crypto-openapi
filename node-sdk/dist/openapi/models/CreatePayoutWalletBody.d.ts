@@ -1,7 +1,7 @@
 export declare class CreatePayoutWalletBody {
     'account': string;
-    'chain': string;
     'address': string;
+    'chain': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

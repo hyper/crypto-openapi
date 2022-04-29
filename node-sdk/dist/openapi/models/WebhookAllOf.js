@@ -18,6 +18,12 @@ WebhookAllOf.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "created",
+        "baseName": "created",
+        "type": "Date",
+        "format": "date-time"
+    },
+    {
         "name": "endpoint_url",
         "baseName": "endpoint_url",
         "type": "string",
@@ -34,12 +40,6 @@ WebhookAllOf.attributeTypeMap = [
         "baseName": "secret",
         "type": "string",
         "format": ""
-    },
-    {
-        "name": "created",
-        "baseName": "created",
-        "type": "Date",
-        "format": "date-time"
     }
 ];
 //# sourceMappingURL=WebhookAllOf.js.map

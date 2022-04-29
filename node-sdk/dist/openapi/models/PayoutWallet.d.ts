@@ -1,9 +1,9 @@
 import { Account } from './Account';
 export declare class PayoutWallet {
-    'id': string;
     'created': Date;
-    'test': boolean;
+    'id': string;
     'object': string;
+    'test': boolean;
     'account': string | Account;
     'address': string;
     'admin': boolean;

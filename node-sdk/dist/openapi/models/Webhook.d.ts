@@ -1,9 +1,9 @@
 import { Account } from './Account';
 export declare class Webhook {
-    'id': string;
     'created': Date;
-    'test': boolean;
+    'id': string;
     'object': string;
+    'test': boolean;
     'account': string | Account;
     'endpoint_url': string;
     'event_types': Array<string>;
