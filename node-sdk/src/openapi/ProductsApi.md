@@ -85,8 +85,8 @@ const apiInstance = new .ProductsApi(configuration);
 let body:.ProductsApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // ProductData (optional)
-  product_data: {
+  // CreateProductBody (optional)
+  create_product_body: {
     amount: 3.14,
     chain: "chain_example",
     currency: "currency_example",
@@ -104,7 +104,7 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product_data** | **ProductData**|  |
+ **create_product_body** | **CreateProductBody**|  |
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
@@ -274,8 +274,8 @@ let body:.ProductsApiUpdateRequest = {
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // InlineObject2 (optional)
-  inline_object2: {
+  // UpdateProductBody (optional)
+  update_product_body: {
     amount: 1,
     base_currency: "base_currency_example",
     chain: "chain_example",
@@ -294,7 +294,7 @@ apiInstance.update(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object2** | **InlineObject2**|  |
+ **update_product_body** | **UpdateProductBody**|  |
  **id** | [**string**] |  | defaults to undefined
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 

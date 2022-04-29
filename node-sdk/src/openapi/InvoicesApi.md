@@ -28,8 +28,8 @@ const apiInstance = new .InvoicesApi(configuration);
 let body:.InvoicesApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // InvoiceData (optional)
-  invoice_data: {
+  // CreateInvoiceBody (optional)
+  create_invoice_body: {
     account: "account_example",
     amount: 3.14,
     chain: "chain_example",
@@ -53,7 +53,7 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoice_data** | **InvoiceData**|  |
+ **create_invoice_body** | **CreateInvoiceBody**|  |
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
@@ -67,7 +67,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/xml
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -282,8 +282,8 @@ let body:.InvoicesApiUpdateRequest = {
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // InlineObject1 (optional)
-  inline_object1: {
+  // UpdateInvoiceBody (optional)
+  update_invoice_body: {
     amount: 1,
     chain: "chain_example",
     currency: "currency_example",
@@ -302,7 +302,7 @@ apiInstance.update(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object1** | **InlineObject1**|  |
+ **update_invoice_body** | **UpdateInvoiceBody**|  |
  **id** | [**string**] |  | defaults to undefined
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 

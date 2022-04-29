@@ -1,8 +1,8 @@
 export declare class Log {
-    'created': Date;
     'id': string;
-    'object': string;
+    'created': Date;
     'test': boolean;
+    'object': string;
     'api_key': string;
     'body'?: any;
     'headers'?: any;
@@ -10,8 +10,8 @@ export declare class Log {
     'method': LogMethodEnum;
     'origin'?: string;
     'query': any;
-    'success': boolean;
     'url': string;
+    'success': boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

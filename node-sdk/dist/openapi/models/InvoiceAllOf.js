@@ -48,21 +48,9 @@ InvoiceAllOf.attributeTypeMap = [
         "format": "date-time"
     },
     {
-        "name": "fees",
-        "baseName": "fees",
-        "type": "Array<Fee>",
-        "format": ""
-    },
-    {
         "name": "number",
         "baseName": "number",
         "type": "string",
-        "format": ""
-    },
-    {
-        "name": "payments",
-        "baseName": "payments",
-        "type": "Array<Payment>",
         "format": ""
     },
     {
@@ -84,15 +72,27 @@ InvoiceAllOf.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "wallet",
+        "baseName": "wallet",
+        "type": "string | Wallet",
+        "format": ""
+    },
+    {
+        "name": "fees",
+        "baseName": "fees",
+        "type": "Array<Fee>",
+        "format": ""
+    },
+    {
         "name": "transfers",
         "baseName": "transfers",
         "type": "Array<Transfer>",
         "format": ""
     },
     {
-        "name": "wallet",
-        "baseName": "wallet",
-        "type": "string | Wallet",
+        "name": "payments",
+        "baseName": "payments",
+        "type": "Array<Payment>",
         "format": ""
     }
 ];

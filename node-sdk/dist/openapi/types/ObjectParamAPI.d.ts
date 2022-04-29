@@ -1,21 +1,21 @@
 import { Configuration } from '../configuration';
+import { CreateCustomerBody } from '../models/CreateCustomerBody';
+import { CreateFeeBody } from '../models/CreateFeeBody';
+import { CreateInvoiceBody } from '../models/CreateInvoiceBody';
+import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
+import { CreateProductBody } from '../models/CreateProductBody';
+import { CreateTransferBody } from '../models/CreateTransferBody';
+import { CreateWalletBody } from '../models/CreateWalletBody';
+import { CreateWebhookBody } from '../models/CreateWebhookBody';
 import { Customer } from '../models/Customer';
-import { CustomerData } from '../models/CustomerData';
-import { Data } from '../models/Data';
 import { Fee } from '../models/Fee';
-import { FeeData } from '../models/FeeData';
-import { InlineObject } from '../models/InlineObject';
-import { InlineObject1 } from '../models/InlineObject1';
-import { InlineObject2 } from '../models/InlineObject2';
-import { InlineObject3 } from '../models/InlineObject3';
-import { InlineObject4 } from '../models/InlineObject4';
 import { Invoice } from '../models/Invoice';
-import { InvoiceData } from '../models/InvoiceData';
 import { ListCustomersResponse } from '../models/ListCustomersResponse';
 import { ListFeesResponse } from '../models/ListFeesResponse';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
 import { ListLogsResponse } from '../models/ListLogsResponse';
 import { ListPaymentsResponse } from '../models/ListPaymentsResponse';
+import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
 import { ListProductsResponse } from '../models/ListProductsResponse';
 import { ListTransfersResponse } from '../models/ListTransfersResponse';
 import { ListWalletsResponse } from '../models/ListWalletsResponse';
@@ -23,19 +23,20 @@ import { ListWebhooksResponse } from '../models/ListWebhooksResponse';
 import { Log } from '../models/Log';
 import { Payment } from '../models/Payment';
 import { PayoutWallet } from '../models/PayoutWallet';
-import { PayoutWalletData } from '../models/PayoutWalletData';
 import { Product } from '../models/Product';
-import { ProductData } from '../models/ProductData';
 import { Transfer } from '../models/Transfer';
-import { TransferData } from '../models/TransferData';
+import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
+import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
+import { UpdatePayoutWalletBody } from '../models/UpdatePayoutWalletBody';
+import { UpdateProductBody } from '../models/UpdateProductBody';
+import { UpdateWalletBody } from '../models/UpdateWalletBody';
+import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
 import { Wallet } from '../models/Wallet';
-import { WalletData } from '../models/WalletData';
 import { Webhook } from '../models/Webhook';
-import { WebhookData } from '../models/WebhookData';
 import { CustomersApiRequestFactory, CustomersApiResponseProcessor } from "../apis/CustomersApi";
 export interface CustomersApiCreateRequest {
     prism_account?: string;
-    customer_data?: CustomerData;
+    create_customer_body?: CreateCustomerBody;
 }
 export interface CustomersApiListRequest {
     limit?: number;
@@ -52,7 +53,7 @@ export interface CustomersApiRetrieveRequest {
 export interface CustomersApiUpdateRequest {
     id: string;
     prism_account?: string;
-    inline_object?: InlineObject;
+    update_customer_body?: UpdateCustomerBody;
 }
 export declare class ObjectCustomersApi {
     private api;
@@ -69,7 +70,7 @@ export interface FeesApiDeleteRequest {
 }
 export interface FeesApiCreateRequest {
     prism_account?: string;
-    fee_data?: FeeData;
+    create_fee_body?: CreateFeeBody;
 }
 export interface FeesApiListRequest {
     limit?: number;
@@ -94,7 +95,7 @@ export declare class ObjectFeesApi {
 import { InvoicesApiRequestFactory, InvoicesApiResponseProcessor } from "../apis/InvoicesApi";
 export interface InvoicesApiCreateRequest {
     prism_account?: string;
-    invoice_data?: InvoiceData;
+    create_invoice_body?: CreateInvoiceBody;
 }
 export interface InvoicesApiListRequest {
     limit?: number;
@@ -116,7 +117,7 @@ export interface InvoicesApiRetrieveRequest {
 export interface InvoicesApiUpdateRequest {
     id: string;
     prism_account?: string;
-    inline_object1?: InlineObject1;
+    update_invoice_body?: UpdateInvoiceBody;
 }
 export declare class ObjectInvoicesApi {
     private api;
@@ -172,7 +173,7 @@ export interface PayoutWalletsApiDeleteRequest {
 }
 export interface PayoutWalletsApiCreateRequest {
     prism_account?: string;
-    payout_wallet_data?: PayoutWalletData;
+    create_payout_wallet_body?: CreatePayoutWalletBody;
 }
 export interface PayoutWalletsApiListRequest {
     prism_account?: string;
@@ -180,7 +181,6 @@ export interface PayoutWalletsApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
-    data?: Data;
 }
 export interface PayoutWalletsApiRetrieveRequest {
     id: string;
@@ -190,14 +190,14 @@ export interface PayoutWalletsApiRetrieveRequest {
 export interface PayoutWalletsApiUpdateRequest {
     id: string;
     prism_account?: string;
-    body?: any;
+    update_payout_wallet_body?: UpdatePayoutWalletBody;
 }
 export declare class ObjectPayoutWalletsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: PayoutWalletsApiRequestFactory, responseProcessor?: PayoutWalletsApiResponseProcessor);
     _delete(param: PayoutWalletsApiDeleteRequest, options?: Configuration): Promise<void>;
     create(param?: PayoutWalletsApiCreateRequest, options?: Configuration): Promise<PayoutWallet>;
-    list(param?: PayoutWalletsApiListRequest, options?: Configuration): Promise<void>;
+    list(param?: PayoutWalletsApiListRequest, options?: Configuration): Promise<ListPayoutWalletsResponse>;
     retrieve(param: PayoutWalletsApiRetrieveRequest, options?: Configuration): Promise<PayoutWallet>;
     update(param: PayoutWalletsApiUpdateRequest, options?: Configuration): Promise<PayoutWallet>;
 }
@@ -208,7 +208,7 @@ export interface ProductsApiDeleteRequest {
 }
 export interface ProductsApiCreateRequest {
     prism_account?: string;
-    product_data?: ProductData;
+    create_product_body?: CreateProductBody;
 }
 export interface ProductsApiListRequest {
     limit?: number;
@@ -225,7 +225,7 @@ export interface ProductsApiRetrieveRequest {
 export interface ProductsApiUpdateRequest {
     id: string;
     prism_account?: string;
-    inline_object2?: InlineObject2;
+    update_product_body?: UpdateProductBody;
 }
 export declare class ObjectProductsApi {
     private api;
@@ -239,7 +239,7 @@ export declare class ObjectProductsApi {
 import { TransfersApiRequestFactory, TransfersApiResponseProcessor } from "../apis/TransfersApi";
 export interface TransfersApiCreateRequest {
     prism_account?: string;
-    transfer_data?: TransferData;
+    create_transfer_body?: CreateTransferBody;
 }
 export interface TransfersApiListRequest {
     limit?: number;
@@ -256,7 +256,7 @@ export interface TransfersApiRetrieveRequest {
 export declare class ObjectTransfersApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: TransfersApiRequestFactory, responseProcessor?: TransfersApiResponseProcessor);
-    create(param?: TransfersApiCreateRequest, options?: Configuration): Promise<void>;
+    create(param?: TransfersApiCreateRequest, options?: Configuration): Promise<Transfer>;
     list(param?: TransfersApiListRequest, options?: Configuration): Promise<ListTransfersResponse>;
     retrieve(param: TransfersApiRetrieveRequest, options?: Configuration): Promise<Transfer>;
 }
@@ -268,7 +268,7 @@ export interface WalletsApiDeleteRequest {
 }
 export interface WalletsApiCreateRequest {
     prism_account?: string;
-    wallet_data?: WalletData;
+    create_wallet_body?: CreateWalletBody;
 }
 export interface WalletsApiListRequest {
     limit?: number;
@@ -285,7 +285,7 @@ export interface WalletsApiRetrieveRequest {
 export interface WalletsApiUpdateRequest {
     id: string;
     prism_account?: string;
-    inline_object3?: InlineObject3;
+    update_wallet_body?: UpdateWalletBody;
 }
 export declare class ObjectWalletsApi {
     private api;
@@ -303,7 +303,7 @@ export interface WebhooksApiDeleteRequest {
 }
 export interface WebhooksApiCreateRequest {
     prism_account?: string;
-    webhook_data?: WebhookData;
+    create_webhook_body?: CreateWebhookBody;
 }
 export interface WebhooksApiListRequest {
     limit?: number;
@@ -320,7 +320,7 @@ export interface WebhooksApiRetrieveRequest {
 export interface WebhooksApiUpdateRequest {
     id: string;
     prism_account?: string;
-    inline_object4?: InlineObject4;
+    update_webhook_body?: UpdateWebhookBody;
 }
 export declare class ObjectWebhooksApi {
     private api;

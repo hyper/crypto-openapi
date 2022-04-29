@@ -12,15 +12,21 @@ exports.Wallet = Wallet;
 Wallet.discriminator = undefined;
 Wallet.attributeTypeMap = [
     {
+        "name": "id",
+        "baseName": "id",
+        "type": "string",
+        "format": ""
+    },
+    {
         "name": "created",
         "baseName": "created",
         "type": "Date",
         "format": "date-time"
     },
     {
-        "name": "id",
-        "baseName": "id",
-        "type": "string",
+        "name": "test",
+        "baseName": "test",
+        "type": "boolean",
         "format": ""
     },
     {
@@ -30,15 +36,15 @@ Wallet.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "test",
-        "baseName": "test",
-        "type": "boolean",
-        "format": ""
-    },
-    {
         "name": "account",
         "baseName": "account",
         "type": "string | Account",
+        "format": ""
+    },
+    {
+        "name": "chain",
+        "baseName": "chain",
+        "type": "WalletChainEnum",
         "format": ""
     },
     {
@@ -51,12 +57,6 @@ Wallet.attributeTypeMap = [
         "name": "admin",
         "baseName": "admin",
         "type": "boolean",
-        "format": ""
-    },
-    {
-        "name": "chain",
-        "baseName": "chain",
-        "type": "WalletChainEnum",
         "format": ""
     },
     {

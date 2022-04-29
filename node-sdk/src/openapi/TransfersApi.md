@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **create**
-> void create()
+> Transfer create()
 
 
 ### Example
@@ -26,14 +26,14 @@ const apiInstance = new .TransfersApi(configuration);
 let body:.TransfersApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // TransferData (optional)
-  transfer_data: {
+  // CreateTransferBody (optional)
+  create_transfer_body: {
     account: "account_example",
-    amount: "amount_example",
-    description: "description_example",
     invoice: "invoice_example",
-    percent: 1,
     wallet: "wallet_example",
+    percent: 1,
+    description: "description_example",
+    amount: "amount_example",
   },
 };
 
@@ -47,13 +47,13 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **transfer_data** | **TransferData**|  |
+ **create_transfer_body** | **CreateTransferBody**|  |
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
 
-**void**
+**Transfer**
 
 ### Authorization
 
@@ -62,7 +62,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details

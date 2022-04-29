@@ -8,9 +8,9 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
+import { CreateTransferBody } from '../models/CreateTransferBody';
 import { ListTransfersResponse } from '../models/ListTransfersResponse';
 import { Transfer } from '../models/Transfer';
-import { TransferData } from '../models/TransferData';
 
 /**
  * no description
@@ -20,9 +20,9 @@ export class TransfersApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Create Transfer
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param transfer_data 
+     * @param create_transfer_body 
      */
-    public async create(prism_account?: string, transfer_data?: TransferData, _options?: Configuration): Promise<RequestContext> {
+    public async create(prism_account?: string, create_transfer_body?: CreateTransferBody, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -44,7 +44,7 @@ export class TransfersApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(transfer_data, "TransferData", ""),
+            ObjectSerializer.serialize(create_transfer_body, "CreateTransferBody", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -168,10 +168,14 @@ export class TransfersApiResponseProcessor {
      * @params response Response returned by the server for a request to create
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async create(response: ResponseContext): Promise<void > {
+     public async create(response: ResponseContext): Promise<Transfer > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            return;
+            const body: Transfer = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "Transfer", ""
+            ) as Transfer;
+            return body;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -179,10 +183,10 @@ export class TransfersApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void = ObjectSerializer.deserialize(
+            const body: Transfer = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "void", ""
-            ) as void;
+                "Transfer", ""
+            ) as Transfer;
             return body;
         }
 

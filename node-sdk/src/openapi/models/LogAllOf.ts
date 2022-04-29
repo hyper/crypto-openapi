@@ -21,8 +21,8 @@ export class LogAllOf {
     'method': LogAllOfMethodEnum;
     'origin'?: string;
     'query': any;
-    'success': boolean;
     'url': string;
+    'success': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -76,15 +76,15 @@ export class LogAllOf {
             "format": ""
         },
         {
-            "name": "success",
-            "baseName": "success",
-            "type": "boolean",
-            "format": ""
-        },
-        {
             "name": "url",
             "baseName": "url",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "success",
+            "baseName": "success",
+            "type": "boolean",
             "format": ""
         }    ];
 

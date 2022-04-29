@@ -16,7 +16,7 @@ const ObjectSerializer_1 = require("../models/ObjectSerializer");
 const exception_1 = require("./exception");
 const util_1 = require("../util");
 class CustomersApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
-    create(prism_account, customer_data, _options) {
+    create(prism_account, create_customer_body, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -28,7 +28,7 @@ class CustomersApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
                 "application/json"
             ]);
             requestContext.setHeaderParam("Content-Type", contentType);
-            const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(customer_data, "CustomerData", ""), contentType);
+            const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(create_customer_body, "CreateCustomerBody", ""), contentType);
             requestContext.setBody(serializedBody);
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
@@ -86,7 +86,7 @@ class CustomersApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    update(id, prism_account, inline_object, _options) {
+    update(id, prism_account, update_customer_body, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -102,7 +102,7 @@ class CustomersApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
                 "application/json"
             ]);
             requestContext.setHeaderParam("Content-Type", contentType);
-            const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(inline_object, "InlineObject", ""), contentType);
+            const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(update_customer_body, "UpdateCustomerBody", ""), contentType);
             requestContext.setBody(serializedBody);
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {

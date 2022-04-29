@@ -27,8 +27,8 @@ const apiInstance = new .CustomersApi(configuration);
 let body:.CustomersApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // CustomerData (optional)
-  customer_data: {
+  // CreateCustomerBody (optional)
+  create_customer_body: {
     account: "account_example",
     billing_details: {
       address: {
@@ -56,7 +56,7 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_data** | **CustomerData**|  |
+ **create_customer_body** | **CreateCustomerBody**|  |
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
@@ -227,8 +227,8 @@ let body:.CustomersApiUpdateRequest = {
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // InlineObject (optional)
-  inline_object: {
+  // UpdateCustomerBody (optional)
+  update_customer_body: {
     billing_details: {
       address: {
         city: "city_example",
@@ -255,7 +255,7 @@ apiInstance.update(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object** | **InlineObject**|  |
+ **update_customer_body** | **UpdateCustomerBody**|  |
  **id** | [**string**] |  | defaults to undefined
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 

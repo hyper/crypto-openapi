@@ -88,8 +88,8 @@ const apiInstance = new .WalletsApi(configuration);
 let body:.WalletsApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // WalletData (optional)
-  wallet_data: {
+  // CreateWalletBody (optional)
+  create_wallet_body: {
     account: "account_example",
     address: "address_example",
     chain: "chain_example",
@@ -107,7 +107,7 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wallet_data** | **WalletData**|  |
+ **create_wallet_body** | **CreateWalletBody**|  |
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
@@ -278,8 +278,8 @@ let body:.WalletsApiUpdateRequest = {
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // InlineObject3 (optional)
-  inline_object3: {
+  // UpdateWalletBody (optional)
+  update_wallet_body: {
     chain: "chain_example",
   },
 };
@@ -294,7 +294,7 @@ apiInstance.update(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object3** | **InlineObject3**|  |
+ **update_wallet_body** | **UpdateWalletBody**|  |
  **id** | [**string**] |  | defaults to undefined
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 

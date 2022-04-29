@@ -44,7 +44,7 @@ class Prism {
             authMethods: {
                 default: {
                     getName: () => 'ApiKey',
-                    applySecurityAuthentication: (context) => context.setHeaderParam('Authorization', 'Bearer ' + token),
+                    applySecurityAuthentication: (context) => context.setHeaderParam('Authorization', `Bearer ${token}`),
                 },
             },
         });
@@ -53,7 +53,9 @@ class Prism {
         this.invoices = new InvoicesApiLayer(config);
         this.logs = new LogsApiLayer(config);
         this.payments = new PaymentsApiLayer(config);
+        this.payoutWallets = new PayoutWalletsApiLayer(config);
         this.products = new ProductsApiLayer(config);
+        this.transfers = new TransfersApiLayer(config);
         this.wallets = new WalletsApiLayer(config);
         this.webhooks = new WebhooksApiLayer(config);
     }
@@ -63,9 +65,9 @@ class CustomersApiLayer {
     constructor(config) {
         this.api = new index_1.CustomersApi(config);
     }
-    create(customerData, options) {
+    create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { customer_data: customerData }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_customer_body: data }));
         });
     }
     retrieve(id, params, options) {
@@ -88,9 +90,9 @@ class FeesApiLayer {
     constructor(config) {
         this.api = new index_1.FeesApi(config);
     }
-    create(feeData, options) {
+    create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { fee_data: feeData }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_fee_body: data }));
         });
     }
     retrieve(id, params, options) {
@@ -108,9 +110,9 @@ class InvoicesApiLayer {
     constructor(config) {
         this.api = new index_1.InvoicesApi(config);
     }
-    create(invoiceData, options) {
+    create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { invoice_data: invoiceData }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_invoice_body: data }));
         });
     }
     retrieve(id, params, options) {
@@ -126,6 +128,11 @@ class InvoicesApiLayer {
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+        });
+    }
+    poll(id, params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.poll(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
         });
     }
 }
@@ -163,9 +170,9 @@ class ProductsApiLayer {
     constructor(config) {
         this.api = new index_1.ProductsApi(config);
     }
-    create(productData, options) {
+    create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { product_data: productData }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_product_body: data }));
         });
     }
     retrieve(id, params, options) {
@@ -184,13 +191,58 @@ class ProductsApiLayer {
         });
     }
 }
+class PayoutWalletsApiLayer {
+    constructor(config) {
+        this.api = new index_1.PayoutWalletsApi(config);
+    }
+    create(data, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_payout_wallet_body: data }));
+        });
+    }
+    retrieve(id, params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+        });
+    }
+    update(id, data, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), data));
+        });
+    }
+    list(params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+        });
+    }
+}
+class TransfersApiLayer {
+    constructor(config) {
+        this.api = new index_1.TransfersApi(config);
+    }
+    create(data, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_transfer_body: data }));
+        });
+    }
+    retrieve(id, params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+        });
+    }
+    list(params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+        });
+    }
+}
 class WalletsApiLayer {
     constructor(config) {
         this.api = new index_1.WalletsApi(config);
     }
-    create(walletData, options) {
+    create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { wallet_data: walletData }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_wallet_body: data }));
         });
     }
     retrieve(id, params, options) {
@@ -213,9 +265,9 @@ class WebhooksApiLayer {
     constructor(config) {
         this.api = new index_1.WebhooksApi(config);
     }
-    create(webhookData, options) {
+    create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { webhook_data: webhookData }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_webhook_body: data }));
         });
     }
     retrieve(id, params, options) {

@@ -1052,7 +1052,7 @@
                   }
                 },
                 "required": ["account"],
-                "title": "CustomerData",
+                "title": "CreateCustomerBody",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -1201,6 +1201,7 @@
                     "type": "string"
                   }
                 },
+                "title": "UpdateCustomerBody",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -1376,7 +1377,7 @@
                   }
                 },
                 "required": ["invoice", "wallet", "percent"],
-                "title": "FeeData",
+                "title": "CreateFeeBody",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -1652,7 +1653,7 @@
                   "transaction",
                   "wallet"
                 ],
-                "title": "InvoiceData",
+                "title": "CreateInvoiceBody",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -1669,12 +1670,6 @@
                     "wallet": "wal_6H6IKtkbVu3yNMdPYtEXe"
                   }
                 }
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "properties": {},
-                "type": "object"
               }
             }
           }
@@ -1780,6 +1775,7 @@
                     "type": "string"
                   }
                 },
+                "title": "UpdateInvoiceBody",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -2230,35 +2226,36 @@
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "examples": {},
-              "schema": {
-                "properties": {
-                  "data": {
-                    "items": {
-                      "$ref": "#/components/schemas/PayoutWallet"
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/PayoutWallet"
+                      },
+                      "type": "array"
                     },
-                    "type": "array"
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
                   },
-                  "has_more": {
-                    "type": "boolean"
-                  },
-                  "page": {
-                    "type": "number"
-                  },
-                  "total": {
-                    "type": "number"
-                  }
-                },
-                "title": "Data",
-                "type": "object"
+                  "title": "ListPayoutWalletsResponse",
+                  "type": "object"
+                }
               }
-            }
+            },
+            "description": "OK"
           }
         },
-        "responses": {},
         "summary": "List Payout Wallets",
         "tags": ["PayoutWallets"]
       },
@@ -2291,7 +2288,7 @@
                   }
                 },
                 "required": ["account", "chain", "address"],
-                "title": "PayoutWalletData",
+                "title": "CreatePayoutWalletBody",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -2411,23 +2408,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "properties": {},
-                "type": "object"
-              }
-            },
-            "application/xml": {
-              "schema": {
                 "properties": {
                   "chain": {
                     "type": "string"
                   }
                 },
-                "type": "object",
-                "x-examples": {
-                  "example-1": {
-                    "chain": "e"
-                  }
-                }
+                "title": "UpdatePayoutWalletBody",
+                "type": "object"
               }
             }
           }
@@ -2583,7 +2570,7 @@
                   }
                 },
                 "required": ["name", "amount", "chain", "currency"],
-                "title": "ProductData",
+                "title": "CreateProductBody",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -2722,6 +2709,7 @@
                     "type": "string"
                   }
                 },
+                "title": "UpdateProductBody",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -2872,7 +2860,7 @@
                   }
                 },
                 "required": ["account", "invoice", "wallet"],
-                "title": "TransferData",
+                "title": "CreateTransferBody",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -2891,6 +2879,13 @@
         },
         "responses": {
           "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transfer"
+                }
+              }
+            },
             "description": "OK"
           },
           "400": {
@@ -3083,7 +3078,7 @@
                   }
                 },
                 "required": ["account", "chain", "address", "customer"],
-                "title": "WalletData",
+                "title": "CreateWalletBody",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -3228,6 +3223,7 @@
                     "type": "string"
                   }
                 },
+                "title": "UpdateWalletBody",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -3396,7 +3392,7 @@
                   }
                 },
                 "required": ["account", "endpoint_url", "event_types"],
-                "title": "WebhookData",
+                "title": "CreateWebhookBody",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -3527,6 +3523,7 @@
                     "type": "array"
                   }
                 },
+                "title": "UpdateWebhookBody",
                 "type": "object",
                 "x-examples": {
                   "example-1": {

@@ -85,8 +85,8 @@ const apiInstance = new .WebhooksApi(configuration);
 let body:.WebhooksApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // WebhookData (optional)
-  webhook_data: {
+  // CreateWebhookBody (optional)
+  create_webhook_body: {
     account: "account_example",
     endpoint_url: "endpoint_url_example",
     event_types: [
@@ -106,7 +106,7 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhook_data** | **WebhookData**|  |
+ **create_webhook_body** | **CreateWebhookBody**|  |
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
@@ -276,8 +276,8 @@ let body:.WebhooksApiUpdateRequest = {
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // InlineObject4 (optional)
-  inline_object4: {
+  // UpdateWebhookBody (optional)
+  update_webhook_body: {
     endpoint_url: "endpoint_url_example",
     event_types: [
       "event_types_example",
@@ -295,7 +295,7 @@ apiInstance.update(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object4** | **InlineObject4**|  |
+ **update_webhook_body** | **UpdateWebhookBody**|  |
  **id** | [**string**] |  | defaults to undefined
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 

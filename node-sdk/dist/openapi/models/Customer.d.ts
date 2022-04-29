@@ -2,10 +2,10 @@ import { Account } from './Account';
 import { CustomersIdBillingDetails } from './CustomersIdBillingDetails';
 import { Wallet } from './Wallet';
 export declare class Customer {
-    'created': Date;
     'id': string;
-    'object': string;
+    'created': Date;
     'test': boolean;
+    'object': string;
     'account'?: string | Account;
     'billing_details'?: CustomersIdBillingDetails;
     'email'?: string;

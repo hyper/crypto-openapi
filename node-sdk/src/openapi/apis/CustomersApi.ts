@@ -8,10 +8,10 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
+import { CreateCustomerBody } from '../models/CreateCustomerBody';
 import { Customer } from '../models/Customer';
-import { CustomerData } from '../models/CustomerData';
-import { InlineObject } from '../models/InlineObject';
 import { ListCustomersResponse } from '../models/ListCustomersResponse';
+import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 
 /**
  * no description
@@ -21,9 +21,9 @@ export class CustomersApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Create Customer
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param customer_data 
+     * @param create_customer_body 
      */
-    public async create(prism_account?: string, customer_data?: CustomerData, _options?: Configuration): Promise<RequestContext> {
+    public async create(prism_account?: string, create_customer_body?: CreateCustomerBody, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -45,7 +45,7 @@ export class CustomersApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(customer_data, "CustomerData", ""),
+            ObjectSerializer.serialize(create_customer_body, "CreateCustomerBody", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -162,9 +162,9 @@ export class CustomersApiRequestFactory extends BaseAPIRequestFactory {
      * Update Customer By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object 
+     * @param update_customer_body 
      */
-    public async update(id: string, prism_account?: string, inline_object?: InlineObject, _options?: Configuration): Promise<RequestContext> {
+    public async update(id: string, prism_account?: string, update_customer_body?: UpdateCustomerBody, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -193,7 +193,7 @@ export class CustomersApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(inline_object, "InlineObject", ""),
+            ObjectSerializer.serialize(update_customer_body, "UpdateCustomerBody", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

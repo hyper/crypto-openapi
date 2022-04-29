@@ -84,8 +84,8 @@ const apiInstance = new .FeesApi(configuration);
 let body:.FeesApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // FeeData (optional)
-  fee_data: {
+  // CreateFeeBody (optional)
+  create_fee_body: {
     description: "description_example",
     invoice: "invoice_example",
     percent: 3.14,
@@ -103,7 +103,7 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fee_data** | **FeeData**|  |
+ **create_fee_body** | **CreateFeeBody**|  |
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 

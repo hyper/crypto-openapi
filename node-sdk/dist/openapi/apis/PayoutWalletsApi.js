@@ -35,7 +35,7 @@ class PayoutWalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    create(prism_account, payout_wallet_data, _options) {
+    create(prism_account, create_payout_wallet_body, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -47,7 +47,7 @@ class PayoutWalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
                 "application/json"
             ]);
             requestContext.setHeaderParam("Content-Type", contentType);
-            const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(payout_wallet_data, "PayoutWalletData", ""), contentType);
+            const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(create_payout_wallet_body, "CreatePayoutWalletBody", ""), contentType);
             requestContext.setBody(serializedBody);
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
@@ -56,7 +56,7 @@ class PayoutWalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    list(prism_account, limit, page, sort, expand, data, _options) {
+    list(prism_account, limit, page, sort, expand, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -76,12 +76,6 @@ class PayoutWalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
                 requestContext.setQueryParam("expand", ObjectSerializer_1.ObjectSerializer.serialize(expand, "string", ""));
             }
             requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
-            const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
-                "application/json"
-            ]);
-            requestContext.setHeaderParam("Content-Type", contentType);
-            const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(data, "Data", ""), contentType);
-            requestContext.setBody(serializedBody);
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
                 yield (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
@@ -111,7 +105,7 @@ class PayoutWalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    update(id, prism_account, body, _options) {
+    update(id, prism_account, update_payout_wallet_body, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -124,11 +118,10 @@ class PayoutWalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
             requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
             const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
-                "application/json",
-                "application/xml"
+                "application/json"
             ]);
             requestContext.setHeaderParam("Content-Type", contentType);
-            const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(body, "any", ""), contentType);
+            const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(update_payout_wallet_body, "UpdatePayoutWalletBody", ""), contentType);
             requestContext.setBody(serializedBody);
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
@@ -176,8 +169,13 @@ class PayoutWalletsApiResponseProcessor {
     list(response) {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ListPayoutWalletsResponse", "");
+                return body;
+            }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-                return;
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ListPayoutWalletsResponse", "");
+                return body;
             }
             throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);
         });

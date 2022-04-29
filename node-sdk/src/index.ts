@@ -50,13 +50,27 @@ import {
   ListWalletsResponse,
   ListFeesResponse,
   ListPaymentsResponse,
-  InlineObject1,
-  InlineObject,
-  InlineObject2,
-  InlineObject3,
-  InlineObject4,
+  WalletsApiUpdateRequest,
+  WebhooksApiUpdateRequest,
+  CustomersApiUpdateRequest,
+  InvoicesApiUpdateRequest,
+  ProductsApiUpdateRequest,
+  TransfersApi,
+  TransfersApiCreateRequest,
+  Transfer,
+  TransfersApiRetrieveRequest,
+  TransfersApiListRequest,
+  ListTransfersResponse,
+  PayoutWalletsApi,
+  PayoutWalletsApiCreateRequest,
+  PayoutWallet,
+  PayoutWalletsApiRetrieveRequest,
+  PayoutWalletsApiUpdateRequest,
+  PayoutWalletsApiListRequest,
+  InvoicesApiPollRequest,
 } from './openapi/index';
 import convertCasing from './helpers/convertCasing';
+import { ListPayoutWalletsResponse } from './openapi/models/ListPayoutWalletsResponse';
 export * from './openapi/models/all';
 export * from './openapi/apis/exception';
 
@@ -83,7 +97,9 @@ export class Prism {
   public readonly invoices: InvoicesApiLayer;
   public readonly logs: LogsApiLayer;
   public readonly payments: PaymentsApiLayer;
+  public readonly payoutWallets: PayoutWalletsApiLayer;
   public readonly products: ProductsApiLayer;
+  public readonly transfers: TransfersApiLayer;
   public readonly wallets: WalletsApiLayer;
   public readonly webhooks: WebhooksApiLayer;
 
@@ -99,7 +115,7 @@ export class Prism {
         default: {
           getName: () => 'ApiKey',
           applySecurityAuthentication: (context: RequestContext) =>
-            context.setHeaderParam('Authorization', 'Bearer ' + token),
+            context.setHeaderParam('Authorization', `Bearer ${token}`),
         },
       },
     });
@@ -109,7 +125,9 @@ export class Prism {
     this.invoices = new InvoicesApiLayer(config);
     this.logs = new LogsApiLayer(config);
     this.payments = new PaymentsApiLayer(config);
+    this.payoutWallets = new PayoutWalletsApiLayer(config);
     this.products = new ProductsApiLayer(config);
+    this.transfers = new TransfersApiLayer(config);
     this.wallets = new WalletsApiLayer(config);
     this.webhooks = new WebhooksApiLayer(config);
   }
@@ -123,15 +141,15 @@ class CustomersApiLayer {
   }
 
   public async create(
-    customerData: CustomersApiCreateRequest['customer_data'],
+    data: CustomersApiCreateRequest['create_customer_body'],
     options?: { prismAccount: string }
   ): Promise<Customer> {
-    return this.api.create({ ...convertCasing(options), customer_data: customerData });
+    return this.api.create({ ...convertCasing(options), create_customer_body: data });
   }
 
   public async retrieve(
     id: string,
-    params?: Omit<CustomersApiRetrieveRequest, 'prismAccount' | 'id'>,
+    params?: Omit<CustomersApiRetrieveRequest, 'prism_account' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Customer> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
@@ -139,14 +157,14 @@ class CustomersApiLayer {
 
   public async update(
     id: string,
-    data: Omit<InlineObject, 'prismAccount' | 'id'>,
+    data: CustomersApiUpdateRequest['update_customer_body'],
     options?: { prismAccount: string }
   ): Promise<Customer> {
     return this.api.update({ id, ...convertCasing(options), ...data });
   }
 
   public async list(
-    params?: Omit<CustomersApiListRequest, 'prismAccount'>,
+    params?: Omit<CustomersApiListRequest, 'prism_account'>,
     options?: { prismAccount: string }
   ): Promise<ListCustomersResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
@@ -161,22 +179,22 @@ class FeesApiLayer {
   }
 
   public async create(
-    feeData: FeesApiCreateRequest['fee_data'],
+    data: FeesApiCreateRequest['create_fee_body'],
     options?: { prismAccount: string }
   ): Promise<Fee> {
-    return this.api.create({ ...convertCasing(options), fee_data: feeData });
+    return this.api.create({ ...convertCasing(options), create_fee_body: data });
   }
 
   public async retrieve(
     id: string,
-    params?: Omit<FeesApiRetrieveRequest, 'prismAccount' | 'id'>,
+    params?: Omit<FeesApiRetrieveRequest, 'prism_account' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Fee> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
   }
 
   public async list(
-    params?: Omit<FeesApiListRequest, 'prismAccount'>,
+    params?: Omit<FeesApiListRequest, 'prism_account'>,
     options?: { prismAccount: string }
   ): Promise<ListFeesResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
@@ -191,15 +209,15 @@ class InvoicesApiLayer {
   }
 
   public async create(
-    invoiceData: InvoicesApiCreateRequest['invoice_data'],
+    data: InvoicesApiCreateRequest['create_invoice_body'],
     options?: { prismAccount: string }
   ): Promise<Invoice> {
-    return this.api.create({ ...convertCasing(options), invoice_data: invoiceData });
+    return this.api.create({ ...convertCasing(options), create_invoice_body: data });
   }
 
   public async retrieve(
     id: string,
-    params?: Omit<InvoicesApiRetrieveRequest, 'prismAccount' | 'id'>,
+    params?: Omit<InvoicesApiRetrieveRequest, 'prism_account' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Invoice> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
@@ -207,17 +225,25 @@ class InvoicesApiLayer {
 
   public async update(
     id: string,
-    data: Omit<InlineObject1, 'prismAccount' | 'id'>,
+    data: InvoicesApiUpdateRequest['update_invoice_body'],
     options?: { prismAccount: string }
   ): Promise<Invoice> {
     return this.api.update({ id, ...convertCasing(options), ...data });
   }
 
   public async list(
-    params?: Omit<InvoicesApiListRequest, 'prismAccount'>,
+    params?: Omit<InvoicesApiListRequest, 'prism_account'>,
     options?: { prismAccount: string }
   ): Promise<ListInvoicesResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
+  }
+
+  public async poll(
+    id: string,
+    params?: Omit<InvoicesApiPollRequest, 'prism_account' | 'id'>,
+    options?: { prismAccount: string }
+  ): Promise<void> {
+    return this.api.poll({ id, ...convertCasing(options), ...params });
   }
 }
 
@@ -230,14 +256,14 @@ class LogsApiLayer {
 
   public async retrieve(
     id: string,
-    params?: Omit<LogsApiRetrieveRequest, 'prismAccount' | 'id'>,
+    params?: Omit<LogsApiRetrieveRequest, 'prism_account' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Log> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
   }
 
   public async list(
-    params?: Omit<LogsApiListRequest, 'prismAccount'>,
+    params?: Omit<LogsApiListRequest, 'prism_account'>,
     options?: { prismAccount: string }
   ): Promise<ListLogsResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
@@ -253,14 +279,14 @@ class PaymentsApiLayer {
 
   public async retrieve(
     id: string,
-    params?: Omit<PaymentsApiRetrieveRequest, 'prismAccount' | 'id'>,
+    params?: Omit<PaymentsApiRetrieveRequest, 'prism_account' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Payment> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
   }
 
   public async list(
-    params?: Omit<PaymentsApiListRequest, 'prismAccount'>,
+    params?: Omit<PaymentsApiListRequest, 'prism_account'>,
     options?: { prismAccount: string }
   ): Promise<ListPaymentsResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
@@ -275,15 +301,15 @@ class ProductsApiLayer {
   }
 
   public async create(
-    productData: ProductsApiCreateRequest['product_data'],
+    data: ProductsApiCreateRequest['create_product_body'],
     options?: { prismAccount: string }
   ): Promise<Product> {
-    return this.api.create({ ...convertCasing(options), product_data: productData });
+    return this.api.create({ ...convertCasing(options), create_product_body: data });
   }
 
   public async retrieve(
     id: string,
-    params?: Omit<ProductsApiRetrieveRequest, 'prismAccount' | 'id'>,
+    params?: Omit<ProductsApiRetrieveRequest, 'prism_account' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Product> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
@@ -291,16 +317,84 @@ class ProductsApiLayer {
 
   public async update(
     id: string,
-    data: Omit<InlineObject2, 'prismAccount' | 'id'>,
+    data: ProductsApiUpdateRequest['update_product_body'],
     options?: { prismAccount: string }
   ): Promise<Product> {
     return this.api.update({ id, ...convertCasing(options), ...data });
   }
 
   public async list(
-    params?: Omit<ProductsApiListRequest, 'prismAccount'>,
+    params?: Omit<ProductsApiListRequest, 'prism_account'>,
     options?: { prismAccount: string }
   ): Promise<ListProductsResponse> {
+    return this.api.list({ ...convertCasing(options), ...params });
+  }
+}
+
+class PayoutWalletsApiLayer {
+  private readonly api: PayoutWalletsApi;
+
+  constructor(config: Configuration) {
+    this.api = new PayoutWalletsApi(config);
+  }
+
+  public async create(
+    data: PayoutWalletsApiCreateRequest['create_payout_wallet_body'],
+    options?: { prismAccount: string }
+  ): Promise<PayoutWallet> {
+    return this.api.create({ ...convertCasing(options), create_payout_wallet_body: data });
+  }
+
+  public async retrieve(
+    id: string,
+    params?: Omit<PayoutWalletsApiRetrieveRequest, 'prism_account' | 'id'>,
+    options?: { prismAccount: string }
+  ): Promise<PayoutWallet> {
+    return this.api.retrieve({ id, ...convertCasing(options), ...params });
+  }
+
+  public async update(
+    id: string,
+    data: PayoutWalletsApiUpdateRequest['update_payout_wallet_body'],
+    options?: { prismAccount: string }
+  ): Promise<PayoutWallet> {
+    return this.api.update({ id, ...convertCasing(options), ...data });
+  }
+
+  public async list(
+    params?: Omit<PayoutWalletsApiListRequest, 'prism_account'>,
+    options?: { prismAccount: string }
+  ): Promise<ListPayoutWalletsResponse> {
+    return this.api.list({ ...convertCasing(options), ...params });
+  }
+}
+
+class TransfersApiLayer {
+  private readonly api: TransfersApi;
+
+  constructor(config: Configuration) {
+    this.api = new TransfersApi(config);
+  }
+
+  public async create(
+    data: TransfersApiCreateRequest['create_transfer_body'],
+    options?: { prismAccount: string }
+  ): Promise<Transfer> {
+    return this.api.create({ ...convertCasing(options), create_transfer_body: data });
+  }
+
+  public async retrieve(
+    id: string,
+    params?: Omit<TransfersApiRetrieveRequest, 'prism_account' | 'id'>,
+    options?: { prismAccount: string }
+  ): Promise<Transfer> {
+    return this.api.retrieve({ id, ...convertCasing(options), ...params });
+  }
+
+  public async list(
+    params?: Omit<TransfersApiListRequest, 'prism_account'>,
+    options?: { prismAccount: string }
+  ): Promise<ListTransfersResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
 }
@@ -313,15 +407,15 @@ class WalletsApiLayer {
   }
 
   public async create(
-    walletData: WalletsApiCreateRequest['wallet_data'],
+    data: WalletsApiCreateRequest['create_wallet_body'],
     options?: { prismAccount: string }
   ): Promise<Wallet> {
-    return this.api.create({ ...convertCasing(options), wallet_data: walletData });
+    return this.api.create({ ...convertCasing(options), create_wallet_body: data });
   }
 
   public async retrieve(
     id: string,
-    params?: Omit<WalletsApiRetrieveRequest, 'prismAccount' | 'id'>,
+    params?: Omit<WalletsApiRetrieveRequest, 'prism_account' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Wallet> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
@@ -329,14 +423,14 @@ class WalletsApiLayer {
 
   public async update(
     id: string,
-    data: Omit<InlineObject3, 'prismAccount' | 'id'>,
+    data: WalletsApiUpdateRequest['update_wallet_body'],
     options?: { prismAccount: string }
   ): Promise<Wallet> {
     return this.api.update({ id, ...convertCasing(options), ...data });
   }
 
   public async list(
-    params?: Omit<WalletsApiListRequest, 'prismAccount'>,
+    params?: Omit<WalletsApiListRequest, 'prism_account'>,
     options?: { prismAccount: string }
   ): Promise<ListWalletsResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
@@ -351,15 +445,15 @@ class WebhooksApiLayer {
   }
 
   public async create(
-    webhookData: WebhooksApiCreateRequest['webhook_data'],
+    data: WebhooksApiCreateRequest['create_webhook_body'],
     options?: { prismAccount: string }
   ): Promise<Customer> {
-    return this.api.create({ ...convertCasing(options), webhook_data: webhookData });
+    return this.api.create({ ...convertCasing(options), create_webhook_body: data });
   }
 
   public async retrieve(
     id: string,
-    params?: Omit<WebhooksApiRetrieveRequest, 'prismAccount' | 'id'>,
+    params?: Omit<WebhooksApiRetrieveRequest, 'prism_account' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<Customer> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
@@ -367,14 +461,14 @@ class WebhooksApiLayer {
 
   public async update(
     id: string,
-    data: Omit<InlineObject4, 'prismAccount' | 'id'>,
+    data: WebhooksApiUpdateRequest['update_webhook_body'],
     options?: { prismAccount: string }
   ): Promise<Customer> {
     return this.api.update({ id, ...convertCasing(options), ...data });
   }
 
   public async list(
-    params?: Omit<WebhooksApiListRequest, 'prismAccount'>,
+    params?: Omit<WebhooksApiListRequest, 'prism_account'>,
     options?: { prismAccount: string }
   ): Promise<ListWebhooksResponse> {
     return this.api.list({ ...convertCasing(options), ...params });

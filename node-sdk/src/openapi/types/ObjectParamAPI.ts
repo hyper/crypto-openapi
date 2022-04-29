@@ -7,30 +7,30 @@ import { AccountAllOf } from '../models/AccountAllOf';
 import { AccountAllOfBranding } from '../models/AccountAllOfBranding';
 import { ApiKey } from '../models/ApiKey';
 import { ApiKeyAllOf } from '../models/ApiKeyAllOf';
+import { CreateCustomerBody } from '../models/CreateCustomerBody';
+import { CreateFeeBody } from '../models/CreateFeeBody';
+import { CreateInvoiceBody } from '../models/CreateInvoiceBody';
+import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
+import { CreateProductBody } from '../models/CreateProductBody';
+import { CreateTransferBody } from '../models/CreateTransferBody';
+import { CreateWalletBody } from '../models/CreateWalletBody';
+import { CreateWebhookBody } from '../models/CreateWebhookBody';
 import { Customer } from '../models/Customer';
 import { CustomerAllOf } from '../models/CustomerAllOf';
-import { CustomerData } from '../models/CustomerData';
 import { CustomersBillingDetails } from '../models/CustomersBillingDetails';
 import { CustomersBillingDetailsAddress } from '../models/CustomersBillingDetailsAddress';
 import { CustomersIdBillingDetails } from '../models/CustomersIdBillingDetails';
 import { CustomersIdBillingDetailsAddress } from '../models/CustomersIdBillingDetailsAddress';
-import { Data } from '../models/Data';
 import { Fee } from '../models/Fee';
 import { FeeAllOf } from '../models/FeeAllOf';
-import { FeeData } from '../models/FeeData';
-import { InlineObject } from '../models/InlineObject';
-import { InlineObject1 } from '../models/InlineObject1';
-import { InlineObject2 } from '../models/InlineObject2';
-import { InlineObject3 } from '../models/InlineObject3';
-import { InlineObject4 } from '../models/InlineObject4';
 import { Invoice } from '../models/Invoice';
 import { InvoiceAllOf } from '../models/InvoiceAllOf';
-import { InvoiceData } from '../models/InvoiceData';
 import { ListCustomersResponse } from '../models/ListCustomersResponse';
 import { ListFeesResponse } from '../models/ListFeesResponse';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
 import { ListLogsResponse } from '../models/ListLogsResponse';
 import { ListPaymentsResponse } from '../models/ListPaymentsResponse';
+import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
 import { ListProductsResponse } from '../models/ListProductsResponse';
 import { ListTransfersResponse } from '../models/ListTransfersResponse';
 import { ListWalletsResponse } from '../models/ListWalletsResponse';
@@ -42,21 +42,22 @@ import { Payment } from '../models/Payment';
 import { PaymentAllOf } from '../models/PaymentAllOf';
 import { PayoutWallet } from '../models/PayoutWallet';
 import { PayoutWalletAllOf } from '../models/PayoutWalletAllOf';
-import { PayoutWalletData } from '../models/PayoutWalletData';
 import { Product } from '../models/Product';
 import { ProductAllOf } from '../models/ProductAllOf';
-import { ProductData } from '../models/ProductData';
 import { Transaction } from '../models/Transaction';
 import { TransactionAllOf } from '../models/TransactionAllOf';
 import { Transfer } from '../models/Transfer';
 import { TransferAllOf } from '../models/TransferAllOf';
-import { TransferData } from '../models/TransferData';
+import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
+import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
+import { UpdatePayoutWalletBody } from '../models/UpdatePayoutWalletBody';
+import { UpdateProductBody } from '../models/UpdateProductBody';
+import { UpdateWalletBody } from '../models/UpdateWalletBody';
+import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
 import { Wallet } from '../models/Wallet';
 import { WalletAllOf } from '../models/WalletAllOf';
-import { WalletData } from '../models/WalletData';
 import { Webhook } from '../models/Webhook';
 import { WebhookAllOf } from '../models/WebhookAllOf';
-import { WebhookData } from '../models/WebhookData';
 
 import { ObservableCustomersApi } from "./ObservableAPI";
 import { CustomersApiRequestFactory, CustomersApiResponseProcessor} from "../apis/CustomersApi";
@@ -70,10 +71,10 @@ export interface CustomersApiCreateRequest {
     prism_account?: string
     /**
      * 
-     * @type CustomerData
+     * @type CreateCustomerBody
      * @memberof CustomersApicreate
      */
-    customer_data?: CustomerData
+    create_customer_body?: CreateCustomerBody
 }
 
 export interface CustomersApiListRequest {
@@ -145,10 +146,10 @@ export interface CustomersApiUpdateRequest {
     prism_account?: string
     /**
      * 
-     * @type InlineObject
+     * @type UpdateCustomerBody
      * @memberof CustomersApiupdate
      */
-    inline_object?: InlineObject
+    update_customer_body?: UpdateCustomerBody
 }
 
 export class ObjectCustomersApi {
@@ -163,7 +164,7 @@ export class ObjectCustomersApi {
      * @param param the request object
      */
     public create(param: CustomersApiCreateRequest = {}, options?: Configuration): Promise<Customer> {
-        return this.api.create(param.prism_account, param.customer_data,  options).toPromise();
+        return this.api.create(param.prism_account, param.create_customer_body,  options).toPromise();
     }
 
     /**
@@ -187,7 +188,7 @@ export class ObjectCustomersApi {
      * @param param the request object
      */
     public update(param: CustomersApiUpdateRequest, options?: Configuration): Promise<Customer> {
-        return this.api.update(param.id, param.prism_account, param.inline_object,  options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.update_customer_body,  options).toPromise();
     }
 
 }
@@ -219,10 +220,10 @@ export interface FeesApiCreateRequest {
     prism_account?: string
     /**
      * 
-     * @type FeeData
+     * @type CreateFeeBody
      * @memberof FeesApicreate
      */
-    fee_data?: FeeData
+    create_fee_body?: CreateFeeBody
 }
 
 export interface FeesApiListRequest {
@@ -299,7 +300,7 @@ export class ObjectFeesApi {
      * @param param the request object
      */
     public create(param: FeesApiCreateRequest = {}, options?: Configuration): Promise<Fee> {
-        return this.api.create(param.prism_account, param.fee_data,  options).toPromise();
+        return this.api.create(param.prism_account, param.create_fee_body,  options).toPromise();
     }
 
     /**
@@ -332,10 +333,10 @@ export interface InvoicesApiCreateRequest {
     prism_account?: string
     /**
      * 
-     * @type InvoiceData
+     * @type CreateInvoiceBody
      * @memberof InvoicesApicreate
      */
-    invoice_data?: InvoiceData
+    create_invoice_body?: CreateInvoiceBody
 }
 
 export interface InvoicesApiListRequest {
@@ -428,10 +429,10 @@ export interface InvoicesApiUpdateRequest {
     prism_account?: string
     /**
      * 
-     * @type InlineObject1
+     * @type UpdateInvoiceBody
      * @memberof InvoicesApiupdate
      */
-    inline_object1?: InlineObject1
+    update_invoice_body?: UpdateInvoiceBody
 }
 
 export class ObjectInvoicesApi {
@@ -446,7 +447,7 @@ export class ObjectInvoicesApi {
      * @param param the request object
      */
     public create(param: InvoicesApiCreateRequest = {}, options?: Configuration): Promise<Invoice> {
-        return this.api.create(param.prism_account, param.invoice_data,  options).toPromise();
+        return this.api.create(param.prism_account, param.create_invoice_body,  options).toPromise();
     }
 
     /**
@@ -478,7 +479,7 @@ export class ObjectInvoicesApi {
      * @param param the request object
      */
     public update(param: InvoicesApiUpdateRequest, options?: Configuration): Promise<Invoice> {
-        return this.api.update(param.id, param.prism_account, param.inline_object1,  options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.update_invoice_body,  options).toPromise();
     }
 
 }
@@ -674,10 +675,10 @@ export interface PayoutWalletsApiCreateRequest {
     prism_account?: string
     /**
      * 
-     * @type PayoutWalletData
+     * @type CreatePayoutWalletBody
      * @memberof PayoutWalletsApicreate
      */
-    payout_wallet_data?: PayoutWalletData
+    create_payout_wallet_body?: CreatePayoutWalletBody
 }
 
 export interface PayoutWalletsApiListRequest {
@@ -711,12 +712,6 @@ export interface PayoutWalletsApiListRequest {
      * @memberof PayoutWalletsApilist
      */
     expand?: string
-    /**
-     * 
-     * @type Data
-     * @memberof PayoutWalletsApilist
-     */
-    data?: Data
 }
 
 export interface PayoutWalletsApiRetrieveRequest {
@@ -755,10 +750,10 @@ export interface PayoutWalletsApiUpdateRequest {
     prism_account?: string
     /**
      * 
-     * @type any
+     * @type UpdatePayoutWalletBody
      * @memberof PayoutWalletsApiupdate
      */
-    body?: any
+    update_payout_wallet_body?: UpdatePayoutWalletBody
 }
 
 export class ObjectPayoutWalletsApi {
@@ -781,15 +776,15 @@ export class ObjectPayoutWalletsApi {
      * @param param the request object
      */
     public create(param: PayoutWalletsApiCreateRequest = {}, options?: Configuration): Promise<PayoutWallet> {
-        return this.api.create(param.prism_account, param.payout_wallet_data,  options).toPromise();
+        return this.api.create(param.prism_account, param.create_payout_wallet_body,  options).toPromise();
     }
 
     /**
      * List Payout Wallets
      * @param param the request object
      */
-    public list(param: PayoutWalletsApiListRequest = {}, options?: Configuration): Promise<void> {
-        return this.api.list(param.prism_account, param.limit, param.page, param.sort, param.expand, param.data,  options).toPromise();
+    public list(param: PayoutWalletsApiListRequest = {}, options?: Configuration): Promise<ListPayoutWalletsResponse> {
+        return this.api.list(param.prism_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
     /**
@@ -805,7 +800,7 @@ export class ObjectPayoutWalletsApi {
      * @param param the request object
      */
     public update(param: PayoutWalletsApiUpdateRequest, options?: Configuration): Promise<PayoutWallet> {
-        return this.api.update(param.id, param.prism_account, param.body,  options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.update_payout_wallet_body,  options).toPromise();
     }
 
 }
@@ -837,10 +832,10 @@ export interface ProductsApiCreateRequest {
     prism_account?: string
     /**
      * 
-     * @type ProductData
+     * @type CreateProductBody
      * @memberof ProductsApicreate
      */
-    product_data?: ProductData
+    create_product_body?: CreateProductBody
 }
 
 export interface ProductsApiListRequest {
@@ -912,10 +907,10 @@ export interface ProductsApiUpdateRequest {
     prism_account?: string
     /**
      * 
-     * @type InlineObject2
+     * @type UpdateProductBody
      * @memberof ProductsApiupdate
      */
-    inline_object2?: InlineObject2
+    update_product_body?: UpdateProductBody
 }
 
 export class ObjectProductsApi {
@@ -938,7 +933,7 @@ export class ObjectProductsApi {
      * @param param the request object
      */
     public create(param: ProductsApiCreateRequest = {}, options?: Configuration): Promise<Product> {
-        return this.api.create(param.prism_account, param.product_data,  options).toPromise();
+        return this.api.create(param.prism_account, param.create_product_body,  options).toPromise();
     }
 
     /**
@@ -962,7 +957,7 @@ export class ObjectProductsApi {
      * @param param the request object
      */
     public update(param: ProductsApiUpdateRequest, options?: Configuration): Promise<Product> {
-        return this.api.update(param.id, param.prism_account, param.inline_object2,  options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.update_product_body,  options).toPromise();
     }
 
 }
@@ -979,10 +974,10 @@ export interface TransfersApiCreateRequest {
     prism_account?: string
     /**
      * 
-     * @type TransferData
+     * @type CreateTransferBody
      * @memberof TransfersApicreate
      */
-    transfer_data?: TransferData
+    create_transfer_body?: CreateTransferBody
 }
 
 export interface TransfersApiListRequest {
@@ -1050,8 +1045,8 @@ export class ObjectTransfersApi {
      * Create Transfer
      * @param param the request object
      */
-    public create(param: TransfersApiCreateRequest = {}, options?: Configuration): Promise<void> {
-        return this.api.create(param.prism_account, param.transfer_data,  options).toPromise();
+    public create(param: TransfersApiCreateRequest = {}, options?: Configuration): Promise<Transfer> {
+        return this.api.create(param.prism_account, param.create_transfer_body,  options).toPromise();
     }
 
     /**
@@ -1105,10 +1100,10 @@ export interface WalletsApiCreateRequest {
     prism_account?: string
     /**
      * 
-     * @type WalletData
+     * @type CreateWalletBody
      * @memberof WalletsApicreate
      */
-    wallet_data?: WalletData
+    create_wallet_body?: CreateWalletBody
 }
 
 export interface WalletsApiListRequest {
@@ -1180,10 +1175,10 @@ export interface WalletsApiUpdateRequest {
     prism_account?: string
     /**
      * 
-     * @type InlineObject3
+     * @type UpdateWalletBody
      * @memberof WalletsApiupdate
      */
-    inline_object3?: InlineObject3
+    update_wallet_body?: UpdateWalletBody
 }
 
 export class ObjectWalletsApi {
@@ -1206,7 +1201,7 @@ export class ObjectWalletsApi {
      * @param param the request object
      */
     public create(param: WalletsApiCreateRequest = {}, options?: Configuration): Promise<Wallet> {
-        return this.api.create(param.prism_account, param.wallet_data,  options).toPromise();
+        return this.api.create(param.prism_account, param.create_wallet_body,  options).toPromise();
     }
 
     /**
@@ -1230,7 +1225,7 @@ export class ObjectWalletsApi {
      * @param param the request object
      */
     public update(param: WalletsApiUpdateRequest, options?: Configuration): Promise<Wallet> {
-        return this.api.update(param.id, param.prism_account, param.inline_object3,  options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.update_wallet_body,  options).toPromise();
     }
 
 }
@@ -1262,10 +1257,10 @@ export interface WebhooksApiCreateRequest {
     prism_account?: string
     /**
      * 
-     * @type WebhookData
+     * @type CreateWebhookBody
      * @memberof WebhooksApicreate
      */
-    webhook_data?: WebhookData
+    create_webhook_body?: CreateWebhookBody
 }
 
 export interface WebhooksApiListRequest {
@@ -1337,10 +1332,10 @@ export interface WebhooksApiUpdateRequest {
     prism_account?: string
     /**
      * 
-     * @type InlineObject4
+     * @type UpdateWebhookBody
      * @memberof WebhooksApiupdate
      */
-    inline_object4?: InlineObject4
+    update_webhook_body?: UpdateWebhookBody
 }
 
 export class ObjectWebhooksApi {
@@ -1363,7 +1358,7 @@ export class ObjectWebhooksApi {
      * @param param the request object
      */
     public create(param: WebhooksApiCreateRequest = {}, options?: Configuration): Promise<Webhook> {
-        return this.api.create(param.prism_account, param.webhook_data,  options).toPromise();
+        return this.api.create(param.prism_account, param.create_webhook_body,  options).toPromise();
     }
 
     /**
@@ -1387,7 +1382,7 @@ export class ObjectWebhooksApi {
      * @param param the request object
      */
     public update(param: WebhooksApiUpdateRequest, options?: Configuration): Promise<Webhook> {
-        return this.api.update(param.id, param.prism_account, param.inline_object4,  options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.update_webhook_body,  options).toPromise();
     }
 
 }

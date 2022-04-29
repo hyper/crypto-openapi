@@ -8,8 +8,8 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
+import { CreateFeeBody } from '../models/CreateFeeBody';
 import { Fee } from '../models/Fee';
-import { FeeData } from '../models/FeeData';
 import { ListFeesResponse } from '../models/ListFeesResponse';
 
 /**
@@ -56,9 +56,9 @@ export class FeesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Create Fee
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param fee_data 
+     * @param create_fee_body 
      */
-    public async create(prism_account?: string, fee_data?: FeeData, _options?: Configuration): Promise<RequestContext> {
+    public async create(prism_account?: string, create_fee_body?: CreateFeeBody, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -80,7 +80,7 @@ export class FeesApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(fee_data, "FeeData", ""),
+            ObjectSerializer.serialize(create_fee_body, "CreateFeeBody", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

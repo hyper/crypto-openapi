@@ -8,10 +8,10 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { InlineObject4 } from '../models/InlineObject4';
+import { CreateWebhookBody } from '../models/CreateWebhookBody';
 import { ListWebhooksResponse } from '../models/ListWebhooksResponse';
+import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
 import { Webhook } from '../models/Webhook';
-import { WebhookData } from '../models/WebhookData';
 
 /**
  * no description
@@ -57,9 +57,9 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Create Webhook
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param webhook_data 
+     * @param create_webhook_body 
      */
-    public async create(prism_account?: string, webhook_data?: WebhookData, _options?: Configuration): Promise<RequestContext> {
+    public async create(prism_account?: string, create_webhook_body?: CreateWebhookBody, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -81,7 +81,7 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(webhook_data, "WebhookData", ""),
+            ObjectSerializer.serialize(create_webhook_body, "CreateWebhookBody", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -198,9 +198,9 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
      * Update Webhook By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object4 
+     * @param update_webhook_body 
      */
-    public async update(id: string, prism_account?: string, inline_object4?: InlineObject4, _options?: Configuration): Promise<RequestContext> {
+    public async update(id: string, prism_account?: string, update_webhook_body?: UpdateWebhookBody, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -229,7 +229,7 @@ export class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(inline_object4, "InlineObject4", ""),
+            ObjectSerializer.serialize(update_webhook_body, "UpdateWebhookBody", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

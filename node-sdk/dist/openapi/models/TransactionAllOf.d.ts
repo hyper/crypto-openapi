@@ -5,14 +5,14 @@ import { Product } from './Product';
 import { Wallet } from './Wallet';
 export declare class TransactionAllOf {
     'account'?: string | Account;
-    'amount': number;
-    'chain': TransactionAllOfChainEnum;
-    'currency': TransactionAllOfCurrencyEnum;
-    'customer'?: string | Customer;
-    'invoice': string | Invoice;
     'platform_account'?: string | Account;
-    'product'?: string | Product;
+    'invoice': string | Invoice;
     'status': TransactionAllOfStatusEnum;
+    'chain': TransactionAllOfChainEnum;
+    'amount': number;
+    'currency': TransactionAllOfCurrencyEnum;
+    'product'?: string | Product;
+    'customer'?: string | Customer;
     'wallet'?: string | Wallet;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
@@ -29,6 +29,6 @@ export declare class TransactionAllOf {
     }[];
     constructor();
 }
+export declare type TransactionAllOfStatusEnum = "pending" | "failed" | "succeeded" | "canceled" | "refunded";
 export declare type TransactionAllOfChainEnum = "eth" | "sol";
 export declare type TransactionAllOfCurrencyEnum = "eth" | "sol";
-export declare type TransactionAllOfStatusEnum = "pending" | "failed" | "succeeded" | "canceled" | "refunded";

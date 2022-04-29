@@ -7,30 +7,30 @@ import { AccountAllOf } from '../models/AccountAllOf';
 import { AccountAllOfBranding } from '../models/AccountAllOfBranding';
 import { ApiKey } from '../models/ApiKey';
 import { ApiKeyAllOf } from '../models/ApiKeyAllOf';
+import { CreateCustomerBody } from '../models/CreateCustomerBody';
+import { CreateFeeBody } from '../models/CreateFeeBody';
+import { CreateInvoiceBody } from '../models/CreateInvoiceBody';
+import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
+import { CreateProductBody } from '../models/CreateProductBody';
+import { CreateTransferBody } from '../models/CreateTransferBody';
+import { CreateWalletBody } from '../models/CreateWalletBody';
+import { CreateWebhookBody } from '../models/CreateWebhookBody';
 import { Customer } from '../models/Customer';
 import { CustomerAllOf } from '../models/CustomerAllOf';
-import { CustomerData } from '../models/CustomerData';
 import { CustomersBillingDetails } from '../models/CustomersBillingDetails';
 import { CustomersBillingDetailsAddress } from '../models/CustomersBillingDetailsAddress';
 import { CustomersIdBillingDetails } from '../models/CustomersIdBillingDetails';
 import { CustomersIdBillingDetailsAddress } from '../models/CustomersIdBillingDetailsAddress';
-import { Data } from '../models/Data';
 import { Fee } from '../models/Fee';
 import { FeeAllOf } from '../models/FeeAllOf';
-import { FeeData } from '../models/FeeData';
-import { InlineObject } from '../models/InlineObject';
-import { InlineObject1 } from '../models/InlineObject1';
-import { InlineObject2 } from '../models/InlineObject2';
-import { InlineObject3 } from '../models/InlineObject3';
-import { InlineObject4 } from '../models/InlineObject4';
 import { Invoice } from '../models/Invoice';
 import { InvoiceAllOf } from '../models/InvoiceAllOf';
-import { InvoiceData } from '../models/InvoiceData';
 import { ListCustomersResponse } from '../models/ListCustomersResponse';
 import { ListFeesResponse } from '../models/ListFeesResponse';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
 import { ListLogsResponse } from '../models/ListLogsResponse';
 import { ListPaymentsResponse } from '../models/ListPaymentsResponse';
+import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
 import { ListProductsResponse } from '../models/ListProductsResponse';
 import { ListTransfersResponse } from '../models/ListTransfersResponse';
 import { ListWalletsResponse } from '../models/ListWalletsResponse';
@@ -42,21 +42,22 @@ import { Payment } from '../models/Payment';
 import { PaymentAllOf } from '../models/PaymentAllOf';
 import { PayoutWallet } from '../models/PayoutWallet';
 import { PayoutWalletAllOf } from '../models/PayoutWalletAllOf';
-import { PayoutWalletData } from '../models/PayoutWalletData';
 import { Product } from '../models/Product';
 import { ProductAllOf } from '../models/ProductAllOf';
-import { ProductData } from '../models/ProductData';
 import { Transaction } from '../models/Transaction';
 import { TransactionAllOf } from '../models/TransactionAllOf';
 import { Transfer } from '../models/Transfer';
 import { TransferAllOf } from '../models/TransferAllOf';
-import { TransferData } from '../models/TransferData';
+import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
+import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
+import { UpdatePayoutWalletBody } from '../models/UpdatePayoutWalletBody';
+import { UpdateProductBody } from '../models/UpdateProductBody';
+import { UpdateWalletBody } from '../models/UpdateWalletBody';
+import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
 import { Wallet } from '../models/Wallet';
 import { WalletAllOf } from '../models/WalletAllOf';
-import { WalletData } from '../models/WalletData';
 import { Webhook } from '../models/Webhook';
 import { WebhookAllOf } from '../models/WebhookAllOf';
-import { WebhookData } from '../models/WebhookData';
 import { ObservableCustomersApi } from './ObservableAPI';
 
 import { CustomersApiRequestFactory, CustomersApiResponseProcessor} from "../apis/CustomersApi";
@@ -74,10 +75,10 @@ export class PromiseCustomersApi {
     /**
      * Create Customer
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param customer_data 
+     * @param create_customer_body 
      */
-    public create(prism_account?: string, customer_data?: CustomerData, _options?: Configuration): Promise<Customer> {
-        const result = this.api.create(prism_account, customer_data, _options);
+    public create(prism_account?: string, create_customer_body?: CreateCustomerBody, _options?: Configuration): Promise<Customer> {
+        const result = this.api.create(prism_account, create_customer_body, _options);
         return result.toPromise();
     }
 
@@ -109,10 +110,10 @@ export class PromiseCustomersApi {
      * Update Customer By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object 
+     * @param update_customer_body 
      */
-    public update(id: string, prism_account?: string, inline_object?: InlineObject, _options?: Configuration): Promise<Customer> {
-        const result = this.api.update(id, prism_account, inline_object, _options);
+    public update(id: string, prism_account?: string, update_customer_body?: UpdateCustomerBody, _options?: Configuration): Promise<Customer> {
+        const result = this.api.update(id, prism_account, update_customer_body, _options);
         return result.toPromise();
     }
 
@@ -148,10 +149,10 @@ export class PromiseFeesApi {
     /**
      * Create Fee
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param fee_data 
+     * @param create_fee_body 
      */
-    public create(prism_account?: string, fee_data?: FeeData, _options?: Configuration): Promise<Fee> {
-        const result = this.api.create(prism_account, fee_data, _options);
+    public create(prism_account?: string, create_fee_body?: CreateFeeBody, _options?: Configuration): Promise<Fee> {
+        const result = this.api.create(prism_account, create_fee_body, _options);
         return result.toPromise();
     }
 
@@ -201,10 +202,10 @@ export class PromiseInvoicesApi {
     /**
      * Create Invoice
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param invoice_data 
+     * @param create_invoice_body 
      */
-    public create(prism_account?: string, invoice_data?: InvoiceData, _options?: Configuration): Promise<Invoice> {
-        const result = this.api.create(prism_account, invoice_data, _options);
+    public create(prism_account?: string, create_invoice_body?: CreateInvoiceBody, _options?: Configuration): Promise<Invoice> {
+        const result = this.api.create(prism_account, create_invoice_body, _options);
         return result.toPromise();
     }
 
@@ -247,10 +248,10 @@ export class PromiseInvoicesApi {
      * Update Invoice By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object1 
+     * @param update_invoice_body 
      */
-    public update(id: string, prism_account?: string, inline_object1?: InlineObject1, _options?: Configuration): Promise<Invoice> {
-        const result = this.api.update(id, prism_account, inline_object1, _options);
+    public update(id: string, prism_account?: string, update_invoice_body?: UpdateInvoiceBody, _options?: Configuration): Promise<Invoice> {
+        const result = this.api.update(id, prism_account, update_invoice_body, _options);
         return result.toPromise();
     }
 
@@ -372,10 +373,10 @@ export class PromisePayoutWalletsApi {
     /**
      * Create Payout Wallets
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param payout_wallet_data 
+     * @param create_payout_wallet_body 
      */
-    public create(prism_account?: string, payout_wallet_data?: PayoutWalletData, _options?: Configuration): Promise<PayoutWallet> {
-        const result = this.api.create(prism_account, payout_wallet_data, _options);
+    public create(prism_account?: string, create_payout_wallet_body?: CreatePayoutWalletBody, _options?: Configuration): Promise<PayoutWallet> {
+        const result = this.api.create(prism_account, create_payout_wallet_body, _options);
         return result.toPromise();
     }
 
@@ -386,10 +387,9 @@ export class PromisePayoutWalletsApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param data 
      */
-    public list(prism_account?: string, limit?: number, page?: number, sort?: any, expand?: string, data?: Data, _options?: Configuration): Promise<void> {
-        const result = this.api.list(prism_account, limit, page, sort, expand, data, _options);
+    public list(prism_account?: string, limit?: number, page?: number, sort?: any, expand?: string, _options?: Configuration): Promise<ListPayoutWalletsResponse> {
+        const result = this.api.list(prism_account, limit, page, sort, expand, _options);
         return result.toPromise();
     }
 
@@ -408,10 +408,10 @@ export class PromisePayoutWalletsApi {
      * Update Payout Wallet By ID
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param body 
+     * @param update_payout_wallet_body 
      */
-    public update(id: string, prism_account?: string, body?: any, _options?: Configuration): Promise<PayoutWallet> {
-        const result = this.api.update(id, prism_account, body, _options);
+    public update(id: string, prism_account?: string, update_payout_wallet_body?: UpdatePayoutWalletBody, _options?: Configuration): Promise<PayoutWallet> {
+        const result = this.api.update(id, prism_account, update_payout_wallet_body, _options);
         return result.toPromise();
     }
 
@@ -447,10 +447,10 @@ export class PromiseProductsApi {
     /**
      * Create Product
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param product_data 
+     * @param create_product_body 
      */
-    public create(prism_account?: string, product_data?: ProductData, _options?: Configuration): Promise<Product> {
-        const result = this.api.create(prism_account, product_data, _options);
+    public create(prism_account?: string, create_product_body?: CreateProductBody, _options?: Configuration): Promise<Product> {
+        const result = this.api.create(prism_account, create_product_body, _options);
         return result.toPromise();
     }
 
@@ -482,10 +482,10 @@ export class PromiseProductsApi {
      * Update Product By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object2 
+     * @param update_product_body 
      */
-    public update(id: string, prism_account?: string, inline_object2?: InlineObject2, _options?: Configuration): Promise<Product> {
-        const result = this.api.update(id, prism_account, inline_object2, _options);
+    public update(id: string, prism_account?: string, update_product_body?: UpdateProductBody, _options?: Configuration): Promise<Product> {
+        const result = this.api.update(id, prism_account, update_product_body, _options);
         return result.toPromise();
     }
 
@@ -511,10 +511,10 @@ export class PromiseTransfersApi {
     /**
      * Create Transfer
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param transfer_data 
+     * @param create_transfer_body 
      */
-    public create(prism_account?: string, transfer_data?: TransferData, _options?: Configuration): Promise<void> {
-        const result = this.api.create(prism_account, transfer_data, _options);
+    public create(prism_account?: string, create_transfer_body?: CreateTransferBody, _options?: Configuration): Promise<Transfer> {
+        const result = this.api.create(prism_account, create_transfer_body, _options);
         return result.toPromise();
     }
 
@@ -575,10 +575,10 @@ export class PromiseWalletsApi {
     /**
      * Create Wallet
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param wallet_data 
+     * @param create_wallet_body 
      */
-    public create(prism_account?: string, wallet_data?: WalletData, _options?: Configuration): Promise<Wallet> {
-        const result = this.api.create(prism_account, wallet_data, _options);
+    public create(prism_account?: string, create_wallet_body?: CreateWalletBody, _options?: Configuration): Promise<Wallet> {
+        const result = this.api.create(prism_account, create_wallet_body, _options);
         return result.toPromise();
     }
 
@@ -610,10 +610,10 @@ export class PromiseWalletsApi {
      * Update Wallet By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object3 
+     * @param update_wallet_body 
      */
-    public update(id: string, prism_account?: string, inline_object3?: InlineObject3, _options?: Configuration): Promise<Wallet> {
-        const result = this.api.update(id, prism_account, inline_object3, _options);
+    public update(id: string, prism_account?: string, update_wallet_body?: UpdateWalletBody, _options?: Configuration): Promise<Wallet> {
+        const result = this.api.update(id, prism_account, update_wallet_body, _options);
         return result.toPromise();
     }
 
@@ -649,10 +649,10 @@ export class PromiseWebhooksApi {
     /**
      * Create Webhook
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param webhook_data 
+     * @param create_webhook_body 
      */
-    public create(prism_account?: string, webhook_data?: WebhookData, _options?: Configuration): Promise<Webhook> {
-        const result = this.api.create(prism_account, webhook_data, _options);
+    public create(prism_account?: string, create_webhook_body?: CreateWebhookBody, _options?: Configuration): Promise<Webhook> {
+        const result = this.api.create(prism_account, create_webhook_body, _options);
         return result.toPromise();
     }
 
@@ -684,10 +684,10 @@ export class PromiseWebhooksApi {
      * Update Webhook By Id
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object4 
+     * @param update_webhook_body 
      */
-    public update(id: string, prism_account?: string, inline_object4?: InlineObject4, _options?: Configuration): Promise<Webhook> {
-        const result = this.api.update(id, prism_account, inline_object4, _options);
+    public update(id: string, prism_account?: string, update_webhook_body?: UpdateWebhookBody, _options?: Configuration): Promise<Webhook> {
+        const result = this.api.update(id, prism_account, update_webhook_body, _options);
         return result.toPromise();
     }
 

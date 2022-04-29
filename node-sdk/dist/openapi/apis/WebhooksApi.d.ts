@@ -1,16 +1,16 @@
 import { BaseAPIRequestFactory } from './baseapi';
 import { Configuration } from '../configuration';
 import { RequestContext, ResponseContext } from '../http/http';
-import { InlineObject4 } from '../models/InlineObject4';
+import { CreateWebhookBody } from '../models/CreateWebhookBody';
 import { ListWebhooksResponse } from '../models/ListWebhooksResponse';
+import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
 import { Webhook } from '../models/Webhook';
-import { WebhookData } from '../models/WebhookData';
 export declare class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
     _delete(id: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
-    create(prism_account?: string, webhook_data?: WebhookData, _options?: Configuration): Promise<RequestContext>;
+    create(prism_account?: string, create_webhook_body?: CreateWebhookBody, _options?: Configuration): Promise<RequestContext>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
-    update(id: string, prism_account?: string, inline_object4?: InlineObject4, _options?: Configuration): Promise<RequestContext>;
+    update(id: string, prism_account?: string, update_webhook_body?: UpdateWebhookBody, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class WebhooksApiResponseProcessor {
     _delete(response: ResponseContext): Promise<void>;

@@ -3,30 +3,30 @@ export * from './AccountAllOf';
 export * from './AccountAllOfBranding';
 export * from './ApiKey';
 export * from './ApiKeyAllOf';
+export * from './CreateCustomerBody';
+export * from './CreateFeeBody';
+export * from './CreateInvoiceBody';
+export * from './CreatePayoutWalletBody';
+export * from './CreateProductBody';
+export * from './CreateTransferBody';
+export * from './CreateWalletBody';
+export * from './CreateWebhookBody';
 export * from './Customer';
 export * from './CustomerAllOf';
-export * from './CustomerData';
 export * from './CustomersBillingDetails';
 export * from './CustomersBillingDetailsAddress';
 export * from './CustomersIdBillingDetails';
 export * from './CustomersIdBillingDetailsAddress';
-export * from './Data';
 export * from './Fee';
 export * from './FeeAllOf';
-export * from './FeeData';
-export * from './InlineObject';
-export * from './InlineObject1';
-export * from './InlineObject2';
-export * from './InlineObject3';
-export * from './InlineObject4';
 export * from './Invoice';
 export * from './InvoiceAllOf';
-export * from './InvoiceData';
 export * from './ListCustomersResponse';
 export * from './ListFeesResponse';
 export * from './ListInvoicesResponse';
 export * from './ListLogsResponse';
 export * from './ListPaymentsResponse';
+export * from './ListPayoutWalletsResponse';
 export * from './ListProductsResponse';
 export * from './ListTransfersResponse';
 export * from './ListWalletsResponse';
@@ -38,51 +38,52 @@ export * from './Payment';
 export * from './PaymentAllOf';
 export * from './PayoutWallet';
 export * from './PayoutWalletAllOf';
-export * from './PayoutWalletData';
 export * from './Product';
 export * from './ProductAllOf';
-export * from './ProductData';
 export * from './Transaction';
 export * from './TransactionAllOf';
 export * from './Transfer';
 export * from './TransferAllOf';
-export * from './TransferData';
+export * from './UpdateCustomerBody';
+export * from './UpdateInvoiceBody';
+export * from './UpdatePayoutWalletBody';
+export * from './UpdateProductBody';
+export * from './UpdateWalletBody';
+export * from './UpdateWebhookBody';
 export * from './Wallet';
 export * from './WalletAllOf';
-export * from './WalletData';
 export * from './Webhook';
 export * from './WebhookAllOf';
-export * from './WebhookData';
 
 import { Account } from './Account';
 import { AccountAllOf } from './AccountAllOf';
 import { AccountAllOfBranding } from './AccountAllOfBranding';
-import { ApiKey       , ApiKeyTypeEnum   } from './ApiKey';
-import { ApiKeyAllOf   , ApiKeyAllOfTypeEnum   } from './ApiKeyAllOf';
+import { ApiKey      , ApiKeyTypeEnum    } from './ApiKey';
+import { ApiKeyAllOf  , ApiKeyAllOfTypeEnum    } from './ApiKeyAllOf';
+import { CreateCustomerBody } from './CreateCustomerBody';
+import { CreateFeeBody } from './CreateFeeBody';
+import { CreateInvoiceBody } from './CreateInvoiceBody';
+import { CreatePayoutWalletBody } from './CreatePayoutWalletBody';
+import { CreateProductBody } from './CreateProductBody';
+import { CreateTransferBody } from './CreateTransferBody';
+import { CreateWalletBody } from './CreateWalletBody';
+import { CreateWebhookBody } from './CreateWebhookBody';
 import { Customer } from './Customer';
 import { CustomerAllOf } from './CustomerAllOf';
-import { CustomerData } from './CustomerData';
 import { CustomersBillingDetails } from './CustomersBillingDetails';
 import { CustomersBillingDetailsAddress } from './CustomersBillingDetailsAddress';
 import { CustomersIdBillingDetails } from './CustomersIdBillingDetails';
 import { CustomersIdBillingDetailsAddress } from './CustomersIdBillingDetailsAddress';
-import { Data } from './Data';
 import { Fee } from './Fee';
 import { FeeAllOf } from './FeeAllOf';
-import { FeeData } from './FeeData';
-import { InlineObject } from './InlineObject';
-import { InlineObject1 } from './InlineObject1';
-import { InlineObject2 } from './InlineObject2';
-import { InlineObject3 } from './InlineObject3';
-import { InlineObject4 } from './InlineObject4';
-import { Invoice      , InvoiceChainEnum  , InvoiceCurrencyEnum        , InvoiceStatusEnum      } from './Invoice';
-import { InvoiceAllOf  , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum        , InvoiceAllOfStatusEnum      } from './InvoiceAllOf';
-import { InvoiceData } from './InvoiceData';
+import { Invoice      , InvoiceChainEnum  , InvoiceCurrencyEnum      , InvoiceStatusEnum        } from './Invoice';
+import { InvoiceAllOf  , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum      , InvoiceAllOfStatusEnum        } from './InvoiceAllOf';
 import { ListCustomersResponse } from './ListCustomersResponse';
 import { ListFeesResponse } from './ListFeesResponse';
 import { ListInvoicesResponse } from './ListInvoicesResponse';
 import { ListLogsResponse } from './ListLogsResponse';
 import { ListPaymentsResponse } from './ListPaymentsResponse';
+import { ListPayoutWalletsResponse } from './ListPayoutWalletsResponse';
 import { ListProductsResponse } from './ListProductsResponse';
 import { ListTransfersResponse } from './ListTransfersResponse';
 import { ListWalletsResponse } from './ListWalletsResponse';
@@ -94,21 +95,22 @@ import { Payment           , PaymentStatusEnum     } from './Payment';
 import { PaymentAllOf       , PaymentAllOfStatusEnum     } from './PaymentAllOf';
 import { PayoutWallet       , PayoutWalletChainEnum   } from './PayoutWallet';
 import { PayoutWalletAllOf   , PayoutWalletAllOfChainEnum   } from './PayoutWalletAllOf';
-import { PayoutWalletData } from './PayoutWalletData';
 import { Product        , ProductCurrencyEnum    } from './Product';
 import { ProductAllOf    , ProductAllOfCurrencyEnum    } from './ProductAllOf';
-import { ProductData } from './ProductData';
-import { Transaction  , TransactionChainEnum  , TransactionCurrencyEnum      , TransactionStatusEnum        } from './Transaction';
-import { TransactionAllOf  , TransactionAllOfChainEnum  , TransactionAllOfCurrencyEnum      , TransactionAllOfStatusEnum    } from './TransactionAllOf';
+import { Transaction   , TransactionStatusEnum  , TransactionChainEnum   , TransactionCurrencyEnum          } from './Transaction';
+import { TransactionAllOf   , TransactionAllOfStatusEnum  , TransactionAllOfChainEnum   , TransactionAllOfCurrencyEnum      } from './TransactionAllOf';
 import { Transfer } from './Transfer';
 import { TransferAllOf } from './TransferAllOf';
-import { TransferData } from './TransferData';
-import { Wallet       , WalletChainEnum    } from './Wallet';
-import { WalletAllOf   , WalletAllOfChainEnum    } from './WalletAllOf';
-import { WalletData } from './WalletData';
+import { UpdateCustomerBody } from './UpdateCustomerBody';
+import { UpdateInvoiceBody } from './UpdateInvoiceBody';
+import { UpdatePayoutWalletBody } from './UpdatePayoutWalletBody';
+import { UpdateProductBody } from './UpdateProductBody';
+import { UpdateWalletBody } from './UpdateWalletBody';
+import { UpdateWebhookBody } from './UpdateWebhookBody';
+import { Wallet     , WalletChainEnum      } from './Wallet';
+import { WalletAllOf , WalletAllOfChainEnum      } from './WalletAllOf';
 import { Webhook } from './Webhook';
 import { WebhookAllOf } from './WebhookAllOf';
-import { WebhookData } from './WebhookData';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -146,12 +148,12 @@ let enumsMap: Set<string> = new Set<string>([
     "PayoutWalletAllOfChainEnum",
     "ProductCurrencyEnum",
     "ProductAllOfCurrencyEnum",
+    "TransactionStatusEnum",
     "TransactionChainEnum",
     "TransactionCurrencyEnum",
-    "TransactionStatusEnum",
+    "TransactionAllOfStatusEnum",
     "TransactionAllOfChainEnum",
     "TransactionAllOfCurrencyEnum",
-    "TransactionAllOfStatusEnum",
     "WalletChainEnum",
     "WalletAllOfChainEnum",
 ]);
@@ -162,30 +164,30 @@ let typeMap: {[index: string]: any} = {
     "AccountAllOfBranding": AccountAllOfBranding,
     "ApiKey": ApiKey,
     "ApiKeyAllOf": ApiKeyAllOf,
+    "CreateCustomerBody": CreateCustomerBody,
+    "CreateFeeBody": CreateFeeBody,
+    "CreateInvoiceBody": CreateInvoiceBody,
+    "CreatePayoutWalletBody": CreatePayoutWalletBody,
+    "CreateProductBody": CreateProductBody,
+    "CreateTransferBody": CreateTransferBody,
+    "CreateWalletBody": CreateWalletBody,
+    "CreateWebhookBody": CreateWebhookBody,
     "Customer": Customer,
     "CustomerAllOf": CustomerAllOf,
-    "CustomerData": CustomerData,
     "CustomersBillingDetails": CustomersBillingDetails,
     "CustomersBillingDetailsAddress": CustomersBillingDetailsAddress,
     "CustomersIdBillingDetails": CustomersIdBillingDetails,
     "CustomersIdBillingDetailsAddress": CustomersIdBillingDetailsAddress,
-    "Data": Data,
     "Fee": Fee,
     "FeeAllOf": FeeAllOf,
-    "FeeData": FeeData,
-    "InlineObject": InlineObject,
-    "InlineObject1": InlineObject1,
-    "InlineObject2": InlineObject2,
-    "InlineObject3": InlineObject3,
-    "InlineObject4": InlineObject4,
     "Invoice": Invoice,
     "InvoiceAllOf": InvoiceAllOf,
-    "InvoiceData": InvoiceData,
     "ListCustomersResponse": ListCustomersResponse,
     "ListFeesResponse": ListFeesResponse,
     "ListInvoicesResponse": ListInvoicesResponse,
     "ListLogsResponse": ListLogsResponse,
     "ListPaymentsResponse": ListPaymentsResponse,
+    "ListPayoutWalletsResponse": ListPayoutWalletsResponse,
     "ListProductsResponse": ListProductsResponse,
     "ListTransfersResponse": ListTransfersResponse,
     "ListWalletsResponse": ListWalletsResponse,
@@ -197,21 +199,22 @@ let typeMap: {[index: string]: any} = {
     "PaymentAllOf": PaymentAllOf,
     "PayoutWallet": PayoutWallet,
     "PayoutWalletAllOf": PayoutWalletAllOf,
-    "PayoutWalletData": PayoutWalletData,
     "Product": Product,
     "ProductAllOf": ProductAllOf,
-    "ProductData": ProductData,
     "Transaction": Transaction,
     "TransactionAllOf": TransactionAllOf,
     "Transfer": Transfer,
     "TransferAllOf": TransferAllOf,
-    "TransferData": TransferData,
+    "UpdateCustomerBody": UpdateCustomerBody,
+    "UpdateInvoiceBody": UpdateInvoiceBody,
+    "UpdatePayoutWalletBody": UpdatePayoutWalletBody,
+    "UpdateProductBody": UpdateProductBody,
+    "UpdateWalletBody": UpdateWalletBody,
+    "UpdateWebhookBody": UpdateWebhookBody,
     "Wallet": Wallet,
     "WalletAllOf": WalletAllOf,
-    "WalletData": WalletData,
     "Webhook": Webhook,
     "WebhookAllOf": WebhookAllOf,
-    "WebhookData": WebhookData,
 }
 
 export class ObjectSerializer {

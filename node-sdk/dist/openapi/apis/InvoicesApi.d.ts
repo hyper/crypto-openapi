@@ -1,16 +1,16 @@
 import { BaseAPIRequestFactory } from './baseapi';
 import { Configuration } from '../configuration';
 import { RequestContext, ResponseContext } from '../http/http';
-import { InlineObject1 } from '../models/InlineObject1';
+import { CreateInvoiceBody } from '../models/CreateInvoiceBody';
 import { Invoice } from '../models/Invoice';
-import { InvoiceData } from '../models/InvoiceData';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
+import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 export declare class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
-    create(prism_account?: string, invoice_data?: InvoiceData, _options?: Configuration): Promise<RequestContext>;
+    create(prism_account?: string, create_invoice_body?: CreateInvoiceBody, _options?: Configuration): Promise<RequestContext>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
     poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
-    update(id: string, prism_account?: string, inline_object1?: InlineObject1, _options?: Configuration): Promise<RequestContext>;
+    update(id: string, prism_account?: string, update_invoice_body?: UpdateInvoiceBody, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class InvoicesApiResponseProcessor {
     create(response: ResponseContext): Promise<Invoice>;

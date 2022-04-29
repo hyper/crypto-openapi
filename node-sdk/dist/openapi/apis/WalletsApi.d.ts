@@ -1,16 +1,16 @@
 import { BaseAPIRequestFactory } from './baseapi';
 import { Configuration } from '../configuration';
 import { RequestContext, ResponseContext } from '../http/http';
-import { InlineObject3 } from '../models/InlineObject3';
+import { CreateWalletBody } from '../models/CreateWalletBody';
 import { ListWalletsResponse } from '../models/ListWalletsResponse';
+import { UpdateWalletBody } from '../models/UpdateWalletBody';
 import { Wallet } from '../models/Wallet';
-import { WalletData } from '../models/WalletData';
 export declare class WalletsApiRequestFactory extends BaseAPIRequestFactory {
     _delete(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext>;
-    create(prism_account?: string, wallet_data?: WalletData, _options?: Configuration): Promise<RequestContext>;
+    create(prism_account?: string, create_wallet_body?: CreateWalletBody, _options?: Configuration): Promise<RequestContext>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
-    update(id: string, prism_account?: string, inline_object3?: InlineObject3, _options?: Configuration): Promise<RequestContext>;
+    update(id: string, prism_account?: string, update_wallet_body?: UpdateWalletBody, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class WalletsApiResponseProcessor {
     _delete(response: ResponseContext): Promise<void>;

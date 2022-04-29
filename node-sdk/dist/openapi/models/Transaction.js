@@ -18,27 +18,9 @@ Transaction.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "amount",
-        "baseName": "amount",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "chain",
-        "baseName": "chain",
-        "type": "TransactionChainEnum",
-        "format": ""
-    },
-    {
-        "name": "currency",
-        "baseName": "currency",
-        "type": "TransactionCurrencyEnum",
-        "format": ""
-    },
-    {
-        "name": "customer",
-        "baseName": "customer",
-        "type": "string | Customer",
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string | Account",
         "format": ""
     },
     {
@@ -48,9 +30,27 @@ Transaction.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "string | Account",
+        "name": "status",
+        "baseName": "status",
+        "type": "TransactionStatusEnum",
+        "format": ""
+    },
+    {
+        "name": "chain",
+        "baseName": "chain",
+        "type": "TransactionChainEnum",
+        "format": ""
+    },
+    {
+        "name": "amount",
+        "baseName": "amount",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "currency",
+        "baseName": "currency",
+        "type": "TransactionCurrencyEnum",
         "format": ""
     },
     {
@@ -60,9 +60,9 @@ Transaction.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "status",
-        "baseName": "status",
-        "type": "TransactionStatusEnum",
+        "name": "customer",
+        "baseName": "customer",
+        "type": "string | Customer",
         "format": ""
     },
     {
@@ -72,27 +72,27 @@ Transaction.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "created",
-        "baseName": "created",
-        "type": "Date",
-        "format": "date-time"
-    },
-    {
         "name": "id",
         "baseName": "id",
         "type": "string",
         "format": ""
     },
     {
-        "name": "object",
-        "baseName": "object",
-        "type": "string",
-        "format": ""
+        "name": "created",
+        "baseName": "created",
+        "type": "Date",
+        "format": "date-time"
     },
     {
         "name": "test",
         "baseName": "test",
         "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "object",
+        "baseName": "object",
+        "type": "string",
         "format": ""
     }
 ];

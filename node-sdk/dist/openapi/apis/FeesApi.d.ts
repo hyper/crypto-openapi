@@ -1,12 +1,12 @@
 import { BaseAPIRequestFactory } from './baseapi';
 import { Configuration } from '../configuration';
 import { RequestContext, ResponseContext } from '../http/http';
+import { CreateFeeBody } from '../models/CreateFeeBody';
 import { Fee } from '../models/Fee';
-import { FeeData } from '../models/FeeData';
 import { ListFeesResponse } from '../models/ListFeesResponse';
 export declare class FeesApiRequestFactory extends BaseAPIRequestFactory {
     _delete(id: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
-    create(prism_account?: string, fee_data?: FeeData, _options?: Configuration): Promise<RequestContext>;
+    create(prism_account?: string, create_fee_body?: CreateFeeBody, _options?: Configuration): Promise<RequestContext>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
 }

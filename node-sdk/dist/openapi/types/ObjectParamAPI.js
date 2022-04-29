@@ -7,7 +7,7 @@ class ObjectCustomersApi {
         this.api = new ObservableAPI_1.ObservableCustomersApi(configuration, requestFactory, responseProcessor);
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.customer_data, options).toPromise();
+        return this.api.create(param.prism_account, param.create_customer_body, options).toPromise();
     }
     list(param = {}, options) {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
@@ -16,7 +16,7 @@ class ObjectCustomersApi {
         return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.inline_object, options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.update_customer_body, options).toPromise();
     }
 }
 exports.ObjectCustomersApi = ObjectCustomersApi;
@@ -29,7 +29,7 @@ class ObjectFeesApi {
         return this.api._delete(param.id, param.prism_account, options).toPromise();
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.fee_data, options).toPromise();
+        return this.api.create(param.prism_account, param.create_fee_body, options).toPromise();
     }
     list(param = {}, options) {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
@@ -45,7 +45,7 @@ class ObjectInvoicesApi {
         this.api = new ObservableAPI_3.ObservableInvoicesApi(configuration, requestFactory, responseProcessor);
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.invoice_data, options).toPromise();
+        return this.api.create(param.prism_account, param.create_invoice_body, options).toPromise();
     }
     list(param = {}, options) {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
@@ -57,7 +57,7 @@ class ObjectInvoicesApi {
         return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.inline_object1, options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.update_invoice_body, options).toPromise();
     }
 }
 exports.ObjectInvoicesApi = ObjectInvoicesApi;
@@ -96,16 +96,16 @@ class ObjectPayoutWalletsApi {
         return this.api._delete(param.id, param.prism_account, options).toPromise();
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.payout_wallet_data, options).toPromise();
+        return this.api.create(param.prism_account, param.create_payout_wallet_body, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.prism_account, param.limit, param.page, param.sort, param.expand, param.data, options).toPromise();
+        return this.api.list(param.prism_account, param.limit, param.page, param.sort, param.expand, options).toPromise();
     }
     retrieve(param, options) {
         return this.api.retrieve(param.id, param.prism_account, param.expand, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.body, options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.update_payout_wallet_body, options).toPromise();
     }
 }
 exports.ObjectPayoutWalletsApi = ObjectPayoutWalletsApi;
@@ -118,7 +118,7 @@ class ObjectProductsApi {
         return this.api._delete(param.id, param.prism_account, options).toPromise();
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.product_data, options).toPromise();
+        return this.api.create(param.prism_account, param.create_product_body, options).toPromise();
     }
     list(param = {}, options) {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
@@ -127,7 +127,7 @@ class ObjectProductsApi {
         return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.inline_object2, options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.update_product_body, options).toPromise();
     }
 }
 exports.ObjectProductsApi = ObjectProductsApi;
@@ -137,7 +137,7 @@ class ObjectTransfersApi {
         this.api = new ObservableAPI_8.ObservableTransfersApi(configuration, requestFactory, responseProcessor);
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.transfer_data, options).toPromise();
+        return this.api.create(param.prism_account, param.create_transfer_body, options).toPromise();
     }
     list(param = {}, options) {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
@@ -156,7 +156,7 @@ class ObjectWalletsApi {
         return this.api._delete(param.id, param.prism_account, param.expand, options).toPromise();
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.wallet_data, options).toPromise();
+        return this.api.create(param.prism_account, param.create_wallet_body, options).toPromise();
     }
     list(param = {}, options) {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
@@ -165,7 +165,7 @@ class ObjectWalletsApi {
         return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.inline_object3, options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.update_wallet_body, options).toPromise();
     }
 }
 exports.ObjectWalletsApi = ObjectWalletsApi;
@@ -178,7 +178,7 @@ class ObjectWebhooksApi {
         return this.api._delete(param.id, param.prism_account, options).toPromise();
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.webhook_data, options).toPromise();
+        return this.api.create(param.prism_account, param.create_webhook_body, options).toPromise();
     }
     list(param = {}, options) {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
@@ -187,7 +187,7 @@ class ObjectWebhooksApi {
         return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.inline_object4, options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.update_webhook_body, options).toPromise();
     }
 }
 exports.ObjectWebhooksApi = ObjectWebhooksApi;
