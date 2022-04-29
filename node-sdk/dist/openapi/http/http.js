@@ -37,7 +37,7 @@ var HttpMethod;
 })(HttpMethod = exports.HttpMethod || (exports.HttpMethod = {}));
 function qsStringify(queryParams) {
     const res = [];
-    queryParams.forEach((paramName) => {
+    queryParams === null || queryParams === void 0 ? void 0 : queryParams.forEach((paramName) => {
         if (queryParams.hasOwnProperty(paramName)) {
             const value = queryParams[paramName];
             if (Array.isArray(value)) {

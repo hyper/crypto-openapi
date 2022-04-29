@@ -20,7 +20,8 @@ export enum HttpMethod {
 
 function qsStringify(queryParams: Record<string, any>) {
     const res: string[] = [];
-    queryParams.forEach((paramName: string) => {
+
+    queryParams?.forEach((paramName: string) => {
       if (queryParams.hasOwnProperty(paramName)) {
         const value = queryParams[paramName];
 
