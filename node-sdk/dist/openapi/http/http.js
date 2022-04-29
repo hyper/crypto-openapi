@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.wrapHttpLibrary = exports.ResponseContext = exports.SelfDecodingBody = exports.RequestContext = exports.HttpException = exports.HttpMethod = void 0;
 const URLParse = require("url-parse");
 const rxjsStub_1 = require("../rxjsStub");
-__exportStar(require("./isomorphic-fetch"), exports);
+__exportStar(require("./axios-request"), exports);
 var HttpMethod;
 (function (HttpMethod) {
     HttpMethod["GET"] = "GET";

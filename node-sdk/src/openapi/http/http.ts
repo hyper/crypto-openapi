@@ -1,7 +1,7 @@
 import * as URLParse from "url-parse";
 import { Observable, from } from '../rxjsStub';
 
-export * from './isomorphic-fetch';
+export * from './axios-request';
 
 /**
  * Represents an HTTP method.

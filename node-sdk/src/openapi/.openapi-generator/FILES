@@ -22,6 +22,7 @@ apis/baseapi.ts
 apis/exception.ts
 auth/auth.ts
 configuration.ts
+http/isomorphic-fetch.ts
 index.ts
 middleware.ts
 models/Account.ts

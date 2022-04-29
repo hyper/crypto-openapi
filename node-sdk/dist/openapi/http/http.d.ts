@@ -1,5 +1,5 @@
 import { Observable } from '../rxjsStub';
-export * from './isomorphic-fetch';
+export * from './axios-request';
 export declare enum HttpMethod {
     GET = "GET",
     HEAD = "HEAD",

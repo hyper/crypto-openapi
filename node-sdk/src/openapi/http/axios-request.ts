@@ -1,18 +1,20 @@
-import {HttpLibrary, RequestContext, ResponseContext} from './http';
+import { HttpLibrary, RequestContext, ResponseContext } from './http';
 import { from, Observable } from '../rxjsStub';
-import "whatwg-fetch";
+import axios from 'axios';
 
-export class IsomorphicFetchHttpLibrary implements HttpLibrary {
+export class AxiosRequestLibrary implements HttpLibrary {
 
     public send(request: RequestContext): Observable<ResponseContext> {
         let method = request.getHttpMethod().toString();
         let body = request.getBody();
 
-        const resultPromise = fetch(request.getUrl(), {
+        const resultPromise = axios.request({
+            url: request.getUrl(),
             method: method,
-            body: body as any,
+            data: body as any,
             headers: request.getHeaders(),
-            credentials: "same-origin"
+            // credentials: 'same-origin',
+            withCredentials: true,
         }).then((resp: any) => {
             const headers: { [name: string]: string } = {};
             resp.headers.forEach((value: string, name: string) => {
