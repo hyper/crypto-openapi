@@ -48,6 +48,12 @@ AccountAllOf.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "payout_wallets",
+        "baseName": "payout_wallets",
+        "type": "Array<PayoutWallet>",
+        "format": ""
+    },
+    {
         "name": "platform_account",
         "baseName": "platform_account",
         "type": "boolean",

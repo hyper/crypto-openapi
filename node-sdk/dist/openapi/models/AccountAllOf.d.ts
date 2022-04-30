@@ -8,6 +8,7 @@ export declare class AccountAllOf {
     'invoice_prefix'?: string;
     'name': string;
     'parent_account'?: string | Account;
+    'payout_wallets'?: Array<PayoutWallet>;
     'platform_account': boolean;
     'sol_wallet'?: PayoutWallet;
     static readonly discriminator: string | undefined;

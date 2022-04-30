@@ -27,6 +27,7 @@ export class Account {
     'invoice_prefix'?: string;
     'name': string;
     'parent_account'?: string | Account;
+    'payout_wallets'?: Array<PayoutWallet>;
     'platform_account': boolean;
     'sol_wallet'?: PayoutWallet;
 
@@ -91,6 +92,12 @@ export class Account {
             "name": "parent_account",
             "baseName": "parent_account",
             "type": "string | Account",
+            "format": ""
+        },
+        {
+            "name": "payout_wallets",
+            "baseName": "payout_wallets",
+            "type": "Array<PayoutWallet>",
             "format": ""
         },
         {

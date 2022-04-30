@@ -109,6 +109,12 @@
                   }
                 ]
               },
+              "payout_wallets": {
+                "items": {
+                  "$ref": "#/components/schemas/PayoutWallet"
+                },
+                "type": "array"
+              },
               "platform_account": {
                 "default": false,
                 "type": "boolean"
@@ -123,7 +129,7 @@
         ],
         "description": "",
         "title": "Account",
-        "x-internal": true
+        "x-internal": false
       },
       "ApiKey": {
         "allOf": [
