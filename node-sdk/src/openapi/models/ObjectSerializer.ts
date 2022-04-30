@@ -1,8 +1,10 @@
 export * from './Account';
 export * from './AccountAllOf';
 export * from './AccountAllOfBranding';
+export * from './AccountsBranding';
 export * from './ApiKey';
 export * from './ApiKeyAllOf';
+export * from './CreateAccountBody';
 export * from './CreateCustomerBody';
 export * from './CreateFeeBody';
 export * from './CreateInvoiceBody';
@@ -21,6 +23,7 @@ export * from './Fee';
 export * from './FeeAllOf';
 export * from './Invoice';
 export * from './InvoiceAllOf';
+export * from './ListAccountsResponse';
 export * from './ListCustomersResponse';
 export * from './ListFeesResponse';
 export * from './ListInvoicesResponse';
@@ -44,6 +47,7 @@ export * from './Transaction';
 export * from './TransactionAllOf';
 export * from './Transfer';
 export * from './TransferAllOf';
+export * from './UpdateAccountBody';
 export * from './UpdateCustomerBody';
 export * from './UpdateInvoiceBody';
 export * from './UpdatePayoutWalletBody';
@@ -58,8 +62,10 @@ export * from './WebhookAllOf';
 import { Account } from './Account';
 import { AccountAllOf } from './AccountAllOf';
 import { AccountAllOfBranding } from './AccountAllOfBranding';
+import { AccountsBranding } from './AccountsBranding';
 import { ApiKey       , ApiKeyTypeEnum   } from './ApiKey';
 import { ApiKeyAllOf   , ApiKeyAllOfTypeEnum   } from './ApiKeyAllOf';
+import { CreateAccountBody } from './CreateAccountBody';
 import { CreateCustomerBody } from './CreateCustomerBody';
 import { CreateFeeBody } from './CreateFeeBody';
 import { CreateInvoiceBody } from './CreateInvoiceBody';
@@ -78,6 +84,7 @@ import { Fee } from './Fee';
 import { FeeAllOf } from './FeeAllOf';
 import { Invoice      , InvoiceChainEnum  , InvoiceCurrencyEnum        , InvoiceStatusEnum      } from './Invoice';
 import { InvoiceAllOf  , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum        , InvoiceAllOfStatusEnum      } from './InvoiceAllOf';
+import { ListAccountsResponse } from './ListAccountsResponse';
 import { ListCustomersResponse } from './ListCustomersResponse';
 import { ListFeesResponse } from './ListFeesResponse';
 import { ListInvoicesResponse } from './ListInvoicesResponse';
@@ -101,6 +108,7 @@ import { Transaction  , TransactionChainEnum  , TransactionCurrencyEnum      , T
 import { TransactionAllOf  , TransactionAllOfChainEnum  , TransactionAllOfCurrencyEnum      , TransactionAllOfStatusEnum    } from './TransactionAllOf';
 import { Transfer } from './Transfer';
 import { TransferAllOf } from './TransferAllOf';
+import { UpdateAccountBody } from './UpdateAccountBody';
 import { UpdateCustomerBody } from './UpdateCustomerBody';
 import { UpdateInvoiceBody } from './UpdateInvoiceBody';
 import { UpdatePayoutWalletBody } from './UpdatePayoutWalletBody';
@@ -162,8 +170,10 @@ let typeMap: {[index: string]: any} = {
     "Account": Account,
     "AccountAllOf": AccountAllOf,
     "AccountAllOfBranding": AccountAllOfBranding,
+    "AccountsBranding": AccountsBranding,
     "ApiKey": ApiKey,
     "ApiKeyAllOf": ApiKeyAllOf,
+    "CreateAccountBody": CreateAccountBody,
     "CreateCustomerBody": CreateCustomerBody,
     "CreateFeeBody": CreateFeeBody,
     "CreateInvoiceBody": CreateInvoiceBody,
@@ -182,6 +192,7 @@ let typeMap: {[index: string]: any} = {
     "FeeAllOf": FeeAllOf,
     "Invoice": Invoice,
     "InvoiceAllOf": InvoiceAllOf,
+    "ListAccountsResponse": ListAccountsResponse,
     "ListCustomersResponse": ListCustomersResponse,
     "ListFeesResponse": ListFeesResponse,
     "ListInvoicesResponse": ListInvoicesResponse,
@@ -205,6 +216,7 @@ let typeMap: {[index: string]: any} = {
     "TransactionAllOf": TransactionAllOf,
     "Transfer": Transfer,
     "TransferAllOf": TransferAllOf,
+    "UpdateAccountBody": UpdateAccountBody,
     "UpdateCustomerBody": UpdateCustomerBody,
     "UpdateInvoiceBody": UpdateInvoiceBody,
     "UpdatePayoutWalletBody": UpdatePayoutWalletBody,

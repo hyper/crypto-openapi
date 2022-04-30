@@ -1,3 +1,4 @@
+AccountsApi.md
 CustomersApi.md
 FeesApi.md
 InvoicesApi.md
@@ -8,6 +9,7 @@ ProductsApi.md
 TransfersApi.md
 WalletsApi.md
 WebhooksApi.md
+apis/AccountsApi.ts
 apis/CustomersApi.ts
 apis/FeesApi.ts
 apis/InvoicesApi.ts
@@ -27,8 +29,10 @@ middleware.ts
 models/Account.ts
 models/AccountAllOf.ts
 models/AccountAllOfBranding.ts
+models/AccountsBranding.ts
 models/ApiKey.ts
 models/ApiKeyAllOf.ts
+models/CreateAccountBody.ts
 models/CreateCustomerBody.ts
 models/CreateFeeBody.ts
 models/CreateInvoiceBody.ts
@@ -47,6 +51,7 @@ models/Fee.ts
 models/FeeAllOf.ts
 models/Invoice.ts
 models/InvoiceAllOf.ts
+models/ListAccountsResponse.ts
 models/ListCustomersResponse.ts
 models/ListFeesResponse.ts
 models/ListInvoicesResponse.ts
@@ -71,6 +76,7 @@ models/Transaction.ts
 models/TransactionAllOf.ts
 models/Transfer.ts
 models/TransferAllOf.ts
+models/UpdateAccountBody.ts
 models/UpdateCustomerBody.ts
 models/UpdateInvoiceBody.ts
 models/UpdatePayoutWalletBody.ts

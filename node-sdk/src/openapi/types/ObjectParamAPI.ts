@@ -5,8 +5,10 @@ import { Configuration} from '../configuration'
 import { Account } from '../models/Account';
 import { AccountAllOf } from '../models/AccountAllOf';
 import { AccountAllOfBranding } from '../models/AccountAllOfBranding';
+import { AccountsBranding } from '../models/AccountsBranding';
 import { ApiKey } from '../models/ApiKey';
 import { ApiKeyAllOf } from '../models/ApiKeyAllOf';
+import { CreateAccountBody } from '../models/CreateAccountBody';
 import { CreateCustomerBody } from '../models/CreateCustomerBody';
 import { CreateFeeBody } from '../models/CreateFeeBody';
 import { CreateInvoiceBody } from '../models/CreateInvoiceBody';
@@ -25,6 +27,7 @@ import { Fee } from '../models/Fee';
 import { FeeAllOf } from '../models/FeeAllOf';
 import { Invoice } from '../models/Invoice';
 import { InvoiceAllOf } from '../models/InvoiceAllOf';
+import { ListAccountsResponse } from '../models/ListAccountsResponse';
 import { ListCustomersResponse } from '../models/ListCustomersResponse';
 import { ListFeesResponse } from '../models/ListFeesResponse';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
@@ -48,6 +51,7 @@ import { Transaction } from '../models/Transaction';
 import { TransactionAllOf } from '../models/TransactionAllOf';
 import { Transfer } from '../models/Transfer';
 import { TransferAllOf } from '../models/TransferAllOf';
+import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 import { UpdatePayoutWalletBody } from '../models/UpdatePayoutWalletBody';
@@ -58,6 +62,140 @@ import { Wallet } from '../models/Wallet';
 import { WalletAllOf } from '../models/WalletAllOf';
 import { Webhook } from '../models/Webhook';
 import { WebhookAllOf } from '../models/WebhookAllOf';
+
+import { ObservableAccountsApi } from "./ObservableAPI";
+import { AccountsApiRequestFactory, AccountsApiResponseProcessor} from "../apis/AccountsApi";
+
+export interface AccountsApiCreateRequest {
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof AccountsApicreate
+     */
+    prism_account?: string
+    /**
+     * 
+     * @type CreateAccountBody
+     * @memberof AccountsApicreate
+     */
+    create_account_body?: CreateAccountBody
+}
+
+export interface AccountsApiListRequest {
+    /**
+     * A limit on the number of objects to be returned between 1 and 100.
+     * @type number
+     * @memberof AccountsApilist
+     */
+    limit?: number
+    /**
+     * Index of the page to be returned in a paginated response.
+     * @type number
+     * @memberof AccountsApilist
+     */
+    page?: number
+    /**
+     * Specifies whether documents are sorted in an ascending or descending order.
+     * @type any
+     * @memberof AccountsApilist
+     */
+    sort?: any
+    /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof AccountsApilist
+     */
+    expand?: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof AccountsApilist
+     */
+    prism_account?: string
+}
+
+export interface AccountsApiRetrieveRequest {
+    /**
+     * 
+     * @type string
+     * @memberof AccountsApiretrieve
+     */
+    id: string
+    /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof AccountsApiretrieve
+     */
+    expand?: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof AccountsApiretrieve
+     */
+    prism_account?: string
+}
+
+export interface AccountsApiUpdateRequest {
+    /**
+     * 
+     * @type string
+     * @memberof AccountsApiupdate
+     */
+    id: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof AccountsApiupdate
+     */
+    prism_account?: string
+    /**
+     * 
+     * @type UpdateAccountBody
+     * @memberof AccountsApiupdate
+     */
+    update_account_body?: UpdateAccountBody
+}
+
+export class ObjectAccountsApi {
+    private api: ObservableAccountsApi
+
+    public constructor(configuration: Configuration, requestFactory?: AccountsApiRequestFactory, responseProcessor?: AccountsApiResponseProcessor) {
+        this.api = new ObservableAccountsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Create Account
+     * @param param the request object
+     */
+    public create(param: AccountsApiCreateRequest = {}, options?: Configuration): Promise<Account> {
+        return this.api.create(param.prism_account, param.create_account_body,  options).toPromise();
+    }
+
+    /**
+     * List Accounts
+     * @param param the request object
+     */
+    public list(param: AccountsApiListRequest = {}, options?: Configuration): Promise<ListAccountsResponse> {
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
+    }
+
+    /**
+     * Retrieve Account By Id
+     * @param param the request object
+     */
+    public retrieve(param: AccountsApiRetrieveRequest, options?: Configuration): Promise<Account> {
+        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
+    }
+
+    /**
+     * Update Account By Id
+     * @param param the request object
+     */
+    public update(param: AccountsApiUpdateRequest, options?: Configuration): Promise<Account> {
+        return this.api.update(param.id, param.prism_account, param.update_account_body,  options).toPromise();
+    }
+
+}
 
 import { ObservableCustomersApi } from "./ObservableAPI";
 import { CustomersApiRequestFactory, CustomersApiResponseProcessor} from "../apis/CustomersApi";

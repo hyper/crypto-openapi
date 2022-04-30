@@ -928,6 +928,305 @@
   },
   "openapi": "3.0.0",
   "paths": {
+    "/accounts": {
+      "get": {
+        "operationId": "accounts_list",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/sort"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Account"
+                      },
+                      "minItems": 1,
+                      "type": "array",
+                      "uniqueItems": true
+                    },
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["data", "has_more", "page", "total"],
+                  "title": "ListAccountsResponse",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "data": [
+                        {
+                          "account": "t",
+                          "billing_details": {
+                            "address": {
+                              "city": "p",
+                              "country": "ruh",
+                              "line1": "ag",
+                              "line2": "e",
+                              "postal_code": "e",
+                              "state": "e"
+                            }
+                          },
+                          "email": "t",
+                          "name": "t",
+                          "phone": "t"
+                        }
+                      ],
+                      "has_more": true,
+                      "page": 4,
+                      "total": 5
+                    }
+                  }
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "List Accounts",
+        "tags": ["Accounts"]
+      },
+      "parameters": [],
+      "post": {
+        "operationId": "accounts_create",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "properties": {
+                  "branding": {
+                    "properties": {
+                      "logo": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "connected_accounts": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "invoice_prefix": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "parent_account": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "platform_account": {
+                    "type": "boolean"
+                  }
+                },
+                "required": ["name"],
+                "title": "CreateAccountBody",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "account": "acct_oCV7GPmaqJzHCWu8FoxGP",
+                    "billing_details": {
+                      "address": {
+                        "city": "Palo Alto",
+                        "country": "US",
+                        "line1": "855 El Camino Real",
+                        "line2": "Suite 290",
+                        "postal_code": "94301",
+                        "state": "CA"
+                      }
+                    },
+                    "email": "admin@hyper.co",
+                    "name": "Lebon Jame",
+                    "phone": "+16508006399"
+                  }
+                }
+              }
+            }
+          },
+          "description": ""
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          }
+        },
+        "summary": "Create Account",
+        "tags": ["Accounts"]
+      }
+    },
+    "/accounts/{id}": {
+      "get": {
+        "operationId": "accounts_retrieve",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Retrieve Account By Id",
+        "tags": ["Accounts"]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "patch": {
+        "operationId": "accounts_update",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "branding": {
+                    "properties": {
+                      "logo": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "invoice_prefix": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "platform_account": {
+                    "type": "boolean"
+                  }
+                },
+                "title": "UpdateAccountBody",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "billing_details": {
+                      "address": {
+                        "city": "string",
+                        "country": "string",
+                        "line1": "string",
+                        "line2": "string",
+                        "postal_code": "string",
+                        "state": "string"
+                      }
+                    },
+                    "email": "string",
+                    "name": "string",
+                    "phone": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Update Account By Id",
+        "tags": ["Accounts"]
+      }
+    },
     "/customers": {
       "get": {
         "operationId": "customers_list",
@@ -3349,6 +3648,9 @@
     }
   ],
   "tags": [
+    {
+      "name": "Accounts"
+    },
     {
       "name": "Customers"
     },

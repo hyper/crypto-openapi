@@ -61,6 +61,31 @@ class Prism {
     }
 }
 exports.Prism = Prism;
+class AccountsApiLayer {
+    constructor(config) {
+        this.api = new index_1.AccountsApi(config);
+    }
+    create(data, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_account_body: data }));
+        });
+    }
+    retrieve(id, params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+        });
+    }
+    update(id, data, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), data));
+        });
+    }
+    list(params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+        });
+    }
+}
 class CustomersApiLayer {
     constructor(config) {
         this.api = new index_1.CustomersApi(config);

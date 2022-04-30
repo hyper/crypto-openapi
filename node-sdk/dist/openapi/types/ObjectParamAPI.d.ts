@@ -1,4 +1,6 @@
 import { Configuration } from '../configuration';
+import { Account } from '../models/Account';
+import { CreateAccountBody } from '../models/CreateAccountBody';
 import { CreateCustomerBody } from '../models/CreateCustomerBody';
 import { CreateFeeBody } from '../models/CreateFeeBody';
 import { CreateInvoiceBody } from '../models/CreateInvoiceBody';
@@ -10,6 +12,7 @@ import { CreateWebhookBody } from '../models/CreateWebhookBody';
 import { Customer } from '../models/Customer';
 import { Fee } from '../models/Fee';
 import { Invoice } from '../models/Invoice';
+import { ListAccountsResponse } from '../models/ListAccountsResponse';
 import { ListCustomersResponse } from '../models/ListCustomersResponse';
 import { ListFeesResponse } from '../models/ListFeesResponse';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
@@ -25,6 +28,7 @@ import { Payment } from '../models/Payment';
 import { PayoutWallet } from '../models/PayoutWallet';
 import { Product } from '../models/Product';
 import { Transfer } from '../models/Transfer';
+import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 import { UpdatePayoutWalletBody } from '../models/UpdatePayoutWalletBody';
@@ -33,6 +37,36 @@ import { UpdateWalletBody } from '../models/UpdateWalletBody';
 import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
 import { Wallet } from '../models/Wallet';
 import { Webhook } from '../models/Webhook';
+import { AccountsApiRequestFactory, AccountsApiResponseProcessor } from "../apis/AccountsApi";
+export interface AccountsApiCreateRequest {
+    prism_account?: string;
+    create_account_body?: CreateAccountBody;
+}
+export interface AccountsApiListRequest {
+    limit?: number;
+    page?: number;
+    sort?: any;
+    expand?: string;
+    prism_account?: string;
+}
+export interface AccountsApiRetrieveRequest {
+    id: string;
+    expand?: string;
+    prism_account?: string;
+}
+export interface AccountsApiUpdateRequest {
+    id: string;
+    prism_account?: string;
+    update_account_body?: UpdateAccountBody;
+}
+export declare class ObjectAccountsApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: AccountsApiRequestFactory, responseProcessor?: AccountsApiResponseProcessor);
+    create(param?: AccountsApiCreateRequest, options?: Configuration): Promise<Account>;
+    list(param?: AccountsApiListRequest, options?: Configuration): Promise<ListAccountsResponse>;
+    retrieve(param: AccountsApiRetrieveRequest, options?: Configuration): Promise<Account>;
+    update(param: AccountsApiUpdateRequest, options?: Configuration): Promise<Account>;
+}
 import { CustomersApiRequestFactory, CustomersApiResponseProcessor } from "../apis/CustomersApi";
 export interface CustomersApiCreateRequest {
     prism_account?: string;

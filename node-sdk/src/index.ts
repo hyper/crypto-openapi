@@ -68,6 +68,13 @@ import {
   PayoutWalletsApiUpdateRequest,
   PayoutWalletsApiListRequest,
   InvoicesApiPollRequest,
+  AccountsApi,
+  AccountsApiRetrieveRequest,
+  AccountsApiCreateRequest,
+  Account,
+  ListAccountsResponse,
+  AccountsApiListRequest,
+  AccountsApiUpdateRequest,
 } from './openapi/index';
 import convertCasing from './helpers/convertCasing';
 import { ListPayoutWalletsResponse } from './openapi/models/ListPayoutWalletsResponse';
@@ -130,6 +137,44 @@ export class Prism {
     this.transfers = new TransfersApiLayer(config);
     this.wallets = new WalletsApiLayer(config);
     this.webhooks = new WebhooksApiLayer(config);
+  }
+}
+
+class AccountsApiLayer {
+  private readonly api: AccountsApi;
+
+  constructor(config: Configuration) {
+    this.api = new AccountsApi(config);
+  }
+
+  public async create(
+    data: AccountsApiCreateRequest['create_account_body'],
+    options?: { prismAccount: string }
+  ): Promise<Account> {
+    return this.api.create({ ...convertCasing(options), create_account_body: data });
+  }
+
+  public async retrieve(
+    id: string,
+    params?: Omit<AccountsApiRetrieveRequest, 'prism_account' | 'id'>,
+    options?: { prismAccount: string }
+  ): Promise<Account> {
+    return this.api.retrieve({ id, ...convertCasing(options), ...params });
+  }
+
+  public async update(
+    id: string,
+    data: AccountsApiUpdateRequest['update_account_body'],
+    options?: { prismAccount: string }
+  ): Promise<Account> {
+    return this.api.update({ id, ...convertCasing(options), ...data });
+  }
+
+  public async list(
+    params?: Omit<AccountsApiListRequest, 'prism_account'>,
+    options?: { prismAccount: string }
+  ): Promise<ListAccountsResponse> {
+    return this.api.list({ ...convertCasing(options), ...params });
   }
 }
 

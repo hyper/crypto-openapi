@@ -14,8 +14,10 @@ exports.ObjectSerializer = void 0;
 __exportStar(require("./Account"), exports);
 __exportStar(require("./AccountAllOf"), exports);
 __exportStar(require("./AccountAllOfBranding"), exports);
+__exportStar(require("./AccountsBranding"), exports);
 __exportStar(require("./ApiKey"), exports);
 __exportStar(require("./ApiKeyAllOf"), exports);
+__exportStar(require("./CreateAccountBody"), exports);
 __exportStar(require("./CreateCustomerBody"), exports);
 __exportStar(require("./CreateFeeBody"), exports);
 __exportStar(require("./CreateInvoiceBody"), exports);
@@ -34,6 +36,7 @@ __exportStar(require("./Fee"), exports);
 __exportStar(require("./FeeAllOf"), exports);
 __exportStar(require("./Invoice"), exports);
 __exportStar(require("./InvoiceAllOf"), exports);
+__exportStar(require("./ListAccountsResponse"), exports);
 __exportStar(require("./ListCustomersResponse"), exports);
 __exportStar(require("./ListFeesResponse"), exports);
 __exportStar(require("./ListInvoicesResponse"), exports);
@@ -57,6 +60,7 @@ __exportStar(require("./Transaction"), exports);
 __exportStar(require("./TransactionAllOf"), exports);
 __exportStar(require("./Transfer"), exports);
 __exportStar(require("./TransferAllOf"), exports);
+__exportStar(require("./UpdateAccountBody"), exports);
 __exportStar(require("./UpdateCustomerBody"), exports);
 __exportStar(require("./UpdateInvoiceBody"), exports);
 __exportStar(require("./UpdatePayoutWalletBody"), exports);
@@ -70,8 +74,10 @@ __exportStar(require("./WebhookAllOf"), exports);
 const Account_1 = require("./Account");
 const AccountAllOf_1 = require("./AccountAllOf");
 const AccountAllOfBranding_1 = require("./AccountAllOfBranding");
+const AccountsBranding_1 = require("./AccountsBranding");
 const ApiKey_1 = require("./ApiKey");
 const ApiKeyAllOf_1 = require("./ApiKeyAllOf");
+const CreateAccountBody_1 = require("./CreateAccountBody");
 const CreateCustomerBody_1 = require("./CreateCustomerBody");
 const CreateFeeBody_1 = require("./CreateFeeBody");
 const CreateInvoiceBody_1 = require("./CreateInvoiceBody");
@@ -90,6 +96,7 @@ const Fee_1 = require("./Fee");
 const FeeAllOf_1 = require("./FeeAllOf");
 const Invoice_1 = require("./Invoice");
 const InvoiceAllOf_1 = require("./InvoiceAllOf");
+const ListAccountsResponse_1 = require("./ListAccountsResponse");
 const ListCustomersResponse_1 = require("./ListCustomersResponse");
 const ListFeesResponse_1 = require("./ListFeesResponse");
 const ListInvoicesResponse_1 = require("./ListInvoicesResponse");
@@ -113,6 +120,7 @@ const Transaction_1 = require("./Transaction");
 const TransactionAllOf_1 = require("./TransactionAllOf");
 const Transfer_1 = require("./Transfer");
 const TransferAllOf_1 = require("./TransferAllOf");
+const UpdateAccountBody_1 = require("./UpdateAccountBody");
 const UpdateCustomerBody_1 = require("./UpdateCustomerBody");
 const UpdateInvoiceBody_1 = require("./UpdateInvoiceBody");
 const UpdatePayoutWalletBody_1 = require("./UpdatePayoutWalletBody");
@@ -168,8 +176,10 @@ let typeMap = {
     "Account": Account_1.Account,
     "AccountAllOf": AccountAllOf_1.AccountAllOf,
     "AccountAllOfBranding": AccountAllOfBranding_1.AccountAllOfBranding,
+    "AccountsBranding": AccountsBranding_1.AccountsBranding,
     "ApiKey": ApiKey_1.ApiKey,
     "ApiKeyAllOf": ApiKeyAllOf_1.ApiKeyAllOf,
+    "CreateAccountBody": CreateAccountBody_1.CreateAccountBody,
     "CreateCustomerBody": CreateCustomerBody_1.CreateCustomerBody,
     "CreateFeeBody": CreateFeeBody_1.CreateFeeBody,
     "CreateInvoiceBody": CreateInvoiceBody_1.CreateInvoiceBody,
@@ -188,6 +198,7 @@ let typeMap = {
     "FeeAllOf": FeeAllOf_1.FeeAllOf,
     "Invoice": Invoice_1.Invoice,
     "InvoiceAllOf": InvoiceAllOf_1.InvoiceAllOf,
+    "ListAccountsResponse": ListAccountsResponse_1.ListAccountsResponse,
     "ListCustomersResponse": ListCustomersResponse_1.ListCustomersResponse,
     "ListFeesResponse": ListFeesResponse_1.ListFeesResponse,
     "ListInvoicesResponse": ListInvoicesResponse_1.ListInvoicesResponse,
@@ -211,6 +222,7 @@ let typeMap = {
     "TransactionAllOf": TransactionAllOf_1.TransactionAllOf,
     "Transfer": Transfer_1.Transfer,
     "TransferAllOf": TransferAllOf_1.TransferAllOf,
+    "UpdateAccountBody": UpdateAccountBody_1.UpdateAccountBody,
     "UpdateCustomerBody": UpdateCustomerBody_1.UpdateCustomerBody,
     "UpdateInvoiceBody": UpdateInvoiceBody_1.UpdateInvoiceBody,
     "UpdatePayoutWalletBody": UpdatePayoutWalletBody_1.UpdatePayoutWalletBody,
