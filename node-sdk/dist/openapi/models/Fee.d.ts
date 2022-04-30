@@ -2,10 +2,10 @@ import { Account } from './Account';
 import { Invoice } from './Invoice';
 import { Wallet } from './Wallet';
 export declare class Fee {
-    'id': string;
     'created': Date;
-    'test': boolean;
+    'id': string;
     'object': string;
+    'test': boolean;
     'account'?: string | Account;
     'amount'?: number;
     'currency'?: string;

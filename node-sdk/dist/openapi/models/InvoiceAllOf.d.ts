@@ -12,14 +12,14 @@ export declare class InvoiceAllOf {
     'currency': InvoiceAllOfCurrencyEnum;
     'customer': string | Customer;
     'due'?: Date;
+    'fees': Array<Fee>;
     'number': string;
+    'payments'?: Array<Payment>;
     'product'?: string | Product;
     'status': InvoiceAllOfStatusEnum;
     'transaction'?: string;
-    'wallet': string | Wallet;
-    'fees': Array<Fee>;
     'transfers': Array<Transfer>;
-    'payments'?: Array<Payment>;
+    'wallet': string | Wallet;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

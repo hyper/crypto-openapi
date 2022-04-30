@@ -1,9 +1,9 @@
 import { Account } from './Account';
 export declare class Product {
-    'id': string;
     'created': Date;
-    'test': boolean;
+    'id': string;
     'object': string;
+    'test': boolean;
     'account': string | Account;
     'amount': number;
     'base_currency'?: string;

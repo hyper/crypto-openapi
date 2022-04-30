@@ -18,21 +18,9 @@ TransactionAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "string | Account",
-        "format": ""
-    },
-    {
-        "name": "invoice",
-        "baseName": "invoice",
-        "type": "string | Invoice",
-        "format": ""
-    },
-    {
-        "name": "status",
-        "baseName": "status",
-        "type": "TransactionAllOfStatusEnum",
+        "name": "amount",
+        "baseName": "amount",
+        "type": "number",
         "format": ""
     },
     {
@@ -42,15 +30,27 @@ TransactionAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "amount",
-        "baseName": "amount",
-        "type": "number",
-        "format": ""
-    },
-    {
         "name": "currency",
         "baseName": "currency",
         "type": "TransactionAllOfCurrencyEnum",
+        "format": ""
+    },
+    {
+        "name": "customer",
+        "baseName": "customer",
+        "type": "string | Customer",
+        "format": ""
+    },
+    {
+        "name": "invoice",
+        "baseName": "invoice",
+        "type": "string | Invoice",
+        "format": ""
+    },
+    {
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string | Account",
         "format": ""
     },
     {
@@ -60,9 +60,9 @@ TransactionAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "customer",
-        "baseName": "customer",
-        "type": "string | Customer",
+        "name": "status",
+        "baseName": "status",
+        "type": "TransactionAllOfStatusEnum",
         "format": ""
     },
     {

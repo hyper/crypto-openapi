@@ -17,7 +17,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
             withCredentials: true,
         }).then((resp: any) => {
             const headers: { [name: string]: string } = {};
-            resp.headers.forEach((value: string, name: string) => {
+            resp.headers?.forEach((value: string, name: string) => {
               headers[name] = value;
             });
 
@@ -25,7 +25,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
               text: () => resp.text(),
               binary: () => resp.blob()
             };
-            return new ResponseContext(resp.status, headers, body);
+            return new ResponseContext(resp.status, headers || {}, body);
         });
 
         return from<Promise<ResponseContext>>(resultPromise);

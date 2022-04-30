@@ -18,21 +18,9 @@ Transaction.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "string | Account",
-        "format": ""
-    },
-    {
-        "name": "invoice",
-        "baseName": "invoice",
-        "type": "string | Invoice",
-        "format": ""
-    },
-    {
-        "name": "status",
-        "baseName": "status",
-        "type": "TransactionStatusEnum",
+        "name": "amount",
+        "baseName": "amount",
+        "type": "number",
         "format": ""
     },
     {
@@ -42,21 +30,9 @@ Transaction.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "amount",
-        "baseName": "amount",
-        "type": "number",
-        "format": ""
-    },
-    {
         "name": "currency",
         "baseName": "currency",
         "type": "TransactionCurrencyEnum",
-        "format": ""
-    },
-    {
-        "name": "product",
-        "baseName": "product",
-        "type": "string | Product",
         "format": ""
     },
     {
@@ -66,15 +42,33 @@ Transaction.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "wallet",
-        "baseName": "wallet",
-        "type": "string | Wallet",
+        "name": "invoice",
+        "baseName": "invoice",
+        "type": "string | Invoice",
         "format": ""
     },
     {
-        "name": "id",
-        "baseName": "id",
-        "type": "string",
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string | Account",
+        "format": ""
+    },
+    {
+        "name": "product",
+        "baseName": "product",
+        "type": "string | Product",
+        "format": ""
+    },
+    {
+        "name": "status",
+        "baseName": "status",
+        "type": "TransactionStatusEnum",
+        "format": ""
+    },
+    {
+        "name": "wallet",
+        "baseName": "wallet",
+        "type": "string | Wallet",
         "format": ""
     },
     {
@@ -84,15 +78,21 @@ Transaction.attributeTypeMap = [
         "format": "date-time"
     },
     {
-        "name": "test",
-        "baseName": "test",
-        "type": "boolean",
+        "name": "id",
+        "baseName": "id",
+        "type": "string",
         "format": ""
     },
     {
         "name": "object",
         "baseName": "object",
         "type": "string",
+        "format": ""
+    },
+    {
+        "name": "test",
+        "baseName": "test",
+        "type": "boolean",
         "format": ""
     }
 ];

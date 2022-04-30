@@ -7,8 +7,8 @@ export declare class LogAllOf {
     'method': LogAllOfMethodEnum;
     'origin'?: string;
     'query': any;
-    'url': string;
     'success': boolean;
+    'url': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
