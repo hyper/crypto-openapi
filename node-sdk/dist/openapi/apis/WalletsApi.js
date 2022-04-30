@@ -30,7 +30,9 @@ class WalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             if (expand !== undefined) {
                 requestContext.setQueryParam("expand", ObjectSerializer_1.ObjectSerializer.serialize(expand, "string", ""));
             }
-            requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
+            if (prism_account !== undefined) {
+                requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
+            }
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
                 yield (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
@@ -45,7 +47,9 @@ class WalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             const localVarPath = '/wallets';
             const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
             requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-            requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
+            if (prism_account !== undefined) {
+                requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
+            }
             const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
                 "application/json"
             ]);
@@ -78,7 +82,9 @@ class WalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             if (expand !== undefined) {
                 requestContext.setQueryParam("expand", ObjectSerializer_1.ObjectSerializer.serialize(expand, "string", ""));
             }
-            requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
+            if (prism_account !== undefined) {
+                requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
+            }
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
                 yield (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
@@ -100,7 +106,9 @@ class WalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             if (expand !== undefined) {
                 requestContext.setQueryParam("expand", ObjectSerializer_1.ObjectSerializer.serialize(expand, "string", ""));
             }
-            requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
+            if (prism_account !== undefined) {
+                requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
+            }
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
                 yield (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
@@ -119,7 +127,9 @@ class WalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PATCH);
             requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-            requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
+            if (prism_account !== undefined) {
+                requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
+            }
             const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
                 "application/json"
             ]);

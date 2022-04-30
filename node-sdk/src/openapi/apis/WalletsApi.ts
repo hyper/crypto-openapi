@@ -49,7 +49,9 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (prism_account !== undefined) {
+            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        }
 
 
         
@@ -79,7 +81,9 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (prism_account !== undefined) {
+            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        }
 
 
         // Body Params
@@ -146,7 +150,9 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (prism_account !== undefined) {
+            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        }
 
 
         
@@ -189,7 +195,9 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (prism_account !== undefined) {
+            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        }
 
 
         
@@ -227,7 +235,9 @@ export class WalletsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (prism_account !== undefined) {
+            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        }
 
 
         // Body Params

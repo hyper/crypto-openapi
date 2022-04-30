@@ -60,7 +60,9 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (prism_account !== undefined) {
+            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        }
 
 
         
@@ -103,7 +105,9 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (prism_account !== undefined) {
+            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        }
 
 
         
