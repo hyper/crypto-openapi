@@ -29,4 +29,4 @@
 /git_push.sh
 
 /http/http.ts
-/http/axios-request.ts
+/http/isomorphic-fetch.ts
