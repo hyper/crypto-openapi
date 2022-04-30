@@ -21,6 +21,7 @@ export class AccountAllOf {
     'invoice_prefix'?: string;
     'name': string;
     'parent_account'?: string | Account;
+    'payout_wallets'?: Array<PayoutWallet>;
     'platform_account': boolean;
     'payout_wallets'?: Array<PayoutWallet>;
 
@@ -55,6 +56,12 @@ export class AccountAllOf {
             "name": "parent_account",
             "baseName": "parent_account",
             "type": "string | Account",
+            "format": ""
+        },
+        {
+            "name": "payout_wallets",
+            "baseName": "payout_wallets",
+            "type": "Array<PayoutWallet>",
             "format": ""
         },
         {
