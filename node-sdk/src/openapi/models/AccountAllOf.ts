@@ -18,12 +18,11 @@ import { HttpFile } from '../http/http';
 export class AccountAllOf {
     'branding'?: AccountAllOfBranding;
     'connected_accounts'?: Array<string> | Array<Account>;
-    'eth_wallet'?: PayoutWallet;
     'invoice_prefix'?: string;
     'name': string;
     'parent_account'?: string | Account;
     'platform_account': boolean;
-    'sol_wallet'?: PayoutWallet;
+    'payout_wallets'?: Array<PayoutWallet>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -38,12 +37,6 @@ export class AccountAllOf {
             "name": "connected_accounts",
             "baseName": "connected_accounts",
             "type": "Array<string> | Array<Account>",
-            "format": ""
-        },
-        {
-            "name": "eth_wallet",
-            "baseName": "eth_wallet",
-            "type": "PayoutWallet",
             "format": ""
         },
         {
@@ -71,9 +64,9 @@ export class AccountAllOf {
             "format": ""
         },
         {
-            "name": "sol_wallet",
-            "baseName": "sol_wallet",
-            "type": "PayoutWallet",
+            "name": "payout_wallets",
+            "baseName": "payout_wallets",
+            "type": "Array<PayoutWallet>",
             "format": ""
         }    ];
 

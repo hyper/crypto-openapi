@@ -88,9 +88,6 @@
                   }
                 ]
               },
-              "eth_wallet": {
-                "$ref": "#/components/schemas/PayoutWallet"
-              },
               "invoice_prefix": {
                 "default": null,
                 "pattern": "^[A-Z]{3,12}$",
@@ -109,12 +106,15 @@
                   }
                 ]
               },
+              "payout_wallets": {
+                "items": {
+                  "$ref": "#/components/schemas/PayoutWallet"
+                },
+                "type": "array"
+              },
               "platform_account": {
                 "default": false,
                 "type": "boolean"
-              },
-              "sol_wallet": {
-                "$ref": "#/components/schemas/PayoutWallet"
               }
             },
             "required": ["name", "platform_account"],
@@ -123,7 +123,7 @@
         ],
         "description": "",
         "title": "Account",
-        "x-internal": true
+        "x-internal": false
       },
       "ApiKey": {
         "allOf": [

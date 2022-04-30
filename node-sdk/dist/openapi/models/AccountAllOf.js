@@ -24,12 +24,6 @@ AccountAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "eth_wallet",
-        "baseName": "eth_wallet",
-        "type": "PayoutWallet",
-        "format": ""
-    },
-    {
         "name": "invoice_prefix",
         "baseName": "invoice_prefix",
         "type": "string",
@@ -54,9 +48,9 @@ AccountAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "sol_wallet",
-        "baseName": "sol_wallet",
-        "type": "PayoutWallet",
+        "name": "payout_wallets",
+        "baseName": "payout_wallets",
+        "type": "Array<PayoutWallet>",
         "format": ""
     }
 ];
