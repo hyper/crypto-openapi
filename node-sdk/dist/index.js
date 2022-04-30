@@ -48,6 +48,7 @@ class Prism {
                 },
             },
         });
+        this.accounts = new AccountsApiLayer(config);
         this.customers = new CustomersApiLayer(config);
         this.fees = new FeesApiLayer(config);
         this.invoices = new InvoicesApiLayer(config);

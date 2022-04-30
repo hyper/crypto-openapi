@@ -99,6 +99,7 @@ export interface PrismOptions {
 }
 
 export class Prism {
+  public readonly accounts: AccountsApiLayer;
   public readonly customers: CustomersApiLayer;
   public readonly fees: FeesApiLayer;
   public readonly invoices: InvoicesApiLayer;
@@ -127,6 +128,7 @@ export class Prism {
       },
     });
 
+    this.accounts = new AccountsApiLayer(config);
     this.customers = new CustomersApiLayer(config);
     this.fees = new FeesApiLayer(config);
     this.invoices = new InvoicesApiLayer(config);
