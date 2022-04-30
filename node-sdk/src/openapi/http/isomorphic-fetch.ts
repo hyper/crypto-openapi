@@ -1,6 +1,6 @@
 import { HttpLibrary, RequestContext, ResponseContext } from './http';
 import { from, Observable } from '../rxjsStub';
-import axios from 'axios';
+import 'isomorphic-unfetch';
 
 export class IsomorphicFetchHttpLibrary implements HttpLibrary {
 
@@ -8,14 +8,12 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
         let method = request.getHttpMethod().toString();
         let body = request.getBody();
 
-        const resultPromise = axios.request({
-            url: request.getUrl(),
+        const resultPromise = fetch(request.getUrl(), {
             method: method,
-            data: body as any,
+            body: body as any,
             headers: request.getHeaders(),
-            // credentials: 'same-origin',
-            withCredentials: true,
-        }).then((res: any) => {
+            credentials: 'same-origin',
+        }).then((res) => {
             const headers: { [name: string]: string } = {};
 
             if (res.headers) {
@@ -23,11 +21,12 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
                     headers[name] = value;
                 });
             }
-
+            
             const body = {
               text: () => res.text(),
               binary: () => res.blob()
             };
+
             return new ResponseContext(res.status, headers, body);
         });
 
