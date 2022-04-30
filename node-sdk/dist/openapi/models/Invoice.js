@@ -12,27 +12,27 @@ exports.Invoice = Invoice;
 Invoice.discriminator = undefined;
 Invoice.attributeTypeMap = [
     {
-        "name": "created",
-        "baseName": "created",
-        "type": "Date",
-        "format": "date-time"
-    },
-    {
         "name": "id",
         "baseName": "id",
         "type": "string",
         "format": ""
     },
     {
-        "name": "object",
-        "baseName": "object",
-        "type": "string",
-        "format": ""
+        "name": "created",
+        "baseName": "created",
+        "type": "Date",
+        "format": "date-time"
     },
     {
         "name": "test",
         "baseName": "test",
         "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "object",
+        "baseName": "object",
+        "type": "string",
         "format": ""
     },
     {
@@ -72,21 +72,9 @@ Invoice.attributeTypeMap = [
         "format": "date-time"
     },
     {
-        "name": "fees",
-        "baseName": "fees",
-        "type": "Array<Fee>",
-        "format": ""
-    },
-    {
         "name": "number",
         "baseName": "number",
         "type": "string",
-        "format": ""
-    },
-    {
-        "name": "payments",
-        "baseName": "payments",
-        "type": "Array<Payment>",
         "format": ""
     },
     {
@@ -108,15 +96,27 @@ Invoice.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "wallet",
+        "baseName": "wallet",
+        "type": "string | Wallet",
+        "format": ""
+    },
+    {
+        "name": "fees",
+        "baseName": "fees",
+        "type": "Array<Fee>",
+        "format": ""
+    },
+    {
         "name": "transfers",
         "baseName": "transfers",
         "type": "Array<Transfer>",
         "format": ""
     },
     {
-        "name": "wallet",
-        "baseName": "wallet",
-        "type": "string | Wallet",
+        "name": "payments",
+        "baseName": "payments",
+        "type": "Array<Payment>",
         "format": ""
     }
 ];

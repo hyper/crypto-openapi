@@ -15,9 +15,9 @@ import { HttpFile } from '../http/http';
 
 export class ApiKeyAllOf {
     'account': string | Account;
-    'admin': boolean;
     'key': string;
     'type': ApiKeyAllOfTypeEnum;
+    'admin': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -26,12 +26,6 @@ export class ApiKeyAllOf {
             "name": "account",
             "baseName": "account",
             "type": "string | Account",
-            "format": ""
-        },
-        {
-            "name": "admin",
-            "baseName": "admin",
-            "type": "boolean",
             "format": ""
         },
         {
@@ -44,6 +38,12 @@ export class ApiKeyAllOf {
             "name": "type",
             "baseName": "type",
             "type": "ApiKeyAllOfTypeEnum",
+            "format": ""
+        },
+        {
+            "name": "admin",
+            "baseName": "admin",
+            "type": "boolean",
             "format": ""
         }    ];
 

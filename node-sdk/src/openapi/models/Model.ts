@@ -13,20 +13,14 @@
 import { HttpFile } from '../http/http';
 
 export class Model {
-    'created': Date;
     'id': string;
-    'object': string;
+    'created': Date;
     'test': boolean;
+    'object': string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
         {
             "name": "id",
             "baseName": "id",
@@ -34,15 +28,21 @@ export class Model {
             "format": ""
         },
         {
-            "name": "object",
-            "baseName": "object",
-            "type": "string",
-            "format": ""
+            "name": "created",
+            "baseName": "created",
+            "type": "Date",
+            "format": "date-time"
         },
         {
             "name": "test",
             "baseName": "test",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "object",
+            "baseName": "object",
+            "type": "string",
             "format": ""
         }    ];
 

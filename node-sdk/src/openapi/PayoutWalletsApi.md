@@ -89,8 +89,8 @@ let body:.PayoutWalletsApiCreateRequest = {
   // CreatePayoutWalletBody (optional)
   create_payout_wallet_body: {
     account: "account_example",
-    address: "address_example",
     chain: "chain_example",
+    address: "address_example",
   },
 };
 

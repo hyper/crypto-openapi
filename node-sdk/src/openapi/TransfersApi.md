@@ -29,11 +29,11 @@ let body:.TransfersApiCreateRequest = {
   // CreateTransferBody (optional)
   create_transfer_body: {
     account: "account_example",
-    amount: "amount_example",
-    description: "description_example",
     invoice: "invoice_example",
-    percent: 1,
     wallet: "wallet_example",
+    percent: 1,
+    description: "description_example",
+    amount: "amount_example",
   },
 };
 

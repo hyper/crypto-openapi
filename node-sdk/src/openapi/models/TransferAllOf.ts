@@ -17,12 +17,12 @@ import { HttpFile } from '../http/http';
 
 export class TransferAllOf {
     'account': string | Account;
-    'amount': number;
-    'description'?: string;
     'invoice': string | Invoice;
-    'percent': number;
-    'usd_amount': number;
     'wallet': string | Wallet;
+    'percent': number;
+    'description'?: string;
+    'amount': number;
+    'usd_amount': number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -34,8 +34,20 @@ export class TransferAllOf {
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
+            "name": "invoice",
+            "baseName": "invoice",
+            "type": "string | Invoice",
+            "format": ""
+        },
+        {
+            "name": "wallet",
+            "baseName": "wallet",
+            "type": "string | Wallet",
+            "format": ""
+        },
+        {
+            "name": "percent",
+            "baseName": "percent",
             "type": "number",
             "format": ""
         },
@@ -46,14 +58,8 @@ export class TransferAllOf {
             "format": ""
         },
         {
-            "name": "invoice",
-            "baseName": "invoice",
-            "type": "string | Invoice",
-            "format": ""
-        },
-        {
-            "name": "percent",
-            "baseName": "percent",
+            "name": "amount",
+            "baseName": "amount",
             "type": "number",
             "format": ""
         },
@@ -61,12 +67,6 @@ export class TransferAllOf {
             "name": "usd_amount",
             "baseName": "usd_amount",
             "type": "number",
-            "format": ""
-        },
-        {
-            "name": "wallet",
-            "baseName": "wallet",
-            "type": "string | Wallet",
             "format": ""
         }    ];
 

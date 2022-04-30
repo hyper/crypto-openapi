@@ -2,17 +2,17 @@ import { Account } from './Account';
 import { Invoice } from './Invoice';
 import { Wallet } from './Wallet';
 export declare class Transfer {
-    'created': Date;
     'id': string;
-    'object': string;
+    'created': Date;
     'test': boolean;
+    'object': string;
     'account': string | Account;
-    'amount': number;
-    'description'?: string;
     'invoice': string | Invoice;
-    'percent': number;
-    'usd_amount': number;
     'wallet': string | Wallet;
+    'percent': number;
+    'description'?: string;
+    'amount': number;
+    'usd_amount': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

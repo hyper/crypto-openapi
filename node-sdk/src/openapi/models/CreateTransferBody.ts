@@ -14,11 +14,11 @@ import { HttpFile } from '../http/http';
 
 export class CreateTransferBody {
     'account': string;
-    'amount'?: string;
-    'description'?: string;
     'invoice': string;
-    'percent'?: number;
     'wallet': string;
+    'percent'?: number;
+    'description'?: string;
+    'amount'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -30,20 +30,14 @@ export class CreateTransferBody {
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "description",
-            "baseName": "description",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "invoice",
             "baseName": "invoice",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "wallet",
+            "baseName": "wallet",
             "type": "string",
             "format": ""
         },
@@ -54,8 +48,14 @@ export class CreateTransferBody {
             "format": ""
         },
         {
-            "name": "wallet",
-            "baseName": "wallet",
+            "name": "description",
+            "baseName": "description",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "amount",
+            "baseName": "amount",
             "type": "string",
             "format": ""
         }    ];

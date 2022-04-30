@@ -12,27 +12,27 @@ exports.Customer = Customer;
 Customer.discriminator = undefined;
 Customer.attributeTypeMap = [
     {
-        "name": "created",
-        "baseName": "created",
-        "type": "Date",
-        "format": "date-time"
-    },
-    {
         "name": "id",
         "baseName": "id",
         "type": "string",
         "format": ""
     },
     {
-        "name": "object",
-        "baseName": "object",
-        "type": "string",
-        "format": ""
+        "name": "created",
+        "baseName": "created",
+        "type": "Date",
+        "format": "date-time"
     },
     {
         "name": "test",
         "baseName": "test",
         "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "object",
+        "baseName": "object",
+        "type": "string",
         "format": ""
     },
     {

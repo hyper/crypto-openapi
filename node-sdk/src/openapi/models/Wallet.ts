@@ -17,19 +17,25 @@ import { WalletAllOf } from './WalletAllOf';
 import { HttpFile } from '../http/http';
 
 export class Wallet {
-    'created': Date;
     'id': string;
-    'object': string;
+    'created': Date;
     'test': boolean;
+    'object': string;
     'account': string | Account;
+    'chain': WalletChainEnum;
     'address': string;
     'admin': boolean;
-    'chain': WalletChainEnum;
     'customer': string | Customer;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "id",
+            "baseName": "id",
+            "type": "string",
+            "format": ""
+        },
         {
             "name": "created",
             "baseName": "created",
@@ -37,9 +43,9 @@ export class Wallet {
             "format": "date-time"
         },
         {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
+            "name": "test",
+            "baseName": "test",
+            "type": "boolean",
             "format": ""
         },
         {
@@ -49,15 +55,15 @@ export class Wallet {
             "format": ""
         },
         {
-            "name": "test",
-            "baseName": "test",
-            "type": "boolean",
-            "format": ""
-        },
-        {
             "name": "account",
             "baseName": "account",
             "type": "string | Account",
+            "format": ""
+        },
+        {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "WalletChainEnum",
             "format": ""
         },
         {
@@ -70,12 +76,6 @@ export class Wallet {
             "name": "admin",
             "baseName": "admin",
             "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "WalletChainEnum",
             "format": ""
         },
         {

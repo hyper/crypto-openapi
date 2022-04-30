@@ -18,14 +18,14 @@ CreatePayoutWalletBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "address",
-        "baseName": "address",
+        "name": "chain",
+        "baseName": "chain",
         "type": "string",
         "format": ""
     },
     {
-        "name": "chain",
-        "baseName": "chain",
+        "name": "address",
+        "baseName": "address",
         "type": "string",
         "format": ""
     }

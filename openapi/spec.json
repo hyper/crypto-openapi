@@ -1,17 +1,104 @@
 {
   "components": {
+    "parameters": {
+      "Prism-Account": {
+        "description": "The ID of the connected Prism account you are making a request on behalf on.",
+        "in": "header",
+        "name": "Prism-Account",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "expand": {
+        "description": "Specifies which fields to populate in the response.",
+        "in": "query",
+        "name": "expand",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "limit": {
+        "description": "A limit on the number of objects to be returned between 1 and 100.",
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "type": "number"
+        }
+      },
+      "page": {
+        "description": "Index of the page to be returned in a paginated response.",
+        "in": "query",
+        "name": "page",
+        "required": false,
+        "schema": {
+          "type": "number"
+        }
+      },
+      "sort": {
+        "description": "Specifies whether documents are sorted in an ascending or descending order.",
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {}
+      }
+    },
+    "responses": {
+      "400": {
+        "description": "Bad Request"
+      },
+      "401": {
+        "description": "Unauthorized"
+      },
+      "404": {
+        "description": "Not Found"
+      }
+    },
     "schemas": {
       "Account": {
-        "title": "Account",
-        "x-internal": true,
-        "description": "",
         "allOf": [
           {
             "$ref": "#/components/schemas/Model"
           },
           {
-            "type": "object",
             "properties": {
+              "branding": {
+                "properties": {
+                  "logo": {
+                    "default": null,
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "connected_accounts": {
+                "oneOf": [
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "items": {
+                      "$ref": "#/components/schemas/Account"
+                    },
+                    "type": "array"
+                  }
+                ]
+              },
+              "eth_wallet": {
+                "$ref": "#/components/schemas/PayoutWallet"
+              },
+              "invoice_prefix": {
+                "default": null,
+                "pattern": "^[A-Z]{3,12}$",
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
               "parent_account": {
                 "oneOf": [
                   {
@@ -22,67 +109,28 @@
                   }
                 ]
               },
-              "name": {
-                "type": "string"
-              },
-              "branding": {
-                "type": "object",
-                "properties": {
-                  "logo": {
-                    "type": "string",
-                    "default": null
-                  }
-                }
-              },
-              "invoice_prefix": {
-                "type": "string",
-                "pattern": "^[A-Z]{3,12}$",
-                "default": null
-              },
-              "connected_accounts": {
-                "oneOf": [
-                  {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Account"
-                    }
-                  }
-                ]
-              },
               "platform_account": {
-                "type": "boolean",
-                "default": false
-              },
-              "eth_wallet": {
-                "$ref": "#/components/schemas/PayoutWallet"
+                "default": false,
+                "type": "boolean"
               },
               "sol_wallet": {
                 "$ref": "#/components/schemas/PayoutWallet"
               }
             },
-            "required": [
-              "name",
-              "platform_account"
-            ]
+            "required": ["name", "platform_account"],
+            "type": "object"
           }
-        ]
+        ],
+        "description": "",
+        "title": "Account",
+        "x-internal": true
       },
       "ApiKey": {
-        "title": "ApiKey",
-        "x-internal": true,
-        "description": "",
         "allOf": [
           {
             "$ref": "#/components/schemas/Model"
           },
           {
-            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -94,39 +142,32 @@
                   }
                 ]
               },
+              "admin": {
+                "default": false,
+                "type": "boolean"
+              },
               "key": {
                 "type": "string"
               },
               "type": {
-                "enum": [
-                  "publishable",
-                  "secret",
-                  "restricted"
-                ],
+                "enum": ["publishable", "secret", "restricted"],
                 "type": "string"
-              },
-              "admin": {
-                "type": "boolean",
-                "default": false
               }
             },
-            "required": [
-              "account",
-              "key",
-              "type",
-              "admin"
-            ]
+            "required": ["account", "key", "type", "admin"],
+            "type": "object"
           }
-        ]
+        ],
+        "description": "",
+        "title": "ApiKey",
+        "x-internal": true
       },
       "Customer": {
-        "title": "Customer",
         "allOf": [
           {
             "$ref": "#/components/schemas/Model"
           },
           {
-            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -139,10 +180,8 @@
                 ]
               },
               "billing_details": {
-                "type": "object",
                 "properties": {
                   "address": {
-                    "type": "object",
                     "properties": {
                       "city": {
                         "type": "string"
@@ -162,9 +201,11 @@
                       "state": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "type": "object"
                   }
-                }
+                },
+                "type": "object"
               },
               "email": {
                 "type": "string"
@@ -176,23 +217,23 @@
                 "type": "string"
               },
               "wallets": {
-                "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/Wallet"
-                }
+                },
+                "type": "array"
               }
-            }
+            },
+            "type": "object"
           }
-        ]
+        ],
+        "title": "Customer"
       },
       "Fee": {
-        "title": "Fee",
         "allOf": [
           {
             "$ref": "#/components/schemas/Model"
           },
           {
-            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -242,18 +283,18 @@
                   }
                 ]
               }
-            }
+            },
+            "type": "object"
           }
-        ]
+        ],
+        "title": "Fee"
       },
       "Invoice": {
-        "title": "Invoice",
         "allOf": [
           {
             "$ref": "#/components/schemas/Model"
           },
           {
-            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -269,17 +310,11 @@
                 "type": "number"
               },
               "chain": {
-                "enum": [
-                  "eth",
-                  "sol"
-                ],
+                "enum": ["eth", "sol"],
                 "type": "string"
               },
               "currency": {
-                "enum": [
-                  "eth",
-                  "sol"
-                ],
+                "enum": ["eth", "sol"],
                 "type": "string"
               },
               "customer": {
@@ -296,8 +331,20 @@
                 "format": "date-time",
                 "type": "string"
               },
+              "fees": {
+                "items": {
+                  "$ref": "#/components/schemas/Fee"
+                },
+                "type": "array"
+              },
               "number": {
                 "type": "string"
+              },
+              "payments": {
+                "items": {
+                  "$ref": "#/components/schemas/Payment"
+                },
+                "type": "array"
               },
               "product": {
                 "oneOf": [
@@ -310,16 +357,17 @@
                 ]
               },
               "status": {
-                "enum": [
-                  "open",
-                  "paid",
-                  "unpaid",
-                  "void"
-                ],
+                "enum": ["open", "paid", "unpaid", "void"],
                 "type": "string"
               },
               "transaction": {
                 "type": "string"
+              },
+              "transfers": {
+                "items": {
+                  "$ref": "#/components/schemas/Transfer"
+                },
+                "type": "array"
               },
               "wallet": {
                 "oneOf": [
@@ -330,24 +378,6 @@
                     "$ref": "#/components/schemas/Wallet"
                   }
                 ]
-              },
-              "fees": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Fee"
-                }
-              },
-              "transfers": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Transfer"
-                }
-              },
-              "payments": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Payment"
-                }
               }
             },
             "required": [
@@ -361,19 +391,18 @@
               "wallet",
               "fees",
               "transfers"
-            ]
+            ],
+            "type": "object"
           }
-        ]
+        ],
+        "title": "Invoice"
       },
       "Log": {
-        "title": "Log",
-        "x-internal": true,
         "allOf": [
           {
             "$ref": "#/components/schemas/Model"
           },
           {
-            "type": "object",
             "properties": {
               "api_key": {
                 "type": "string"
@@ -392,11 +421,7 @@
                 "type": "string"
               },
               "method": {
-                "enum": [
-                  "POST",
-                  "PATCH",
-                  "DELETE"
-                ],
+                "enum": ["POST", "PATCH", "DELETE"],
                 "type": "string"
               },
               "origin": {
@@ -405,11 +430,11 @@
               "query": {
                 "type": "object"
               },
-              "url": {
-                "type": "string"
-              },
               "success": {
                 "type": "boolean"
+              },
+              "url": {
+                "type": "string"
               }
             },
             "required": [
@@ -420,18 +445,41 @@
               "query",
               "url",
               "success"
-            ]
+            ],
+            "type": "object"
           }
-        ]
+        ],
+        "title": "Log",
+        "x-internal": true
+      },
+      "Model": {
+        "properties": {
+          "created": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
+            "pattern": "^[a-z]{2,4}_[A-Za-z0-9]{21}$",
+            "type": "string"
+          },
+          "object": {
+            "type": "string"
+          },
+          "test": {
+            "default": false,
+            "type": "boolean"
+          }
+        },
+        "required": ["id", "created", "test", "object"],
+        "title": "Model",
+        "type": "object"
       },
       "Payment": {
-        "title": "Payment",
         "allOf": [
           {
             "$ref": "#/components/schemas/Model"
           },
           {
-            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -476,10 +524,7 @@
                 ]
               },
               "status": {
-                "enum": [
-                  "succeeded",
-                  "failed"
-                ],
+                "enum": ["succeeded", "failed"],
                 "type": "string"
               },
               "usd_amount": {
@@ -506,18 +551,54 @@
               "status",
               "usd_amount",
               "wallet"
-            ]
+            ],
+            "type": "object"
           }
-        ]
+        ],
+        "title": "Payment"
       },
-      "Product": {
-        "title": "Product",
+      "PayoutWallet": {
         "allOf": [
           {
             "$ref": "#/components/schemas/Model"
           },
           {
-            "type": "object",
+            "properties": {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "address": {
+                "type": "string"
+              },
+              "admin": {
+                "default": true,
+                "type": "boolean"
+              },
+              "chain": {
+                "enum": ["eth", "sol"],
+                "type": "string"
+              }
+            },
+            "required": ["account", "address", "admin", "chain"],
+            "type": "object"
+          }
+        ],
+        "description": "",
+        "title": "PayoutWallet"
+      },
+      "Product": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
             "properties": {
               "account": {
                 "oneOf": [
@@ -539,33 +620,22 @@
                 "type": "string"
               },
               "currency": {
-                "enum": [
-                  "succeeded",
-                  "failed"
-                ],
+                "enum": ["succeeded", "failed"],
                 "type": "string"
               },
               "name": {
                 "type": "string"
               }
             },
-            "required": [
-              "account",
-              "amount",
-              "currency",
-              "name"
-            ]
+            "required": ["account", "amount", "currency", "name"],
+            "type": "object"
           }
-        ]
+        ],
+        "title": "Product"
       },
-      "PayoutWallet": {
-        "title": "PayoutWallet",
+      "Transaction": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/Model"
-          },
-          {
-            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -577,44 +647,39 @@
                   }
                 ]
               },
-              "address": {
-                "type": "string"
-              },
-              "admin": {
-                "type": "boolean",
-                "default": true
+              "amount": {
+                "exclusiveMinimum": true,
+                "minimum": 0,
+                "type": "number"
               },
               "chain": {
-                "type": "string",
-                "enum": [
-                  "eth",
-                  "sol"
-                ]
-              }
-            },
-            "required": [
-              "account",
-              "address",
-              "admin",
-              "chain"
-            ]
-          }
-        ],
-        "description": ""
-      },
-      "Transaction": {
-        "title": "Transaction",
-        "allOf": [
-          {
-            "type": "object",
-            "properties": {
-              "account": {
+                "default": "pending",
+                "enum": ["eth", "sol"],
+                "type": "string"
+              },
+              "currency": {
+                "default": "eth",
+                "enum": ["eth", "sol"],
+                "type": "string"
+              },
+              "customer": {
                 "oneOf": [
                   {
                     "type": "string"
                   },
                   {
-                    "$ref": "#/components/schemas/Account"
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                ]
+              },
+              "invoice": {
+                "oneOf": [
+                  {
+                    "default": null,
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Invoice"
                   }
                 ]
               },
@@ -628,49 +693,6 @@
                   }
                 ]
               },
-              "invoice": {
-                "oneOf": [
-                  {
-                    "type": "string",
-                    "default": null
-                  },
-                  {
-                    "$ref": "#/components/schemas/Invoice"
-                  }
-                ]
-              },
-              "status": {
-                "type": "string",
-                "enum": [
-                  "pending",
-                  "failed",
-                  "succeeded",
-                  "canceled",
-                  "refunded"
-                ],
-                "default": "pending"
-              },
-              "chain": {
-                "type": "string",
-                "default": "pending",
-                "enum": [
-                  "eth",
-                  "sol"
-                ]
-              },
-              "amount": {
-                "type": "number",
-                "minimum": 0,
-                "exclusiveMinimum": true
-              },
-              "currency": {
-                "type": "string",
-                "enum": [
-                  "eth",
-                  "sol"
-                ],
-                "default": "eth"
-              },
               "product": {
                 "oneOf": [
                   {
@@ -681,15 +703,16 @@
                   }
                 ]
               },
-              "customer": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Customer"
-                  }
-                ]
+              "status": {
+                "default": "pending",
+                "enum": [
+                  "pending",
+                  "failed",
+                  "succeeded",
+                  "canceled",
+                  "refunded"
+                ],
+                "type": "string"
               },
               "wallet": {
                 "oneOf": [
@@ -702,27 +725,21 @@
                 ]
               }
             },
-            "required": [
-              "invoice",
-              "status",
-              "chain",
-              "amount",
-              "currency"
-            ]
+            "required": ["invoice", "status", "chain", "amount", "currency"],
+            "type": "object"
           },
           {
             "$ref": "#/components/schemas/Model"
           }
-        ]
+        ],
+        "title": "Transaction"
       },
       "Transfer": {
-        "title": "Transfer",
         "allOf": [
           {
             "$ref": "#/components/schemas/Model"
           },
           {
-            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -733,6 +750,15 @@
                     "$ref": "#/components/schemas/Account"
                   }
                 ]
+              },
+              "amount": {
+                "exclusiveMinimum": true,
+                "minimum": 0,
+                "type": "number"
+              },
+              "description": {
+                "nullable": true,
+                "type": "string"
               },
               "invoice": {
                 "oneOf": [
@@ -744,6 +770,16 @@
                   }
                 ]
               },
+              "percent": {
+                "exclusiveMinimum": true,
+                "maximum": 100,
+                "minimum": 0,
+                "type": "number"
+              },
+              "usd_amount": {
+                "exclusiveMinimum": false,
+                "type": "number"
+              },
               "wallet": {
                 "oneOf": [
                   {
@@ -753,25 +789,6 @@
                     "$ref": "#/components/schemas/Wallet"
                   }
                 ]
-              },
-              "percent": {
-                "type": "number",
-                "maximum": 100,
-                "minimum": 0,
-                "exclusiveMinimum": true
-              },
-              "description": {
-                "type": "string",
-                "nullable": true
-              },
-              "amount": {
-                "type": "number",
-                "minimum": 0,
-                "exclusiveMinimum": true
-              },
-              "usd_amount": {
-                "type": "number",
-                "exclusiveMinimum": false
               }
             },
             "required": [
@@ -781,18 +798,18 @@
               "percent",
               "amount",
               "usd_amount"
-            ]
+            ],
+            "type": "object"
           }
-        ]
+        ],
+        "title": "Transfer"
       },
       "Wallet": {
-        "title": "Wallet",
         "allOf": [
           {
             "$ref": "#/components/schemas/Model"
           },
           {
-            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -804,18 +821,15 @@
                   }
                 ]
               },
-              "chain": {
-                "type": "string",
-                "enum": [
-                  "eth",
-                  "sol"
-                ]
-              },
               "address": {
                 "type": "string"
               },
               "admin": {
                 "type": "boolean"
+              },
+              "chain": {
+                "enum": ["eth", "sol"],
+                "type": "string"
               },
               "customer": {
                 "oneOf": [
@@ -828,37 +842,30 @@
                 ]
               }
             },
-            "required": [
-              "account",
-              "chain",
-              "address",
-              "admin",
-              "customer"
-            ]
+            "required": ["account", "chain", "address", "admin", "customer"],
+            "type": "object"
           }
         ],
+        "title": "Wallet",
         "x-examples": {
           "example-1": {
-            "id": "string",
-            "created": "2019-08-24T14:15:22Z",
-            "test": false,
             "account": "string",
-            "chain": "eth",
             "address": "string",
             "admin": true,
-            "customer": "string"
+            "chain": "eth",
+            "created": "2019-08-24T14:15:22Z",
+            "customer": "string",
+            "id": "string",
+            "test": false
           }
         }
       },
       "Webhook": {
-        "description": "",
-        "title": "Webhook",
         "allOf": [
           {
             "$ref": "#/components/schemas/Model"
           },
           {
-            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -870,20 +877,20 @@
                   }
                 ]
               },
+              "created": {
+                "format": "date-time",
+                "type": "string"
+              },
               "endpoint_url": {
                 "type": "string"
               },
               "event_types": {
-                "type": "array",
                 "items": {
                   "type": "string"
-                }
+                },
+                "type": "array"
               },
               "secret": {
-                "type": "string"
-              },
-              "created": {
-                "format": "date-time",
                 "type": "string"
               }
             },
@@ -893,97 +900,18 @@
               "event_types",
               "secret",
               "created"
-            ]
+            ],
+            "type": "object"
           }
-        ]
-      },
-      "Model": {
-        "title": "Model",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[a-z]{2,4}_[A-Za-z0-9]{21}$"
-          },
-          "created": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "test": {
-            "type": "boolean",
-            "default": false
-          },
-          "object": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "id",
-          "created",
-          "test",
-          "object"
-        ]
+        ],
+        "description": "",
+        "title": "Webhook"
       }
     },
     "securitySchemes": {
       "ApiKey": {
         "scheme": "bearer",
         "type": "http"
-      }
-    },
-    "parameters": {
-      "Prism-Account": {
-        "name": "Prism-Account",
-        "in": "header",
-        "schema": {
-          "type": "string"
-        },
-        "description": "The ID of the connected Prism account you are making a request on behalf on."
-      },
-      "limit": {
-        "name": "limit",
-        "in": "query",
-        "required": false,
-        "schema": {
-          "type": "number"
-        },
-        "description": "A limit on the number of objects to be returned between 1 and 100."
-      },
-      "page": {
-        "name": "page",
-        "in": "query",
-        "required": false,
-        "schema": {
-          "type": "number"
-        },
-        "description": "Index of the page to be returned in a paginated response."
-      },
-      "sort": {
-        "name": "sort",
-        "in": "query",
-        "required": false,
-        "description": "Specifies whether documents are sorted in an ascending or descending order.",
-        "schema": {}
-      },
-      "expand": {
-        "name": "expand",
-        "in": "query",
-        "required": false,
-        "schema": {
-          "type": "string"
-        },
-        "description": "Specifies which fields to populate in the response."
-      }
-    },
-    "responses": {
-      "400": {
-        "description": "Bad Request"
-      },
-      "401": {
-        "description": "Unauthorized"
-      },
-      "404": {
-        "description": "Not Found"
       }
     }
   },
@@ -1025,8 +953,28 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "ListCustomersResponse",
                   "description": "",
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Customer"
+                      },
+                      "minItems": 1,
+                      "type": "array",
+                      "uniqueItems": true
+                    },
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["data", "has_more", "page", "total"],
+                  "title": "ListCustomersResponse",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -1052,32 +1000,7 @@
                       "page": 4,
                       "total": 5
                     }
-                  },
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "minItems": 1,
-                      "uniqueItems": true,
-                      "items": {
-                        "$ref": "#/components/schemas/Customer"
-                      }
-                    },
-                    "has_more": {
-                      "type": "boolean"
-                    },
-                    "page": {
-                      "type": "number"
-                    },
-                    "total": {
-                      "type": "number"
-                    }
-                  },
-                  "required": [
-                    "data",
-                    "has_more",
-                    "page",
-                    "total"
-                  ]
+                  }
                 }
               }
             },
@@ -1091,9 +1014,7 @@
           }
         },
         "summary": "List Customers",
-        "tags": [
-          "Customers"
-        ]
+        "tags": ["Customers"]
       },
       "post": {
         "operationId": "customers_create",
@@ -1106,37 +1027,15 @@
           "content": {
             "application/json": {
               "schema": {
-                "title": "CreateCustomerBody",
                 "description": "",
-                "type": "object",
-                "x-examples": {
-                  "example-1": {
-                    "account": "acct_oCV7GPmaqJzHCWu8FoxGP",
-                    "billing_details": {
-                      "address": {
-                        "city": "Palo Alto",
-                        "country": "US",
-                        "line1": "855 El Camino Real",
-                        "line2": "Suite 290",
-                        "postal_code": "94301",
-                        "state": "CA"
-                      }
-                    },
-                    "email": "admin@hyper.co",
-                    "name": "Lebon Jame",
-                    "phone": "+16508006399"
-                  }
-                },
                 "properties": {
                   "account": {
                     "minLength": 1,
                     "type": "string"
                   },
                   "billing_details": {
-                    "type": "object",
                     "properties": {
                       "address": {
-                        "type": "object",
                         "properties": {
                           "city": {
                             "minLength": 1,
@@ -1162,9 +1061,11 @@
                             "minLength": 1,
                             "type": "string"
                           }
-                        }
+                        },
+                        "type": "object"
                       }
-                    }
+                    },
+                    "type": "object"
                   },
                   "email": {
                     "minLength": 1,
@@ -1179,9 +1080,27 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "account"
-                ]
+                "required": ["account"],
+                "title": "CreateCustomerBody",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "account": "acct_oCV7GPmaqJzHCWu8FoxGP",
+                    "billing_details": {
+                      "address": {
+                        "city": "Palo Alto",
+                        "country": "US",
+                        "line1": "855 El Camino Real",
+                        "line2": "Suite 290",
+                        "postal_code": "94301",
+                        "state": "CA"
+                      }
+                    },
+                    "email": "admin@hyper.co",
+                    "name": "Lebon Jame",
+                    "phone": "+16508006399"
+                  }
+                }
               }
             }
           },
@@ -1206,9 +1125,7 @@
           }
         },
         "summary": "Create Customer",
-        "tags": [
-          "Customers"
-        ]
+        "tags": ["Customers"]
       }
     },
     "/customers/{id}": {
@@ -1241,18 +1158,16 @@
           }
         },
         "summary": "Retrieve Customer By Id",
-        "tags": [
-          "Customers"
-        ]
+        "tags": ["Customers"]
       },
       "parameters": [
         {
+          "in": "path",
+          "name": "id",
+          "required": true,
           "schema": {
             "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true
+          }
         }
       ],
       "patch": {
@@ -1262,6 +1177,72 @@
             "$ref": "#/components/parameters/Prism-Account"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "billing_details": {
+                    "properties": {
+                      "address": {
+                        "properties": {
+                          "city": {
+                            "type": "string"
+                          },
+                          "country": {
+                            "type": "string"
+                          },
+                          "line1": {
+                            "type": "string"
+                          },
+                          "line2": {
+                            "type": "string"
+                          },
+                          "postal_code": {
+                            "type": "string"
+                          },
+                          "state": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  }
+                },
+                "title": "UpdateCustomerBody",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "billing_details": {
+                      "address": {
+                        "city": "string",
+                        "country": "string",
+                        "line1": "string",
+                        "line2": "string",
+                        "postal_code": "string",
+                        "state": "string"
+                      }
+                    },
+                    "email": "string",
+                    "name": "string",
+                    "phone": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "content": {
@@ -1284,75 +1265,7 @@
           }
         },
         "summary": "Update Customer By Id",
-        "tags": [
-          "Customers"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "title": "UpdateCustomerBody",
-                "type": "object",
-                "properties": {
-                  "billing_details": {
-                    "type": "object",
-                    "properties": {
-                      "address": {
-                        "type": "object",
-                        "properties": {
-                          "city": {
-                            "type": "string"
-                          },
-                          "country": {
-                            "type": "string"
-                          },
-                          "line1": {
-                            "type": "string"
-                          },
-                          "line2": {
-                            "type": "string"
-                          },
-                          "postal_code": {
-                            "type": "string"
-                          },
-                          "state": {
-                            "type": "string"
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "email": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "phone": {
-                    "type": "string"
-                  }
-                },
-                "x-examples": {
-                  "example-1": {
-                    "billing_details": {
-                      "address": {
-                        "city": "string",
-                        "country": "string",
-                        "line1": "string",
-                        "line2": "string",
-                        "postal_code": "string",
-                        "state": "string"
-                      }
-                    },
-                    "email": "string",
-                    "name": "string",
-                    "phone": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
+        "tags": ["Customers"]
       }
     },
     "/fees": {
@@ -1380,8 +1293,28 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "ListFeesResponse",
                   "description": "",
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Fee"
+                      },
+                      "minItems": 1,
+                      "type": "array",
+                      "uniqueItems": true
+                    },
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["data", "has_more", "page", "total"],
+                  "title": "ListFeesResponse",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -1402,32 +1335,7 @@
                       "page": 2,
                       "total": 5
                     }
-                  },
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "minItems": 1,
-                      "uniqueItems": true,
-                      "items": {
-                        "$ref": "#/components/schemas/Fee"
-                      }
-                    },
-                    "has_more": {
-                      "type": "boolean"
-                    },
-                    "page": {
-                      "type": "number"
-                    },
-                    "total": {
-                      "type": "number"
-                    }
-                  },
-                  "required": [
-                    "data",
-                    "has_more",
-                    "page",
-                    "total"
-                  ]
+                  }
                 }
               }
             },
@@ -1441,9 +1349,7 @@
           }
         },
         "summary": "List Fees",
-        "tags": [
-          "Fees"
-        ]
+        "tags": ["Fees"]
       },
       "post": {
         "operationId": "fees_create",
@@ -1456,7 +1362,6 @@
           "content": {
             "application/json": {
               "schema": {
-                "title": "CreateFeeBody",
                 "description": "",
                 "properties": {
                   "description": {
@@ -1474,11 +1379,8 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "invoice",
-                  "wallet",
-                  "percent"
-                ],
+                "required": ["invoice", "wallet", "percent"],
+                "title": "CreateFeeBody",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -1511,9 +1413,7 @@
           }
         },
         "summary": "Create Fee",
-        "tags": [
-          "Fees"
-        ]
+        "tags": ["Fees"]
       }
     },
     "/fees/{id}": {
@@ -1536,9 +1436,7 @@
           }
         },
         "summary": "Delete Fee By Id",
-        "tags": [
-          "Fees"
-        ]
+        "tags": ["Fees"]
       },
       "get": {
         "operationId": "fees_retrieve",
@@ -1569,18 +1467,16 @@
           }
         },
         "summary": "Retrieve Fee By Id",
-        "tags": [
-          "Fees"
-        ]
+        "tags": ["Fees"]
       },
       "parameters": [
         {
+          "in": "path",
+          "name": "id",
+          "required": true,
           "schema": {
             "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true
+          }
         }
       ]
     },
@@ -1609,8 +1505,28 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "ListInvoicesResponse",
                   "description": "",
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Invoice"
+                      },
+                      "minItems": 1,
+                      "type": "array",
+                      "uniqueItems": true
+                    },
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["data", "has_more", "page", "total"],
+                  "title": "ListInvoicesResponse",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -1636,32 +1552,7 @@
                       "page": 5,
                       "total": 5
                     }
-                  },
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "minItems": 1,
-                      "uniqueItems": true,
-                      "items": {
-                        "$ref": "#/components/schemas/Invoice"
-                      }
-                    },
-                    "has_more": {
-                      "type": "boolean"
-                    },
-                    "page": {
-                      "type": "number"
-                    },
-                    "total": {
-                      "type": "number"
-                    }
-                  },
-                  "required": [
-                    "data",
-                    "has_more",
-                    "page",
-                    "total"
-                  ]
+                  }
                 }
               }
             },
@@ -1675,9 +1566,7 @@
           }
         },
         "summary": "List Invoices",
-        "tags": [
-          "Invoices"
-        ]
+        "tags": ["Invoices"]
       },
       "post": {
         "description": "",
@@ -1691,24 +1580,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "title": "CreateInvoiceBody",
                 "description": "",
-                "type": "object",
-                "x-examples": {
-                  "example-1": {
-                    "account": "acct_p82RIso0f9EOvdJoFTYIK",
-                    "amount": 0,
-                    "chain": "eth",
-                    "currency": "eth",
-                    "customer": "cus_W54yfTK4NCsfBx4mhXHez",
-                    "due": null,
-                    "number": "ACC-0000000",
-                    "product": "prod_AKjVX2GYDjwrZjTkFJWeF",
-                    "status": "open",
-                    "transaction": "0x0000000000000000000000000000000000000001",
-                    "wallet": "wal_6H6IKtkbVu3yNMdPYtEXe"
-                  }
-                },
                 "properties": {
                   "account": {
                     "minLength": 1,
@@ -1758,7 +1630,24 @@
                   "number",
                   "transaction",
                   "wallet"
-                ]
+                ],
+                "title": "CreateInvoiceBody",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "account": "acct_p82RIso0f9EOvdJoFTYIK",
+                    "amount": 0,
+                    "chain": "eth",
+                    "currency": "eth",
+                    "customer": "cus_W54yfTK4NCsfBx4mhXHez",
+                    "due": null,
+                    "number": "ACC-0000000",
+                    "product": "prod_AKjVX2GYDjwrZjTkFJWeF",
+                    "status": "open",
+                    "transaction": "0x0000000000000000000000000000000000000001",
+                    "wallet": "wal_6H6IKtkbVu3yNMdPYtEXe"
+                  }
+                }
               }
             }
           }
@@ -1782,9 +1671,7 @@
           }
         },
         "summary": "Create Invoice",
-        "tags": [
-          "Invoices"
-        ]
+        "tags": ["Invoices"]
       }
     },
     "/invoices/{id}": {
@@ -1817,18 +1704,16 @@
           }
         },
         "summary": "Retrieve Invoice By Id",
-        "tags": [
-          "Invoices"
-        ]
+        "tags": ["Invoices"]
       },
       "parameters": [
         {
+          "in": "path",
+          "name": "id",
+          "required": true,
           "schema": {
             "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true
+          }
         }
       ],
       "patch": {
@@ -1838,6 +1723,41 @@
             "$ref": "#/components/parameters/Prism-Account"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "amount": {
+                    "type": "integer"
+                  },
+                  "chain": {
+                    "type": "string"
+                  },
+                  "currency": {
+                    "type": "string"
+                  },
+                  "due": {
+                    "type": "string"
+                  },
+                  "transaction": {
+                    "type": "string"
+                  }
+                },
+                "title": "UpdateInvoiceBody",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "amount": 0,
+                    "chain": "eth",
+                    "currency": "eth",
+                    "due": "2019-08-24T14:15:22Z"
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "content": {
@@ -1860,61 +1780,20 @@
           }
         },
         "summary": "Update Invoice By Id",
-        "tags": [
-          "Invoices"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "title": "UpdateInvoiceBody",
-                "type": "object",
-                "x-examples": {
-                  "example-1": {
-                    "amount": 0,
-                    "chain": "eth",
-                    "currency": "eth",
-                    "due": "2019-08-24T14:15:22Z"
-                  }
-                },
-                "properties": {
-                  "amount": {
-                    "type": "integer"
-                  },
-                  "chain": {
-                    "type": "string"
-                  },
-                  "currency": {
-                    "type": "string"
-                  },
-                  "due": {
-                    "type": "string"
-                  },
-                  "transaction": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
+        "tags": ["Invoices"]
       }
     },
     "/invoices/{id}/poll": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true
-        }
-      ],
       "get": {
-        "summary": "Poll Invoice By ID",
-        "tags": [
-          "Invoices"
+        "description": "",
+        "operationId": "invoices_poll",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
         ],
         "responses": {
           "200": {
@@ -1927,17 +1806,19 @@
             "$ref": "#/components/responses/404"
           }
         },
-        "operationId": "invoices_poll",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/expand"
-          },
-          {
-            "$ref": "#/components/parameters/Prism-Account"
+        "summary": "Poll Invoice By ID",
+        "tags": ["Invoices"]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
           }
-        ],
-        "description": ""
-      }
+        }
+      ]
     },
     "/logs": {
       "get": {
@@ -1965,8 +1846,29 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "ListLogsResponse",
                   "description": "",
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Log"
+                      },
+                      "minItems": 1,
+                      "type": "array",
+                      "uniqueItems": true
+                    },
+                    "has_more": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["data", "has_more", "page", "total"],
+                  "title": "ListLogsResponse",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -2012,33 +1914,7 @@
                       "has_more": "test",
                       "page": 2
                     }
-                  },
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 1,
-                      "items": {
-                        "$ref": "#/components/schemas/Log"
-                      }
-                    },
-                    "has_more": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "page": {
-                      "type": "number"
-                    },
-                    "total": {
-                      "type": "number"
-                    }
-                  },
-                  "required": [
-                    "data",
-                    "has_more",
-                    "page",
-                    "total"
-                  ]
+                  }
                 }
               }
             },
@@ -2052,9 +1928,7 @@
           }
         },
         "summary": "List Logs",
-        "tags": [
-          "Logs"
-        ],
+        "tags": ["Logs"],
         "x-internal": false
       }
     },
@@ -2088,18 +1962,16 @@
           }
         },
         "summary": "Retrieve Log By Id",
-        "tags": [
-          "Logs"
-        ]
+        "tags": ["Logs"]
       },
       "parameters": [
         {
+          "in": "path",
+          "name": "id",
+          "required": true,
           "schema": {
             "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true
+          }
         }
       ]
     },
@@ -2128,8 +2000,28 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "ListPaymentsResponse",
                   "description": "",
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Payment"
+                      },
+                      "minItems": 1,
+                      "type": "array",
+                      "uniqueItems": true
+                    },
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["data", "has_more", "page", "total"],
+                  "title": "ListPaymentsResponse",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -2151,32 +2043,7 @@
                       "page": 3,
                       "total": 50
                     }
-                  },
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "minItems": 1,
-                      "uniqueItems": true,
-                      "items": {
-                        "$ref": "#/components/schemas/Payment"
-                      }
-                    },
-                    "has_more": {
-                      "type": "boolean"
-                    },
-                    "page": {
-                      "type": "number"
-                    },
-                    "total": {
-                      "type": "number"
-                    }
-                  },
-                  "required": [
-                    "data",
-                    "has_more",
-                    "page",
-                    "total"
-                  ]
+                  }
                 }
               }
             },
@@ -2190,9 +2057,7 @@
           }
         },
         "summary": "List Payments",
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       }
     },
     "/payments/{id}": {
@@ -2225,20 +2090,246 @@
           }
         },
         "summary": "Retrieve Payment By Id",
-        "tags": [
-          "Payments"
-        ]
+        "tags": ["Payments"]
       },
       "parameters": [
         {
+          "in": "path",
+          "name": "id",
+          "required": true,
           "schema": {
             "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true
+          }
         }
       ]
+    },
+    "/payout_wallets": {
+      "get": {
+        "description": "",
+        "operationId": "payout-wallets_list",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/sort"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/PayoutWallet"
+                      },
+                      "type": "array"
+                    },
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "title": "ListPayoutWalletsResponse",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "List Payout Wallets",
+        "tags": ["PayoutWallets"]
+      },
+      "post": {
+        "operationId": "payout-wallets_create",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "account": {
+                    "type": "string"
+                  },
+                  "address": {
+                    "type": "string"
+                  },
+                  "chain": {
+                    "type": "string"
+                  }
+                },
+                "required": ["account", "chain", "address"],
+                "title": "CreatePayoutWalletBody",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "account": "t",
+                    "address": "x",
+                    "chain": "eth"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PayoutWallet"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          }
+        },
+        "summary": "Create Payout Wallets",
+        "tags": ["PayoutWallets"]
+      }
+    },
+    "/payout_wallets/{id}": {
+      "delete": {
+        "operationId": "payout-wallets_delete",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Delete Payout Wallet By ID",
+        "tags": ["PayoutWallets"]
+      },
+      "get": {
+        "operationId": "payout-wallets_retrieve",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PayoutWallet"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Retrieve Payout Wallet By ID",
+        "tags": ["PayoutWallets"]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "patch": {
+        "operationId": "payout-wallets_update",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "chain": {
+                    "type": "string"
+                  }
+                },
+                "title": "UpdatePayoutWalletBody",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PayoutWallet"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Update Payout Wallet By ID",
+        "tags": ["PayoutWallets"]
+      }
     },
     "/products": {
       "get": {
@@ -2265,8 +2356,28 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "ListProductsResponse",
                   "description": "",
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Product"
+                      },
+                      "minItems": 1,
+                      "type": "array",
+                      "uniqueItems": true
+                    },
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["data", "has_more", "page", "total"],
+                  "title": "ListProductsResponse",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -2287,32 +2398,7 @@
                       "page": 3,
                       "total": 4
                     }
-                  },
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "minItems": 1,
-                      "uniqueItems": true,
-                      "items": {
-                        "$ref": "#/components/schemas/Product"
-                      }
-                    },
-                    "has_more": {
-                      "type": "boolean"
-                    },
-                    "page": {
-                      "type": "number"
-                    },
-                    "total": {
-                      "type": "number"
-                    }
-                  },
-                  "required": [
-                    "data",
-                    "has_more",
-                    "page",
-                    "total"
-                  ]
+                  }
                 }
               }
             },
@@ -2326,9 +2412,7 @@
           }
         },
         "summary": "List Products",
-        "tags": [
-          "Products"
-        ]
+        "tags": ["Products"]
       },
       "post": {
         "operationId": "products_create",
@@ -2341,7 +2425,6 @@
           "content": {
             "application/json": {
               "schema": {
-                "title": "CreateProductBody",
                 "description": "",
                 "properties": {
                   "amount": {
@@ -2360,12 +2443,8 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "name",
-                  "amount",
-                  "chain",
-                  "currency"
-                ],
+                "required": ["name", "amount", "chain", "currency"],
+                "title": "CreateProductBody",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -2398,9 +2477,7 @@
           }
         },
         "summary": "Create Product",
-        "tags": [
-          "Products"
-        ]
+        "tags": ["Products"]
       }
     },
     "/products/{id}": {
@@ -2423,9 +2500,7 @@
           }
         },
         "summary": "Delete Product By Id",
-        "tags": [
-          "Products"
-        ]
+        "tags": ["Products"]
       },
       "get": {
         "operationId": "products_retrieve",
@@ -2456,18 +2531,16 @@
           }
         },
         "summary": "Retrieve Product By Id",
-        "tags": [
-          "Products"
-        ]
+        "tags": ["Products"]
       },
       "parameters": [
         {
+          "in": "path",
+          "name": "id",
+          "required": true,
           "schema": {
             "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true
+          }
         }
       ],
       "patch": {
@@ -2477,6 +2550,42 @@
             "$ref": "#/components/parameters/Prism-Account"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "amount": {
+                    "type": "integer"
+                  },
+                  "base_currency": {
+                    "type": "string"
+                  },
+                  "chain": {
+                    "type": "string"
+                  },
+                  "currency": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "title": "UpdateProductBody",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "amount": 0,
+                    "base_currency": "string",
+                    "chain": "string",
+                    "currency": "succeeded",
+                    "name": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "content": {
@@ -2499,89 +2608,11 @@
           }
         },
         "summary": "Update Product By Id",
-        "tags": [
-          "Products"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "title": "UpdateProductBody",
-                "type": "object",
-                "properties": {
-                  "amount": {
-                    "type": "integer"
-                  },
-                  "base_currency": {
-                    "type": "string"
-                  },
-                  "chain": {
-                    "type": "string"
-                  },
-                  "currency": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  }
-                },
-                "x-examples": {
-                  "example-1": {
-                    "amount": 0,
-                    "base_currency": "string",
-                    "chain": "string",
-                    "currency": "succeeded",
-                    "name": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
+        "tags": ["Products"]
       }
     },
     "/transfers": {
       "get": {
-        "summary": "List Transfers",
-        "tags": [
-          "Transfers"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "title": "ListTransfersResponse",
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/Transfer"
-                      }
-                    },
-                    "has_more": {
-                      "type": "boolean"
-                    },
-                    "page": {
-                      "type": "number"
-                    },
-                    "total": {
-                      "type": "number"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
         "operationId": "transfers_list",
         "parameters": [
           {
@@ -2599,29 +2630,48 @@
           {
             "$ref": "#/components/parameters/Prism-Account"
           }
-        ]
-      },
-      "post": {
-        "summary": "Create Transfer",
-        "operationId": "transfers_create",
+        ],
         "responses": {
           "200": {
-            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Transfer"
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Transfer"
+                      },
+                      "type": "array"
+                    },
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "title": "ListTransfersResponse",
+                  "type": "object"
                 }
               }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
+            },
+            "description": "OK"
           },
           "401": {
             "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         },
+        "summary": "List Transfers",
+        "tags": ["Transfers"]
+      },
+      "post": {
+        "operationId": "transfers_create",
         "parameters": [
           {
             "$ref": "#/components/parameters/Prism-Account"
@@ -2631,87 +2681,68 @@
           "content": {
             "application/json": {
               "schema": {
-                "title": "CreateTransferBody",
-                "type": "object",
-                "x-examples": {
-                  "example-1": {
-                    "account": "eth",
-                    "invoice": "E",
-                    "wallet": "e",
-                    "percent": 3,
-                    "description": "oo",
-                    "amount": "e",
-                    "usd_amount": 3
-                  }
-                },
                 "properties": {
                   "account": {
+                    "type": "string"
+                  },
+                  "amount": {
+                    "type": "string"
+                  },
+                  "description": {
                     "type": "string"
                   },
                   "invoice": {
                     "type": "string"
                   },
-                  "wallet": {
-                    "type": "string"
-                  },
                   "percent": {
                     "type": "integer"
                   },
-                  "description": {
-                    "type": "string"
-                  },
-                  "amount": {
+                  "wallet": {
                     "type": "string"
                   }
                 },
-                "required": [
-                  "account",
-                  "invoice",
-                  "wallet"
-                ]
+                "required": ["account", "invoice", "wallet"],
+                "title": "CreateTransferBody",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "account": "eth",
+                    "amount": "e",
+                    "description": "oo",
+                    "invoice": "E",
+                    "percent": 3,
+                    "usd_amount": 3,
+                    "wallet": "e"
+                  }
+                }
               }
             }
           }
         },
-        "tags": [
-          "Transfers"
-        ]
-      }
-    },
-    "/transfers/{id}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true
-        }
-      ],
-      "get": {
-        "summary": "Retrieve Transfer By ID",
-        "tags": [
-          "Transfers"
-        ],
         "responses": {
           "200": {
-            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Transfer"
                 }
               }
-            }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
           },
           "401": {
             "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
           }
         },
+        "summary": "Create Transfer",
+        "tags": ["Transfers"]
+      }
+    },
+    "/transfers/{id}": {
+      "get": {
         "operationId": "transfers_retrieve",
         "parameters": [
           {
@@ -2720,8 +2751,38 @@
           {
             "$ref": "#/components/parameters/Prism-Account"
           }
-        ]
-      }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transfer"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Retrieve Transfer By ID",
+        "tags": ["Transfers"]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
     },
     "/wallets": {
       "get": {
@@ -2748,8 +2809,28 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "ListWalletsResponse",
                   "description": "",
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Wallet"
+                      },
+                      "minItems": 0,
+                      "type": "array",
+                      "uniqueItems": true
+                    },
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["data", "has_more", "page", "total"],
+                  "title": "ListWalletsResponse",
                   "type": "object",
                   "x-examples": {
                     "example-1": {
@@ -2765,32 +2846,7 @@
                       "page": 2,
                       "total": 50
                     }
-                  },
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "minItems": 0,
-                      "uniqueItems": true,
-                      "items": {
-                        "$ref": "#/components/schemas/Wallet"
-                      }
-                    },
-                    "has_more": {
-                      "type": "boolean"
-                    },
-                    "page": {
-                      "type": "number"
-                    },
-                    "total": {
-                      "type": "number"
-                    }
-                  },
-                  "required": [
-                    "data",
-                    "has_more",
-                    "page",
-                    "total"
-                  ]
+                  }
                 }
               }
             },
@@ -2804,9 +2860,7 @@
           }
         },
         "summary": "List Wallets",
-        "tags": [
-          "Wallets"
-        ]
+        "tags": ["Wallets"]
       },
       "post": {
         "operationId": "wallets_create",
@@ -2819,7 +2873,6 @@
           "content": {
             "application/json": {
               "schema": {
-                "title": "CreateWalletBody",
                 "description": "",
                 "properties": {
                   "account": {
@@ -2839,12 +2892,8 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "account",
-                  "chain",
-                  "address",
-                  "customer"
-                ],
+                "required": ["account", "chain", "address", "customer"],
+                "title": "CreateWalletBody",
                 "type": "object",
                 "x-examples": {
                   "example-1": {
@@ -2877,9 +2926,7 @@
           }
         },
         "summary": "Create Wallet",
-        "tags": [
-          "Wallets"
-        ]
+        "tags": ["Wallets"]
       }
     },
     "/wallets/{id}": {
@@ -2905,9 +2952,7 @@
           }
         },
         "summary": "Delete Wallet By Id",
-        "tags": [
-          "Wallets"
-        ]
+        "tags": ["Wallets"]
       },
       "get": {
         "description": "",
@@ -2949,18 +2994,16 @@
           }
         },
         "summary": "Retrieve Wallet By Id",
-        "tags": [
-          "Wallets"
-        ]
+        "tags": ["Wallets"]
       },
       "parameters": [
         {
+          "in": "path",
+          "name": "id",
+          "required": true,
           "schema": {
             "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true
+          }
         }
       ],
       "patch": {
@@ -2970,6 +3013,27 @@
             "$ref": "#/components/parameters/Prism-Account"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "chain": {
+                    "type": "string"
+                  }
+                },
+                "title": "UpdateWalletBody",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "account": "string",
+                    "chain": "eth"
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "content": {
@@ -2992,272 +3056,7 @@
           }
         },
         "summary": "Update Wallet By Id",
-        "tags": [
-          "Wallets"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "title": "UpdateWalletBody",
-                "type": "object",
-                "x-examples": {
-                  "example-1": {
-                    "account": "string",
-                    "chain": "eth"
-                  }
-                },
-                "properties": {
-                  "chain": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/payout_wallets": {
-      "get": {
-        "summary": "List Payout Wallets",
-        "tags": [
-          "PayoutWallets"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "title": "ListPayoutWalletsResponse",
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/PayoutWallet"
-                      }
-                    },
-                    "has_more": {
-                      "type": "boolean"
-                    },
-                    "page": {
-                      "type": "number"
-                    },
-                    "total": {
-                      "type": "number"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "operationId": "payout-wallets_list",
-        "description": "",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/limit"
-          },
-          {
-            "$ref": "#/components/parameters/page"
-          },
-          {
-            "$ref": "#/components/parameters/sort"
-          },
-          {
-            "$ref": "#/components/parameters/expand"
-          },
-          {
-            "$ref": "#/components/parameters/Prism-Account"
-          }
-        ]
-      },
-      "post": {
-        "summary": "Create Payout Wallets",
-        "operationId": "payout-wallets_create",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PayoutWallet"
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          }
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Prism-Account"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "title": "CreatePayoutWalletBody",
-                "type": "object",
-                "x-examples": {
-                  "example-1": {
-                    "account": "t",
-                    "chain": "eth",
-                    "address": "x"
-                  }
-                },
-                "properties": {
-                  "account": {
-                    "type": "string"
-                  },
-                  "chain": {
-                    "type": "string"
-                  },
-                  "address": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "account",
-                  "chain",
-                  "address"
-                ]
-              }
-            }
-          }
-        },
-        "tags": [
-          "PayoutWallets"
-        ]
-      }
-    },
-    "/payout_wallets/{id}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true
-        }
-      ],
-      "get": {
-        "summary": "Retrieve Payout Wallet By ID",
-        "tags": [
-          "PayoutWallets"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PayoutWallet"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "operationId": "payout-wallets_retrieve",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/expand"
-          },
-          {
-            "$ref": "#/components/parameters/Prism-Account"
-          }
-        ]
-      },
-      "patch": {
-        "summary": "Update Payout Wallet By ID",
-        "operationId": "payout-wallets_update",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PayoutWallet"
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Prism-Account"
-          }
-        ],
-        "tags": [
-          "PayoutWallets"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "title": "UpdatePayoutWalletBody",
-                "type": "object",
-                "properties": {
-                  "chain": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete Payout Wallet By ID",
-        "operationId": "payout-wallets_delete",
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Prism-Account"
-          }
-        ],
-        "tags": [
-          "PayoutWallets"
-        ]
+        "tags": ["Wallets"]
       }
     },
     "/webhooks": {
@@ -3285,34 +3084,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "ListWebhooksResponse",
                   "description": "",
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "data": [
-                        {
-                          "account": "test",
-                          "endpoint_url": "e",
-                          "event_types": [
-                            "s",
-                            "b"
-                          ]
-                        }
-                      ],
-                      "has_more": true,
-                      "page": 4,
-                      "total": 4
-                    }
-                  },
                   "properties": {
                     "data": {
-                      "type": "array",
-                      "minItems": 1,
-                      "uniqueItems": true,
                       "items": {
                         "$ref": "#/components/schemas/Webhook"
-                      }
+                      },
+                      "minItems": 1,
+                      "type": "array",
+                      "uniqueItems": true
                     },
                     "has_more": {
                       "type": "boolean"
@@ -3324,12 +3104,23 @@
                       "type": "number"
                     }
                   },
-                  "required": [
-                    "data",
-                    "has_more",
-                    "page",
-                    "total"
-                  ]
+                  "required": ["data", "has_more", "page", "total"],
+                  "title": "ListWebhooksResponse",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "data": [
+                        {
+                          "account": "test",
+                          "endpoint_url": "e",
+                          "event_types": ["s", "b"]
+                        }
+                      ],
+                      "has_more": true,
+                      "page": 4,
+                      "total": 4
+                    }
+                  }
                 }
               }
             },
@@ -3343,9 +3134,7 @@
           }
         },
         "summary": "List Webhooks",
-        "tags": [
-          "Webhooks"
-        ]
+        "tags": ["Webhooks"]
       },
       "post": {
         "operationId": "webhooks_create",
@@ -3358,17 +3147,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "title": "CreateWebhookBody",
                 "description": "",
-                "type": "object",
-                "x-examples": {
-                  "example-1": {
-                    "account": "acct_bafbskrgsiur",
-                    "endpoint_url": "https://example.com/webhook",
-                    "event_types": [],
-                    "secret": "whsec_BADHFBSJDFBSEURBOEUR"
-                  }
-                },
                 "properties": {
                   "account": {
                     "minLength": 1,
@@ -3379,21 +3158,27 @@
                     "type": "string"
                   },
                   "event_types": {
-                    "type": "array",
                     "items": {
                       "type": "string"
-                    }
+                    },
+                    "type": "array"
                   },
                   "secret": {
                     "minLength": 1,
                     "type": "string"
                   }
                 },
-                "required": [
-                  "account",
-                  "endpoint_url",
-                  "event_types"
-                ]
+                "required": ["account", "endpoint_url", "event_types"],
+                "title": "CreateWebhookBody",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "account": "acct_bafbskrgsiur",
+                    "endpoint_url": "https://example.com/webhook",
+                    "event_types": [],
+                    "secret": "whsec_BADHFBSJDFBSEURBOEUR"
+                  }
+                }
               }
             }
           }
@@ -3417,9 +3202,7 @@
           }
         },
         "summary": "Create Webhook",
-        "tags": [
-          "Webhooks"
-        ]
+        "tags": ["Webhooks"]
       }
     },
     "/webhooks/{id}": {
@@ -3427,12 +3210,12 @@
         "operationId": "webhooks_delete",
         "parameters": [
           {
+            "description": "The ID of the connected Prism account you are making a request on behalf on.",
             "in": "header",
             "name": "Prism-Account",
             "schema": {
               "type": "string"
-            },
-            "description": "The ID of the connected Prism account you are making a request on behalf on."
+            }
           }
         ],
         "responses": {
@@ -3447,9 +3230,7 @@
           }
         },
         "summary": "Delete Webhook By Id",
-        "tags": [
-          "Webhooks"
-        ]
+        "tags": ["Webhooks"]
       },
       "get": {
         "description": "",
@@ -3481,18 +3262,16 @@
           }
         },
         "summary": "Retrieve Webhook By Id",
-        "tags": [
-          "Webhooks"
-        ]
+        "tags": ["Webhooks"]
       },
       "parameters": [
         {
+          "in": "path",
+          "name": "id",
+          "required": true,
           "schema": {
             "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true
+          }
         }
       ],
       "patch": {
@@ -3502,6 +3281,33 @@
             "$ref": "#/components/parameters/Prism-Account"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "endpoint_url": {
+                    "type": "string"
+                  },
+                  "event_types": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "title": "UpdateWebhookBody",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "endpoint_url": "string",
+                    "event_types": ["string"]
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "content": {
@@ -3524,53 +3330,22 @@
           }
         },
         "summary": "Update Webhook By Id",
-        "tags": [
-          "Webhooks"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "title": "UpdateWebhookBody",
-                "type": "object",
-                "properties": {
-                  "endpoint_url": {
-                    "type": "string"
-                  },
-                  "event_types": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "x-examples": {
-                  "example-1": {
-                    "endpoint_url": "string",
-                    "event_types": [
-                      "string"
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        }
+        "tags": ["Webhooks"]
       }
     }
   },
   "servers": [
     {
-      "url": "http://localhost:7070/v1",
-      "description": "develop"
+      "description": "develop",
+      "url": "http://localhost:7070/v1"
     },
     {
       "description": "staging",
       "url": "https://prism-api-stg.herokuapp.com/v1"
     },
     {
-      "url": "https://prism-api-prd.herokuapp.com/v1",
-      "description": "production"
+      "description": "production",
+      "url": "https://prism-api-prd.herokuapp.com/v1"
     }
   ],
   "tags": [

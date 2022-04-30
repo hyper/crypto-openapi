@@ -26,14 +26,14 @@ export class InvoiceAllOf {
     'currency': InvoiceAllOfCurrencyEnum;
     'customer': string | Customer;
     'due'?: Date;
-    'fees': Array<Fee>;
     'number': string;
-    'payments'?: Array<Payment>;
     'product'?: string | Product;
     'status': InvoiceAllOfStatusEnum;
     'transaction'?: string;
-    'transfers': Array<Transfer>;
     'wallet': string | Wallet;
+    'fees': Array<Fee>;
+    'transfers': Array<Transfer>;
+    'payments'?: Array<Payment>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -75,21 +75,9 @@ export class InvoiceAllOf {
             "format": "date-time"
         },
         {
-            "name": "fees",
-            "baseName": "fees",
-            "type": "Array<Fee>",
-            "format": ""
-        },
-        {
             "name": "number",
             "baseName": "number",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "payments",
-            "baseName": "payments",
-            "type": "Array<Payment>",
             "format": ""
         },
         {
@@ -111,15 +99,27 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
+            "name": "wallet",
+            "baseName": "wallet",
+            "type": "string | Wallet",
+            "format": ""
+        },
+        {
+            "name": "fees",
+            "baseName": "fees",
+            "type": "Array<Fee>",
+            "format": ""
+        },
+        {
             "name": "transfers",
             "baseName": "transfers",
             "type": "Array<Transfer>",
             "format": ""
         },
         {
-            "name": "wallet",
-            "baseName": "wallet",
-            "type": "string | Wallet",
+            "name": "payments",
+            "baseName": "payments",
+            "type": "Array<Payment>",
             "format": ""
         }    ];
 
