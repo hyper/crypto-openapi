@@ -28,7 +28,6 @@ export class Account {
     'parent_account'?: string | Account;
     'payout_wallets'?: Array<PayoutWallet>;
     'platform_account': boolean;
-    'payout_wallets'?: Array<PayoutWallet>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -97,12 +96,6 @@ export class Account {
             "name": "platform_account",
             "baseName": "platform_account",
             "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "payout_wallets",
-            "baseName": "payout_wallets",
-            "type": "Array<PayoutWallet>",
             "format": ""
         }    ];
 
