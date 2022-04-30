@@ -14,18 +14,18 @@ class IsomorphicFetchHttpLibrary {
             data: body,
             headers: request.getHeaders(),
             withCredentials: true,
-        }).then((resp) => {
+        }).then((res) => {
             const headers = {};
-            if (headers) {
-                resp.headers.forEach((value, name) => {
+            if (res.headers) {
+                res.headers.forEach((value, name) => {
                     headers[name] = value;
                 });
             }
             const body = {
-                text: () => resp.text(),
-                binary: () => resp.blob()
+                text: () => res.text(),
+                binary: () => res.blob()
             };
-            return new http_1.ResponseContext(resp.status, headers, body);
+            return new http_1.ResponseContext(res.status, headers, body);
         });
         return rxjsStub_1.from(resultPromise);
     }
