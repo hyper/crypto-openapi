@@ -70,6 +70,12 @@ CreateInvoiceBody.attributeTypeMap = [
         "baseName": "wallet",
         "type": "string",
         "format": ""
+    },
+    {
+        "name": "fee_data",
+        "baseName": "fee_data",
+        "type": "Array<Fee>",
+        "format": ""
     }
 ];
 //# sourceMappingURL=CreateInvoiceBody.js.map

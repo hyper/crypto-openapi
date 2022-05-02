@@ -386,11 +386,11 @@
               "chain",
               "currency",
               "customer",
+              "fees",
               "number",
               "status",
-              "wallet",
-              "fees",
-              "transfers"
+              "transfers",
+              "wallet"
             ],
             "type": "object"
           }
@@ -1902,6 +1902,12 @@
                   },
                   "due": {
                     "type": "string"
+                  },
+                  "fee_data": {
+                    "items": {
+                      "$ref": "#/components/schemas/Fee"
+                    },
+                    "type": "array"
                   },
                   "number": {
                     "minLength": 1,

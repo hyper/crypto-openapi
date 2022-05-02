@@ -40,6 +40,9 @@ let body:.InvoicesApiCreateRequest = {
     product: "product_example",
     transaction: "transaction_example",
     wallet: "wallet_example",
+    fee_data: [
+      null,
+    ],
   },
 };
 
