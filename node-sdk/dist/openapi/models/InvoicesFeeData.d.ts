@@ -1,7 +1,7 @@
 export declare class InvoicesFeeData {
+    'percent'?: number;
     'amount'?: number;
     'description'?: string;
-    'percent'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

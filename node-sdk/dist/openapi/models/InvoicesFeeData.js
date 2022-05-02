@@ -12,6 +12,12 @@ exports.InvoicesFeeData = InvoicesFeeData;
 InvoicesFeeData.discriminator = undefined;
 InvoicesFeeData.attributeTypeMap = [
     {
+        "name": "percent",
+        "baseName": "percent",
+        "type": "number",
+        "format": ""
+    },
+    {
         "name": "amount",
         "baseName": "amount",
         "type": "number",
@@ -21,12 +27,6 @@ InvoicesFeeData.attributeTypeMap = [
         "name": "description",
         "baseName": "description",
         "type": "string",
-        "format": ""
-    },
-    {
-        "name": "percent",
-        "baseName": "percent",
-        "type": "number",
         "format": ""
     }
 ];
