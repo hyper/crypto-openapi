@@ -8,12 +8,11 @@ class IsomorphicFetchHttpLibrary {
     send(request) {
         let method = request.getHttpMethod().toString();
         let body = request.getBody();
-        console.log(request.getHeaders());
         const resultPromise = fetch(request.getUrl(), {
             method: method,
             body: body,
             headers: request.getHeaders(),
-            credentials: 'same-origin',
+            credentials: 'include',
         }).then((res) => {
             const headers = {};
             if (res.headers) {
