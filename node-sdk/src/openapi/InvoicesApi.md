@@ -36,13 +36,15 @@ let body:.InvoicesApiCreateRequest = {
     currency: "currency_example",
     customer: "customer_example",
     due: "due_example",
-    fee_data: [
-      null,
-    ],
     number: "number_example",
     product: "product_example",
     transaction: "transaction_example",
     wallet: "wallet_example",
+    fee_data: {
+      percent: 3.14,
+      description: "description_example",
+      amount: 3.14,
+    },
   },
 };
 

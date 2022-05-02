@@ -1,16 +1,7 @@
-import { InvoicesFeeData } from './InvoicesFeeData';
-export declare class CreateInvoiceBody {
-    'account': string;
-    'amount': number;
-    'chain': string;
-    'currency': string;
-    'customer': string;
-    'due'?: string;
-    'number': string;
-    'product'?: string;
-    'transaction': string;
-    'wallet': string;
-    'fee_data'?: InvoicesFeeData;
+export declare class InvoicesFeeData {
+    'percent'?: number;
+    'description'?: string;
+    'amount'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

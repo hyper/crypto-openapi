@@ -27,6 +27,7 @@ import { Fee } from '../models/Fee';
 import { FeeAllOf } from '../models/FeeAllOf';
 import { Invoice } from '../models/Invoice';
 import { InvoiceAllOf } from '../models/InvoiceAllOf';
+import { InvoicesFeeData } from '../models/InvoicesFeeData';
 import { ListAccountsResponse } from '../models/ListAccountsResponse';
 import { ListCustomersResponse } from '../models/ListCustomersResponse';
 import { ListFeesResponse } from '../models/ListFeesResponse';

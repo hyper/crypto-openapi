@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { Fee } from './Fee';
+import { InvoicesFeeData } from './InvoicesFeeData';
 import { HttpFile } from '../http/http';
 
 export class CreateInvoiceBody {
@@ -20,11 +20,11 @@ export class CreateInvoiceBody {
     'currency': string;
     'customer': string;
     'due'?: string;
-    'fee_data'?: Array<Fee>;
     'number': string;
     'product'?: string;
     'transaction': string;
     'wallet': string;
+    'fee_data'?: InvoicesFeeData;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -66,12 +66,6 @@ export class CreateInvoiceBody {
             "format": ""
         },
         {
-            "name": "fee_data",
-            "baseName": "fee_data",
-            "type": "Array<Fee>",
-            "format": ""
-        },
-        {
             "name": "number",
             "baseName": "number",
             "type": "string",
@@ -93,6 +87,12 @@ export class CreateInvoiceBody {
             "name": "wallet",
             "baseName": "wallet",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "fee_data",
+            "baseName": "fee_data",
+            "type": "InvoicesFeeData",
             "format": ""
         }    ];
 

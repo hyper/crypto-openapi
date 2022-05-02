@@ -1904,10 +1904,18 @@
                     "type": "string"
                   },
                   "fee_data": {
-                    "items": {
-                      "$ref": "#/components/schemas/Fee"
+                    "properties": {
+                      "amount": {
+                        "type": "number"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "percent": {
+                        "type": "number"
+                      }
                     },
-                    "type": "array"
+                    "type": "object"
                   },
                   "number": {
                     "minLength": 1,
