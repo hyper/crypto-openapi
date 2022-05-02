@@ -169,7 +169,7 @@ class AccountsApiLayer {
     data: AccountsApiUpdateRequest['update_account_body'],
     options?: { prismAccount: string }
   ): Promise<Account> {
-    return this.api.update({ id, ...convertCasing(options), ...data });
+    return this.api.update({ id, ...convertCasing(options), update_account_body: data });
   }
 
   public async list(
@@ -207,7 +207,7 @@ class CustomersApiLayer {
     data: CustomersApiUpdateRequest['update_customer_body'],
     options?: { prismAccount: string }
   ): Promise<Customer> {
-    return this.api.update({ id, ...convertCasing(options), ...data });
+    return this.api.update({ id, ...convertCasing(options), update_customer_body: data });
   }
 
   public async list(
@@ -275,7 +275,7 @@ class InvoicesApiLayer {
     data: InvoicesApiUpdateRequest['update_invoice_body'],
     options?: { prismAccount: string }
   ): Promise<Invoice> {
-    return this.api.update({ id, ...convertCasing(options), ...data });
+    return this.api.update({ id, ...convertCasing(options), update_invoice_body: data });
   }
 
   public async list(
@@ -367,7 +367,7 @@ class ProductsApiLayer {
     data: ProductsApiUpdateRequest['update_product_body'],
     options?: { prismAccount: string }
   ): Promise<Product> {
-    return this.api.update({ id, ...convertCasing(options), ...data });
+    return this.api.update({ id, ...convertCasing(options), update_product_body: data });
   }
 
   public async list(
@@ -405,7 +405,7 @@ class PayoutWalletsApiLayer {
     data: PayoutWalletsApiUpdateRequest['update_payout_wallet_body'],
     options?: { prismAccount: string }
   ): Promise<PayoutWallet> {
-    return this.api.update({ id, ...convertCasing(options), ...data });
+    return this.api.update({ id, ...convertCasing(options), update_payout_wallet_body: data });
   }
 
   public async list(
@@ -473,7 +473,7 @@ class WalletsApiLayer {
     data: WalletsApiUpdateRequest['update_wallet_body'],
     options?: { prismAccount: string }
   ): Promise<Wallet> {
-    return this.api.update({ id, ...convertCasing(options), ...data });
+    return this.api.update({ id, ...convertCasing(options), update_wallet_body: data });
   }
 
   public async list(
@@ -511,7 +511,7 @@ class WebhooksApiLayer {
     data: WebhooksApiUpdateRequest['update_webhook_body'],
     options?: { prismAccount: string }
   ): Promise<Customer> {
-    return this.api.update({ id, ...convertCasing(options), ...data });
+    return this.api.update({ id, ...convertCasing(options), update_webhook_body: data });
   }
 
   public async list(
