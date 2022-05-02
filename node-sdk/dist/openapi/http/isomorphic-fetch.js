@@ -8,6 +8,7 @@ class IsomorphicFetchHttpLibrary {
     send(request) {
         let method = request.getHttpMethod().toString();
         let body = request.getBody();
+        console.log(request.getHeaders());
         const resultPromise = fetch(request.getUrl(), {
             method: method,
             body: body,

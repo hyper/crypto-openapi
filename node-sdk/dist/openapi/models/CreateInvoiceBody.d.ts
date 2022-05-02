@@ -6,11 +6,11 @@ export declare class CreateInvoiceBody {
     'currency': string;
     'customer': string;
     'due'?: string;
+    'fee_data'?: Array<Fee>;
     'number': string;
     'product'?: string;
     'transaction': string;
     'wallet': string;
-    'fee_data'?: Array<Fee>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -48,6 +48,12 @@ CreateInvoiceBody.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "fee_data",
+        "baseName": "fee_data",
+        "type": "Array<Fee>",
+        "format": ""
+    },
+    {
         "name": "number",
         "baseName": "number",
         "type": "string",
@@ -69,12 +75,6 @@ CreateInvoiceBody.attributeTypeMap = [
         "name": "wallet",
         "baseName": "wallet",
         "type": "string",
-        "format": ""
-    },
-    {
-        "name": "fee_data",
-        "baseName": "fee_data",
-        "type": "Array<Fee>",
         "format": ""
     }
 ];

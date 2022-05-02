@@ -26,8 +26,8 @@ export class Account {
     'invoice_prefix'?: string;
     'name': string;
     'parent_account'?: string | Account;
-    'platform_account': boolean;
     'payout_wallets'?: Array<PayoutWallet>;
+    'platform_account': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -87,15 +87,15 @@ export class Account {
             "format": ""
         },
         {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "boolean",
-            "format": ""
-        },
-        {
             "name": "payout_wallets",
             "baseName": "payout_wallets",
             "type": "Array<PayoutWallet>",
+            "format": ""
+        },
+        {
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "boolean",
             "format": ""
         }    ];
 
