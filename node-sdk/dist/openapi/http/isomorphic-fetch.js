@@ -12,7 +12,7 @@ class IsomorphicFetchHttpLibrary {
             method: method,
             body: body,
             headers: request.getHeaders(),
-            credentials: 'include',
+            credentials: 'same-origin',
         }).then((res) => {
             const headers = {};
             if (res.headers) {
