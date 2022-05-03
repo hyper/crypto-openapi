@@ -4,6 +4,7 @@ export declare class UpdateInvoiceBody {
     'currency'?: string;
     'due'?: string;
     'transaction'?: string;
+    'application_fee_percent'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

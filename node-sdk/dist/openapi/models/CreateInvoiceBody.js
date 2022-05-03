@@ -24,12 +24,6 @@ CreateInvoiceBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "application_fee_amount",
-        "baseName": "application_fee_amount",
-        "type": "number",
-        "format": ""
-    },
-    {
         "name": "chain",
         "baseName": "chain",
         "type": "string",
@@ -75,6 +69,12 @@ CreateInvoiceBody.attributeTypeMap = [
         "name": "wallet",
         "baseName": "wallet",
         "type": "string",
+        "format": ""
+    },
+    {
+        "name": "application_fee_percent",
+        "baseName": "application_fee_percent",
+        "type": "number",
         "format": ""
     }
 ];

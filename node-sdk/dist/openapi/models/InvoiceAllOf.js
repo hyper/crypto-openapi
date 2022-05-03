@@ -94,6 +94,12 @@ InvoiceAllOf.attributeTypeMap = [
         "baseName": "wallet",
         "type": "string | Wallet",
         "format": ""
+    },
+    {
+        "name": "application_fee_percent",
+        "baseName": "application_fee_percent",
+        "type": "number",
+        "format": ""
     }
 ];
 //# sourceMappingURL=InvoiceAllOf.js.map

@@ -309,6 +309,9 @@
               "amount": {
                 "type": "number"
               },
+              "application_fee_percent": {
+                "type": "number"
+              },
               "chain": {
                 "enum": ["eth", "sol"],
                 "type": "string"
@@ -1888,7 +1891,7 @@
                   "amount": {
                     "type": "number"
                   },
-                  "application_fee_amount": {
+                  "application_fee_percent": {
                     "type": "number"
                   },
                   "chain": {
@@ -2032,6 +2035,9 @@
                 "properties": {
                   "amount": {
                     "type": "integer"
+                  },
+                  "application_fee_percent": {
+                    "type": "number"
                   },
                   "chain": {
                     "type": "string"
