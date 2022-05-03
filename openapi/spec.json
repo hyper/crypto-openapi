@@ -1888,6 +1888,9 @@
                   "amount": {
                     "type": "number"
                   },
+                  "application_fee_amount": {
+                    "type": "number"
+                  },
                   "chain": {
                     "minLength": 1,
                     "type": "string"
@@ -1902,23 +1905,6 @@
                   },
                   "due": {
                     "type": "string"
-                  },
-                  "fee_data": {
-                    "items": {
-                      "properties": {
-                        "amount": {
-                          "type": "number"
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "percent": {
-                          "type": "number"
-                        }
-                      },
-                      "type": "object"
-                    },
-                    "type": "array"
                   },
                   "number": {
                     "minLength": 1,

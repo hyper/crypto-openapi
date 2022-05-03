@@ -51,7 +51,6 @@ models/Fee.ts
 models/FeeAllOf.ts
 models/Invoice.ts
 models/InvoiceAllOf.ts
-models/InvoicesFeeData.ts
 models/ListAccountsResponse.ts
 models/ListCustomersResponse.ts
 models/ListFeesResponse.ts

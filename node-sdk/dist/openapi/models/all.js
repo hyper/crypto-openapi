@@ -35,7 +35,6 @@ __exportStar(require("./Fee"), exports);
 __exportStar(require("./FeeAllOf"), exports);
 __exportStar(require("./Invoice"), exports);
 __exportStar(require("./InvoiceAllOf"), exports);
-__exportStar(require("./InvoicesFeeData"), exports);
 __exportStar(require("./ListAccountsResponse"), exports);
 __exportStar(require("./ListCustomersResponse"), exports);
 __exportStar(require("./ListFeesResponse"), exports);

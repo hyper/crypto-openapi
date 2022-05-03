@@ -72,9 +72,9 @@ CreateInvoiceBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "fee_data",
-        "baseName": "fee_data",
-        "type": "Array<InvoicesFeeData>",
+        "name": "application_fee_amount",
+        "baseName": "application_fee_amount",
+        "type": "number",
         "format": ""
     }
 ];

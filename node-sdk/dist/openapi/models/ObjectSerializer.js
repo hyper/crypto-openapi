@@ -36,7 +36,6 @@ __exportStar(require("./Fee"), exports);
 __exportStar(require("./FeeAllOf"), exports);
 __exportStar(require("./Invoice"), exports);
 __exportStar(require("./InvoiceAllOf"), exports);
-__exportStar(require("./InvoicesFeeData"), exports);
 __exportStar(require("./ListAccountsResponse"), exports);
 __exportStar(require("./ListCustomersResponse"), exports);
 __exportStar(require("./ListFeesResponse"), exports);
@@ -97,7 +96,6 @@ const Fee_1 = require("./Fee");
 const FeeAllOf_1 = require("./FeeAllOf");
 const Invoice_1 = require("./Invoice");
 const InvoiceAllOf_1 = require("./InvoiceAllOf");
-const InvoicesFeeData_1 = require("./InvoicesFeeData");
 const ListAccountsResponse_1 = require("./ListAccountsResponse");
 const ListCustomersResponse_1 = require("./ListCustomersResponse");
 const ListFeesResponse_1 = require("./ListFeesResponse");
@@ -200,7 +198,6 @@ let typeMap = {
     "FeeAllOf": FeeAllOf_1.FeeAllOf,
     "Invoice": Invoice_1.Invoice,
     "InvoiceAllOf": InvoiceAllOf_1.InvoiceAllOf,
-    "InvoicesFeeData": InvoicesFeeData_1.InvoicesFeeData,
     "ListAccountsResponse": ListAccountsResponse_1.ListAccountsResponse,
     "ListCustomersResponse": ListCustomersResponse_1.ListCustomersResponse,
     "ListFeesResponse": ListFeesResponse_1.ListFeesResponse,

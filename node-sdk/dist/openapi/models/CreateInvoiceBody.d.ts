@@ -1,4 +1,3 @@
-import { InvoicesFeeData } from './InvoicesFeeData';
 export declare class CreateInvoiceBody {
     'account': string;
     'amount': number;
@@ -10,7 +9,7 @@ export declare class CreateInvoiceBody {
     'product'?: string;
     'transaction': string;
     'wallet': string;
-    'fee_data'?: Array<InvoicesFeeData>;
+    'application_fee_amount'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

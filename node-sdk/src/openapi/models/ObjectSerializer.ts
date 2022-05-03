@@ -23,7 +23,6 @@ export * from './Fee';
 export * from './FeeAllOf';
 export * from './Invoice';
 export * from './InvoiceAllOf';
-export * from './InvoicesFeeData';
 export * from './ListAccountsResponse';
 export * from './ListCustomersResponse';
 export * from './ListFeesResponse';
@@ -85,7 +84,6 @@ import { Fee } from './Fee';
 import { FeeAllOf } from './FeeAllOf';
 import { Invoice      , InvoiceChainEnum  , InvoiceCurrencyEnum        , InvoiceStatusEnum      } from './Invoice';
 import { InvoiceAllOf  , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum        , InvoiceAllOfStatusEnum      } from './InvoiceAllOf';
-import { InvoicesFeeData } from './InvoicesFeeData';
 import { ListAccountsResponse } from './ListAccountsResponse';
 import { ListCustomersResponse } from './ListCustomersResponse';
 import { ListFeesResponse } from './ListFeesResponse';
@@ -194,7 +192,6 @@ let typeMap: {[index: string]: any} = {
     "FeeAllOf": FeeAllOf,
     "Invoice": Invoice,
     "InvoiceAllOf": InvoiceAllOf,
-    "InvoicesFeeData": InvoicesFeeData,
     "ListAccountsResponse": ListAccountsResponse,
     "ListCustomersResponse": ListCustomersResponse,
     "ListFeesResponse": ListFeesResponse,
