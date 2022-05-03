@@ -41,6 +41,7 @@ let body:.InvoicesApiCreateRequest = {
     transaction: "transaction_example",
     wallet: "wallet_example",
     application_fee_percent: 3.14,
+    metadata: {},
   },
 };
 

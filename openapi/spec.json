@@ -340,6 +340,9 @@
                 },
                 "type": "array"
               },
+              "metadata": {
+                "type": "object"
+              },
               "number": {
                 "type": "string"
               },
@@ -1908,6 +1911,9 @@
                   },
                   "due": {
                     "type": "string"
+                  },
+                  "metadata": {
+                    "type": "object"
                   },
                   "number": {
                     "minLength": 1,

@@ -124,6 +124,12 @@ Invoice.attributeTypeMap = [
         "baseName": "application_fee_percent",
         "type": "number",
         "format": ""
+    },
+    {
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "any",
+        "format": ""
     }
 ];
 //# sourceMappingURL=Invoice.js.map

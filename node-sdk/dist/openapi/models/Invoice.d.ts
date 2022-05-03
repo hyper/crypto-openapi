@@ -25,6 +25,7 @@ export declare class Invoice {
     'transfers': Array<Transfer>;
     'wallet': string | Wallet;
     'application_fee_percent'?: number;
+    'metadata'?: any;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -24,6 +24,7 @@ export class CreateInvoiceBody {
     'transaction': string;
     'wallet': string;
     'application_fee_percent'?: number;
+    'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -92,6 +93,12 @@ export class CreateInvoiceBody {
             "name": "application_fee_percent",
             "baseName": "application_fee_percent",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
             "format": ""
         }    ];
 

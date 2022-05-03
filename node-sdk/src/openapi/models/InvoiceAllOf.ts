@@ -35,6 +35,7 @@ export class InvoiceAllOf {
     'transfers': Array<Transfer>;
     'wallet': string | Wallet;
     'application_fee_percent'?: number;
+    'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -127,6 +128,12 @@ export class InvoiceAllOf {
             "name": "application_fee_percent",
             "baseName": "application_fee_percent",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
             "format": ""
         }    ];
 
