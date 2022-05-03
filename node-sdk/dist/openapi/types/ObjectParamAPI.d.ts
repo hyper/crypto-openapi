@@ -158,7 +158,7 @@ export declare class ObjectInvoicesApi {
     constructor(configuration: Configuration, requestFactory?: InvoicesApiRequestFactory, responseProcessor?: InvoicesApiResponseProcessor);
     create(param?: InvoicesApiCreateRequest, options?: Configuration): Promise<Invoice>;
     list(param?: InvoicesApiListRequest, options?: Configuration): Promise<ListInvoicesResponse>;
-    poll(param: InvoicesApiPollRequest, options?: Configuration): Promise<void>;
+    poll(param: InvoicesApiPollRequest, options?: Configuration): Promise<Invoice>;
     retrieve(param: InvoicesApiRetrieveRequest, options?: Configuration): Promise<Invoice>;
     update(param: InvoicesApiUpdateRequest, options?: Configuration): Promise<Invoice>;
 }

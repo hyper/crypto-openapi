@@ -81,7 +81,7 @@ declare class InvoicesApiLayer {
     }): Promise<ListInvoicesResponse>;
     poll(id: string, params?: Omit<InvoicesApiPollRequest, 'prism_account' | 'id'>, options?: {
         prismAccount: string;
-    }): Promise<void>;
+    }): Promise<Invoice>;
 }
 declare class LogsApiLayer {
     private readonly api;

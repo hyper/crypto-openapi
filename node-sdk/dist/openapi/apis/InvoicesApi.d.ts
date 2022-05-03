@@ -15,7 +15,7 @@ export declare class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
 export declare class InvoicesApiResponseProcessor {
     create(response: ResponseContext): Promise<Invoice>;
     list(response: ResponseContext): Promise<ListInvoicesResponse>;
-    poll(response: ResponseContext): Promise<void>;
+    poll(response: ResponseContext): Promise<Invoice>;
     retrieve(response: ResponseContext): Promise<Invoice>;
     update(response: ResponseContext): Promise<Invoice>;
 }

@@ -32,6 +32,7 @@ let body:.InvoicesApiCreateRequest = {
   create_invoice_body: {
     account: "account_example",
     amount: 3.14,
+    application_fee_amount: 3.14,
     chain: "chain_example",
     currency: "currency_example",
     customer: "customer_example",
@@ -40,7 +41,6 @@ let body:.InvoicesApiCreateRequest = {
     product: "product_example",
     transaction: "transaction_example",
     wallet: "wallet_example",
-    application_fee_amount: 3.14,
   },
 };
 
@@ -149,7 +149,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **poll**
-> void poll()
+> Invoice poll()
 
 
 ### Example
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**Invoice**
 
 ### Authorization
 
@@ -197,7 +197,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details

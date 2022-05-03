@@ -493,7 +493,7 @@ export class ObservableInvoicesApi {
      * @param expand Specifies which fields to populate in the response.
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public poll(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<void> {
+    public poll(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Invoice> {
         const requestContextPromise = this.requestFactory.poll(id, expand, prism_account, _options);
 
         // build promise chain

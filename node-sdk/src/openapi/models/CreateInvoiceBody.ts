@@ -15,6 +15,7 @@ import { HttpFile } from '../http/http';
 export class CreateInvoiceBody {
     'account': string;
     'amount': number;
+    'application_fee_amount'?: number;
     'chain': string;
     'currency': string;
     'customer': string;
@@ -23,7 +24,6 @@ export class CreateInvoiceBody {
     'product'?: string;
     'transaction': string;
     'wallet': string;
-    'application_fee_amount'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -37,6 +37,12 @@ export class CreateInvoiceBody {
         {
             "name": "amount",
             "baseName": "amount",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "application_fee_amount",
+            "baseName": "application_fee_amount",
             "type": "number",
             "format": ""
         },
@@ -86,12 +92,6 @@ export class CreateInvoiceBody {
             "name": "wallet",
             "baseName": "wallet",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "application_fee_amount",
-            "baseName": "application_fee_amount",
-            "type": "number",
             "format": ""
         }    ];
 

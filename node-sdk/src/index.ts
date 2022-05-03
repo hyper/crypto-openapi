@@ -289,7 +289,7 @@ class InvoicesApiLayer {
     id: string,
     params?: Omit<InvoicesApiPollRequest, 'prism_account' | 'id'>,
     options?: { prismAccount: string }
-  ): Promise<void> {
+  ): Promise<Invoice> {
     return this.api.poll({ id, ...convertCasing(options), ...params });
   }
 }

@@ -341,10 +341,14 @@ export class InvoicesApiResponseProcessor {
      * @params response Response returned by the server for a request to poll
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async poll(response: ResponseContext): Promise<void > {
+     public async poll(response: ResponseContext): Promise<Invoice > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            return;
+            const body: Invoice = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "Invoice", ""
+            ) as Invoice;
+            return body;
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
@@ -355,10 +359,10 @@ export class InvoicesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void = ObjectSerializer.deserialize(
+            const body: Invoice = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "void", ""
-            ) as void;
+                "Invoice", ""
+            ) as Invoice;
             return body;
         }
 

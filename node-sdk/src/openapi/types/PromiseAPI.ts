@@ -296,7 +296,7 @@ export class PromiseInvoicesApi {
      * @param expand Specifies which fields to populate in the response.
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public poll(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<void> {
+    public poll(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Invoice> {
         const result = this.api.poll(id, expand, prism_account, _options);
         return result.toPromise();
     }

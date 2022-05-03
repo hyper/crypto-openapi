@@ -600,7 +600,7 @@ export class ObjectInvoicesApi {
      * Poll Invoice By ID
      * @param param the request object
      */
-    public poll(param: InvoicesApiPollRequest, options?: Configuration): Promise<void> {
+    public poll(param: InvoicesApiPollRequest, options?: Configuration): Promise<Invoice> {
         return this.api.poll(param.id, param.expand, param.prism_account,  options).toPromise();
     }
 
