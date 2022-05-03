@@ -3669,7 +3669,7 @@
     },
     {
       "description": "production",
-      "url": "https://prism-api-prd.herokuapp.com/v1"
+      "url": "https://api.prism.rest/v1"
     }
   ],
   "tags": [
