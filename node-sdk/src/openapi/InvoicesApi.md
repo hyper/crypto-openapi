@@ -298,6 +298,7 @@ let body:.InvoicesApiUpdateRequest = {
     due: "due_example",
     transaction: "transaction_example",
     application_fee_percent: 3.14,
+    status: "status_example",
   },
 };
 

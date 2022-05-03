@@ -46,6 +46,12 @@ UpdateInvoiceBody.attributeTypeMap = [
         "baseName": "application_fee_percent",
         "type": "number",
         "format": ""
+    },
+    {
+        "name": "status",
+        "baseName": "status",
+        "type": "string",
+        "format": ""
     }
 ];
 //# sourceMappingURL=UpdateInvoiceBody.js.map

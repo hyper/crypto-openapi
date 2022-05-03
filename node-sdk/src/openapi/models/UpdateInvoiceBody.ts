@@ -19,6 +19,7 @@ export class UpdateInvoiceBody {
     'due'?: string;
     'transaction'?: string;
     'application_fee_percent'?: number;
+    'status'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -57,6 +58,12 @@ export class UpdateInvoiceBody {
             "name": "application_fee_percent",
             "baseName": "application_fee_percent",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "string",
             "format": ""
         }    ];
 

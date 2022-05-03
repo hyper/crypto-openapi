@@ -2054,6 +2054,9 @@
                   "due": {
                     "type": "string"
                   },
+                  "status": {
+                    "type": "string"
+                  },
                   "transaction": {
                     "type": "string"
                   }
