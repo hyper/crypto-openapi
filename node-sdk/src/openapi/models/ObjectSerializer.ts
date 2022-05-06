@@ -21,6 +21,8 @@ export * from './CustomersIdBillingDetails';
 export * from './CustomersIdBillingDetailsAddress';
 export * from './Fee';
 export * from './FeeAllOf';
+export * from './InlineResponse400';
+export * from './InlineResponse400Error';
 export * from './Invoice';
 export * from './InvoiceAllOf';
 export * from './ListAccountsResponse';
@@ -82,6 +84,8 @@ import { CustomersIdBillingDetails } from './CustomersIdBillingDetails';
 import { CustomersIdBillingDetailsAddress } from './CustomersIdBillingDetailsAddress';
 import { Fee } from './Fee';
 import { FeeAllOf } from './FeeAllOf';
+import { InlineResponse400 } from './InlineResponse400';
+import { InlineResponse400Error } from './InlineResponse400Error';
 import { Invoice      , InvoiceChainEnum  , InvoiceCurrencyEnum        , InvoiceStatusEnum        } from './Invoice';
 import { InvoiceAllOf  , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum        , InvoiceAllOfStatusEnum        } from './InvoiceAllOf';
 import { ListAccountsResponse } from './ListAccountsResponse';
@@ -190,6 +194,8 @@ let typeMap: {[index: string]: any} = {
     "CustomersIdBillingDetailsAddress": CustomersIdBillingDetailsAddress,
     "Fee": Fee,
     "FeeAllOf": FeeAllOf,
+    "InlineResponse400": InlineResponse400,
+    "InlineResponse400Error": InlineResponse400Error,
     "Invoice": Invoice,
     "InvoiceAllOf": InvoiceAllOf,
     "ListAccountsResponse": ListAccountsResponse,

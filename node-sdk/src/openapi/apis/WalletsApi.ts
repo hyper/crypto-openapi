@@ -9,6 +9,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { CreateWalletBody } from '../models/CreateWalletBody';
+import { InlineResponse400 } from '../models/InlineResponse400';
 import { ListWalletsResponse } from '../models/ListWalletsResponse';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
 import { Wallet } from '../models/Wallet';
@@ -312,7 +313,11 @@ export class WalletsApiResponseProcessor {
             return body;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
-            throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
+            const body: InlineResponse400 = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "InlineResponse400", ""
+            ) as InlineResponse400;
+            throw new ApiException<InlineResponse400>(400, "Bad Request", body, response.headers);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
@@ -417,13 +422,21 @@ export class WalletsApiResponseProcessor {
             return body;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
-            throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
+            const body: InlineResponse400 = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "InlineResponse400", ""
+            ) as InlineResponse400;
+            throw new ApiException<InlineResponse400>(400, "Bad Request", body, response.headers);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
         }
         if (isCodeInRange("404", response.httpStatusCode)) {
-            throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
+            const body: InlineResponse400 = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "InlineResponse400", ""
+            ) as InlineResponse400;
+            throw new ApiException<InlineResponse400>(404, "Bad Request", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml

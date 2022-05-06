@@ -49,6 +49,8 @@ models/CustomersIdBillingDetails.ts
 models/CustomersIdBillingDetailsAddress.ts
 models/Fee.ts
 models/FeeAllOf.ts
+models/InlineResponse400.ts
+models/InlineResponse400Error.ts
 models/Invoice.ts
 models/InvoiceAllOf.ts
 models/ListAccountsResponse.ts

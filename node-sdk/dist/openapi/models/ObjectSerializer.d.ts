@@ -21,6 +21,8 @@ export * from './CustomersIdBillingDetails';
 export * from './CustomersIdBillingDetailsAddress';
 export * from './Fee';
 export * from './FeeAllOf';
+export * from './InlineResponse400';
+export * from './InlineResponse400Error';
 export * from './Invoice';
 export * from './InvoiceAllOf';
 export * from './ListAccountsResponse';

@@ -25,6 +25,8 @@ import { CustomersIdBillingDetails } from '../models/CustomersIdBillingDetails';
 import { CustomersIdBillingDetailsAddress } from '../models/CustomersIdBillingDetailsAddress';
 import { Fee } from '../models/Fee';
 import { FeeAllOf } from '../models/FeeAllOf';
+import { InlineResponse400 } from '../models/InlineResponse400';
+import { InlineResponse400Error } from '../models/InlineResponse400Error';
 import { Invoice } from '../models/Invoice';
 import { InvoiceAllOf } from '../models/InvoiceAllOf';
 import { ListAccountsResponse } from '../models/ListAccountsResponse';

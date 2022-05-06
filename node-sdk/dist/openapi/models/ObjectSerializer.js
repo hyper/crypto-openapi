@@ -34,6 +34,8 @@ __exportStar(require("./CustomersIdBillingDetails"), exports);
 __exportStar(require("./CustomersIdBillingDetailsAddress"), exports);
 __exportStar(require("./Fee"), exports);
 __exportStar(require("./FeeAllOf"), exports);
+__exportStar(require("./InlineResponse400"), exports);
+__exportStar(require("./InlineResponse400Error"), exports);
 __exportStar(require("./Invoice"), exports);
 __exportStar(require("./InvoiceAllOf"), exports);
 __exportStar(require("./ListAccountsResponse"), exports);
@@ -94,6 +96,8 @@ const CustomersIdBillingDetails_1 = require("./CustomersIdBillingDetails");
 const CustomersIdBillingDetailsAddress_1 = require("./CustomersIdBillingDetailsAddress");
 const Fee_1 = require("./Fee");
 const FeeAllOf_1 = require("./FeeAllOf");
+const InlineResponse400_1 = require("./InlineResponse400");
+const InlineResponse400Error_1 = require("./InlineResponse400Error");
 const Invoice_1 = require("./Invoice");
 const InvoiceAllOf_1 = require("./InvoiceAllOf");
 const ListAccountsResponse_1 = require("./ListAccountsResponse");
@@ -196,6 +200,8 @@ let typeMap = {
     "CustomersIdBillingDetailsAddress": CustomersIdBillingDetailsAddress_1.CustomersIdBillingDetailsAddress,
     "Fee": Fee_1.Fee,
     "FeeAllOf": FeeAllOf_1.FeeAllOf,
+    "InlineResponse400": InlineResponse400_1.InlineResponse400,
+    "InlineResponse400Error": InlineResponse400Error_1.InlineResponse400Error,
     "Invoice": Invoice_1.Invoice,
     "InvoiceAllOf": InvoiceAllOf_1.InvoiceAllOf,
     "ListAccountsResponse": ListAccountsResponse_1.ListAccountsResponse,

@@ -10,6 +10,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 import { Account } from '../models/Account';
 import { CreateAccountBody } from '../models/CreateAccountBody';
+import { InlineResponse400 } from '../models/InlineResponse400';
 import { ListAccountsResponse } from '../models/ListAccountsResponse';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
 
@@ -236,7 +237,11 @@ export class AccountsApiResponseProcessor {
             return body;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
-            throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
+            const body: InlineResponse400 = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "InlineResponse400", ""
+            ) as InlineResponse400;
+            throw new ApiException<InlineResponse400>(400, "Bad Request", body, response.headers);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
@@ -341,7 +346,11 @@ export class AccountsApiResponseProcessor {
             return body;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
-            throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
+            const body: InlineResponse400 = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "InlineResponse400", ""
+            ) as InlineResponse400;
+            throw new ApiException<InlineResponse400>(400, "Bad Request", body, response.headers);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);

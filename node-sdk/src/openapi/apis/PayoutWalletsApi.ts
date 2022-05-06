@@ -9,6 +9,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
+import { InlineResponse400 } from '../models/InlineResponse400';
 import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
 import { PayoutWallet } from '../models/PayoutWallet';
 import { UpdatePayoutWalletBody } from '../models/UpdatePayoutWalletBody';
@@ -305,7 +306,11 @@ export class PayoutWalletsApiResponseProcessor {
             return body;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
-            throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
+            const body: InlineResponse400 = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "InlineResponse400", ""
+            ) as InlineResponse400;
+            throw new ApiException<InlineResponse400>(400, "Bad Request", body, response.headers);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
@@ -410,7 +415,11 @@ export class PayoutWalletsApiResponseProcessor {
             return body;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
-            throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
+            const body: InlineResponse400 = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "InlineResponse400", ""
+            ) as InlineResponse400;
+            throw new ApiException<InlineResponse400>(400, "Bad Request", body, response.headers);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);

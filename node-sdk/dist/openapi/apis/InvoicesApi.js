@@ -154,7 +154,8 @@ class InvoicesApiResponseProcessor {
                 return body;
             }
             if (util_1.isCodeInRange("400", response.httpStatusCode)) {
-                throw new exception_1.ApiException(response.httpStatusCode, "Bad Request", undefined, response.headers);
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse400", "");
+                throw new exception_1.ApiException(400, "Bad Request", body, response.headers);
             }
             if (util_1.isCodeInRange("401", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
@@ -234,7 +235,8 @@ class InvoicesApiResponseProcessor {
                 return body;
             }
             if (util_1.isCodeInRange("400", response.httpStatusCode)) {
-                throw new exception_1.ApiException(response.httpStatusCode, "Bad Request", undefined, response.headers);
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse400", "");
+                throw new exception_1.ApiException(400, "Bad Request", body, response.headers);
             }
             if (util_1.isCodeInRange("401", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
