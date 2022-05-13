@@ -233,7 +233,7 @@ class PayoutWalletsApiLayer {
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { update_payout_wallet_body: data }));
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { payout_wallet: data }));
         });
     }
     list(params, options) {

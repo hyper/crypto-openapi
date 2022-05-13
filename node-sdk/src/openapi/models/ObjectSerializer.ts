@@ -52,7 +52,6 @@ export * from './TransferAllOf';
 export * from './UpdateAccountBody';
 export * from './UpdateCustomerBody';
 export * from './UpdateInvoiceBody';
-export * from './UpdatePayoutWalletBody';
 export * from './UpdateProductBody';
 export * from './UpdateWalletBody';
 export * from './UpdateWebhookBody';
@@ -86,8 +85,8 @@ import { Fee } from './Fee';
 import { FeeAllOf } from './FeeAllOf';
 import { InlineResponse400 } from './InlineResponse400';
 import { InlineResponse400Error } from './InlineResponse400Error';
-import { Invoice      , InvoiceChainEnum  , InvoiceCurrencyEnum        , InvoiceStatusEnum        } from './Invoice';
-import { InvoiceAllOf  , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum        , InvoiceAllOfStatusEnum        } from './InvoiceAllOf';
+import { Invoice       , InvoiceChainEnum  , InvoiceCurrencyEnum         , InvoiceStatusEnum      } from './Invoice';
+import { InvoiceAllOf   , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum         , InvoiceAllOfStatusEnum      } from './InvoiceAllOf';
 import { ListAccountsResponse } from './ListAccountsResponse';
 import { ListCustomersResponse } from './ListCustomersResponse';
 import { ListFeesResponse } from './ListFeesResponse';
@@ -115,7 +114,6 @@ import { TransferAllOf } from './TransferAllOf';
 import { UpdateAccountBody } from './UpdateAccountBody';
 import { UpdateCustomerBody } from './UpdateCustomerBody';
 import { UpdateInvoiceBody } from './UpdateInvoiceBody';
-import { UpdatePayoutWalletBody } from './UpdatePayoutWalletBody';
 import { UpdateProductBody } from './UpdateProductBody';
 import { UpdateWalletBody } from './UpdateWalletBody';
 import { UpdateWebhookBody } from './UpdateWebhookBody';
@@ -225,7 +223,6 @@ let typeMap: {[index: string]: any} = {
     "UpdateAccountBody": UpdateAccountBody,
     "UpdateCustomerBody": UpdateCustomerBody,
     "UpdateInvoiceBody": UpdateInvoiceBody,
-    "UpdatePayoutWalletBody": UpdatePayoutWalletBody,
     "UpdateProductBody": UpdateProductBody,
     "UpdateWalletBody": UpdateWalletBody,
     "UpdateWebhookBody": UpdateWebhookBody,

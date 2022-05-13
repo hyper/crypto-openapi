@@ -22,11 +22,13 @@ import { HttpFile } from '../http/http';
 export class InvoiceAllOf {
     'account': string | Account;
     'amount': number;
+    'application_fee_percent'?: number;
     'chain': InvoiceAllOfChainEnum;
     'currency': InvoiceAllOfCurrencyEnum;
     'customer': string | Customer;
     'due'?: Date;
     'fees': Array<Fee>;
+    'metadata'?: any;
     'number': string;
     'payments'?: Array<Payment>;
     'product'?: string | Product;
@@ -34,8 +36,6 @@ export class InvoiceAllOf {
     'transaction'?: string;
     'transfers': Array<Transfer>;
     'wallet': string | Wallet;
-    'application_fee_percent'?: number;
-    'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -49,6 +49,12 @@ export class InvoiceAllOf {
         {
             "name": "amount",
             "baseName": "amount",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "application_fee_percent",
+            "baseName": "application_fee_percent",
             "type": "number",
             "format": ""
         },
@@ -80,6 +86,12 @@ export class InvoiceAllOf {
             "name": "fees",
             "baseName": "fees",
             "type": "Array<Fee>",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
             "format": ""
         },
         {
@@ -122,18 +134,6 @@ export class InvoiceAllOf {
             "name": "wallet",
             "baseName": "wallet",
             "type": "string | Wallet",
-            "format": ""
-        },
-        {
-            "name": "application_fee_percent",
-            "baseName": "application_fee_percent",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "any",
             "format": ""
         }    ];
 

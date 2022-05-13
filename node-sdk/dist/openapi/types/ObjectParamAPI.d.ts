@@ -31,7 +31,6 @@ import { Transfer } from '../models/Transfer';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
-import { UpdatePayoutWalletBody } from '../models/UpdatePayoutWalletBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
 import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
@@ -224,7 +223,7 @@ export interface PayoutWalletsApiRetrieveRequest {
 export interface PayoutWalletsApiUpdateRequest {
     id: string;
     prism_account?: string;
-    update_payout_wallet_body?: UpdatePayoutWalletBody;
+    payout_wallet?: PayoutWallet;
 }
 export declare class ObjectPayoutWalletsApi {
     private api;

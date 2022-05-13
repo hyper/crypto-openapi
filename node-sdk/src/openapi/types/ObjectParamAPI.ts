@@ -56,7 +56,6 @@ import { TransferAllOf } from '../models/TransferAllOf';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
-import { UpdatePayoutWalletBody } from '../models/UpdatePayoutWalletBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
 import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
@@ -890,10 +889,10 @@ export interface PayoutWalletsApiUpdateRequest {
     prism_account?: string
     /**
      * 
-     * @type UpdatePayoutWalletBody
+     * @type PayoutWallet
      * @memberof PayoutWalletsApiupdate
      */
-    update_payout_wallet_body?: UpdatePayoutWalletBody
+    payout_wallet?: PayoutWallet
 }
 
 export class ObjectPayoutWalletsApi {
@@ -940,7 +939,7 @@ export class ObjectPayoutWalletsApi {
      * @param param the request object
      */
     public update(param: PayoutWalletsApiUpdateRequest, options?: Configuration): Promise<PayoutWallet> {
-        return this.api.update(param.id, param.prism_account, param.update_payout_wallet_body,  options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.payout_wallet,  options).toPromise();
     }
 
 }

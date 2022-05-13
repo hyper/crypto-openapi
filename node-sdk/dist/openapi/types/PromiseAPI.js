@@ -148,8 +148,8 @@ class PromisePayoutWalletsApi {
         const result = this.api.retrieve(id, expand, prism_account, _options);
         return result.toPromise();
     }
-    update(id, prism_account, update_payout_wallet_body, _options) {
-        const result = this.api.update(id, prism_account, update_payout_wallet_body, _options);
+    update(id, prism_account, payout_wallet, _options) {
+        const result = this.api.update(id, prism_account, payout_wallet, _options);
         return result.toPromise();
     }
 }

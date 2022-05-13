@@ -52,7 +52,6 @@ export * from './TransferAllOf';
 export * from './UpdateAccountBody';
 export * from './UpdateCustomerBody';
 export * from './UpdateInvoiceBody';
-export * from './UpdatePayoutWalletBody';
 export * from './UpdateProductBody';
 export * from './UpdateWalletBody';
 export * from './UpdateWebhookBody';

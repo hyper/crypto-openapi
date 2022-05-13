@@ -128,7 +128,7 @@ declare class PayoutWalletsApiLayer {
     retrieve(id: string, params?: Omit<PayoutWalletsApiRetrieveRequest, 'prism_account' | 'id'>, options?: {
         prismAccount: string;
     }): Promise<PayoutWallet>;
-    update(id: string, data: PayoutWalletsApiUpdateRequest['update_payout_wallet_body'], options?: {
+    update(id: string, data: PayoutWalletsApiUpdateRequest['payout_wallet'], options?: {
         prismAccount: string;
     }): Promise<PayoutWallet>;
     list(params?: Omit<PayoutWalletsApiListRequest, 'prism_account'>, options?: {

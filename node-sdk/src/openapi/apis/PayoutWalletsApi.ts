@@ -12,7 +12,6 @@ import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
 import { InlineResponse400 } from '../models/InlineResponse400';
 import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
 import { PayoutWallet } from '../models/PayoutWallet';
-import { UpdatePayoutWalletBody } from '../models/UpdatePayoutWalletBody';
 
 /**
  * no description
@@ -207,9 +206,9 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
      * Update Payout Wallet By ID
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param update_payout_wallet_body 
+     * @param payout_wallet 
      */
-    public async update(id: string, prism_account?: string, update_payout_wallet_body?: UpdatePayoutWalletBody, _options?: Configuration): Promise<RequestContext> {
+    public async update(id: string, prism_account?: string, payout_wallet?: PayoutWallet, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -240,7 +239,7 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(update_payout_wallet_body, "UpdatePayoutWalletBody", ""),
+            ObjectSerializer.serialize(payout_wallet, "PayoutWallet", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

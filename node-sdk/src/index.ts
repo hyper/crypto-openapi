@@ -402,10 +402,10 @@ class PayoutWalletsApiLayer {
 
   public async update(
     id: string,
-    data: PayoutWalletsApiUpdateRequest['update_payout_wallet_body'],
+    data: PayoutWalletsApiUpdateRequest['payout_wallet'],
     options?: { prismAccount: string }
   ): Promise<PayoutWallet> {
-    return this.api.update({ id, ...convertCasing(options), update_payout_wallet_body: data });
+    return this.api.update({ id, ...convertCasing(options), payout_wallet: data });
   }
 
   public async list(

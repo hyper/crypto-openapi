@@ -56,7 +56,6 @@ import { TransferAllOf } from '../models/TransferAllOf';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
-import { UpdatePayoutWalletBody } from '../models/UpdatePayoutWalletBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
 import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
@@ -478,10 +477,10 @@ export class PromisePayoutWalletsApi {
      * Update Payout Wallet By ID
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param update_payout_wallet_body 
+     * @param payout_wallet 
      */
-    public update(id: string, prism_account?: string, update_payout_wallet_body?: UpdatePayoutWalletBody, _options?: Configuration): Promise<PayoutWallet> {
-        const result = this.api.update(id, prism_account, update_payout_wallet_body, _options);
+    public update(id: string, prism_account?: string, payout_wallet?: PayoutWallet, _options?: Configuration): Promise<PayoutWallet> {
+        const result = this.api.update(id, prism_account, payout_wallet, _options);
         return result.toPromise();
     }
 

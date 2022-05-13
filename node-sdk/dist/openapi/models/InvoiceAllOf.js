@@ -24,6 +24,12 @@ InvoiceAllOf.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "application_fee_percent",
+        "baseName": "application_fee_percent",
+        "type": "number",
+        "format": ""
+    },
+    {
         "name": "chain",
         "baseName": "chain",
         "type": "InvoiceAllOfChainEnum",
@@ -51,6 +57,12 @@ InvoiceAllOf.attributeTypeMap = [
         "name": "fees",
         "baseName": "fees",
         "type": "Array<Fee>",
+        "format": ""
+    },
+    {
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "any",
         "format": ""
     },
     {
@@ -93,18 +105,6 @@ InvoiceAllOf.attributeTypeMap = [
         "name": "wallet",
         "baseName": "wallet",
         "type": "string | Wallet",
-        "format": ""
-    },
-    {
-        "name": "application_fee_percent",
-        "baseName": "application_fee_percent",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "any",
         "format": ""
     }
 ];

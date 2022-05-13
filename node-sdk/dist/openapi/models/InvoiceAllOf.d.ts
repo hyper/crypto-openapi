@@ -8,11 +8,13 @@ import { Wallet } from './Wallet';
 export declare class InvoiceAllOf {
     'account': string | Account;
     'amount': number;
+    'application_fee_percent'?: number;
     'chain': InvoiceAllOfChainEnum;
     'currency': InvoiceAllOfCurrencyEnum;
     'customer': string | Customer;
     'due'?: Date;
     'fees': Array<Fee>;
+    'metadata'?: any;
     'number': string;
     'payments'?: Array<Payment>;
     'product'?: string | Product;
@@ -20,8 +22,6 @@ export declare class InvoiceAllOf {
     'transaction'?: string;
     'transfers': Array<Transfer>;
     'wallet': string | Wallet;
-    'application_fee_percent'?: number;
-    'metadata'?: any;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

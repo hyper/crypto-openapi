@@ -64,7 +64,6 @@ __exportStar(require("./TransferAllOf"), exports);
 __exportStar(require("./UpdateAccountBody"), exports);
 __exportStar(require("./UpdateCustomerBody"), exports);
 __exportStar(require("./UpdateInvoiceBody"), exports);
-__exportStar(require("./UpdatePayoutWalletBody"), exports);
 __exportStar(require("./UpdateProductBody"), exports);
 __exportStar(require("./UpdateWalletBody"), exports);
 __exportStar(require("./UpdateWebhookBody"), exports);

@@ -81,7 +81,6 @@ models/TransferAllOf.ts
 models/UpdateAccountBody.ts
 models/UpdateCustomerBody.ts
 models/UpdateInvoiceBody.ts
-models/UpdatePayoutWalletBody.ts
 models/UpdateProductBody.ts
 models/UpdateWalletBody.ts
 models/UpdateWebhookBody.ts

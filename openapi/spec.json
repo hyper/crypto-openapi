@@ -2642,13 +2642,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "chain": {
-                    "type": "string"
-                  }
-                },
-                "title": "UpdatePayoutWalletBody",
-                "type": "object"
+                "$ref": "#/components/schemas/PayoutWallet"
               }
             }
           }

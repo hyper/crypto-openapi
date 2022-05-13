@@ -65,7 +65,6 @@ __exportStar(require("./TransferAllOf"), exports);
 __exportStar(require("./UpdateAccountBody"), exports);
 __exportStar(require("./UpdateCustomerBody"), exports);
 __exportStar(require("./UpdateInvoiceBody"), exports);
-__exportStar(require("./UpdatePayoutWalletBody"), exports);
 __exportStar(require("./UpdateProductBody"), exports);
 __exportStar(require("./UpdateWalletBody"), exports);
 __exportStar(require("./UpdateWebhookBody"), exports);
@@ -127,7 +126,6 @@ const TransferAllOf_1 = require("./TransferAllOf");
 const UpdateAccountBody_1 = require("./UpdateAccountBody");
 const UpdateCustomerBody_1 = require("./UpdateCustomerBody");
 const UpdateInvoiceBody_1 = require("./UpdateInvoiceBody");
-const UpdatePayoutWalletBody_1 = require("./UpdatePayoutWalletBody");
 const UpdateProductBody_1 = require("./UpdateProductBody");
 const UpdateWalletBody_1 = require("./UpdateWalletBody");
 const UpdateWebhookBody_1 = require("./UpdateWebhookBody");
@@ -231,7 +229,6 @@ let typeMap = {
     "UpdateAccountBody": UpdateAccountBody_1.UpdateAccountBody,
     "UpdateCustomerBody": UpdateCustomerBody_1.UpdateCustomerBody,
     "UpdateInvoiceBody": UpdateInvoiceBody_1.UpdateInvoiceBody,
-    "UpdatePayoutWalletBody": UpdatePayoutWalletBody_1.UpdatePayoutWalletBody,
     "UpdateProductBody": UpdateProductBody_1.UpdateProductBody,
     "UpdateWalletBody": UpdateWalletBody_1.UpdateWalletBody,
     "UpdateWebhookBody": UpdateWebhookBody_1.UpdateWebhookBody,

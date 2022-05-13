@@ -31,7 +31,6 @@ import { Transfer } from '../models/Transfer';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
-import { UpdatePayoutWalletBody } from '../models/UpdatePayoutWalletBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
 import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
@@ -96,7 +95,7 @@ export declare class PromisePayoutWalletsApi {
     create(prism_account?: string, create_payout_wallet_body?: CreatePayoutWalletBody, _options?: Configuration): Promise<PayoutWallet>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<ListPayoutWalletsResponse>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<PayoutWallet>;
-    update(id: string, prism_account?: string, update_payout_wallet_body?: UpdatePayoutWalletBody, _options?: Configuration): Promise<PayoutWallet>;
+    update(id: string, prism_account?: string, payout_wallet?: PayoutWallet, _options?: Configuration): Promise<PayoutWallet>;
 }
 import { ProductsApiRequestFactory, ProductsApiResponseProcessor } from "../apis/ProductsApi";
 export declare class PromiseProductsApi {
