@@ -1,1 +1,1 @@
-## Hyper Crypto OpenAPI Specification
+## Prism OpenAPI Specification
