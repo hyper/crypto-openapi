@@ -12,6 +12,7 @@
 
 import { Account } from './Account';
 import { Model } from './Model';
+import { Price } from './Price';
 import { ProductAllOf } from './ProductAllOf';
 import { HttpFile } from '../http/http';
 
@@ -26,6 +27,7 @@ export class Product {
     'chain'?: string;
     'currency': ProductCurrencyEnum;
     'name': string;
+    'prices'?: Array<Price>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -88,6 +90,12 @@ export class Product {
             "name": "name",
             "baseName": "name",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "prices",
+            "baseName": "prices",
+            "type": "Array<Price>",
             "format": ""
         }    ];
 

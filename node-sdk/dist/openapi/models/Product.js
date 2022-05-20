@@ -70,6 +70,12 @@ Product.attributeTypeMap = [
         "baseName": "name",
         "type": "string",
         "format": ""
+    },
+    {
+        "name": "prices",
+        "baseName": "prices",
+        "type": "Array<Price>",
+        "format": ""
     }
 ];
 //# sourceMappingURL=Product.js.map

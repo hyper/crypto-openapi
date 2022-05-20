@@ -9,7 +9,9 @@ export * from './CreateCustomerBody';
 export * from './CreateFeeBody';
 export * from './CreateInvoiceBody';
 export * from './CreatePayoutWalletBody';
+export * from './CreatePriceBody';
 export * from './CreateProductBody';
+export * from './CreateTransactionBody';
 export * from './CreateTransferBody';
 export * from './CreateWalletBody';
 export * from './CreateWebhookBody';
@@ -32,7 +34,9 @@ export * from './ListInvoicesResponse';
 export * from './ListLogsResponse';
 export * from './ListPaymentsResponse';
 export * from './ListPayoutWalletsResponse';
+export * from './ListPricesResponse';
 export * from './ListProductsResponse';
+export * from './ListTransactionsResponse';
 export * from './ListTransfersResponse';
 export * from './ListWalletsResponse';
 export * from './ListWebhooksResponse';
@@ -43,6 +47,9 @@ export * from './Payment';
 export * from './PaymentAllOf';
 export * from './PayoutWallet';
 export * from './PayoutWalletAllOf';
+export * from './Price';
+export * from './PriceAllOf';
+export * from './PriceAllOfBasePrice';
 export * from './Product';
 export * from './ProductAllOf';
 export * from './Transaction';
@@ -71,7 +78,9 @@ import { CreateCustomerBody } from './CreateCustomerBody';
 import { CreateFeeBody } from './CreateFeeBody';
 import { CreateInvoiceBody } from './CreateInvoiceBody';
 import { CreatePayoutWalletBody } from './CreatePayoutWalletBody';
+import { CreatePriceBody } from './CreatePriceBody';
 import { CreateProductBody } from './CreateProductBody';
+import { CreateTransactionBody } from './CreateTransactionBody';
 import { CreateTransferBody } from './CreateTransferBody';
 import { CreateWalletBody } from './CreateWalletBody';
 import { CreateWebhookBody } from './CreateWebhookBody';
@@ -85,8 +94,8 @@ import { Fee } from './Fee';
 import { FeeAllOf } from './FeeAllOf';
 import { InlineResponse400 } from './InlineResponse400';
 import { InlineResponse400Error } from './InlineResponse400Error';
-import { Invoice       , InvoiceChainEnum  , InvoiceCurrencyEnum         , InvoiceStatusEnum      } from './Invoice';
-import { InvoiceAllOf   , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum         , InvoiceAllOfStatusEnum      } from './InvoiceAllOf';
+import { Invoice       , InvoiceChainEnum  , InvoiceCurrencyEnum           , InvoiceStatusEnum      } from './Invoice';
+import { InvoiceAllOf   , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum           , InvoiceAllOfStatusEnum      } from './InvoiceAllOf';
 import { ListAccountsResponse } from './ListAccountsResponse';
 import { ListCustomersResponse } from './ListCustomersResponse';
 import { ListFeesResponse } from './ListFeesResponse';
@@ -94,7 +103,9 @@ import { ListInvoicesResponse } from './ListInvoicesResponse';
 import { ListLogsResponse } from './ListLogsResponse';
 import { ListPaymentsResponse } from './ListPaymentsResponse';
 import { ListPayoutWalletsResponse } from './ListPayoutWalletsResponse';
+import { ListPricesResponse } from './ListPricesResponse';
 import { ListProductsResponse } from './ListProductsResponse';
+import { ListTransactionsResponse } from './ListTransactionsResponse';
 import { ListTransfersResponse } from './ListTransfersResponse';
 import { ListWalletsResponse } from './ListWalletsResponse';
 import { ListWebhooksResponse } from './ListWebhooksResponse';
@@ -105,10 +116,13 @@ import { Payment           , PaymentStatusEnum     } from './Payment';
 import { PaymentAllOf       , PaymentAllOfStatusEnum     } from './PaymentAllOf';
 import { PayoutWallet       , PayoutWalletChainEnum   } from './PayoutWallet';
 import { PayoutWalletAllOf   , PayoutWalletAllOfChainEnum   } from './PayoutWalletAllOf';
-import { Product        , ProductCurrencyEnum    } from './Product';
-import { ProductAllOf    , ProductAllOfCurrencyEnum    } from './ProductAllOf';
-import { Transaction  , TransactionChainEnum  , TransactionCurrencyEnum      , TransactionStatusEnum        } from './Transaction';
-import { TransactionAllOf  , TransactionAllOfChainEnum  , TransactionAllOfCurrencyEnum      , TransactionAllOfStatusEnum    } from './TransactionAllOf';
+import { Price } from './Price';
+import { PriceAllOf } from './PriceAllOf';
+import { PriceAllOfBasePrice } from './PriceAllOfBasePrice';
+import { Product        , ProductCurrencyEnum     } from './Product';
+import { ProductAllOf    , ProductAllOfCurrencyEnum     } from './ProductAllOf';
+import { Transaction  , TransactionChainEnum  , TransactionCurrencyEnum     , TransactionStatusEnum        } from './Transaction';
+import { TransactionAllOf  , TransactionAllOfChainEnum  , TransactionAllOfCurrencyEnum     , TransactionAllOfStatusEnum    } from './TransactionAllOf';
 import { Transfer } from './Transfer';
 import { TransferAllOf } from './TransferAllOf';
 import { UpdateAccountBody } from './UpdateAccountBody';
@@ -180,7 +194,9 @@ let typeMap: {[index: string]: any} = {
     "CreateFeeBody": CreateFeeBody,
     "CreateInvoiceBody": CreateInvoiceBody,
     "CreatePayoutWalletBody": CreatePayoutWalletBody,
+    "CreatePriceBody": CreatePriceBody,
     "CreateProductBody": CreateProductBody,
+    "CreateTransactionBody": CreateTransactionBody,
     "CreateTransferBody": CreateTransferBody,
     "CreateWalletBody": CreateWalletBody,
     "CreateWebhookBody": CreateWebhookBody,
@@ -203,7 +219,9 @@ let typeMap: {[index: string]: any} = {
     "ListLogsResponse": ListLogsResponse,
     "ListPaymentsResponse": ListPaymentsResponse,
     "ListPayoutWalletsResponse": ListPayoutWalletsResponse,
+    "ListPricesResponse": ListPricesResponse,
     "ListProductsResponse": ListProductsResponse,
+    "ListTransactionsResponse": ListTransactionsResponse,
     "ListTransfersResponse": ListTransfersResponse,
     "ListWalletsResponse": ListWalletsResponse,
     "ListWebhooksResponse": ListWebhooksResponse,
@@ -214,6 +232,9 @@ let typeMap: {[index: string]: any} = {
     "PaymentAllOf": PaymentAllOf,
     "PayoutWallet": PayoutWallet,
     "PayoutWalletAllOf": PayoutWalletAllOf,
+    "Price": Price,
+    "PriceAllOf": PriceAllOf,
+    "PriceAllOfBasePrice": PriceAllOfBasePrice,
     "Product": Product,
     "ProductAllOf": ProductAllOf,
     "Transaction": Transaction,

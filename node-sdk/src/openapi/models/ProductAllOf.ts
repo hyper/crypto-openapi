@@ -11,6 +11,7 @@
  */
 
 import { Account } from './Account';
+import { Price } from './Price';
 import { HttpFile } from '../http/http';
 
 export class ProductAllOf {
@@ -20,6 +21,7 @@ export class ProductAllOf {
     'chain'?: string;
     'currency': ProductAllOfCurrencyEnum;
     'name': string;
+    'prices'?: Array<Price>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -58,6 +60,12 @@ export class ProductAllOf {
             "name": "name",
             "baseName": "name",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "prices",
+            "baseName": "prices",
+            "type": "Array<Price>",
             "format": ""
         }    ];
 

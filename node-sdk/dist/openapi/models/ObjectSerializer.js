@@ -22,7 +22,9 @@ __exportStar(require("./CreateCustomerBody"), exports);
 __exportStar(require("./CreateFeeBody"), exports);
 __exportStar(require("./CreateInvoiceBody"), exports);
 __exportStar(require("./CreatePayoutWalletBody"), exports);
+__exportStar(require("./CreatePriceBody"), exports);
 __exportStar(require("./CreateProductBody"), exports);
+__exportStar(require("./CreateTransactionBody"), exports);
 __exportStar(require("./CreateTransferBody"), exports);
 __exportStar(require("./CreateWalletBody"), exports);
 __exportStar(require("./CreateWebhookBody"), exports);
@@ -45,7 +47,9 @@ __exportStar(require("./ListInvoicesResponse"), exports);
 __exportStar(require("./ListLogsResponse"), exports);
 __exportStar(require("./ListPaymentsResponse"), exports);
 __exportStar(require("./ListPayoutWalletsResponse"), exports);
+__exportStar(require("./ListPricesResponse"), exports);
 __exportStar(require("./ListProductsResponse"), exports);
+__exportStar(require("./ListTransactionsResponse"), exports);
 __exportStar(require("./ListTransfersResponse"), exports);
 __exportStar(require("./ListWalletsResponse"), exports);
 __exportStar(require("./ListWebhooksResponse"), exports);
@@ -56,6 +60,9 @@ __exportStar(require("./Payment"), exports);
 __exportStar(require("./PaymentAllOf"), exports);
 __exportStar(require("./PayoutWallet"), exports);
 __exportStar(require("./PayoutWalletAllOf"), exports);
+__exportStar(require("./Price"), exports);
+__exportStar(require("./PriceAllOf"), exports);
+__exportStar(require("./PriceAllOfBasePrice"), exports);
 __exportStar(require("./Product"), exports);
 __exportStar(require("./ProductAllOf"), exports);
 __exportStar(require("./Transaction"), exports);
@@ -83,7 +90,9 @@ const CreateCustomerBody_1 = require("./CreateCustomerBody");
 const CreateFeeBody_1 = require("./CreateFeeBody");
 const CreateInvoiceBody_1 = require("./CreateInvoiceBody");
 const CreatePayoutWalletBody_1 = require("./CreatePayoutWalletBody");
+const CreatePriceBody_1 = require("./CreatePriceBody");
 const CreateProductBody_1 = require("./CreateProductBody");
+const CreateTransactionBody_1 = require("./CreateTransactionBody");
 const CreateTransferBody_1 = require("./CreateTransferBody");
 const CreateWalletBody_1 = require("./CreateWalletBody");
 const CreateWebhookBody_1 = require("./CreateWebhookBody");
@@ -106,7 +115,9 @@ const ListInvoicesResponse_1 = require("./ListInvoicesResponse");
 const ListLogsResponse_1 = require("./ListLogsResponse");
 const ListPaymentsResponse_1 = require("./ListPaymentsResponse");
 const ListPayoutWalletsResponse_1 = require("./ListPayoutWalletsResponse");
+const ListPricesResponse_1 = require("./ListPricesResponse");
 const ListProductsResponse_1 = require("./ListProductsResponse");
+const ListTransactionsResponse_1 = require("./ListTransactionsResponse");
 const ListTransfersResponse_1 = require("./ListTransfersResponse");
 const ListWalletsResponse_1 = require("./ListWalletsResponse");
 const ListWebhooksResponse_1 = require("./ListWebhooksResponse");
@@ -117,6 +128,9 @@ const Payment_1 = require("./Payment");
 const PaymentAllOf_1 = require("./PaymentAllOf");
 const PayoutWallet_1 = require("./PayoutWallet");
 const PayoutWalletAllOf_1 = require("./PayoutWalletAllOf");
+const Price_1 = require("./Price");
+const PriceAllOf_1 = require("./PriceAllOf");
+const PriceAllOfBasePrice_1 = require("./PriceAllOfBasePrice");
 const Product_1 = require("./Product");
 const ProductAllOf_1 = require("./ProductAllOf");
 const Transaction_1 = require("./Transaction");
@@ -186,7 +200,9 @@ let typeMap = {
     "CreateFeeBody": CreateFeeBody_1.CreateFeeBody,
     "CreateInvoiceBody": CreateInvoiceBody_1.CreateInvoiceBody,
     "CreatePayoutWalletBody": CreatePayoutWalletBody_1.CreatePayoutWalletBody,
+    "CreatePriceBody": CreatePriceBody_1.CreatePriceBody,
     "CreateProductBody": CreateProductBody_1.CreateProductBody,
+    "CreateTransactionBody": CreateTransactionBody_1.CreateTransactionBody,
     "CreateTransferBody": CreateTransferBody_1.CreateTransferBody,
     "CreateWalletBody": CreateWalletBody_1.CreateWalletBody,
     "CreateWebhookBody": CreateWebhookBody_1.CreateWebhookBody,
@@ -209,7 +225,9 @@ let typeMap = {
     "ListLogsResponse": ListLogsResponse_1.ListLogsResponse,
     "ListPaymentsResponse": ListPaymentsResponse_1.ListPaymentsResponse,
     "ListPayoutWalletsResponse": ListPayoutWalletsResponse_1.ListPayoutWalletsResponse,
+    "ListPricesResponse": ListPricesResponse_1.ListPricesResponse,
     "ListProductsResponse": ListProductsResponse_1.ListProductsResponse,
+    "ListTransactionsResponse": ListTransactionsResponse_1.ListTransactionsResponse,
     "ListTransfersResponse": ListTransfersResponse_1.ListTransfersResponse,
     "ListWalletsResponse": ListWalletsResponse_1.ListWalletsResponse,
     "ListWebhooksResponse": ListWebhooksResponse_1.ListWebhooksResponse,
@@ -220,6 +238,9 @@ let typeMap = {
     "PaymentAllOf": PaymentAllOf_1.PaymentAllOf,
     "PayoutWallet": PayoutWallet_1.PayoutWallet,
     "PayoutWalletAllOf": PayoutWalletAllOf_1.PayoutWalletAllOf,
+    "Price": Price_1.Price,
+    "PriceAllOf": PriceAllOf_1.PriceAllOf,
+    "PriceAllOfBasePrice": PriceAllOfBasePrice_1.PriceAllOfBasePrice,
     "Product": Product_1.Product,
     "ProductAllOf": ProductAllOf_1.ProductAllOf,
     "Transaction": Transaction_1.Transaction,

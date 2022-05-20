@@ -36,15 +36,15 @@ TransactionAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "customer",
-        "baseName": "customer",
-        "type": "string | Customer",
-        "format": ""
-    },
-    {
         "name": "invoice",
         "baseName": "invoice",
         "type": "string | Invoice",
+        "format": ""
+    },
+    {
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "any",
         "format": ""
     },
     {
@@ -54,21 +54,15 @@ TransactionAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "product",
-        "baseName": "product",
-        "type": "string | Product",
-        "format": ""
-    },
-    {
         "name": "status",
         "baseName": "status",
         "type": "TransactionAllOfStatusEnum",
         "format": ""
     },
     {
-        "name": "wallet",
-        "baseName": "wallet",
-        "type": "string | Wallet",
+        "name": "transaction_hash",
+        "baseName": "transaction_hash",
+        "type": "string",
         "format": ""
     }
 ];

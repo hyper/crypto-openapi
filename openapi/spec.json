@@ -326,6 +326,9 @@
                   },
                   {
                     "$ref": "#/components/schemas/Account"
+                  },
+                  {
+                    "type": "object"
                   }
                 ]
               },
@@ -369,11 +372,21 @@
               "number": {
                 "type": "string"
               },
-              "payments": {
-                "items": {
-                  "$ref": "#/components/schemas/Payment"
-                },
-                "type": "array"
+              "payment": {
+                "$ref": "#/components/schemas/Payment"
+              },
+              "platform_account": {
+                "type": "string"
+              },
+              "price": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Price"
+                  }
+                ]
               },
               "product": {
                 "oneOf": [
@@ -389,8 +402,11 @@
                 "enum": ["open", "paid", "unpaid", "void"],
                 "type": "string"
               },
-              "transaction": {
-                "type": "string"
+              "transactions": {
+                "items": {
+                  "$ref": "#/components/schemas/Transaction"
+                },
+                "type": "array"
               },
               "transfers": {
                 "items": {
@@ -411,7 +427,6 @@
             },
             "required": [
               "account",
-              "amount",
               "chain",
               "currency",
               "customer",
@@ -622,6 +637,80 @@
         "description": "",
         "title": "PayoutWallet"
       },
+      "Price": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
+            "properties": {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "amount": {
+                "type": "number"
+              },
+              "base_price": {
+                "properties": {
+                  "amount": {
+                    "type": "number"
+                  },
+                  "currency": {
+                    "type": "string"
+                  },
+                  "exchange_rate": {
+                    "type": "number"
+                  }
+                },
+                "type": "object"
+              },
+              "chain": {
+                "type": "string"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "metadata": {
+                "type": "object"
+              },
+              "platform_account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "product": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                ]
+              }
+            },
+            "required": ["account", "amount", "currency", "chain"],
+            "type": "object"
+          }
+        ],
+        "title": "Price",
+        "x-examples": {},
+        "x-stoplight": {
+          "id": "m0pyvk4d0thqq"
+        }
+      },
       "Product": {
         "allOf": [
           {
@@ -654,6 +743,12 @@
               },
               "name": {
                 "type": "string"
+              },
+              "prices": {
+                "items": {
+                  "$ref": "#/components/schemas/Price"
+                },
+                "type": "array"
               }
             },
             "required": ["account", "amount", "currency", "name"],
@@ -691,16 +786,6 @@
                 "enum": ["eth", "sol"],
                 "type": "string"
               },
-              "customer": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Customer"
-                  }
-                ]
-              },
               "invoice": {
                 "oneOf": [
                   {
@@ -712,6 +797,9 @@
                   }
                 ]
               },
+              "metadata": {
+                "type": "object"
+              },
               "platform_account": {
                 "oneOf": [
                   {
@@ -722,36 +810,13 @@
                   }
                 ]
               },
-              "product": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Product"
-                  }
-                ]
-              },
               "status": {
                 "default": "pending",
-                "enum": [
-                  "pending",
-                  "failed",
-                  "succeeded",
-                  "canceled",
-                  "refunded"
-                ],
+                "enum": ["pending", "failed", "succeeded", "canceled"],
                 "type": "string"
               },
-              "wallet": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Wallet"
-                  }
-                ]
+              "transaction_hash": {
+                "type": "string"
               }
             },
             "required": ["invoice", "status", "chain", "amount", "currency"],
@@ -1942,11 +2007,10 @@
                     "minLength": 1,
                     "type": "string"
                   },
-                  "product": {
-                    "minLength": 1,
+                  "price": {
                     "type": "string"
                   },
-                  "transaction": {
+                  "product": {
                     "minLength": 1,
                     "type": "string"
                   },
@@ -1957,12 +2021,10 @@
                 },
                 "required": [
                   "account",
-                  "amount",
                   "chain",
                   "currency",
                   "customer",
                   "number",
-                  "transaction",
                   "wallet"
                 ],
                 "title": "CreateInvoiceBody",
@@ -2672,6 +2734,189 @@
         "tags": ["PayoutWallets"]
       }
     },
+    "/prices": {
+      "get": {
+        "operationId": "prices_list",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/sort"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Price"
+                      },
+                      "type": "array"
+                    },
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "title": "ListPricesResponse",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "List Prices",
+        "tags": ["Prices"]
+      },
+      "post": {
+        "operationId": "prices_create",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "amount": {
+                    "type": "string"
+                  },
+                  "base_price": {
+                    "type": "string"
+                  },
+                  "chain": {
+                    "type": "string"
+                  },
+                  "currency": {
+                    "type": "string"
+                  },
+                  "metadata": {
+                    "type": "object"
+                  },
+                  "product": {
+                    "type": "string"
+                  }
+                },
+                "required": ["currency", "chain", "product"],
+                "title": "CreatePriceBody",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          }
+        },
+        "summary": "Create Price",
+        "tags": ["Prices"]
+      }
+    },
+    "/prices/{id}": {
+      "delete": {
+        "operationId": "prices_delete",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Delete Price",
+        "tags": ["Prices"]
+      },
+      "get": {
+        "operationId": "prices_retrieve",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Retrieve Price",
+        "tags": ["Prices"]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
     "/products": {
       "get": {
         "operationId": "products_list",
@@ -2951,6 +3196,202 @@
         "summary": "Update Product By Id",
         "tags": ["Products"]
       }
+    },
+    "/transactions": {
+      "get": {
+        "operationId": "transactions_list",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/sort"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Transaction"
+                      },
+                      "type": "array"
+                    },
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "title": "ListTransactionsResponse",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "List Transactions",
+        "tags": ["Transactions"]
+      },
+      "post": {
+        "operationId": "transactions_create",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "invoice": {
+                    "type": "string"
+                  },
+                  "metadata": {
+                    "type": "object"
+                  },
+                  "transaction_hash": {
+                    "type": "string"
+                  }
+                },
+                "required": ["transaction_hash", "invoice"],
+                "title": "CreateTransactionBody",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transaction"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          }
+        },
+        "summary": "Create Transaction",
+        "tags": ["Transactions"]
+      }
+    },
+    "/transactions/{id}": {
+      "get": {
+        "operationId": "transactions_retrieve",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transaction"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Retrieve Transaction",
+        "tags": ["Transactions"]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/transactions/{id}/poll": {
+      "get": {
+        "operationId": "transactions_poll",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transaction"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Poll Transaction",
+        "tags": ["Transactions"]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
     },
     "/transfers": {
       "get": {

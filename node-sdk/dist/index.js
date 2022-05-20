@@ -55,7 +55,9 @@ class Prism {
         this.logs = new LogsApiLayer(config);
         this.payments = new PaymentsApiLayer(config);
         this.payoutWallets = new PayoutWalletsApiLayer(config);
+        this.prices = new PricesApiLayer(config);
         this.products = new ProductsApiLayer(config);
+        this.transactions = new TransactionsApiLayer(config);
         this.transfers = new TransfersApiLayer(config);
         this.wallets = new WalletsApiLayer(config);
         this.webhooks = new WebhooksApiLayer(config);
@@ -156,11 +158,6 @@ class InvoicesApiLayer {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
         });
     }
-    poll(id, params, options) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.api.poll(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
-        });
-    }
 }
 class LogsApiLayer {
     constructor(config) {
@@ -180,6 +177,26 @@ class LogsApiLayer {
 class PaymentsApiLayer {
     constructor(config) {
         this.api = new index_1.PaymentsApi(config);
+    }
+    retrieve(id, params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+        });
+    }
+    list(params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+        });
+    }
+}
+class PricesApiLayer {
+    constructor(config) {
+        this.api = new index_1.PricesApi(config);
+    }
+    create(data, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_price_body: data }));
+        });
     }
     retrieve(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -239,6 +256,31 @@ class PayoutWalletsApiLayer {
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+        });
+    }
+}
+class TransactionsApiLayer {
+    constructor(config) {
+        this.api = new index_1.TransactionsApi(config);
+    }
+    create(data, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_transaction_body: data }));
+        });
+    }
+    retrieve(id, params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+        });
+    }
+    list(params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+        });
+    }
+    poll(id, params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.poll(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
         });
     }
 }

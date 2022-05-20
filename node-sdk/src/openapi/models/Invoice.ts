@@ -16,7 +16,9 @@ import { Fee } from './Fee';
 import { InvoiceAllOf } from './InvoiceAllOf';
 import { Model } from './Model';
 import { Payment } from './Payment';
+import { Price } from './Price';
 import { Product } from './Product';
+import { Transaction } from './Transaction';
 import { Transfer } from './Transfer';
 import { Wallet } from './Wallet';
 import { HttpFile } from '../http/http';
@@ -26,8 +28,8 @@ export class Invoice {
     'id': string;
     'object': string;
     'test': boolean;
-    'account': string | Account;
-    'amount': number;
+    'account': string | Account | any;
+    'amount'?: number;
     'application_fee_percent'?: number;
     'chain': InvoiceChainEnum;
     'currency': InvoiceCurrencyEnum;
@@ -36,10 +38,12 @@ export class Invoice {
     'fees': Array<Fee>;
     'metadata'?: any;
     'number': string;
-    'payments'?: Array<Payment>;
+    'payment'?: Payment;
+    'platform_account'?: string;
+    'price'?: string | Price;
     'product'?: string | Product;
     'status': InvoiceStatusEnum;
-    'transaction'?: string;
+    'transactions'?: Array<Transaction>;
     'transfers': Array<Transfer>;
     'wallet': string | Wallet;
 
@@ -73,7 +77,7 @@ export class Invoice {
         {
             "name": "account",
             "baseName": "account",
-            "type": "string | Account",
+            "type": "string | Account | any",
             "format": ""
         },
         {
@@ -131,9 +135,21 @@ export class Invoice {
             "format": ""
         },
         {
-            "name": "payments",
-            "baseName": "payments",
-            "type": "Array<Payment>",
+            "name": "payment",
+            "baseName": "payment",
+            "type": "Payment",
+            "format": ""
+        },
+        {
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "price",
+            "baseName": "price",
+            "type": "string | Price",
             "format": ""
         },
         {
@@ -149,9 +165,9 @@ export class Invoice {
             "format": ""
         },
         {
-            "name": "transaction",
-            "baseName": "transaction",
-            "type": "string",
+            "name": "transactions",
+            "baseName": "transactions",
+            "type": "Array<Transaction>",
             "format": ""
         },
         {

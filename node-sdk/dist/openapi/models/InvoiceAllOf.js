@@ -14,7 +14,7 @@ InvoiceAllOf.attributeTypeMap = [
     {
         "name": "account",
         "baseName": "account",
-        "type": "string | Account",
+        "type": "string | Account | any",
         "format": ""
     },
     {
@@ -72,9 +72,21 @@ InvoiceAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "payments",
-        "baseName": "payments",
-        "type": "Array<Payment>",
+        "name": "payment",
+        "baseName": "payment",
+        "type": "Payment",
+        "format": ""
+    },
+    {
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "price",
+        "baseName": "price",
+        "type": "string | Price",
         "format": ""
     },
     {
@@ -90,9 +102,9 @@ InvoiceAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "transaction",
-        "baseName": "transaction",
-        "type": "string",
+        "name": "transactions",
+        "baseName": "transactions",
+        "type": "Array<Transaction>",
         "format": ""
     },
     {

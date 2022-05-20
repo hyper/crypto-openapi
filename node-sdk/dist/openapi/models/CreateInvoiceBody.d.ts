@@ -1,6 +1,6 @@
 export declare class CreateInvoiceBody {
     'account': string;
-    'amount': number;
+    'amount'?: number;
     'application_fee_percent'?: number;
     'chain': string;
     'currency': string;
@@ -8,8 +8,8 @@ export declare class CreateInvoiceBody {
     'due'?: string;
     'metadata'?: any;
     'number': string;
+    'price'?: string;
     'product'?: string;
-    'transaction': string;
     'wallet': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

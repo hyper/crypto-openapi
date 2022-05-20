@@ -1,4 +1,5 @@
 import { Account } from './Account';
+import { Price } from './Price';
 export declare class Product {
     'created': Date;
     'id': string;
@@ -10,6 +11,7 @@ export declare class Product {
     'chain'?: string;
     'currency': ProductCurrencyEnum;
     'name': string;
+    'prices'?: Array<Price>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

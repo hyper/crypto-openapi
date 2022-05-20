@@ -2,7 +2,9 @@ import { Account } from './Account';
 import { Customer } from './Customer';
 import { Fee } from './Fee';
 import { Payment } from './Payment';
+import { Price } from './Price';
 import { Product } from './Product';
+import { Transaction } from './Transaction';
 import { Transfer } from './Transfer';
 import { Wallet } from './Wallet';
 export declare class Invoice {
@@ -10,8 +12,8 @@ export declare class Invoice {
     'id': string;
     'object': string;
     'test': boolean;
-    'account': string | Account;
-    'amount': number;
+    'account': string | Account | any;
+    'amount'?: number;
     'application_fee_percent'?: number;
     'chain': InvoiceChainEnum;
     'currency': InvoiceCurrencyEnum;
@@ -20,10 +22,12 @@ export declare class Invoice {
     'fees': Array<Fee>;
     'metadata'?: any;
     'number': string;
-    'payments'?: Array<Payment>;
+    'payment'?: Payment;
+    'platform_account'?: string;
+    'price'?: string | Price;
     'product'?: string | Product;
     'status': InvoiceStatusEnum;
-    'transaction'?: string;
+    'transactions'?: Array<Transaction>;
     'transfers': Array<Transfer>;
     'wallet': string | Wallet;
     static readonly discriminator: string | undefined;

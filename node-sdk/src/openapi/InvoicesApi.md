@@ -39,8 +39,8 @@ let body:.InvoicesApiCreateRequest = {
     due: "due_example",
     metadata: {},
     number: "number_example",
+    price: "price_example",
     product: "product_example",
-    transaction: "transaction_example",
     wallet: "wallet_example",
   },
 };

@@ -6,7 +6,9 @@ import { CreateCustomerBody } from '../models/CreateCustomerBody';
 import { CreateFeeBody } from '../models/CreateFeeBody';
 import { CreateInvoiceBody } from '../models/CreateInvoiceBody';
 import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
+import { CreatePriceBody } from '../models/CreatePriceBody';
 import { CreateProductBody } from '../models/CreateProductBody';
+import { CreateTransactionBody } from '../models/CreateTransactionBody';
 import { CreateTransferBody } from '../models/CreateTransferBody';
 import { CreateWalletBody } from '../models/CreateWalletBody';
 import { CreateWebhookBody } from '../models/CreateWebhookBody';
@@ -20,14 +22,18 @@ import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
 import { ListLogsResponse } from '../models/ListLogsResponse';
 import { ListPaymentsResponse } from '../models/ListPaymentsResponse';
 import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
+import { ListPricesResponse } from '../models/ListPricesResponse';
 import { ListProductsResponse } from '../models/ListProductsResponse';
+import { ListTransactionsResponse } from '../models/ListTransactionsResponse';
 import { ListTransfersResponse } from '../models/ListTransfersResponse';
 import { ListWalletsResponse } from '../models/ListWalletsResponse';
 import { ListWebhooksResponse } from '../models/ListWebhooksResponse';
 import { Log } from '../models/Log';
 import { Payment } from '../models/Payment';
 import { PayoutWallet } from '../models/PayoutWallet';
+import { Price } from '../models/Price';
 import { Product } from '../models/Product';
+import { Transaction } from '../models/Transaction';
 import { Transfer } from '../models/Transfer';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
@@ -112,6 +118,17 @@ export declare class ObservablePayoutWalletsApi {
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<PayoutWallet>;
     update(id: string, prism_account?: string, payout_wallet?: PayoutWallet, _options?: Configuration): Observable<PayoutWallet>;
 }
+import { PricesApiRequestFactory, PricesApiResponseProcessor } from "../apis/PricesApi";
+export declare class ObservablePricesApi {
+    private requestFactory;
+    private responseProcessor;
+    private configuration;
+    constructor(configuration: Configuration, requestFactory?: PricesApiRequestFactory, responseProcessor?: PricesApiResponseProcessor);
+    _delete(id: string, prism_account?: string, _options?: Configuration): Observable<void>;
+    create(prism_account?: string, create_price_body?: CreatePriceBody, _options?: Configuration): Observable<Price>;
+    list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Observable<ListPricesResponse>;
+    retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<Price>;
+}
 import { ProductsApiRequestFactory, ProductsApiResponseProcessor } from "../apis/ProductsApi";
 export declare class ObservableProductsApi {
     private requestFactory;
@@ -123,6 +140,17 @@ export declare class ObservableProductsApi {
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListProductsResponse>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Product>;
     update(id: string, prism_account?: string, update_product_body?: UpdateProductBody, _options?: Configuration): Observable<Product>;
+}
+import { TransactionsApiRequestFactory, TransactionsApiResponseProcessor } from "../apis/TransactionsApi";
+export declare class ObservableTransactionsApi {
+    private requestFactory;
+    private responseProcessor;
+    private configuration;
+    constructor(configuration: Configuration, requestFactory?: TransactionsApiRequestFactory, responseProcessor?: TransactionsApiResponseProcessor);
+    create(prism_account?: string, create_transaction_body?: CreateTransactionBody, _options?: Configuration): Observable<Transaction>;
+    list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Observable<ListTransactionsResponse>;
+    poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<Transaction>;
+    retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<Transaction>;
 }
 import { TransfersApiRequestFactory, TransfersApiResponseProcessor } from "../apis/TransfersApi";
 export declare class ObservableTransfersApi {

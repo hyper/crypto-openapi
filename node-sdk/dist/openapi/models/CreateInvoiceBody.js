@@ -66,14 +66,14 @@ CreateInvoiceBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "product",
-        "baseName": "product",
+        "name": "price",
+        "baseName": "price",
         "type": "string",
         "format": ""
     },
     {
-        "name": "transaction",
-        "baseName": "transaction",
+        "name": "product",
+        "baseName": "product",
         "type": "string",
         "format": ""
     },

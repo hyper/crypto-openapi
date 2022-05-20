@@ -13,7 +13,9 @@ import { CreateCustomerBody } from '../models/CreateCustomerBody';
 import { CreateFeeBody } from '../models/CreateFeeBody';
 import { CreateInvoiceBody } from '../models/CreateInvoiceBody';
 import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
+import { CreatePriceBody } from '../models/CreatePriceBody';
 import { CreateProductBody } from '../models/CreateProductBody';
+import { CreateTransactionBody } from '../models/CreateTransactionBody';
 import { CreateTransferBody } from '../models/CreateTransferBody';
 import { CreateWalletBody } from '../models/CreateWalletBody';
 import { CreateWebhookBody } from '../models/CreateWebhookBody';
@@ -36,7 +38,9 @@ import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
 import { ListLogsResponse } from '../models/ListLogsResponse';
 import { ListPaymentsResponse } from '../models/ListPaymentsResponse';
 import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
+import { ListPricesResponse } from '../models/ListPricesResponse';
 import { ListProductsResponse } from '../models/ListProductsResponse';
+import { ListTransactionsResponse } from '../models/ListTransactionsResponse';
 import { ListTransfersResponse } from '../models/ListTransfersResponse';
 import { ListWalletsResponse } from '../models/ListWalletsResponse';
 import { ListWebhooksResponse } from '../models/ListWebhooksResponse';
@@ -47,6 +51,9 @@ import { Payment } from '../models/Payment';
 import { PaymentAllOf } from '../models/PaymentAllOf';
 import { PayoutWallet } from '../models/PayoutWallet';
 import { PayoutWalletAllOf } from '../models/PayoutWalletAllOf';
+import { Price } from '../models/Price';
+import { PriceAllOf } from '../models/PriceAllOf';
+import { PriceAllOfBasePrice } from '../models/PriceAllOfBasePrice';
 import { Product } from '../models/Product';
 import { ProductAllOf } from '../models/ProductAllOf';
 import { Transaction } from '../models/Transaction';
@@ -944,6 +951,134 @@ export class ObjectPayoutWalletsApi {
 
 }
 
+import { ObservablePricesApi } from "./ObservableAPI";
+import { PricesApiRequestFactory, PricesApiResponseProcessor} from "../apis/PricesApi";
+
+export interface PricesApiDeleteRequest {
+    /**
+     * 
+     * @type string
+     * @memberof PricesApi_delete
+     */
+    id: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof PricesApi_delete
+     */
+    prism_account?: string
+}
+
+export interface PricesApiCreateRequest {
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof PricesApicreate
+     */
+    prism_account?: string
+    /**
+     * 
+     * @type CreatePriceBody
+     * @memberof PricesApicreate
+     */
+    create_price_body?: CreatePriceBody
+}
+
+export interface PricesApiListRequest {
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof PricesApilist
+     */
+    prism_account?: string
+    /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof PricesApilist
+     */
+    expand?: string
+    /**
+     * A limit on the number of objects to be returned between 1 and 100.
+     * @type number
+     * @memberof PricesApilist
+     */
+    limit?: number
+    /**
+     * Index of the page to be returned in a paginated response.
+     * @type number
+     * @memberof PricesApilist
+     */
+    page?: number
+    /**
+     * Specifies whether documents are sorted in an ascending or descending order.
+     * @type any
+     * @memberof PricesApilist
+     */
+    sort?: any
+}
+
+export interface PricesApiRetrieveRequest {
+    /**
+     * 
+     * @type string
+     * @memberof PricesApiretrieve
+     */
+    id: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof PricesApiretrieve
+     */
+    prism_account?: string
+    /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof PricesApiretrieve
+     */
+    expand?: string
+}
+
+export class ObjectPricesApi {
+    private api: ObservablePricesApi
+
+    public constructor(configuration: Configuration, requestFactory?: PricesApiRequestFactory, responseProcessor?: PricesApiResponseProcessor) {
+        this.api = new ObservablePricesApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Delete Price
+     * @param param the request object
+     */
+    public _delete(param: PricesApiDeleteRequest, options?: Configuration): Promise<void> {
+        return this.api._delete(param.id, param.prism_account,  options).toPromise();
+    }
+
+    /**
+     * Create Price
+     * @param param the request object
+     */
+    public create(param: PricesApiCreateRequest = {}, options?: Configuration): Promise<Price> {
+        return this.api.create(param.prism_account, param.create_price_body,  options).toPromise();
+    }
+
+    /**
+     * List Prices
+     * @param param the request object
+     */
+    public list(param: PricesApiListRequest = {}, options?: Configuration): Promise<ListPricesResponse> {
+        return this.api.list(param.prism_account, param.expand, param.limit, param.page, param.sort,  options).toPromise();
+    }
+
+    /**
+     * Retrieve Price
+     * @param param the request object
+     */
+    public retrieve(param: PricesApiRetrieveRequest, options?: Configuration): Promise<Price> {
+        return this.api.retrieve(param.id, param.prism_account, param.expand,  options).toPromise();
+    }
+
+}
+
 import { ObservableProductsApi } from "./ObservableAPI";
 import { ProductsApiRequestFactory, ProductsApiResponseProcessor} from "../apis/ProductsApi";
 
@@ -1097,6 +1232,140 @@ export class ObjectProductsApi {
      */
     public update(param: ProductsApiUpdateRequest, options?: Configuration): Promise<Product> {
         return this.api.update(param.id, param.prism_account, param.update_product_body,  options).toPromise();
+    }
+
+}
+
+import { ObservableTransactionsApi } from "./ObservableAPI";
+import { TransactionsApiRequestFactory, TransactionsApiResponseProcessor} from "../apis/TransactionsApi";
+
+export interface TransactionsApiCreateRequest {
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof TransactionsApicreate
+     */
+    prism_account?: string
+    /**
+     * 
+     * @type CreateTransactionBody
+     * @memberof TransactionsApicreate
+     */
+    create_transaction_body?: CreateTransactionBody
+}
+
+export interface TransactionsApiListRequest {
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof TransactionsApilist
+     */
+    prism_account?: string
+    /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof TransactionsApilist
+     */
+    expand?: string
+    /**
+     * A limit on the number of objects to be returned between 1 and 100.
+     * @type number
+     * @memberof TransactionsApilist
+     */
+    limit?: number
+    /**
+     * Index of the page to be returned in a paginated response.
+     * @type number
+     * @memberof TransactionsApilist
+     */
+    page?: number
+    /**
+     * Specifies whether documents are sorted in an ascending or descending order.
+     * @type any
+     * @memberof TransactionsApilist
+     */
+    sort?: any
+}
+
+export interface TransactionsApiPollRequest {
+    /**
+     * 
+     * @type string
+     * @memberof TransactionsApipoll
+     */
+    id: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof TransactionsApipoll
+     */
+    prism_account?: string
+    /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof TransactionsApipoll
+     */
+    expand?: string
+}
+
+export interface TransactionsApiRetrieveRequest {
+    /**
+     * 
+     * @type string
+     * @memberof TransactionsApiretrieve
+     */
+    id: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof TransactionsApiretrieve
+     */
+    prism_account?: string
+    /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof TransactionsApiretrieve
+     */
+    expand?: string
+}
+
+export class ObjectTransactionsApi {
+    private api: ObservableTransactionsApi
+
+    public constructor(configuration: Configuration, requestFactory?: TransactionsApiRequestFactory, responseProcessor?: TransactionsApiResponseProcessor) {
+        this.api = new ObservableTransactionsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Create Transaction
+     * @param param the request object
+     */
+    public create(param: TransactionsApiCreateRequest = {}, options?: Configuration): Promise<Transaction> {
+        return this.api.create(param.prism_account, param.create_transaction_body,  options).toPromise();
+    }
+
+    /**
+     * List Transactions
+     * @param param the request object
+     */
+    public list(param: TransactionsApiListRequest = {}, options?: Configuration): Promise<ListTransactionsResponse> {
+        return this.api.list(param.prism_account, param.expand, param.limit, param.page, param.sort,  options).toPromise();
+    }
+
+    /**
+     * Poll Transaction
+     * @param param the request object
+     */
+    public poll(param: TransactionsApiPollRequest, options?: Configuration): Promise<Transaction> {
+        return this.api.poll(param.id, param.prism_account, param.expand,  options).toPromise();
+    }
+
+    /**
+     * Retrieve Transaction
+     * @param param the request object
+     */
+    public retrieve(param: TransactionsApiRetrieveRequest, options?: Configuration): Promise<Transaction> {
+        return this.api.retrieve(param.id, param.prism_account, param.expand,  options).toPromise();
     }
 
 }

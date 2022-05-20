@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PromiseWebhooksApi = exports.PromiseWalletsApi = exports.PromiseTransfersApi = exports.PromiseProductsApi = exports.PromisePayoutWalletsApi = exports.PromisePaymentsApi = exports.PromiseLogsApi = exports.PromiseInvoicesApi = exports.PromiseFeesApi = exports.PromiseCustomersApi = exports.PromiseAccountsApi = void 0;
+exports.PromiseWebhooksApi = exports.PromiseWalletsApi = exports.PromiseTransfersApi = exports.PromiseTransactionsApi = exports.PromiseProductsApi = exports.PromisePricesApi = exports.PromisePayoutWalletsApi = exports.PromisePaymentsApi = exports.PromiseLogsApi = exports.PromiseInvoicesApi = exports.PromiseFeesApi = exports.PromiseCustomersApi = exports.PromiseAccountsApi = void 0;
 const ObservableAPI_1 = require("./ObservableAPI");
 class PromiseAccountsApi {
     constructor(configuration, requestFactory, responseProcessor) {
@@ -155,9 +155,32 @@ class PromisePayoutWalletsApi {
 }
 exports.PromisePayoutWalletsApi = PromisePayoutWalletsApi;
 const ObservableAPI_8 = require("./ObservableAPI");
+class PromisePricesApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_8.ObservablePricesApi(configuration, requestFactory, responseProcessor);
+    }
+    _delete(id, prism_account, _options) {
+        const result = this.api._delete(id, prism_account, _options);
+        return result.toPromise();
+    }
+    create(prism_account, create_price_body, _options) {
+        const result = this.api.create(prism_account, create_price_body, _options);
+        return result.toPromise();
+    }
+    list(prism_account, expand, limit, page, sort, _options) {
+        const result = this.api.list(prism_account, expand, limit, page, sort, _options);
+        return result.toPromise();
+    }
+    retrieve(id, prism_account, expand, _options) {
+        const result = this.api.retrieve(id, prism_account, expand, _options);
+        return result.toPromise();
+    }
+}
+exports.PromisePricesApi = PromisePricesApi;
+const ObservableAPI_9 = require("./ObservableAPI");
 class PromiseProductsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_8.ObservableProductsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_9.ObservableProductsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(id, prism_account, _options) {
         const result = this.api._delete(id, prism_account, _options);
@@ -181,10 +204,33 @@ class PromiseProductsApi {
     }
 }
 exports.PromiseProductsApi = PromiseProductsApi;
-const ObservableAPI_9 = require("./ObservableAPI");
+const ObservableAPI_10 = require("./ObservableAPI");
+class PromiseTransactionsApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_10.ObservableTransactionsApi(configuration, requestFactory, responseProcessor);
+    }
+    create(prism_account, create_transaction_body, _options) {
+        const result = this.api.create(prism_account, create_transaction_body, _options);
+        return result.toPromise();
+    }
+    list(prism_account, expand, limit, page, sort, _options) {
+        const result = this.api.list(prism_account, expand, limit, page, sort, _options);
+        return result.toPromise();
+    }
+    poll(id, prism_account, expand, _options) {
+        const result = this.api.poll(id, prism_account, expand, _options);
+        return result.toPromise();
+    }
+    retrieve(id, prism_account, expand, _options) {
+        const result = this.api.retrieve(id, prism_account, expand, _options);
+        return result.toPromise();
+    }
+}
+exports.PromiseTransactionsApi = PromiseTransactionsApi;
+const ObservableAPI_11 = require("./ObservableAPI");
 class PromiseTransfersApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_9.ObservableTransfersApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_11.ObservableTransfersApi(configuration, requestFactory, responseProcessor);
     }
     create(prism_account, create_transfer_body, _options) {
         const result = this.api.create(prism_account, create_transfer_body, _options);
@@ -200,10 +246,10 @@ class PromiseTransfersApi {
     }
 }
 exports.PromiseTransfersApi = PromiseTransfersApi;
-const ObservableAPI_10 = require("./ObservableAPI");
+const ObservableAPI_12 = require("./ObservableAPI");
 class PromiseWalletsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_10.ObservableWalletsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_12.ObservableWalletsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(id, expand, prism_account, _options) {
         const result = this.api._delete(id, expand, prism_account, _options);
@@ -227,10 +273,10 @@ class PromiseWalletsApi {
     }
 }
 exports.PromiseWalletsApi = PromiseWalletsApi;
-const ObservableAPI_11 = require("./ObservableAPI");
+const ObservableAPI_13 = require("./ObservableAPI");
 class PromiseWebhooksApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_11.ObservableWebhooksApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_13.ObservableWebhooksApi(configuration, requestFactory, responseProcessor);
     }
     _delete(id, prism_account, _options) {
         const result = this.api._delete(id, prism_account, _options);

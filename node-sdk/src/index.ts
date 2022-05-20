@@ -67,7 +67,6 @@ import {
   PayoutWalletsApiRetrieveRequest,
   PayoutWalletsApiUpdateRequest,
   PayoutWalletsApiListRequest,
-  InvoicesApiPollRequest,
   AccountsApi,
   AccountsApiRetrieveRequest,
   AccountsApiCreateRequest,
@@ -75,6 +74,19 @@ import {
   ListAccountsResponse,
   AccountsApiListRequest,
   AccountsApiUpdateRequest,
+  Transaction,
+  TransactionsApi,
+  TransactionsApiCreateRequest,
+  TransactionsApiRetrieveRequest,
+  TransactionsApiListRequest,
+  TransactionsApiPollRequest,
+  ListTransactionsResponse,
+  Price,
+  PricesApi,
+  PricesApiCreateRequest,
+  PricesApiRetrieveRequest,
+  PricesApiListRequest,
+  ListPricesResponse,
 } from './openapi/index';
 import convertCasing from './helpers/convertCasing';
 import { ListPayoutWalletsResponse } from './openapi/models/ListPayoutWalletsResponse';
@@ -106,7 +118,9 @@ export class Prism {
   public readonly logs: LogsApiLayer;
   public readonly payments: PaymentsApiLayer;
   public readonly payoutWallets: PayoutWalletsApiLayer;
+  public readonly prices: PricesApiLayer;
   public readonly products: ProductsApiLayer;
+  public readonly transactions: TransactionsApiLayer;
   public readonly transfers: TransfersApiLayer;
   public readonly wallets: WalletsApiLayer;
   public readonly webhooks: WebhooksApiLayer;
@@ -135,7 +149,9 @@ export class Prism {
     this.logs = new LogsApiLayer(config);
     this.payments = new PaymentsApiLayer(config);
     this.payoutWallets = new PayoutWalletsApiLayer(config);
+    this.prices = new PricesApiLayer(config);
     this.products = new ProductsApiLayer(config);
+    this.transactions = new TransactionsApiLayer(config);
     this.transfers = new TransfersApiLayer(config);
     this.wallets = new WalletsApiLayer(config);
     this.webhooks = new WebhooksApiLayer(config);
@@ -284,14 +300,6 @@ class InvoicesApiLayer {
   ): Promise<ListInvoicesResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
-
-  public async poll(
-    id: string,
-    params?: Omit<InvoicesApiPollRequest, 'prism_account' | 'id'>,
-    options?: { prismAccount: string }
-  ): Promise<Invoice> {
-    return this.api.poll({ id, ...convertCasing(options), ...params });
-  }
 }
 
 class LogsApiLayer {
@@ -336,6 +344,36 @@ class PaymentsApiLayer {
     params?: Omit<PaymentsApiListRequest, 'prism_account'>,
     options?: { prismAccount: string }
   ): Promise<ListPaymentsResponse> {
+    return this.api.list({ ...convertCasing(options), ...params });
+  }
+}
+
+class PricesApiLayer {
+  private readonly api: PricesApi;
+
+  constructor(config: Configuration) {
+    this.api = new PricesApi(config);
+  }
+
+  public async create(
+    data: PricesApiCreateRequest['create_price_body'],
+    options?: { prismAccount: string }
+  ): Promise<Price> {
+    return this.api.create({ ...convertCasing(options), create_price_body: data });
+  }
+
+  public async retrieve(
+    id: string,
+    params?: Omit<PricesApiRetrieveRequest, 'prism_account' | 'id'>,
+    options?: { prismAccount: string }
+  ): Promise<Price> {
+    return this.api.retrieve({ id, ...convertCasing(options), ...params });
+  }
+
+  public async list(
+    params?: Omit<PricesApiListRequest, 'prism_account'>,
+    options?: { prismAccount: string }
+  ): Promise<ListPricesResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
 }
@@ -413,6 +451,44 @@ class PayoutWalletsApiLayer {
     options?: { prismAccount: string }
   ): Promise<ListPayoutWalletsResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
+  }
+}
+
+class TransactionsApiLayer {
+  private readonly api: TransactionsApi;
+
+  constructor(config: Configuration) {
+    this.api = new TransactionsApi(config);
+  }
+
+  public async create(
+    data: TransactionsApiCreateRequest['create_transaction_body'],
+    options?: { prismAccount: string }
+  ): Promise<Transaction> {
+    return this.api.create({ ...convertCasing(options), create_transaction_body: data });
+  }
+
+  public async retrieve(
+    id: string,
+    params?: Omit<TransactionsApiRetrieveRequest, 'prism_account' | 'id'>,
+    options?: { prismAccount: string }
+  ): Promise<Transaction> {
+    return this.api.retrieve({ id, ...convertCasing(options), ...params });
+  }
+
+  public async list(
+    params?: Omit<TransactionsApiListRequest, 'prism_account'>,
+    options?: { prismAccount: string }
+  ): Promise<ListTransactionsResponse> {
+    return this.api.list({ ...convertCasing(options), ...params });
+  }
+
+  public async poll(
+    id: string,
+    params?: Omit<TransactionsApiPollRequest, 'prism_account' | 'id'>,
+    options?: { prismAccount: string }
+  ): Promise<Transaction> {
+    return this.api.poll({ id, ...convertCasing(options), ...params });
   }
 }
 

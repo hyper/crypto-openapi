@@ -11,12 +11,9 @@
  */
 
 import { Account } from './Account';
-import { Customer } from './Customer';
 import { Invoice } from './Invoice';
 import { Model } from './Model';
-import { Product } from './Product';
 import { TransactionAllOf } from './TransactionAllOf';
-import { Wallet } from './Wallet';
 import { HttpFile } from '../http/http';
 
 export class Transaction {
@@ -24,12 +21,11 @@ export class Transaction {
     'amount': number;
     'chain': TransactionChainEnum;
     'currency': TransactionCurrencyEnum;
-    'customer'?: string | Customer;
     'invoice': string | Invoice;
+    'metadata'?: any;
     'platform_account'?: string | Account;
-    'product'?: string | Product;
     'status': TransactionStatusEnum;
-    'wallet'?: string | Wallet;
+    'transaction_hash'?: string;
     'created': Date;
     'id': string;
     'object': string;
@@ -63,15 +59,15 @@ export class Transaction {
             "format": ""
         },
         {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string | Customer",
-            "format": ""
-        },
-        {
             "name": "invoice",
             "baseName": "invoice",
             "type": "string | Invoice",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
             "format": ""
         },
         {
@@ -81,21 +77,15 @@ export class Transaction {
             "format": ""
         },
         {
-            "name": "product",
-            "baseName": "product",
-            "type": "string | Product",
-            "format": ""
-        },
-        {
             "name": "status",
             "baseName": "status",
             "type": "TransactionStatusEnum",
             "format": ""
         },
         {
-            "name": "wallet",
-            "baseName": "wallet",
-            "type": "string | Wallet",
+            "name": "transaction_hash",
+            "baseName": "transaction_hash",
+            "type": "string",
             "format": ""
         },
         {
@@ -134,5 +124,5 @@ export class Transaction {
 
 export type TransactionChainEnum = "eth" | "sol" ;
 export type TransactionCurrencyEnum = "eth" | "sol" ;
-export type TransactionStatusEnum = "pending" | "failed" | "succeeded" | "canceled" | "refunded" ;
+export type TransactionStatusEnum = "pending" | "failed" | "succeeded" | "canceled" ;
 

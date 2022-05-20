@@ -5,7 +5,9 @@ import { CreateCustomerBody } from '../models/CreateCustomerBody';
 import { CreateFeeBody } from '../models/CreateFeeBody';
 import { CreateInvoiceBody } from '../models/CreateInvoiceBody';
 import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
+import { CreatePriceBody } from '../models/CreatePriceBody';
 import { CreateProductBody } from '../models/CreateProductBody';
+import { CreateTransactionBody } from '../models/CreateTransactionBody';
 import { CreateTransferBody } from '../models/CreateTransferBody';
 import { CreateWalletBody } from '../models/CreateWalletBody';
 import { CreateWebhookBody } from '../models/CreateWebhookBody';
@@ -19,14 +21,18 @@ import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
 import { ListLogsResponse } from '../models/ListLogsResponse';
 import { ListPaymentsResponse } from '../models/ListPaymentsResponse';
 import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
+import { ListPricesResponse } from '../models/ListPricesResponse';
 import { ListProductsResponse } from '../models/ListProductsResponse';
+import { ListTransactionsResponse } from '../models/ListTransactionsResponse';
 import { ListTransfersResponse } from '../models/ListTransfersResponse';
 import { ListWalletsResponse } from '../models/ListWalletsResponse';
 import { ListWebhooksResponse } from '../models/ListWebhooksResponse';
 import { Log } from '../models/Log';
 import { Payment } from '../models/Payment';
 import { PayoutWallet } from '../models/PayoutWallet';
+import { Price } from '../models/Price';
 import { Product } from '../models/Product';
+import { Transaction } from '../models/Transaction';
 import { Transfer } from '../models/Transfer';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
@@ -97,6 +103,15 @@ export declare class PromisePayoutWalletsApi {
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<PayoutWallet>;
     update(id: string, prism_account?: string, payout_wallet?: PayoutWallet, _options?: Configuration): Promise<PayoutWallet>;
 }
+import { PricesApiRequestFactory, PricesApiResponseProcessor } from "../apis/PricesApi";
+export declare class PromisePricesApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: PricesApiRequestFactory, responseProcessor?: PricesApiResponseProcessor);
+    _delete(id: string, prism_account?: string, _options?: Configuration): Promise<void>;
+    create(prism_account?: string, create_price_body?: CreatePriceBody, _options?: Configuration): Promise<Price>;
+    list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListPricesResponse>;
+    retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<Price>;
+}
 import { ProductsApiRequestFactory, ProductsApiResponseProcessor } from "../apis/ProductsApi";
 export declare class PromiseProductsApi {
     private api;
@@ -106,6 +121,15 @@ export declare class PromiseProductsApi {
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<ListProductsResponse>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Product>;
     update(id: string, prism_account?: string, update_product_body?: UpdateProductBody, _options?: Configuration): Promise<Product>;
+}
+import { TransactionsApiRequestFactory, TransactionsApiResponseProcessor } from "../apis/TransactionsApi";
+export declare class PromiseTransactionsApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: TransactionsApiRequestFactory, responseProcessor?: TransactionsApiResponseProcessor);
+    create(prism_account?: string, create_transaction_body?: CreateTransactionBody, _options?: Configuration): Promise<Transaction>;
+    list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListTransactionsResponse>;
+    poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<Transaction>;
+    retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<Transaction>;
 }
 import { TransfersApiRequestFactory, TransfersApiResponseProcessor } from "../apis/TransfersApi";
 export declare class PromiseTransfersApi {
