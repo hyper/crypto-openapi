@@ -2,15 +2,15 @@ import { Account } from './Account';
 import { Invoice } from './Invoice';
 import { Wallet } from './Wallet';
 export declare class FeeAllOf {
-    'account'?: string | Account;
+    'account': string | Account;
     'amount'?: number;
-    'currency'?: string;
+    'currency': string;
     'description'?: string;
     'internal'?: boolean;
-    'invoice'?: string | Invoice;
-    'percent'?: number;
+    'invoice': string | Invoice;
+    'percent': number;
     'usd_amount'?: number;
-    'wallet'?: string | Wallet;
+    'wallet': string | Wallet;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

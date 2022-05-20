@@ -291,6 +291,8 @@
                 ]
               },
               "percent": {
+                "maximum": 100,
+                "minimum": 0,
                 "type": "number"
               },
               "usd_amount": {
@@ -307,6 +309,7 @@
                 ]
               }
             },
+            "required": ["account", "currency", "invoice", "percent", "wallet"],
             "type": "object"
           }
         ],
@@ -432,6 +435,7 @@
               "customer",
               "fees",
               "number",
+              "price",
               "status",
               "transfers",
               "wallet"
@@ -885,14 +889,7 @@
                 ]
               }
             },
-            "required": [
-              "account",
-              "invoice",
-              "wallet",
-              "percent",
-              "amount",
-              "usd_amount"
-            ],
+            "required": ["account", "invoice", "percent", "wallet"],
             "type": "object"
           }
         ],

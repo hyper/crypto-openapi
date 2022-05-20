@@ -16,15 +16,15 @@ import { Wallet } from './Wallet';
 import { HttpFile } from '../http/http';
 
 export class FeeAllOf {
-    'account'?: string | Account;
+    'account': string | Account;
     'amount'?: number;
-    'currency'?: string;
+    'currency': string;
     'description'?: string;
     'internal'?: boolean;
-    'invoice'?: string | Invoice;
-    'percent'?: number;
+    'invoice': string | Invoice;
+    'percent': number;
     'usd_amount'?: number;
-    'wallet'?: string | Wallet;
+    'wallet': string | Wallet;
 
     static readonly discriminator: string | undefined = undefined;
 

@@ -17,13 +17,13 @@ import { HttpFile } from '../http/http';
 
 export class PriceAllOf {
     'account': string | Account;
-    'amount': number;
-    'base_price'?: PriceAllOfBasePrice;
-    'chain': string;
-    'currency': string;
-    'metadata'?: any;
     'platform_account'?: string | Account;
+    'amount': number;
+    'currency': string;
+    'chain': string;
     'product'?: string | Product;
+    'base_price'?: PriceAllOfBasePrice;
+    'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -35,21 +35,15 @@ export class PriceAllOf {
             "format": ""
         },
         {
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string | Account",
+            "format": ""
+        },
+        {
             "name": "amount",
             "baseName": "amount",
             "type": "number",
-            "format": ""
-        },
-        {
-            "name": "base_price",
-            "baseName": "base_price",
-            "type": "PriceAllOfBasePrice",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "string",
             "format": ""
         },
         {
@@ -59,21 +53,27 @@ export class PriceAllOf {
             "format": ""
         },
         {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "any",
-            "format": ""
-        },
-        {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string | Account",
+            "name": "chain",
+            "baseName": "chain",
+            "type": "string",
             "format": ""
         },
         {
             "name": "product",
             "baseName": "product",
             "type": "string | Product",
+            "format": ""
+        },
+        {
+            "name": "base_price",
+            "baseName": "base_price",
+            "type": "PriceAllOfBasePrice",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
             "format": ""
         }    ];
 

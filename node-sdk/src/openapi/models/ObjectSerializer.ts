@@ -94,8 +94,8 @@ import { Fee } from './Fee';
 import { FeeAllOf } from './FeeAllOf';
 import { InlineResponse400 } from './InlineResponse400';
 import { InlineResponse400Error } from './InlineResponse400Error';
-import { Invoice       , InvoiceChainEnum  , InvoiceCurrencyEnum           , InvoiceStatusEnum      } from './Invoice';
-import { InvoiceAllOf   , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum           , InvoiceAllOfStatusEnum      } from './InvoiceAllOf';
+import { Invoice       , InvoiceChainEnum  , InvoiceCurrencyEnum         , InvoiceStatusEnum        } from './Invoice';
+import { InvoiceAllOf   , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum         , InvoiceAllOfStatusEnum        } from './InvoiceAllOf';
 import { ListAccountsResponse } from './ListAccountsResponse';
 import { ListCustomersResponse } from './ListCustomersResponse';
 import { ListFeesResponse } from './ListFeesResponse';
@@ -121,8 +121,8 @@ import { PriceAllOf } from './PriceAllOf';
 import { PriceAllOfBasePrice } from './PriceAllOfBasePrice';
 import { Product        , ProductCurrencyEnum     } from './Product';
 import { ProductAllOf    , ProductAllOfCurrencyEnum     } from './ProductAllOf';
-import { Transaction  , TransactionChainEnum  , TransactionCurrencyEnum     , TransactionStatusEnum        } from './Transaction';
-import { TransactionAllOf  , TransactionAllOfChainEnum  , TransactionAllOfCurrencyEnum     , TransactionAllOfStatusEnum    } from './TransactionAllOf';
+import { Transaction    , TransactionStatusEnum  , TransactionChainEnum   , TransactionCurrencyEnum        } from './Transaction';
+import { TransactionAllOf    , TransactionAllOfStatusEnum  , TransactionAllOfChainEnum   , TransactionAllOfCurrencyEnum    } from './TransactionAllOf';
 import { Transfer } from './Transfer';
 import { TransferAllOf } from './TransferAllOf';
 import { UpdateAccountBody } from './UpdateAccountBody';
@@ -172,12 +172,12 @@ let enumsMap: Set<string> = new Set<string>([
     "PayoutWalletAllOfChainEnum",
     "ProductCurrencyEnum",
     "ProductAllOfCurrencyEnum",
+    "TransactionStatusEnum",
     "TransactionChainEnum",
     "TransactionCurrencyEnum",
-    "TransactionStatusEnum",
+    "TransactionAllOfStatusEnum",
     "TransactionAllOfChainEnum",
     "TransactionAllOfCurrencyEnum",
-    "TransactionAllOfStatusEnum",
     "WalletChainEnum",
     "WalletAllOfChainEnum",
 ]);

@@ -18,8 +18,8 @@ CreatePriceBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "base_price",
-        "baseName": "base_price",
+        "name": "currency",
+        "baseName": "currency",
         "type": "string",
         "format": ""
     },
@@ -30,8 +30,14 @@ CreatePriceBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "currency",
-        "baseName": "currency",
+        "name": "product",
+        "baseName": "product",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "base_price",
+        "baseName": "base_price",
         "type": "string",
         "format": ""
     },
@@ -39,12 +45,6 @@ CreatePriceBody.attributeTypeMap = [
         "name": "metadata",
         "baseName": "metadata",
         "type": "any",
-        "format": ""
-    },
-    {
-        "name": "product",
-        "baseName": "product",
-        "type": "string",
         "format": ""
     }
 ];

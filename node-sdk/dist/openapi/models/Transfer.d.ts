@@ -7,11 +7,11 @@ export declare class Transfer {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'amount': number;
+    'amount'?: number;
     'description'?: string;
     'invoice': string | Invoice;
     'percent': number;
-    'usd_amount': number;
+    'usd_amount'?: number;
     'wallet': string | Wallet;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

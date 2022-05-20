@@ -17,11 +17,11 @@ import { HttpFile } from '../http/http';
 
 export class TransferAllOf {
     'account': string | Account;
-    'amount': number;
+    'amount'?: number;
     'description'?: string;
     'invoice': string | Invoice;
     'percent': number;
-    'usd_amount': number;
+    'usd_amount'?: number;
     'wallet': string | Wallet;
 
     static readonly discriminator: string | undefined = undefined;

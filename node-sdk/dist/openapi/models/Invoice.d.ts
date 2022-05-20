@@ -13,23 +13,23 @@ export declare class Invoice {
     'object': string;
     'test': boolean;
     'account': string | Account | any;
+    'platform_account'?: string;
     'amount'?: number;
-    'application_fee_percent'?: number;
     'chain': InvoiceChainEnum;
     'currency': InvoiceCurrencyEnum;
     'customer': string | Customer;
     'due'?: Date;
     'fees': Array<Fee>;
-    'metadata'?: any;
     'number': string;
     'payment'?: Payment;
-    'platform_account'?: string;
-    'price'?: string | Price;
+    'price': string | Price;
     'product'?: string | Product;
     'status': InvoiceStatusEnum;
     'transactions'?: Array<Transaction>;
     'transfers': Array<Transfer>;
     'wallet': string | Wallet;
+    'application_fee_percent'?: number;
+    'metadata'?: any;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -32,16 +32,16 @@ let body:.InvoicesApiCreateRequest = {
   create_invoice_body: {
     account: "account_example",
     amount: 3.14,
-    application_fee_percent: 3.14,
     chain: "chain_example",
     currency: "currency_example",
     customer: "customer_example",
     due: "due_example",
-    metadata: {},
     number: "number_example",
     price: "price_example",
     product: "product_example",
     wallet: "wallet_example",
+    application_fee_percent: 3.14,
+    metadata: {},
   },
 };
 
@@ -293,12 +293,12 @@ let body:.InvoicesApiUpdateRequest = {
   // UpdateInvoiceBody (optional)
   update_invoice_body: {
     amount: 1,
-    application_fee_percent: 3.14,
     chain: "chain_example",
     currency: "currency_example",
     due: "due_example",
-    status: "status_example",
     transaction: "transaction_example",
+    application_fee_percent: 3.14,
+    status: "status_example",
   },
 };
 
