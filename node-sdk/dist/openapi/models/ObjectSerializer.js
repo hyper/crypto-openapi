@@ -177,8 +177,6 @@ let enumsMap = new Set([
     "PaymentAllOfStatusEnum",
     "PayoutWalletChainEnum",
     "PayoutWalletAllOfChainEnum",
-    "ProductCurrencyEnum",
-    "ProductAllOfCurrencyEnum",
     "TransactionStatusEnum",
     "TransactionChainEnum",
     "TransactionCurrencyEnum",

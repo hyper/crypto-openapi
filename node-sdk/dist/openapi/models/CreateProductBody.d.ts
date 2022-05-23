@@ -1,8 +1,6 @@
 export declare class CreateProductBody {
-    'amount': number;
-    'chain': string;
-    'currency': string;
     'name': string;
+    'description'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

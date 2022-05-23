@@ -2,11 +2,8 @@ import { Account } from './Account';
 import { Price } from './Price';
 export declare class ProductAllOf {
     'account': string | Account;
-    'amount': number;
-    'base_currency'?: string;
-    'chain'?: string;
-    'currency': ProductAllOfCurrencyEnum;
     'name': string;
+    'description'?: string;
     'prices'?: Array<Price>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
@@ -23,4 +20,3 @@ export declare class ProductAllOf {
     }[];
     constructor();
 }
-export declare type ProductAllOfCurrencyEnum = "succeeded" | "failed";

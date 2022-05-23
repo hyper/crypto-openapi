@@ -732,17 +732,7 @@
                   }
                 ]
               },
-              "amount": {
-                "type": "number"
-              },
-              "base_currency": {
-                "type": "string"
-              },
-              "chain": {
-                "type": "string"
-              },
-              "currency": {
-                "enum": ["succeeded", "failed"],
+              "description": {
                 "type": "string"
               },
               "name": {
@@ -755,7 +745,7 @@
                 "type": "array"
               }
             },
-            "required": ["account", "amount", "currency", "name"],
+            "required": ["account", "name"],
             "type": "object"
           }
         ],
@@ -3010,15 +3000,7 @@
               "schema": {
                 "description": "",
                 "properties": {
-                  "amount": {
-                    "type": "number"
-                  },
-                  "chain": {
-                    "minLength": 1,
-                    "type": "string"
-                  },
-                  "currency": {
-                    "minLength": 1,
+                  "description": {
                     "type": "string"
                   },
                   "name": {
@@ -3026,7 +3008,7 @@
                     "type": "string"
                   }
                 },
-                "required": ["name", "amount", "chain", "currency"],
+                "required": ["name"],
                 "title": "CreateProductBody",
                 "type": "object",
                 "x-examples": {
@@ -3138,16 +3120,7 @@
             "application/json": {
               "schema": {
                 "properties": {
-                  "amount": {
-                    "type": "integer"
-                  },
-                  "base_currency": {
-                    "type": "string"
-                  },
-                  "chain": {
-                    "type": "string"
-                  },
-                  "currency": {
+                  "description": {
                     "type": "string"
                   },
                   "name": {

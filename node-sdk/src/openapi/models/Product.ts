@@ -22,11 +22,8 @@ export class Product {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'amount': number;
-    'base_currency'?: string;
-    'chain'?: string;
-    'currency': ProductCurrencyEnum;
     'name': string;
+    'description'?: string;
     'prices'?: Array<Price>;
 
     static readonly discriminator: string | undefined = undefined;
@@ -63,32 +60,14 @@ export class Product {
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "base_currency",
-            "baseName": "base_currency",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "ProductCurrencyEnum",
-            "format": ""
-        },
-        {
             "name": "name",
             "baseName": "name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "description",
+            "baseName": "description",
             "type": "string",
             "format": ""
         },
@@ -106,7 +85,4 @@ export class Product {
     public constructor() {
     }
 }
-
-
-export type ProductCurrencyEnum = "succeeded" | "failed" ;
 

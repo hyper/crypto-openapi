@@ -16,11 +16,8 @@ import { HttpFile } from '../http/http';
 
 export class ProductAllOf {
     'account': string | Account;
-    'amount': number;
-    'base_currency'?: string;
-    'chain'?: string;
-    'currency': ProductAllOfCurrencyEnum;
     'name': string;
+    'description'?: string;
     'prices'?: Array<Price>;
 
     static readonly discriminator: string | undefined = undefined;
@@ -33,32 +30,14 @@ export class ProductAllOf {
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "base_currency",
-            "baseName": "base_currency",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "ProductAllOfCurrencyEnum",
-            "format": ""
-        },
-        {
             "name": "name",
             "baseName": "name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "description",
+            "baseName": "description",
             "type": "string",
             "format": ""
         },
@@ -76,7 +55,4 @@ export class ProductAllOf {
     public constructor() {
     }
 }
-
-
-export type ProductAllOfCurrencyEnum = "succeeded" | "failed" ;
 

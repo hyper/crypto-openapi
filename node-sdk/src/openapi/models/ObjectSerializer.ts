@@ -119,8 +119,8 @@ import { PayoutWalletAllOf   , PayoutWalletAllOfChainEnum   } from './PayoutWall
 import { Price } from './Price';
 import { PriceAllOf } from './PriceAllOf';
 import { PriceAllOfBasePrice } from './PriceAllOfBasePrice';
-import { Product        , ProductCurrencyEnum     } from './Product';
-import { ProductAllOf    , ProductAllOfCurrencyEnum     } from './ProductAllOf';
+import { Product } from './Product';
+import { ProductAllOf } from './ProductAllOf';
 import { Transaction    , TransactionStatusEnum  , TransactionChainEnum   , TransactionCurrencyEnum        } from './Transaction';
 import { TransactionAllOf    , TransactionAllOfStatusEnum  , TransactionAllOfChainEnum   , TransactionAllOfCurrencyEnum    } from './TransactionAllOf';
 import { Transfer } from './Transfer';
@@ -170,8 +170,6 @@ let enumsMap: Set<string> = new Set<string>([
     "PaymentAllOfStatusEnum",
     "PayoutWalletChainEnum",
     "PayoutWalletAllOfChainEnum",
-    "ProductCurrencyEnum",
-    "ProductAllOfCurrencyEnum",
     "TransactionStatusEnum",
     "TransactionChainEnum",
     "TransactionCurrencyEnum",

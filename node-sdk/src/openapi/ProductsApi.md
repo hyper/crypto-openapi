@@ -88,10 +88,8 @@ let body:.ProductsApiCreateRequest = {
   prism_account: "Prism-Account_example",
   // CreateProductBody (optional)
   create_product_body: {
-    amount: 3.14,
-    chain: "chain_example",
-    currency: "currency_example",
     name: "name_example",
+    description: "description_example",
   },
 };
 
@@ -281,11 +279,8 @@ let body:.ProductsApiUpdateRequest = {
   prism_account: "Prism-Account_example",
   // UpdateProductBody (optional)
   update_product_body: {
-    amount: 1,
-    base_currency: "base_currency_example",
-    chain: "chain_example",
-    currency: "currency_example",
     name: "name_example",
+    description: "description_example",
   },
 };
 

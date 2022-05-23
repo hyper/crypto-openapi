@@ -6,11 +6,8 @@ export declare class Product {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'amount': number;
-    'base_currency'?: string;
-    'chain'?: string;
-    'currency': ProductCurrencyEnum;
     'name': string;
+    'description'?: string;
     'prices'?: Array<Price>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
@@ -27,4 +24,3 @@ export declare class Product {
     }[];
     constructor();
 }
-export declare type ProductCurrencyEnum = "succeeded" | "failed";

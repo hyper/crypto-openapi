@@ -18,32 +18,14 @@ ProductAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "amount",
-        "baseName": "amount",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "base_currency",
-        "baseName": "base_currency",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "chain",
-        "baseName": "chain",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "currency",
-        "baseName": "currency",
-        "type": "ProductAllOfCurrencyEnum",
-        "format": ""
-    },
-    {
         "name": "name",
         "baseName": "name",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "description",
+        "baseName": "description",
         "type": "string",
         "format": ""
     },

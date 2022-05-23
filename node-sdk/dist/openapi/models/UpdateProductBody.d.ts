@@ -1,9 +1,6 @@
 export declare class UpdateProductBody {
-    'amount'?: number;
-    'base_currency'?: string;
-    'chain'?: string;
-    'currency'?: string;
     'name'?: string;
+    'description'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
