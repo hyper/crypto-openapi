@@ -42,14 +42,14 @@ Invoice.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "string",
+        "name": "amount",
+        "baseName": "amount",
+        "type": "number",
         "format": ""
     },
     {
-        "name": "amount",
-        "baseName": "amount",
+        "name": "application_fee_percent",
+        "baseName": "application_fee_percent",
         "type": "number",
         "format": ""
     },
@@ -84,6 +84,12 @@ Invoice.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "any",
+        "format": ""
+    },
+    {
         "name": "number",
         "baseName": "number",
         "type": "string",
@@ -93,6 +99,12 @@ Invoice.attributeTypeMap = [
         "name": "payment",
         "baseName": "payment",
         "type": "Payment",
+        "format": ""
+    },
+    {
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string",
         "format": ""
     },
     {
@@ -129,18 +141,6 @@ Invoice.attributeTypeMap = [
         "name": "wallet",
         "baseName": "wallet",
         "type": "string | Wallet",
-        "format": ""
-    },
-    {
-        "name": "application_fee_percent",
-        "baseName": "application_fee_percent",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "any",
         "format": ""
     }
 ];

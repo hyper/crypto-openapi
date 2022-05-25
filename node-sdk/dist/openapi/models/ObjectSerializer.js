@@ -62,7 +62,7 @@ __exportStar(require("./PayoutWallet"), exports);
 __exportStar(require("./PayoutWalletAllOf"), exports);
 __exportStar(require("./Price"), exports);
 __exportStar(require("./PriceAllOf"), exports);
-__exportStar(require("./PriceAllOfBasePrice"), exports);
+__exportStar(require("./PricesBasePrice"), exports);
 __exportStar(require("./Product"), exports);
 __exportStar(require("./ProductAllOf"), exports);
 __exportStar(require("./Transaction"), exports);
@@ -130,7 +130,7 @@ const PayoutWallet_1 = require("./PayoutWallet");
 const PayoutWalletAllOf_1 = require("./PayoutWalletAllOf");
 const Price_1 = require("./Price");
 const PriceAllOf_1 = require("./PriceAllOf");
-const PriceAllOfBasePrice_1 = require("./PriceAllOfBasePrice");
+const PricesBasePrice_1 = require("./PricesBasePrice");
 const Product_1 = require("./Product");
 const ProductAllOf_1 = require("./ProductAllOf");
 const Transaction_1 = require("./Transaction");
@@ -177,12 +177,12 @@ let enumsMap = new Set([
     "PaymentAllOfStatusEnum",
     "PayoutWalletChainEnum",
     "PayoutWalletAllOfChainEnum",
-    "TransactionStatusEnum",
     "TransactionChainEnum",
     "TransactionCurrencyEnum",
-    "TransactionAllOfStatusEnum",
+    "TransactionStatusEnum",
     "TransactionAllOfChainEnum",
     "TransactionAllOfCurrencyEnum",
+    "TransactionAllOfStatusEnum",
     "WalletChainEnum",
     "WalletAllOfChainEnum",
 ]);
@@ -238,7 +238,7 @@ let typeMap = {
     "PayoutWalletAllOf": PayoutWalletAllOf_1.PayoutWalletAllOf,
     "Price": Price_1.Price,
     "PriceAllOf": PriceAllOf_1.PriceAllOf,
-    "PriceAllOfBasePrice": PriceAllOfBasePrice_1.PriceAllOfBasePrice,
+    "PricesBasePrice": PricesBasePrice_1.PricesBasePrice,
     "Product": Product_1.Product,
     "ProductAllOf": ProductAllOf_1.ProductAllOf,
     "Transaction": Transaction_1.Transaction,

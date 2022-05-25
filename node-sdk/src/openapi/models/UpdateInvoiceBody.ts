@@ -14,12 +14,12 @@ import { HttpFile } from '../http/http';
 
 export class UpdateInvoiceBody {
     'amount'?: number;
+    'application_fee_percent'?: number;
     'chain'?: string;
     'currency'?: string;
     'due'?: string;
-    'transaction'?: string;
-    'application_fee_percent'?: number;
     'status'?: string;
+    'transaction'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -27,6 +27,12 @@ export class UpdateInvoiceBody {
         {
             "name": "amount",
             "baseName": "amount",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "application_fee_percent",
+            "baseName": "application_fee_percent",
             "type": "number",
             "format": ""
         },
@@ -49,20 +55,14 @@ export class UpdateInvoiceBody {
             "format": ""
         },
         {
-            "name": "transaction",
-            "baseName": "transaction",
+            "name": "status",
+            "baseName": "status",
             "type": "string",
             "format": ""
         },
         {
-            "name": "application_fee_percent",
-            "baseName": "application_fee_percent",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "status",
-            "baseName": "status",
+            "name": "transaction",
+            "baseName": "transaction",
             "type": "string",
             "format": ""
         }    ];

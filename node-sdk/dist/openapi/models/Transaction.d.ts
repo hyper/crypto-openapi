@@ -2,14 +2,14 @@ import { Account } from './Account';
 import { Invoice } from './Invoice';
 export declare class Transaction {
     'account'?: string | Account;
-    'platform_account'?: string | Account;
-    'transaction_hash'?: string;
-    'invoice': string | Invoice;
-    'status': TransactionStatusEnum;
-    'chain': TransactionChainEnum;
     'amount': number;
+    'chain': TransactionChainEnum;
     'currency': TransactionCurrencyEnum;
+    'invoice': string | Invoice;
     'metadata'?: any;
+    'platform_account'?: string | Account;
+    'status': TransactionStatusEnum;
+    'transaction_hash'?: string;
     'created': Date;
     'id': string;
     'object': string;
@@ -29,6 +29,6 @@ export declare class Transaction {
     }[];
     constructor();
 }
-export declare type TransactionStatusEnum = "pending" | "failed" | "succeeded" | "canceled";
 export declare type TransactionChainEnum = "eth" | "sol";
 export declare type TransactionCurrencyEnum = "eth" | "sol";
+export declare type TransactionStatusEnum = "pending" | "failed" | "succeeded" | "canceled";

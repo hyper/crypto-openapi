@@ -54,7 +54,7 @@ import { PayoutWallet } from '../models/PayoutWallet';
 import { PayoutWalletAllOf } from '../models/PayoutWalletAllOf';
 import { Price } from '../models/Price';
 import { PriceAllOf } from '../models/PriceAllOf';
-import { PriceAllOfBasePrice } from '../models/PriceAllOfBasePrice';
+import { PricesBasePrice } from '../models/PricesBasePrice';
 import { Product } from '../models/Product';
 import { ProductAllOf } from '../models/ProductAllOf';
 import { Transaction } from '../models/Transaction';

@@ -49,7 +49,7 @@ export * from './PayoutWallet';
 export * from './PayoutWalletAllOf';
 export * from './Price';
 export * from './PriceAllOf';
-export * from './PriceAllOfBasePrice';
+export * from './PricesBasePrice';
 export * from './Product';
 export * from './ProductAllOf';
 export * from './Transaction';
@@ -94,8 +94,8 @@ import { Fee } from './Fee';
 import { FeeAllOf } from './FeeAllOf';
 import { InlineResponse400 } from './InlineResponse400';
 import { InlineResponse400Error } from './InlineResponse400Error';
-import { Invoice       , InvoiceChainEnum  , InvoiceCurrencyEnum         , InvoiceStatusEnum        } from './Invoice';
-import { InvoiceAllOf   , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum         , InvoiceAllOfStatusEnum        } from './InvoiceAllOf';
+import { Invoice       , InvoiceChainEnum  , InvoiceCurrencyEnum           , InvoiceStatusEnum      } from './Invoice';
+import { InvoiceAllOf   , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum           , InvoiceAllOfStatusEnum      } from './InvoiceAllOf';
 import { ListAccountsResponse } from './ListAccountsResponse';
 import { ListCustomersResponse } from './ListCustomersResponse';
 import { ListFeesResponse } from './ListFeesResponse';
@@ -118,11 +118,11 @@ import { PayoutWallet       , PayoutWalletChainEnum   } from './PayoutWallet';
 import { PayoutWalletAllOf   , PayoutWalletAllOfChainEnum   } from './PayoutWalletAllOf';
 import { Price } from './Price';
 import { PriceAllOf } from './PriceAllOf';
-import { PriceAllOfBasePrice } from './PriceAllOfBasePrice';
+import { PricesBasePrice } from './PricesBasePrice';
 import { Product } from './Product';
 import { ProductAllOf } from './ProductAllOf';
-import { Transaction    , TransactionStatusEnum  , TransactionChainEnum   , TransactionCurrencyEnum        } from './Transaction';
-import { TransactionAllOf    , TransactionAllOfStatusEnum  , TransactionAllOfChainEnum   , TransactionAllOfCurrencyEnum    } from './TransactionAllOf';
+import { Transaction  , TransactionChainEnum  , TransactionCurrencyEnum     , TransactionStatusEnum        } from './Transaction';
+import { TransactionAllOf  , TransactionAllOfChainEnum  , TransactionAllOfCurrencyEnum     , TransactionAllOfStatusEnum    } from './TransactionAllOf';
 import { Transfer } from './Transfer';
 import { TransferAllOf } from './TransferAllOf';
 import { UpdateAccountBody } from './UpdateAccountBody';
@@ -170,12 +170,12 @@ let enumsMap: Set<string> = new Set<string>([
     "PaymentAllOfStatusEnum",
     "PayoutWalletChainEnum",
     "PayoutWalletAllOfChainEnum",
-    "TransactionStatusEnum",
     "TransactionChainEnum",
     "TransactionCurrencyEnum",
-    "TransactionAllOfStatusEnum",
+    "TransactionStatusEnum",
     "TransactionAllOfChainEnum",
     "TransactionAllOfCurrencyEnum",
+    "TransactionAllOfStatusEnum",
     "WalletChainEnum",
     "WalletAllOfChainEnum",
 ]);
@@ -232,7 +232,7 @@ let typeMap: {[index: string]: any} = {
     "PayoutWalletAllOf": PayoutWalletAllOf,
     "Price": Price,
     "PriceAllOf": PriceAllOf,
-    "PriceAllOfBasePrice": PriceAllOfBasePrice,
+    "PricesBasePrice": PricesBasePrice,
     "Product": Product,
     "ProductAllOf": ProductAllOf,
     "Transaction": Transaction,

@@ -61,7 +61,7 @@ __exportStar(require("./PayoutWallet"), exports);
 __exportStar(require("./PayoutWalletAllOf"), exports);
 __exportStar(require("./Price"), exports);
 __exportStar(require("./PriceAllOf"), exports);
-__exportStar(require("./PriceAllOfBasePrice"), exports);
+__exportStar(require("./PricesBasePrice"), exports);
 __exportStar(require("./Product"), exports);
 __exportStar(require("./ProductAllOf"), exports);
 __exportStar(require("./Transaction"), exports);

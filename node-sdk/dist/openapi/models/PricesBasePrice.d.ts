@@ -1,6 +1,6 @@
-export declare class UpdateProductBody {
-    'description'?: string;
-    'name'?: string;
+export declare class PricesBasePrice {
+    'amount'?: number;
+    'currency'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

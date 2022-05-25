@@ -1,15 +1,15 @@
 import { Account } from './Account';
-import { PriceAllOfBasePrice } from './PriceAllOfBasePrice';
+import { PricesBasePrice } from './PricesBasePrice';
 import { Product } from './Product';
 export declare class PriceAllOf {
     'account': string | Account;
-    'platform_account'?: string | Account;
     'amount': number;
-    'currency': string;
+    'base_price'?: PricesBasePrice;
     'chain': string;
-    'product'?: string | Product;
-    'base_price'?: PriceAllOfBasePrice;
+    'currency': string;
     'metadata'?: any;
+    'platform_account'?: string | Account;
+    'product'?: string | Product;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

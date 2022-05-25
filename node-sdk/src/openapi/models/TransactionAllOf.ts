@@ -16,14 +16,14 @@ import { HttpFile } from '../http/http';
 
 export class TransactionAllOf {
     'account'?: string | Account;
-    'platform_account'?: string | Account;
-    'transaction_hash'?: string;
-    'invoice': string | Invoice;
-    'status': TransactionAllOfStatusEnum;
-    'chain': TransactionAllOfChainEnum;
     'amount': number;
+    'chain': TransactionAllOfChainEnum;
     'currency': TransactionAllOfCurrencyEnum;
+    'invoice': string | Invoice;
     'metadata'?: any;
+    'platform_account'?: string | Account;
+    'status': TransactionAllOfStatusEnum;
+    'transaction_hash'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -35,27 +35,9 @@ export class TransactionAllOf {
             "format": ""
         },
         {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string | Account",
-            "format": ""
-        },
-        {
-            "name": "transaction_hash",
-            "baseName": "transaction_hash",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "invoice",
-            "baseName": "invoice",
-            "type": "string | Invoice",
-            "format": ""
-        },
-        {
-            "name": "status",
-            "baseName": "status",
-            "type": "TransactionAllOfStatusEnum",
+            "name": "amount",
+            "baseName": "amount",
+            "type": "number",
             "format": ""
         },
         {
@@ -65,21 +47,39 @@ export class TransactionAllOf {
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
-            "format": ""
-        },
-        {
             "name": "currency",
             "baseName": "currency",
             "type": "TransactionAllOfCurrencyEnum",
             "format": ""
         },
         {
+            "name": "invoice",
+            "baseName": "invoice",
+            "type": "string | Invoice",
+            "format": ""
+        },
+        {
             "name": "metadata",
             "baseName": "metadata",
             "type": "any",
+            "format": ""
+        },
+        {
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string | Account",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "TransactionAllOfStatusEnum",
+            "format": ""
+        },
+        {
+            "name": "transaction_hash",
+            "baseName": "transaction_hash",
+            "type": "string",
             "format": ""
         }    ];
 
@@ -92,7 +92,7 @@ export class TransactionAllOf {
 }
 
 
-export type TransactionAllOfStatusEnum = "pending" | "failed" | "succeeded" | "canceled" ;
 export type TransactionAllOfChainEnum = "eth" | "sol" ;
 export type TransactionAllOfCurrencyEnum = "eth" | "sol" ;
+export type TransactionAllOfStatusEnum = "pending" | "failed" | "succeeded" | "canceled" ;
 

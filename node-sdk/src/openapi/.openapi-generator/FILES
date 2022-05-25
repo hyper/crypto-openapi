@@ -82,7 +82,7 @@ models/PayoutWallet.ts
 models/PayoutWalletAllOf.ts
 models/Price.ts
 models/PriceAllOf.ts
-models/PriceAllOfBasePrice.ts
+models/PricesBasePrice.ts
 models/Product.ts
 models/ProductAllOf.ts
 models/Transaction.ts

@@ -668,9 +668,6 @@
                   },
                   "currency": {
                     "type": "string"
-                  },
-                  "exchange_rate": {
-                    "type": "number"
                   }
                 },
                 "type": "object"
@@ -2796,7 +2793,15 @@
                     "type": "string"
                   },
                   "base_price": {
-                    "type": "string"
+                    "properties": {
+                      "amount": {
+                        "type": "number"
+                      },
+                      "currency": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
                   },
                   "chain": {
                     "type": "string"
@@ -2816,7 +2821,8 @@
                 "type": "object"
               }
             }
-          }
+          },
+          "description": ""
         },
         "responses": {
           "200": {
@@ -3248,7 +3254,7 @@
                     "type": "string"
                   }
                 },
-                "required": ["transaction_hash", "invoice"],
+                "required": ["invoice"],
                 "title": "CreateTransactionBody",
                 "type": "object"
               }

@@ -18,6 +18,12 @@ UpdateInvoiceBody.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "application_fee_percent",
+        "baseName": "application_fee_percent",
+        "type": "number",
+        "format": ""
+    },
+    {
         "name": "chain",
         "baseName": "chain",
         "type": "string",
@@ -36,20 +42,14 @@ UpdateInvoiceBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "transaction",
-        "baseName": "transaction",
+        "name": "status",
+        "baseName": "status",
         "type": "string",
         "format": ""
     },
     {
-        "name": "application_fee_percent",
-        "baseName": "application_fee_percent",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "status",
-        "baseName": "status",
+        "name": "transaction",
+        "baseName": "transaction",
         "type": "string",
         "format": ""
     }

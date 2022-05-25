@@ -42,21 +42,15 @@ Price.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "string | Account",
-        "format": ""
-    },
-    {
         "name": "amount",
         "baseName": "amount",
         "type": "number",
         "format": ""
     },
     {
-        "name": "currency",
-        "baseName": "currency",
-        "type": "string",
+        "name": "base_price",
+        "baseName": "base_price",
+        "type": "PricesBasePrice",
         "format": ""
     },
     {
@@ -66,21 +60,27 @@ Price.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "product",
-        "baseName": "product",
-        "type": "string | Product",
-        "format": ""
-    },
-    {
-        "name": "base_price",
-        "baseName": "base_price",
-        "type": "PriceAllOfBasePrice",
+        "name": "currency",
+        "baseName": "currency",
+        "type": "string",
         "format": ""
     },
     {
         "name": "metadata",
         "baseName": "metadata",
         "type": "any",
+        "format": ""
+    },
+    {
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string | Account",
+        "format": ""
+    },
+    {
+        "name": "product",
+        "baseName": "product",
+        "type": "string | Product",
         "format": ""
     }
 ];

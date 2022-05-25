@@ -12,14 +12,14 @@ exports.CreateProductBody = CreateProductBody;
 CreateProductBody.discriminator = undefined;
 CreateProductBody.attributeTypeMap = [
     {
-        "name": "name",
-        "baseName": "name",
+        "name": "description",
+        "baseName": "description",
         "type": "string",
         "format": ""
     },
     {
-        "name": "description",
-        "baseName": "description",
+        "name": "name",
+        "baseName": "name",
         "type": "string",
         "format": ""
     }

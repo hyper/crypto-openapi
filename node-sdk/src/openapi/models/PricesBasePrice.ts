@@ -12,35 +12,28 @@
 
 import { HttpFile } from '../http/http';
 
-export class InlineResponse400Error {
-    'message'?: string;
-    'param'?: string;
-    'type'?: string;
+export class PricesBasePrice {
+    'amount'?: number;
+    'currency'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "message",
-            "baseName": "message",
-            "type": "string",
+            "name": "amount",
+            "baseName": "amount",
+            "type": "number",
             "format": ""
         },
         {
-            "name": "param",
-            "baseName": "param",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "type",
-            "baseName": "type",
+            "name": "currency",
+            "baseName": "currency",
             "type": "string",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return InlineResponse400Error.attributeTypeMap;
+        return PricesBasePrice.attributeTypeMap;
     }
 
     public constructor() {

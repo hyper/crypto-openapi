@@ -18,27 +18,9 @@ Transaction.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "string | Account",
-        "format": ""
-    },
-    {
-        "name": "transaction_hash",
-        "baseName": "transaction_hash",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "invoice",
-        "baseName": "invoice",
-        "type": "string | Invoice",
-        "format": ""
-    },
-    {
-        "name": "status",
-        "baseName": "status",
-        "type": "TransactionStatusEnum",
+        "name": "amount",
+        "baseName": "amount",
+        "type": "number",
         "format": ""
     },
     {
@@ -48,21 +30,39 @@ Transaction.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "amount",
-        "baseName": "amount",
-        "type": "number",
-        "format": ""
-    },
-    {
         "name": "currency",
         "baseName": "currency",
         "type": "TransactionCurrencyEnum",
         "format": ""
     },
     {
+        "name": "invoice",
+        "baseName": "invoice",
+        "type": "string | Invoice",
+        "format": ""
+    },
+    {
         "name": "metadata",
         "baseName": "metadata",
         "type": "any",
+        "format": ""
+    },
+    {
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string | Account",
+        "format": ""
+    },
+    {
+        "name": "status",
+        "baseName": "status",
+        "type": "TransactionStatusEnum",
+        "format": ""
+    },
+    {
+        "name": "transaction_hash",
+        "baseName": "transaction_hash",
+        "type": "string",
         "format": ""
     },
     {
