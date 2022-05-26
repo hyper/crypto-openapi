@@ -15,11 +15,11 @@ import { HttpFile } from '../http/http';
 
 export class CreatePriceBody {
     'amount'?: string;
-    'base_price'?: PricesBasePrice;
-    'chain': string;
     'currency': string;
-    'metadata'?: any;
+    'chain': string;
     'product': string;
+    'base_price'?: PricesBasePrice;
+    'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -31,9 +31,9 @@ export class CreatePriceBody {
             "format": ""
         },
         {
-            "name": "base_price",
-            "baseName": "base_price",
-            "type": "PricesBasePrice",
+            "name": "currency",
+            "baseName": "currency",
+            "type": "string",
             "format": ""
         },
         {
@@ -43,21 +43,21 @@ export class CreatePriceBody {
             "format": ""
         },
         {
-            "name": "currency",
-            "baseName": "currency",
+            "name": "product",
+            "baseName": "product",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "base_price",
+            "baseName": "base_price",
+            "type": "PricesBasePrice",
             "format": ""
         },
         {
             "name": "metadata",
             "baseName": "metadata",
             "type": "any",
-            "format": ""
-        },
-        {
-            "name": "product",
-            "baseName": "product",
-            "type": "string",
             "format": ""
         }    ];
 

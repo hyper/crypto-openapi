@@ -13,21 +13,21 @@
 import { HttpFile } from '../http/http';
 
 export class CreateProductBody {
-    'description'?: string;
     'name': string;
+    'description'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "description",
-            "baseName": "description",
+            "name": "name",
+            "baseName": "name",
             "type": "string",
             "format": ""
         },
         {
-            "name": "name",
-            "baseName": "name",
+            "name": "description",
+            "baseName": "description",
             "type": "string",
             "format": ""
         }    ];

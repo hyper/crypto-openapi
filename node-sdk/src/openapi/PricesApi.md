@@ -88,14 +88,14 @@ let body:.PricesApiCreateRequest = {
   // CreatePriceBody (optional)
   create_price_body: {
     amount: "amount_example",
+    currency: "currency_example",
+    chain: "chain_example",
+    product: "product_example",
     base_price: {
       amount: 3.14,
       currency: "currency_example",
     },
-    chain: "chain_example",
-    currency: "currency_example",
     metadata: {},
-    product: "product_example",
   },
 };
 

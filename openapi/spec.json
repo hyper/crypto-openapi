@@ -777,6 +777,9 @@
                 "enum": ["eth", "sol"],
                 "type": "string"
               },
+              "hash": {
+                "type": "string"
+              },
               "invoice": {
                 "oneOf": [
                   {
@@ -804,9 +807,6 @@
               "status": {
                 "default": "pending",
                 "enum": ["pending", "failed", "succeeded", "canceled"],
-                "type": "string"
-              },
-              "transaction_hash": {
                 "type": "string"
               }
             },
@@ -3244,14 +3244,14 @@
             "application/json": {
               "schema": {
                 "properties": {
+                  "hash": {
+                    "type": "string"
+                  },
                   "invoice": {
                     "type": "string"
                   },
                   "metadata": {
                     "type": "object"
-                  },
-                  "transaction_hash": {
-                    "type": "string"
                   }
                 },
                 "required": ["invoice"],

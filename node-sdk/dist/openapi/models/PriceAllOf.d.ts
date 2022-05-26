@@ -3,13 +3,13 @@ import { PricesBasePrice } from './PricesBasePrice';
 import { Product } from './Product';
 export declare class PriceAllOf {
     'account': string | Account;
-    'amount': number;
-    'base_price'?: PricesBasePrice;
-    'chain': string;
-    'currency': string;
-    'metadata'?: any;
     'platform_account'?: string | Account;
+    'amount': number;
+    'currency': string;
+    'chain': string;
     'product'?: string | Product;
+    'base_price'?: PricesBasePrice;
+    'metadata'?: any;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

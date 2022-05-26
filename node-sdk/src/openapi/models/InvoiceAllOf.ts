@@ -23,23 +23,23 @@ import { HttpFile } from '../http/http';
 
 export class InvoiceAllOf {
     'account': string | Account | any;
+    'platform_account'?: string;
     'amount'?: number;
-    'application_fee_percent'?: number;
     'chain': InvoiceAllOfChainEnum;
     'currency': InvoiceAllOfCurrencyEnum;
     'customer': string | Customer;
     'due'?: Date;
     'fees': Array<Fee>;
-    'metadata'?: any;
     'number': string;
     'payment'?: Payment;
-    'platform_account'?: string;
     'price': string | Price;
     'product'?: string | Product;
     'status': InvoiceAllOfStatusEnum;
     'transactions'?: Array<Transaction>;
     'transfers': Array<Transfer>;
     'wallet': string | Wallet;
+    'application_fee_percent'?: number;
+    'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -51,14 +51,14 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "application_fee_percent",
-            "baseName": "application_fee_percent",
+            "name": "amount",
+            "baseName": "amount",
             "type": "number",
             "format": ""
         },
@@ -93,12 +93,6 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "any",
-            "format": ""
-        },
-        {
             "name": "number",
             "baseName": "number",
             "type": "string",
@@ -108,12 +102,6 @@ export class InvoiceAllOf {
             "name": "payment",
             "baseName": "payment",
             "type": "Payment",
-            "format": ""
-        },
-        {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string",
             "format": ""
         },
         {
@@ -150,6 +138,18 @@ export class InvoiceAllOf {
             "name": "wallet",
             "baseName": "wallet",
             "type": "string | Wallet",
+            "format": ""
+        },
+        {
+            "name": "application_fee_percent",
+            "baseName": "application_fee_percent",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
             "format": ""
         }    ];
 
