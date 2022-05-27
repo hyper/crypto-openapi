@@ -217,8 +217,8 @@ class PromiseSubscriptionPeriodsApi {
         const result = this.api.retrieve(id, prism_account, _options);
         return result.toPromise();
     }
-    update(id, prism_account, inline_object2, _options) {
-        const result = this.api.update(id, prism_account, inline_object2, _options);
+    update(id, prism_account, update_subscription_period_body, _options) {
+        const result = this.api.update(id, prism_account, update_subscription_period_body, _options);
         return result.toPromise();
     }
 }
@@ -232,8 +232,8 @@ class PromiseSubscriptionsApi {
         const result = this.api._delete(id, prism_account, _options);
         return result.toPromise();
     }
-    create(prism_account, inline_object, _options) {
-        const result = this.api.create(prism_account, inline_object, _options);
+    create(prism_account, create_subscription_body, _options) {
+        const result = this.api.create(prism_account, create_subscription_body, _options);
         return result.toPromise();
     }
     list(expand, limit, page, sort, prism_account, _options) {
@@ -244,8 +244,8 @@ class PromiseSubscriptionsApi {
         const result = this.api.retrieve(id, expand, prism_account, _options);
         return result.toPromise();
     }
-    update(id, prism_account, inline_object1, _options) {
-        const result = this.api.update(id, prism_account, inline_object1, _options);
+    update(id, prism_account, update_subscription_body, _options) {
+        const result = this.api.update(id, prism_account, update_subscription_body, _options);
         return result.toPromise();
     }
 }

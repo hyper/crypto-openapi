@@ -34,20 +34,20 @@ let body:.InvoicesApiCreateRequest = {
     application_fee_percent: 3.14,
     chain: "chain_example",
     currency: "currency_example",
-    due: "due_example",
-    number: "number_example",
     customer: "customer_example",
-    price: "price_example",
-    wallet: "wallet_example",
+    due: "due_example",
     line_items: [
       {
         amount: 3.14,
         description: "description_example",
       },
     ],
-    trial_period_duration: 3.14,
-    send_reminders: "send_reminders_example",
     metadata: {},
+    number: "number_example",
+    price: "price_example",
+    send_reminders: "send_reminders_example",
+    trial_period_duration: 3.14,
+    wallet: "wallet_example",
   },
 };
 
@@ -298,14 +298,14 @@ let body:.InvoicesApiUpdateRequest = {
   prism_account: "Prism-Account_example",
   // UpdateInvoiceBody (optional)
   update_invoice_body: {
+    application_fee_percent: 3.14,
     chain: "chain_example",
     currency: "currency_example",
     due: "due_example",
-    application_fee_percent: 3.14,
+    metadata: {},
+    send_reminders: "send_reminders_example",
     status: "status_example",
     trial_period_duration: 3.14,
-    send_reminders: "send_reminders_example",
-    metadata: {},
   },
 };
 

@@ -25,6 +25,7 @@ __exportStar(require("./CreateInvoiceBody"), exports);
 __exportStar(require("./CreatePayoutWalletBody"), exports);
 __exportStar(require("./CreatePriceBody"), exports);
 __exportStar(require("./CreateProductBody"), exports);
+__exportStar(require("./CreateSubscriptionBody"), exports);
 __exportStar(require("./CreateTransactionBody"), exports);
 __exportStar(require("./CreateTransferBody"), exports);
 __exportStar(require("./CreateWalletBody"), exports);
@@ -37,11 +38,6 @@ __exportStar(require("./CustomersIdBillingDetails"), exports);
 __exportStar(require("./CustomersIdBillingDetailsAddress"), exports);
 __exportStar(require("./Fee"), exports);
 __exportStar(require("./FeeAllOf"), exports);
-__exportStar(require("./InlineObject"), exports);
-__exportStar(require("./InlineObject1"), exports);
-__exportStar(require("./InlineObject2"), exports);
-__exportStar(require("./InlineResponse200"), exports);
-__exportStar(require("./InlineResponse2001"), exports);
 __exportStar(require("./InlineResponse400"), exports);
 __exportStar(require("./InlineResponse400Error"), exports);
 __exportStar(require("./Invoice"), exports);
@@ -57,6 +53,8 @@ __exportStar(require("./ListPaymentsResponse"), exports);
 __exportStar(require("./ListPayoutWalletsResponse"), exports);
 __exportStar(require("./ListPricesResponse"), exports);
 __exportStar(require("./ListProductsResponse"), exports);
+__exportStar(require("./ListSubscriptionPeriodsResponse"), exports);
+__exportStar(require("./ListSubscriptionsResponse"), exports);
 __exportStar(require("./ListTransactionsResponse"), exports);
 __exportStar(require("./ListTransfersResponse"), exports);
 __exportStar(require("./ListWalletsResponse"), exports);
@@ -87,6 +85,8 @@ __exportStar(require("./UpdateAccountBody"), exports);
 __exportStar(require("./UpdateCustomerBody"), exports);
 __exportStar(require("./UpdateInvoiceBody"), exports);
 __exportStar(require("./UpdateProductBody"), exports);
+__exportStar(require("./UpdateSubscriptionBody"), exports);
+__exportStar(require("./UpdateSubscriptionPeriodBody"), exports);
 __exportStar(require("./UpdateWalletBody"), exports);
 __exportStar(require("./UpdateWebhookBody"), exports);
 __exportStar(require("./Wallet"), exports);
@@ -107,6 +107,7 @@ const CreateInvoiceBody_1 = require("./CreateInvoiceBody");
 const CreatePayoutWalletBody_1 = require("./CreatePayoutWalletBody");
 const CreatePriceBody_1 = require("./CreatePriceBody");
 const CreateProductBody_1 = require("./CreateProductBody");
+const CreateSubscriptionBody_1 = require("./CreateSubscriptionBody");
 const CreateTransactionBody_1 = require("./CreateTransactionBody");
 const CreateTransferBody_1 = require("./CreateTransferBody");
 const CreateWalletBody_1 = require("./CreateWalletBody");
@@ -119,11 +120,6 @@ const CustomersIdBillingDetails_1 = require("./CustomersIdBillingDetails");
 const CustomersIdBillingDetailsAddress_1 = require("./CustomersIdBillingDetailsAddress");
 const Fee_1 = require("./Fee");
 const FeeAllOf_1 = require("./FeeAllOf");
-const InlineObject_1 = require("./InlineObject");
-const InlineObject1_1 = require("./InlineObject1");
-const InlineObject2_1 = require("./InlineObject2");
-const InlineResponse200_1 = require("./InlineResponse200");
-const InlineResponse2001_1 = require("./InlineResponse2001");
 const InlineResponse400_1 = require("./InlineResponse400");
 const InlineResponse400Error_1 = require("./InlineResponse400Error");
 const Invoice_1 = require("./Invoice");
@@ -139,6 +135,8 @@ const ListPaymentsResponse_1 = require("./ListPaymentsResponse");
 const ListPayoutWalletsResponse_1 = require("./ListPayoutWalletsResponse");
 const ListPricesResponse_1 = require("./ListPricesResponse");
 const ListProductsResponse_1 = require("./ListProductsResponse");
+const ListSubscriptionPeriodsResponse_1 = require("./ListSubscriptionPeriodsResponse");
+const ListSubscriptionsResponse_1 = require("./ListSubscriptionsResponse");
 const ListTransactionsResponse_1 = require("./ListTransactionsResponse");
 const ListTransfersResponse_1 = require("./ListTransfersResponse");
 const ListWalletsResponse_1 = require("./ListWalletsResponse");
@@ -169,6 +167,8 @@ const UpdateAccountBody_1 = require("./UpdateAccountBody");
 const UpdateCustomerBody_1 = require("./UpdateCustomerBody");
 const UpdateInvoiceBody_1 = require("./UpdateInvoiceBody");
 const UpdateProductBody_1 = require("./UpdateProductBody");
+const UpdateSubscriptionBody_1 = require("./UpdateSubscriptionBody");
+const UpdateSubscriptionPeriodBody_1 = require("./UpdateSubscriptionPeriodBody");
 const UpdateWalletBody_1 = require("./UpdateWalletBody");
 const UpdateWebhookBody_1 = require("./UpdateWebhookBody");
 const Wallet_1 = require("./Wallet");
@@ -209,12 +209,12 @@ let enumsMap = new Set([
     "PayoutWalletAllOfChainEnum",
     "SubscriptionStatusEnum",
     "SubscriptionAllOfStatusEnum",
-    "TransactionStatusEnum",
     "TransactionChainEnum",
     "TransactionCurrencyEnum",
-    "TransactionAllOfStatusEnum",
+    "TransactionStatusEnum",
     "TransactionAllOfChainEnum",
     "TransactionAllOfCurrencyEnum",
+    "TransactionAllOfStatusEnum",
     "WalletChainEnum",
     "WalletAllOfChainEnum",
 ]);
@@ -233,6 +233,7 @@ let typeMap = {
     "CreatePayoutWalletBody": CreatePayoutWalletBody_1.CreatePayoutWalletBody,
     "CreatePriceBody": CreatePriceBody_1.CreatePriceBody,
     "CreateProductBody": CreateProductBody_1.CreateProductBody,
+    "CreateSubscriptionBody": CreateSubscriptionBody_1.CreateSubscriptionBody,
     "CreateTransactionBody": CreateTransactionBody_1.CreateTransactionBody,
     "CreateTransferBody": CreateTransferBody_1.CreateTransferBody,
     "CreateWalletBody": CreateWalletBody_1.CreateWalletBody,
@@ -245,11 +246,6 @@ let typeMap = {
     "CustomersIdBillingDetailsAddress": CustomersIdBillingDetailsAddress_1.CustomersIdBillingDetailsAddress,
     "Fee": Fee_1.Fee,
     "FeeAllOf": FeeAllOf_1.FeeAllOf,
-    "InlineObject": InlineObject_1.InlineObject,
-    "InlineObject1": InlineObject1_1.InlineObject1,
-    "InlineObject2": InlineObject2_1.InlineObject2,
-    "InlineResponse200": InlineResponse200_1.InlineResponse200,
-    "InlineResponse2001": InlineResponse2001_1.InlineResponse2001,
     "InlineResponse400": InlineResponse400_1.InlineResponse400,
     "InlineResponse400Error": InlineResponse400Error_1.InlineResponse400Error,
     "Invoice": Invoice_1.Invoice,
@@ -265,6 +261,8 @@ let typeMap = {
     "ListPayoutWalletsResponse": ListPayoutWalletsResponse_1.ListPayoutWalletsResponse,
     "ListPricesResponse": ListPricesResponse_1.ListPricesResponse,
     "ListProductsResponse": ListProductsResponse_1.ListProductsResponse,
+    "ListSubscriptionPeriodsResponse": ListSubscriptionPeriodsResponse_1.ListSubscriptionPeriodsResponse,
+    "ListSubscriptionsResponse": ListSubscriptionsResponse_1.ListSubscriptionsResponse,
     "ListTransactionsResponse": ListTransactionsResponse_1.ListTransactionsResponse,
     "ListTransfersResponse": ListTransfersResponse_1.ListTransfersResponse,
     "ListWalletsResponse": ListWalletsResponse_1.ListWalletsResponse,
@@ -295,6 +293,8 @@ let typeMap = {
     "UpdateCustomerBody": UpdateCustomerBody_1.UpdateCustomerBody,
     "UpdateInvoiceBody": UpdateInvoiceBody_1.UpdateInvoiceBody,
     "UpdateProductBody": UpdateProductBody_1.UpdateProductBody,
+    "UpdateSubscriptionBody": UpdateSubscriptionBody_1.UpdateSubscriptionBody,
+    "UpdateSubscriptionPeriodBody": UpdateSubscriptionPeriodBody_1.UpdateSubscriptionPeriodBody,
     "UpdateWalletBody": UpdateWalletBody_1.UpdateWalletBody,
     "UpdateWebhookBody": UpdateWebhookBody_1.UpdateWebhookBody,
     "Wallet": Wallet_1.Wallet,

@@ -48,6 +48,7 @@ models/CreateInvoiceBody.ts
 models/CreatePayoutWalletBody.ts
 models/CreatePriceBody.ts
 models/CreateProductBody.ts
+models/CreateSubscriptionBody.ts
 models/CreateTransactionBody.ts
 models/CreateTransferBody.ts
 models/CreateWalletBody.ts
@@ -60,11 +61,6 @@ models/CustomersIdBillingDetails.ts
 models/CustomersIdBillingDetailsAddress.ts
 models/Fee.ts
 models/FeeAllOf.ts
-models/InlineObject.ts
-models/InlineObject1.ts
-models/InlineObject2.ts
-models/InlineResponse200.ts
-models/InlineResponse2001.ts
 models/InlineResponse400.ts
 models/InlineResponse400Error.ts
 models/Invoice.ts
@@ -80,6 +76,8 @@ models/ListPaymentsResponse.ts
 models/ListPayoutWalletsResponse.ts
 models/ListPricesResponse.ts
 models/ListProductsResponse.ts
+models/ListSubscriptionPeriodsResponse.ts
+models/ListSubscriptionsResponse.ts
 models/ListTransactionsResponse.ts
 models/ListTransfersResponse.ts
 models/ListWalletsResponse.ts
@@ -111,6 +109,8 @@ models/UpdateAccountBody.ts
 models/UpdateCustomerBody.ts
 models/UpdateInvoiceBody.ts
 models/UpdateProductBody.ts
+models/UpdateSubscriptionBody.ts
+models/UpdateSubscriptionPeriodBody.ts
 models/UpdateWalletBody.ts
 models/UpdateWebhookBody.ts
 models/Wallet.ts

@@ -12,6 +12,7 @@ export * from './CreateInvoiceBody';
 export * from './CreatePayoutWalletBody';
 export * from './CreatePriceBody';
 export * from './CreateProductBody';
+export * from './CreateSubscriptionBody';
 export * from './CreateTransactionBody';
 export * from './CreateTransferBody';
 export * from './CreateWalletBody';
@@ -24,11 +25,6 @@ export * from './CustomersIdBillingDetails';
 export * from './CustomersIdBillingDetailsAddress';
 export * from './Fee';
 export * from './FeeAllOf';
-export * from './InlineObject';
-export * from './InlineObject1';
-export * from './InlineObject2';
-export * from './InlineResponse200';
-export * from './InlineResponse2001';
 export * from './InlineResponse400';
 export * from './InlineResponse400Error';
 export * from './Invoice';
@@ -44,6 +40,8 @@ export * from './ListPaymentsResponse';
 export * from './ListPayoutWalletsResponse';
 export * from './ListPricesResponse';
 export * from './ListProductsResponse';
+export * from './ListSubscriptionPeriodsResponse';
+export * from './ListSubscriptionsResponse';
 export * from './ListTransactionsResponse';
 export * from './ListTransfersResponse';
 export * from './ListWalletsResponse';
@@ -74,6 +72,8 @@ export * from './UpdateAccountBody';
 export * from './UpdateCustomerBody';
 export * from './UpdateInvoiceBody';
 export * from './UpdateProductBody';
+export * from './UpdateSubscriptionBody';
+export * from './UpdateSubscriptionPeriodBody';
 export * from './UpdateWalletBody';
 export * from './UpdateWebhookBody';
 export * from './Wallet';
@@ -95,6 +95,7 @@ import { CreateInvoiceBody } from './CreateInvoiceBody';
 import { CreatePayoutWalletBody } from './CreatePayoutWalletBody';
 import { CreatePriceBody } from './CreatePriceBody';
 import { CreateProductBody } from './CreateProductBody';
+import { CreateSubscriptionBody } from './CreateSubscriptionBody';
 import { CreateTransactionBody } from './CreateTransactionBody';
 import { CreateTransferBody } from './CreateTransferBody';
 import { CreateWalletBody } from './CreateWalletBody';
@@ -107,15 +108,10 @@ import { CustomersIdBillingDetails } from './CustomersIdBillingDetails';
 import { CustomersIdBillingDetailsAddress } from './CustomersIdBillingDetailsAddress';
 import { Fee } from './Fee';
 import { FeeAllOf } from './FeeAllOf';
-import { InlineObject } from './InlineObject';
-import { InlineObject1 } from './InlineObject1';
-import { InlineObject2 } from './InlineObject2';
-import { InlineResponse200 } from './InlineResponse200';
-import { InlineResponse2001 } from './InlineResponse2001';
 import { InlineResponse400 } from './InlineResponse400';
 import { InlineResponse400Error } from './InlineResponse400Error';
-import { Invoice        , InvoiceChainEnum  , InvoiceCurrencyEnum  , InvoiceStatusEnum                  } from './Invoice';
-import { InvoiceAllOf    , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum  , InvoiceAllOfStatusEnum                  } from './InvoiceAllOf';
+import { Invoice       , InvoiceChainEnum  , InvoiceCurrencyEnum             , InvoiceStatusEnum        } from './Invoice';
+import { InvoiceAllOf   , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum             , InvoiceAllOfStatusEnum        } from './InvoiceAllOf';
 import { InvoiceAllOfLineItems } from './InvoiceAllOfLineItems';
 import { InvoicesLineItems } from './InvoicesLineItems';
 import { ListAccountsResponse } from './ListAccountsResponse';
@@ -127,6 +123,8 @@ import { ListPaymentsResponse } from './ListPaymentsResponse';
 import { ListPayoutWalletsResponse } from './ListPayoutWalletsResponse';
 import { ListPricesResponse } from './ListPricesResponse';
 import { ListProductsResponse } from './ListProductsResponse';
+import { ListSubscriptionPeriodsResponse } from './ListSubscriptionPeriodsResponse';
+import { ListSubscriptionsResponse } from './ListSubscriptionsResponse';
 import { ListTransactionsResponse } from './ListTransactionsResponse';
 import { ListTransfersResponse } from './ListTransfersResponse';
 import { ListWalletsResponse } from './ListWalletsResponse';
@@ -134,8 +132,8 @@ import { ListWebhooksResponse } from './ListWebhooksResponse';
 import { Log        , LogMethodEnum       } from './Log';
 import { LogAllOf     , LogAllOfMethodEnum       } from './LogAllOf';
 import { Model } from './Model';
-import { Notification     , NotificationTypeEnum     } from './Notification';
-import { NotificationAllOf , NotificationAllOfTypeEnum     } from './NotificationAllOf';
+import { Notification       , NotificationTypeEnum   } from './Notification';
+import { NotificationAllOf   , NotificationAllOfTypeEnum   } from './NotificationAllOf';
 import { Payment           , PaymentStatusEnum      } from './Payment';
 import { PaymentAllOf       , PaymentAllOfStatusEnum      } from './PaymentAllOf';
 import { PayoutWallet       , PayoutWalletChainEnum   } from './PayoutWallet';
@@ -145,18 +143,20 @@ import { PriceAllOf } from './PriceAllOf';
 import { PricesBasePrice } from './PricesBasePrice';
 import { Product } from './Product';
 import { ProductAllOf } from './ProductAllOf';
-import { Subscription          , SubscriptionStatusEnum            } from './Subscription';
-import { SubscriptionAllOf      , SubscriptionAllOfStatusEnum            } from './SubscriptionAllOf';
+import { Subscription                  , SubscriptionStatusEnum    } from './Subscription';
+import { SubscriptionAllOf              , SubscriptionAllOfStatusEnum    } from './SubscriptionAllOf';
 import { SubscriptionPeriod } from './SubscriptionPeriod';
 import { SubscriptionPeriodAllOf } from './SubscriptionPeriodAllOf';
-import { Transaction    , TransactionStatusEnum  , TransactionChainEnum   , TransactionCurrencyEnum        } from './Transaction';
-import { TransactionAllOf    , TransactionAllOfStatusEnum  , TransactionAllOfChainEnum   , TransactionAllOfCurrencyEnum    } from './TransactionAllOf';
+import { Transaction  , TransactionChainEnum  , TransactionCurrencyEnum      , TransactionStatusEnum       } from './Transaction';
+import { TransactionAllOf  , TransactionAllOfChainEnum  , TransactionAllOfCurrencyEnum      , TransactionAllOfStatusEnum   } from './TransactionAllOf';
 import { Transfer } from './Transfer';
 import { TransferAllOf } from './TransferAllOf';
 import { UpdateAccountBody } from './UpdateAccountBody';
 import { UpdateCustomerBody } from './UpdateCustomerBody';
 import { UpdateInvoiceBody } from './UpdateInvoiceBody';
 import { UpdateProductBody } from './UpdateProductBody';
+import { UpdateSubscriptionBody } from './UpdateSubscriptionBody';
+import { UpdateSubscriptionPeriodBody } from './UpdateSubscriptionPeriodBody';
 import { UpdateWalletBody } from './UpdateWalletBody';
 import { UpdateWebhookBody } from './UpdateWebhookBody';
 import { Wallet       , WalletChainEnum    } from './Wallet';
@@ -202,12 +202,12 @@ let enumsMap: Set<string> = new Set<string>([
     "PayoutWalletAllOfChainEnum",
     "SubscriptionStatusEnum",
     "SubscriptionAllOfStatusEnum",
-    "TransactionStatusEnum",
     "TransactionChainEnum",
     "TransactionCurrencyEnum",
-    "TransactionAllOfStatusEnum",
+    "TransactionStatusEnum",
     "TransactionAllOfChainEnum",
     "TransactionAllOfCurrencyEnum",
+    "TransactionAllOfStatusEnum",
     "WalletChainEnum",
     "WalletAllOfChainEnum",
 ]);
@@ -227,6 +227,7 @@ let typeMap: {[index: string]: any} = {
     "CreatePayoutWalletBody": CreatePayoutWalletBody,
     "CreatePriceBody": CreatePriceBody,
     "CreateProductBody": CreateProductBody,
+    "CreateSubscriptionBody": CreateSubscriptionBody,
     "CreateTransactionBody": CreateTransactionBody,
     "CreateTransferBody": CreateTransferBody,
     "CreateWalletBody": CreateWalletBody,
@@ -239,11 +240,6 @@ let typeMap: {[index: string]: any} = {
     "CustomersIdBillingDetailsAddress": CustomersIdBillingDetailsAddress,
     "Fee": Fee,
     "FeeAllOf": FeeAllOf,
-    "InlineObject": InlineObject,
-    "InlineObject1": InlineObject1,
-    "InlineObject2": InlineObject2,
-    "InlineResponse200": InlineResponse200,
-    "InlineResponse2001": InlineResponse2001,
     "InlineResponse400": InlineResponse400,
     "InlineResponse400Error": InlineResponse400Error,
     "Invoice": Invoice,
@@ -259,6 +255,8 @@ let typeMap: {[index: string]: any} = {
     "ListPayoutWalletsResponse": ListPayoutWalletsResponse,
     "ListPricesResponse": ListPricesResponse,
     "ListProductsResponse": ListProductsResponse,
+    "ListSubscriptionPeriodsResponse": ListSubscriptionPeriodsResponse,
+    "ListSubscriptionsResponse": ListSubscriptionsResponse,
     "ListTransactionsResponse": ListTransactionsResponse,
     "ListTransfersResponse": ListTransfersResponse,
     "ListWalletsResponse": ListWalletsResponse,
@@ -289,6 +287,8 @@ let typeMap: {[index: string]: any} = {
     "UpdateCustomerBody": UpdateCustomerBody,
     "UpdateInvoiceBody": UpdateInvoiceBody,
     "UpdateProductBody": UpdateProductBody,
+    "UpdateSubscriptionBody": UpdateSubscriptionBody,
+    "UpdateSubscriptionPeriodBody": UpdateSubscriptionPeriodBody,
     "UpdateWalletBody": UpdateWalletBody,
     "UpdateWebhookBody": UpdateWebhookBody,
     "Wallet": Wallet,

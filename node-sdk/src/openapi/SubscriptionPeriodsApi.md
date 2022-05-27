@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **list**
-> InlineResponse2001 list()
+> ListSubscriptionPeriodsResponse list()
 
 
 ### Example
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse2001**
+**ListSubscriptionPeriodsResponse**
 
 ### Authorization
 
@@ -153,10 +153,10 @@ let body:.SubscriptionPeriodsApiUpdateRequest = {
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // InlineObject2 (optional)
-  inline_object2: {
-    start: 3.14,
+  // UpdateSubscriptionPeriodBody (optional)
+  update_subscription_period_body: {
     end: 3.14,
+    start: 3.14,
   },
 };
 
@@ -170,7 +170,7 @@ apiInstance.update(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object2** | **InlineObject2**|  |
+ **update_subscription_period_body** | **UpdateSubscriptionPeriodBody**|  |
  **id** | [**string**] |  | defaults to undefined
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 

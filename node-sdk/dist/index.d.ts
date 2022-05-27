@@ -1,4 +1,4 @@
-import { Configuration, Customer, CustomersApiRetrieveRequest, CustomersApiCreateRequest, Fee, FeesApiCreateRequest, FeesApiRetrieveRequest, InvoicesApiCreateRequest, Invoice, InvoicesApiRetrieveRequest, InvoicesApiListRequest, LogsApiRetrieveRequest, ListProductsResponse, LogsApiListRequest, FeesApiListRequest, CustomersApiListRequest, Log, PaymentsApiRetrieveRequest, Payment, PaymentsApiListRequest, ProductsApiCreateRequest, ProductsApiRetrieveRequest, Product, ProductsApiListRequest, WalletsApiCreateRequest, WalletsApiRetrieveRequest, WalletsApiListRequest, WebhooksApiCreateRequest, WebhooksApiRetrieveRequest, WebhooksApiListRequest, Wallet, ListCustomersResponse, ListInvoicesResponse, ListLogsResponse, ListWebhooksResponse, ListWalletsResponse, ListFeesResponse, ListPaymentsResponse, WalletsApiUpdateRequest, WebhooksApiUpdateRequest, CustomersApiUpdateRequest, InvoicesApiUpdateRequest, ProductsApiUpdateRequest, TransfersApiCreateRequest, Transfer, TransfersApiRetrieveRequest, TransfersApiListRequest, ListTransfersResponse, PayoutWalletsApiCreateRequest, PayoutWallet, PayoutWalletsApiRetrieveRequest, PayoutWalletsApiUpdateRequest, PayoutWalletsApiListRequest, AccountsApiRetrieveRequest, AccountsApiCreateRequest, Account, ListAccountsResponse, AccountsApiListRequest, AccountsApiUpdateRequest, Transaction, TransactionsApiCreateRequest, TransactionsApiRetrieveRequest, TransactionsApiListRequest, TransactionsApiPollRequest, ListTransactionsResponse, Price, PricesApiCreateRequest, PricesApiRetrieveRequest, PricesApiListRequest, ListPricesResponse } from './openapi/index';
+import { Configuration, Customer, CustomersApiRetrieveRequest, CustomersApiCreateRequest, Fee, FeesApiCreateRequest, FeesApiRetrieveRequest, InvoicesApiCreateRequest, Invoice, InvoicesApiRetrieveRequest, InvoicesApiListRequest, LogsApiRetrieveRequest, ListProductsResponse, LogsApiListRequest, FeesApiListRequest, CustomersApiListRequest, Log, PaymentsApiRetrieveRequest, Payment, PaymentsApiListRequest, ProductsApiCreateRequest, ProductsApiRetrieveRequest, Product, ProductsApiListRequest, WalletsApiCreateRequest, WalletsApiRetrieveRequest, WalletsApiListRequest, WebhooksApiCreateRequest, WebhooksApiRetrieveRequest, WebhooksApiListRequest, Wallet, ListCustomersResponse, ListInvoicesResponse, ListLogsResponse, ListWebhooksResponse, ListWalletsResponse, ListFeesResponse, ListPaymentsResponse, WalletsApiUpdateRequest, WebhooksApiUpdateRequest, CustomersApiUpdateRequest, InvoicesApiUpdateRequest, ProductsApiUpdateRequest, TransfersApiCreateRequest, Transfer, TransfersApiRetrieveRequest, TransfersApiListRequest, ListTransfersResponse, PayoutWalletsApiCreateRequest, PayoutWallet, PayoutWalletsApiRetrieveRequest, PayoutWalletsApiUpdateRequest, PayoutWalletsApiListRequest, AccountsApiRetrieveRequest, AccountsApiCreateRequest, Account, ListAccountsResponse, AccountsApiListRequest, AccountsApiUpdateRequest, Transaction, TransactionsApiCreateRequest, TransactionsApiRetrieveRequest, TransactionsApiListRequest, TransactionsApiPollRequest, ListTransactionsResponse, Price, PricesApiCreateRequest, PricesApiRetrieveRequest, PricesApiListRequest, ListPricesResponse, Subscription, SubscriptionsApiCreateRequest, SubscriptionsApiRetrieveRequest, SubscriptionsApiUpdateRequest, SubscriptionsApiListRequest, ListSubscriptionsResponse, SubscriptionPeriodsApiRetrieveRequest, SubscriptionPeriod, SubscriptionPeriodsApiUpdateRequest, SubscriptionPeriodsApiListRequest, ListSubscriptionPeriodsResponse } from './openapi/index';
 import { ListPayoutWalletsResponse } from './openapi/models/ListPayoutWalletsResponse';
 export * from './openapi/models/all';
 export * from './openapi/apis/exception';
@@ -15,6 +15,8 @@ export declare class Prism {
     readonly payoutWallets: PayoutWalletsApiLayer;
     readonly prices: PricesApiLayer;
     readonly products: ProductsApiLayer;
+    readonly subscriptions: SubscriptionsApiLayer;
+    readonly subscriptionPeriods: SubscriptionPeriodsApiLayer;
     readonly transactions: TransactionsApiLayer;
     readonly transfers: TransfersApiLayer;
     readonly wallets: WalletsApiLayer;
@@ -146,6 +148,35 @@ declare class PayoutWalletsApiLayer {
     list(params?: Omit<PayoutWalletsApiListRequest, 'prism_account'>, options?: {
         prismAccount: string;
     }): Promise<ListPayoutWalletsResponse>;
+}
+declare class SubscriptionsApiLayer {
+    private readonly api;
+    constructor(config: Configuration);
+    create(data: SubscriptionsApiCreateRequest['create_subscription_body'], options?: {
+        prismAccount: string;
+    }): Promise<Subscription>;
+    retrieve(id: string, params?: Omit<SubscriptionsApiRetrieveRequest, 'prism_account' | 'id'>, options?: {
+        prismAccount: string;
+    }): Promise<Subscription>;
+    update(id: string, data: SubscriptionsApiUpdateRequest['update_subscription_body'], options?: {
+        prismAccount: string;
+    }): Promise<Subscription>;
+    list(params?: Omit<SubscriptionsApiListRequest, 'prism_account'>, options?: {
+        prismAccount: string;
+    }): Promise<ListSubscriptionsResponse>;
+}
+declare class SubscriptionPeriodsApiLayer {
+    private readonly api;
+    constructor(config: Configuration);
+    retrieve(id: string, params?: Omit<SubscriptionPeriodsApiRetrieveRequest, 'prism_account' | 'id'>, options?: {
+        prismAccount: string;
+    }): Promise<SubscriptionPeriod>;
+    update(id: string, data: SubscriptionPeriodsApiUpdateRequest['update_subscription_period_body'], options?: {
+        prismAccount: string;
+    }): Promise<SubscriptionPeriod>;
+    list(params?: Omit<SubscriptionPeriodsApiListRequest, 'prism_account'>, options?: {
+        prismAccount: string;
+    }): Promise<ListSubscriptionPeriodsResponse>;
 }
 declare class TransactionsApiLayer {
     private readonly api;

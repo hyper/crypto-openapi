@@ -42,48 +42,6 @@ Subscription.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "string | Account",
-        "format": ""
-    },
-    {
-        "name": "price",
-        "baseName": "price",
-        "type": "string | Price",
-        "format": ""
-    },
-    {
-        "name": "customer",
-        "baseName": "customer",
-        "type": "string | Customer",
-        "format": ""
-    },
-    {
-        "name": "latest_invoice",
-        "baseName": "latest_invoice",
-        "type": "Invoice",
-        "format": ""
-    },
-    {
-        "name": "next_invoice",
-        "baseName": "next_invoice",
-        "type": "Invoice",
-        "format": ""
-    },
-    {
-        "name": "status",
-        "baseName": "status",
-        "type": "SubscriptionStatusEnum",
-        "format": ""
-    },
-    {
-        "name": "pause_collection",
-        "baseName": "pause_collection",
-        "type": "boolean",
-        "format": ""
-    },
-    {
         "name": "cancel_at",
         "baseName": "cancel_at",
         "type": "number",
@@ -96,21 +54,27 @@ Subscription.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "current_period",
+        "baseName": "current_period",
+        "type": "SubscriptionPeriod",
+        "format": ""
+    },
+    {
+        "name": "customer",
+        "baseName": "customer",
+        "type": "string | Customer",
+        "format": ""
+    },
+    {
         "name": "invoices",
         "baseName": "invoices",
         "type": "Array<Invoice>",
         "format": ""
     },
     {
-        "name": "payments",
-        "baseName": "payments",
-        "type": "Array<Payment>",
-        "format": ""
-    },
-    {
-        "name": "current_period",
-        "baseName": "current_period",
-        "type": "SubscriptionPeriod",
+        "name": "latest_invoice",
+        "baseName": "latest_invoice",
+        "type": "Invoice",
         "format": ""
     },
     {
@@ -120,9 +84,45 @@ Subscription.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "next_invoice",
+        "baseName": "next_invoice",
+        "type": "Invoice",
+        "format": ""
+    },
+    {
+        "name": "pause_collection",
+        "baseName": "pause_collection",
+        "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "payments",
+        "baseName": "payments",
+        "type": "Array<Payment>",
+        "format": ""
+    },
+    {
         "name": "periods",
         "baseName": "periods",
         "type": "Array<SubscriptionPeriod>",
+        "format": ""
+    },
+    {
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string | Account",
+        "format": ""
+    },
+    {
+        "name": "price",
+        "baseName": "price",
+        "type": "string | Price",
+        "format": ""
+    },
+    {
+        "name": "status",
+        "baseName": "status",
+        "type": "SubscriptionStatusEnum",
         "format": ""
     },
     {

@@ -86,15 +86,15 @@ const apiInstance = new .SubscriptionsApi(configuration);
 let body:.SubscriptionsApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // InlineObject (optional)
-  inline_object: {
-    price: "price_example",
-    customer: "customer_example",
-    status: "status_example",
-    pause_collection: true,
+  // CreateSubscriptionBody (optional)
+  create_subscription_body: {
     cancel_at: 3.14,
-    trial_period_duration: 3.14,
+    customer: "customer_example",
     metadata: {},
+    pause_collection: true,
+    price: "price_example",
+    status: "status_example",
+    trial_period_duration: 3.14,
   },
 };
 
@@ -108,7 +108,7 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object** | **InlineObject**|  |
+ **create_subscription_body** | **CreateSubscriptionBody**|  |
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
@@ -136,7 +136,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> InlineResponse200 list()
+> ListSubscriptionsResponse list()
 
 
 ### Example
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InlineResponse200**
+**ListSubscriptionsResponse**
 
 ### Authorization
 
@@ -283,11 +283,11 @@ let body:.SubscriptionsApiUpdateRequest = {
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // InlineObject1 (optional)
-  inline_object1: {
-    pause_collection: true,
+  // UpdateSubscriptionBody (optional)
+  update_subscription_body: {
     cancel_at: 3.14,
     canceled_at: 3.14,
+    pause_collection: true,
   },
 };
 
@@ -301,7 +301,7 @@ apiInstance.update(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object1** | **InlineObject1**|  |
+ **update_subscription_body** | **UpdateSubscriptionBody**|  |
  **id** | [**string**] |  | defaults to undefined
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 

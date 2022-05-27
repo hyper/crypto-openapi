@@ -57,6 +57,8 @@ class Prism {
         this.payoutWallets = new PayoutWalletsApiLayer(config);
         this.prices = new PricesApiLayer(config);
         this.products = new ProductsApiLayer(config);
+        this.subscriptions = new SubscriptionsApiLayer(config);
+        this.subscriptionPeriods = new SubscriptionPeriodsApiLayer(config);
         this.transactions = new TransactionsApiLayer(config);
         this.transfers = new TransfersApiLayer(config);
         this.wallets = new WalletsApiLayer(config);
@@ -251,6 +253,51 @@ class PayoutWalletsApiLayer {
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
             return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { payout_wallet: data }));
+        });
+    }
+    list(params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+        });
+    }
+}
+class SubscriptionsApiLayer {
+    constructor(config) {
+        this.api = new index_1.SubscriptionsApi(config);
+    }
+    create(data, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_subscription_body: data }));
+        });
+    }
+    retrieve(id, params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+        });
+    }
+    update(id, data, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { update_subscription_body: data }));
+        });
+    }
+    list(params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+        });
+    }
+}
+class SubscriptionPeriodsApiLayer {
+    constructor(config) {
+        this.api = new index_1.SubscriptionPeriodsApi(config);
+    }
+    retrieve(id, params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+        });
+    }
+    update(id, data, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { update_subscription_period_body: data }));
         });
     }
     list(params, options) {

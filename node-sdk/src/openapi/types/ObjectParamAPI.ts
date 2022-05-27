@@ -16,6 +16,7 @@ import { CreateInvoiceBody } from '../models/CreateInvoiceBody';
 import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
 import { CreatePriceBody } from '../models/CreatePriceBody';
 import { CreateProductBody } from '../models/CreateProductBody';
+import { CreateSubscriptionBody } from '../models/CreateSubscriptionBody';
 import { CreateTransactionBody } from '../models/CreateTransactionBody';
 import { CreateTransferBody } from '../models/CreateTransferBody';
 import { CreateWalletBody } from '../models/CreateWalletBody';
@@ -28,11 +29,6 @@ import { CustomersIdBillingDetails } from '../models/CustomersIdBillingDetails';
 import { CustomersIdBillingDetailsAddress } from '../models/CustomersIdBillingDetailsAddress';
 import { Fee } from '../models/Fee';
 import { FeeAllOf } from '../models/FeeAllOf';
-import { InlineObject } from '../models/InlineObject';
-import { InlineObject1 } from '../models/InlineObject1';
-import { InlineObject2 } from '../models/InlineObject2';
-import { InlineResponse200 } from '../models/InlineResponse200';
-import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse400 } from '../models/InlineResponse400';
 import { InlineResponse400Error } from '../models/InlineResponse400Error';
 import { Invoice } from '../models/Invoice';
@@ -48,6 +44,8 @@ import { ListPaymentsResponse } from '../models/ListPaymentsResponse';
 import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
 import { ListPricesResponse } from '../models/ListPricesResponse';
 import { ListProductsResponse } from '../models/ListProductsResponse';
+import { ListSubscriptionPeriodsResponse } from '../models/ListSubscriptionPeriodsResponse';
+import { ListSubscriptionsResponse } from '../models/ListSubscriptionsResponse';
 import { ListTransactionsResponse } from '../models/ListTransactionsResponse';
 import { ListTransfersResponse } from '../models/ListTransfersResponse';
 import { ListWalletsResponse } from '../models/ListWalletsResponse';
@@ -78,6 +76,8 @@ import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
+import { UpdateSubscriptionBody } from '../models/UpdateSubscriptionBody';
+import { UpdateSubscriptionPeriodBody } from '../models/UpdateSubscriptionPeriodBody';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
 import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
 import { Wallet } from '../models/Wallet';
@@ -1316,10 +1316,10 @@ export interface SubscriptionPeriodsApiUpdateRequest {
     prism_account?: string
     /**
      * 
-     * @type InlineObject2
+     * @type UpdateSubscriptionPeriodBody
      * @memberof SubscriptionPeriodsApiupdate
      */
-    inline_object2?: InlineObject2
+    update_subscription_period_body?: UpdateSubscriptionPeriodBody
 }
 
 export class ObjectSubscriptionPeriodsApi {
@@ -1333,7 +1333,7 @@ export class ObjectSubscriptionPeriodsApi {
      * List Subscription Periods
      * @param param the request object
      */
-    public list(param: SubscriptionPeriodsApiListRequest = {}, options?: Configuration): Promise<InlineResponse2001> {
+    public list(param: SubscriptionPeriodsApiListRequest = {}, options?: Configuration): Promise<ListSubscriptionPeriodsResponse> {
         return this.api.list(param.prism_account, param.expand, param.limit, param.page, param.sort,  options).toPromise();
     }
 
@@ -1350,7 +1350,7 @@ export class ObjectSubscriptionPeriodsApi {
      * @param param the request object
      */
     public update(param: SubscriptionPeriodsApiUpdateRequest, options?: Configuration): Promise<SubscriptionPeriod> {
-        return this.api.update(param.id, param.prism_account, param.inline_object2,  options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.update_subscription_period_body,  options).toPromise();
     }
 
 }
@@ -1382,10 +1382,10 @@ export interface SubscriptionsApiCreateRequest {
     prism_account?: string
     /**
      * 
-     * @type InlineObject
+     * @type CreateSubscriptionBody
      * @memberof SubscriptionsApicreate
      */
-    inline_object?: InlineObject
+    create_subscription_body?: CreateSubscriptionBody
 }
 
 export interface SubscriptionsApiListRequest {
@@ -1457,10 +1457,10 @@ export interface SubscriptionsApiUpdateRequest {
     prism_account?: string
     /**
      * 
-     * @type InlineObject1
+     * @type UpdateSubscriptionBody
      * @memberof SubscriptionsApiupdate
      */
-    inline_object1?: InlineObject1
+    update_subscription_body?: UpdateSubscriptionBody
 }
 
 export class ObjectSubscriptionsApi {
@@ -1483,14 +1483,14 @@ export class ObjectSubscriptionsApi {
      * @param param the request object
      */
     public create(param: SubscriptionsApiCreateRequest = {}, options?: Configuration): Promise<Subscription> {
-        return this.api.create(param.prism_account, param.inline_object,  options).toPromise();
+        return this.api.create(param.prism_account, param.create_subscription_body,  options).toPromise();
     }
 
     /**
      * List Subscriptions
      * @param param the request object
      */
-    public list(param: SubscriptionsApiListRequest = {}, options?: Configuration): Promise<InlineResponse200> {
+    public list(param: SubscriptionsApiListRequest = {}, options?: Configuration): Promise<ListSubscriptionsResponse> {
         return this.api.list(param.expand, param.limit, param.page, param.sort, param.prism_account,  options).toPromise();
     }
 
@@ -1507,7 +1507,7 @@ export class ObjectSubscriptionsApi {
      * @param param the request object
      */
     public update(param: SubscriptionsApiUpdateRequest, options?: Configuration): Promise<Subscription> {
-        return this.api.update(param.id, param.prism_account, param.inline_object1,  options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.update_subscription_body,  options).toPromise();
     }
 
 }

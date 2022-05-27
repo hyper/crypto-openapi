@@ -8,11 +8,11 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { InlineObject } from '../models/InlineObject';
-import { InlineObject1 } from '../models/InlineObject1';
-import { InlineResponse200 } from '../models/InlineResponse200';
+import { CreateSubscriptionBody } from '../models/CreateSubscriptionBody';
 import { InlineResponse400 } from '../models/InlineResponse400';
+import { ListSubscriptionsResponse } from '../models/ListSubscriptionsResponse';
 import { Subscription } from '../models/Subscription';
+import { UpdateSubscriptionBody } from '../models/UpdateSubscriptionBody';
 
 /**
  * no description
@@ -60,9 +60,9 @@ export class SubscriptionsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Create Subscription
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object 
+     * @param create_subscription_body 
      */
-    public async create(prism_account?: string, inline_object?: InlineObject, _options?: Configuration): Promise<RequestContext> {
+    public async create(prism_account?: string, create_subscription_body?: CreateSubscriptionBody, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -86,7 +86,7 @@ export class SubscriptionsApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(inline_object, "InlineObject", ""),
+            ObjectSerializer.serialize(create_subscription_body, "CreateSubscriptionBody", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -207,9 +207,9 @@ export class SubscriptionsApiRequestFactory extends BaseAPIRequestFactory {
      * Update Subscription
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object1 
+     * @param update_subscription_body 
      */
-    public async update(id: string, prism_account?: string, inline_object1?: InlineObject1, _options?: Configuration): Promise<RequestContext> {
+    public async update(id: string, prism_account?: string, update_subscription_body?: UpdateSubscriptionBody, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -240,7 +240,7 @@ export class SubscriptionsApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(inline_object1, "InlineObject1", ""),
+            ObjectSerializer.serialize(update_subscription_body, "UpdateSubscriptionBody", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -335,13 +335,13 @@ export class SubscriptionsApiResponseProcessor {
      * @params response Response returned by the server for a request to list
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async list(response: ResponseContext): Promise<InlineResponse200 > {
+     public async list(response: ResponseContext): Promise<ListSubscriptionsResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
+            const body: ListSubscriptionsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
+                "ListSubscriptionsResponse", ""
+            ) as ListSubscriptionsResponse;
             return body;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
@@ -357,10 +357,10 @@ export class SubscriptionsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse200 = ObjectSerializer.deserialize(
+            const body: ListSubscriptionsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse200", ""
-            ) as InlineResponse200;
+                "ListSubscriptionsResponse", ""
+            ) as ListSubscriptionsResponse;
             return body;
         }
 

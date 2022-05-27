@@ -181,7 +181,7 @@ class ObjectSubscriptionPeriodsApi {
         return this.api.retrieve(param.id, param.prism_account, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.inline_object2, options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.update_subscription_period_body, options).toPromise();
     }
 }
 exports.ObjectSubscriptionPeriodsApi = ObjectSubscriptionPeriodsApi;
@@ -194,7 +194,7 @@ class ObjectSubscriptionsApi {
         return this.api._delete(param.id, param.prism_account, options).toPromise();
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.inline_object, options).toPromise();
+        return this.api.create(param.prism_account, param.create_subscription_body, options).toPromise();
     }
     list(param = {}, options) {
         return this.api.list(param.expand, param.limit, param.page, param.sort, param.prism_account, options).toPromise();
@@ -203,7 +203,7 @@ class ObjectSubscriptionsApi {
         return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.inline_object1, options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.update_subscription_body, options).toPromise();
     }
 }
 exports.ObjectSubscriptionsApi = ObjectSubscriptionsApi;

@@ -8,10 +8,10 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { InlineObject2 } from '../models/InlineObject2';
-import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse400 } from '../models/InlineResponse400';
+import { ListSubscriptionPeriodsResponse } from '../models/ListSubscriptionPeriodsResponse';
 import { SubscriptionPeriod } from '../models/SubscriptionPeriod';
+import { UpdateSubscriptionPeriodBody } from '../models/UpdateSubscriptionPeriodBody';
 
 /**
  * no description
@@ -118,9 +118,9 @@ export class SubscriptionPeriodsApiRequestFactory extends BaseAPIRequestFactory 
      * Update Subscription Period
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object2 
+     * @param update_subscription_period_body 
      */
-    public async update(id: string, prism_account?: string, inline_object2?: InlineObject2, _options?: Configuration): Promise<RequestContext> {
+    public async update(id: string, prism_account?: string, update_subscription_period_body?: UpdateSubscriptionPeriodBody, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -151,7 +151,7 @@ export class SubscriptionPeriodsApiRequestFactory extends BaseAPIRequestFactory 
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(inline_object2, "InlineObject2", ""),
+            ObjectSerializer.serialize(update_subscription_period_body, "UpdateSubscriptionPeriodBody", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -176,13 +176,13 @@ export class SubscriptionPeriodsApiResponseProcessor {
      * @params response Response returned by the server for a request to list
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async list(response: ResponseContext): Promise<InlineResponse2001 > {
+     public async list(response: ResponseContext): Promise<ListSubscriptionPeriodsResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: ListSubscriptionPeriodsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "ListSubscriptionPeriodsResponse", ""
+            ) as ListSubscriptionPeriodsResponse;
             return body;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
@@ -198,10 +198,10 @@ export class SubscriptionPeriodsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InlineResponse2001 = ObjectSerializer.deserialize(
+            const body: ListSubscriptionPeriodsResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InlineResponse2001", ""
-            ) as InlineResponse2001;
+                "ListSubscriptionPeriodsResponse", ""
+            ) as ListSubscriptionPeriodsResponse;
             return body;
         }
 

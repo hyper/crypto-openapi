@@ -25,27 +25,27 @@ import { HttpFile } from '../http/http';
 
 export class InvoiceAllOf {
     'account': string | Account;
-    'platform_account'?: string | Account;
     'amount'?: number;
     'application_fee_percent'?: number;
     'chain': InvoiceAllOfChainEnum;
     'currency': InvoiceAllOfCurrencyEnum;
-    'status': InvoiceAllOfStatusEnum;
-    'due'?: number;
-    'number': string;
     'customer': string | Customer;
-    'price': string | Price;
-    'wallet': string | Wallet;
-    'payment'?: Payment;
-    'transactions': Array<Transaction>;
+    'due'?: number;
     'fees': Array<Fee>;
-    'transfers': Array<Transfer>;
-    'subscription'?: string | Subscription;
     'line_items'?: InvoiceAllOfLineItems;
-    'trial_period_duration'?: number;
-    'send_reminders'?: string;
-    'period'?: string | SubscriptionPeriod;
     'metadata'?: any;
+    'number': string;
+    'payment'?: Payment;
+    'period'?: string | SubscriptionPeriod;
+    'platform_account'?: string | Account;
+    'price': string | Price;
+    'send_reminders'?: string;
+    'status': InvoiceAllOfStatusEnum;
+    'subscription'?: string | Subscription;
+    'transactions': Array<Transaction>;
+    'transfers': Array<Transfer>;
+    'trial_period_duration'?: number;
+    'wallet': string | Wallet;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -53,12 +53,6 @@ export class InvoiceAllOf {
         {
             "name": "account",
             "baseName": "account",
-            "type": "string | Account",
-            "format": ""
-        },
-        {
-            "name": "platform_account",
-            "baseName": "platform_account",
             "type": "string | Account",
             "format": ""
         },
@@ -87,9 +81,9 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
-            "name": "status",
-            "baseName": "status",
-            "type": "InvoiceAllOfStatusEnum",
+            "name": "customer",
+            "baseName": "customer",
+            "type": "string | Customer",
             "format": ""
         },
         {
@@ -99,57 +93,9 @@ export class InvoiceAllOf {
             "format": "date-time"
         },
         {
-            "name": "number",
-            "baseName": "number",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string | Customer",
-            "format": ""
-        },
-        {
-            "name": "price",
-            "baseName": "price",
-            "type": "string | Price",
-            "format": ""
-        },
-        {
-            "name": "wallet",
-            "baseName": "wallet",
-            "type": "string | Wallet",
-            "format": ""
-        },
-        {
-            "name": "payment",
-            "baseName": "payment",
-            "type": "Payment",
-            "format": ""
-        },
-        {
-            "name": "transactions",
-            "baseName": "transactions",
-            "type": "Array<Transaction>",
-            "format": ""
-        },
-        {
             "name": "fees",
             "baseName": "fees",
             "type": "Array<Fee>",
-            "format": ""
-        },
-        {
-            "name": "transfers",
-            "baseName": "transfers",
-            "type": "Array<Transfer>",
-            "format": ""
-        },
-        {
-            "name": "subscription",
-            "baseName": "subscription",
-            "type": "string | Subscription",
             "format": ""
         },
         {
@@ -159,15 +105,21 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
-            "name": "trial_period_duration",
-            "baseName": "trial_period_duration",
-            "type": "number",
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
             "format": ""
         },
         {
-            "name": "send_reminders",
-            "baseName": "send_reminders",
+            "name": "number",
+            "baseName": "number",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "payment",
+            "baseName": "payment",
+            "type": "Payment",
             "format": ""
         },
         {
@@ -177,9 +129,57 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "any",
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string | Account",
+            "format": ""
+        },
+        {
+            "name": "price",
+            "baseName": "price",
+            "type": "string | Price",
+            "format": ""
+        },
+        {
+            "name": "send_reminders",
+            "baseName": "send_reminders",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "InvoiceAllOfStatusEnum",
+            "format": ""
+        },
+        {
+            "name": "subscription",
+            "baseName": "subscription",
+            "type": "string | Subscription",
+            "format": ""
+        },
+        {
+            "name": "transactions",
+            "baseName": "transactions",
+            "type": "Array<Transaction>",
+            "format": ""
+        },
+        {
+            "name": "transfers",
+            "baseName": "transfers",
+            "type": "Array<Transfer>",
+            "format": ""
+        },
+        {
+            "name": "trial_period_duration",
+            "baseName": "trial_period_duration",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "wallet",
+            "baseName": "wallet",
+            "type": "string | Wallet",
             "format": ""
         }    ];
 

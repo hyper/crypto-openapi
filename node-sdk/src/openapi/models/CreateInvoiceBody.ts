@@ -18,15 +18,15 @@ export class CreateInvoiceBody {
     'application_fee_percent'?: number;
     'chain': string;
     'currency': string;
-    'due'?: string;
-    'number': string;
     'customer': string;
-    'price'?: string;
-    'wallet': string;
+    'due'?: string;
     'line_items'?: Array<InvoicesLineItems>;
-    'trial_period_duration'?: number;
-    'send_reminders'?: string;
     'metadata'?: any;
+    'number': string;
+    'price'?: string;
+    'send_reminders'?: string;
+    'trial_period_duration'?: number;
+    'wallet': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -56,32 +56,14 @@ export class CreateInvoiceBody {
             "format": ""
         },
         {
-            "name": "due",
-            "baseName": "due",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "number",
-            "baseName": "number",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "customer",
             "baseName": "customer",
             "type": "string",
             "format": ""
         },
         {
-            "name": "price",
-            "baseName": "price",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "wallet",
-            "baseName": "wallet",
+            "name": "due",
+            "baseName": "due",
             "type": "string",
             "format": ""
         },
@@ -92,9 +74,21 @@ export class CreateInvoiceBody {
             "format": ""
         },
         {
-            "name": "trial_period_duration",
-            "baseName": "trial_period_duration",
-            "type": "number",
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
+            "format": ""
+        },
+        {
+            "name": "number",
+            "baseName": "number",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "price",
+            "baseName": "price",
+            "type": "string",
             "format": ""
         },
         {
@@ -104,9 +98,15 @@ export class CreateInvoiceBody {
             "format": ""
         },
         {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "any",
+            "name": "trial_period_duration",
+            "baseName": "trial_period_duration",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "wallet",
+            "baseName": "wallet",
+            "type": "string",
             "format": ""
         }    ];
 

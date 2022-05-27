@@ -16,6 +16,7 @@ import { CreateInvoiceBody } from '../models/CreateInvoiceBody';
 import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
 import { CreatePriceBody } from '../models/CreatePriceBody';
 import { CreateProductBody } from '../models/CreateProductBody';
+import { CreateSubscriptionBody } from '../models/CreateSubscriptionBody';
 import { CreateTransactionBody } from '../models/CreateTransactionBody';
 import { CreateTransferBody } from '../models/CreateTransferBody';
 import { CreateWalletBody } from '../models/CreateWalletBody';
@@ -28,11 +29,6 @@ import { CustomersIdBillingDetails } from '../models/CustomersIdBillingDetails';
 import { CustomersIdBillingDetailsAddress } from '../models/CustomersIdBillingDetailsAddress';
 import { Fee } from '../models/Fee';
 import { FeeAllOf } from '../models/FeeAllOf';
-import { InlineObject } from '../models/InlineObject';
-import { InlineObject1 } from '../models/InlineObject1';
-import { InlineObject2 } from '../models/InlineObject2';
-import { InlineResponse200 } from '../models/InlineResponse200';
-import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse400 } from '../models/InlineResponse400';
 import { InlineResponse400Error } from '../models/InlineResponse400Error';
 import { Invoice } from '../models/Invoice';
@@ -48,6 +44,8 @@ import { ListPaymentsResponse } from '../models/ListPaymentsResponse';
 import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
 import { ListPricesResponse } from '../models/ListPricesResponse';
 import { ListProductsResponse } from '../models/ListProductsResponse';
+import { ListSubscriptionPeriodsResponse } from '../models/ListSubscriptionPeriodsResponse';
+import { ListSubscriptionsResponse } from '../models/ListSubscriptionsResponse';
 import { ListTransactionsResponse } from '../models/ListTransactionsResponse';
 import { ListTransfersResponse } from '../models/ListTransfersResponse';
 import { ListWalletsResponse } from '../models/ListWalletsResponse';
@@ -78,6 +76,8 @@ import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
+import { UpdateSubscriptionBody } from '../models/UpdateSubscriptionBody';
+import { UpdateSubscriptionPeriodBody } from '../models/UpdateSubscriptionPeriodBody';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
 import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
 import { Wallet } from '../models/Wallet';
@@ -669,7 +669,7 @@ export class PromiseSubscriptionPeriodsApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      */
-    public list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<InlineResponse2001> {
+    public list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListSubscriptionPeriodsResponse> {
         const result = this.api.list(prism_account, expand, limit, page, sort, _options);
         return result.toPromise();
     }
@@ -688,10 +688,10 @@ export class PromiseSubscriptionPeriodsApi {
      * Update Subscription Period
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object2 
+     * @param update_subscription_period_body 
      */
-    public update(id: string, prism_account?: string, inline_object2?: InlineObject2, _options?: Configuration): Promise<SubscriptionPeriod> {
-        const result = this.api.update(id, prism_account, inline_object2, _options);
+    public update(id: string, prism_account?: string, update_subscription_period_body?: UpdateSubscriptionPeriodBody, _options?: Configuration): Promise<SubscriptionPeriod> {
+        const result = this.api.update(id, prism_account, update_subscription_period_body, _options);
         return result.toPromise();
     }
 
@@ -727,10 +727,10 @@ export class PromiseSubscriptionsApi {
     /**
      * Create Subscription
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object 
+     * @param create_subscription_body 
      */
-    public create(prism_account?: string, inline_object?: InlineObject, _options?: Configuration): Promise<Subscription> {
-        const result = this.api.create(prism_account, inline_object, _options);
+    public create(prism_account?: string, create_subscription_body?: CreateSubscriptionBody, _options?: Configuration): Promise<Subscription> {
+        const result = this.api.create(prism_account, create_subscription_body, _options);
         return result.toPromise();
     }
 
@@ -742,7 +742,7 @@ export class PromiseSubscriptionsApi {
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public list(expand?: string, limit?: number, page?: number, sort?: any, prism_account?: string, _options?: Configuration): Promise<InlineResponse200> {
+    public list(expand?: string, limit?: number, page?: number, sort?: any, prism_account?: string, _options?: Configuration): Promise<ListSubscriptionsResponse> {
         const result = this.api.list(expand, limit, page, sort, prism_account, _options);
         return result.toPromise();
     }
@@ -762,10 +762,10 @@ export class PromiseSubscriptionsApi {
      * Update Subscription
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param inline_object1 
+     * @param update_subscription_body 
      */
-    public update(id: string, prism_account?: string, inline_object1?: InlineObject1, _options?: Configuration): Promise<Subscription> {
-        const result = this.api.update(id, prism_account, inline_object1, _options);
+    public update(id: string, prism_account?: string, update_subscription_body?: UpdateSubscriptionBody, _options?: Configuration): Promise<Subscription> {
+        const result = this.api.update(id, prism_account, update_subscription_body, _options);
         return result.toPromise();
     }
 

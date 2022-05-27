@@ -18,12 +18,6 @@ InvoiceAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "string | Account",
-        "format": ""
-    },
-    {
         "name": "amount",
         "baseName": "amount",
         "type": "number",
@@ -48,9 +42,9 @@ InvoiceAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "status",
-        "baseName": "status",
-        "type": "InvoiceAllOfStatusEnum",
+        "name": "customer",
+        "baseName": "customer",
+        "type": "string | Customer",
         "format": ""
     },
     {
@@ -60,57 +54,9 @@ InvoiceAllOf.attributeTypeMap = [
         "format": "date-time"
     },
     {
-        "name": "number",
-        "baseName": "number",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "customer",
-        "baseName": "customer",
-        "type": "string | Customer",
-        "format": ""
-    },
-    {
-        "name": "price",
-        "baseName": "price",
-        "type": "string | Price",
-        "format": ""
-    },
-    {
-        "name": "wallet",
-        "baseName": "wallet",
-        "type": "string | Wallet",
-        "format": ""
-    },
-    {
-        "name": "payment",
-        "baseName": "payment",
-        "type": "Payment",
-        "format": ""
-    },
-    {
-        "name": "transactions",
-        "baseName": "transactions",
-        "type": "Array<Transaction>",
-        "format": ""
-    },
-    {
         "name": "fees",
         "baseName": "fees",
         "type": "Array<Fee>",
-        "format": ""
-    },
-    {
-        "name": "transfers",
-        "baseName": "transfers",
-        "type": "Array<Transfer>",
-        "format": ""
-    },
-    {
-        "name": "subscription",
-        "baseName": "subscription",
-        "type": "string | Subscription",
         "format": ""
     },
     {
@@ -120,15 +66,21 @@ InvoiceAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "trial_period_duration",
-        "baseName": "trial_period_duration",
-        "type": "number",
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "any",
         "format": ""
     },
     {
-        "name": "send_reminders",
-        "baseName": "send_reminders",
+        "name": "number",
+        "baseName": "number",
         "type": "string",
+        "format": ""
+    },
+    {
+        "name": "payment",
+        "baseName": "payment",
+        "type": "Payment",
         "format": ""
     },
     {
@@ -138,9 +90,57 @@ InvoiceAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "any",
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string | Account",
+        "format": ""
+    },
+    {
+        "name": "price",
+        "baseName": "price",
+        "type": "string | Price",
+        "format": ""
+    },
+    {
+        "name": "send_reminders",
+        "baseName": "send_reminders",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "status",
+        "baseName": "status",
+        "type": "InvoiceAllOfStatusEnum",
+        "format": ""
+    },
+    {
+        "name": "subscription",
+        "baseName": "subscription",
+        "type": "string | Subscription",
+        "format": ""
+    },
+    {
+        "name": "transactions",
+        "baseName": "transactions",
+        "type": "Array<Transaction>",
+        "format": ""
+    },
+    {
+        "name": "transfers",
+        "baseName": "transfers",
+        "type": "Array<Transfer>",
+        "format": ""
+    },
+    {
+        "name": "trial_period_duration",
+        "baseName": "trial_period_duration",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "wallet",
+        "baseName": "wallet",
+        "type": "string | Wallet",
         "format": ""
     }
 ];

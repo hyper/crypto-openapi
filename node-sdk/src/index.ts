@@ -87,6 +87,19 @@ import {
   PricesApiRetrieveRequest,
   PricesApiListRequest,
   ListPricesResponse,
+  Subscription,
+  SubscriptionsApi,
+  SubscriptionsApiCreateRequest,
+  SubscriptionsApiRetrieveRequest,
+  SubscriptionsApiUpdateRequest,
+  SubscriptionsApiListRequest,
+  ListSubscriptionsResponse,
+  SubscriptionPeriodsApi,
+  SubscriptionPeriodsApiRetrieveRequest,
+  SubscriptionPeriod,
+  SubscriptionPeriodsApiUpdateRequest,
+  SubscriptionPeriodsApiListRequest,
+  ListSubscriptionPeriodsResponse,
 } from './openapi/index';
 import convertCasing from './helpers/convertCasing';
 import { ListPayoutWalletsResponse } from './openapi/models/ListPayoutWalletsResponse';
@@ -120,6 +133,8 @@ export class Prism {
   public readonly payoutWallets: PayoutWalletsApiLayer;
   public readonly prices: PricesApiLayer;
   public readonly products: ProductsApiLayer;
+  public readonly subscriptions: SubscriptionsApiLayer;
+  public readonly subscriptionPeriods: SubscriptionPeriodsApiLayer;
   public readonly transactions: TransactionsApiLayer;
   public readonly transfers: TransfersApiLayer;
   public readonly wallets: WalletsApiLayer;
@@ -151,6 +166,8 @@ export class Prism {
     this.payoutWallets = new PayoutWalletsApiLayer(config);
     this.prices = new PricesApiLayer(config);
     this.products = new ProductsApiLayer(config);
+    this.subscriptions = new SubscriptionsApiLayer(config);
+    this.subscriptionPeriods = new SubscriptionPeriodsApiLayer(config);
     this.transactions = new TransactionsApiLayer(config);
     this.transfers = new TransfersApiLayer(config);
     this.wallets = new WalletsApiLayer(config);
@@ -450,6 +467,79 @@ class PayoutWalletsApiLayer {
     params?: Omit<PayoutWalletsApiListRequest, 'prism_account'>,
     options?: { prismAccount: string }
   ): Promise<ListPayoutWalletsResponse> {
+    return this.api.list({ ...convertCasing(options), ...params });
+  }
+}
+
+class SubscriptionsApiLayer {
+  private readonly api: SubscriptionsApi;
+
+  constructor(config: Configuration) {
+    this.api = new SubscriptionsApi(config);
+  }
+
+  public async create(
+    data: SubscriptionsApiCreateRequest['create_subscription_body'],
+    options?: { prismAccount: string }
+  ): Promise<Subscription> {
+    return this.api.create({ ...convertCasing(options), create_subscription_body: data });
+  }
+
+  public async retrieve(
+    id: string,
+    params?: Omit<SubscriptionsApiRetrieveRequest, 'prism_account' | 'id'>,
+    options?: { prismAccount: string }
+  ): Promise<Subscription> {
+    return this.api.retrieve({ id, ...convertCasing(options), ...params });
+  }
+
+  public async update(
+    id: string,
+    data: SubscriptionsApiUpdateRequest['update_subscription_body'],
+    options?: { prismAccount: string }
+  ): Promise<Subscription> {
+    return this.api.update({ id, ...convertCasing(options), update_subscription_body: data });
+  }
+
+  public async list(
+    params?: Omit<SubscriptionsApiListRequest, 'prism_account'>,
+    options?: { prismAccount: string }
+  ): Promise<ListSubscriptionsResponse> {
+    return this.api.list({ ...convertCasing(options), ...params });
+  }
+}
+
+class SubscriptionPeriodsApiLayer {
+  private readonly api: SubscriptionPeriodsApi;
+
+  constructor(config: Configuration) {
+    this.api = new SubscriptionPeriodsApi(config);
+  }
+
+  public async retrieve(
+    id: string,
+    params?: Omit<SubscriptionPeriodsApiRetrieveRequest, 'prism_account' | 'id'>,
+    options?: { prismAccount: string }
+  ): Promise<SubscriptionPeriod> {
+    return this.api.retrieve({ id, ...convertCasing(options), ...params });
+  }
+
+  public async update(
+    id: string,
+    data: SubscriptionPeriodsApiUpdateRequest['update_subscription_period_body'],
+    options?: { prismAccount: string }
+  ): Promise<SubscriptionPeriod> {
+    return this.api.update({
+      id,
+      ...convertCasing(options),
+      update_subscription_period_body: data,
+    });
+  }
+
+  public async list(
+    params?: Omit<SubscriptionPeriodsApiListRequest, 'prism_account'>,
+    options?: { prismAccount: string }
+  ): Promise<ListSubscriptionPeriodsResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
 }
