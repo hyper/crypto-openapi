@@ -3954,14 +3954,14 @@
             "application/json": {
               "schema": {
                 "properties": {
+                  "hash": {
+                    "type": "string"
+                  },
                   "invoice": {
                     "type": "string"
                   },
                   "metadata": {
                     "type": "object"
-                  },
-                  "transaction_hash": {
-                    "type": "string"
                   }
                 },
                 "required": ["invoice"],

@@ -29,7 +29,7 @@ let body:.TransactionsApiCreateRequest = {
   prism_account: "Prism-Account_example",
   // CreateTransactionBody (optional)
   create_transaction_body: {
-    transaction_hash: "transaction_hash_example",
+    hash: "hash_example",
     invoice: "invoice_example",
     metadata: {},
   },
