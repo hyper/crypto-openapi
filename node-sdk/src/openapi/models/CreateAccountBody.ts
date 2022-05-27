@@ -11,6 +11,7 @@
  */
 
 import { AccountsBranding } from './AccountsBranding';
+import { AccountsSettings } from './AccountsSettings';
 import { HttpFile } from '../http/http';
 
 export class CreateAccountBody {
@@ -19,7 +20,8 @@ export class CreateAccountBody {
     'invoice_prefix'?: string;
     'name': string;
     'parent_account'?: string;
-    'platform_account'?: boolean;
+    'platform_account'?: string;
+    'settings'?: AccountsSettings;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -57,7 +59,13 @@ export class CreateAccountBody {
         {
             "name": "platform_account",
             "baseName": "platform_account",
-            "type": "boolean",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "settings",
+            "baseName": "settings",
+            "type": "AccountsSettings",
             "format": ""
         }    ];
 

@@ -18,8 +18,8 @@ CreateInvoiceBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "amount",
-        "baseName": "amount",
+        "name": "application_fee_percent",
+        "baseName": "application_fee_percent",
         "type": "number",
         "format": ""
     },
@@ -36,12 +36,6 @@ CreateInvoiceBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "customer",
-        "baseName": "customer",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "due",
         "baseName": "due",
         "type": "string",
@@ -54,14 +48,14 @@ CreateInvoiceBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "price",
-        "baseName": "price",
+        "name": "customer",
+        "baseName": "customer",
         "type": "string",
         "format": ""
     },
     {
-        "name": "product",
-        "baseName": "product",
+        "name": "price",
+        "baseName": "price",
         "type": "string",
         "format": ""
     },
@@ -72,9 +66,21 @@ CreateInvoiceBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "application_fee_percent",
-        "baseName": "application_fee_percent",
+        "name": "line_items",
+        "baseName": "line_items",
+        "type": "Array<InvoicesLineItems>",
+        "format": ""
+    },
+    {
+        "name": "trial_period_duration",
+        "baseName": "trial_period_duration",
         "type": "number",
+        "format": ""
+    },
+    {
+        "name": "send_reminders",
+        "baseName": "send_reminders",
+        "type": "string",
         "format": ""
     },
     {

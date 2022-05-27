@@ -1,6 +1,10 @@
 export declare class InlineObject {
-    'transaction_hash': string;
-    'invoice': string;
+    'price': string;
+    'customer': string;
+    'status'?: string;
+    'pause_collection'?: boolean;
+    'cancel_at'?: number;
+    'trial_period_duration'?: number;
     'metadata'?: any;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

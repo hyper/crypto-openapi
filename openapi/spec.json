@@ -96,20 +96,7 @@
                 "type": "object"
               },
               "connected_accounts": {
-                "oneOf": [
-                  {
-                    "items": {
-                      "type": "string"
-                    },
-                    "type": "array"
-                  },
-                  {
-                    "items": {
-                      "$ref": "#/components/schemas/Account"
-                    },
-                    "type": "array"
-                  }
-                ]
+                "$ref": "#/components/schemas/Account"
               },
               "invoice_prefix": {
                 "default": null,
@@ -137,7 +124,15 @@
               },
               "platform_account": {
                 "default": false,
-                "type": "boolean"
+                "type": "string"
+              },
+              "settings": {
+                "properties": {
+                  "retry_period_duration": {
+                    "type": "number"
+                  }
+                },
+                "type": "object"
               }
             },
             "required": ["name", "platform_account"],
@@ -146,6 +141,33 @@
         ],
         "description": "",
         "title": "Account",
+        "x-examples": {
+          "example-1": {
+            "branding": {
+              "logo": null
+            },
+            "connected_accounts": ["string"],
+            "created": "2019-08-24T14:15:22Z",
+            "id": "string",
+            "invoice_prefix": null,
+            "name": "string",
+            "object": "string",
+            "parent_account": "string",
+            "payout_wallets": [
+              {
+                "account": "string",
+                "address": "string",
+                "admin": true,
+                "chain": "eth"
+              }
+            ],
+            "platform_account": false,
+            "settings": {
+              "retry_period_duration": 0
+            },
+            "test": false
+          }
+        },
         "x-internal": false
       },
       "ApiKey": {
@@ -329,9 +351,6 @@
                   },
                   {
                     "$ref": "#/components/schemas/Account"
-                  },
-                  {
-                    "type": "object"
                   }
                 ]
               },
@@ -361,13 +380,25 @@
               },
               "due": {
                 "format": "date-time",
-                "type": "string"
+                "type": "number"
               },
               "fees": {
                 "items": {
                   "$ref": "#/components/schemas/Fee"
                 },
                 "type": "array"
+              },
+              "line_items": {
+                "properties": {
+                  "amount": {
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
               },
               "metadata": {
                 "type": "object"
@@ -378,8 +409,25 @@
               "payment": {
                 "$ref": "#/components/schemas/Payment"
               },
+              "period": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/SubscriptionPeriod"
+                  }
+                ]
+              },
               "platform_account": {
-                "type": "string"
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
               },
               "price": {
                 "oneOf": [
@@ -391,19 +439,22 @@
                   }
                 ]
               },
-              "product": {
+              "send_reminders": {
+                "type": "string"
+              },
+              "status": {
+                "enum": ["open", "paid", "unpaid", "void", "past_due"],
+                "type": "string"
+              },
+              "subscription": {
                 "oneOf": [
                   {
                     "type": "string"
                   },
                   {
-                    "$ref": "#/components/schemas/Product"
+                    "$ref": "#/components/schemas/Subscription"
                   }
                 ]
-              },
-              "status": {
-                "enum": ["open", "paid", "unpaid", "void"],
-                "type": "string"
               },
               "transactions": {
                 "items": {
@@ -416,6 +467,9 @@
                   "$ref": "#/components/schemas/Transfer"
                 },
                 "type": "array"
+              },
+              "trial_period_duration": {
+                "type": "number"
               },
               "wallet": {
                 "oneOf": [
@@ -432,13 +486,14 @@
               "account",
               "chain",
               "currency",
-              "customer",
-              "fees",
-              "number",
-              "price",
               "status",
-              "transfers",
-              "wallet"
+              "number",
+              "customer",
+              "price",
+              "wallet",
+              "transactions",
+              "fees",
+              "transfers"
             ],
             "type": "object"
           }
@@ -522,6 +577,54 @@
         "title": "Model",
         "type": "object"
       },
+      "Notification": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
+            "properties": {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "data": {
+                "type": "string"
+              },
+              "emails": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "type": {
+                "enum": [
+                  "invoice.paid",
+                  "invoice.unpaid",
+                  "invoice.void",
+                  "payment.failed",
+                  "payment.succeeded"
+                ],
+                "type": "string"
+              }
+            },
+            "required": ["account", "type", "data"],
+            "type": "object"
+          }
+        ],
+        "description": "",
+        "title": "Notification",
+        "x-internal": true,
+        "x-stoplight": {
+          "id": "box03v954vyx6"
+        }
+      },
       "Payment": {
         "allOf": [
           {
@@ -575,6 +678,17 @@
                 "enum": ["succeeded", "failed"],
                 "type": "string"
               },
+              "subscription": {
+                "oneOf": [
+                  {
+                    "properties": {},
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Subscription"
+                  }
+                ]
+              },
               "usd_amount": {
                 "type": "number"
               },
@@ -585,6 +699,9 @@
                   },
                   {
                     "$ref": "#/components/schemas/Wallet"
+                  },
+                  {
+                    "type": "object"
                   }
                 ]
               }
@@ -661,6 +778,9 @@
               "amount": {
                 "type": "number"
               },
+              "application_fee_percent": {
+                "type": "number"
+              },
               "base_price": {
                 "properties": {
                   "amount": {
@@ -671,6 +791,9 @@
                   }
                 },
                 "type": "object"
+              },
+              "billing_period_duration": {
+                "type": "number"
               },
               "chain": {
                 "type": "string"
@@ -747,6 +870,178 @@
           }
         ],
         "title": "Product"
+      },
+      "Subscription": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
+            "properties": {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "cancel_at": {
+                "type": "number"
+              },
+              "canceled_at": {
+                "type": "number"
+              },
+              "current_period": {
+                "$ref": "#/components/schemas/SubscriptionPeriod"
+              },
+              "customer": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                ]
+              },
+              "invoices": {
+                "items": {
+                  "$ref": "#/components/schemas/Invoice"
+                },
+                "type": "array"
+              },
+              "latest_invoice": {
+                "$ref": "#/components/schemas/Invoice"
+              },
+              "latest_period": {
+                "$ref": "#/components/schemas/SubscriptionPeriod"
+              },
+              "next_invoice": {
+                "$ref": "#/components/schemas/Invoice"
+              },
+              "pause_collection": {
+                "type": "boolean"
+              },
+              "payments": {
+                "items": {
+                  "$ref": "#/components/schemas/Payment"
+                },
+                "type": "array"
+              },
+              "periods": {
+                "items": {
+                  "$ref": "#/components/schemas/SubscriptionPeriod"
+                },
+                "type": "array"
+              },
+              "platform_account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "price": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Price"
+                  }
+                ]
+              },
+              "status": {
+                "enum": ["active", "canceled", "trialing", "past_due"],
+                "type": "string"
+              },
+              "trial_period_duration": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "account",
+              "price",
+              "customer",
+              "status",
+              "pause_collection"
+            ],
+            "type": "object"
+          }
+        ],
+        "description": ""
+      },
+      "SubscriptionPeriod": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
+            "properties": {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "end": {
+                "type": "number"
+              },
+              "invoice": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Invoice"
+                  }
+                ]
+              },
+              "platform_account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "start": {
+                "type": "number"
+              },
+              "subscription": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Subscription"
+                  }
+                ]
+              },
+              "trial": {
+                "type": "boolean"
+              }
+            },
+            "required": ["account", "start", "end", "subscription", "trial"],
+            "type": "object"
+          }
+        ],
+        "title": "SubscriptionPeriod",
+        "x-stoplight": {
+          "id": "n3f4e588n38zy"
+        }
       },
       "Transaction": {
         "allOf": [
@@ -1134,7 +1429,15 @@
                     "type": "string"
                   },
                   "platform_account": {
-                    "type": "boolean"
+                    "type": "string"
+                  },
+                  "settings": {
+                    "properties": {
+                      "retry_period_duration": {
+                        "type": "number"
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "required": ["name"],
@@ -1253,8 +1556,13 @@
                   "name": {
                     "type": "string"
                   },
-                  "platform_account": {
-                    "type": "boolean"
+                  "settings": {
+                    "properties": {
+                      "retry_period_duration": {
+                        "type": "number"
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "title": "UpdateAccountBody",
@@ -1963,9 +2271,6 @@
                     "minLength": 1,
                     "type": "string"
                   },
-                  "amount": {
-                    "type": "number"
-                  },
                   "application_fee_percent": {
                     "type": "number"
                   },
@@ -1984,6 +2289,20 @@
                   "due": {
                     "type": "string"
                   },
+                  "line_items": {
+                    "items": {
+                      "properties": {
+                        "amount": {
+                          "type": "number"
+                        },
+                        "description": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
                   "metadata": {
                     "type": "object"
                   },
@@ -1994,9 +2313,11 @@
                   "price": {
                     "type": "string"
                   },
-                  "product": {
-                    "minLength": 1,
+                  "send_reminders": {
                     "type": "string"
+                  },
+                  "trial_period_duration": {
+                    "type": "number"
                   },
                   "wallet": {
                     "minLength": 1,
@@ -2007,8 +2328,8 @@
                   "account",
                   "chain",
                   "currency",
-                  "customer",
                   "number",
+                  "customer",
                   "wallet"
                 ],
                 "title": "CreateInvoiceBody",
@@ -2108,9 +2429,6 @@
             "application/json": {
               "schema": {
                 "properties": {
-                  "amount": {
-                    "type": "integer"
-                  },
                   "application_fee_percent": {
                     "type": "number"
                   },
@@ -2123,11 +2441,17 @@
                   "due": {
                     "type": "string"
                   },
+                  "metadata": {
+                    "type": "object"
+                  },
+                  "send_reminders": {
+                    "type": "string"
+                  },
                   "status": {
                     "type": "string"
                   },
-                  "transaction": {
-                    "type": "string"
+                  "trial_period_duration": {
+                    "type": "number"
                   }
                 },
                 "title": "UpdateInvoiceBody",
@@ -3173,6 +3497,392 @@
         "tags": ["Products"]
       }
     },
+    "/subscription_periods": {
+      "get": {
+        "operationId": "subscription-periods_list",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/sort"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/SubscriptionPeriod"
+                      },
+                      "type": "array"
+                    },
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["data", "has_more", "page", "total"],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          }
+        },
+        "summary": "List Subscription Periods",
+        "tags": ["SubscriptionPeriods"]
+      },
+      "parameters": []
+    },
+    "/subscription_periods/{id}": {
+      "get": {
+        "operationId": "subscription-periods_retrieve",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubscriptionPeriod"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "List Subscription Periods",
+        "tags": ["SubscriptionPeriods"]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "patch": {
+        "operationId": "subscription-periods_update",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "end": {
+                    "type": "number"
+                  },
+                  "start": {
+                    "type": "number"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubscriptionPeriod"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Update Subscription Period",
+        "tags": ["SubscriptionPeriods"]
+      }
+    },
+    "/subscriptions": {
+      "get": {
+        "operationId": "subscriptions_list",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/sort"
+          },
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Subscription"
+                    },
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["data", "has_more", "page", "total"],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          }
+        },
+        "summary": "List Subscriptions",
+        "tags": ["Subscriptions"]
+      },
+      "post": {
+        "operationId": "subscriptions_create",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "cancel_at": {
+                    "type": "number"
+                  },
+                  "customer": {
+                    "type": "string"
+                  },
+                  "metadata": {
+                    "type": "object"
+                  },
+                  "pause_collection": {
+                    "type": "boolean"
+                  },
+                  "price": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "trial_period_duration": {
+                    "type": "number"
+                  }
+                },
+                "required": ["price", "customer"],
+                "type": "object"
+              }
+            }
+          },
+          "description": ""
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Subscription"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          }
+        },
+        "summary": "Create Subscription",
+        "tags": ["Subscriptions"]
+      }
+    },
+    "/subscriptions/{id}": {
+      "delete": {
+        "operationId": "subscriptions_delete",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Delete Subscription",
+        "tags": ["Subscriptions"]
+      },
+      "get": {
+        "operationId": "subscriptions_retrieve",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Subscription"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Retrieve Subscription",
+        "tags": ["Subscriptions"]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "patch": {
+        "operationId": "subscriptions_update",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "cancel_at": {
+                    "type": "number"
+                  },
+                  "canceled_at": {
+                    "type": "number"
+                  },
+                  "pause_collection": {
+                    "type": "boolean"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Subscription"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Update Subscription",
+        "tags": ["Subscriptions"]
+      }
+    },
     "/transactions": {
       "get": {
         "operationId": "transactions_list",
@@ -3244,14 +3954,14 @@
             "application/json": {
               "schema": {
                 "properties": {
-                  "hash": {
-                    "type": "string"
-                  },
                   "invoice": {
                     "type": "string"
                   },
                   "metadata": {
                     "type": "object"
+                  },
+                  "transaction_hash": {
+                    "type": "string"
                   }
                 },
                 "required": ["invoice"],

@@ -15,6 +15,7 @@ __exportStar(require("./Account"), exports);
 __exportStar(require("./AccountAllOf"), exports);
 __exportStar(require("./AccountAllOfBranding"), exports);
 __exportStar(require("./AccountsBranding"), exports);
+__exportStar(require("./AccountsSettings"), exports);
 __exportStar(require("./ApiKey"), exports);
 __exportStar(require("./ApiKeyAllOf"), exports);
 __exportStar(require("./CreateAccountBody"), exports);
@@ -36,10 +37,17 @@ __exportStar(require("./CustomersIdBillingDetails"), exports);
 __exportStar(require("./CustomersIdBillingDetailsAddress"), exports);
 __exportStar(require("./Fee"), exports);
 __exportStar(require("./FeeAllOf"), exports);
+__exportStar(require("./InlineObject"), exports);
+__exportStar(require("./InlineObject1"), exports);
+__exportStar(require("./InlineObject2"), exports);
+__exportStar(require("./InlineResponse200"), exports);
+__exportStar(require("./InlineResponse2001"), exports);
 __exportStar(require("./InlineResponse400"), exports);
 __exportStar(require("./InlineResponse400Error"), exports);
 __exportStar(require("./Invoice"), exports);
 __exportStar(require("./InvoiceAllOf"), exports);
+__exportStar(require("./InvoiceAllOfLineItems"), exports);
+__exportStar(require("./InvoicesLineItems"), exports);
 __exportStar(require("./ListAccountsResponse"), exports);
 __exportStar(require("./ListCustomersResponse"), exports);
 __exportStar(require("./ListFeesResponse"), exports);
@@ -56,6 +64,8 @@ __exportStar(require("./ListWebhooksResponse"), exports);
 __exportStar(require("./Log"), exports);
 __exportStar(require("./LogAllOf"), exports);
 __exportStar(require("./Model"), exports);
+__exportStar(require("./Notification"), exports);
+__exportStar(require("./NotificationAllOf"), exports);
 __exportStar(require("./Payment"), exports);
 __exportStar(require("./PaymentAllOf"), exports);
 __exportStar(require("./PayoutWallet"), exports);
@@ -65,6 +75,10 @@ __exportStar(require("./PriceAllOf"), exports);
 __exportStar(require("./PricesBasePrice"), exports);
 __exportStar(require("./Product"), exports);
 __exportStar(require("./ProductAllOf"), exports);
+__exportStar(require("./Subscription"), exports);
+__exportStar(require("./SubscriptionAllOf"), exports);
+__exportStar(require("./SubscriptionPeriod"), exports);
+__exportStar(require("./SubscriptionPeriodAllOf"), exports);
 __exportStar(require("./Transaction"), exports);
 __exportStar(require("./TransactionAllOf"), exports);
 __exportStar(require("./Transfer"), exports);
@@ -83,6 +97,7 @@ const Account_1 = require("./Account");
 const AccountAllOf_1 = require("./AccountAllOf");
 const AccountAllOfBranding_1 = require("./AccountAllOfBranding");
 const AccountsBranding_1 = require("./AccountsBranding");
+const AccountsSettings_1 = require("./AccountsSettings");
 const ApiKey_1 = require("./ApiKey");
 const ApiKeyAllOf_1 = require("./ApiKeyAllOf");
 const CreateAccountBody_1 = require("./CreateAccountBody");
@@ -104,10 +119,17 @@ const CustomersIdBillingDetails_1 = require("./CustomersIdBillingDetails");
 const CustomersIdBillingDetailsAddress_1 = require("./CustomersIdBillingDetailsAddress");
 const Fee_1 = require("./Fee");
 const FeeAllOf_1 = require("./FeeAllOf");
+const InlineObject_1 = require("./InlineObject");
+const InlineObject1_1 = require("./InlineObject1");
+const InlineObject2_1 = require("./InlineObject2");
+const InlineResponse200_1 = require("./InlineResponse200");
+const InlineResponse2001_1 = require("./InlineResponse2001");
 const InlineResponse400_1 = require("./InlineResponse400");
 const InlineResponse400Error_1 = require("./InlineResponse400Error");
 const Invoice_1 = require("./Invoice");
 const InvoiceAllOf_1 = require("./InvoiceAllOf");
+const InvoiceAllOfLineItems_1 = require("./InvoiceAllOfLineItems");
+const InvoicesLineItems_1 = require("./InvoicesLineItems");
 const ListAccountsResponse_1 = require("./ListAccountsResponse");
 const ListCustomersResponse_1 = require("./ListCustomersResponse");
 const ListFeesResponse_1 = require("./ListFeesResponse");
@@ -124,6 +146,8 @@ const ListWebhooksResponse_1 = require("./ListWebhooksResponse");
 const Log_1 = require("./Log");
 const LogAllOf_1 = require("./LogAllOf");
 const Model_1 = require("./Model");
+const Notification_1 = require("./Notification");
+const NotificationAllOf_1 = require("./NotificationAllOf");
 const Payment_1 = require("./Payment");
 const PaymentAllOf_1 = require("./PaymentAllOf");
 const PayoutWallet_1 = require("./PayoutWallet");
@@ -133,6 +157,10 @@ const PriceAllOf_1 = require("./PriceAllOf");
 const PricesBasePrice_1 = require("./PricesBasePrice");
 const Product_1 = require("./Product");
 const ProductAllOf_1 = require("./ProductAllOf");
+const Subscription_1 = require("./Subscription");
+const SubscriptionAllOf_1 = require("./SubscriptionAllOf");
+const SubscriptionPeriod_1 = require("./SubscriptionPeriod");
+const SubscriptionPeriodAllOf_1 = require("./SubscriptionPeriodAllOf");
 const Transaction_1 = require("./Transaction");
 const TransactionAllOf_1 = require("./TransactionAllOf");
 const Transfer_1 = require("./Transfer");
@@ -173,10 +201,14 @@ let enumsMap = new Set([
     "InvoiceAllOfStatusEnum",
     "LogMethodEnum",
     "LogAllOfMethodEnum",
+    "NotificationTypeEnum",
+    "NotificationAllOfTypeEnum",
     "PaymentStatusEnum",
     "PaymentAllOfStatusEnum",
     "PayoutWalletChainEnum",
     "PayoutWalletAllOfChainEnum",
+    "SubscriptionStatusEnum",
+    "SubscriptionAllOfStatusEnum",
     "TransactionStatusEnum",
     "TransactionChainEnum",
     "TransactionCurrencyEnum",
@@ -191,6 +223,7 @@ let typeMap = {
     "AccountAllOf": AccountAllOf_1.AccountAllOf,
     "AccountAllOfBranding": AccountAllOfBranding_1.AccountAllOfBranding,
     "AccountsBranding": AccountsBranding_1.AccountsBranding,
+    "AccountsSettings": AccountsSettings_1.AccountsSettings,
     "ApiKey": ApiKey_1.ApiKey,
     "ApiKeyAllOf": ApiKeyAllOf_1.ApiKeyAllOf,
     "CreateAccountBody": CreateAccountBody_1.CreateAccountBody,
@@ -212,10 +245,17 @@ let typeMap = {
     "CustomersIdBillingDetailsAddress": CustomersIdBillingDetailsAddress_1.CustomersIdBillingDetailsAddress,
     "Fee": Fee_1.Fee,
     "FeeAllOf": FeeAllOf_1.FeeAllOf,
+    "InlineObject": InlineObject_1.InlineObject,
+    "InlineObject1": InlineObject1_1.InlineObject1,
+    "InlineObject2": InlineObject2_1.InlineObject2,
+    "InlineResponse200": InlineResponse200_1.InlineResponse200,
+    "InlineResponse2001": InlineResponse2001_1.InlineResponse2001,
     "InlineResponse400": InlineResponse400_1.InlineResponse400,
     "InlineResponse400Error": InlineResponse400Error_1.InlineResponse400Error,
     "Invoice": Invoice_1.Invoice,
     "InvoiceAllOf": InvoiceAllOf_1.InvoiceAllOf,
+    "InvoiceAllOfLineItems": InvoiceAllOfLineItems_1.InvoiceAllOfLineItems,
+    "InvoicesLineItems": InvoicesLineItems_1.InvoicesLineItems,
     "ListAccountsResponse": ListAccountsResponse_1.ListAccountsResponse,
     "ListCustomersResponse": ListCustomersResponse_1.ListCustomersResponse,
     "ListFeesResponse": ListFeesResponse_1.ListFeesResponse,
@@ -232,6 +272,8 @@ let typeMap = {
     "Log": Log_1.Log,
     "LogAllOf": LogAllOf_1.LogAllOf,
     "Model": Model_1.Model,
+    "Notification": Notification_1.Notification,
+    "NotificationAllOf": NotificationAllOf_1.NotificationAllOf,
     "Payment": Payment_1.Payment,
     "PaymentAllOf": PaymentAllOf_1.PaymentAllOf,
     "PayoutWallet": PayoutWallet_1.PayoutWallet,
@@ -241,6 +283,10 @@ let typeMap = {
     "PricesBasePrice": PricesBasePrice_1.PricesBasePrice,
     "Product": Product_1.Product,
     "ProductAllOf": ProductAllOf_1.ProductAllOf,
+    "Subscription": Subscription_1.Subscription,
+    "SubscriptionAllOf": SubscriptionAllOf_1.SubscriptionAllOf,
+    "SubscriptionPeriod": SubscriptionPeriod_1.SubscriptionPeriod,
+    "SubscriptionPeriodAllOf": SubscriptionPeriodAllOf_1.SubscriptionPeriodAllOf,
     "Transaction": Transaction_1.Transaction,
     "TransactionAllOf": TransactionAllOf_1.TransactionAllOf,
     "Transfer": Transfer_1.Transfer,

@@ -10,20 +10,22 @@
  * Do not edit the class manually.
  */
 
+import { InvoicesLineItems } from './InvoicesLineItems';
 import { HttpFile } from '../http/http';
 
 export class CreateInvoiceBody {
     'account': string;
-    'amount'?: number;
+    'application_fee_percent'?: number;
     'chain': string;
     'currency': string;
-    'customer': string;
     'due'?: string;
     'number': string;
+    'customer': string;
     'price'?: string;
-    'product'?: string;
     'wallet': string;
-    'application_fee_percent'?: number;
+    'line_items'?: Array<InvoicesLineItems>;
+    'trial_period_duration'?: number;
+    'send_reminders'?: string;
     'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
@@ -36,8 +38,8 @@ export class CreateInvoiceBody {
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
+            "name": "application_fee_percent",
+            "baseName": "application_fee_percent",
             "type": "number",
             "format": ""
         },
@@ -54,12 +56,6 @@ export class CreateInvoiceBody {
             "format": ""
         },
         {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "due",
             "baseName": "due",
             "type": "string",
@@ -72,14 +68,14 @@ export class CreateInvoiceBody {
             "format": ""
         },
         {
-            "name": "price",
-            "baseName": "price",
+            "name": "customer",
+            "baseName": "customer",
             "type": "string",
             "format": ""
         },
         {
-            "name": "product",
-            "baseName": "product",
+            "name": "price",
+            "baseName": "price",
             "type": "string",
             "format": ""
         },
@@ -90,9 +86,21 @@ export class CreateInvoiceBody {
             "format": ""
         },
         {
-            "name": "application_fee_percent",
-            "baseName": "application_fee_percent",
+            "name": "line_items",
+            "baseName": "line_items",
+            "type": "Array<InvoicesLineItems>",
+            "format": ""
+        },
+        {
+            "name": "trial_period_duration",
+            "baseName": "trial_period_duration",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "send_reminders",
+            "baseName": "send_reminders",
+            "type": "string",
             "format": ""
         },
         {

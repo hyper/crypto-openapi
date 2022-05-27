@@ -14,18 +14,24 @@ InvoiceAllOf.attributeTypeMap = [
     {
         "name": "account",
         "baseName": "account",
-        "type": "string | Account | any",
+        "type": "string | Account",
         "format": ""
     },
     {
         "name": "platform_account",
         "baseName": "platform_account",
-        "type": "string",
+        "type": "string | Account",
         "format": ""
     },
     {
         "name": "amount",
         "baseName": "amount",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "application_fee_percent",
+        "baseName": "application_fee_percent",
         "type": "number",
         "format": ""
     },
@@ -42,22 +48,16 @@ InvoiceAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "customer",
-        "baseName": "customer",
-        "type": "string | Customer",
+        "name": "status",
+        "baseName": "status",
+        "type": "InvoiceAllOfStatusEnum",
         "format": ""
     },
     {
         "name": "due",
         "baseName": "due",
-        "type": "Date",
+        "type": "number",
         "format": "date-time"
-    },
-    {
-        "name": "fees",
-        "baseName": "fees",
-        "type": "Array<Fee>",
-        "format": ""
     },
     {
         "name": "number",
@@ -66,9 +66,9 @@ InvoiceAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "payment",
-        "baseName": "payment",
-        "type": "Payment",
+        "name": "customer",
+        "baseName": "customer",
+        "type": "string | Customer",
         "format": ""
     },
     {
@@ -78,15 +78,15 @@ InvoiceAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "product",
-        "baseName": "product",
-        "type": "string | Product",
+        "name": "wallet",
+        "baseName": "wallet",
+        "type": "string | Wallet",
         "format": ""
     },
     {
-        "name": "status",
-        "baseName": "status",
-        "type": "InvoiceAllOfStatusEnum",
+        "name": "payment",
+        "baseName": "payment",
+        "type": "Payment",
         "format": ""
     },
     {
@@ -96,21 +96,45 @@ InvoiceAllOf.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "fees",
+        "baseName": "fees",
+        "type": "Array<Fee>",
+        "format": ""
+    },
+    {
         "name": "transfers",
         "baseName": "transfers",
         "type": "Array<Transfer>",
         "format": ""
     },
     {
-        "name": "wallet",
-        "baseName": "wallet",
-        "type": "string | Wallet",
+        "name": "subscription",
+        "baseName": "subscription",
+        "type": "string | Subscription",
         "format": ""
     },
     {
-        "name": "application_fee_percent",
-        "baseName": "application_fee_percent",
+        "name": "line_items",
+        "baseName": "line_items",
+        "type": "InvoiceAllOfLineItems",
+        "format": ""
+    },
+    {
+        "name": "trial_period_duration",
+        "baseName": "trial_period_duration",
         "type": "number",
+        "format": ""
+    },
+    {
+        "name": "send_reminders",
+        "baseName": "send_reminders",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "period",
+        "baseName": "period",
+        "type": "string | SubscriptionPeriod",
         "format": ""
     },
     {

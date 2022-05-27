@@ -7,6 +7,8 @@ PaymentsApi.md
 PayoutWalletsApi.md
 PricesApi.md
 ProductsApi.md
+SubscriptionPeriodsApi.md
+SubscriptionsApi.md
 TransactionsApi.md
 TransfersApi.md
 WalletsApi.md
@@ -20,6 +22,8 @@ apis/PaymentsApi.ts
 apis/PayoutWalletsApi.ts
 apis/PricesApi.ts
 apis/ProductsApi.ts
+apis/SubscriptionPeriodsApi.ts
+apis/SubscriptionsApi.ts
 apis/TransactionsApi.ts
 apis/TransfersApi.ts
 apis/WalletsApi.ts
@@ -34,6 +38,7 @@ models/Account.ts
 models/AccountAllOf.ts
 models/AccountAllOfBranding.ts
 models/AccountsBranding.ts
+models/AccountsSettings.ts
 models/ApiKey.ts
 models/ApiKeyAllOf.ts
 models/CreateAccountBody.ts
@@ -55,10 +60,17 @@ models/CustomersIdBillingDetails.ts
 models/CustomersIdBillingDetailsAddress.ts
 models/Fee.ts
 models/FeeAllOf.ts
+models/InlineObject.ts
+models/InlineObject1.ts
+models/InlineObject2.ts
+models/InlineResponse200.ts
+models/InlineResponse2001.ts
 models/InlineResponse400.ts
 models/InlineResponse400Error.ts
 models/Invoice.ts
 models/InvoiceAllOf.ts
+models/InvoiceAllOfLineItems.ts
+models/InvoicesLineItems.ts
 models/ListAccountsResponse.ts
 models/ListCustomersResponse.ts
 models/ListFeesResponse.ts
@@ -75,6 +87,8 @@ models/ListWebhooksResponse.ts
 models/Log.ts
 models/LogAllOf.ts
 models/Model.ts
+models/Notification.ts
+models/NotificationAllOf.ts
 models/ObjectSerializer.ts
 models/Payment.ts
 models/PaymentAllOf.ts
@@ -85,6 +99,10 @@ models/PriceAllOf.ts
 models/PricesBasePrice.ts
 models/Product.ts
 models/ProductAllOf.ts
+models/Subscription.ts
+models/SubscriptionAllOf.ts
+models/SubscriptionPeriod.ts
+models/SubscriptionPeriodAllOf.ts
 models/Transaction.ts
 models/TransactionAllOf.ts
 models/Transfer.ts

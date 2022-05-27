@@ -10,14 +10,14 @@
  * Do not edit the class manually.
  */
 
-import { Price } from './Price';
+import { SubscriptionPeriod } from './SubscriptionPeriod';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse2001 {
-    'data'?: Array<Price>;
-    'has_more'?: boolean;
-    'page'?: number;
-    'total'?: number;
+    'data': Array<SubscriptionPeriod>;
+    'has_more': boolean;
+    'page': number;
+    'total': number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -25,7 +25,7 @@ export class InlineResponse2001 {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<Price>",
+            "type": "Array<SubscriptionPeriod>",
             "format": ""
         },
         {

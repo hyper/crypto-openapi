@@ -13,6 +13,8 @@ export declare class Price {
     'chain': string;
     'product'?: string | Product;
     'base_price'?: PricesBasePrice;
+    'billing_period_duration'?: number;
+    'application_fee_percent'?: number;
     'metadata'?: any;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

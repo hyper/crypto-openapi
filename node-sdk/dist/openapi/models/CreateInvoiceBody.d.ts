@@ -1,15 +1,17 @@
+import { InvoicesLineItems } from './InvoicesLineItems';
 export declare class CreateInvoiceBody {
     'account': string;
-    'amount'?: number;
+    'application_fee_percent'?: number;
     'chain': string;
     'currency': string;
-    'customer': string;
     'due'?: string;
     'number': string;
+    'customer': string;
     'price'?: string;
-    'product'?: string;
     'wallet': string;
-    'application_fee_percent'?: number;
+    'line_items'?: Array<InvoicesLineItems>;
+    'trial_period_duration'?: number;
+    'send_reminders'?: string;
     'metadata'?: any;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

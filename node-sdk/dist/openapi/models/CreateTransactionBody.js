@@ -12,8 +12,8 @@ exports.CreateTransactionBody = CreateTransactionBody;
 CreateTransactionBody.discriminator = undefined;
 CreateTransactionBody.attributeTypeMap = [
     {
-        "name": "hash",
-        "baseName": "hash",
+        "name": "transaction_hash",
+        "baseName": "transaction_hash",
         "type": "string",
         "format": ""
     },

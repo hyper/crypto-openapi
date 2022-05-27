@@ -10,14 +10,14 @@
  * Do not edit the class manually.
  */
 
-import { Transaction } from './Transaction';
+import { Subscription } from './Subscription';
 import { HttpFile } from '../http/http';
 
 export class InlineResponse200 {
-    'data'?: Array<Transaction>;
-    'has_more'?: boolean;
-    'page'?: number;
-    'total'?: number;
+    'data': Subscription;
+    'has_more': boolean;
+    'page': number;
+    'total': number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -25,7 +25,7 @@ export class InlineResponse200 {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<Transaction>",
+            "type": "Subscription",
             "format": ""
         },
         {

@@ -31,16 +31,22 @@ let body:.InvoicesApiCreateRequest = {
   // CreateInvoiceBody (optional)
   create_invoice_body: {
     account: "account_example",
-    amount: 3.14,
+    application_fee_percent: 3.14,
     chain: "chain_example",
     currency: "currency_example",
-    customer: "customer_example",
     due: "due_example",
     number: "number_example",
+    customer: "customer_example",
     price: "price_example",
-    product: "product_example",
     wallet: "wallet_example",
-    application_fee_percent: 3.14,
+    line_items: [
+      {
+        amount: 3.14,
+        description: "description_example",
+      },
+    ],
+    trial_period_duration: 3.14,
+    send_reminders: "send_reminders_example",
     metadata: {},
   },
 };
@@ -292,13 +298,14 @@ let body:.InvoicesApiUpdateRequest = {
   prism_account: "Prism-Account_example",
   // UpdateInvoiceBody (optional)
   update_invoice_body: {
-    amount: 1,
     chain: "chain_example",
     currency: "currency_example",
     due: "due_example",
-    transaction: "transaction_example",
     application_fee_percent: 3.14,
     status: "status_example",
+    trial_period_duration: 3.14,
+    send_reminders: "send_reminders_example",
+    metadata: {},
   },
 };
 

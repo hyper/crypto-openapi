@@ -15,6 +15,7 @@ import { Customer } from './Customer';
 import { Invoice } from './Invoice';
 import { Model } from './Model';
 import { PaymentAllOf } from './PaymentAllOf';
+import { Subscription } from './Subscription';
 import { Wallet } from './Wallet';
 import { HttpFile } from '../http/http';
 
@@ -32,7 +33,8 @@ export class Payment {
     'invoice': string | Invoice;
     'status': PaymentStatusEnum;
     'usd_amount': number;
-    'wallet': string | Wallet;
+    'wallet': string | Wallet | any;
+    'subscription'?: string | Subscription;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -118,7 +120,13 @@ export class Payment {
         {
             "name": "wallet",
             "baseName": "wallet",
-            "type": "string | Wallet",
+            "type": "string | Wallet | any",
+            "format": ""
+        },
+        {
+            "name": "subscription",
+            "baseName": "subscription",
+            "type": "string | Subscription",
             "format": ""
         }    ];
 

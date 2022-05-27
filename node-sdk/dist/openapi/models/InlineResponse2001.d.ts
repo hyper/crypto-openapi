@@ -1,9 +1,9 @@
-import { Price } from './Price';
+import { SubscriptionPeriod } from './SubscriptionPeriod';
 export declare class InlineResponse2001 {
-    'data'?: Array<Price>;
-    'has_more'?: boolean;
-    'page'?: number;
-    'total'?: number;
+    'data': Array<SubscriptionPeriod>;
+    'has_more': boolean;
+    'page': number;
+    'total': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

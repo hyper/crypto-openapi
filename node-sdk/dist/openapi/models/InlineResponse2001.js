@@ -14,7 +14,7 @@ InlineResponse2001.attributeTypeMap = [
     {
         "name": "data",
         "baseName": "data",
-        "type": "Array<Price>",
+        "type": "Array<SubscriptionPeriod>",
         "format": ""
     },
     {

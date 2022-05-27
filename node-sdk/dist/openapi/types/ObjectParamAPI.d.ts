@@ -13,6 +13,11 @@ import { CreateWalletBody } from '../models/CreateWalletBody';
 import { CreateWebhookBody } from '../models/CreateWebhookBody';
 import { Customer } from '../models/Customer';
 import { Fee } from '../models/Fee';
+import { InlineObject } from '../models/InlineObject';
+import { InlineObject1 } from '../models/InlineObject1';
+import { InlineObject2 } from '../models/InlineObject2';
+import { InlineResponse200 } from '../models/InlineResponse200';
+import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { Invoice } from '../models/Invoice';
 import { ListAccountsResponse } from '../models/ListAccountsResponse';
 import { ListCustomersResponse } from '../models/ListCustomersResponse';
@@ -32,6 +37,8 @@ import { Payment } from '../models/Payment';
 import { PayoutWallet } from '../models/PayoutWallet';
 import { Price } from '../models/Price';
 import { Product } from '../models/Product';
+import { Subscription } from '../models/Subscription';
+import { SubscriptionPeriod } from '../models/SubscriptionPeriod';
 import { Transaction } from '../models/Transaction';
 import { Transfer } from '../models/Transfer';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
@@ -303,6 +310,65 @@ export declare class ObjectProductsApi {
     list(param?: ProductsApiListRequest, options?: Configuration): Promise<ListProductsResponse>;
     retrieve(param: ProductsApiRetrieveRequest, options?: Configuration): Promise<Product>;
     update(param: ProductsApiUpdateRequest, options?: Configuration): Promise<Product>;
+}
+import { SubscriptionPeriodsApiRequestFactory, SubscriptionPeriodsApiResponseProcessor } from "../apis/SubscriptionPeriodsApi";
+export interface SubscriptionPeriodsApiListRequest {
+    prism_account?: string;
+    expand?: string;
+    limit?: number;
+    page?: number;
+    sort?: any;
+}
+export interface SubscriptionPeriodsApiRetrieveRequest {
+    id: string;
+    prism_account?: string;
+}
+export interface SubscriptionPeriodsApiUpdateRequest {
+    id: string;
+    prism_account?: string;
+    inline_object2?: InlineObject2;
+}
+export declare class ObjectSubscriptionPeriodsApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: SubscriptionPeriodsApiRequestFactory, responseProcessor?: SubscriptionPeriodsApiResponseProcessor);
+    list(param?: SubscriptionPeriodsApiListRequest, options?: Configuration): Promise<InlineResponse2001>;
+    retrieve(param: SubscriptionPeriodsApiRetrieveRequest, options?: Configuration): Promise<SubscriptionPeriod>;
+    update(param: SubscriptionPeriodsApiUpdateRequest, options?: Configuration): Promise<SubscriptionPeriod>;
+}
+import { SubscriptionsApiRequestFactory, SubscriptionsApiResponseProcessor } from "../apis/SubscriptionsApi";
+export interface SubscriptionsApiDeleteRequest {
+    id: string;
+    prism_account?: string;
+}
+export interface SubscriptionsApiCreateRequest {
+    prism_account?: string;
+    inline_object?: InlineObject;
+}
+export interface SubscriptionsApiListRequest {
+    expand?: string;
+    limit?: number;
+    page?: number;
+    sort?: any;
+    prism_account?: string;
+}
+export interface SubscriptionsApiRetrieveRequest {
+    id: string;
+    expand?: string;
+    prism_account?: string;
+}
+export interface SubscriptionsApiUpdateRequest {
+    id: string;
+    prism_account?: string;
+    inline_object1?: InlineObject1;
+}
+export declare class ObjectSubscriptionsApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: SubscriptionsApiRequestFactory, responseProcessor?: SubscriptionsApiResponseProcessor);
+    _delete(param: SubscriptionsApiDeleteRequest, options?: Configuration): Promise<void>;
+    create(param?: SubscriptionsApiCreateRequest, options?: Configuration): Promise<Subscription>;
+    list(param?: SubscriptionsApiListRequest, options?: Configuration): Promise<InlineResponse200>;
+    retrieve(param: SubscriptionsApiRetrieveRequest, options?: Configuration): Promise<Subscription>;
+    update(param: SubscriptionsApiUpdateRequest, options?: Configuration): Promise<Subscription>;
 }
 import { TransactionsApiRequestFactory, TransactionsApiResponseProcessor } from "../apis/TransactionsApi";
 export interface TransactionsApiCreateRequest {

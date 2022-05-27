@@ -1,5 +1,5 @@
 export declare class CreateTransactionBody {
-    'hash'?: string;
+    'transaction_hash'?: string;
     'invoice': string;
     'metadata'?: any;
     static readonly discriminator: string | undefined;

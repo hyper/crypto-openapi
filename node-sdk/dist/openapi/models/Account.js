@@ -44,7 +44,7 @@ Account.attributeTypeMap = [
     {
         "name": "connected_accounts",
         "baseName": "connected_accounts",
-        "type": "Array<string> | Array<Account>",
+        "type": "Account",
         "format": ""
     },
     {
@@ -68,13 +68,19 @@ Account.attributeTypeMap = [
     {
         "name": "platform_account",
         "baseName": "platform_account",
-        "type": "boolean",
+        "type": "string",
         "format": ""
     },
     {
         "name": "payout_wallets",
         "baseName": "payout_wallets",
         "type": "Array<PayoutWallet>",
+        "format": ""
+    },
+    {
+        "name": "settings",
+        "baseName": "settings",
+        "type": "AccountsSettings",
         "format": ""
     }
 ];

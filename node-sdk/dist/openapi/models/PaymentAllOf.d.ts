@@ -1,6 +1,7 @@
 import { Account } from './Account';
 import { Customer } from './Customer';
 import { Invoice } from './Invoice';
+import { Subscription } from './Subscription';
 import { Wallet } from './Wallet';
 export declare class PaymentAllOf {
     'account': string | Account;
@@ -12,7 +13,8 @@ export declare class PaymentAllOf {
     'invoice': string | Invoice;
     'status': PaymentAllOfStatusEnum;
     'usd_amount': number;
-    'wallet': string | Wallet;
+    'wallet': string | Wallet | any;
+    'subscription'?: string | Subscription;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

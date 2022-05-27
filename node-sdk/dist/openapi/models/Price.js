@@ -78,6 +78,18 @@ Price.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "billing_period_duration",
+        "baseName": "billing_period_duration",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "application_fee_percent",
+        "baseName": "application_fee_percent",
+        "type": "number",
+        "format": ""
+    },
+    {
         "name": "metadata",
         "baseName": "metadata",
         "type": "any",

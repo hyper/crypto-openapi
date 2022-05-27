@@ -13,7 +13,7 @@
 import { HttpFile } from '../http/http';
 
 export class CreateTransactionBody {
-    'hash'?: string;
+    'transaction_hash'?: string;
     'invoice': string;
     'metadata'?: any;
 
@@ -21,8 +21,8 @@ export class CreateTransactionBody {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "hash",
-            "baseName": "hash",
+            "name": "transaction_hash",
+            "baseName": "transaction_hash",
             "type": "string",
             "format": ""
         },

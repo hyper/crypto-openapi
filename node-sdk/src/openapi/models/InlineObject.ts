@@ -13,23 +13,51 @@
 import { HttpFile } from '../http/http';
 
 export class InlineObject {
-    'transaction_hash': string;
-    'invoice': string;
+    'price': string;
+    'customer': string;
+    'status'?: string;
+    'pause_collection'?: boolean;
+    'cancel_at'?: number;
+    'trial_period_duration'?: number;
     'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "transaction_hash",
-            "baseName": "transaction_hash",
+            "name": "price",
+            "baseName": "price",
             "type": "string",
             "format": ""
         },
         {
-            "name": "invoice",
-            "baseName": "invoice",
+            "name": "customer",
+            "baseName": "customer",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "pause_collection",
+            "baseName": "pause_collection",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "cancel_at",
+            "baseName": "cancel_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "trial_period_duration",
+            "baseName": "trial_period_duration",
+            "type": "number",
             "format": ""
         },
         {

@@ -30,9 +30,9 @@ UpdateAccountBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "boolean",
+        "name": "settings",
+        "baseName": "settings",
+        "type": "AccountsSettings",
         "format": ""
     }
 ];

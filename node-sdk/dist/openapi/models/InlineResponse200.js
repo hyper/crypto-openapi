@@ -14,7 +14,7 @@ InlineResponse200.attributeTypeMap = [
     {
         "name": "data",
         "baseName": "data",
-        "type": "Array<Transaction>",
+        "type": "Subscription",
         "format": ""
     },
     {

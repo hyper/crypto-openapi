@@ -13,32 +13,38 @@
 import { Account } from './Account';
 import { Customer } from './Customer';
 import { Fee } from './Fee';
+import { InvoiceAllOfLineItems } from './InvoiceAllOfLineItems';
 import { Payment } from './Payment';
 import { Price } from './Price';
-import { Product } from './Product';
+import { Subscription } from './Subscription';
+import { SubscriptionPeriod } from './SubscriptionPeriod';
 import { Transaction } from './Transaction';
 import { Transfer } from './Transfer';
 import { Wallet } from './Wallet';
 import { HttpFile } from '../http/http';
 
 export class InvoiceAllOf {
-    'account': string | Account | any;
-    'platform_account'?: string;
+    'account': string | Account;
+    'platform_account'?: string | Account;
     'amount'?: number;
+    'application_fee_percent'?: number;
     'chain': InvoiceAllOfChainEnum;
     'currency': InvoiceAllOfCurrencyEnum;
-    'customer': string | Customer;
-    'due'?: Date;
-    'fees': Array<Fee>;
-    'number': string;
-    'payment'?: Payment;
-    'price': string | Price;
-    'product'?: string | Product;
     'status': InvoiceAllOfStatusEnum;
-    'transactions'?: Array<Transaction>;
-    'transfers': Array<Transfer>;
+    'due'?: number;
+    'number': string;
+    'customer': string | Customer;
+    'price': string | Price;
     'wallet': string | Wallet;
-    'application_fee_percent'?: number;
+    'payment'?: Payment;
+    'transactions': Array<Transaction>;
+    'fees': Array<Fee>;
+    'transfers': Array<Transfer>;
+    'subscription'?: string | Subscription;
+    'line_items'?: InvoiceAllOfLineItems;
+    'trial_period_duration'?: number;
+    'send_reminders'?: string;
+    'period'?: string | SubscriptionPeriod;
     'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
@@ -47,18 +53,24 @@ export class InvoiceAllOf {
         {
             "name": "account",
             "baseName": "account",
-            "type": "string | Account | any",
+            "type": "string | Account",
             "format": ""
         },
         {
             "name": "platform_account",
             "baseName": "platform_account",
-            "type": "string",
+            "type": "string | Account",
             "format": ""
         },
         {
             "name": "amount",
             "baseName": "amount",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "application_fee_percent",
+            "baseName": "application_fee_percent",
             "type": "number",
             "format": ""
         },
@@ -75,22 +87,16 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string | Customer",
+            "name": "status",
+            "baseName": "status",
+            "type": "InvoiceAllOfStatusEnum",
             "format": ""
         },
         {
             "name": "due",
             "baseName": "due",
-            "type": "Date",
+            "type": "number",
             "format": "date-time"
-        },
-        {
-            "name": "fees",
-            "baseName": "fees",
-            "type": "Array<Fee>",
-            "format": ""
         },
         {
             "name": "number",
@@ -99,9 +105,9 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
-            "name": "payment",
-            "baseName": "payment",
-            "type": "Payment",
+            "name": "customer",
+            "baseName": "customer",
+            "type": "string | Customer",
             "format": ""
         },
         {
@@ -111,15 +117,15 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
-            "name": "product",
-            "baseName": "product",
-            "type": "string | Product",
+            "name": "wallet",
+            "baseName": "wallet",
+            "type": "string | Wallet",
             "format": ""
         },
         {
-            "name": "status",
-            "baseName": "status",
-            "type": "InvoiceAllOfStatusEnum",
+            "name": "payment",
+            "baseName": "payment",
+            "type": "Payment",
             "format": ""
         },
         {
@@ -129,21 +135,45 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
+            "name": "fees",
+            "baseName": "fees",
+            "type": "Array<Fee>",
+            "format": ""
+        },
+        {
             "name": "transfers",
             "baseName": "transfers",
             "type": "Array<Transfer>",
             "format": ""
         },
         {
-            "name": "wallet",
-            "baseName": "wallet",
-            "type": "string | Wallet",
+            "name": "subscription",
+            "baseName": "subscription",
+            "type": "string | Subscription",
             "format": ""
         },
         {
-            "name": "application_fee_percent",
-            "baseName": "application_fee_percent",
+            "name": "line_items",
+            "baseName": "line_items",
+            "type": "InvoiceAllOfLineItems",
+            "format": ""
+        },
+        {
+            "name": "trial_period_duration",
+            "baseName": "trial_period_duration",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "send_reminders",
+            "baseName": "send_reminders",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "period",
+            "baseName": "period",
+            "type": "string | SubscriptionPeriod",
             "format": ""
         },
         {
@@ -164,5 +194,5 @@ export class InvoiceAllOf {
 
 export type InvoiceAllOfChainEnum = "eth" | "sol" ;
 export type InvoiceAllOfCurrencyEnum = "eth" | "sol" ;
-export type InvoiceAllOfStatusEnum = "open" | "paid" | "unpaid" | "void" ;
+export type InvoiceAllOfStatusEnum = "open" | "paid" | "unpaid" | "void" | "past_due" ;
 

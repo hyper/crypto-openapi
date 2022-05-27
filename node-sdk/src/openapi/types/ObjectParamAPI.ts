@@ -6,6 +6,7 @@ import { Account } from '../models/Account';
 import { AccountAllOf } from '../models/AccountAllOf';
 import { AccountAllOfBranding } from '../models/AccountAllOfBranding';
 import { AccountsBranding } from '../models/AccountsBranding';
+import { AccountsSettings } from '../models/AccountsSettings';
 import { ApiKey } from '../models/ApiKey';
 import { ApiKeyAllOf } from '../models/ApiKeyAllOf';
 import { CreateAccountBody } from '../models/CreateAccountBody';
@@ -27,10 +28,17 @@ import { CustomersIdBillingDetails } from '../models/CustomersIdBillingDetails';
 import { CustomersIdBillingDetailsAddress } from '../models/CustomersIdBillingDetailsAddress';
 import { Fee } from '../models/Fee';
 import { FeeAllOf } from '../models/FeeAllOf';
+import { InlineObject } from '../models/InlineObject';
+import { InlineObject1 } from '../models/InlineObject1';
+import { InlineObject2 } from '../models/InlineObject2';
+import { InlineResponse200 } from '../models/InlineResponse200';
+import { InlineResponse2001 } from '../models/InlineResponse2001';
 import { InlineResponse400 } from '../models/InlineResponse400';
 import { InlineResponse400Error } from '../models/InlineResponse400Error';
 import { Invoice } from '../models/Invoice';
 import { InvoiceAllOf } from '../models/InvoiceAllOf';
+import { InvoiceAllOfLineItems } from '../models/InvoiceAllOfLineItems';
+import { InvoicesLineItems } from '../models/InvoicesLineItems';
 import { ListAccountsResponse } from '../models/ListAccountsResponse';
 import { ListCustomersResponse } from '../models/ListCustomersResponse';
 import { ListFeesResponse } from '../models/ListFeesResponse';
@@ -47,6 +55,8 @@ import { ListWebhooksResponse } from '../models/ListWebhooksResponse';
 import { Log } from '../models/Log';
 import { LogAllOf } from '../models/LogAllOf';
 import { Model } from '../models/Model';
+import { Notification } from '../models/Notification';
+import { NotificationAllOf } from '../models/NotificationAllOf';
 import { Payment } from '../models/Payment';
 import { PaymentAllOf } from '../models/PaymentAllOf';
 import { PayoutWallet } from '../models/PayoutWallet';
@@ -56,6 +66,10 @@ import { PriceAllOf } from '../models/PriceAllOf';
 import { PricesBasePrice } from '../models/PricesBasePrice';
 import { Product } from '../models/Product';
 import { ProductAllOf } from '../models/ProductAllOf';
+import { Subscription } from '../models/Subscription';
+import { SubscriptionAllOf } from '../models/SubscriptionAllOf';
+import { SubscriptionPeriod } from '../models/SubscriptionPeriod';
+import { SubscriptionPeriodAllOf } from '../models/SubscriptionPeriodAllOf';
 import { Transaction } from '../models/Transaction';
 import { TransactionAllOf } from '../models/TransactionAllOf';
 import { Transfer } from '../models/Transfer';
@@ -1232,6 +1246,268 @@ export class ObjectProductsApi {
      */
     public update(param: ProductsApiUpdateRequest, options?: Configuration): Promise<Product> {
         return this.api.update(param.id, param.prism_account, param.update_product_body,  options).toPromise();
+    }
+
+}
+
+import { ObservableSubscriptionPeriodsApi } from "./ObservableAPI";
+import { SubscriptionPeriodsApiRequestFactory, SubscriptionPeriodsApiResponseProcessor} from "../apis/SubscriptionPeriodsApi";
+
+export interface SubscriptionPeriodsApiListRequest {
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof SubscriptionPeriodsApilist
+     */
+    prism_account?: string
+    /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof SubscriptionPeriodsApilist
+     */
+    expand?: string
+    /**
+     * A limit on the number of objects to be returned between 1 and 100.
+     * @type number
+     * @memberof SubscriptionPeriodsApilist
+     */
+    limit?: number
+    /**
+     * Index of the page to be returned in a paginated response.
+     * @type number
+     * @memberof SubscriptionPeriodsApilist
+     */
+    page?: number
+    /**
+     * Specifies whether documents are sorted in an ascending or descending order.
+     * @type any
+     * @memberof SubscriptionPeriodsApilist
+     */
+    sort?: any
+}
+
+export interface SubscriptionPeriodsApiRetrieveRequest {
+    /**
+     * 
+     * @type string
+     * @memberof SubscriptionPeriodsApiretrieve
+     */
+    id: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof SubscriptionPeriodsApiretrieve
+     */
+    prism_account?: string
+}
+
+export interface SubscriptionPeriodsApiUpdateRequest {
+    /**
+     * 
+     * @type string
+     * @memberof SubscriptionPeriodsApiupdate
+     */
+    id: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof SubscriptionPeriodsApiupdate
+     */
+    prism_account?: string
+    /**
+     * 
+     * @type InlineObject2
+     * @memberof SubscriptionPeriodsApiupdate
+     */
+    inline_object2?: InlineObject2
+}
+
+export class ObjectSubscriptionPeriodsApi {
+    private api: ObservableSubscriptionPeriodsApi
+
+    public constructor(configuration: Configuration, requestFactory?: SubscriptionPeriodsApiRequestFactory, responseProcessor?: SubscriptionPeriodsApiResponseProcessor) {
+        this.api = new ObservableSubscriptionPeriodsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * List Subscription Periods
+     * @param param the request object
+     */
+    public list(param: SubscriptionPeriodsApiListRequest = {}, options?: Configuration): Promise<InlineResponse2001> {
+        return this.api.list(param.prism_account, param.expand, param.limit, param.page, param.sort,  options).toPromise();
+    }
+
+    /**
+     * List Subscription Periods
+     * @param param the request object
+     */
+    public retrieve(param: SubscriptionPeriodsApiRetrieveRequest, options?: Configuration): Promise<SubscriptionPeriod> {
+        return this.api.retrieve(param.id, param.prism_account,  options).toPromise();
+    }
+
+    /**
+     * Update Subscription Period
+     * @param param the request object
+     */
+    public update(param: SubscriptionPeriodsApiUpdateRequest, options?: Configuration): Promise<SubscriptionPeriod> {
+        return this.api.update(param.id, param.prism_account, param.inline_object2,  options).toPromise();
+    }
+
+}
+
+import { ObservableSubscriptionsApi } from "./ObservableAPI";
+import { SubscriptionsApiRequestFactory, SubscriptionsApiResponseProcessor} from "../apis/SubscriptionsApi";
+
+export interface SubscriptionsApiDeleteRequest {
+    /**
+     * 
+     * @type string
+     * @memberof SubscriptionsApi_delete
+     */
+    id: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof SubscriptionsApi_delete
+     */
+    prism_account?: string
+}
+
+export interface SubscriptionsApiCreateRequest {
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof SubscriptionsApicreate
+     */
+    prism_account?: string
+    /**
+     * 
+     * @type InlineObject
+     * @memberof SubscriptionsApicreate
+     */
+    inline_object?: InlineObject
+}
+
+export interface SubscriptionsApiListRequest {
+    /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof SubscriptionsApilist
+     */
+    expand?: string
+    /**
+     * A limit on the number of objects to be returned between 1 and 100.
+     * @type number
+     * @memberof SubscriptionsApilist
+     */
+    limit?: number
+    /**
+     * Index of the page to be returned in a paginated response.
+     * @type number
+     * @memberof SubscriptionsApilist
+     */
+    page?: number
+    /**
+     * Specifies whether documents are sorted in an ascending or descending order.
+     * @type any
+     * @memberof SubscriptionsApilist
+     */
+    sort?: any
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof SubscriptionsApilist
+     */
+    prism_account?: string
+}
+
+export interface SubscriptionsApiRetrieveRequest {
+    /**
+     * 
+     * @type string
+     * @memberof SubscriptionsApiretrieve
+     */
+    id: string
+    /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof SubscriptionsApiretrieve
+     */
+    expand?: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof SubscriptionsApiretrieve
+     */
+    prism_account?: string
+}
+
+export interface SubscriptionsApiUpdateRequest {
+    /**
+     * 
+     * @type string
+     * @memberof SubscriptionsApiupdate
+     */
+    id: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof SubscriptionsApiupdate
+     */
+    prism_account?: string
+    /**
+     * 
+     * @type InlineObject1
+     * @memberof SubscriptionsApiupdate
+     */
+    inline_object1?: InlineObject1
+}
+
+export class ObjectSubscriptionsApi {
+    private api: ObservableSubscriptionsApi
+
+    public constructor(configuration: Configuration, requestFactory?: SubscriptionsApiRequestFactory, responseProcessor?: SubscriptionsApiResponseProcessor) {
+        this.api = new ObservableSubscriptionsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Delete Subscription
+     * @param param the request object
+     */
+    public _delete(param: SubscriptionsApiDeleteRequest, options?: Configuration): Promise<void> {
+        return this.api._delete(param.id, param.prism_account,  options).toPromise();
+    }
+
+    /**
+     * Create Subscription
+     * @param param the request object
+     */
+    public create(param: SubscriptionsApiCreateRequest = {}, options?: Configuration): Promise<Subscription> {
+        return this.api.create(param.prism_account, param.inline_object,  options).toPromise();
+    }
+
+    /**
+     * List Subscriptions
+     * @param param the request object
+     */
+    public list(param: SubscriptionsApiListRequest = {}, options?: Configuration): Promise<InlineResponse200> {
+        return this.api.list(param.expand, param.limit, param.page, param.sort, param.prism_account,  options).toPromise();
+    }
+
+    /**
+     * Retrieve Subscription
+     * @param param the request object
+     */
+    public retrieve(param: SubscriptionsApiRetrieveRequest, options?: Configuration): Promise<Subscription> {
+        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
+    }
+
+    /**
+     * Update Subscription
+     * @param param the request object
+     */
+    public update(param: SubscriptionsApiUpdateRequest, options?: Configuration): Promise<Subscription> {
+        return this.api.update(param.id, param.prism_account, param.inline_object1,  options).toPromise();
     }
 
 }

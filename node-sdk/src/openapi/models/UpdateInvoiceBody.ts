@@ -13,23 +13,18 @@
 import { HttpFile } from '../http/http';
 
 export class UpdateInvoiceBody {
-    'amount'?: number;
     'chain'?: string;
     'currency'?: string;
     'due'?: string;
-    'transaction'?: string;
     'application_fee_percent'?: number;
     'status'?: string;
+    'trial_period_duration'?: number;
+    'send_reminders'?: string;
+    'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
-            "format": ""
-        },
         {
             "name": "chain",
             "baseName": "chain",
@@ -49,12 +44,6 @@ export class UpdateInvoiceBody {
             "format": ""
         },
         {
-            "name": "transaction",
-            "baseName": "transaction",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "application_fee_percent",
             "baseName": "application_fee_percent",
             "type": "number",
@@ -64,6 +53,24 @@ export class UpdateInvoiceBody {
             "name": "status",
             "baseName": "status",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "trial_period_duration",
+            "baseName": "trial_period_duration",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "send_reminders",
+            "baseName": "send_reminders",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
             "format": ""
         }    ];
 

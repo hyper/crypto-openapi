@@ -44,7 +44,13 @@ CreateAccountBody.attributeTypeMap = [
     {
         "name": "platform_account",
         "baseName": "platform_account",
-        "type": "boolean",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "settings",
+        "baseName": "settings",
+        "type": "AccountsSettings",
         "format": ""
     }
 ];

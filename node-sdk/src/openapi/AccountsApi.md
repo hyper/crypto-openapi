@@ -38,7 +38,10 @@ let body:.AccountsApiCreateRequest = {
     invoice_prefix: "invoice_prefix_example",
     name: "name_example",
     parent_account: "parent_account_example",
-    platform_account: true,
+    platform_account: "platform_account_example",
+    settings: {
+      retry_period_duration: 3.14,
+    },
   },
 };
 
@@ -233,7 +236,9 @@ let body:.AccountsApiUpdateRequest = {
     },
     invoice_prefix: "invoice_prefix_example",
     name: "name_example",
-    platform_account: true,
+    settings: {
+      retry_period_duration: 3.14,
+    },
   },
 };
 

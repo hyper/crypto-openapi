@@ -23,6 +23,8 @@ export class PriceAllOf {
     'chain': string;
     'product'?: string | Product;
     'base_price'?: PricesBasePrice;
+    'billing_period_duration'?: number;
+    'application_fee_percent'?: number;
     'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
@@ -68,6 +70,18 @@ export class PriceAllOf {
             "name": "base_price",
             "baseName": "base_price",
             "type": "PricesBasePrice",
+            "format": ""
+        },
+        {
+            "name": "billing_period_duration",
+            "baseName": "billing_period_duration",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "application_fee_percent",
+            "baseName": "application_fee_percent",
+            "type": "number",
             "format": ""
         },
         {

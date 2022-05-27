@@ -1,9 +1,9 @@
-import { Transaction } from './Transaction';
+import { Subscription } from './Subscription';
 export declare class InlineResponse200 {
-    'data'?: Array<Transaction>;
-    'has_more'?: boolean;
-    'page'?: number;
-    'total'?: number;
+    'data': Subscription;
+    'has_more': boolean;
+    'page': number;
+    'total': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

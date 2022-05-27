@@ -12,17 +12,19 @@
 
 import { Account } from './Account';
 import { AccountAllOfBranding } from './AccountAllOfBranding';
+import { AccountsSettings } from './AccountsSettings';
 import { PayoutWallet } from './PayoutWallet';
 import { HttpFile } from '../http/http';
 
 export class AccountAllOf {
     'branding'?: AccountAllOfBranding;
-    'connected_accounts'?: Array<string> | Array<Account>;
+    'connected_accounts'?: Account;
     'invoice_prefix'?: string;
     'name': string;
     'parent_account'?: string | Account;
-    'platform_account': boolean;
+    'platform_account': string;
     'payout_wallets'?: Array<PayoutWallet>;
+    'settings'?: AccountsSettings;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -36,7 +38,7 @@ export class AccountAllOf {
         {
             "name": "connected_accounts",
             "baseName": "connected_accounts",
-            "type": "Array<string> | Array<Account>",
+            "type": "Account",
             "format": ""
         },
         {
@@ -60,13 +62,19 @@ export class AccountAllOf {
         {
             "name": "platform_account",
             "baseName": "platform_account",
-            "type": "boolean",
+            "type": "string",
             "format": ""
         },
         {
             "name": "payout_wallets",
             "baseName": "payout_wallets",
             "type": "Array<PayoutWallet>",
+            "format": ""
+        },
+        {
+            "name": "settings",
+            "baseName": "settings",
+            "type": "AccountsSettings",
             "format": ""
         }    ];
 
