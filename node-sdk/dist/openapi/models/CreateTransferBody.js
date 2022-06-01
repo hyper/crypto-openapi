@@ -18,12 +18,6 @@ CreateTransferBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "amount",
-        "baseName": "amount",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "description",
         "baseName": "description",
         "type": "string",

@@ -812,17 +812,6 @@ export class PromiseTransactionsApi {
     }
 
     /**
-     * Poll Transaction
-     * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
-     */
-    public poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<Transaction> {
-        const result = this.api.poll(id, prism_account, expand, _options);
-        return result.toPromise();
-    }
-
-    /**
      * Retrieve Transaction
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.

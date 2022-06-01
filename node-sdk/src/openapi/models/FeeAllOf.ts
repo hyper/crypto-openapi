@@ -17,13 +17,11 @@ import { HttpFile } from '../http/http';
 
 export class FeeAllOf {
     'account': string | Account;
-    'amount'?: number;
     'currency': string;
     'description'?: string;
     'internal'?: boolean;
     'invoice': string | Invoice;
     'percent': number;
-    'usd_amount'?: number;
     'wallet': string | Wallet;
 
     static readonly discriminator: string | undefined = undefined;
@@ -33,12 +31,6 @@ export class FeeAllOf {
             "name": "account",
             "baseName": "account",
             "type": "string | Account",
-            "format": ""
-        },
-        {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
             "format": ""
         },
         {
@@ -68,12 +60,6 @@ export class FeeAllOf {
         {
             "name": "percent",
             "baseName": "percent",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "usd_amount",
-            "baseName": "usd_amount",
             "type": "number",
             "format": ""
         },

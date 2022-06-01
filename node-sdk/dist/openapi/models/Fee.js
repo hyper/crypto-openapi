@@ -42,12 +42,6 @@ Fee.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "amount",
-        "baseName": "amount",
-        "type": "number",
-        "format": ""
-    },
-    {
         "name": "currency",
         "baseName": "currency",
         "type": "string",
@@ -74,12 +68,6 @@ Fee.attributeTypeMap = [
     {
         "name": "percent",
         "baseName": "percent",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "usd_amount",
-        "baseName": "usd_amount",
         "type": "number",
         "format": ""
     },

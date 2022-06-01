@@ -153,7 +153,6 @@ export declare class PromiseTransactionsApi {
     constructor(configuration: Configuration, requestFactory?: TransactionsApiRequestFactory, responseProcessor?: TransactionsApiResponseProcessor);
     create(prism_account?: string, create_transaction_body?: CreateTransactionBody, _options?: Configuration): Promise<Transaction>;
     list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListTransactionsResponse>;
-    poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<Transaction>;
     retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<Transaction>;
 }
 import { TransfersApiRequestFactory, TransfersApiResponseProcessor } from "../apis/TransfersApi";

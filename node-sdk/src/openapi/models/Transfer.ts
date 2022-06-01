@@ -23,11 +23,9 @@ export class Transfer {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'amount'?: number;
     'description'?: string;
     'invoice': string | Invoice;
     'percent': number;
-    'usd_amount'?: number;
     'wallet': string | Wallet;
 
     static readonly discriminator: string | undefined = undefined;
@@ -64,12 +62,6 @@ export class Transfer {
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
-            "format": ""
-        },
-        {
             "name": "description",
             "baseName": "description",
             "type": "string",
@@ -84,12 +76,6 @@ export class Transfer {
         {
             "name": "percent",
             "baseName": "percent",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "usd_amount",
-            "baseName": "usd_amount",
             "type": "number",
             "format": ""
         },

@@ -1,6 +1,5 @@
 export declare class CreateTransferBody {
     'account': string;
-    'amount'?: string;
     'description'?: string;
     'invoice': string;
     'percent'?: number;

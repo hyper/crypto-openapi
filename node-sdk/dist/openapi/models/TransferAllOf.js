@@ -18,12 +18,6 @@ TransferAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "amount",
-        "baseName": "amount",
-        "type": "number",
-        "format": ""
-    },
-    {
         "name": "description",
         "baseName": "description",
         "type": "string",
@@ -38,12 +32,6 @@ TransferAllOf.attributeTypeMap = [
     {
         "name": "percent",
         "baseName": "percent",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "usd_amount",
-        "baseName": "usd_amount",
         "type": "number",
         "format": ""
     },

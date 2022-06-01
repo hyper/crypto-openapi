@@ -7,13 +7,11 @@ export declare class Fee {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'amount'?: number;
     'currency': string;
     'description'?: string;
     'internal'?: boolean;
     'invoice': string | Invoice;
     'percent': number;
-    'usd_amount'?: number;
     'wallet': string | Wallet;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

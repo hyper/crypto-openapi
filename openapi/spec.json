@@ -290,9 +290,6 @@
                   }
                 ]
               },
-              "amount": {
-                "type": "number"
-              },
               "currency": {
                 "type": "string"
               },
@@ -315,9 +312,6 @@
               "percent": {
                 "maximum": 100,
                 "minimum": 0,
-                "type": "number"
-              },
-              "usd_amount": {
                 "type": "number"
               },
               "wallet": {
@@ -1131,11 +1125,6 @@
                   }
                 ]
               },
-              "amount": {
-                "exclusiveMinimum": true,
-                "minimum": 0,
-                "type": "number"
-              },
               "description": {
                 "nullable": true,
                 "type": "string"
@@ -1154,10 +1143,6 @@
                 "exclusiveMinimum": true,
                 "maximum": 100,
                 "minimum": 0,
-                "type": "number"
-              },
-              "usd_amount": {
-                "exclusiveMinimum": false,
                 "type": "number"
               },
               "wallet": {
@@ -1303,6 +1288,7 @@
   "paths": {
     "/accounts": {
       "get": {
+        "description": "",
         "operationId": "accounts_list",
         "parameters": [
           {
@@ -4041,49 +4027,6 @@
         }
       ]
     },
-    "/transactions/{id}/poll": {
-      "get": {
-        "operationId": "transactions_poll",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Prism-Account"
-          },
-          {
-            "$ref": "#/components/parameters/expand"
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Transaction"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "Poll Transaction",
-        "tags": ["Transactions"]
-      },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ]
-    },
     "/transfers": {
       "get": {
         "operationId": "transfers_list",
@@ -4156,9 +4099,6 @@
               "schema": {
                 "properties": {
                   "account": {
-                    "type": "string"
-                  },
-                  "amount": {
                     "type": "string"
                   },
                   "description": {

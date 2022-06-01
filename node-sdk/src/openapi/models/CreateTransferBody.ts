@@ -14,7 +14,6 @@ import { HttpFile } from '../http/http';
 
 export class CreateTransferBody {
     'account': string;
-    'amount'?: string;
     'description'?: string;
     'invoice': string;
     'percent'?: number;
@@ -26,12 +25,6 @@ export class CreateTransferBody {
         {
             "name": "account",
             "baseName": "account",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "amount",
-            "baseName": "amount",
             "type": "string",
             "format": ""
         },

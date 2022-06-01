@@ -42,12 +42,6 @@ Transfer.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "amount",
-        "baseName": "amount",
-        "type": "number",
-        "format": ""
-    },
-    {
         "name": "description",
         "baseName": "description",
         "type": "string",
@@ -62,12 +56,6 @@ Transfer.attributeTypeMap = [
     {
         "name": "percent",
         "baseName": "percent",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "usd_amount",
-        "baseName": "usd_amount",
         "type": "number",
         "format": ""
     },

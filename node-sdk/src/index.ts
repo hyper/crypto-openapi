@@ -79,7 +79,6 @@ import {
   TransactionsApiCreateRequest,
   TransactionsApiRetrieveRequest,
   TransactionsApiListRequest,
-  TransactionsApiPollRequest,
   ListTransactionsResponse,
   Price,
   PricesApi,
@@ -100,6 +99,7 @@ import {
   SubscriptionPeriodsApiUpdateRequest,
   SubscriptionPeriodsApiListRequest,
   ListSubscriptionPeriodsResponse,
+  InvoicesApiPollRequest,
 } from './openapi/index';
 import convertCasing from './helpers/convertCasing';
 import { ListPayoutWalletsResponse } from './openapi/models/ListPayoutWalletsResponse';
@@ -316,6 +316,14 @@ class InvoicesApiLayer {
     options?: { prismAccount: string }
   ): Promise<ListInvoicesResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
+  }
+
+  public async poll(
+    id: string,
+    params?: Omit<InvoicesApiPollRequest, 'prism_account' | 'id'>,
+    options?: { prismAccount: string }
+  ): Promise<Invoice> {
+    return this.api.poll({ id, ...convertCasing(options), ...params });
   }
 }
 
@@ -571,14 +579,6 @@ class TransactionsApiLayer {
     options?: { prismAccount: string }
   ): Promise<ListTransactionsResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
-  }
-
-  public async poll(
-    id: string,
-    params?: Omit<TransactionsApiPollRequest, 'prism_account' | 'id'>,
-    options?: { prismAccount: string }
-  ): Promise<Transaction> {
-    return this.api.poll({ id, ...convertCasing(options), ...params });
   }
 }
 

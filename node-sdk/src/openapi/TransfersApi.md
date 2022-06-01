@@ -29,7 +29,6 @@ let body:.TransfersApiCreateRequest = {
   // CreateTransferBody (optional)
   create_transfer_body: {
     account: "account_example",
-    amount: "amount_example",
     description: "description_example",
     invoice: "invoice_example",
     percent: 1,

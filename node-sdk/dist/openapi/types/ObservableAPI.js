@@ -784,21 +784,6 @@ class ObservableTransactionsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
         }));
     }
-    poll(id, prism_account, expand, _options) {
-        const requestContextPromise = this.requestFactory.poll(id, prism_account, expand, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.poll(rsp)));
-        }));
-    }
     retrieve(id, prism_account, expand, _options) {
         const requestContextPromise = this.requestFactory.retrieve(id, prism_account, expand, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);

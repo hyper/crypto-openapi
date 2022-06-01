@@ -160,6 +160,11 @@ class InvoicesApiLayer {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
         });
     }
+    poll(id, params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.poll(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+        });
+    }
 }
 class LogsApiLayer {
     constructor(config) {
@@ -323,11 +328,6 @@ class TransactionsApiLayer {
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
-        });
-    }
-    poll(id, params, options) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.api.poll(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
         });
     }
 }

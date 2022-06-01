@@ -23,13 +23,11 @@ export class Fee {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'amount'?: number;
     'currency': string;
     'description'?: string;
     'internal'?: boolean;
     'invoice': string | Invoice;
     'percent': number;
-    'usd_amount'?: number;
     'wallet': string | Wallet;
 
     static readonly discriminator: string | undefined = undefined;
@@ -66,12 +64,6 @@ export class Fee {
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
-            "format": ""
-        },
-        {
             "name": "currency",
             "baseName": "currency",
             "type": "string",
@@ -98,12 +90,6 @@ export class Fee {
         {
             "name": "percent",
             "baseName": "percent",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "usd_amount",
-            "baseName": "usd_amount",
             "type": "number",
             "format": ""
         },
