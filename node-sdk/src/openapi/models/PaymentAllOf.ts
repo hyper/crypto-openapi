@@ -26,9 +26,9 @@ export class PaymentAllOf {
     'exchange_rate': number;
     'invoice': string | Invoice;
     'status': PaymentAllOfStatusEnum;
-    'subscription'?: string | Subscription;
     'usd_amount': number;
     'wallet': string | Wallet | any;
+    'subscription'?: string | Subscription;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -82,12 +82,6 @@ export class PaymentAllOf {
             "format": ""
         },
         {
-            "name": "subscription",
-            "baseName": "subscription",
-            "type": "string | Subscription",
-            "format": ""
-        },
-        {
             "name": "usd_amount",
             "baseName": "usd_amount",
             "type": "number",
@@ -97,6 +91,12 @@ export class PaymentAllOf {
             "name": "wallet",
             "baseName": "wallet",
             "type": "string | Wallet | any",
+            "format": ""
+        },
+        {
+            "name": "subscription",
+            "baseName": "subscription",
+            "type": "string | Subscription",
             "format": ""
         }    ];
 

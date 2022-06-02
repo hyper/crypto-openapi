@@ -18,21 +18,9 @@ TransactionAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "amount",
-        "baseName": "amount",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "chain",
-        "baseName": "chain",
-        "type": "TransactionAllOfChainEnum",
-        "format": ""
-    },
-    {
-        "name": "currency",
-        "baseName": "currency",
-        "type": "TransactionAllOfCurrencyEnum",
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string | Account",
         "format": ""
     },
     {
@@ -48,21 +36,33 @@ TransactionAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "any",
-        "format": ""
-    },
-    {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "string | Account",
-        "format": ""
-    },
-    {
         "name": "status",
         "baseName": "status",
         "type": "TransactionAllOfStatusEnum",
+        "format": ""
+    },
+    {
+        "name": "chain",
+        "baseName": "chain",
+        "type": "TransactionAllOfChainEnum",
+        "format": ""
+    },
+    {
+        "name": "amount",
+        "baseName": "amount",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "currency",
+        "baseName": "currency",
+        "type": "TransactionAllOfCurrencyEnum",
+        "format": ""
+    },
+    {
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "any",
         "format": ""
     }
 ];

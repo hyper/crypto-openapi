@@ -110,8 +110,8 @@ import { Fee } from './Fee';
 import { FeeAllOf } from './FeeAllOf';
 import { InlineResponse400 } from './InlineResponse400';
 import { InlineResponse400Error } from './InlineResponse400Error';
-import { Invoice       , InvoiceChainEnum  , InvoiceCurrencyEnum             , InvoiceStatusEnum        } from './Invoice';
-import { InvoiceAllOf   , InvoiceAllOfChainEnum  , InvoiceAllOfCurrencyEnum             , InvoiceAllOfStatusEnum        } from './InvoiceAllOf';
+import { Invoice        , InvoiceChainEnum   , InvoiceCurrencyEnum  , InvoiceStatusEnum                  } from './Invoice';
+import { InvoiceAllOf    , InvoiceAllOfChainEnum   , InvoiceAllOfCurrencyEnum  , InvoiceAllOfStatusEnum                  } from './InvoiceAllOf';
 import { InvoiceAllOfLineItems } from './InvoiceAllOfLineItems';
 import { InvoicesLineItems } from './InvoicesLineItems';
 import { ListAccountsResponse } from './ListAccountsResponse';
@@ -132,8 +132,8 @@ import { ListWebhooksResponse } from './ListWebhooksResponse';
 import { Log        , LogMethodEnum       } from './Log';
 import { LogAllOf     , LogAllOfMethodEnum       } from './LogAllOf';
 import { Model } from './Model';
-import { Notification       , NotificationTypeEnum   } from './Notification';
-import { NotificationAllOf   , NotificationAllOfTypeEnum   } from './NotificationAllOf';
+import { Notification     , NotificationTypeEnum     } from './Notification';
+import { NotificationAllOf , NotificationAllOfTypeEnum     } from './NotificationAllOf';
 import { Payment           , PaymentStatusEnum      } from './Payment';
 import { PaymentAllOf       , PaymentAllOfStatusEnum      } from './PaymentAllOf';
 import { PayoutWallet       , PayoutWalletChainEnum   } from './PayoutWallet';
@@ -143,12 +143,12 @@ import { PriceAllOf } from './PriceAllOf';
 import { PricesBasePrice } from './PricesBasePrice';
 import { Product } from './Product';
 import { ProductAllOf } from './ProductAllOf';
-import { Subscription                  , SubscriptionStatusEnum    } from './Subscription';
-import { SubscriptionAllOf              , SubscriptionAllOfStatusEnum    } from './SubscriptionAllOf';
+import { Subscription          , SubscriptionStatusEnum            } from './Subscription';
+import { SubscriptionAllOf      , SubscriptionAllOfStatusEnum            } from './SubscriptionAllOf';
 import { SubscriptionPeriod } from './SubscriptionPeriod';
 import { SubscriptionPeriodAllOf } from './SubscriptionPeriodAllOf';
-import { Transaction  , TransactionChainEnum  , TransactionCurrencyEnum      , TransactionStatusEnum       } from './Transaction';
-import { TransactionAllOf  , TransactionAllOfChainEnum  , TransactionAllOfCurrencyEnum      , TransactionAllOfStatusEnum   } from './TransactionAllOf';
+import { Transaction    , TransactionStatusEnum  , TransactionChainEnum   , TransactionCurrencyEnum        } from './Transaction';
+import { TransactionAllOf    , TransactionAllOfStatusEnum  , TransactionAllOfChainEnum   , TransactionAllOfCurrencyEnum    } from './TransactionAllOf';
 import { Transfer } from './Transfer';
 import { TransferAllOf } from './TransferAllOf';
 import { UpdateAccountBody } from './UpdateAccountBody';
@@ -202,12 +202,12 @@ let enumsMap: Set<string> = new Set<string>([
     "PayoutWalletAllOfChainEnum",
     "SubscriptionStatusEnum",
     "SubscriptionAllOfStatusEnum",
+    "TransactionStatusEnum",
     "TransactionChainEnum",
     "TransactionCurrencyEnum",
-    "TransactionStatusEnum",
+    "TransactionAllOfStatusEnum",
     "TransactionAllOfChainEnum",
     "TransactionAllOfCurrencyEnum",
-    "TransactionAllOfStatusEnum",
     "WalletChainEnum",
     "WalletAllOfChainEnum",
 ]);

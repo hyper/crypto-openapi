@@ -22,8 +22,8 @@ export class Product {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'description'?: string;
     'name': string;
+    'description'?: string;
     'prices'?: Array<Price>;
 
     static readonly discriminator: string | undefined = undefined;
@@ -60,14 +60,14 @@ export class Product {
             "format": ""
         },
         {
-            "name": "description",
-            "baseName": "description",
+            "name": "name",
+            "baseName": "name",
             "type": "string",
             "format": ""
         },
         {
-            "name": "name",
-            "baseName": "name",
+            "name": "description",
+            "baseName": "description",
             "type": "string",
             "format": ""
         },

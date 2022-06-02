@@ -1,6 +1,6 @@
 export declare class InlineResponse400Error {
-    'message'?: string;
     'param'?: string;
+    'message'?: string;
     'type'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

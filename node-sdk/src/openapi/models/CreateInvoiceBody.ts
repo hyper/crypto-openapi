@@ -18,15 +18,15 @@ export class CreateInvoiceBody {
     'application_fee_percent'?: number;
     'chain': string;
     'currency': string;
-    'customer': string;
     'due'?: string;
-    'line_items'?: Array<InvoicesLineItems>;
-    'metadata'?: any;
     'number': string;
+    'customer': string;
     'price'?: string;
-    'send_reminders'?: string;
-    'trial_period_duration'?: number;
     'wallet': string;
+    'line_items'?: Array<InvoicesLineItems>;
+    'trial_period_duration'?: number;
+    'send_reminders'?: string;
+    'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -56,32 +56,20 @@ export class CreateInvoiceBody {
             "format": ""
         },
         {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "due",
             "baseName": "due",
             "type": "string",
             "format": ""
         },
         {
-            "name": "line_items",
-            "baseName": "line_items",
-            "type": "Array<InvoicesLineItems>",
-            "format": ""
-        },
-        {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "any",
-            "format": ""
-        },
-        {
             "name": "number",
             "baseName": "number",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "customer",
+            "baseName": "customer",
             "type": "string",
             "format": ""
         },
@@ -92,9 +80,15 @@ export class CreateInvoiceBody {
             "format": ""
         },
         {
-            "name": "send_reminders",
-            "baseName": "send_reminders",
+            "name": "wallet",
+            "baseName": "wallet",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "line_items",
+            "baseName": "line_items",
+            "type": "Array<InvoicesLineItems>",
             "format": ""
         },
         {
@@ -104,9 +98,15 @@ export class CreateInvoiceBody {
             "format": ""
         },
         {
-            "name": "wallet",
-            "baseName": "wallet",
+            "name": "send_reminders",
+            "baseName": "send_reminders",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
             "format": ""
         }    ];
 

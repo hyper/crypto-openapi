@@ -60,12 +60,6 @@ PaymentAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "subscription",
-        "baseName": "subscription",
-        "type": "string | Subscription",
-        "format": ""
-    },
-    {
         "name": "usd_amount",
         "baseName": "usd_amount",
         "type": "number",
@@ -75,6 +69,12 @@ PaymentAllOf.attributeTypeMap = [
         "name": "wallet",
         "baseName": "wallet",
         "type": "string | Wallet | any",
+        "format": ""
+    },
+    {
+        "name": "subscription",
+        "baseName": "subscription",
+        "type": "string | Subscription",
         "format": ""
     }
 ];
