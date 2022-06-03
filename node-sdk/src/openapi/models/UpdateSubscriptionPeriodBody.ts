@@ -13,21 +13,21 @@
 import { HttpFile } from '../http/http';
 
 export class UpdateSubscriptionPeriodBody {
-    'start'?: number;
     'end'?: number;
+    'start'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "start",
-            "baseName": "start",
+            "name": "end",
+            "baseName": "end",
             "type": "number",
             "format": ""
         },
         {
-            "name": "end",
-            "baseName": "end",
+            "name": "start",
+            "baseName": "start",
             "type": "number",
             "format": ""
         }    ];

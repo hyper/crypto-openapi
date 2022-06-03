@@ -36,32 +36,14 @@ CreateInvoiceBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "due",
-        "baseName": "due",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "number",
-        "baseName": "number",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "customer",
         "baseName": "customer",
         "type": "string",
         "format": ""
     },
     {
-        "name": "price",
-        "baseName": "price",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "wallet",
-        "baseName": "wallet",
+        "name": "due",
+        "baseName": "due",
         "type": "string",
         "format": ""
     },
@@ -72,9 +54,21 @@ CreateInvoiceBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "trial_period_duration",
-        "baseName": "trial_period_duration",
-        "type": "number",
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "any",
+        "format": ""
+    },
+    {
+        "name": "number",
+        "baseName": "number",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "price",
+        "baseName": "price",
+        "type": "string",
         "format": ""
     },
     {
@@ -84,9 +78,15 @@ CreateInvoiceBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "any",
+        "name": "trial_period_duration",
+        "baseName": "trial_period_duration",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "wallet",
+        "baseName": "wallet",
+        "type": "string",
         "format": ""
     }
 ];

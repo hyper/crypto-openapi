@@ -678,9 +678,10 @@ export class PromiseSubscriptionPeriodsApi {
      * List Subscription Periods
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param expand Specifies which fields to populate in the response.
      */
-    public retrieve(id: string, prism_account?: string, _options?: Configuration): Promise<SubscriptionPeriod> {
-        const result = this.api.retrieve(id, prism_account, _options);
+    public retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<SubscriptionPeriod> {
+        const result = this.api.retrieve(id, prism_account, expand, _options);
         return result.toPromise();
     }
 
@@ -808,6 +809,17 @@ export class PromiseTransactionsApi {
      */
     public list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListTransactionsResponse> {
         const result = this.api.list(prism_account, expand, limit, page, sort, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Poll Transaction
+     * @param id 
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param expand Specifies which fields to populate in the response.
+     */
+    public poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<Transaction> {
+        const result = this.api.poll(id, prism_account, expand, _options);
         return result.toPromise();
     }
 

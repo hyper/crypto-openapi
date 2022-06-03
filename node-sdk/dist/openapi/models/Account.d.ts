@@ -11,8 +11,8 @@ export declare class Account {
     'invoice_prefix'?: string;
     'name': string;
     'parent_account'?: string | Account;
-    'platform_account': string;
     'payout_wallets'?: Array<PayoutWallet>;
+    'platform_account': string;
     'settings'?: AccountsSettings;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

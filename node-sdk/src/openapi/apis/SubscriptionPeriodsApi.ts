@@ -80,14 +80,16 @@ export class SubscriptionPeriodsApiRequestFactory extends BaseAPIRequestFactory 
      * List Subscription Periods
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param expand Specifies which fields to populate in the response.
      */
-    public async retrieve(id: string, prism_account?: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new RequiredError("SubscriptionPeriodsApi", "retrieve", "id");
         }
+
 
 
 
@@ -98,6 +100,11 @@ export class SubscriptionPeriodsApiRequestFactory extends BaseAPIRequestFactory 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (expand !== undefined) {
+            requestContext.setQueryParam("expand", ObjectSerializer.serialize(expand, "string", ""));
+        }
 
         // Header Params
         if (prism_account !== undefined) {

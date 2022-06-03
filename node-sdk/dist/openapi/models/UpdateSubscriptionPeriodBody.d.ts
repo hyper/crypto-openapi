@@ -1,6 +1,6 @@
 export declare class UpdateSubscriptionPeriodBody {
-    'start'?: number;
     'end'?: number;
+    'start'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -42,33 +42,15 @@ Price.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "string | Account",
-        "format": ""
-    },
-    {
         "name": "amount",
         "baseName": "amount",
         "type": "number",
         "format": ""
     },
     {
-        "name": "currency",
-        "baseName": "currency",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "chain",
-        "baseName": "chain",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "product",
-        "baseName": "product",
-        "type": "string | Product",
+        "name": "application_fee_percent",
+        "baseName": "application_fee_percent",
+        "type": "number",
         "format": ""
     },
     {
@@ -84,15 +66,33 @@ Price.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "application_fee_percent",
-        "baseName": "application_fee_percent",
-        "type": "number",
+        "name": "chain",
+        "baseName": "chain",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "currency",
+        "baseName": "currency",
+        "type": "string",
         "format": ""
     },
     {
         "name": "metadata",
         "baseName": "metadata",
         "type": "any",
+        "format": ""
+    },
+    {
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string | Account",
+        "format": ""
+    },
+    {
+        "name": "product",
+        "baseName": "product",
+        "type": "string | Product",
         "format": ""
     }
 ];

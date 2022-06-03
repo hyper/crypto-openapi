@@ -20,20 +20,20 @@ import { HttpFile } from '../http/http';
 
 export class SubscriptionAllOf {
     'account': string | Account;
-    'platform_account'?: string | Account;
-    'price': string | Price;
-    'customer': string | Customer;
-    'latest_invoice'?: Invoice;
-    'next_invoice'?: Invoice;
-    'status': SubscriptionAllOfStatusEnum;
-    'pause_collection': boolean;
     'cancel_at'?: number;
     'canceled_at'?: number;
-    'invoices'?: Array<Invoice>;
-    'payments'?: Array<Payment>;
     'current_period'?: SubscriptionPeriod;
+    'customer': string | Customer;
+    'invoices'?: Array<Invoice>;
+    'latest_invoice'?: Invoice;
     'latest_period'?: SubscriptionPeriod;
+    'next_invoice'?: Invoice;
+    'pause_collection': boolean;
+    'payments'?: Array<Payment>;
     'periods'?: Array<SubscriptionPeriod>;
+    'platform_account'?: string | Account;
+    'price': string | Price;
+    'status': SubscriptionAllOfStatusEnum;
     'trial_period_duration'?: number;
 
     static readonly discriminator: string | undefined = undefined;
@@ -43,48 +43,6 @@ export class SubscriptionAllOf {
             "name": "account",
             "baseName": "account",
             "type": "string | Account",
-            "format": ""
-        },
-        {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string | Account",
-            "format": ""
-        },
-        {
-            "name": "price",
-            "baseName": "price",
-            "type": "string | Price",
-            "format": ""
-        },
-        {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string | Customer",
-            "format": ""
-        },
-        {
-            "name": "latest_invoice",
-            "baseName": "latest_invoice",
-            "type": "Invoice",
-            "format": ""
-        },
-        {
-            "name": "next_invoice",
-            "baseName": "next_invoice",
-            "type": "Invoice",
-            "format": ""
-        },
-        {
-            "name": "status",
-            "baseName": "status",
-            "type": "SubscriptionAllOfStatusEnum",
-            "format": ""
-        },
-        {
-            "name": "pause_collection",
-            "baseName": "pause_collection",
-            "type": "boolean",
             "format": ""
         },
         {
@@ -100,21 +58,27 @@ export class SubscriptionAllOf {
             "format": ""
         },
         {
+            "name": "current_period",
+            "baseName": "current_period",
+            "type": "SubscriptionPeriod",
+            "format": ""
+        },
+        {
+            "name": "customer",
+            "baseName": "customer",
+            "type": "string | Customer",
+            "format": ""
+        },
+        {
             "name": "invoices",
             "baseName": "invoices",
             "type": "Array<Invoice>",
             "format": ""
         },
         {
-            "name": "payments",
-            "baseName": "payments",
-            "type": "Array<Payment>",
-            "format": ""
-        },
-        {
-            "name": "current_period",
-            "baseName": "current_period",
-            "type": "SubscriptionPeriod",
+            "name": "latest_invoice",
+            "baseName": "latest_invoice",
+            "type": "Invoice",
             "format": ""
         },
         {
@@ -124,9 +88,45 @@ export class SubscriptionAllOf {
             "format": ""
         },
         {
+            "name": "next_invoice",
+            "baseName": "next_invoice",
+            "type": "Invoice",
+            "format": ""
+        },
+        {
+            "name": "pause_collection",
+            "baseName": "pause_collection",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "payments",
+            "baseName": "payments",
+            "type": "Array<Payment>",
+            "format": ""
+        },
+        {
             "name": "periods",
             "baseName": "periods",
             "type": "Array<SubscriptionPeriod>",
+            "format": ""
+        },
+        {
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string | Account",
+            "format": ""
+        },
+        {
+            "name": "price",
+            "baseName": "price",
+            "type": "string | Price",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "SubscriptionAllOfStatusEnum",
             "format": ""
         },
         {

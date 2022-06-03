@@ -134,7 +134,7 @@ export declare class PromiseSubscriptionPeriodsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: SubscriptionPeriodsApiRequestFactory, responseProcessor?: SubscriptionPeriodsApiResponseProcessor);
     list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListSubscriptionPeriodsResponse>;
-    retrieve(id: string, prism_account?: string, _options?: Configuration): Promise<SubscriptionPeriod>;
+    retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<SubscriptionPeriod>;
     update(id: string, prism_account?: string, update_subscription_period_body?: UpdateSubscriptionPeriodBody, _options?: Configuration): Promise<SubscriptionPeriod>;
 }
 import { SubscriptionsApiRequestFactory, SubscriptionsApiResponseProcessor } from "../apis/SubscriptionsApi";
@@ -153,6 +153,7 @@ export declare class PromiseTransactionsApi {
     constructor(configuration: Configuration, requestFactory?: TransactionsApiRequestFactory, responseProcessor?: TransactionsApiResponseProcessor);
     create(prism_account?: string, create_transaction_body?: CreateTransactionBody, _options?: Configuration): Promise<Transaction>;
     list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListTransactionsResponse>;
+    poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<Transaction>;
     retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<Transaction>;
 }
 import { TransfersApiRequestFactory, TransfersApiResponseProcessor } from "../apis/TransfersApi";

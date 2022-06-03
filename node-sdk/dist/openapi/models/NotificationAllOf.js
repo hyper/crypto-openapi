@@ -18,12 +18,6 @@ NotificationAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "type",
-        "baseName": "type",
-        "type": "NotificationAllOfTypeEnum",
-        "format": ""
-    },
-    {
         "name": "data",
         "baseName": "data",
         "type": "string",
@@ -33,6 +27,12 @@ NotificationAllOf.attributeTypeMap = [
         "name": "emails",
         "baseName": "emails",
         "type": "Array<string>",
+        "format": ""
+    },
+    {
+        "name": "type",
+        "baseName": "type",
+        "type": "NotificationAllOfTypeEnum",
         "format": ""
     }
 ];

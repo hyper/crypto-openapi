@@ -1,11 +1,11 @@
 export declare class CreateSubscriptionBody {
-    'price': string;
-    'customer': string;
-    'status'?: string;
-    'pause_collection'?: boolean;
     'cancel_at'?: number;
-    'trial_period_duration'?: number;
+    'customer': string;
     'metadata'?: any;
+    'pause_collection'?: boolean;
+    'price': string;
+    'status'?: string;
+    'trial_period_duration'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

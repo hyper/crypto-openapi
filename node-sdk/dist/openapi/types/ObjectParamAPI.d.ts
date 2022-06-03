@@ -322,6 +322,7 @@ export interface SubscriptionPeriodsApiListRequest {
 export interface SubscriptionPeriodsApiRetrieveRequest {
     id: string;
     prism_account?: string;
+    expand?: string;
 }
 export interface SubscriptionPeriodsApiUpdateRequest {
     id: string;
@@ -382,6 +383,11 @@ export interface TransactionsApiListRequest {
     page?: number;
     sort?: any;
 }
+export interface TransactionsApiPollRequest {
+    id: string;
+    prism_account?: string;
+    expand?: string;
+}
 export interface TransactionsApiRetrieveRequest {
     id: string;
     prism_account?: string;
@@ -392,6 +398,7 @@ export declare class ObjectTransactionsApi {
     constructor(configuration: Configuration, requestFactory?: TransactionsApiRequestFactory, responseProcessor?: TransactionsApiResponseProcessor);
     create(param?: TransactionsApiCreateRequest, options?: Configuration): Promise<Transaction>;
     list(param?: TransactionsApiListRequest, options?: Configuration): Promise<ListTransactionsResponse>;
+    poll(param: TransactionsApiPollRequest, options?: Configuration): Promise<Transaction>;
     retrieve(param: TransactionsApiRetrieveRequest, options?: Configuration): Promise<Transaction>;
 }
 import { TransfersApiRequestFactory, TransfersApiResponseProcessor } from "../apis/TransfersApi";

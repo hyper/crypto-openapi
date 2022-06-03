@@ -12,14 +12,14 @@ exports.UpdateSubscriptionPeriodBody = UpdateSubscriptionPeriodBody;
 UpdateSubscriptionPeriodBody.discriminator = undefined;
 UpdateSubscriptionPeriodBody.attributeTypeMap = [
     {
-        "name": "start",
-        "baseName": "start",
+        "name": "end",
+        "baseName": "end",
         "type": "number",
         "format": ""
     },
     {
-        "name": "end",
-        "baseName": "end",
+        "name": "start",
+        "baseName": "start",
         "type": "number",
         "format": ""
     }

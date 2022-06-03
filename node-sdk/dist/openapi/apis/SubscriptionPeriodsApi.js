@@ -45,7 +45,7 @@ class SubscriptionPeriodsApiRequestFactory extends baseapi_1.BaseAPIRequestFacto
             return requestContext;
         });
     }
-    retrieve(id, prism_account, _options) {
+    retrieve(id, prism_account, expand, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -56,6 +56,9 @@ class SubscriptionPeriodsApiRequestFactory extends baseapi_1.BaseAPIRequestFacto
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
             requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+            if (expand !== undefined) {
+                requestContext.setQueryParam("expand", ObjectSerializer_1.ObjectSerializer.serialize(expand, "string", ""));
+            }
             if (prism_account !== undefined) {
                 requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
             }

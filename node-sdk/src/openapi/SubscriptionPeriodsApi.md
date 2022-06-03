@@ -95,6 +95,8 @@ let body:.SubscriptionPeriodsApiRetrieveRequest = {
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
+  // string | Specifies which fields to populate in the response. (optional)
+  expand: "expand_example",
 };
 
 apiInstance.retrieve(body).then((data:any) => {
@@ -109,6 +111,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
 
 
 ### Return type
@@ -155,8 +158,8 @@ let body:.SubscriptionPeriodsApiUpdateRequest = {
   prism_account: "Prism-Account_example",
   // UpdateSubscriptionPeriodBody (optional)
   update_subscription_period_body: {
-    start: 3.14,
     end: 3.14,
+    start: 3.14,
   },
 };
 

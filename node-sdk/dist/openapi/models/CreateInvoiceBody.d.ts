@@ -4,15 +4,15 @@ export declare class CreateInvoiceBody {
     'application_fee_percent'?: number;
     'chain': string;
     'currency': string;
-    'due'?: string;
-    'number': string;
     'customer': string;
-    'price'?: string;
-    'wallet': string;
+    'due'?: string;
     'line_items'?: Array<InvoicesLineItems>;
-    'trial_period_duration'?: number;
-    'send_reminders'?: string;
     'metadata'?: any;
+    'number': string;
+    'price'?: string;
+    'send_reminders'?: string;
+    'trial_period_duration'?: number;
+    'wallet': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

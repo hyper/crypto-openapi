@@ -213,8 +213,8 @@ class PromiseSubscriptionPeriodsApi {
         const result = this.api.list(prism_account, expand, limit, page, sort, _options);
         return result.toPromise();
     }
-    retrieve(id, prism_account, _options) {
-        const result = this.api.retrieve(id, prism_account, _options);
+    retrieve(id, prism_account, expand, _options) {
+        const result = this.api.retrieve(id, prism_account, expand, _options);
         return result.toPromise();
     }
     update(id, prism_account, update_subscription_period_body, _options) {
@@ -261,6 +261,10 @@ class PromiseTransactionsApi {
     }
     list(prism_account, expand, limit, page, sort, _options) {
         const result = this.api.list(prism_account, expand, limit, page, sort, _options);
+        return result.toPromise();
+    }
+    poll(id, prism_account, expand, _options) {
+        const result = this.api.poll(id, prism_account, expand, _options);
         return result.toPromise();
     }
     retrieve(id, prism_account, expand, _options) {
