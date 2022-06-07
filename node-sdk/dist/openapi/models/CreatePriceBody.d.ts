@@ -1,5 +1,6 @@
 import { PricesBasePrice } from './PricesBasePrice';
 export declare class CreatePriceBody {
+    ''?: string;
     'amount'?: string;
     'base_price'?: PricesBasePrice;
     'billing_period_duration'?: number;

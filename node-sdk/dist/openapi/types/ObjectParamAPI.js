@@ -218,9 +218,6 @@ class ObjectTransactionsApi {
     list(param = {}, options) {
         return this.api.list(param.prism_account, param.expand, param.limit, param.page, param.sort, options).toPromise();
     }
-    poll(param, options) {
-        return this.api.poll(param.id, param.prism_account, param.expand, options).toPromise();
-    }
     retrieve(param, options) {
         return this.api.retrieve(param.id, param.prism_account, param.expand, options).toPromise();
     }

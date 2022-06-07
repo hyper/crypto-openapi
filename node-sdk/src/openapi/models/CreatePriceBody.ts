@@ -14,6 +14,7 @@ import { PricesBasePrice } from './PricesBasePrice';
 import { HttpFile } from '../http/http';
 
 export class CreatePriceBody {
+    ''?: string;
     'amount'?: string;
     'base_price'?: PricesBasePrice;
     'billing_period_duration'?: number;
@@ -25,6 +26,12 @@ export class CreatePriceBody {
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "",
+            "baseName": "",
+            "type": "string",
+            "format": ""
+        },
         {
             "name": "amount",
             "baseName": "amount",

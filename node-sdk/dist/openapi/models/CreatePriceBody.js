@@ -12,6 +12,12 @@ exports.CreatePriceBody = CreatePriceBody;
 CreatePriceBody.discriminator = undefined;
 CreatePriceBody.attributeTypeMap = [
     {
+        "name": "",
+        "baseName": "",
+        "type": "string",
+        "format": ""
+    },
+    {
         "name": "amount",
         "baseName": "amount",
         "type": "string",

@@ -100,6 +100,13 @@ import {
   SubscriptionPeriodsApiListRequest,
   ListSubscriptionPeriodsResponse,
   InvoicesApiPollRequest,
+  FeesApiDeleteRequest,
+  PayoutWalletsApiDeleteRequest,
+  ProductsApiDeleteRequest,
+  WalletsApiDeleteRequest,
+  WebhooksApiDeleteRequest,
+  PricesApiDeleteRequest,
+  SubscriptionsApiDeleteRequest,
 } from './openapi/index';
 import convertCasing from './helpers/convertCasing';
 import { ListPayoutWalletsResponse } from './openapi/models/ListPayoutWalletsResponse';
@@ -279,6 +286,13 @@ class FeesApiLayer {
   ): Promise<ListFeesResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
+
+  public async delete(
+    params: Omit<FeesApiDeleteRequest, 'prism_account'>,
+    options?: { prismAccount: string }
+  ): Promise<void> {
+    return this.api._delete({ ...convertCasing(options), id: params.id });
+  }
 }
 
 class InvoicesApiLayer {
@@ -401,6 +415,13 @@ class PricesApiLayer {
   ): Promise<ListPricesResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
+
+  public async delete(
+    params: Omit<PricesApiDeleteRequest, 'prism_account'>,
+    options?: { prismAccount: string }
+  ): Promise<void> {
+    return this.api._delete({ ...convertCasing(options), id: params.id });
+  }
 }
 
 class ProductsApiLayer {
@@ -438,6 +459,13 @@ class ProductsApiLayer {
     options?: { prismAccount: string }
   ): Promise<ListProductsResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
+  }
+
+  public async delete(
+    params: Omit<ProductsApiDeleteRequest, 'prism_account'>,
+    options?: { prismAccount: string }
+  ): Promise<void> {
+    return this.api._delete({ ...convertCasing(options), id: params.id });
   }
 }
 
@@ -477,6 +505,13 @@ class PayoutWalletsApiLayer {
   ): Promise<ListPayoutWalletsResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
+
+  public async delete(
+    params: Omit<PayoutWalletsApiDeleteRequest, 'prism_account'>,
+    options?: { prismAccount: string }
+  ): Promise<void> {
+    return this.api._delete({ ...convertCasing(options), id: params.id });
+  }
 }
 
 class SubscriptionsApiLayer {
@@ -514,6 +549,13 @@ class SubscriptionsApiLayer {
     options?: { prismAccount: string }
   ): Promise<ListSubscriptionsResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
+  }
+
+  public async delete(
+    params: Omit<SubscriptionsApiDeleteRequest, 'prism_account'>,
+    options?: { prismAccount: string }
+  ): Promise<void> {
+    return this.api._delete({ ...convertCasing(options), id: params.id });
   }
 }
 
@@ -648,6 +690,13 @@ class WalletsApiLayer {
   ): Promise<ListWalletsResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
+
+  public async delete(
+    params: Omit<WalletsApiDeleteRequest, 'prism_account'>,
+    options?: { prismAccount: string }
+  ): Promise<void> {
+    return this.api._delete({ ...convertCasing(options), id: params.id });
+  }
 }
 
 class WebhooksApiLayer {
@@ -685,5 +734,12 @@ class WebhooksApiLayer {
     options?: { prismAccount: string }
   ): Promise<ListWebhooksResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
+  }
+
+  public async delete(
+    params: Omit<WebhooksApiDeleteRequest, 'prism_account'>,
+    options?: { prismAccount: string }
+  ): Promise<void> {
+    return this.api._delete({ ...convertCasing(options), id: params.id });
   }
 }

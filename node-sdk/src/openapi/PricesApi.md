@@ -87,6 +87,7 @@ let body:.PricesApiCreateRequest = {
   prism_account: "Prism-Account_example",
   // CreatePriceBody (optional)
   create_price_body: {
+    : "_example",
     amount: "amount_example",
     base_price: {
       amount: 3.14,

@@ -1436,31 +1436,6 @@ export class ObservableTransactionsApi {
     }
 
     /**
-     * Poll Transaction
-     * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
-     */
-    public poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<Transaction> {
-        const requestContextPromise = this.requestFactory.poll(id, prism_account, expand, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.poll(rsp)));
-            }));
-    }
-
-    /**
      * Retrieve Transaction
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
