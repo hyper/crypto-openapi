@@ -135,9 +135,9 @@ class FeesApiLayer {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
         });
     }
-    delete(params, options) {
+    delete(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api._delete(Object.assign(Object.assign({}, convertCasing_1.default(options)), { id: params.id }));
+            return this.api._delete(Object.assign({ id }, convertCasing_1.default(options)));
         });
     }
 }
@@ -220,9 +220,9 @@ class PricesApiLayer {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
         });
     }
-    delete(params, options) {
+    delete(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api._delete(Object.assign(Object.assign({}, convertCasing_1.default(options)), { id: params.id }));
+            return this.api._delete(Object.assign({ id }, convertCasing_1.default(options)));
         });
     }
 }
@@ -250,9 +250,9 @@ class ProductsApiLayer {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
         });
     }
-    delete(params, options) {
+    delete(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api._delete(Object.assign(Object.assign({}, convertCasing_1.default(options)), { id: params.id }));
+            return this.api._delete(Object.assign({ id }, convertCasing_1.default(options)));
         });
     }
 }
@@ -280,9 +280,9 @@ class PayoutWalletsApiLayer {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
         });
     }
-    delete(params, options) {
+    delete(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api._delete(Object.assign(Object.assign({}, convertCasing_1.default(options)), { id: params.id }));
+            return this.api._delete(Object.assign({ id }, convertCasing_1.default(options)));
         });
     }
 }
@@ -310,9 +310,9 @@ class SubscriptionsApiLayer {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
         });
     }
-    delete(params, options) {
+    delete(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api._delete(Object.assign(Object.assign({}, convertCasing_1.default(options)), { id: params.id }));
+            return this.api._delete(Object.assign({ id }, convertCasing_1.default(options)));
         });
     }
 }
@@ -400,9 +400,9 @@ class WalletsApiLayer {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
         });
     }
-    delete(params, options) {
+    delete(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api._delete(Object.assign(Object.assign({}, convertCasing_1.default(options)), { id: params.id }));
+            return this.api._delete(Object.assign({ id }, convertCasing_1.default(options)));
         });
     }
 }
@@ -430,9 +430,9 @@ class WebhooksApiLayer {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
         });
     }
-    delete(params, options) {
+    delete(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api._delete(Object.assign(Object.assign({}, convertCasing_1.default(options)), { id: params.id }));
+            return this.api._delete(Object.assign({ id }, convertCasing_1.default(options)));
         });
     }
 }

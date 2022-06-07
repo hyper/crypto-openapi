@@ -288,10 +288,11 @@ class FeesApiLayer {
   }
 
   public async delete(
+    id: string,
     params: Omit<FeesApiDeleteRequest, 'prism_account'>,
     options?: { prismAccount: string }
   ): Promise<void> {
-    return this.api._delete({ ...convertCasing(options), id: params.id });
+    return this.api._delete({ id, ...convertCasing(options) });
   }
 }
 
@@ -417,10 +418,11 @@ class PricesApiLayer {
   }
 
   public async delete(
+    id: string,
     params: Omit<PricesApiDeleteRequest, 'prism_account'>,
     options?: { prismAccount: string }
   ): Promise<void> {
-    return this.api._delete({ ...convertCasing(options), id: params.id });
+    return this.api._delete({ id, ...convertCasing(options) });
   }
 }
 
@@ -462,10 +464,11 @@ class ProductsApiLayer {
   }
 
   public async delete(
+    id: string,
     params: Omit<ProductsApiDeleteRequest, 'prism_account'>,
     options?: { prismAccount: string }
   ): Promise<void> {
-    return this.api._delete({ ...convertCasing(options), id: params.id });
+    return this.api._delete({ id, ...convertCasing(options) });
   }
 }
 
@@ -507,10 +510,11 @@ class PayoutWalletsApiLayer {
   }
 
   public async delete(
+    id: string,
     params: Omit<PayoutWalletsApiDeleteRequest, 'prism_account'>,
     options?: { prismAccount: string }
   ): Promise<void> {
-    return this.api._delete({ ...convertCasing(options), id: params.id });
+    return this.api._delete({ id, ...convertCasing(options) });
   }
 }
 
@@ -552,10 +556,11 @@ class SubscriptionsApiLayer {
   }
 
   public async delete(
+    id: string,
     params: Omit<SubscriptionsApiDeleteRequest, 'prism_account'>,
     options?: { prismAccount: string }
   ): Promise<void> {
-    return this.api._delete({ ...convertCasing(options), id: params.id });
+    return this.api._delete({ id, ...convertCasing(options) });
   }
 }
 
@@ -692,10 +697,11 @@ class WalletsApiLayer {
   }
 
   public async delete(
+    id: string,
     params: Omit<WalletsApiDeleteRequest, 'prism_account'>,
     options?: { prismAccount: string }
   ): Promise<void> {
-    return this.api._delete({ ...convertCasing(options), id: params.id });
+    return this.api._delete({ id, ...convertCasing(options) });
   }
 }
 
@@ -737,9 +743,10 @@ class WebhooksApiLayer {
   }
 
   public async delete(
+    id: string,
     params: Omit<WebhooksApiDeleteRequest, 'prism_account'>,
     options?: { prismAccount: string }
   ): Promise<void> {
-    return this.api._delete({ ...convertCasing(options), id: params.id });
+    return this.api._delete({ id, ...convertCasing(options) });
   }
 }

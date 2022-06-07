@@ -67,7 +67,7 @@ declare class FeesApiLayer {
     list(params?: Omit<FeesApiListRequest, 'prism_account'>, options?: {
         prismAccount: string;
     }): Promise<ListFeesResponse>;
-    delete(params: Omit<FeesApiDeleteRequest, 'prism_account'>, options?: {
+    delete(id: string, params: Omit<FeesApiDeleteRequest, 'prism_account'>, options?: {
         prismAccount: string;
     }): Promise<void>;
 }
@@ -122,7 +122,7 @@ declare class PricesApiLayer {
     list(params?: Omit<PricesApiListRequest, 'prism_account'>, options?: {
         prismAccount: string;
     }): Promise<ListPricesResponse>;
-    delete(params: Omit<PricesApiDeleteRequest, 'prism_account'>, options?: {
+    delete(id: string, params: Omit<PricesApiDeleteRequest, 'prism_account'>, options?: {
         prismAccount: string;
     }): Promise<void>;
 }
@@ -141,7 +141,7 @@ declare class ProductsApiLayer {
     list(params?: Omit<ProductsApiListRequest, 'prism_account'>, options?: {
         prismAccount: string;
     }): Promise<ListProductsResponse>;
-    delete(params: Omit<ProductsApiDeleteRequest, 'prism_account'>, options?: {
+    delete(id: string, params: Omit<ProductsApiDeleteRequest, 'prism_account'>, options?: {
         prismAccount: string;
     }): Promise<void>;
 }
@@ -160,7 +160,7 @@ declare class PayoutWalletsApiLayer {
     list(params?: Omit<PayoutWalletsApiListRequest, 'prism_account'>, options?: {
         prismAccount: string;
     }): Promise<ListPayoutWalletsResponse>;
-    delete(params: Omit<PayoutWalletsApiDeleteRequest, 'prism_account'>, options?: {
+    delete(id: string, params: Omit<PayoutWalletsApiDeleteRequest, 'prism_account'>, options?: {
         prismAccount: string;
     }): Promise<void>;
 }
@@ -179,7 +179,7 @@ declare class SubscriptionsApiLayer {
     list(params?: Omit<SubscriptionsApiListRequest, 'prism_account'>, options?: {
         prismAccount: string;
     }): Promise<ListSubscriptionsResponse>;
-    delete(params: Omit<SubscriptionsApiDeleteRequest, 'prism_account'>, options?: {
+    delete(id: string, params: Omit<SubscriptionsApiDeleteRequest, 'prism_account'>, options?: {
         prismAccount: string;
     }): Promise<void>;
 }
@@ -237,7 +237,7 @@ declare class WalletsApiLayer {
     list(params?: Omit<WalletsApiListRequest, 'prism_account'>, options?: {
         prismAccount: string;
     }): Promise<ListWalletsResponse>;
-    delete(params: Omit<WalletsApiDeleteRequest, 'prism_account'>, options?: {
+    delete(id: string, params: Omit<WalletsApiDeleteRequest, 'prism_account'>, options?: {
         prismAccount: string;
     }): Promise<void>;
 }
@@ -256,7 +256,7 @@ declare class WebhooksApiLayer {
     list(params?: Omit<WebhooksApiListRequest, 'prism_account'>, options?: {
         prismAccount: string;
     }): Promise<ListWebhooksResponse>;
-    delete(params: Omit<WebhooksApiDeleteRequest, 'prism_account'>, options?: {
+    delete(id: string, params: Omit<WebhooksApiDeleteRequest, 'prism_account'>, options?: {
         prismAccount: string;
     }): Promise<void>;
 }
