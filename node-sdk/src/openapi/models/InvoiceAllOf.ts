@@ -25,28 +25,28 @@ import { HttpFile } from '../http/http';
 
 export class InvoiceAllOf {
     'account': string | Account;
-    'amount': number;
+    'platform_account'?: string | Account;
     'amount_paid'?: number;
     'application_fee_percent'?: number;
     'chain': InvoiceAllOfChainEnum;
+    'amount': number;
     'currency': InvoiceAllOfCurrencyEnum;
-    'customer': string | Customer;
-    'due'?: number;
-    'fees': Array<Fee>;
-    'line_items'?: InvoiceAllOfLineItems;
-    'metadata'?: any;
-    'number': string;
-    'payment'?: Payment;
-    'period'?: string | SubscriptionPeriod;
-    'platform_account'?: string | Account;
-    'price': string | Price;
-    'send_reminders'?: string;
     'status': InvoiceAllOfStatusEnum;
-    'subscription'?: string | Subscription;
-    'transactions': Array<Transaction>;
-    'transfers': Array<Transfer>;
-    'trial_period_duration'?: number;
+    'due'?: number;
+    'number': string;
+    'customer': string | Customer;
+    'price': string | Price;
     'wallet': string | Wallet;
+    'payment'?: Payment;
+    'transactions': Array<Transaction>;
+    'fees': Array<Fee>;
+    'transfers': Array<Transfer>;
+    'subscription'?: string | Subscription;
+    'line_items'?: InvoiceAllOfLineItems;
+    'trial_period_duration'?: number;
+    'send_reminders'?: string;
+    'period'?: string | SubscriptionPeriod;
+    'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -58,9 +58,9 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string | Account",
             "format": ""
         },
         {
@@ -82,75 +82,15 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
+            "name": "amount",
+            "baseName": "amount",
+            "type": "number",
+            "format": ""
+        },
+        {
             "name": "currency",
             "baseName": "currency",
             "type": "InvoiceAllOfCurrencyEnum",
-            "format": ""
-        },
-        {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string | Customer",
-            "format": ""
-        },
-        {
-            "name": "due",
-            "baseName": "due",
-            "type": "number",
-            "format": "date-time"
-        },
-        {
-            "name": "fees",
-            "baseName": "fees",
-            "type": "Array<Fee>",
-            "format": ""
-        },
-        {
-            "name": "line_items",
-            "baseName": "line_items",
-            "type": "InvoiceAllOfLineItems",
-            "format": ""
-        },
-        {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "any",
-            "format": ""
-        },
-        {
-            "name": "number",
-            "baseName": "number",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "payment",
-            "baseName": "payment",
-            "type": "Payment",
-            "format": ""
-        },
-        {
-            "name": "period",
-            "baseName": "period",
-            "type": "string | SubscriptionPeriod",
-            "format": ""
-        },
-        {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string | Account",
-            "format": ""
-        },
-        {
-            "name": "price",
-            "baseName": "price",
-            "type": "string | Price",
-            "format": ""
-        },
-        {
-            "name": "send_reminders",
-            "baseName": "send_reminders",
-            "type": "string",
             "format": ""
         },
         {
@@ -160,9 +100,39 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
-            "name": "subscription",
-            "baseName": "subscription",
-            "type": "string | Subscription",
+            "name": "due",
+            "baseName": "due",
+            "type": "number",
+            "format": "date-time"
+        },
+        {
+            "name": "number",
+            "baseName": "number",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "customer",
+            "baseName": "customer",
+            "type": "string | Customer",
+            "format": ""
+        },
+        {
+            "name": "price",
+            "baseName": "price",
+            "type": "string | Price",
+            "format": ""
+        },
+        {
+            "name": "wallet",
+            "baseName": "wallet",
+            "type": "string | Wallet",
+            "format": ""
+        },
+        {
+            "name": "payment",
+            "baseName": "payment",
+            "type": "Payment",
             "format": ""
         },
         {
@@ -172,9 +142,27 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
+            "name": "fees",
+            "baseName": "fees",
+            "type": "Array<Fee>",
+            "format": ""
+        },
+        {
             "name": "transfers",
             "baseName": "transfers",
             "type": "Array<Transfer>",
+            "format": ""
+        },
+        {
+            "name": "subscription",
+            "baseName": "subscription",
+            "type": "string | Subscription",
+            "format": ""
+        },
+        {
+            "name": "line_items",
+            "baseName": "line_items",
+            "type": "InvoiceAllOfLineItems",
             "format": ""
         },
         {
@@ -184,9 +172,21 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
-            "name": "wallet",
-            "baseName": "wallet",
-            "type": "string | Wallet",
+            "name": "send_reminders",
+            "baseName": "send_reminders",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "period",
+            "baseName": "period",
+            "type": "string | SubscriptionPeriod",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
             "format": ""
         }    ];
 

@@ -36,32 +36,20 @@ CreateInvoiceBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "customer",
-        "baseName": "customer",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "due",
         "baseName": "due",
         "type": "string",
         "format": ""
     },
     {
-        "name": "line_items",
-        "baseName": "line_items",
-        "type": "Array<InvoicesLineItems>",
-        "format": ""
-    },
-    {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "any",
-        "format": ""
-    },
-    {
         "name": "number",
         "baseName": "number",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "customer",
+        "baseName": "customer",
         "type": "string",
         "format": ""
     },
@@ -72,9 +60,15 @@ CreateInvoiceBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "send_reminders",
-        "baseName": "send_reminders",
+        "name": "wallet",
+        "baseName": "wallet",
         "type": "string",
+        "format": ""
+    },
+    {
+        "name": "line_items",
+        "baseName": "line_items",
+        "type": "Array<InvoicesLineItems>",
         "format": ""
     },
     {
@@ -84,9 +78,15 @@ CreateInvoiceBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "wallet",
-        "baseName": "wallet",
+        "name": "send_reminders",
+        "baseName": "send_reminders",
         "type": "string",
+        "format": ""
+    },
+    {
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "any",
         "format": ""
     }
 ];

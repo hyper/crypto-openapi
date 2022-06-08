@@ -263,6 +263,10 @@ class PromiseTransactionsApi {
         const result = this.api.list(prism_account, expand, limit, page, sort, _options);
         return result.toPromise();
     }
+    poll(id, prism_account, expand, _options) {
+        const result = this.api.poll(id, prism_account, expand, _options);
+        return result.toPromise();
+    }
     retrieve(id, prism_account, expand, _options) {
         const result = this.api.retrieve(id, prism_account, expand, _options);
         return result.toPromise();

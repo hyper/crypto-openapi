@@ -12,6 +12,18 @@ exports.UpdateSubscriptionBody = UpdateSubscriptionBody;
 UpdateSubscriptionBody.discriminator = undefined;
 UpdateSubscriptionBody.attributeTypeMap = [
     {
+        "name": "status",
+        "baseName": "status",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "pause_collection",
+        "baseName": "pause_collection",
+        "type": "boolean",
+        "format": ""
+    },
+    {
         "name": "cancel_at",
         "baseName": "cancel_at",
         "type": "number",
@@ -21,12 +33,6 @@ UpdateSubscriptionBody.attributeTypeMap = [
         "name": "canceled_at",
         "baseName": "canceled_at",
         "type": "number",
-        "format": ""
-    },
-    {
-        "name": "pause_collection",
-        "baseName": "pause_collection",
-        "type": "boolean",
         "format": ""
     }
 ];

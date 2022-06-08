@@ -1,13 +1,13 @@
 import { PricesBasePrice } from './PricesBasePrice';
 export declare class CreatePriceBody {
-    ''?: string;
     'amount'?: string;
-    'base_price'?: PricesBasePrice;
-    'billing_period_duration'?: number;
-    'chain': string;
     'currency': string;
-    'metadata'?: any;
+    'chain': string;
     'product': string;
+    'base_price'?: PricesBasePrice;
+    'metadata'?: any;
+    'billing_period_duration'?: number;
+    ''?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -12,32 +12,14 @@ exports.CreateSubscriptionBody = CreateSubscriptionBody;
 CreateSubscriptionBody.discriminator = undefined;
 CreateSubscriptionBody.attributeTypeMap = [
     {
-        "name": "cancel_at",
-        "baseName": "cancel_at",
-        "type": "number",
+        "name": "price",
+        "baseName": "price",
+        "type": "string",
         "format": ""
     },
     {
         "name": "customer",
         "baseName": "customer",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "any",
-        "format": ""
-    },
-    {
-        "name": "pause_collection",
-        "baseName": "pause_collection",
-        "type": "boolean",
-        "format": ""
-    },
-    {
-        "name": "price",
-        "baseName": "price",
         "type": "string",
         "format": ""
     },
@@ -48,9 +30,27 @@ CreateSubscriptionBody.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "pause_collection",
+        "baseName": "pause_collection",
+        "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "cancel_at",
+        "baseName": "cancel_at",
+        "type": "number",
+        "format": ""
+    },
+    {
         "name": "trial_period_duration",
         "baseName": "trial_period_duration",
         "type": "number",
+        "format": ""
+    },
+    {
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "any",
         "format": ""
     }
 ];

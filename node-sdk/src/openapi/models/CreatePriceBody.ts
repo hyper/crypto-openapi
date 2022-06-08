@@ -14,45 +14,21 @@ import { PricesBasePrice } from './PricesBasePrice';
 import { HttpFile } from '../http/http';
 
 export class CreatePriceBody {
-    ''?: string;
     'amount'?: string;
-    'base_price'?: PricesBasePrice;
-    'billing_period_duration'?: number;
-    'chain': string;
     'currency': string;
-    'metadata'?: any;
+    'chain': string;
     'product': string;
+    'base_price'?: PricesBasePrice;
+    'metadata'?: any;
+    'billing_period_duration'?: number;
+    ''?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "",
-            "baseName": "",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "amount",
             "baseName": "amount",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "base_price",
-            "baseName": "base_price",
-            "type": "PricesBasePrice",
-            "format": ""
-        },
-        {
-            "name": "billing_period_duration",
-            "baseName": "billing_period_duration",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
             "type": "string",
             "format": ""
         },
@@ -63,14 +39,38 @@ export class CreatePriceBody {
             "format": ""
         },
         {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "product",
+            "baseName": "product",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "base_price",
+            "baseName": "base_price",
+            "type": "PricesBasePrice",
+            "format": ""
+        },
+        {
             "name": "metadata",
             "baseName": "metadata",
             "type": "any",
             "format": ""
         },
         {
-            "name": "product",
-            "baseName": "product",
+            "name": "billing_period_duration",
+            "baseName": "billing_period_duration",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "",
+            "baseName": "",
             "type": "string",
             "format": ""
         }    ];

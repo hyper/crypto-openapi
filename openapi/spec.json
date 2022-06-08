@@ -3854,13 +3854,17 @@
                   },
                   "pause_collection": {
                     "type": "boolean"
+                  },
+                  "status": {
+                    "type": "string"
                   }
                 },
                 "title": "UpdateSubscriptionBody",
                 "type": "object"
               }
             }
-          }
+          },
+          "description": ""
         },
         "responses": {
           "200": {
@@ -4027,6 +4031,49 @@
           }
         },
         "summary": "Retrieve Transaction",
+        "tags": ["Transactions"]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/transactions/{id}/poll": {
+      "get": {
+        "operationId": "transactions_poll",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transaction"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Poll Transaction",
         "tags": ["Transactions"]
       },
       "parameters": [

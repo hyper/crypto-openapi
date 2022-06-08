@@ -17,10 +17,10 @@ import { HttpFile } from '../http/http';
 
 export class SubscriptionPeriodAllOf {
     'account': string | Account;
-    'end': number;
-    'invoice'?: string | Invoice;
     'platform_account'?: string | Account;
     'start': number;
+    'end': number;
+    'invoice'?: string | Invoice;
     'subscription': string | Subscription;
     'trial': boolean;
 
@@ -34,18 +34,6 @@ export class SubscriptionPeriodAllOf {
             "format": ""
         },
         {
-            "name": "end",
-            "baseName": "end",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "invoice",
-            "baseName": "invoice",
-            "type": "string | Invoice",
-            "format": ""
-        },
-        {
             "name": "platform_account",
             "baseName": "platform_account",
             "type": "string | Account",
@@ -55,6 +43,18 @@ export class SubscriptionPeriodAllOf {
             "name": "start",
             "baseName": "start",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "end",
+            "baseName": "end",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "invoice",
+            "baseName": "invoice",
+            "type": "string | Invoice",
             "format": ""
         },
         {

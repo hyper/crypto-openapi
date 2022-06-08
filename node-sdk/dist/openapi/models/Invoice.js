@@ -42,9 +42,9 @@ Invoice.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "amount",
-        "baseName": "amount",
-        "type": "number",
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string | Account",
         "format": ""
     },
     {
@@ -66,75 +66,15 @@ Invoice.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "amount",
+        "baseName": "amount",
+        "type": "number",
+        "format": ""
+    },
+    {
         "name": "currency",
         "baseName": "currency",
         "type": "InvoiceCurrencyEnum",
-        "format": ""
-    },
-    {
-        "name": "customer",
-        "baseName": "customer",
-        "type": "string | Customer",
-        "format": ""
-    },
-    {
-        "name": "due",
-        "baseName": "due",
-        "type": "number",
-        "format": "date-time"
-    },
-    {
-        "name": "fees",
-        "baseName": "fees",
-        "type": "Array<Fee>",
-        "format": ""
-    },
-    {
-        "name": "line_items",
-        "baseName": "line_items",
-        "type": "InvoiceAllOfLineItems",
-        "format": ""
-    },
-    {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "any",
-        "format": ""
-    },
-    {
-        "name": "number",
-        "baseName": "number",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "payment",
-        "baseName": "payment",
-        "type": "Payment",
-        "format": ""
-    },
-    {
-        "name": "period",
-        "baseName": "period",
-        "type": "string | SubscriptionPeriod",
-        "format": ""
-    },
-    {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "string | Account",
-        "format": ""
-    },
-    {
-        "name": "price",
-        "baseName": "price",
-        "type": "string | Price",
-        "format": ""
-    },
-    {
-        "name": "send_reminders",
-        "baseName": "send_reminders",
-        "type": "string",
         "format": ""
     },
     {
@@ -144,9 +84,39 @@ Invoice.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "subscription",
-        "baseName": "subscription",
-        "type": "string | Subscription",
+        "name": "due",
+        "baseName": "due",
+        "type": "number",
+        "format": "date-time"
+    },
+    {
+        "name": "number",
+        "baseName": "number",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "customer",
+        "baseName": "customer",
+        "type": "string | Customer",
+        "format": ""
+    },
+    {
+        "name": "price",
+        "baseName": "price",
+        "type": "string | Price",
+        "format": ""
+    },
+    {
+        "name": "wallet",
+        "baseName": "wallet",
+        "type": "string | Wallet",
+        "format": ""
+    },
+    {
+        "name": "payment",
+        "baseName": "payment",
+        "type": "Payment",
         "format": ""
     },
     {
@@ -156,9 +126,27 @@ Invoice.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "fees",
+        "baseName": "fees",
+        "type": "Array<Fee>",
+        "format": ""
+    },
+    {
         "name": "transfers",
         "baseName": "transfers",
         "type": "Array<Transfer>",
+        "format": ""
+    },
+    {
+        "name": "subscription",
+        "baseName": "subscription",
+        "type": "string | Subscription",
+        "format": ""
+    },
+    {
+        "name": "line_items",
+        "baseName": "line_items",
+        "type": "InvoiceAllOfLineItems",
         "format": ""
     },
     {
@@ -168,9 +156,21 @@ Invoice.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "wallet",
-        "baseName": "wallet",
-        "type": "string | Wallet",
+        "name": "send_reminders",
+        "baseName": "send_reminders",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "period",
+        "baseName": "period",
+        "type": "string | SubscriptionPeriod",
+        "format": ""
+    },
+    {
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "any",
         "format": ""
     }
 ];

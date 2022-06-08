@@ -1569,6 +1569,27 @@ export interface TransactionsApiListRequest {
     sort?: any
 }
 
+export interface TransactionsApiPollRequest {
+    /**
+     * 
+     * @type string
+     * @memberof TransactionsApipoll
+     */
+    id: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof TransactionsApipoll
+     */
+    prism_account?: string
+    /**
+     * Specifies which fields to populate in the response.
+     * @type string
+     * @memberof TransactionsApipoll
+     */
+    expand?: string
+}
+
 export interface TransactionsApiRetrieveRequest {
     /**
      * 
@@ -1611,6 +1632,14 @@ export class ObjectTransactionsApi {
      */
     public list(param: TransactionsApiListRequest = {}, options?: Configuration): Promise<ListTransactionsResponse> {
         return this.api.list(param.prism_account, param.expand, param.limit, param.page, param.sort,  options).toPromise();
+    }
+
+    /**
+     * Poll Transaction
+     * @param param the request object
+     */
+    public poll(param: TransactionsApiPollRequest, options?: Configuration): Promise<Transaction> {
+        return this.api.poll(param.id, param.prism_account, param.expand,  options).toPromise();
     }
 
     /**

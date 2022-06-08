@@ -12,32 +12,8 @@ exports.CreatePriceBody = CreatePriceBody;
 CreatePriceBody.discriminator = undefined;
 CreatePriceBody.attributeTypeMap = [
     {
-        "name": "",
-        "baseName": "",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "amount",
         "baseName": "amount",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "base_price",
-        "baseName": "base_price",
-        "type": "PricesBasePrice",
-        "format": ""
-    },
-    {
-        "name": "billing_period_duration",
-        "baseName": "billing_period_duration",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "chain",
-        "baseName": "chain",
         "type": "string",
         "format": ""
     },
@@ -48,14 +24,38 @@ CreatePriceBody.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "chain",
+        "baseName": "chain",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "product",
+        "baseName": "product",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "base_price",
+        "baseName": "base_price",
+        "type": "PricesBasePrice",
+        "format": ""
+    },
+    {
         "name": "metadata",
         "baseName": "metadata",
         "type": "any",
         "format": ""
     },
     {
-        "name": "product",
-        "baseName": "product",
+        "name": "billing_period_duration",
+        "baseName": "billing_period_duration",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "",
+        "baseName": "",
         "type": "string",
         "format": ""
     }

@@ -42,18 +42,6 @@ SubscriptionPeriod.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "end",
-        "baseName": "end",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "invoice",
-        "baseName": "invoice",
-        "type": "string | Invoice",
-        "format": ""
-    },
-    {
         "name": "platform_account",
         "baseName": "platform_account",
         "type": "string | Account",
@@ -63,6 +51,18 @@ SubscriptionPeriod.attributeTypeMap = [
         "name": "start",
         "baseName": "start",
         "type": "number",
+        "format": ""
+    },
+    {
+        "name": "end",
+        "baseName": "end",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "invoice",
+        "baseName": "invoice",
+        "type": "string | Invoice",
         "format": ""
     },
     {

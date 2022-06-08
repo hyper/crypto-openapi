@@ -18,14 +18,14 @@ import { HttpFile } from '../http/http';
 
 export class Transaction {
     'account'?: string | Account;
-    'amount': number;
-    'chain': TransactionChainEnum;
-    'currency': TransactionCurrencyEnum;
+    'platform_account'?: string | Account;
     'hash'?: string;
     'invoice': string | Invoice;
-    'metadata'?: any;
-    'platform_account'?: string | Account;
     'status': TransactionStatusEnum;
+    'chain': TransactionChainEnum;
+    'amount': number;
+    'currency': TransactionCurrencyEnum;
+    'metadata'?: any;
     'created': Date;
     'id': string;
     'object': string;
@@ -41,21 +41,9 @@ export class Transaction {
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "TransactionChainEnum",
-            "format": ""
-        },
-        {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "TransactionCurrencyEnum",
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string | Account",
             "format": ""
         },
         {
@@ -71,21 +59,33 @@ export class Transaction {
             "format": ""
         },
         {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "any",
-            "format": ""
-        },
-        {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string | Account",
-            "format": ""
-        },
-        {
             "name": "status",
             "baseName": "status",
             "type": "TransactionStatusEnum",
+            "format": ""
+        },
+        {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "TransactionChainEnum",
+            "format": ""
+        },
+        {
+            "name": "amount",
+            "baseName": "amount",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "TransactionCurrencyEnum",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
             "format": ""
         },
         {
@@ -122,7 +122,7 @@ export class Transaction {
 }
 
 
+export type TransactionStatusEnum = "pending" | "failed" | "succeeded" | "canceled" ;
 export type TransactionChainEnum = "eth" | "sol" ;
 export type TransactionCurrencyEnum = "eth" | "sol" ;
-export type TransactionStatusEnum = "pending" | "failed" | "succeeded" | "canceled" ;
 

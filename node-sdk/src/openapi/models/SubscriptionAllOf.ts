@@ -20,20 +20,20 @@ import { HttpFile } from '../http/http';
 
 export class SubscriptionAllOf {
     'account': string | Account;
-    'cancel_at'?: number;
-    'canceled_at'?: number;
-    'current_period'?: SubscriptionPeriod;
-    'customer': string | Customer;
-    'invoices'?: Array<Invoice>;
-    'latest_invoice'?: Invoice;
-    'latest_period'?: SubscriptionPeriod;
-    'next_invoice'?: Invoice;
-    'pause_collection': boolean;
-    'payments'?: Array<Payment>;
-    'periods'?: Array<SubscriptionPeriod>;
     'platform_account'?: string | Account;
     'price': string | Price;
+    'customer': string | Customer;
+    'latest_invoice'?: Invoice;
+    'next_invoice'?: Invoice;
     'status': SubscriptionAllOfStatusEnum;
+    'pause_collection': boolean;
+    'cancel_at'?: number;
+    'canceled_at'?: number;
+    'invoices'?: Array<Invoice>;
+    'payments'?: Array<Payment>;
+    'current_period'?: SubscriptionPeriod;
+    'latest_period'?: SubscriptionPeriod;
+    'periods'?: Array<SubscriptionPeriod>;
     'trial_period_duration'?: number;
 
     static readonly discriminator: string | undefined = undefined;
@@ -43,72 +43,6 @@ export class SubscriptionAllOf {
             "name": "account",
             "baseName": "account",
             "type": "string | Account",
-            "format": ""
-        },
-        {
-            "name": "cancel_at",
-            "baseName": "cancel_at",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "canceled_at",
-            "baseName": "canceled_at",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "current_period",
-            "baseName": "current_period",
-            "type": "SubscriptionPeriod",
-            "format": ""
-        },
-        {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string | Customer",
-            "format": ""
-        },
-        {
-            "name": "invoices",
-            "baseName": "invoices",
-            "type": "Array<Invoice>",
-            "format": ""
-        },
-        {
-            "name": "latest_invoice",
-            "baseName": "latest_invoice",
-            "type": "Invoice",
-            "format": ""
-        },
-        {
-            "name": "latest_period",
-            "baseName": "latest_period",
-            "type": "SubscriptionPeriod",
-            "format": ""
-        },
-        {
-            "name": "next_invoice",
-            "baseName": "next_invoice",
-            "type": "Invoice",
-            "format": ""
-        },
-        {
-            "name": "pause_collection",
-            "baseName": "pause_collection",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "payments",
-            "baseName": "payments",
-            "type": "Array<Payment>",
-            "format": ""
-        },
-        {
-            "name": "periods",
-            "baseName": "periods",
-            "type": "Array<SubscriptionPeriod>",
             "format": ""
         },
         {
@@ -124,9 +58,75 @@ export class SubscriptionAllOf {
             "format": ""
         },
         {
+            "name": "customer",
+            "baseName": "customer",
+            "type": "string | Customer",
+            "format": ""
+        },
+        {
+            "name": "latest_invoice",
+            "baseName": "latest_invoice",
+            "type": "Invoice",
+            "format": ""
+        },
+        {
+            "name": "next_invoice",
+            "baseName": "next_invoice",
+            "type": "Invoice",
+            "format": ""
+        },
+        {
             "name": "status",
             "baseName": "status",
             "type": "SubscriptionAllOfStatusEnum",
+            "format": ""
+        },
+        {
+            "name": "pause_collection",
+            "baseName": "pause_collection",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "cancel_at",
+            "baseName": "cancel_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "canceled_at",
+            "baseName": "canceled_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "invoices",
+            "baseName": "invoices",
+            "type": "Array<Invoice>",
+            "format": ""
+        },
+        {
+            "name": "payments",
+            "baseName": "payments",
+            "type": "Array<Payment>",
+            "format": ""
+        },
+        {
+            "name": "current_period",
+            "baseName": "current_period",
+            "type": "SubscriptionPeriod",
+            "format": ""
+        },
+        {
+            "name": "latest_period",
+            "baseName": "latest_period",
+            "type": "SubscriptionPeriod",
+            "format": ""
+        },
+        {
+            "name": "periods",
+            "baseName": "periods",
+            "type": "Array<SubscriptionPeriod>",
             "format": ""
         },
         {

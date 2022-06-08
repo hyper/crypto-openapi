@@ -12,12 +12,6 @@ exports.UpdateInvoiceBody = UpdateInvoiceBody;
 UpdateInvoiceBody.discriminator = undefined;
 UpdateInvoiceBody.attributeTypeMap = [
     {
-        "name": "application_fee_percent",
-        "baseName": "application_fee_percent",
-        "type": "number",
-        "format": ""
-    },
-    {
         "name": "chain",
         "baseName": "chain",
         "type": "string",
@@ -36,15 +30,9 @@ UpdateInvoiceBody.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "any",
-        "format": ""
-    },
-    {
-        "name": "send_reminders",
-        "baseName": "send_reminders",
-        "type": "string",
+        "name": "application_fee_percent",
+        "baseName": "application_fee_percent",
+        "type": "number",
         "format": ""
     },
     {
@@ -57,6 +45,18 @@ UpdateInvoiceBody.attributeTypeMap = [
         "name": "trial_period_duration",
         "baseName": "trial_period_duration",
         "type": "number",
+        "format": ""
+    },
+    {
+        "name": "send_reminders",
+        "baseName": "send_reminders",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "any",
         "format": ""
     }
 ];

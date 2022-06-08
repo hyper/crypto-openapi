@@ -7,10 +7,10 @@ export declare class SubscriptionPeriod {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'end': number;
-    'invoice'?: string | Invoice;
     'platform_account'?: string | Account;
     'start': number;
+    'end': number;
+    'invoice'?: string | Invoice;
     'subscription': string | Subscription;
     'trial': boolean;
     static readonly discriminator: string | undefined;

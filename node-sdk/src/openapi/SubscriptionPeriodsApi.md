@@ -158,8 +158,8 @@ let body:.SubscriptionPeriodsApiUpdateRequest = {
   prism_account: "Prism-Account_example",
   // UpdateSubscriptionPeriodBody (optional)
   update_subscription_period_body: {
-    end: 3.14,
     start: 3.14,
+    end: 3.14,
   },
 };
 

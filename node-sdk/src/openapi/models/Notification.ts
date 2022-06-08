@@ -21,9 +21,9 @@ export class Notification {
     'object': string;
     'test': boolean;
     'account': string | Account;
+    'type': NotificationTypeEnum;
     'data': string;
     'emails'?: Array<string>;
-    'type': NotificationTypeEnum;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -59,6 +59,12 @@ export class Notification {
             "format": ""
         },
         {
+            "name": "type",
+            "baseName": "type",
+            "type": "NotificationTypeEnum",
+            "format": ""
+        },
+        {
             "name": "data",
             "baseName": "data",
             "type": "string",
@@ -68,12 +74,6 @@ export class Notification {
             "name": "emails",
             "baseName": "emails",
             "type": "Array<string>",
-            "format": ""
-        },
-        {
-            "name": "type",
-            "baseName": "type",
-            "type": "NotificationTypeEnum",
             "format": ""
         }    ];
 
