@@ -11,7 +11,6 @@
  */
 
 import { Account } from './Account';
-import { Invoice } from './Invoice';
 import { Subscription } from './Subscription';
 import { HttpFile } from '../http/http';
 
@@ -20,7 +19,6 @@ export class SubscriptionPeriodAllOf {
     'platform_account'?: string | Account;
     'start': number;
     'end': number;
-    'invoice'?: string | Invoice;
     'subscription': string | Subscription;
     'trial': boolean;
 
@@ -49,12 +47,6 @@ export class SubscriptionPeriodAllOf {
             "name": "end",
             "baseName": "end",
             "type": "number",
-            "format": ""
-        },
-        {
-            "name": "invoice",
-            "baseName": "invoice",
-            "type": "string | Invoice",
             "format": ""
         },
         {

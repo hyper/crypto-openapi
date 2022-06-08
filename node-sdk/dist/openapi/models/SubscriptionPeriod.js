@@ -60,12 +60,6 @@ SubscriptionPeriod.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "invoice",
-        "baseName": "invoice",
-        "type": "string | Invoice",
-        "format": ""
-    },
-    {
         "name": "subscription",
         "baseName": "subscription",
         "type": "string | Subscription",

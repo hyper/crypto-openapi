@@ -120,6 +120,12 @@ InvoiceAllOf.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "subscription_period",
+        "baseName": "subscription_period",
+        "type": "string | SubscriptionPeriod",
+        "format": ""
+    },
+    {
         "name": "line_items",
         "baseName": "line_items",
         "type": "InvoiceAllOfLineItems",
@@ -138,9 +144,9 @@ InvoiceAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "period",
-        "baseName": "period",
-        "type": "string | SubscriptionPeriod",
+        "name": "renewal",
+        "baseName": "renewal",
+        "type": "boolean",
         "format": ""
     },
     {

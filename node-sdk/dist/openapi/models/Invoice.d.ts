@@ -32,10 +32,11 @@ export declare class Invoice {
     'fees': Array<Fee>;
     'transfers': Array<Transfer>;
     'subscription'?: string | Subscription;
+    'subscription_period'?: string | SubscriptionPeriod;
     'line_items'?: InvoiceAllOfLineItems;
     'trial_period_duration'?: number;
     'send_reminders'?: string;
-    'period'?: string | SubscriptionPeriod;
+    'renewal'?: boolean;
     'metadata'?: any;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

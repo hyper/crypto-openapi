@@ -29,7 +29,6 @@ export class Subscription {
     'platform_account'?: string | Account;
     'price': string | Price;
     'customer': string | Customer;
-    'latest_invoice'?: Invoice;
     'next_invoice'?: Invoice;
     'status': SubscriptionStatusEnum;
     'pause_collection': boolean;
@@ -91,12 +90,6 @@ export class Subscription {
             "name": "customer",
             "baseName": "customer",
             "type": "string | Customer",
-            "format": ""
-        },
-        {
-            "name": "latest_invoice",
-            "baseName": "latest_invoice",
-            "type": "Invoice",
             "format": ""
         },
         {

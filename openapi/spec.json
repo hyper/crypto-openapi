@@ -406,16 +406,6 @@
               "payment": {
                 "$ref": "#/components/schemas/Payment"
               },
-              "period": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/SubscriptionPeriod"
-                  }
-                ]
-              },
               "platform_account": {
                 "oneOf": [
                   {
@@ -436,6 +426,9 @@
                   }
                 ]
               },
+              "renewal": {
+                "type": "boolean"
+              },
               "send_reminders": {
                 "type": "string"
               },
@@ -450,6 +443,17 @@
                   },
                   {
                     "$ref": "#/components/schemas/Subscription"
+                  }
+                ]
+              },
+              "subscription_period": {
+                "oneOf": [
+                  {
+                    "properties": {},
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/SubscriptionPeriod"
                   }
                 ]
               },
@@ -911,9 +915,6 @@
                 },
                 "type": "array"
               },
-              "latest_invoice": {
-                "$ref": "#/components/schemas/Invoice"
-              },
               "latest_period": {
                 "$ref": "#/components/schemas/SubscriptionPeriod"
               },
@@ -994,16 +995,6 @@
               },
               "end": {
                 "type": "number"
-              },
-              "invoice": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Invoice"
-                  }
-                ]
               },
               "platform_account": {
                 "oneOf": [

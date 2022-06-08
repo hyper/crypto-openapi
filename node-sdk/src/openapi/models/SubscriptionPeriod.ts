@@ -11,7 +11,6 @@
  */
 
 import { Account } from './Account';
-import { Invoice } from './Invoice';
 import { Model } from './Model';
 import { Subscription } from './Subscription';
 import { SubscriptionPeriodAllOf } from './SubscriptionPeriodAllOf';
@@ -26,7 +25,6 @@ export class SubscriptionPeriod {
     'platform_account'?: string | Account;
     'start': number;
     'end': number;
-    'invoice'?: string | Invoice;
     'subscription': string | Subscription;
     'trial': boolean;
 
@@ -79,12 +77,6 @@ export class SubscriptionPeriod {
             "name": "end",
             "baseName": "end",
             "type": "number",
-            "format": ""
-        },
-        {
-            "name": "invoice",
-            "baseName": "invoice",
-            "type": "string | Invoice",
             "format": ""
         },
         {

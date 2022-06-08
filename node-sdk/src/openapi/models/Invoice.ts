@@ -48,10 +48,11 @@ export class Invoice {
     'fees': Array<Fee>;
     'transfers': Array<Transfer>;
     'subscription'?: string | Subscription;
+    'subscription_period'?: string | SubscriptionPeriod;
     'line_items'?: InvoiceAllOfLineItems;
     'trial_period_duration'?: number;
     'send_reminders'?: string;
-    'period'?: string | SubscriptionPeriod;
+    'renewal'?: boolean;
     'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
@@ -190,6 +191,12 @@ export class Invoice {
             "format": ""
         },
         {
+            "name": "subscription_period",
+            "baseName": "subscription_period",
+            "type": "string | SubscriptionPeriod",
+            "format": ""
+        },
+        {
             "name": "line_items",
             "baseName": "line_items",
             "type": "InvoiceAllOfLineItems",
@@ -208,9 +215,9 @@ export class Invoice {
             "format": ""
         },
         {
-            "name": "period",
-            "baseName": "period",
-            "type": "string | SubscriptionPeriod",
+            "name": "renewal",
+            "baseName": "renewal",
+            "type": "boolean",
             "format": ""
         },
         {

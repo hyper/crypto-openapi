@@ -13,7 +13,6 @@ export declare class Subscription {
     'platform_account'?: string | Account;
     'price': string | Price;
     'customer': string | Customer;
-    'latest_invoice'?: Invoice;
     'next_invoice'?: Invoice;
     'status': SubscriptionStatusEnum;
     'pause_collection': boolean;
