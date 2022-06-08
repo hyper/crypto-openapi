@@ -47,6 +47,7 @@ let body:.InvoicesApiCreateRequest = {
     ],
     trial_period_duration: 3.14,
     send_reminders: "send_reminders_example",
+    subscription: "subscription_example",
     metadata: {},
   },
 };

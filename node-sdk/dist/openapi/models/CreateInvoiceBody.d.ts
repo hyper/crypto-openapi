@@ -12,6 +12,7 @@ export declare class CreateInvoiceBody {
     'line_items'?: Array<InvoicesLineItems>;
     'trial_period_duration'?: number;
     'send_reminders'?: string;
+    'subscription'?: string;
     'metadata'?: any;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

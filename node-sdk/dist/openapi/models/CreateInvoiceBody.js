@@ -84,6 +84,12 @@ CreateInvoiceBody.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "subscription",
+        "baseName": "subscription",
+        "type": "string",
+        "format": ""
+    },
+    {
         "name": "metadata",
         "baseName": "metadata",
         "type": "any",

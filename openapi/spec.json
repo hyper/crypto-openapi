@@ -2306,6 +2306,9 @@
                   "send_reminders": {
                     "type": "string"
                   },
+                  "subscription": {
+                    "type": "string"
+                  },
                   "trial_period_duration": {
                     "type": "number"
                   },

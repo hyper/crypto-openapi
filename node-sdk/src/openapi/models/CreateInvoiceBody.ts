@@ -26,6 +26,7 @@ export class CreateInvoiceBody {
     'line_items'?: Array<InvoicesLineItems>;
     'trial_period_duration'?: number;
     'send_reminders'?: string;
+    'subscription'?: string;
     'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
@@ -100,6 +101,12 @@ export class CreateInvoiceBody {
         {
             "name": "send_reminders",
             "baseName": "send_reminders",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "subscription",
+            "baseName": "subscription",
             "type": "string",
             "format": ""
         },
