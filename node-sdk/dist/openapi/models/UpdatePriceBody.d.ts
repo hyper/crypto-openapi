@@ -1,5 +1,5 @@
 export declare class UpdatePriceBody {
-    'billing_period_duration'?: number;
+    'application_fee_percent'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

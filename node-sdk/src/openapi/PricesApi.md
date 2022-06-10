@@ -288,7 +288,7 @@ let body:.PricesApiUpdateRequest = {
   prism_account: "Prism-Account_example",
   // UpdatePriceBody (optional)
   update_price_body: {
-    billing_period_duration: 3.14,
+    application_fee_percent: 3.14,
   },
 };
 

@@ -3238,7 +3238,7 @@
             "application/json": {
               "schema": {
                 "properties": {
-                  "billing_period_duration": {
+                  "application_fee_percent": {
                     "type": "number"
                   }
                 },

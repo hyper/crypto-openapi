@@ -12,8 +12,8 @@ exports.UpdatePriceBody = UpdatePriceBody;
 UpdatePriceBody.discriminator = undefined;
 UpdatePriceBody.attributeTypeMap = [
     {
-        "name": "billing_period_duration",
-        "baseName": "billing_period_duration",
+        "name": "application_fee_percent",
+        "baseName": "application_fee_percent",
         "type": "number",
         "format": ""
     }

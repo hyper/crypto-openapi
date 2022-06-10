@@ -13,14 +13,14 @@
 import { HttpFile } from '../http/http';
 
 export class UpdatePriceBody {
-    'billing_period_duration'?: number;
+    'application_fee_percent'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "billing_period_duration",
-            "baseName": "billing_period_duration",
+            "name": "application_fee_percent",
+            "baseName": "application_fee_percent",
             "type": "number",
             "format": ""
         }    ];
