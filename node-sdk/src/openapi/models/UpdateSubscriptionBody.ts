@@ -17,6 +17,7 @@ export class UpdateSubscriptionBody {
     'pause_collection'?: boolean;
     'cancel_at'?: number;
     'canceled_at'?: number;
+    'price'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -43,6 +44,12 @@ export class UpdateSubscriptionBody {
             "name": "canceled_at",
             "baseName": "canceled_at",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "price",
+            "baseName": "price",
+            "type": "string",
             "format": ""
         }    ];
 

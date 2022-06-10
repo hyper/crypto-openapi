@@ -915,6 +915,9 @@
                 },
                 "type": "array"
               },
+              "latest_invoice": {
+                "$ref": "#/components/schemas/Invoice"
+              },
               "latest_period": {
                 "$ref": "#/components/schemas/SubscriptionPeriod"
               },
@@ -3848,6 +3851,9 @@
                   },
                   "pause_collection": {
                     "type": "boolean"
+                  },
+                  "price": {
+                    "type": "string"
                   },
                   "status": {
                     "type": "string"

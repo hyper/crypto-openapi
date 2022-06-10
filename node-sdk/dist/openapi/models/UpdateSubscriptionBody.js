@@ -34,6 +34,12 @@ UpdateSubscriptionBody.attributeTypeMap = [
         "baseName": "canceled_at",
         "type": "number",
         "format": ""
+    },
+    {
+        "name": "price",
+        "baseName": "price",
+        "type": "string",
+        "format": ""
     }
 ];
 //# sourceMappingURL=UpdateSubscriptionBody.js.map

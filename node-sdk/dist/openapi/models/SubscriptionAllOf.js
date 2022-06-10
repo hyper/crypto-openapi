@@ -36,6 +36,12 @@ SubscriptionAllOf.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "latest_invoice",
+        "baseName": "latest_invoice",
+        "type": "Invoice",
+        "format": ""
+    },
+    {
         "name": "next_invoice",
         "baseName": "next_invoice",
         "type": "Invoice",

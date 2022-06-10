@@ -3,6 +3,7 @@ export declare class UpdateSubscriptionBody {
     'pause_collection'?: boolean;
     'cancel_at'?: number;
     'canceled_at'?: number;
+    'price'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

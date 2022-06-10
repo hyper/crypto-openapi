@@ -289,6 +289,7 @@ let body:.SubscriptionsApiUpdateRequest = {
     pause_collection: true,
     cancel_at: 3.14,
     canceled_at: 3.14,
+    price: "price_example",
   },
 };
 
