@@ -83,6 +83,7 @@ __exportStar(require("./TransferAllOf"), exports);
 __exportStar(require("./UpdateAccountBody"), exports);
 __exportStar(require("./UpdateCustomerBody"), exports);
 __exportStar(require("./UpdateInvoiceBody"), exports);
+__exportStar(require("./UpdatePriceBody"), exports);
 __exportStar(require("./UpdateProductBody"), exports);
 __exportStar(require("./UpdateSubscriptionBody"), exports);
 __exportStar(require("./UpdateSubscriptionPeriodBody"), exports);

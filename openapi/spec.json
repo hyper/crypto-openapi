@@ -3225,7 +3225,53 @@
             "type": "string"
           }
         }
-      ]
+      ],
+      "patch": {
+        "operationId": "prices_update",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "billing_period_duration": {
+                    "type": "number"
+                  }
+                },
+                "title": "UpdatePriceBody",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Update Price",
+        "tags": ["Prices"]
+      }
     },
     "/products": {
       "get": {

@@ -84,6 +84,7 @@ __exportStar(require("./TransferAllOf"), exports);
 __exportStar(require("./UpdateAccountBody"), exports);
 __exportStar(require("./UpdateCustomerBody"), exports);
 __exportStar(require("./UpdateInvoiceBody"), exports);
+__exportStar(require("./UpdatePriceBody"), exports);
 __exportStar(require("./UpdateProductBody"), exports);
 __exportStar(require("./UpdateSubscriptionBody"), exports);
 __exportStar(require("./UpdateSubscriptionPeriodBody"), exports);
@@ -166,6 +167,7 @@ const TransferAllOf_1 = require("./TransferAllOf");
 const UpdateAccountBody_1 = require("./UpdateAccountBody");
 const UpdateCustomerBody_1 = require("./UpdateCustomerBody");
 const UpdateInvoiceBody_1 = require("./UpdateInvoiceBody");
+const UpdatePriceBody_1 = require("./UpdatePriceBody");
 const UpdateProductBody_1 = require("./UpdateProductBody");
 const UpdateSubscriptionBody_1 = require("./UpdateSubscriptionBody");
 const UpdateSubscriptionPeriodBody_1 = require("./UpdateSubscriptionPeriodBody");
@@ -292,6 +294,7 @@ let typeMap = {
     "UpdateAccountBody": UpdateAccountBody_1.UpdateAccountBody,
     "UpdateCustomerBody": UpdateCustomerBody_1.UpdateCustomerBody,
     "UpdateInvoiceBody": UpdateInvoiceBody_1.UpdateInvoiceBody,
+    "UpdatePriceBody": UpdatePriceBody_1.UpdatePriceBody,
     "UpdateProductBody": UpdateProductBody_1.UpdateProductBody,
     "UpdateSubscriptionBody": UpdateSubscriptionBody_1.UpdateSubscriptionBody,
     "UpdateSubscriptionPeriodBody": UpdateSubscriptionPeriodBody_1.UpdateSubscriptionPeriodBody,

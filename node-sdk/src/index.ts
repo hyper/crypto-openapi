@@ -107,6 +107,7 @@ import {
   WebhooksApiDeleteRequest,
   PricesApiDeleteRequest,
   SubscriptionsApiDeleteRequest,
+  PricesApiUpdateRequest,
 } from './openapi/index';
 import convertCasing from './helpers/convertCasing';
 import { ListPayoutWalletsResponse } from './openapi/models/ListPayoutWalletsResponse';
@@ -408,6 +409,14 @@ class PricesApiLayer {
     options?: { prismAccount: string }
   ): Promise<Price> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
+  }
+
+  public async update(
+    id: string,
+    data: PricesApiUpdateRequest['update_price_body'],
+    options?: { prismAccount: string }
+  ): Promise<Price> {
+    return this.api.update({ id, ...convertCasing(options), update_price_body: data });
   }
 
   public async list(

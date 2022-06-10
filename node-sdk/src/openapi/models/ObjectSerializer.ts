@@ -71,6 +71,7 @@ export * from './TransferAllOf';
 export * from './UpdateAccountBody';
 export * from './UpdateCustomerBody';
 export * from './UpdateInvoiceBody';
+export * from './UpdatePriceBody';
 export * from './UpdateProductBody';
 export * from './UpdateSubscriptionBody';
 export * from './UpdateSubscriptionPeriodBody';
@@ -154,6 +155,7 @@ import { TransferAllOf } from './TransferAllOf';
 import { UpdateAccountBody } from './UpdateAccountBody';
 import { UpdateCustomerBody } from './UpdateCustomerBody';
 import { UpdateInvoiceBody } from './UpdateInvoiceBody';
+import { UpdatePriceBody } from './UpdatePriceBody';
 import { UpdateProductBody } from './UpdateProductBody';
 import { UpdateSubscriptionBody } from './UpdateSubscriptionBody';
 import { UpdateSubscriptionPeriodBody } from './UpdateSubscriptionPeriodBody';
@@ -286,6 +288,7 @@ let typeMap: {[index: string]: any} = {
     "UpdateAccountBody": UpdateAccountBody,
     "UpdateCustomerBody": UpdateCustomerBody,
     "UpdateInvoiceBody": UpdateInvoiceBody,
+    "UpdatePriceBody": UpdatePriceBody,
     "UpdateProductBody": UpdateProductBody,
     "UpdateSubscriptionBody": UpdateSubscriptionBody,
     "UpdateSubscriptionPeriodBody": UpdateSubscriptionPeriodBody,

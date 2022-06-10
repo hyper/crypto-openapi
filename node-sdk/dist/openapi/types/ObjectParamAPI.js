@@ -145,6 +145,9 @@ class ObjectPricesApi {
     retrieve(param, options) {
         return this.api.retrieve(param.id, param.prism_account, param.expand, options).toPromise();
     }
+    update(param, options) {
+        return this.api.update(param.id, param.prism_account, param.update_price_body, options).toPromise();
+    }
 }
 exports.ObjectPricesApi = ObjectPricesApi;
 const ObservableAPI_9 = require("./ObservableAPI");

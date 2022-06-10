@@ -113,6 +113,33 @@ class PricesApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
+    update(id, prism_account, update_price_body, _options) {
+        var _a, _b, _c;
+        return __awaiter(this, void 0, void 0, function* () {
+            let _config = _options || this.configuration;
+            if (id === null || id === undefined) {
+                throw new baseapi_1.RequiredError("PricesApi", "update", "id");
+            }
+            const localVarPath = '/prices/{id}'
+                .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PATCH);
+            requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+            if (prism_account !== undefined) {
+                requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
+            }
+            const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
+                "application/json"
+            ]);
+            requestContext.setHeaderParam("Content-Type", contentType);
+            const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(update_price_body, "UpdatePriceBody", ""), contentType);
+            requestContext.setBody(serializedBody);
+            const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+            if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+                yield (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+            }
+            return requestContext;
+        });
+    }
 }
 exports.PricesApiRequestFactory = PricesApiRequestFactory;
 class PricesApiResponseProcessor {
@@ -186,6 +213,30 @@ class PricesApiResponseProcessor {
             if (util_1.isCodeInRange("400", response.httpStatusCode)) {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse400", "");
                 throw new exception_1.ApiException(400, "Bad Request", body, response.headers);
+            }
+            if (util_1.isCodeInRange("404", response.httpStatusCode)) {
+                throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);
+            }
+            if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Price", "");
+                return body;
+            }
+            throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);
+        });
+    }
+    update(response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Price", "");
+                return body;
+            }
+            if (util_1.isCodeInRange("400", response.httpStatusCode)) {
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse400", "");
+                throw new exception_1.ApiException(400, "Bad Request", body, response.headers);
+            }
+            if (util_1.isCodeInRange("401", response.httpStatusCode)) {
+                throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
             }
             if (util_1.isCodeInRange("404", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);

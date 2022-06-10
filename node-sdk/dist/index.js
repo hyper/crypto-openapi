@@ -215,6 +215,11 @@ class PricesApiLayer {
             return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
         });
     }
+    update(id, data, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { update_price_body: data }));
+        });
+    }
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));

@@ -42,6 +42,7 @@ import { Transfer } from '../models/Transfer';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
+import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
 import { UpdateSubscriptionBody } from '../models/UpdateSubscriptionBody';
 import { UpdateSubscriptionPeriodBody } from '../models/UpdateSubscriptionPeriodBody';
@@ -118,6 +119,7 @@ export declare class PromisePricesApi {
     create(prism_account?: string, create_price_body?: CreatePriceBody, _options?: Configuration): Promise<Price>;
     list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListPricesResponse>;
     retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<Price>;
+    update(id: string, prism_account?: string, update_price_body?: UpdatePriceBody, _options?: Configuration): Promise<Price>;
 }
 import { ProductsApiRequestFactory, ProductsApiResponseProcessor } from "../apis/ProductsApi";
 export declare class PromiseProductsApi {

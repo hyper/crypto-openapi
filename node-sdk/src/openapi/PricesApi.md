@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**create**](PricesApi.md#create) | **POST** /prices | Create Price
 [**list**](PricesApi.md#list) | **GET** /prices | List Prices
 [**retrieve**](PricesApi.md#retrieve) | **GET** /prices/{id} | Retrieve Price
+[**update**](PricesApi.md#update) | **PATCH** /prices/{id} | Update Price
 
 
 # **_delete**
@@ -262,6 +263,70 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **400** | Bad Request |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **update**
+> Price update()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .PricesApi(configuration);
+
+let body:.PricesApiUpdateRequest = {
+  // string
+  id: "id_example",
+  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
+  prism_account: "Prism-Account_example",
+  // UpdatePriceBody (optional)
+  update_price_body: {
+    billing_period_duration: 3.14,
+  },
+};
+
+apiInstance.update(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **update_price_body** | **UpdatePriceBody**|  |
+ **id** | [**string**] |  | defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+
+
+### Return type
+
+**Price**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)

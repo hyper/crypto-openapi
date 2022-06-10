@@ -75,6 +75,7 @@ import { TransferAllOf } from '../models/TransferAllOf';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
+import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
 import { UpdateSubscriptionBody } from '../models/UpdateSubscriptionBody';
 import { UpdateSubscriptionPeriodBody } from '../models/UpdateSubscriptionPeriodBody';
@@ -565,6 +566,17 @@ export class PromisePricesApi {
      */
     public retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<Price> {
         const result = this.api.retrieve(id, prism_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update Price
+     * @param id 
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param update_price_body 
+     */
+    public update(id: string, prism_account?: string, update_price_body?: UpdatePriceBody, _options?: Configuration): Promise<Price> {
+        const result = this.api.update(id, prism_account, update_price_body, _options);
         return result.toPromise();
     }
 

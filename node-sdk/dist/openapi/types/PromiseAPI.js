@@ -175,6 +175,10 @@ class PromisePricesApi {
         const result = this.api.retrieve(id, prism_account, expand, _options);
         return result.toPromise();
     }
+    update(id, prism_account, update_price_body, _options) {
+        const result = this.api.update(id, prism_account, update_price_body, _options);
+        return result.toPromise();
+    }
 }
 exports.PromisePricesApi = PromisePricesApi;
 const ObservableAPI_9 = require("./ObservableAPI");

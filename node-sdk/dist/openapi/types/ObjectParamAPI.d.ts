@@ -42,6 +42,7 @@ import { Transfer } from '../models/Transfer';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
+import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
 import { UpdateSubscriptionBody } from '../models/UpdateSubscriptionBody';
 import { UpdateSubscriptionPeriodBody } from '../models/UpdateSubscriptionPeriodBody';
@@ -268,6 +269,11 @@ export interface PricesApiRetrieveRequest {
     prism_account?: string;
     expand?: string;
 }
+export interface PricesApiUpdateRequest {
+    id: string;
+    prism_account?: string;
+    update_price_body?: UpdatePriceBody;
+}
 export declare class ObjectPricesApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: PricesApiRequestFactory, responseProcessor?: PricesApiResponseProcessor);
@@ -275,6 +281,7 @@ export declare class ObjectPricesApi {
     create(param?: PricesApiCreateRequest, options?: Configuration): Promise<Price>;
     list(param?: PricesApiListRequest, options?: Configuration): Promise<ListPricesResponse>;
     retrieve(param: PricesApiRetrieveRequest, options?: Configuration): Promise<Price>;
+    update(param: PricesApiUpdateRequest, options?: Configuration): Promise<Price>;
 }
 import { ProductsApiRequestFactory, ProductsApiResponseProcessor } from "../apis/ProductsApi";
 export interface ProductsApiDeleteRequest {
