@@ -64,6 +64,12 @@ Transfer.attributeTypeMap = [
         "baseName": "payment_intent",
         "type": "string | PaymentIntent",
         "format": ""
+    },
+    {
+        "name": "wallet",
+        "baseName": "wallet",
+        "type": "string | PayoutWallet",
+        "format": ""
     }
 ];
 //# sourceMappingURL=Transfer.js.map

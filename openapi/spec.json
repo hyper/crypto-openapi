@@ -1109,12 +1109,30 @@
                 "maximum": 100,
                 "minimum": 0,
                 "type": "number"
+              },
+              "wallet": {
+                "oneOf": [
+                  {
+                    "properties": {},
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/PayoutWallet"
+                  }
+                ]
               }
             },
-            "required": ["account", "invoice", "percent", "payment_intent"],
+            "required": [
+              "account",
+              "invoice",
+              "percent",
+              "payment_intent",
+              "wallet"
+            ],
             "type": "object"
           }
         ],
+        "description": "",
         "title": "Transfer"
       },
       "Wallet": {

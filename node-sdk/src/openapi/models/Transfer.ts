@@ -14,6 +14,7 @@ import { Account } from './Account';
 import { Invoice } from './Invoice';
 import { Model } from './Model';
 import { PaymentIntent } from './PaymentIntent';
+import { PayoutWallet } from './PayoutWallet';
 import { TransferAllOf } from './TransferAllOf';
 import { HttpFile } from '../http/http';
 
@@ -27,6 +28,7 @@ export class Transfer {
     'invoice': string | Invoice;
     'percent': number;
     'payment_intent': string | PaymentIntent;
+    'wallet': string | PayoutWallet;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -83,6 +85,12 @@ export class Transfer {
             "name": "payment_intent",
             "baseName": "payment_intent",
             "type": "string | PaymentIntent",
+            "format": ""
+        },
+        {
+            "name": "wallet",
+            "baseName": "wallet",
+            "type": "string | PayoutWallet",
             "format": ""
         }    ];
 
