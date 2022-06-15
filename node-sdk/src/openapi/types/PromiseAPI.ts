@@ -449,11 +449,12 @@ export class PromisePaymentIntentsApi {
 
     /**
      * Update Payment Intent Hash
+     * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      * @param body 
      */
-    public updateHash(prism_account?: string, body?: string, _options?: Configuration): Promise<PaymentIntent> {
-        const result = this.api.updateHash(prism_account, body, _options);
+    public updateHash(id: string, prism_account?: string, body?: string, _options?: Configuration): Promise<PaymentIntent> {
+        const result = this.api.updateHash(id, prism_account, body, _options);
         return result.toPromise();
     }
 

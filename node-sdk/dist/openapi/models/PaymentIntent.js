@@ -42,39 +42,9 @@ PaymentIntent.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "amount",
-        "baseName": "amount",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "application_fee_percent",
-        "baseName": "application_fee_percent",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "chain",
-        "baseName": "chain",
-        "type": "PaymentIntentChainEnum",
-        "format": ""
-    },
-    {
-        "name": "currency",
-        "baseName": "currency",
-        "type": "PaymentIntentCurrencyEnum",
-        "format": ""
-    },
-    {
-        "name": "customer",
-        "baseName": "customer",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "exchange_rate",
-        "baseName": "exchange_rate",
-        "type": "string",
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string | Account",
         "format": ""
     },
     {
@@ -90,8 +60,38 @@ PaymentIntent.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "last_payment_error",
-        "baseName": "last_payment_error",
+        "name": "status",
+        "baseName": "status",
+        "type": "PaymentIntentStatusEnum",
+        "format": ""
+    },
+    {
+        "name": "chain",
+        "baseName": "chain",
+        "type": "PaymentIntentChainEnum",
+        "format": ""
+    },
+    {
+        "name": "currency",
+        "baseName": "currency",
+        "type": "PaymentIntentCurrencyEnum",
+        "format": ""
+    },
+    {
+        "name": "amount",
+        "baseName": "amount",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "subscription",
+        "baseName": "subscription",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "price",
+        "baseName": "price",
         "type": "string",
         "format": ""
     },
@@ -102,32 +102,14 @@ PaymentIntent.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "any",
-        "format": ""
-    },
-    {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "string | Account",
-        "format": ""
-    },
-    {
-        "name": "price",
-        "baseName": "price",
+        "name": "customer",
+        "baseName": "customer",
         "type": "string",
         "format": ""
     },
     {
-        "name": "status",
-        "baseName": "status",
-        "type": "PaymentIntentStatusEnum",
-        "format": ""
-    },
-    {
-        "name": "subscription",
-        "baseName": "subscription",
+        "name": "wallet",
+        "baseName": "wallet",
         "type": "string",
         "format": ""
     },
@@ -138,9 +120,39 @@ PaymentIntent.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "wallet",
-        "baseName": "wallet",
+        "name": "exchange_rate",
+        "baseName": "exchange_rate",
         "type": "string",
+        "format": ""
+    },
+    {
+        "name": "application_fee_percent",
+        "baseName": "application_fee_percent",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "last_payment_error",
+        "baseName": "last_payment_error",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "fees",
+        "baseName": "fees",
+        "type": "Array<Fee>",
+        "format": ""
+    },
+    {
+        "name": "transfers",
+        "baseName": "transfers",
+        "type": "Array<Transfer>",
+        "format": ""
+    },
+    {
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "any",
         "format": ""
     }
 ];

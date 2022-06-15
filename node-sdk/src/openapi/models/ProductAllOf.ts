@@ -16,8 +16,8 @@ import { HttpFile } from '../http/http';
 
 export class ProductAllOf {
     'account': string | Account;
-    'description'?: string;
     'name': string;
+    'description'?: string;
     'prices'?: Array<Price>;
 
     static readonly discriminator: string | undefined = undefined;
@@ -30,14 +30,14 @@ export class ProductAllOf {
             "format": ""
         },
         {
-            "name": "description",
-            "baseName": "description",
+            "name": "name",
+            "baseName": "name",
             "type": "string",
             "format": ""
         },
         {
-            "name": "name",
-            "baseName": "name",
+            "name": "description",
+            "baseName": "description",
             "type": "string",
             "format": ""
         },

@@ -816,6 +816,12 @@ export interface PaymentIntentsApiRetrieveRequest {
 
 export interface PaymentIntentsApiUpdateHashRequest {
     /**
+     * 
+     * @type string
+     * @memberof PaymentIntentsApiupdateHash
+     */
+    id: string
+    /**
      * The ID of the connected Prism account you are making a request on behalf on.
      * @type string
      * @memberof PaymentIntentsApiupdateHash
@@ -872,8 +878,8 @@ export class ObjectPaymentIntentsApi {
      * Update Payment Intent Hash
      * @param param the request object
      */
-    public updateHash(param: PaymentIntentsApiUpdateHashRequest = {}, options?: Configuration): Promise<PaymentIntent> {
-        return this.api.updateHash(param.prism_account, param.body,  options).toPromise();
+    public updateHash(param: PaymentIntentsApiUpdateHashRequest, options?: Configuration): Promise<PaymentIntent> {
+        return this.api.updateHash(param.id, param.prism_account, param.body,  options).toPromise();
     }
 
 }

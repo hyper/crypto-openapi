@@ -109,7 +109,7 @@ export declare class ObservablePaymentIntentsApi {
     list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Observable<ListPaymentIntentsResponse>;
     poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<PaymentIntent>;
     retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<PaymentIntent>;
-    updateHash(prism_account?: string, body?: string, _options?: Configuration): Observable<PaymentIntent>;
+    updateHash(id: string, prism_account?: string, body?: string, _options?: Configuration): Observable<PaymentIntent>;
 }
 import { PaymentsApiRequestFactory, PaymentsApiResponseProcessor } from "../apis/PaymentsApi";
 export declare class ObservablePaymentsApi {

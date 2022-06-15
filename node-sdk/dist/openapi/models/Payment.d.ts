@@ -16,9 +16,9 @@ export declare class Payment {
     'exchange_rate': number;
     'invoice': string | Invoice;
     'status': PaymentStatusEnum;
-    'subscription'?: string | Subscription;
     'usd_amount': number;
     'wallet': string | Wallet | any;
+    'subscription'?: string | Subscription;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

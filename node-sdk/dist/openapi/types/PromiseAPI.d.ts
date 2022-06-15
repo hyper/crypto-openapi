@@ -96,7 +96,7 @@ export declare class PromisePaymentIntentsApi {
     list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListPaymentIntentsResponse>;
     poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<PaymentIntent>;
     retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<PaymentIntent>;
-    updateHash(prism_account?: string, body?: string, _options?: Configuration): Promise<PaymentIntent>;
+    updateHash(id: string, prism_account?: string, body?: string, _options?: Configuration): Promise<PaymentIntent>;
 }
 import { PaymentsApiRequestFactory, PaymentsApiResponseProcessor } from "../apis/PaymentsApi";
 export declare class PromisePaymentsApi {

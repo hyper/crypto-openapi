@@ -88,13 +88,13 @@ let body:.SubscriptionsApiCreateRequest = {
   prism_account: "Prism-Account_example",
   // CreateSubscriptionBody (optional)
   create_subscription_body: {
-    cancel_at: 3.14,
-    customer: "customer_example",
-    metadata: {},
-    pause_collection: true,
     price: "price_example",
+    customer: "customer_example",
     status: "status_example",
+    pause_collection: true,
+    cancel_at: 3.14,
     trial_period_duration: 3.14,
+    metadata: {},
   },
 };
 
@@ -285,11 +285,11 @@ let body:.SubscriptionsApiUpdateRequest = {
   prism_account: "Prism-Account_example",
   // UpdateSubscriptionBody (optional)
   update_subscription_body: {
+    status: "status_example",
+    pause_collection: true,
     cancel_at: 3.14,
     canceled_at: 3.14,
-    pause_collection: true,
     price: "price_example",
-    status: "status_example",
   },
 };
 

@@ -11,9 +11,11 @@
  */
 
 import { Account } from './Account';
+import { Fee } from './Fee';
 import { Invoice } from './Invoice';
 import { Model } from './Model';
 import { PaymentIntentAllOf } from './PaymentIntentAllOf';
+import { Transfer } from './Transfer';
 import { HttpFile } from '../http/http';
 
 export class PaymentIntent {
@@ -22,23 +24,25 @@ export class PaymentIntent {
     'object': string;
     'test': boolean;
     'account'?: string | Account;
-    'amount': number;
-    'application_fee_percent'?: number;
-    'chain': PaymentIntentChainEnum;
-    'currency': PaymentIntentCurrencyEnum;
-    'customer': string;
-    'exchange_rate'?: string;
+    'platform_account'?: string | Account;
     'hash'?: string;
     'invoice': string | Invoice;
-    'last_payment_error'?: string;
-    'line_items'?: string;
-    'metadata'?: any;
-    'platform_account'?: string | Account;
-    'price'?: string;
     'status': PaymentIntentStatusEnum;
+    'chain': PaymentIntentChainEnum;
+    'currency': PaymentIntentCurrencyEnum;
+    'amount': number;
     'subscription'?: string;
-    'usd_amount'?: string;
+    'price'?: string;
+    'line_items'?: string;
+    'customer': string;
     'wallet'?: string;
+    'usd_amount'?: string;
+    'exchange_rate'?: string;
+    'application_fee_percent'?: number;
+    'last_payment_error'?: string;
+    'fees'?: Array<Fee>;
+    'transfers'?: Array<Transfer>;
+    'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -74,39 +78,9 @@ export class PaymentIntent {
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "application_fee_percent",
-            "baseName": "application_fee_percent",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "PaymentIntentChainEnum",
-            "format": ""
-        },
-        {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "PaymentIntentCurrencyEnum",
-            "format": ""
-        },
-        {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "exchange_rate",
-            "baseName": "exchange_rate",
-            "type": "string",
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string | Account",
             "format": ""
         },
         {
@@ -122,8 +96,38 @@ export class PaymentIntent {
             "format": ""
         },
         {
-            "name": "last_payment_error",
-            "baseName": "last_payment_error",
+            "name": "status",
+            "baseName": "status",
+            "type": "PaymentIntentStatusEnum",
+            "format": ""
+        },
+        {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "PaymentIntentChainEnum",
+            "format": ""
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "PaymentIntentCurrencyEnum",
+            "format": ""
+        },
+        {
+            "name": "amount",
+            "baseName": "amount",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "subscription",
+            "baseName": "subscription",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "price",
+            "baseName": "price",
             "type": "string",
             "format": ""
         },
@@ -134,32 +138,14 @@ export class PaymentIntent {
             "format": ""
         },
         {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "any",
-            "format": ""
-        },
-        {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string | Account",
-            "format": ""
-        },
-        {
-            "name": "price",
-            "baseName": "price",
+            "name": "customer",
+            "baseName": "customer",
             "type": "string",
             "format": ""
         },
         {
-            "name": "status",
-            "baseName": "status",
-            "type": "PaymentIntentStatusEnum",
-            "format": ""
-        },
-        {
-            "name": "subscription",
-            "baseName": "subscription",
+            "name": "wallet",
+            "baseName": "wallet",
             "type": "string",
             "format": ""
         },
@@ -170,9 +156,39 @@ export class PaymentIntent {
             "format": ""
         },
         {
-            "name": "wallet",
-            "baseName": "wallet",
+            "name": "exchange_rate",
+            "baseName": "exchange_rate",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "application_fee_percent",
+            "baseName": "application_fee_percent",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "last_payment_error",
+            "baseName": "last_payment_error",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "fees",
+            "baseName": "fees",
+            "type": "Array<Fee>",
+            "format": ""
+        },
+        {
+            "name": "transfers",
+            "baseName": "transfers",
+            "type": "Array<Transfer>",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
             "format": ""
         }    ];
 
@@ -185,7 +201,7 @@ export class PaymentIntent {
 }
 
 
+export type PaymentIntentStatusEnum = "pending" | "failed" | "succeeded" | "canceled" ;
 export type PaymentIntentChainEnum = "eth" | "sol" ;
 export type PaymentIntentCurrencyEnum = "eth" | "sol" ;
-export type PaymentIntentStatusEnum = "pending" | "failed" | "succeeded" | "canceled" ;
 

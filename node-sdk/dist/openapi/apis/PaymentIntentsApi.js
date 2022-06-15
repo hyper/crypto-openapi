@@ -116,11 +116,15 @@ class PaymentIntentsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    updateHash(prism_account, body, _options) {
+    updateHash(id, prism_account, body, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
-            const localVarPath = '/payment_intents/update_hash';
+            if (id === null || id === undefined) {
+                throw new baseapi_1.RequiredError("PaymentIntentsApi", "updateHash", "id");
+            }
+            const localVarPath = '/payment_intents/{id}/update_hash'
+                .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
             requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
             if (prism_account !== undefined) {

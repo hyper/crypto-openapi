@@ -5,9 +5,9 @@ export declare class Notification {
     'object': string;
     'test': boolean;
     'account': string | Account;
+    'type': NotificationTypeEnum;
     'data': string;
     'emails'?: Array<string>;
-    'type': NotificationTypeEnum;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

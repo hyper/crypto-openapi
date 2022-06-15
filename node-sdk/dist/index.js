@@ -334,6 +334,11 @@ class PaymentIntentsApiLayer {
             return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
         });
     }
+    updateHash(id, data, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.updateHash(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { body: data }));
+        });
+    }
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));

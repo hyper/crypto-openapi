@@ -42,60 +42,6 @@ Subscription.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "canceled_at",
-        "baseName": "canceled_at",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "current_period_end",
-        "baseName": "current_period_end",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "current_period_start",
-        "baseName": "current_period_start",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "customer",
-        "baseName": "customer",
-        "type": "string | Customer",
-        "format": ""
-    },
-    {
-        "name": "invoices",
-        "baseName": "invoices",
-        "type": "Array<Invoice>",
-        "format": ""
-    },
-    {
-        "name": "latest_invoice",
-        "baseName": "latest_invoice",
-        "type": "Invoice",
-        "format": ""
-    },
-    {
-        "name": "line_items",
-        "baseName": "line_items",
-        "type": "SubscriptionAllOfLineItems",
-        "format": ""
-    },
-    {
-        "name": "pause_collection",
-        "baseName": "pause_collection",
-        "type": "boolean",
-        "format": ""
-    },
-    {
-        "name": "payments",
-        "baseName": "payments",
-        "type": "Array<Payment>",
-        "format": ""
-    },
-    {
         "name": "platform_account",
         "baseName": "platform_account",
         "type": "string | Account",
@@ -108,14 +54,68 @@ Subscription.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "customer",
+        "baseName": "customer",
+        "type": "string | Customer",
+        "format": ""
+    },
+    {
+        "name": "latest_invoice",
+        "baseName": "latest_invoice",
+        "type": "Invoice",
+        "format": ""
+    },
+    {
         "name": "status",
         "baseName": "status",
         "type": "SubscriptionStatusEnum",
         "format": ""
     },
     {
+        "name": "pause_collection",
+        "baseName": "pause_collection",
+        "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "canceled_at",
+        "baseName": "canceled_at",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "invoices",
+        "baseName": "invoices",
+        "type": "Array<Invoice>",
+        "format": ""
+    },
+    {
+        "name": "payments",
+        "baseName": "payments",
+        "type": "Array<Payment>",
+        "format": ""
+    },
+    {
         "name": "trial_period_duration",
         "baseName": "trial_period_duration",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "line_items",
+        "baseName": "line_items",
+        "type": "SubscriptionAllOfLineItems",
+        "format": ""
+    },
+    {
+        "name": "current_period_start",
+        "baseName": "current_period_start",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "current_period_end",
+        "baseName": "current_period_end",
         "type": "number",
         "format": ""
     }

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**list**](PaymentIntentsApi.md#list) | **GET** /payment_intents | List Payment Intents
 [**poll**](PaymentIntentsApi.md#poll) | **GET** /payment_intents/{id}/poll | Poll Payment Intent
 [**retrieve**](PaymentIntentsApi.md#retrieve) | **GET** /payment_intents/{id} | Retrieve Payment Intent
-[**updateHash**](PaymentIntentsApi.md#updateHash) | **POST** /payment_intents/update_hash | Update Payment Intent Hash
+[**updateHash**](PaymentIntentsApi.md#updateHash) | **POST** /payment_intents/{id}/update_hash | Update Payment Intent Hash
 
 
 # **create**
@@ -273,6 +273,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .PaymentIntentsApi(configuration);
 
 let body:.PaymentIntentsApiUpdateHashRequest = {
+  // string
+  id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
   // string (optional)
@@ -290,6 +292,7 @@ apiInstance.updateHash(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **string**|  |
+ **id** | [**string**] |  | defaults to undefined
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 

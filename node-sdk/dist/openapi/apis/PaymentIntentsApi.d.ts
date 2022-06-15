@@ -8,7 +8,7 @@ export declare class PaymentIntentsApiRequestFactory extends BaseAPIRequestFacto
     list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<RequestContext>;
     poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext>;
     retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext>;
-    updateHash(prism_account?: string, body?: string, _options?: Configuration): Promise<RequestContext>;
+    updateHash(id: string, prism_account?: string, body?: string, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class PaymentIntentsApiResponseProcessor {
     create(response: ResponseContext): Promise<PaymentIntent>;

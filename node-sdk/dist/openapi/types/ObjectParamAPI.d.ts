@@ -211,6 +211,7 @@ export interface PaymentIntentsApiRetrieveRequest {
     expand?: string;
 }
 export interface PaymentIntentsApiUpdateHashRequest {
+    id: string;
     prism_account?: string;
     body?: string;
 }
@@ -221,7 +222,7 @@ export declare class ObjectPaymentIntentsApi {
     list(param?: PaymentIntentsApiListRequest, options?: Configuration): Promise<ListPaymentIntentsResponse>;
     poll(param: PaymentIntentsApiPollRequest, options?: Configuration): Promise<PaymentIntent>;
     retrieve(param: PaymentIntentsApiRetrieveRequest, options?: Configuration): Promise<PaymentIntent>;
-    updateHash(param?: PaymentIntentsApiUpdateHashRequest, options?: Configuration): Promise<PaymentIntent>;
+    updateHash(param: PaymentIntentsApiUpdateHashRequest, options?: Configuration): Promise<PaymentIntent>;
 }
 import { PaymentsApiRequestFactory, PaymentsApiResponseProcessor } from "../apis/PaymentsApi";
 export interface PaymentsApiListRequest {

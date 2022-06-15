@@ -133,8 +133,8 @@ class PromisePaymentIntentsApi {
         const result = this.api.retrieve(id, prism_account, expand, _options);
         return result.toPromise();
     }
-    updateHash(prism_account, body, _options) {
-        const result = this.api.updateHash(prism_account, body, _options);
+    updateHash(id, prism_account, body, _options) {
+        const result = this.api.updateHash(id, prism_account, body, _options);
         return result.toPromise();
     }
 }

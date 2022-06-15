@@ -102,6 +102,7 @@ import {
   ListPaymentIntentsResponse,
   PaymentIntentsApiListRequest,
   PaymentIntent,
+  PaymentIntentsApiUpdateHashRequest,
 } from './openapi/index';
 import convertCasing from './helpers/convertCasing';
 import { ListPayoutWalletsResponse } from './openapi';
@@ -585,6 +586,14 @@ class PaymentIntentsApiLayer {
     options?: { prismAccount: string }
   ): Promise<PaymentIntent> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
+  }
+
+  public async updateHash(
+    id: string,
+    data: PaymentIntentsApiUpdateHashRequest['body'],
+    options?: { prismAccount: string }
+  ): Promise<PaymentIntent> {
+    return this.api.updateHash({ id, ...convertCasing(options), body: data });
   }
 
   public async list(

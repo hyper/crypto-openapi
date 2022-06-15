@@ -210,16 +210,24 @@ export class PaymentIntentsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Update Payment Intent Hash
+     * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      * @param body 
      */
-    public async updateHash(prism_account?: string, body?: string, _options?: Configuration): Promise<RequestContext> {
+    public async updateHash(id: string, prism_account?: string, body?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new RequiredError("PaymentIntentsApi", "updateHash", "id");
+        }
+
 
 
 
         // Path Params
-        const localVarPath = '/payment_intents/update_hash';
+        const localVarPath = '/payment_intents/{id}/update_hash'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
