@@ -12,8 +12,8 @@
 
 import { Account } from './Account';
 import { FeeAllOf } from './FeeAllOf';
-import { Invoice } from './Invoice';
 import { Model } from './Model';
+import { PaymentIntent } from './PaymentIntent';
 import { Wallet } from './Wallet';
 import { HttpFile } from '../http/http';
 
@@ -26,7 +26,7 @@ export class Fee {
     'currency': string;
     'description'?: string;
     'internal'?: boolean;
-    'invoice': string | Invoice;
+    'payment_intent': string | PaymentIntent;
     'percent': number;
     'wallet': string | Wallet;
 
@@ -82,9 +82,9 @@ export class Fee {
             "format": ""
         },
         {
-            "name": "invoice",
-            "baseName": "invoice",
-            "type": "string | Invoice",
+            "name": "payment_intent",
+            "baseName": "payment_intent",
+            "type": "string | PaymentIntent",
             "format": ""
         },
         {

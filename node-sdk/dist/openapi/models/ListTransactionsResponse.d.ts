@@ -1,6 +1,6 @@
-import { Transaction } from './Transaction';
+import { PaymentIntent } from './PaymentIntent';
 export declare class ListTransactionsResponse {
-    'data'?: Array<Transaction>;
+    'data'?: Array<PaymentIntent>;
     'has_more'?: boolean;
     'page'?: number;
     'total'?: number;

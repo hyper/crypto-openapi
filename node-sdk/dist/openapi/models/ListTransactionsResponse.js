@@ -14,7 +14,7 @@ ListTransactionsResponse.attributeTypeMap = [
     {
         "name": "data",
         "baseName": "data",
-        "type": "Array<Transaction>",
+        "type": "Array<PaymentIntent>",
         "format": ""
     },
     {

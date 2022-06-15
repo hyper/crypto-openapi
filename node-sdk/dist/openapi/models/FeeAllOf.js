@@ -36,9 +36,9 @@ FeeAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "invoice",
-        "baseName": "invoice",
-        "type": "string | Invoice",
+        "name": "payment_intent",
+        "baseName": "payment_intent",
+        "type": "string | PaymentIntent",
         "format": ""
     },
     {

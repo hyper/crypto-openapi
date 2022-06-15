@@ -1,5 +1,5 @@
 import { Account } from './Account';
-import { PricesBasePrice } from './PricesBasePrice';
+import { PriceAllOfBasePrice } from './PriceAllOfBasePrice';
 import { Product } from './Product';
 export declare class Price {
     'created': Date;
@@ -7,15 +7,15 @@ export declare class Price {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'platform_account'?: string | Account;
     'amount': number;
-    'currency': string;
-    'chain': string;
-    'product'?: string | Product;
-    'base_price'?: PricesBasePrice;
-    'billing_period_duration'?: number;
     'application_fee_percent'?: number;
+    'base_price'?: PriceAllOfBasePrice;
+    'billing_period_duration'?: number;
+    'chain': string;
+    'currency': string;
     'metadata'?: any;
+    'platform_account'?: string | Account;
+    'product'?: string | Product;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

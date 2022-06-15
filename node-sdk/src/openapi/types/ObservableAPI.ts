@@ -7,18 +7,16 @@ import { Account } from '../models/Account';
 import { AccountAllOf } from '../models/AccountAllOf';
 import { AccountAllOfBranding } from '../models/AccountAllOfBranding';
 import { AccountsBranding } from '../models/AccountsBranding';
+import { AccountsIdSettings } from '../models/AccountsIdSettings';
 import { AccountsSettings } from '../models/AccountsSettings';
 import { ApiKey } from '../models/ApiKey';
 import { ApiKeyAllOf } from '../models/ApiKeyAllOf';
 import { CreateAccountBody } from '../models/CreateAccountBody';
 import { CreateCustomerBody } from '../models/CreateCustomerBody';
 import { CreateFeeBody } from '../models/CreateFeeBody';
-import { CreateInvoiceBody } from '../models/CreateInvoiceBody';
 import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
-import { CreatePriceBody } from '../models/CreatePriceBody';
 import { CreateProductBody } from '../models/CreateProductBody';
 import { CreateSubscriptionBody } from '../models/CreateSubscriptionBody';
-import { CreateTransactionBody } from '../models/CreateTransactionBody';
 import { CreateTransferBody } from '../models/CreateTransferBody';
 import { CreateWalletBody } from '../models/CreateWalletBody';
 import { CreateWebhookBody } from '../models/CreateWebhookBody';
@@ -35,19 +33,17 @@ import { InlineResponse400Error } from '../models/InlineResponse400Error';
 import { Invoice } from '../models/Invoice';
 import { InvoiceAllOf } from '../models/InvoiceAllOf';
 import { InvoiceAllOfLineItems } from '../models/InvoiceAllOfLineItems';
-import { InvoicesLineItems } from '../models/InvoicesLineItems';
 import { ListAccountsResponse } from '../models/ListAccountsResponse';
 import { ListCustomersResponse } from '../models/ListCustomersResponse';
 import { ListFeesResponse } from '../models/ListFeesResponse';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
 import { ListLogsResponse } from '../models/ListLogsResponse';
+import { ListPaymentIntentsResponse } from '../models/ListPaymentIntentsResponse';
 import { ListPaymentsResponse } from '../models/ListPaymentsResponse';
 import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
 import { ListPricesResponse } from '../models/ListPricesResponse';
 import { ListProductsResponse } from '../models/ListProductsResponse';
-import { ListSubscriptionPeriodsResponse } from '../models/ListSubscriptionPeriodsResponse';
 import { ListSubscriptionsResponse } from '../models/ListSubscriptionsResponse';
-import { ListTransactionsResponse } from '../models/ListTransactionsResponse';
 import { ListTransfersResponse } from '../models/ListTransfersResponse';
 import { ListWalletsResponse } from '../models/ListWalletsResponse';
 import { ListWebhooksResponse } from '../models/ListWebhooksResponse';
@@ -58,19 +54,18 @@ import { Notification } from '../models/Notification';
 import { NotificationAllOf } from '../models/NotificationAllOf';
 import { Payment } from '../models/Payment';
 import { PaymentAllOf } from '../models/PaymentAllOf';
+import { PaymentIntent } from '../models/PaymentIntent';
+import { PaymentIntentAllOf } from '../models/PaymentIntentAllOf';
 import { PayoutWallet } from '../models/PayoutWallet';
 import { PayoutWalletAllOf } from '../models/PayoutWalletAllOf';
 import { Price } from '../models/Price';
 import { PriceAllOf } from '../models/PriceAllOf';
-import { PricesBasePrice } from '../models/PricesBasePrice';
+import { PriceAllOfBasePrice } from '../models/PriceAllOfBasePrice';
 import { Product } from '../models/Product';
 import { ProductAllOf } from '../models/ProductAllOf';
 import { Subscription } from '../models/Subscription';
 import { SubscriptionAllOf } from '../models/SubscriptionAllOf';
-import { SubscriptionPeriod } from '../models/SubscriptionPeriod';
-import { SubscriptionPeriodAllOf } from '../models/SubscriptionPeriodAllOf';
-import { Transaction } from '../models/Transaction';
-import { TransactionAllOf } from '../models/TransactionAllOf';
+import { SubscriptionAllOfLineItems } from '../models/SubscriptionAllOfLineItems';
 import { Transfer } from '../models/Transfer';
 import { TransferAllOf } from '../models/TransferAllOf';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
@@ -79,7 +74,6 @@ import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
 import { UpdateSubscriptionBody } from '../models/UpdateSubscriptionBody';
-import { UpdateSubscriptionPeriodBody } from '../models/UpdateSubscriptionPeriodBody';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
 import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
 import { Wallet } from '../models/Wallet';
@@ -462,10 +456,10 @@ export class ObservableInvoicesApi {
     /**
      * Create Invoice
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param create_invoice_body 
+     * @param invoice 
      */
-    public create(prism_account?: string, create_invoice_body?: CreateInvoiceBody, _options?: Configuration): Observable<Invoice> {
-        const requestContextPromise = this.requestFactory.create(prism_account, create_invoice_body, _options);
+    public create(prism_account?: string, invoice?: Invoice, _options?: Configuration): Observable<Invoice> {
+        const requestContextPromise = this.requestFactory.create(prism_account, invoice, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -652,6 +646,149 @@ export class ObservableLogsApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve(rsp)));
+            }));
+    }
+
+}
+
+import { PaymentIntentsApiRequestFactory, PaymentIntentsApiResponseProcessor} from "../apis/PaymentIntentsApi";
+export class ObservablePaymentIntentsApi {
+    private requestFactory: PaymentIntentsApiRequestFactory;
+    private responseProcessor: PaymentIntentsApiResponseProcessor;
+    private configuration: Configuration;
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: PaymentIntentsApiRequestFactory,
+        responseProcessor?: PaymentIntentsApiResponseProcessor
+    ) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new PaymentIntentsApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new PaymentIntentsApiResponseProcessor();
+    }
+
+    /**
+     * Create Payment Intent
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param payment_intent 
+     */
+    public create(prism_account?: string, payment_intent?: PaymentIntent, _options?: Configuration): Observable<PaymentIntent> {
+        const requestContextPromise = this.requestFactory.create(prism_account, payment_intent, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create(rsp)));
+            }));
+    }
+
+    /**
+     * List Payment Intents
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param expand Specifies which fields to populate in the response.
+     * @param limit A limit on the number of objects to be returned between 1 and 100.
+     * @param page Index of the page to be returned in a paginated response.
+     * @param sort Specifies whether documents are sorted in an ascending or descending order.
+     */
+    public list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Observable<ListPaymentIntentsResponse> {
+        const requestContextPromise = this.requestFactory.list(prism_account, expand, limit, page, sort, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list(rsp)));
+            }));
+    }
+
+    /**
+     * Poll Payment Intent
+     * @param id 
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param expand Specifies which fields to populate in the response.
+     */
+    public poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<PaymentIntent> {
+        const requestContextPromise = this.requestFactory.poll(id, prism_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.poll(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve Payment Intent
+     * @param id 
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param expand Specifies which fields to populate in the response.
+     */
+    public retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<PaymentIntent> {
+        const requestContextPromise = this.requestFactory.retrieve(id, prism_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve(rsp)));
+            }));
+    }
+
+    /**
+     * Update Payment Intent Hash
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param body 
+     */
+    public updateHash(prism_account?: string, body?: string, _options?: Configuration): Observable<PaymentIntent> {
+        const requestContextPromise = this.requestFactory.updateHash(prism_account, body, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateHash(rsp)));
             }));
     }
 
@@ -913,10 +1050,10 @@ export class ObservablePricesApi {
     /**
      * Create Price
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param create_price_body 
+     * @param price 
      */
-    public create(prism_account?: string, create_price_body?: CreatePriceBody, _options?: Configuration): Observable<Price> {
-        const requestContextPromise = this.requestFactory.create(prism_account, create_price_body, _options);
+    public create(prism_account?: string, price?: Price, _options?: Configuration): Observable<Price> {
+        const requestContextPromise = this.requestFactory.create(prism_account, price, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1156,101 +1293,6 @@ export class ObservableProductsApi {
 
 }
 
-import { SubscriptionPeriodsApiRequestFactory, SubscriptionPeriodsApiResponseProcessor} from "../apis/SubscriptionPeriodsApi";
-export class ObservableSubscriptionPeriodsApi {
-    private requestFactory: SubscriptionPeriodsApiRequestFactory;
-    private responseProcessor: SubscriptionPeriodsApiResponseProcessor;
-    private configuration: Configuration;
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: SubscriptionPeriodsApiRequestFactory,
-        responseProcessor?: SubscriptionPeriodsApiResponseProcessor
-    ) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new SubscriptionPeriodsApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new SubscriptionPeriodsApiResponseProcessor();
-    }
-
-    /**
-     * List Subscription Periods
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     */
-    public list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Observable<ListSubscriptionPeriodsResponse> {
-        const requestContextPromise = this.requestFactory.list(prism_account, expand, limit, page, sort, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list(rsp)));
-            }));
-    }
-
-    /**
-     * List Subscription Periods
-     * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
-     */
-    public retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<SubscriptionPeriod> {
-        const requestContextPromise = this.requestFactory.retrieve(id, prism_account, expand, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve(rsp)));
-            }));
-    }
-
-    /**
-     * Update Subscription Period
-     * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param update_subscription_period_body 
-     */
-    public update(id: string, prism_account?: string, update_subscription_period_body?: UpdateSubscriptionPeriodBody, _options?: Configuration): Observable<SubscriptionPeriod> {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, update_subscription_period_body, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update(rsp)));
-            }));
-    }
-
-}
-
 import { SubscriptionsApiRequestFactory, SubscriptionsApiResponseProcessor} from "../apis/SubscriptionsApi";
 export class ObservableSubscriptionsApi {
     private requestFactory: SubscriptionsApiRequestFactory;
@@ -1389,125 +1431,6 @@ export class ObservableSubscriptionsApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update(rsp)));
-            }));
-    }
-
-}
-
-import { TransactionsApiRequestFactory, TransactionsApiResponseProcessor} from "../apis/TransactionsApi";
-export class ObservableTransactionsApi {
-    private requestFactory: TransactionsApiRequestFactory;
-    private responseProcessor: TransactionsApiResponseProcessor;
-    private configuration: Configuration;
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: TransactionsApiRequestFactory,
-        responseProcessor?: TransactionsApiResponseProcessor
-    ) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new TransactionsApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new TransactionsApiResponseProcessor();
-    }
-
-    /**
-     * Create Transaction
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param create_transaction_body 
-     */
-    public create(prism_account?: string, create_transaction_body?: CreateTransactionBody, _options?: Configuration): Observable<Transaction> {
-        const requestContextPromise = this.requestFactory.create(prism_account, create_transaction_body, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create(rsp)));
-            }));
-    }
-
-    /**
-     * List Transactions
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     */
-    public list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Observable<ListTransactionsResponse> {
-        const requestContextPromise = this.requestFactory.list(prism_account, expand, limit, page, sort, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list(rsp)));
-            }));
-    }
-
-    /**
-     * Poll Transaction
-     * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
-     */
-    public poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<Transaction> {
-        const requestContextPromise = this.requestFactory.poll(id, prism_account, expand, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.poll(rsp)));
-            }));
-    }
-
-    /**
-     * Retrieve Transaction
-     * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
-     */
-    public retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<Transaction> {
-        const requestContextPromise = this.requestFactory.retrieve(id, prism_account, expand, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve(rsp)));
             }));
     }
 

@@ -18,44 +18,8 @@ PriceAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "string | Account",
-        "format": ""
-    },
-    {
         "name": "amount",
         "baseName": "amount",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "currency",
-        "baseName": "currency",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "chain",
-        "baseName": "chain",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "product",
-        "baseName": "product",
-        "type": "string | Product",
-        "format": ""
-    },
-    {
-        "name": "base_price",
-        "baseName": "base_price",
-        "type": "PricesBasePrice",
-        "format": ""
-    },
-    {
-        "name": "billing_period_duration",
-        "baseName": "billing_period_duration",
         "type": "number",
         "format": ""
     },
@@ -66,9 +30,45 @@ PriceAllOf.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "base_price",
+        "baseName": "base_price",
+        "type": "PriceAllOfBasePrice",
+        "format": ""
+    },
+    {
+        "name": "billing_period_duration",
+        "baseName": "billing_period_duration",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "chain",
+        "baseName": "chain",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "currency",
+        "baseName": "currency",
+        "type": "string",
+        "format": ""
+    },
+    {
         "name": "metadata",
         "baseName": "metadata",
         "type": "any",
+        "format": ""
+    },
+    {
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string | Account",
+        "format": ""
+    },
+    {
+        "name": "product",
+        "baseName": "product",
+        "type": "string | Product",
         "format": ""
     }
 ];

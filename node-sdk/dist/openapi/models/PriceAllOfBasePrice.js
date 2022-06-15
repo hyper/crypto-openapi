@@ -22,12 +22,6 @@ PriceAllOfBasePrice.attributeTypeMap = [
         "baseName": "currency",
         "type": "string",
         "format": ""
-    },
-    {
-        "name": "exchange_rate",
-        "baseName": "exchange_rate",
-        "type": "number",
-        "format": ""
     }
 ];
 //# sourceMappingURL=PriceAllOfBasePrice.js.map

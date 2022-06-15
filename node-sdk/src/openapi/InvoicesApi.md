@@ -28,28 +28,8 @@ const apiInstance = new .InvoicesApi(configuration);
 let body:.InvoicesApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // CreateInvoiceBody (optional)
-  create_invoice_body: {
-    account: "account_example",
-    application_fee_percent: 3.14,
-    chain: "chain_example",
-    currency: "currency_example",
-    due: "due_example",
-    number: "number_example",
-    customer: "customer_example",
-    price: "price_example",
-    wallet: "wallet_example",
-    line_items: [
-      {
-        amount: 3.14,
-        description: "description_example",
-      },
-    ],
-    trial_period_duration: 3.14,
-    send_reminders: "send_reminders_example",
-    subscription: "subscription_example",
-    metadata: {},
-  },
+  // Invoice (optional)
+  invoice: null,
 };
 
 apiInstance.create(body).then((data:any) => {
@@ -62,7 +42,7 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_invoice_body** | **CreateInvoiceBody**|  |
+ **invoice** | **Invoice**|  |
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 
@@ -299,14 +279,14 @@ let body:.InvoicesApiUpdateRequest = {
   prism_account: "Prism-Account_example",
   // UpdateInvoiceBody (optional)
   update_invoice_body: {
+    application_fee_percent: 3.14,
     chain: "chain_example",
     currency: "currency_example",
     due: "due_example",
-    application_fee_percent: 3.14,
+    metadata: {},
+    send_reminders: "send_reminders_example",
     status: "status_example",
     trial_period_duration: 3.14,
-    send_reminders: "send_reminders_example",
-    metadata: {},
   },
 };
 

@@ -11,14 +11,14 @@
  */
 
 import { AccountsBranding } from './AccountsBranding';
-import { AccountsSettings } from './AccountsSettings';
+import { AccountsIdSettings } from './AccountsIdSettings';
 import { HttpFile } from '../http/http';
 
 export class UpdateAccountBody {
     'branding'?: AccountsBranding;
     'invoice_prefix'?: string;
     'name'?: string;
-    'settings'?: AccountsSettings;
+    'settings'?: AccountsIdSettings;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -44,7 +44,7 @@ export class UpdateAccountBody {
         {
             "name": "settings",
             "baseName": "settings",
-            "type": "AccountsSettings",
+            "type": "AccountsIdSettings",
             "format": ""
         }    ];
 

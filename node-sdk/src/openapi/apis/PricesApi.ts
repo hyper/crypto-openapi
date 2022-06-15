@@ -8,7 +8,6 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { CreatePriceBody } from '../models/CreatePriceBody';
 import { InlineResponse400 } from '../models/InlineResponse400';
 import { ListPricesResponse } from '../models/ListPricesResponse';
 import { Price } from '../models/Price';
@@ -60,9 +59,9 @@ export class PricesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Create Price
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param create_price_body 
+     * @param price 
      */
-    public async create(prism_account?: string, create_price_body?: CreatePriceBody, _options?: Configuration): Promise<RequestContext> {
+    public async create(prism_account?: string, price?: Price, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -86,7 +85,7 @@ export class PricesApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(create_price_body, "CreatePriceBody", ""),
+            ObjectSerializer.serialize(price, "Price", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

@@ -1,12 +1,12 @@
 import { Account } from './Account';
 import { Invoice } from './Invoice';
-import { Wallet } from './Wallet';
+import { PaymentIntent } from './PaymentIntent';
 export declare class TransferAllOf {
     'account': string | Account;
     'description'?: string;
     'invoice': string | Invoice;
+    'payment_intent': string | PaymentIntent;
     'percent': number;
-    'wallet': string | Wallet;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

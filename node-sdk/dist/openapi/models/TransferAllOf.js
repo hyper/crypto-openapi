@@ -30,15 +30,15 @@ TransferAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "percent",
-        "baseName": "percent",
-        "type": "number",
+        "name": "payment_intent",
+        "baseName": "payment_intent",
+        "type": "string | PaymentIntent",
         "format": ""
     },
     {
-        "name": "wallet",
-        "baseName": "wallet",
-        "type": "string | Wallet",
+        "name": "percent",
+        "baseName": "percent",
+        "type": "number",
         "format": ""
     }
 ];

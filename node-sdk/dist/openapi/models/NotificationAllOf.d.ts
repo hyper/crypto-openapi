@@ -1,9 +1,9 @@
 import { Account } from './Account';
 export declare class NotificationAllOf {
     'account': string | Account;
-    'type': NotificationAllOfTypeEnum;
     'data': string;
     'emails'?: Array<string>;
+    'type': NotificationAllOfTypeEnum;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

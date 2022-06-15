@@ -15,18 +15,16 @@ __exportStar(require("./Account"), exports);
 __exportStar(require("./AccountAllOf"), exports);
 __exportStar(require("./AccountAllOfBranding"), exports);
 __exportStar(require("./AccountsBranding"), exports);
+__exportStar(require("./AccountsIdSettings"), exports);
 __exportStar(require("./AccountsSettings"), exports);
 __exportStar(require("./ApiKey"), exports);
 __exportStar(require("./ApiKeyAllOf"), exports);
 __exportStar(require("./CreateAccountBody"), exports);
 __exportStar(require("./CreateCustomerBody"), exports);
 __exportStar(require("./CreateFeeBody"), exports);
-__exportStar(require("./CreateInvoiceBody"), exports);
 __exportStar(require("./CreatePayoutWalletBody"), exports);
-__exportStar(require("./CreatePriceBody"), exports);
 __exportStar(require("./CreateProductBody"), exports);
 __exportStar(require("./CreateSubscriptionBody"), exports);
-__exportStar(require("./CreateTransactionBody"), exports);
 __exportStar(require("./CreateTransferBody"), exports);
 __exportStar(require("./CreateWalletBody"), exports);
 __exportStar(require("./CreateWebhookBody"), exports);
@@ -43,19 +41,17 @@ __exportStar(require("./InlineResponse400Error"), exports);
 __exportStar(require("./Invoice"), exports);
 __exportStar(require("./InvoiceAllOf"), exports);
 __exportStar(require("./InvoiceAllOfLineItems"), exports);
-__exportStar(require("./InvoicesLineItems"), exports);
 __exportStar(require("./ListAccountsResponse"), exports);
 __exportStar(require("./ListCustomersResponse"), exports);
 __exportStar(require("./ListFeesResponse"), exports);
 __exportStar(require("./ListInvoicesResponse"), exports);
 __exportStar(require("./ListLogsResponse"), exports);
+__exportStar(require("./ListPaymentIntentsResponse"), exports);
 __exportStar(require("./ListPaymentsResponse"), exports);
 __exportStar(require("./ListPayoutWalletsResponse"), exports);
 __exportStar(require("./ListPricesResponse"), exports);
 __exportStar(require("./ListProductsResponse"), exports);
-__exportStar(require("./ListSubscriptionPeriodsResponse"), exports);
 __exportStar(require("./ListSubscriptionsResponse"), exports);
-__exportStar(require("./ListTransactionsResponse"), exports);
 __exportStar(require("./ListTransfersResponse"), exports);
 __exportStar(require("./ListWalletsResponse"), exports);
 __exportStar(require("./ListWebhooksResponse"), exports);
@@ -66,19 +62,18 @@ __exportStar(require("./Notification"), exports);
 __exportStar(require("./NotificationAllOf"), exports);
 __exportStar(require("./Payment"), exports);
 __exportStar(require("./PaymentAllOf"), exports);
+__exportStar(require("./PaymentIntent"), exports);
+__exportStar(require("./PaymentIntentAllOf"), exports);
 __exportStar(require("./PayoutWallet"), exports);
 __exportStar(require("./PayoutWalletAllOf"), exports);
 __exportStar(require("./Price"), exports);
 __exportStar(require("./PriceAllOf"), exports);
-__exportStar(require("./PricesBasePrice"), exports);
+__exportStar(require("./PriceAllOfBasePrice"), exports);
 __exportStar(require("./Product"), exports);
 __exportStar(require("./ProductAllOf"), exports);
 __exportStar(require("./Subscription"), exports);
 __exportStar(require("./SubscriptionAllOf"), exports);
-__exportStar(require("./SubscriptionPeriod"), exports);
-__exportStar(require("./SubscriptionPeriodAllOf"), exports);
-__exportStar(require("./Transaction"), exports);
-__exportStar(require("./TransactionAllOf"), exports);
+__exportStar(require("./SubscriptionAllOfLineItems"), exports);
 __exportStar(require("./Transfer"), exports);
 __exportStar(require("./TransferAllOf"), exports);
 __exportStar(require("./UpdateAccountBody"), exports);
@@ -87,7 +82,6 @@ __exportStar(require("./UpdateInvoiceBody"), exports);
 __exportStar(require("./UpdatePriceBody"), exports);
 __exportStar(require("./UpdateProductBody"), exports);
 __exportStar(require("./UpdateSubscriptionBody"), exports);
-__exportStar(require("./UpdateSubscriptionPeriodBody"), exports);
 __exportStar(require("./UpdateWalletBody"), exports);
 __exportStar(require("./UpdateWebhookBody"), exports);
 __exportStar(require("./Wallet"), exports);
@@ -98,18 +92,16 @@ const Account_1 = require("./Account");
 const AccountAllOf_1 = require("./AccountAllOf");
 const AccountAllOfBranding_1 = require("./AccountAllOfBranding");
 const AccountsBranding_1 = require("./AccountsBranding");
+const AccountsIdSettings_1 = require("./AccountsIdSettings");
 const AccountsSettings_1 = require("./AccountsSettings");
 const ApiKey_1 = require("./ApiKey");
 const ApiKeyAllOf_1 = require("./ApiKeyAllOf");
 const CreateAccountBody_1 = require("./CreateAccountBody");
 const CreateCustomerBody_1 = require("./CreateCustomerBody");
 const CreateFeeBody_1 = require("./CreateFeeBody");
-const CreateInvoiceBody_1 = require("./CreateInvoiceBody");
 const CreatePayoutWalletBody_1 = require("./CreatePayoutWalletBody");
-const CreatePriceBody_1 = require("./CreatePriceBody");
 const CreateProductBody_1 = require("./CreateProductBody");
 const CreateSubscriptionBody_1 = require("./CreateSubscriptionBody");
-const CreateTransactionBody_1 = require("./CreateTransactionBody");
 const CreateTransferBody_1 = require("./CreateTransferBody");
 const CreateWalletBody_1 = require("./CreateWalletBody");
 const CreateWebhookBody_1 = require("./CreateWebhookBody");
@@ -126,19 +118,17 @@ const InlineResponse400Error_1 = require("./InlineResponse400Error");
 const Invoice_1 = require("./Invoice");
 const InvoiceAllOf_1 = require("./InvoiceAllOf");
 const InvoiceAllOfLineItems_1 = require("./InvoiceAllOfLineItems");
-const InvoicesLineItems_1 = require("./InvoicesLineItems");
 const ListAccountsResponse_1 = require("./ListAccountsResponse");
 const ListCustomersResponse_1 = require("./ListCustomersResponse");
 const ListFeesResponse_1 = require("./ListFeesResponse");
 const ListInvoicesResponse_1 = require("./ListInvoicesResponse");
 const ListLogsResponse_1 = require("./ListLogsResponse");
+const ListPaymentIntentsResponse_1 = require("./ListPaymentIntentsResponse");
 const ListPaymentsResponse_1 = require("./ListPaymentsResponse");
 const ListPayoutWalletsResponse_1 = require("./ListPayoutWalletsResponse");
 const ListPricesResponse_1 = require("./ListPricesResponse");
 const ListProductsResponse_1 = require("./ListProductsResponse");
-const ListSubscriptionPeriodsResponse_1 = require("./ListSubscriptionPeriodsResponse");
 const ListSubscriptionsResponse_1 = require("./ListSubscriptionsResponse");
-const ListTransactionsResponse_1 = require("./ListTransactionsResponse");
 const ListTransfersResponse_1 = require("./ListTransfersResponse");
 const ListWalletsResponse_1 = require("./ListWalletsResponse");
 const ListWebhooksResponse_1 = require("./ListWebhooksResponse");
@@ -149,19 +139,18 @@ const Notification_1 = require("./Notification");
 const NotificationAllOf_1 = require("./NotificationAllOf");
 const Payment_1 = require("./Payment");
 const PaymentAllOf_1 = require("./PaymentAllOf");
+const PaymentIntent_1 = require("./PaymentIntent");
+const PaymentIntentAllOf_1 = require("./PaymentIntentAllOf");
 const PayoutWallet_1 = require("./PayoutWallet");
 const PayoutWalletAllOf_1 = require("./PayoutWalletAllOf");
 const Price_1 = require("./Price");
 const PriceAllOf_1 = require("./PriceAllOf");
-const PricesBasePrice_1 = require("./PricesBasePrice");
+const PriceAllOfBasePrice_1 = require("./PriceAllOfBasePrice");
 const Product_1 = require("./Product");
 const ProductAllOf_1 = require("./ProductAllOf");
 const Subscription_1 = require("./Subscription");
 const SubscriptionAllOf_1 = require("./SubscriptionAllOf");
-const SubscriptionPeriod_1 = require("./SubscriptionPeriod");
-const SubscriptionPeriodAllOf_1 = require("./SubscriptionPeriodAllOf");
-const Transaction_1 = require("./Transaction");
-const TransactionAllOf_1 = require("./TransactionAllOf");
+const SubscriptionAllOfLineItems_1 = require("./SubscriptionAllOfLineItems");
 const Transfer_1 = require("./Transfer");
 const TransferAllOf_1 = require("./TransferAllOf");
 const UpdateAccountBody_1 = require("./UpdateAccountBody");
@@ -170,7 +159,6 @@ const UpdateInvoiceBody_1 = require("./UpdateInvoiceBody");
 const UpdatePriceBody_1 = require("./UpdatePriceBody");
 const UpdateProductBody_1 = require("./UpdateProductBody");
 const UpdateSubscriptionBody_1 = require("./UpdateSubscriptionBody");
-const UpdateSubscriptionPeriodBody_1 = require("./UpdateSubscriptionPeriodBody");
 const UpdateWalletBody_1 = require("./UpdateWalletBody");
 const UpdateWebhookBody_1 = require("./UpdateWebhookBody");
 const Wallet_1 = require("./Wallet");
@@ -196,10 +184,8 @@ let enumsMap = new Set([
     "ApiKeyTypeEnum",
     "ApiKeyAllOfTypeEnum",
     "InvoiceChainEnum",
-    "InvoiceCurrencyEnum",
     "InvoiceStatusEnum",
     "InvoiceAllOfChainEnum",
-    "InvoiceAllOfCurrencyEnum",
     "InvoiceAllOfStatusEnum",
     "LogMethodEnum",
     "LogAllOfMethodEnum",
@@ -207,16 +193,16 @@ let enumsMap = new Set([
     "NotificationAllOfTypeEnum",
     "PaymentStatusEnum",
     "PaymentAllOfStatusEnum",
+    "PaymentIntentChainEnum",
+    "PaymentIntentCurrencyEnum",
+    "PaymentIntentStatusEnum",
+    "PaymentIntentAllOfChainEnum",
+    "PaymentIntentAllOfCurrencyEnum",
+    "PaymentIntentAllOfStatusEnum",
     "PayoutWalletChainEnum",
     "PayoutWalletAllOfChainEnum",
     "SubscriptionStatusEnum",
     "SubscriptionAllOfStatusEnum",
-    "TransactionStatusEnum",
-    "TransactionChainEnum",
-    "TransactionCurrencyEnum",
-    "TransactionAllOfStatusEnum",
-    "TransactionAllOfChainEnum",
-    "TransactionAllOfCurrencyEnum",
     "WalletChainEnum",
     "WalletAllOfChainEnum",
 ]);
@@ -225,18 +211,16 @@ let typeMap = {
     "AccountAllOf": AccountAllOf_1.AccountAllOf,
     "AccountAllOfBranding": AccountAllOfBranding_1.AccountAllOfBranding,
     "AccountsBranding": AccountsBranding_1.AccountsBranding,
+    "AccountsIdSettings": AccountsIdSettings_1.AccountsIdSettings,
     "AccountsSettings": AccountsSettings_1.AccountsSettings,
     "ApiKey": ApiKey_1.ApiKey,
     "ApiKeyAllOf": ApiKeyAllOf_1.ApiKeyAllOf,
     "CreateAccountBody": CreateAccountBody_1.CreateAccountBody,
     "CreateCustomerBody": CreateCustomerBody_1.CreateCustomerBody,
     "CreateFeeBody": CreateFeeBody_1.CreateFeeBody,
-    "CreateInvoiceBody": CreateInvoiceBody_1.CreateInvoiceBody,
     "CreatePayoutWalletBody": CreatePayoutWalletBody_1.CreatePayoutWalletBody,
-    "CreatePriceBody": CreatePriceBody_1.CreatePriceBody,
     "CreateProductBody": CreateProductBody_1.CreateProductBody,
     "CreateSubscriptionBody": CreateSubscriptionBody_1.CreateSubscriptionBody,
-    "CreateTransactionBody": CreateTransactionBody_1.CreateTransactionBody,
     "CreateTransferBody": CreateTransferBody_1.CreateTransferBody,
     "CreateWalletBody": CreateWalletBody_1.CreateWalletBody,
     "CreateWebhookBody": CreateWebhookBody_1.CreateWebhookBody,
@@ -253,19 +237,17 @@ let typeMap = {
     "Invoice": Invoice_1.Invoice,
     "InvoiceAllOf": InvoiceAllOf_1.InvoiceAllOf,
     "InvoiceAllOfLineItems": InvoiceAllOfLineItems_1.InvoiceAllOfLineItems,
-    "InvoicesLineItems": InvoicesLineItems_1.InvoicesLineItems,
     "ListAccountsResponse": ListAccountsResponse_1.ListAccountsResponse,
     "ListCustomersResponse": ListCustomersResponse_1.ListCustomersResponse,
     "ListFeesResponse": ListFeesResponse_1.ListFeesResponse,
     "ListInvoicesResponse": ListInvoicesResponse_1.ListInvoicesResponse,
     "ListLogsResponse": ListLogsResponse_1.ListLogsResponse,
+    "ListPaymentIntentsResponse": ListPaymentIntentsResponse_1.ListPaymentIntentsResponse,
     "ListPaymentsResponse": ListPaymentsResponse_1.ListPaymentsResponse,
     "ListPayoutWalletsResponse": ListPayoutWalletsResponse_1.ListPayoutWalletsResponse,
     "ListPricesResponse": ListPricesResponse_1.ListPricesResponse,
     "ListProductsResponse": ListProductsResponse_1.ListProductsResponse,
-    "ListSubscriptionPeriodsResponse": ListSubscriptionPeriodsResponse_1.ListSubscriptionPeriodsResponse,
     "ListSubscriptionsResponse": ListSubscriptionsResponse_1.ListSubscriptionsResponse,
-    "ListTransactionsResponse": ListTransactionsResponse_1.ListTransactionsResponse,
     "ListTransfersResponse": ListTransfersResponse_1.ListTransfersResponse,
     "ListWalletsResponse": ListWalletsResponse_1.ListWalletsResponse,
     "ListWebhooksResponse": ListWebhooksResponse_1.ListWebhooksResponse,
@@ -276,19 +258,18 @@ let typeMap = {
     "NotificationAllOf": NotificationAllOf_1.NotificationAllOf,
     "Payment": Payment_1.Payment,
     "PaymentAllOf": PaymentAllOf_1.PaymentAllOf,
+    "PaymentIntent": PaymentIntent_1.PaymentIntent,
+    "PaymentIntentAllOf": PaymentIntentAllOf_1.PaymentIntentAllOf,
     "PayoutWallet": PayoutWallet_1.PayoutWallet,
     "PayoutWalletAllOf": PayoutWalletAllOf_1.PayoutWalletAllOf,
     "Price": Price_1.Price,
     "PriceAllOf": PriceAllOf_1.PriceAllOf,
-    "PricesBasePrice": PricesBasePrice_1.PricesBasePrice,
+    "PriceAllOfBasePrice": PriceAllOfBasePrice_1.PriceAllOfBasePrice,
     "Product": Product_1.Product,
     "ProductAllOf": ProductAllOf_1.ProductAllOf,
     "Subscription": Subscription_1.Subscription,
     "SubscriptionAllOf": SubscriptionAllOf_1.SubscriptionAllOf,
-    "SubscriptionPeriod": SubscriptionPeriod_1.SubscriptionPeriod,
-    "SubscriptionPeriodAllOf": SubscriptionPeriodAllOf_1.SubscriptionPeriodAllOf,
-    "Transaction": Transaction_1.Transaction,
-    "TransactionAllOf": TransactionAllOf_1.TransactionAllOf,
+    "SubscriptionAllOfLineItems": SubscriptionAllOfLineItems_1.SubscriptionAllOfLineItems,
     "Transfer": Transfer_1.Transfer,
     "TransferAllOf": TransferAllOf_1.TransferAllOf,
     "UpdateAccountBody": UpdateAccountBody_1.UpdateAccountBody,
@@ -297,7 +278,6 @@ let typeMap = {
     "UpdatePriceBody": UpdatePriceBody_1.UpdatePriceBody,
     "UpdateProductBody": UpdateProductBody_1.UpdateProductBody,
     "UpdateSubscriptionBody": UpdateSubscriptionBody_1.UpdateSubscriptionBody,
-    "UpdateSubscriptionPeriodBody": UpdateSubscriptionPeriodBody_1.UpdateSubscriptionPeriodBody,
     "UpdateWalletBody": UpdateWalletBody_1.UpdateWalletBody,
     "UpdateWebhookBody": UpdateWebhookBody_1.UpdateWebhookBody,
     "Wallet": Wallet_1.Wallet,

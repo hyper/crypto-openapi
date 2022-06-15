@@ -1,10 +1,10 @@
 import { AccountsBranding } from './AccountsBranding';
-import { AccountsSettings } from './AccountsSettings';
+import { AccountsIdSettings } from './AccountsIdSettings';
 export declare class UpdateAccountBody {
     'branding'?: AccountsBranding;
     'invoice_prefix'?: string;
     'name'?: string;
-    'settings'?: AccountsSettings;
+    'settings'?: AccountsIdSettings;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

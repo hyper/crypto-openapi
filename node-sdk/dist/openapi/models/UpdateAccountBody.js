@@ -32,7 +32,7 @@ UpdateAccountBody.attributeTypeMap = [
     {
         "name": "settings",
         "baseName": "settings",
-        "type": "AccountsSettings",
+        "type": "AccountsIdSettings",
         "format": ""
     }
 ];

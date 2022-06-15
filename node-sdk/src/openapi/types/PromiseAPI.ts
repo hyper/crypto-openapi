@@ -6,18 +6,16 @@ import { Account } from '../models/Account';
 import { AccountAllOf } from '../models/AccountAllOf';
 import { AccountAllOfBranding } from '../models/AccountAllOfBranding';
 import { AccountsBranding } from '../models/AccountsBranding';
+import { AccountsIdSettings } from '../models/AccountsIdSettings';
 import { AccountsSettings } from '../models/AccountsSettings';
 import { ApiKey } from '../models/ApiKey';
 import { ApiKeyAllOf } from '../models/ApiKeyAllOf';
 import { CreateAccountBody } from '../models/CreateAccountBody';
 import { CreateCustomerBody } from '../models/CreateCustomerBody';
 import { CreateFeeBody } from '../models/CreateFeeBody';
-import { CreateInvoiceBody } from '../models/CreateInvoiceBody';
 import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
-import { CreatePriceBody } from '../models/CreatePriceBody';
 import { CreateProductBody } from '../models/CreateProductBody';
 import { CreateSubscriptionBody } from '../models/CreateSubscriptionBody';
-import { CreateTransactionBody } from '../models/CreateTransactionBody';
 import { CreateTransferBody } from '../models/CreateTransferBody';
 import { CreateWalletBody } from '../models/CreateWalletBody';
 import { CreateWebhookBody } from '../models/CreateWebhookBody';
@@ -34,19 +32,17 @@ import { InlineResponse400Error } from '../models/InlineResponse400Error';
 import { Invoice } from '../models/Invoice';
 import { InvoiceAllOf } from '../models/InvoiceAllOf';
 import { InvoiceAllOfLineItems } from '../models/InvoiceAllOfLineItems';
-import { InvoicesLineItems } from '../models/InvoicesLineItems';
 import { ListAccountsResponse } from '../models/ListAccountsResponse';
 import { ListCustomersResponse } from '../models/ListCustomersResponse';
 import { ListFeesResponse } from '../models/ListFeesResponse';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
 import { ListLogsResponse } from '../models/ListLogsResponse';
+import { ListPaymentIntentsResponse } from '../models/ListPaymentIntentsResponse';
 import { ListPaymentsResponse } from '../models/ListPaymentsResponse';
 import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
 import { ListPricesResponse } from '../models/ListPricesResponse';
 import { ListProductsResponse } from '../models/ListProductsResponse';
-import { ListSubscriptionPeriodsResponse } from '../models/ListSubscriptionPeriodsResponse';
 import { ListSubscriptionsResponse } from '../models/ListSubscriptionsResponse';
-import { ListTransactionsResponse } from '../models/ListTransactionsResponse';
 import { ListTransfersResponse } from '../models/ListTransfersResponse';
 import { ListWalletsResponse } from '../models/ListWalletsResponse';
 import { ListWebhooksResponse } from '../models/ListWebhooksResponse';
@@ -57,19 +53,18 @@ import { Notification } from '../models/Notification';
 import { NotificationAllOf } from '../models/NotificationAllOf';
 import { Payment } from '../models/Payment';
 import { PaymentAllOf } from '../models/PaymentAllOf';
+import { PaymentIntent } from '../models/PaymentIntent';
+import { PaymentIntentAllOf } from '../models/PaymentIntentAllOf';
 import { PayoutWallet } from '../models/PayoutWallet';
 import { PayoutWalletAllOf } from '../models/PayoutWalletAllOf';
 import { Price } from '../models/Price';
 import { PriceAllOf } from '../models/PriceAllOf';
-import { PricesBasePrice } from '../models/PricesBasePrice';
+import { PriceAllOfBasePrice } from '../models/PriceAllOfBasePrice';
 import { Product } from '../models/Product';
 import { ProductAllOf } from '../models/ProductAllOf';
 import { Subscription } from '../models/Subscription';
 import { SubscriptionAllOf } from '../models/SubscriptionAllOf';
-import { SubscriptionPeriod } from '../models/SubscriptionPeriod';
-import { SubscriptionPeriodAllOf } from '../models/SubscriptionPeriodAllOf';
-import { Transaction } from '../models/Transaction';
-import { TransactionAllOf } from '../models/TransactionAllOf';
+import { SubscriptionAllOfLineItems } from '../models/SubscriptionAllOfLineItems';
 import { Transfer } from '../models/Transfer';
 import { TransferAllOf } from '../models/TransferAllOf';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
@@ -78,7 +73,6 @@ import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
 import { UpdateSubscriptionBody } from '../models/UpdateSubscriptionBody';
-import { UpdateSubscriptionPeriodBody } from '../models/UpdateSubscriptionPeriodBody';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
 import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
 import { Wallet } from '../models/Wallet';
@@ -293,10 +287,10 @@ export class PromiseInvoicesApi {
     /**
      * Create Invoice
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param create_invoice_body 
+     * @param invoice 
      */
-    public create(prism_account?: string, create_invoice_body?: CreateInvoiceBody, _options?: Configuration): Promise<Invoice> {
-        const result = this.api.create(prism_account, create_invoice_body, _options);
+    public create(prism_account?: string, invoice?: Invoice, _options?: Configuration): Promise<Invoice> {
+        const result = this.api.create(prism_account, invoice, _options);
         return result.toPromise();
     }
 
@@ -386,6 +380,80 @@ export class PromiseLogsApi {
      */
     public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Log> {
         const result = this.api.retrieve(id, expand, prism_account, _options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservablePaymentIntentsApi } from './ObservableAPI';
+
+import { PaymentIntentsApiRequestFactory, PaymentIntentsApiResponseProcessor} from "../apis/PaymentIntentsApi";
+export class PromisePaymentIntentsApi {
+    private api: ObservablePaymentIntentsApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: PaymentIntentsApiRequestFactory,
+        responseProcessor?: PaymentIntentsApiResponseProcessor
+    ) {
+        this.api = new ObservablePaymentIntentsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Create Payment Intent
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param payment_intent 
+     */
+    public create(prism_account?: string, payment_intent?: PaymentIntent, _options?: Configuration): Promise<PaymentIntent> {
+        const result = this.api.create(prism_account, payment_intent, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List Payment Intents
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param expand Specifies which fields to populate in the response.
+     * @param limit A limit on the number of objects to be returned between 1 and 100.
+     * @param page Index of the page to be returned in a paginated response.
+     * @param sort Specifies whether documents are sorted in an ascending or descending order.
+     */
+    public list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListPaymentIntentsResponse> {
+        const result = this.api.list(prism_account, expand, limit, page, sort, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Poll Payment Intent
+     * @param id 
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param expand Specifies which fields to populate in the response.
+     */
+    public poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<PaymentIntent> {
+        const result = this.api.poll(id, prism_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve Payment Intent
+     * @param id 
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param expand Specifies which fields to populate in the response.
+     */
+    public retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<PaymentIntent> {
+        const result = this.api.retrieve(id, prism_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update Payment Intent Hash
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param body 
+     */
+    public updateHash(prism_account?: string, body?: string, _options?: Configuration): Promise<PaymentIntent> {
+        const result = this.api.updateHash(prism_account, body, _options);
         return result.toPromise();
     }
 
@@ -538,10 +606,10 @@ export class PromisePricesApi {
     /**
      * Create Price
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param create_price_body 
+     * @param price 
      */
-    public create(prism_account?: string, create_price_body?: CreatePriceBody, _options?: Configuration): Promise<Price> {
-        const result = this.api.create(prism_account, create_price_body, _options);
+    public create(prism_account?: string, price?: Price, _options?: Configuration): Promise<Price> {
+        const result = this.api.create(prism_account, price, _options);
         return result.toPromise();
     }
 
@@ -659,60 +727,6 @@ export class PromiseProductsApi {
 
 
 
-import { ObservableSubscriptionPeriodsApi } from './ObservableAPI';
-
-import { SubscriptionPeriodsApiRequestFactory, SubscriptionPeriodsApiResponseProcessor} from "../apis/SubscriptionPeriodsApi";
-export class PromiseSubscriptionPeriodsApi {
-    private api: ObservableSubscriptionPeriodsApi
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: SubscriptionPeriodsApiRequestFactory,
-        responseProcessor?: SubscriptionPeriodsApiResponseProcessor
-    ) {
-        this.api = new ObservableSubscriptionPeriodsApi(configuration, requestFactory, responseProcessor);
-    }
-
-    /**
-     * List Subscription Periods
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     */
-    public list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListSubscriptionPeriodsResponse> {
-        const result = this.api.list(prism_account, expand, limit, page, sort, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * List Subscription Periods
-     * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
-     */
-    public retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<SubscriptionPeriod> {
-        const result = this.api.retrieve(id, prism_account, expand, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Update Subscription Period
-     * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param update_subscription_period_body 
-     */
-    public update(id: string, prism_account?: string, update_subscription_period_body?: UpdateSubscriptionPeriodBody, _options?: Configuration): Promise<SubscriptionPeriod> {
-        const result = this.api.update(id, prism_account, update_subscription_period_body, _options);
-        return result.toPromise();
-    }
-
-
-}
-
-
-
 import { ObservableSubscriptionsApi } from './ObservableAPI';
 
 import { SubscriptionsApiRequestFactory, SubscriptionsApiResponseProcessor} from "../apis/SubscriptionsApi";
@@ -779,70 +793,6 @@ export class PromiseSubscriptionsApi {
      */
     public update(id: string, prism_account?: string, update_subscription_body?: UpdateSubscriptionBody, _options?: Configuration): Promise<Subscription> {
         const result = this.api.update(id, prism_account, update_subscription_body, _options);
-        return result.toPromise();
-    }
-
-
-}
-
-
-
-import { ObservableTransactionsApi } from './ObservableAPI';
-
-import { TransactionsApiRequestFactory, TransactionsApiResponseProcessor} from "../apis/TransactionsApi";
-export class PromiseTransactionsApi {
-    private api: ObservableTransactionsApi
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: TransactionsApiRequestFactory,
-        responseProcessor?: TransactionsApiResponseProcessor
-    ) {
-        this.api = new ObservableTransactionsApi(configuration, requestFactory, responseProcessor);
-    }
-
-    /**
-     * Create Transaction
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param create_transaction_body 
-     */
-    public create(prism_account?: string, create_transaction_body?: CreateTransactionBody, _options?: Configuration): Promise<Transaction> {
-        const result = this.api.create(prism_account, create_transaction_body, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * List Transactions
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     */
-    public list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListTransactionsResponse> {
-        const result = this.api.list(prism_account, expand, limit, page, sort, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Poll Transaction
-     * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
-     */
-    public poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<Transaction> {
-        const result = this.api.poll(id, prism_account, expand, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Retrieve Transaction
-     * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
-     */
-    public retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<Transaction> {
-        const result = this.api.retrieve(id, prism_account, expand, _options);
         return result.toPromise();
     }
 

@@ -1,6 +1,6 @@
 export declare class UpdateProductBody {
-    'name'?: string;
     'description'?: string;
+    'name'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

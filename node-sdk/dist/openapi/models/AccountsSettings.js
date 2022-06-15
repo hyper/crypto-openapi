@@ -12,6 +12,12 @@ exports.AccountsSettings = AccountsSettings;
 AccountsSettings.discriminator = undefined;
 AccountsSettings.attributeTypeMap = [
     {
+        "name": "past_due_period_duration",
+        "baseName": "past_due_period_duration",
+        "type": "number",
+        "format": ""
+    },
+    {
         "name": "retry_period_duration",
         "baseName": "retry_period_duration",
         "type": "number",

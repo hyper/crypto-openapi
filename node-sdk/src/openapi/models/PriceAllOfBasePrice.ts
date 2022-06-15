@@ -15,7 +15,6 @@ import { HttpFile } from '../http/http';
 export class PriceAllOfBasePrice {
     'amount'?: number;
     'currency'?: string;
-    'exchange_rate'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -30,12 +29,6 @@ export class PriceAllOfBasePrice {
             "name": "currency",
             "baseName": "currency",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "exchange_rate",
-            "baseName": "exchange_rate",
-            "type": "number",
             "format": ""
         }    ];
 

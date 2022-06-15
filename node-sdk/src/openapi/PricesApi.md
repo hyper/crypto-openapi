@@ -86,20 +86,8 @@ const apiInstance = new .PricesApi(configuration);
 let body:.PricesApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // CreatePriceBody (optional)
-  create_price_body: {
-    amount: "amount_example",
-    currency: "currency_example",
-    chain: "chain_example",
-    product: "product_example",
-    base_price: {
-      amount: 3.14,
-      currency: "currency_example",
-    },
-    metadata: {},
-    billing_period_duration: 3.14,
-    : "_example",
-  },
+  // Price (optional)
+  price: null,
 };
 
 apiInstance.create(body).then((data:any) => {
@@ -112,7 +100,7 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_price_body** | **CreatePriceBody**|  |
+ **price** | **Price**|  |
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 

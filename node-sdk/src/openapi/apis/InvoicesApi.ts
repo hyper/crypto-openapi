@@ -8,7 +8,6 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { CreateInvoiceBody } from '../models/CreateInvoiceBody';
 import { InlineResponse400 } from '../models/InlineResponse400';
 import { Invoice } from '../models/Invoice';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
@@ -22,9 +21,9 @@ export class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Create Invoice
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param create_invoice_body 
+     * @param invoice 
      */
-    public async create(prism_account?: string, create_invoice_body?: CreateInvoiceBody, _options?: Configuration): Promise<RequestContext> {
+    public async create(prism_account?: string, invoice?: Invoice, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -48,7 +47,7 @@ export class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(create_invoice_body, "CreateInvoiceBody", ""),
+            ObjectSerializer.serialize(invoice, "Invoice", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

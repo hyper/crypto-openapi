@@ -42,12 +42,6 @@ Notification.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "type",
-        "baseName": "type",
-        "type": "NotificationTypeEnum",
-        "format": ""
-    },
-    {
         "name": "data",
         "baseName": "data",
         "type": "string",
@@ -57,6 +51,12 @@ Notification.attributeTypeMap = [
         "name": "emails",
         "baseName": "emails",
         "type": "Array<string>",
+        "format": ""
+    },
+    {
+        "name": "type",
+        "baseName": "type",
+        "type": "NotificationTypeEnum",
         "format": ""
     }
 ];

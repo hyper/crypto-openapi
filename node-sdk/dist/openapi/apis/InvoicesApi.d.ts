@@ -1,12 +1,11 @@
 import { BaseAPIRequestFactory } from './baseapi';
 import { Configuration } from '../configuration';
 import { RequestContext, ResponseContext } from '../http/http';
-import { CreateInvoiceBody } from '../models/CreateInvoiceBody';
 import { Invoice } from '../models/Invoice';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 export declare class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
-    create(prism_account?: string, create_invoice_body?: CreateInvoiceBody, _options?: Configuration): Promise<RequestContext>;
+    create(prism_account?: string, invoice?: Invoice, _options?: Configuration): Promise<RequestContext>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
     poll(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;

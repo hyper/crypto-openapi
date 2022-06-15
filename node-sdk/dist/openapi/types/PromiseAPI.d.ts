@@ -3,12 +3,9 @@ import { Account } from '../models/Account';
 import { CreateAccountBody } from '../models/CreateAccountBody';
 import { CreateCustomerBody } from '../models/CreateCustomerBody';
 import { CreateFeeBody } from '../models/CreateFeeBody';
-import { CreateInvoiceBody } from '../models/CreateInvoiceBody';
 import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
-import { CreatePriceBody } from '../models/CreatePriceBody';
 import { CreateProductBody } from '../models/CreateProductBody';
 import { CreateSubscriptionBody } from '../models/CreateSubscriptionBody';
-import { CreateTransactionBody } from '../models/CreateTransactionBody';
 import { CreateTransferBody } from '../models/CreateTransferBody';
 import { CreateWalletBody } from '../models/CreateWalletBody';
 import { CreateWebhookBody } from '../models/CreateWebhookBody';
@@ -20,24 +17,22 @@ import { ListCustomersResponse } from '../models/ListCustomersResponse';
 import { ListFeesResponse } from '../models/ListFeesResponse';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
 import { ListLogsResponse } from '../models/ListLogsResponse';
+import { ListPaymentIntentsResponse } from '../models/ListPaymentIntentsResponse';
 import { ListPaymentsResponse } from '../models/ListPaymentsResponse';
 import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
 import { ListPricesResponse } from '../models/ListPricesResponse';
 import { ListProductsResponse } from '../models/ListProductsResponse';
-import { ListSubscriptionPeriodsResponse } from '../models/ListSubscriptionPeriodsResponse';
 import { ListSubscriptionsResponse } from '../models/ListSubscriptionsResponse';
-import { ListTransactionsResponse } from '../models/ListTransactionsResponse';
 import { ListTransfersResponse } from '../models/ListTransfersResponse';
 import { ListWalletsResponse } from '../models/ListWalletsResponse';
 import { ListWebhooksResponse } from '../models/ListWebhooksResponse';
 import { Log } from '../models/Log';
 import { Payment } from '../models/Payment';
+import { PaymentIntent } from '../models/PaymentIntent';
 import { PayoutWallet } from '../models/PayoutWallet';
 import { Price } from '../models/Price';
 import { Product } from '../models/Product';
 import { Subscription } from '../models/Subscription';
-import { SubscriptionPeriod } from '../models/SubscriptionPeriod';
-import { Transaction } from '../models/Transaction';
 import { Transfer } from '../models/Transfer';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
@@ -45,7 +40,6 @@ import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
 import { UpdateSubscriptionBody } from '../models/UpdateSubscriptionBody';
-import { UpdateSubscriptionPeriodBody } from '../models/UpdateSubscriptionPeriodBody';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
 import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
 import { Wallet } from '../models/Wallet';
@@ -81,7 +75,7 @@ import { InvoicesApiRequestFactory, InvoicesApiResponseProcessor } from "../apis
 export declare class PromiseInvoicesApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: InvoicesApiRequestFactory, responseProcessor?: InvoicesApiResponseProcessor);
-    create(prism_account?: string, create_invoice_body?: CreateInvoiceBody, _options?: Configuration): Promise<Invoice>;
+    create(prism_account?: string, invoice?: Invoice, _options?: Configuration): Promise<Invoice>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<ListInvoicesResponse>;
     poll(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Invoice>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Invoice>;
@@ -93,6 +87,16 @@ export declare class PromiseLogsApi {
     constructor(configuration: Configuration, requestFactory?: LogsApiRequestFactory, responseProcessor?: LogsApiResponseProcessor);
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<ListLogsResponse>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Log>;
+}
+import { PaymentIntentsApiRequestFactory, PaymentIntentsApiResponseProcessor } from "../apis/PaymentIntentsApi";
+export declare class PromisePaymentIntentsApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: PaymentIntentsApiRequestFactory, responseProcessor?: PaymentIntentsApiResponseProcessor);
+    create(prism_account?: string, payment_intent?: PaymentIntent, _options?: Configuration): Promise<PaymentIntent>;
+    list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListPaymentIntentsResponse>;
+    poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<PaymentIntent>;
+    retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<PaymentIntent>;
+    updateHash(prism_account?: string, body?: string, _options?: Configuration): Promise<PaymentIntent>;
 }
 import { PaymentsApiRequestFactory, PaymentsApiResponseProcessor } from "../apis/PaymentsApi";
 export declare class PromisePaymentsApi {
@@ -116,7 +120,7 @@ export declare class PromisePricesApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: PricesApiRequestFactory, responseProcessor?: PricesApiResponseProcessor);
     _delete(id: string, prism_account?: string, _options?: Configuration): Promise<void>;
-    create(prism_account?: string, create_price_body?: CreatePriceBody, _options?: Configuration): Promise<Price>;
+    create(prism_account?: string, price?: Price, _options?: Configuration): Promise<Price>;
     list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListPricesResponse>;
     retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<Price>;
     update(id: string, prism_account?: string, update_price_body?: UpdatePriceBody, _options?: Configuration): Promise<Price>;
@@ -131,14 +135,6 @@ export declare class PromiseProductsApi {
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Product>;
     update(id: string, prism_account?: string, update_product_body?: UpdateProductBody, _options?: Configuration): Promise<Product>;
 }
-import { SubscriptionPeriodsApiRequestFactory, SubscriptionPeriodsApiResponseProcessor } from "../apis/SubscriptionPeriodsApi";
-export declare class PromiseSubscriptionPeriodsApi {
-    private api;
-    constructor(configuration: Configuration, requestFactory?: SubscriptionPeriodsApiRequestFactory, responseProcessor?: SubscriptionPeriodsApiResponseProcessor);
-    list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListSubscriptionPeriodsResponse>;
-    retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<SubscriptionPeriod>;
-    update(id: string, prism_account?: string, update_subscription_period_body?: UpdateSubscriptionPeriodBody, _options?: Configuration): Promise<SubscriptionPeriod>;
-}
 import { SubscriptionsApiRequestFactory, SubscriptionsApiResponseProcessor } from "../apis/SubscriptionsApi";
 export declare class PromiseSubscriptionsApi {
     private api;
@@ -148,15 +144,6 @@ export declare class PromiseSubscriptionsApi {
     list(expand?: string, limit?: number, page?: number, sort?: any, prism_account?: string, _options?: Configuration): Promise<ListSubscriptionsResponse>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Subscription>;
     update(id: string, prism_account?: string, update_subscription_body?: UpdateSubscriptionBody, _options?: Configuration): Promise<Subscription>;
-}
-import { TransactionsApiRequestFactory, TransactionsApiResponseProcessor } from "../apis/TransactionsApi";
-export declare class PromiseTransactionsApi {
-    private api;
-    constructor(configuration: Configuration, requestFactory?: TransactionsApiRequestFactory, responseProcessor?: TransactionsApiResponseProcessor);
-    create(prism_account?: string, create_transaction_body?: CreateTransactionBody, _options?: Configuration): Promise<Transaction>;
-    list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListTransactionsResponse>;
-    poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<Transaction>;
-    retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<Transaction>;
 }
 import { TransfersApiRequestFactory, TransfersApiResponseProcessor } from "../apis/TransfersApi";
 export declare class PromiseTransfersApi {

@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { Transaction } from './Transaction';
+import { PaymentIntent } from './PaymentIntent';
 import { HttpFile } from '../http/http';
 
 export class ListTransactionsResponse {
-    'data'?: Array<Transaction>;
+    'data'?: Array<PaymentIntent>;
     'has_more'?: boolean;
     'page'?: number;
     'total'?: number;
@@ -25,7 +25,7 @@ export class ListTransactionsResponse {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<Transaction>",
+            "type": "Array<PaymentIntent>",
             "format": ""
         },
         {

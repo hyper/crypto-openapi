@@ -58,8 +58,7 @@ class Prism {
         this.prices = new PricesApiLayer(config);
         this.products = new ProductsApiLayer(config);
         this.subscriptions = new SubscriptionsApiLayer(config);
-        this.subscriptionPeriods = new SubscriptionPeriodsApiLayer(config);
-        this.transactions = new TransactionsApiLayer(config);
+        this.paymentIntents = new PaymentIntentsApiLayer(config);
         this.transfers = new TransfersApiLayer(config);
         this.wallets = new WalletsApiLayer(config);
         this.webhooks = new WebhooksApiLayer(config);
@@ -147,7 +146,7 @@ class InvoicesApiLayer {
     }
     create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_invoice_body: data }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { invoice: data }));
         });
     }
     retrieve(id, params, options) {
@@ -207,7 +206,7 @@ class PricesApiLayer {
     }
     create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_price_body: data }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { price: data }));
         });
     }
     retrieve(id, params, options) {
@@ -321,33 +320,13 @@ class SubscriptionsApiLayer {
         });
     }
 }
-class SubscriptionPeriodsApiLayer {
+class PaymentIntentsApiLayer {
     constructor(config) {
-        this.api = new index_1.SubscriptionPeriodsApi(config);
-    }
-    retrieve(id, params, options) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
-        });
-    }
-    update(id, data, options) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { update_subscription_period_body: data }));
-        });
-    }
-    list(params, options) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
-        });
-    }
-}
-class TransactionsApiLayer {
-    constructor(config) {
-        this.api = new index_1.TransactionsApi(config);
+        this.api = new index_1.PaymentIntentsApi(config);
     }
     create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_transaction_body: data }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { payment_intent: data }));
         });
     }
     retrieve(id, params, options) {

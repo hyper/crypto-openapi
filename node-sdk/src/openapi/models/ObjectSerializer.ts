@@ -2,18 +2,16 @@ export * from './Account';
 export * from './AccountAllOf';
 export * from './AccountAllOfBranding';
 export * from './AccountsBranding';
+export * from './AccountsIdSettings';
 export * from './AccountsSettings';
 export * from './ApiKey';
 export * from './ApiKeyAllOf';
 export * from './CreateAccountBody';
 export * from './CreateCustomerBody';
 export * from './CreateFeeBody';
-export * from './CreateInvoiceBody';
 export * from './CreatePayoutWalletBody';
-export * from './CreatePriceBody';
 export * from './CreateProductBody';
 export * from './CreateSubscriptionBody';
-export * from './CreateTransactionBody';
 export * from './CreateTransferBody';
 export * from './CreateWalletBody';
 export * from './CreateWebhookBody';
@@ -30,19 +28,17 @@ export * from './InlineResponse400Error';
 export * from './Invoice';
 export * from './InvoiceAllOf';
 export * from './InvoiceAllOfLineItems';
-export * from './InvoicesLineItems';
 export * from './ListAccountsResponse';
 export * from './ListCustomersResponse';
 export * from './ListFeesResponse';
 export * from './ListInvoicesResponse';
 export * from './ListLogsResponse';
+export * from './ListPaymentIntentsResponse';
 export * from './ListPaymentsResponse';
 export * from './ListPayoutWalletsResponse';
 export * from './ListPricesResponse';
 export * from './ListProductsResponse';
-export * from './ListSubscriptionPeriodsResponse';
 export * from './ListSubscriptionsResponse';
-export * from './ListTransactionsResponse';
 export * from './ListTransfersResponse';
 export * from './ListWalletsResponse';
 export * from './ListWebhooksResponse';
@@ -53,19 +49,18 @@ export * from './Notification';
 export * from './NotificationAllOf';
 export * from './Payment';
 export * from './PaymentAllOf';
+export * from './PaymentIntent';
+export * from './PaymentIntentAllOf';
 export * from './PayoutWallet';
 export * from './PayoutWalletAllOf';
 export * from './Price';
 export * from './PriceAllOf';
-export * from './PricesBasePrice';
+export * from './PriceAllOfBasePrice';
 export * from './Product';
 export * from './ProductAllOf';
 export * from './Subscription';
 export * from './SubscriptionAllOf';
-export * from './SubscriptionPeriod';
-export * from './SubscriptionPeriodAllOf';
-export * from './Transaction';
-export * from './TransactionAllOf';
+export * from './SubscriptionAllOfLineItems';
 export * from './Transfer';
 export * from './TransferAllOf';
 export * from './UpdateAccountBody';
@@ -74,7 +69,6 @@ export * from './UpdateInvoiceBody';
 export * from './UpdatePriceBody';
 export * from './UpdateProductBody';
 export * from './UpdateSubscriptionBody';
-export * from './UpdateSubscriptionPeriodBody';
 export * from './UpdateWalletBody';
 export * from './UpdateWebhookBody';
 export * from './Wallet';
@@ -86,18 +80,16 @@ import { Account } from './Account';
 import { AccountAllOf } from './AccountAllOf';
 import { AccountAllOfBranding } from './AccountAllOfBranding';
 import { AccountsBranding } from './AccountsBranding';
+import { AccountsIdSettings } from './AccountsIdSettings';
 import { AccountsSettings } from './AccountsSettings';
 import { ApiKey       , ApiKeyTypeEnum   } from './ApiKey';
 import { ApiKeyAllOf   , ApiKeyAllOfTypeEnum   } from './ApiKeyAllOf';
 import { CreateAccountBody } from './CreateAccountBody';
 import { CreateCustomerBody } from './CreateCustomerBody';
 import { CreateFeeBody } from './CreateFeeBody';
-import { CreateInvoiceBody } from './CreateInvoiceBody';
 import { CreatePayoutWalletBody } from './CreatePayoutWalletBody';
-import { CreatePriceBody } from './CreatePriceBody';
 import { CreateProductBody } from './CreateProductBody';
 import { CreateSubscriptionBody } from './CreateSubscriptionBody';
-import { CreateTransactionBody } from './CreateTransactionBody';
 import { CreateTransferBody } from './CreateTransferBody';
 import { CreateWalletBody } from './CreateWalletBody';
 import { CreateWebhookBody } from './CreateWebhookBody';
@@ -111,45 +103,42 @@ import { Fee } from './Fee';
 import { FeeAllOf } from './FeeAllOf';
 import { InlineResponse400 } from './InlineResponse400';
 import { InlineResponse400Error } from './InlineResponse400Error';
-import { Invoice        , InvoiceChainEnum   , InvoiceCurrencyEnum  , InvoiceStatusEnum                   } from './Invoice';
-import { InvoiceAllOf    , InvoiceAllOfChainEnum   , InvoiceAllOfCurrencyEnum  , InvoiceAllOfStatusEnum                   } from './InvoiceAllOf';
+import { Invoice      , InvoiceChainEnum              , InvoiceStatusEnum     } from './Invoice';
+import { InvoiceAllOf  , InvoiceAllOfChainEnum              , InvoiceAllOfStatusEnum     } from './InvoiceAllOf';
 import { InvoiceAllOfLineItems } from './InvoiceAllOfLineItems';
-import { InvoicesLineItems } from './InvoicesLineItems';
 import { ListAccountsResponse } from './ListAccountsResponse';
 import { ListCustomersResponse } from './ListCustomersResponse';
 import { ListFeesResponse } from './ListFeesResponse';
 import { ListInvoicesResponse } from './ListInvoicesResponse';
 import { ListLogsResponse } from './ListLogsResponse';
+import { ListPaymentIntentsResponse } from './ListPaymentIntentsResponse';
 import { ListPaymentsResponse } from './ListPaymentsResponse';
 import { ListPayoutWalletsResponse } from './ListPayoutWalletsResponse';
 import { ListPricesResponse } from './ListPricesResponse';
 import { ListProductsResponse } from './ListProductsResponse';
-import { ListSubscriptionPeriodsResponse } from './ListSubscriptionPeriodsResponse';
 import { ListSubscriptionsResponse } from './ListSubscriptionsResponse';
-import { ListTransactionsResponse } from './ListTransactionsResponse';
 import { ListTransfersResponse } from './ListTransfersResponse';
 import { ListWalletsResponse } from './ListWalletsResponse';
 import { ListWebhooksResponse } from './ListWebhooksResponse';
 import { Log        , LogMethodEnum       } from './Log';
 import { LogAllOf     , LogAllOfMethodEnum       } from './LogAllOf';
 import { Model } from './Model';
-import { Notification     , NotificationTypeEnum     } from './Notification';
-import { NotificationAllOf , NotificationAllOfTypeEnum     } from './NotificationAllOf';
+import { Notification       , NotificationTypeEnum   } from './Notification';
+import { NotificationAllOf   , NotificationAllOfTypeEnum   } from './NotificationAllOf';
 import { Payment           , PaymentStatusEnum      } from './Payment';
 import { PaymentAllOf       , PaymentAllOfStatusEnum      } from './PaymentAllOf';
+import { PaymentIntent       , PaymentIntentChainEnum  , PaymentIntentCurrencyEnum           , PaymentIntentStatusEnum      } from './PaymentIntent';
+import { PaymentIntentAllOf   , PaymentIntentAllOfChainEnum  , PaymentIntentAllOfCurrencyEnum           , PaymentIntentAllOfStatusEnum      } from './PaymentIntentAllOf';
 import { PayoutWallet       , PayoutWalletChainEnum   } from './PayoutWallet';
 import { PayoutWalletAllOf   , PayoutWalletAllOfChainEnum   } from './PayoutWalletAllOf';
 import { Price } from './Price';
 import { PriceAllOf } from './PriceAllOf';
-import { PricesBasePrice } from './PricesBasePrice';
+import { PriceAllOfBasePrice } from './PriceAllOfBasePrice';
 import { Product } from './Product';
 import { ProductAllOf } from './ProductAllOf';
-import { Subscription          , SubscriptionStatusEnum            } from './Subscription';
-import { SubscriptionAllOf      , SubscriptionAllOfStatusEnum            } from './SubscriptionAllOf';
-import { SubscriptionPeriod } from './SubscriptionPeriod';
-import { SubscriptionPeriodAllOf } from './SubscriptionPeriodAllOf';
-import { Transaction    , TransactionStatusEnum  , TransactionChainEnum   , TransactionCurrencyEnum        } from './Transaction';
-import { TransactionAllOf    , TransactionAllOfStatusEnum  , TransactionAllOfChainEnum   , TransactionAllOfCurrencyEnum    } from './TransactionAllOf';
+import { Subscription                , SubscriptionStatusEnum    } from './Subscription';
+import { SubscriptionAllOf            , SubscriptionAllOfStatusEnum    } from './SubscriptionAllOf';
+import { SubscriptionAllOfLineItems } from './SubscriptionAllOfLineItems';
 import { Transfer } from './Transfer';
 import { TransferAllOf } from './TransferAllOf';
 import { UpdateAccountBody } from './UpdateAccountBody';
@@ -158,7 +147,6 @@ import { UpdateInvoiceBody } from './UpdateInvoiceBody';
 import { UpdatePriceBody } from './UpdatePriceBody';
 import { UpdateProductBody } from './UpdateProductBody';
 import { UpdateSubscriptionBody } from './UpdateSubscriptionBody';
-import { UpdateSubscriptionPeriodBody } from './UpdateSubscriptionPeriodBody';
 import { UpdateWalletBody } from './UpdateWalletBody';
 import { UpdateWebhookBody } from './UpdateWebhookBody';
 import { Wallet       , WalletChainEnum    } from './Wallet';
@@ -189,10 +177,8 @@ let enumsMap: Set<string> = new Set<string>([
     "ApiKeyTypeEnum",
     "ApiKeyAllOfTypeEnum",
     "InvoiceChainEnum",
-    "InvoiceCurrencyEnum",
     "InvoiceStatusEnum",
     "InvoiceAllOfChainEnum",
-    "InvoiceAllOfCurrencyEnum",
     "InvoiceAllOfStatusEnum",
     "LogMethodEnum",
     "LogAllOfMethodEnum",
@@ -200,16 +186,16 @@ let enumsMap: Set<string> = new Set<string>([
     "NotificationAllOfTypeEnum",
     "PaymentStatusEnum",
     "PaymentAllOfStatusEnum",
+    "PaymentIntentChainEnum",
+    "PaymentIntentCurrencyEnum",
+    "PaymentIntentStatusEnum",
+    "PaymentIntentAllOfChainEnum",
+    "PaymentIntentAllOfCurrencyEnum",
+    "PaymentIntentAllOfStatusEnum",
     "PayoutWalletChainEnum",
     "PayoutWalletAllOfChainEnum",
     "SubscriptionStatusEnum",
     "SubscriptionAllOfStatusEnum",
-    "TransactionStatusEnum",
-    "TransactionChainEnum",
-    "TransactionCurrencyEnum",
-    "TransactionAllOfStatusEnum",
-    "TransactionAllOfChainEnum",
-    "TransactionAllOfCurrencyEnum",
     "WalletChainEnum",
     "WalletAllOfChainEnum",
 ]);
@@ -219,18 +205,16 @@ let typeMap: {[index: string]: any} = {
     "AccountAllOf": AccountAllOf,
     "AccountAllOfBranding": AccountAllOfBranding,
     "AccountsBranding": AccountsBranding,
+    "AccountsIdSettings": AccountsIdSettings,
     "AccountsSettings": AccountsSettings,
     "ApiKey": ApiKey,
     "ApiKeyAllOf": ApiKeyAllOf,
     "CreateAccountBody": CreateAccountBody,
     "CreateCustomerBody": CreateCustomerBody,
     "CreateFeeBody": CreateFeeBody,
-    "CreateInvoiceBody": CreateInvoiceBody,
     "CreatePayoutWalletBody": CreatePayoutWalletBody,
-    "CreatePriceBody": CreatePriceBody,
     "CreateProductBody": CreateProductBody,
     "CreateSubscriptionBody": CreateSubscriptionBody,
-    "CreateTransactionBody": CreateTransactionBody,
     "CreateTransferBody": CreateTransferBody,
     "CreateWalletBody": CreateWalletBody,
     "CreateWebhookBody": CreateWebhookBody,
@@ -247,19 +231,17 @@ let typeMap: {[index: string]: any} = {
     "Invoice": Invoice,
     "InvoiceAllOf": InvoiceAllOf,
     "InvoiceAllOfLineItems": InvoiceAllOfLineItems,
-    "InvoicesLineItems": InvoicesLineItems,
     "ListAccountsResponse": ListAccountsResponse,
     "ListCustomersResponse": ListCustomersResponse,
     "ListFeesResponse": ListFeesResponse,
     "ListInvoicesResponse": ListInvoicesResponse,
     "ListLogsResponse": ListLogsResponse,
+    "ListPaymentIntentsResponse": ListPaymentIntentsResponse,
     "ListPaymentsResponse": ListPaymentsResponse,
     "ListPayoutWalletsResponse": ListPayoutWalletsResponse,
     "ListPricesResponse": ListPricesResponse,
     "ListProductsResponse": ListProductsResponse,
-    "ListSubscriptionPeriodsResponse": ListSubscriptionPeriodsResponse,
     "ListSubscriptionsResponse": ListSubscriptionsResponse,
-    "ListTransactionsResponse": ListTransactionsResponse,
     "ListTransfersResponse": ListTransfersResponse,
     "ListWalletsResponse": ListWalletsResponse,
     "ListWebhooksResponse": ListWebhooksResponse,
@@ -270,19 +252,18 @@ let typeMap: {[index: string]: any} = {
     "NotificationAllOf": NotificationAllOf,
     "Payment": Payment,
     "PaymentAllOf": PaymentAllOf,
+    "PaymentIntent": PaymentIntent,
+    "PaymentIntentAllOf": PaymentIntentAllOf,
     "PayoutWallet": PayoutWallet,
     "PayoutWalletAllOf": PayoutWalletAllOf,
     "Price": Price,
     "PriceAllOf": PriceAllOf,
-    "PricesBasePrice": PricesBasePrice,
+    "PriceAllOfBasePrice": PriceAllOfBasePrice,
     "Product": Product,
     "ProductAllOf": ProductAllOf,
     "Subscription": Subscription,
     "SubscriptionAllOf": SubscriptionAllOf,
-    "SubscriptionPeriod": SubscriptionPeriod,
-    "SubscriptionPeriodAllOf": SubscriptionPeriodAllOf,
-    "Transaction": Transaction,
-    "TransactionAllOf": TransactionAllOf,
+    "SubscriptionAllOfLineItems": SubscriptionAllOfLineItems,
     "Transfer": Transfer,
     "TransferAllOf": TransferAllOf,
     "UpdateAccountBody": UpdateAccountBody,
@@ -291,7 +272,6 @@ let typeMap: {[index: string]: any} = {
     "UpdatePriceBody": UpdatePriceBody,
     "UpdateProductBody": UpdateProductBody,
     "UpdateSubscriptionBody": UpdateSubscriptionBody,
-    "UpdateSubscriptionPeriodBody": UpdateSubscriptionPeriodBody,
     "UpdateWalletBody": UpdateWalletBody,
     "UpdateWebhookBody": UpdateWebhookBody,
     "Wallet": Wallet,

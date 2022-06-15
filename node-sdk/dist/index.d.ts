@@ -1,5 +1,5 @@
-import { Configuration, Customer, CustomersApiRetrieveRequest, CustomersApiCreateRequest, Fee, FeesApiCreateRequest, FeesApiRetrieveRequest, InvoicesApiCreateRequest, Invoice, InvoicesApiRetrieveRequest, InvoicesApiListRequest, LogsApiRetrieveRequest, ListProductsResponse, LogsApiListRequest, FeesApiListRequest, CustomersApiListRequest, Log, PaymentsApiRetrieveRequest, Payment, PaymentsApiListRequest, ProductsApiCreateRequest, ProductsApiRetrieveRequest, Product, ProductsApiListRequest, WalletsApiCreateRequest, WalletsApiRetrieveRequest, WalletsApiListRequest, WebhooksApiCreateRequest, WebhooksApiRetrieveRequest, WebhooksApiListRequest, Wallet, ListCustomersResponse, ListInvoicesResponse, ListLogsResponse, ListWebhooksResponse, ListWalletsResponse, ListFeesResponse, ListPaymentsResponse, WalletsApiUpdateRequest, WebhooksApiUpdateRequest, CustomersApiUpdateRequest, InvoicesApiUpdateRequest, ProductsApiUpdateRequest, TransfersApiCreateRequest, Transfer, TransfersApiRetrieveRequest, TransfersApiListRequest, ListTransfersResponse, PayoutWalletsApiCreateRequest, PayoutWallet, PayoutWalletsApiRetrieveRequest, PayoutWalletsApiUpdateRequest, PayoutWalletsApiListRequest, AccountsApiRetrieveRequest, AccountsApiCreateRequest, Account, ListAccountsResponse, AccountsApiListRequest, AccountsApiUpdateRequest, Transaction, TransactionsApiCreateRequest, TransactionsApiRetrieveRequest, TransactionsApiListRequest, ListTransactionsResponse, Price, PricesApiCreateRequest, PricesApiRetrieveRequest, PricesApiListRequest, ListPricesResponse, Subscription, SubscriptionsApiCreateRequest, SubscriptionsApiRetrieveRequest, SubscriptionsApiUpdateRequest, SubscriptionsApiListRequest, ListSubscriptionsResponse, SubscriptionPeriodsApiRetrieveRequest, SubscriptionPeriod, SubscriptionPeriodsApiUpdateRequest, SubscriptionPeriodsApiListRequest, ListSubscriptionPeriodsResponse, InvoicesApiPollRequest, FeesApiDeleteRequest, PayoutWalletsApiDeleteRequest, ProductsApiDeleteRequest, WalletsApiDeleteRequest, WebhooksApiDeleteRequest, PricesApiDeleteRequest, SubscriptionsApiDeleteRequest, PricesApiUpdateRequest } from './openapi/index';
-import { ListPayoutWalletsResponse } from './openapi/models/ListPayoutWalletsResponse';
+import { Configuration, Customer, CustomersApiRetrieveRequest, CustomersApiCreateRequest, Fee, FeesApiCreateRequest, FeesApiRetrieveRequest, InvoicesApiCreateRequest, Invoice, InvoicesApiRetrieveRequest, InvoicesApiListRequest, LogsApiRetrieveRequest, ListProductsResponse, LogsApiListRequest, FeesApiListRequest, CustomersApiListRequest, Log, PaymentsApiRetrieveRequest, Payment, PaymentsApiListRequest, ProductsApiCreateRequest, ProductsApiRetrieveRequest, Product, ProductsApiListRequest, WalletsApiCreateRequest, WalletsApiRetrieveRequest, WalletsApiListRequest, WebhooksApiCreateRequest, WebhooksApiRetrieveRequest, WebhooksApiListRequest, Wallet, ListCustomersResponse, ListInvoicesResponse, ListLogsResponse, ListWebhooksResponse, ListWalletsResponse, ListFeesResponse, ListPaymentsResponse, WalletsApiUpdateRequest, WebhooksApiUpdateRequest, CustomersApiUpdateRequest, InvoicesApiUpdateRequest, ProductsApiUpdateRequest, TransfersApiCreateRequest, Transfer, TransfersApiRetrieveRequest, TransfersApiListRequest, ListTransfersResponse, PayoutWalletsApiCreateRequest, PayoutWallet, PayoutWalletsApiRetrieveRequest, PayoutWalletsApiUpdateRequest, PayoutWalletsApiListRequest, AccountsApiRetrieveRequest, AccountsApiCreateRequest, Account, ListAccountsResponse, AccountsApiListRequest, AccountsApiUpdateRequest, PaymentIntentsApiCreateRequest, Price, PricesApiCreateRequest, PricesApiRetrieveRequest, PricesApiListRequest, ListPricesResponse, Subscription, SubscriptionsApiCreateRequest, SubscriptionsApiRetrieveRequest, SubscriptionsApiUpdateRequest, SubscriptionsApiListRequest, ListSubscriptionsResponse, InvoicesApiPollRequest, FeesApiDeleteRequest, PayoutWalletsApiDeleteRequest, ProductsApiDeleteRequest, WalletsApiDeleteRequest, WebhooksApiDeleteRequest, PricesApiDeleteRequest, SubscriptionsApiDeleteRequest, PricesApiUpdateRequest, PaymentIntentsApiRetrieveRequest, ListPaymentIntentsResponse, PaymentIntentsApiListRequest, PaymentIntent } from './openapi/index';
+import { ListPayoutWalletsResponse } from './openapi';
 export * from './openapi/models/all';
 export * from './openapi/apis/exception';
 export interface PrismOptions {
@@ -16,8 +16,7 @@ export declare class Prism {
     readonly prices: PricesApiLayer;
     readonly products: ProductsApiLayer;
     readonly subscriptions: SubscriptionsApiLayer;
-    readonly subscriptionPeriods: SubscriptionPeriodsApiLayer;
-    readonly transactions: TransactionsApiLayer;
+    readonly paymentIntents: PaymentIntentsApiLayer;
     readonly transfers: TransfersApiLayer;
     readonly wallets: WalletsApiLayer;
     readonly webhooks: WebhooksApiLayer;
@@ -74,7 +73,7 @@ declare class FeesApiLayer {
 declare class InvoicesApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: InvoicesApiCreateRequest['create_invoice_body'], options?: {
+    create(data: InvoicesApiCreateRequest['invoice'], options?: {
         prismAccount: string;
     }): Promise<Invoice>;
     retrieve(id: string, params?: Omit<InvoicesApiRetrieveRequest, 'prism_account' | 'id'>, options?: {
@@ -113,7 +112,7 @@ declare class PaymentsApiLayer {
 declare class PricesApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: PricesApiCreateRequest['create_price_body'], options?: {
+    create(data: PricesApiCreateRequest['price'], options?: {
         prismAccount: string;
     }): Promise<Price>;
     retrieve(id: string, params?: Omit<PricesApiRetrieveRequest, 'prism_account' | 'id'>, options?: {
@@ -186,31 +185,18 @@ declare class SubscriptionsApiLayer {
         prismAccount: string;
     }): Promise<void>;
 }
-declare class SubscriptionPeriodsApiLayer {
+declare class PaymentIntentsApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    retrieve(id: string, params?: Omit<SubscriptionPeriodsApiRetrieveRequest, 'prism_account' | 'id'>, options?: {
+    create(data: PaymentIntentsApiCreateRequest['payment_intent'], options?: {
         prismAccount: string;
-    }): Promise<SubscriptionPeriod>;
-    update(id: string, data: SubscriptionPeriodsApiUpdateRequest['update_subscription_period_body'], options?: {
+    }): Promise<PaymentIntent>;
+    retrieve(id: string, params?: Omit<PaymentIntentsApiRetrieveRequest, 'prism_account' | 'id'>, options?: {
         prismAccount: string;
-    }): Promise<SubscriptionPeriod>;
-    list(params?: Omit<SubscriptionPeriodsApiListRequest, 'prism_account'>, options?: {
+    }): Promise<PaymentIntent>;
+    list(params?: Omit<PaymentIntentsApiListRequest, 'prism_account'>, options?: {
         prismAccount: string;
-    }): Promise<ListSubscriptionPeriodsResponse>;
-}
-declare class TransactionsApiLayer {
-    private readonly api;
-    constructor(config: Configuration);
-    create(data: TransactionsApiCreateRequest['create_transaction_body'], options?: {
-        prismAccount: string;
-    }): Promise<Transaction>;
-    retrieve(id: string, params?: Omit<TransactionsApiRetrieveRequest, 'prism_account' | 'id'>, options?: {
-        prismAccount: string;
-    }): Promise<Transaction>;
-    list(params?: Omit<TransactionsApiListRequest, 'prism_account'>, options?: {
-        prismAccount: string;
-    }): Promise<ListTransactionsResponse>;
+    }): Promise<ListPaymentIntentsResponse>;
 }
 declare class TransfersApiLayer {
     private readonly api;

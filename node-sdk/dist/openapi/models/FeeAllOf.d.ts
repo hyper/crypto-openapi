@@ -1,12 +1,12 @@
 import { Account } from './Account';
-import { Invoice } from './Invoice';
+import { PaymentIntent } from './PaymentIntent';
 import { Wallet } from './Wallet';
 export declare class FeeAllOf {
     'account': string | Account;
     'currency': string;
     'description'?: string;
     'internal'?: boolean;
-    'invoice': string | Invoice;
+    'payment_intent': string | PaymentIntent;
     'percent': number;
     'wallet': string | Wallet;
     static readonly discriminator: string | undefined;

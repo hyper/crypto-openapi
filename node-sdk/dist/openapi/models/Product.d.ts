@@ -6,8 +6,8 @@ export declare class Product {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'name': string;
     'description'?: string;
+    'name': string;
     'prices'?: Array<Price>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

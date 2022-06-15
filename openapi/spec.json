@@ -128,6 +128,9 @@
               },
               "settings": {
                 "properties": {
+                  "past_due_period_duration": {
+                    "type": "number"
+                  },
                   "retry_period_duration": {
                     "type": "number"
                   }
@@ -299,13 +302,13 @@
               "internal": {
                 "type": "boolean"
               },
-              "invoice": {
+              "payment_intent": {
                 "oneOf": [
                   {
                     "type": "string"
                   },
                   {
-                    "$ref": "#/components/schemas/Invoice"
+                    "$ref": "#/components/schemas/PaymentIntent"
                   }
                 ]
               },
@@ -325,10 +328,17 @@
                 ]
               }
             },
-            "required": ["account", "currency", "invoice", "percent", "wallet"],
+            "required": [
+              "account",
+              "currency",
+              "payment_intent",
+              "percent",
+              "wallet"
+            ],
             "type": "object"
           }
         ],
+        "description": "",
         "title": "Fee"
       },
       "Invoice": {
@@ -351,17 +361,7 @@
               "amount": {
                 "type": "number"
               },
-              "amount_paid": {
-                "type": "number"
-              },
-              "application_fee_percent": {
-                "type": "number"
-              },
               "chain": {
-                "enum": ["eth", "sol"],
-                "type": "string"
-              },
-              "currency": {
                 "enum": ["eth", "sol"],
                 "type": "string"
               },
@@ -376,14 +376,7 @@
                 ]
               },
               "due": {
-                "format": "date-time",
                 "type": "number"
-              },
-              "fees": {
-                "items": {
-                  "$ref": "#/components/schemas/Fee"
-                },
-                "type": "array"
               },
               "line_items": {
                 "properties": {
@@ -405,6 +398,12 @@
               },
               "payment": {
                 "$ref": "#/components/schemas/Payment"
+              },
+              "period_end": {
+                "type": "number"
+              },
+              "period_start": {
+                "type": "number"
               },
               "platform_account": {
                 "oneOf": [
@@ -433,7 +432,7 @@
                 "type": "string"
               },
               "status": {
-                "enum": ["open", "paid", "unpaid", "void", "past_due"],
+                "enum": ["open", "paid", "void", "past_due", "uncollectible"],
                 "type": "string"
               },
               "subscription": {
@@ -446,56 +445,21 @@
                   }
                 ]
               },
-              "subscription_period": {
-                "oneOf": [
-                  {
-                    "properties": {},
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/SubscriptionPeriod"
-                  }
-                ]
-              },
-              "transactions": {
-                "items": {
-                  "$ref": "#/components/schemas/Transaction"
-                },
-                "type": "array"
-              },
-              "transfers": {
-                "items": {
-                  "$ref": "#/components/schemas/Transfer"
-                },
-                "type": "array"
-              },
               "trial_period_duration": {
                 "type": "number"
-              },
-              "wallet": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Wallet"
-                  }
-                ]
               }
             },
             "required": [
               "account",
               "chain",
               "amount",
-              "currency",
               "status",
               "number",
               "customer",
               "price",
-              "wallet",
-              "transactions",
-              "fees",
-              "transfers"
+              "period_start",
+              "period_end",
+              "due"
             ],
             "type": "object"
           }
@@ -724,6 +688,111 @@
         ],
         "title": "Payment"
       },
+      "PaymentIntent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
+            "properties": {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "amount": {
+                "exclusiveMinimum": true,
+                "minimum": 0,
+                "type": "number"
+              },
+              "application_fee_percent": {
+                "type": "number"
+              },
+              "chain": {
+                "default": "pending",
+                "enum": ["eth", "sol"],
+                "type": "string"
+              },
+              "currency": {
+                "default": "eth",
+                "enum": ["eth", "sol"],
+                "type": "string"
+              },
+              "customer": {
+                "type": "string"
+              },
+              "exchange_rate": {
+                "type": "string"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "invoice": {
+                "oneOf": [
+                  {
+                    "default": null,
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Invoice"
+                  }
+                ]
+              },
+              "last_payment_error": {
+                "type": "string"
+              },
+              "line_items": {
+                "type": "string"
+              },
+              "metadata": {
+                "type": "object"
+              },
+              "platform_account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "price": {
+                "type": "string"
+              },
+              "status": {
+                "default": "pending",
+                "enum": ["pending", "failed", "succeeded", "canceled"],
+                "type": "string"
+              },
+              "subscription": {
+                "type": "string"
+              },
+              "usd_amount": {
+                "type": "string"
+              },
+              "wallet": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "invoice",
+              "status",
+              "chain",
+              "currency",
+              "amount",
+              "customer"
+            ],
+            "type": "object"
+          }
+        ],
+        "title": "PaymentIntent"
+      },
       "PayoutWallet": {
         "allOf": [
           {
@@ -890,14 +959,14 @@
                   }
                 ]
               },
-              "cancel_at": {
-                "type": "number"
-              },
               "canceled_at": {
                 "type": "number"
               },
-              "current_period": {
-                "$ref": "#/components/schemas/SubscriptionPeriod"
+              "current_period_end": {
+                "type": "number"
+              },
+              "current_period_start": {
+                "type": "number"
               },
               "customer": {
                 "oneOf": [
@@ -918,11 +987,16 @@
               "latest_invoice": {
                 "$ref": "#/components/schemas/Invoice"
               },
-              "latest_period": {
-                "$ref": "#/components/schemas/SubscriptionPeriod"
-              },
-              "next_invoice": {
-                "$ref": "#/components/schemas/Invoice"
+              "line_items": {
+                "properties": {
+                  "amount": {
+                    "type": "number"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
               },
               "pause_collection": {
                 "type": "boolean"
@@ -930,12 +1004,6 @@
               "payments": {
                 "items": {
                   "$ref": "#/components/schemas/Payment"
-                },
-                "type": "array"
-              },
-              "periods": {
-                "items": {
-                  "$ref": "#/components/schemas/SubscriptionPeriod"
                 },
                 "type": "array"
               },
@@ -972,139 +1040,14 @@
               "price",
               "customer",
               "status",
-              "pause_collection"
+              "pause_collection",
+              "current_period_start",
+              "current_period_end"
             ],
             "type": "object"
           }
         ],
         "description": ""
-      },
-      "SubscriptionPeriod": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Model"
-          },
-          {
-            "properties": {
-              "account": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Account"
-                  }
-                ]
-              },
-              "end": {
-                "type": "number"
-              },
-              "platform_account": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Account"
-                  }
-                ]
-              },
-              "start": {
-                "type": "number"
-              },
-              "subscription": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Subscription"
-                  }
-                ]
-              },
-              "trial": {
-                "type": "boolean"
-              }
-            },
-            "required": ["account", "start", "end", "subscription", "trial"],
-            "type": "object"
-          }
-        ],
-        "title": "SubscriptionPeriod",
-        "x-stoplight": {
-          "id": "n3f4e588n38zy"
-        }
-      },
-      "Transaction": {
-        "allOf": [
-          {
-            "properties": {
-              "account": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Account"
-                  }
-                ]
-              },
-              "amount": {
-                "exclusiveMinimum": true,
-                "minimum": 0,
-                "type": "number"
-              },
-              "chain": {
-                "default": "pending",
-                "enum": ["eth", "sol"],
-                "type": "string"
-              },
-              "currency": {
-                "default": "eth",
-                "enum": ["eth", "sol"],
-                "type": "string"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "invoice": {
-                "oneOf": [
-                  {
-                    "default": null,
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Invoice"
-                  }
-                ]
-              },
-              "metadata": {
-                "type": "object"
-              },
-              "platform_account": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Account"
-                  }
-                ]
-              },
-              "status": {
-                "default": "pending",
-                "enum": ["pending", "failed", "succeeded", "canceled"],
-                "type": "string"
-              }
-            },
-            "required": ["invoice", "status", "chain", "amount", "currency"],
-            "type": "object"
-          },
-          {
-            "$ref": "#/components/schemas/Model"
-          }
-        ],
-        "title": "Transaction"
       },
       "Transfer": {
         "allOf": [
@@ -1137,24 +1080,24 @@
                   }
                 ]
               },
-              "percent": {
-                "exclusiveMinimum": true,
-                "maximum": 100,
-                "minimum": 0,
-                "type": "number"
-              },
-              "wallet": {
+              "payment_intent": {
                 "oneOf": [
                   {
                     "type": "string"
                   },
                   {
-                    "$ref": "#/components/schemas/Wallet"
+                    "$ref": "#/components/schemas/PaymentIntent"
                   }
                 ]
+              },
+              "percent": {
+                "exclusiveMinimum": true,
+                "maximum": 100,
+                "minimum": 0,
+                "type": "number"
               }
             },
-            "required": ["account", "invoice", "percent", "wallet"],
+            "required": ["account", "invoice", "percent", "payment_intent"],
             "type": "object"
           }
         ],
@@ -1417,6 +1360,9 @@
                   },
                   "settings": {
                     "properties": {
+                      "past_due_period_duration": {
+                        "type": "number"
+                      },
                       "retry_period_duration": {
                         "type": "number"
                       }
@@ -2249,93 +2195,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "description": "",
-                "properties": {
-                  "account": {
-                    "minLength": 1,
-                    "type": "string"
-                  },
-                  "application_fee_percent": {
-                    "type": "number"
-                  },
-                  "chain": {
-                    "minLength": 1,
-                    "type": "string"
-                  },
-                  "currency": {
-                    "minLength": 1,
-                    "type": "string"
-                  },
-                  "customer": {
-                    "minLength": 1,
-                    "type": "string"
-                  },
-                  "due": {
-                    "type": "string"
-                  },
-                  "line_items": {
-                    "items": {
-                      "properties": {
-                        "amount": {
-                          "type": "number"
-                        },
-                        "description": {
-                          "type": "string"
-                        }
-                      },
-                      "type": "object"
-                    },
-                    "type": "array"
-                  },
-                  "metadata": {
-                    "type": "object"
-                  },
-                  "number": {
-                    "minLength": 1,
-                    "type": "string"
-                  },
-                  "price": {
-                    "type": "string"
-                  },
-                  "send_reminders": {
-                    "type": "string"
-                  },
-                  "subscription": {
-                    "type": "string"
-                  },
-                  "trial_period_duration": {
-                    "type": "number"
-                  },
-                  "wallet": {
-                    "minLength": 1,
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "account",
-                  "chain",
-                  "currency",
-                  "number",
-                  "customer",
-                  "wallet"
-                ],
-                "title": "CreateInvoiceBody",
-                "type": "object",
-                "x-examples": {
-                  "example-1": {
-                    "account": "acct_p82RIso0f9EOvdJoFTYIK",
-                    "amount": 0,
-                    "chain": "eth",
-                    "currency": "eth",
-                    "customer": "cus_W54yfTK4NCsfBx4mhXHez",
-                    "due": null,
-                    "number": "ACC-0000000",
-                    "product": "prod_AKjVX2GYDjwrZjTkFJWeF",
-                    "status": "open",
-                    "transaction": "0x0000000000000000000000000000000000000001",
-                    "wallet": "wal_6H6IKtkbVu3yNMdPYtEXe"
-                  }
-                }
+                "$ref": "#/components/schemas/Invoice"
               }
             }
           }
@@ -2667,6 +2527,232 @@
         },
         "summary": "Retrieve Log By Id",
         "tags": ["Logs"]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/payment_intents": {
+      "get": {
+        "operationId": "payment-intents_list",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/sort"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/PaymentIntent"
+                      },
+                      "type": "array"
+                    },
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "title": "ListPaymentIntentsResponse",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "List Payment Intents",
+        "tags": ["PaymentIntents"]
+      },
+      "parameters": [],
+      "post": {
+        "operationId": "payment-intents_create",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentIntent"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntent"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          }
+        },
+        "summary": "Create Payment Intent",
+        "tags": ["PaymentIntents"]
+      }
+    },
+    "/payment_intents/update_hash": {
+      "post": {
+        "operationId": "payment-intents_updateHash",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntent"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Update Payment Intent Hash",
+        "tags": ["PaymentIntents"]
+      }
+    },
+    "/payment_intents/{id}": {
+      "get": {
+        "operationId": "payment-intents_retrieve",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntent"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Retrieve Payment Intent",
+        "tags": ["PaymentIntents"]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/payment_intents/{id}/poll": {
+      "get": {
+        "operationId": "payment-intents_poll",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntent"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Poll Payment Intent",
+        "tags": ["PaymentIntents"]
       },
       "parameters": [
         {
@@ -3099,43 +3185,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "": {
-                    "type": "string"
-                  },
-                  "amount": {
-                    "type": "string"
-                  },
-                  "base_price": {
-                    "properties": {
-                      "amount": {
-                        "type": "number"
-                      },
-                      "currency": {
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "billing_period_duration": {
-                    "type": "number"
-                  },
-                  "chain": {
-                    "type": "string"
-                  },
-                  "currency": {
-                    "type": "string"
-                  },
-                  "metadata": {
-                    "type": "object"
-                  },
-                  "product": {
-                    "type": "string"
-                  }
-                },
-                "required": ["currency", "chain", "product"],
-                "title": "CreatePriceBody",
-                "type": "object"
+                "$ref": "#/components/schemas/Price"
               }
             }
           },
@@ -3536,160 +3586,6 @@
         "tags": ["Products"]
       }
     },
-    "/subscription_periods": {
-      "get": {
-        "operationId": "subscription-periods_list",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Prism-Account"
-          },
-          {
-            "$ref": "#/components/parameters/expand"
-          },
-          {
-            "$ref": "#/components/parameters/limit"
-          },
-          {
-            "$ref": "#/components/parameters/page"
-          },
-          {
-            "$ref": "#/components/parameters/sort"
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "data": {
-                      "items": {
-                        "$ref": "#/components/schemas/SubscriptionPeriod"
-                      },
-                      "type": "array"
-                    },
-                    "has_more": {
-                      "type": "boolean"
-                    },
-                    "page": {
-                      "type": "number"
-                    },
-                    "total": {
-                      "type": "number"
-                    }
-                  },
-                  "required": ["data", "has_more", "page", "total"],
-                  "title": "ListSubscriptionPeriodsResponse",
-                  "type": "object"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          }
-        },
-        "summary": "List Subscription Periods",
-        "tags": ["SubscriptionPeriods"]
-      },
-      "parameters": []
-    },
-    "/subscription_periods/{id}": {
-      "get": {
-        "operationId": "subscription-periods_retrieve",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Prism-Account"
-          },
-          {
-            "$ref": "#/components/parameters/expand"
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SubscriptionPeriod"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "List Subscription Periods",
-        "tags": ["SubscriptionPeriods"]
-      },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ],
-      "patch": {
-        "operationId": "subscription-periods_update",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Prism-Account"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "end": {
-                    "type": "number"
-                  },
-                  "start": {
-                    "type": "number"
-                  }
-                },
-                "title": "UpdateSubscriptionPeriodBody",
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SubscriptionPeriod"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "Update Subscription Period",
-        "tags": ["SubscriptionPeriods"]
-      }
-    },
     "/subscriptions": {
       "get": {
         "operationId": "subscriptions_list",
@@ -3936,202 +3832,6 @@
         "summary": "Update Subscription",
         "tags": ["Subscriptions"]
       }
-    },
-    "/transactions": {
-      "get": {
-        "operationId": "transactions_list",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Prism-Account"
-          },
-          {
-            "$ref": "#/components/parameters/expand"
-          },
-          {
-            "$ref": "#/components/parameters/limit"
-          },
-          {
-            "$ref": "#/components/parameters/page"
-          },
-          {
-            "$ref": "#/components/parameters/sort"
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "data": {
-                      "items": {
-                        "$ref": "#/components/schemas/Transaction"
-                      },
-                      "type": "array"
-                    },
-                    "has_more": {
-                      "type": "boolean"
-                    },
-                    "page": {
-                      "type": "number"
-                    },
-                    "total": {
-                      "type": "number"
-                    }
-                  },
-                  "title": "ListTransactionsResponse",
-                  "type": "object"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "List Transactions",
-        "tags": ["Transactions"]
-      },
-      "post": {
-        "operationId": "transactions_create",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Prism-Account"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "hash": {
-                    "type": "string"
-                  },
-                  "invoice": {
-                    "type": "string"
-                  },
-                  "metadata": {
-                    "type": "object"
-                  }
-                },
-                "required": ["invoice"],
-                "title": "CreateTransactionBody",
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Transaction"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          }
-        },
-        "summary": "Create Transaction",
-        "tags": ["Transactions"]
-      }
-    },
-    "/transactions/{id}": {
-      "get": {
-        "operationId": "transactions_retrieve",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Prism-Account"
-          },
-          {
-            "$ref": "#/components/parameters/expand"
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Transaction"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "Retrieve Transaction",
-        "tags": ["Transactions"]
-      },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ]
-    },
-    "/transactions/{id}/poll": {
-      "get": {
-        "operationId": "transactions_poll",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Prism-Account"
-          },
-          {
-            "$ref": "#/components/parameters/expand"
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Transaction"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "Poll Transaction",
-        "tags": ["Transactions"]
-      },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ]
     },
     "/transfers": {
       "get": {
@@ -4891,9 +4591,6 @@
     },
     {
       "name": "Products"
-    },
-    {
-      "name": "SubscriptionPeriods"
     },
     {
       "name": "Subscriptions"
