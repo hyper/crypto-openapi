@@ -34,8 +34,8 @@ export class PaymentIntentAllOf {
     'exchange_rate'?: string;
     'application_fee_percent'?: number;
     'last_payment_error'?: string;
-    'fees'?: Array<Fee>;
-    'transfers'?: Array<Transfer>;
+    'fees': Array<Fee>;
+    'transfers': Array<Transfer>;
     'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
