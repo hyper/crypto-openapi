@@ -8,25 +8,25 @@ export declare class PaymentIntent {
     'object': string;
     'test': boolean;
     'account'?: string | Account;
-    'platform_account'?: string | Account;
-    'hash'?: string;
-    'invoice': string | Invoice;
-    'status': PaymentIntentStatusEnum;
+    'amount': number;
+    'application_fee_percent'?: number;
     'chain': PaymentIntentChainEnum;
     'currency': PaymentIntentCurrencyEnum;
-    'amount': number;
-    'subscription'?: string;
-    'price'?: string;
-    'line_items'?: string;
     'customer': string;
-    'wallet'?: string;
-    'usd_amount'?: string;
     'exchange_rate'?: string;
-    'application_fee_percent'?: number;
-    'last_payment_error'?: string;
     'fees': Array<Fee>;
-    'transfers': Array<Transfer>;
+    'hash'?: string;
+    'invoice': string | Invoice;
+    'last_payment_error'?: string;
+    'line_items'?: string;
     'metadata'?: any;
+    'platform_account'?: string | Account;
+    'price'?: string;
+    'status': PaymentIntentStatusEnum;
+    'subscription'?: string;
+    'transfers': Array<Transfer>;
+    'usd_amount'?: string;
+    'wallet'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
@@ -42,6 +42,6 @@ export declare class PaymentIntent {
     }[];
     constructor();
 }
-export declare type PaymentIntentStatusEnum = "pending" | "failed" | "succeeded" | "canceled";
 export declare type PaymentIntentChainEnum = "eth" | "sol";
 export declare type PaymentIntentCurrencyEnum = "eth" | "sol";
+export declare type PaymentIntentStatusEnum = "pending" | "failed" | "succeeded" | "canceled";

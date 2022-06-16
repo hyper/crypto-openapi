@@ -1,12 +1,12 @@
 export declare class UpdateInvoiceBody {
+    'application_fee_percent'?: number;
     'chain'?: string;
     'currency'?: string;
     'due'?: string;
-    'application_fee_percent'?: number;
+    'metadata'?: any;
+    'send_reminders'?: string;
     'status'?: string;
     'trial_period_duration'?: number;
-    'send_reminders'?: string;
-    'metadata'?: any;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

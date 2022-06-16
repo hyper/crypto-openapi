@@ -26,8 +26,8 @@ export class Transfer {
     'account': string | Account;
     'description'?: string;
     'invoice': string | Invoice;
-    'percent': number;
     'payment_intent': string | PaymentIntent;
+    'percent': number;
     'wallet': string | PayoutWallet;
 
     static readonly discriminator: string | undefined = undefined;
@@ -76,15 +76,15 @@ export class Transfer {
             "format": ""
         },
         {
-            "name": "percent",
-            "baseName": "percent",
-            "type": "number",
-            "format": ""
-        },
-        {
             "name": "payment_intent",
             "baseName": "payment_intent",
             "type": "string | PaymentIntent",
+            "format": ""
+        },
+        {
+            "name": "percent",
+            "baseName": "percent",
+            "type": "number",
             "format": ""
         },
         {

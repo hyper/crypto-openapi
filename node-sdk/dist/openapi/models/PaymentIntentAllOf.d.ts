@@ -4,25 +4,25 @@ import { Invoice } from './Invoice';
 import { Transfer } from './Transfer';
 export declare class PaymentIntentAllOf {
     'account'?: string | Account;
-    'platform_account'?: string | Account;
-    'hash'?: string;
-    'invoice': string | Invoice;
-    'status': PaymentIntentAllOfStatusEnum;
+    'amount': number;
+    'application_fee_percent'?: number;
     'chain': PaymentIntentAllOfChainEnum;
     'currency': PaymentIntentAllOfCurrencyEnum;
-    'amount': number;
-    'subscription'?: string;
-    'price'?: string;
-    'line_items'?: string;
     'customer': string;
-    'wallet'?: string;
-    'usd_amount'?: string;
     'exchange_rate'?: string;
-    'application_fee_percent'?: number;
-    'last_payment_error'?: string;
     'fees': Array<Fee>;
-    'transfers': Array<Transfer>;
+    'hash'?: string;
+    'invoice': string | Invoice;
+    'last_payment_error'?: string;
+    'line_items'?: string;
     'metadata'?: any;
+    'platform_account'?: string | Account;
+    'price'?: string;
+    'status': PaymentIntentAllOfStatusEnum;
+    'subscription'?: string;
+    'transfers': Array<Transfer>;
+    'usd_amount'?: string;
+    'wallet'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
@@ -38,6 +38,6 @@ export declare class PaymentIntentAllOf {
     }[];
     constructor();
 }
-export declare type PaymentIntentAllOfStatusEnum = "pending" | "failed" | "succeeded" | "canceled";
 export declare type PaymentIntentAllOfChainEnum = "eth" | "sol";
 export declare type PaymentIntentAllOfCurrencyEnum = "eth" | "sol";
+export declare type PaymentIntentAllOfStatusEnum = "pending" | "failed" | "succeeded" | "canceled";

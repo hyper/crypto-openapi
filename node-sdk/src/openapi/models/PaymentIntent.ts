@@ -24,25 +24,25 @@ export class PaymentIntent {
     'object': string;
     'test': boolean;
     'account'?: string | Account;
-    'platform_account'?: string | Account;
-    'hash'?: string;
-    'invoice': string | Invoice;
-    'status': PaymentIntentStatusEnum;
+    'amount': number;
+    'application_fee_percent'?: number;
     'chain': PaymentIntentChainEnum;
     'currency': PaymentIntentCurrencyEnum;
-    'amount': number;
-    'subscription'?: string;
-    'price'?: string;
-    'line_items'?: string;
     'customer': string;
-    'wallet'?: string;
-    'usd_amount'?: string;
     'exchange_rate'?: string;
-    'application_fee_percent'?: number;
-    'last_payment_error'?: string;
     'fees': Array<Fee>;
-    'transfers': Array<Transfer>;
+    'hash'?: string;
+    'invoice': string | Invoice;
+    'last_payment_error'?: string;
+    'line_items'?: string;
     'metadata'?: any;
+    'platform_account'?: string | Account;
+    'price'?: string;
+    'status': PaymentIntentStatusEnum;
+    'subscription'?: string;
+    'transfers': Array<Transfer>;
+    'usd_amount'?: string;
+    'wallet'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -78,27 +78,15 @@ export class PaymentIntent {
             "format": ""
         },
         {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string | Account",
+            "name": "amount",
+            "baseName": "amount",
+            "type": "number",
             "format": ""
         },
         {
-            "name": "hash",
-            "baseName": "hash",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "invoice",
-            "baseName": "invoice",
-            "type": "string | Invoice",
-            "format": ""
-        },
-        {
-            "name": "status",
-            "baseName": "status",
-            "type": "PaymentIntentStatusEnum",
+            "name": "application_fee_percent",
+            "baseName": "application_fee_percent",
+            "type": "number",
             "format": ""
         },
         {
@@ -114,44 +102,8 @@ export class PaymentIntent {
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "subscription",
-            "baseName": "subscription",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "price",
-            "baseName": "price",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "line_items",
-            "baseName": "line_items",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "customer",
             "baseName": "customer",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "wallet",
-            "baseName": "wallet",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "usd_amount",
-            "baseName": "usd_amount",
             "type": "string",
             "format": ""
         },
@@ -162,9 +114,21 @@ export class PaymentIntent {
             "format": ""
         },
         {
-            "name": "application_fee_percent",
-            "baseName": "application_fee_percent",
-            "type": "number",
+            "name": "fees",
+            "baseName": "fees",
+            "type": "Array<Fee>",
+            "format": ""
+        },
+        {
+            "name": "hash",
+            "baseName": "hash",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "invoice",
+            "baseName": "invoice",
+            "type": "string | Invoice",
             "format": ""
         },
         {
@@ -174,9 +138,39 @@ export class PaymentIntent {
             "format": ""
         },
         {
-            "name": "fees",
-            "baseName": "fees",
-            "type": "Array<Fee>",
+            "name": "line_items",
+            "baseName": "line_items",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
+            "format": ""
+        },
+        {
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string | Account",
+            "format": ""
+        },
+        {
+            "name": "price",
+            "baseName": "price",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "PaymentIntentStatusEnum",
+            "format": ""
+        },
+        {
+            "name": "subscription",
+            "baseName": "subscription",
+            "type": "string",
             "format": ""
         },
         {
@@ -186,9 +180,15 @@ export class PaymentIntent {
             "format": ""
         },
         {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "any",
+            "name": "usd_amount",
+            "baseName": "usd_amount",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "wallet",
+            "baseName": "wallet",
+            "type": "string",
             "format": ""
         }    ];
 
@@ -201,7 +201,7 @@ export class PaymentIntent {
 }
 
 
-export type PaymentIntentStatusEnum = "pending" | "failed" | "succeeded" | "canceled" ;
 export type PaymentIntentChainEnum = "eth" | "sol" ;
 export type PaymentIntentCurrencyEnum = "eth" | "sol" ;
+export type PaymentIntentStatusEnum = "pending" | "failed" | "succeeded" | "canceled" ;
 

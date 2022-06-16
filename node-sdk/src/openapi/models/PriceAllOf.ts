@@ -17,15 +17,15 @@ import { HttpFile } from '../http/http';
 
 export class PriceAllOf {
     'account': string | Account;
-    'platform_account'?: string | Account;
     'amount': number;
-    'currency': string;
-    'chain': string;
-    'product'?: string | Product;
+    'application_fee_percent'?: number;
     'base_price'?: PriceAllOfBasePrice;
     'billing_period_duration'?: number;
-    'application_fee_percent'?: number;
+    'chain': string;
+    'currency': string;
     'metadata'?: any;
+    'platform_account'?: string | Account;
+    'product'?: string | Product;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -37,33 +37,15 @@ export class PriceAllOf {
             "format": ""
         },
         {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string | Account",
-            "format": ""
-        },
-        {
             "name": "amount",
             "baseName": "amount",
             "type": "number",
             "format": ""
         },
         {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "product",
-            "baseName": "product",
-            "type": "string | Product",
+            "name": "application_fee_percent",
+            "baseName": "application_fee_percent",
+            "type": "number",
             "format": ""
         },
         {
@@ -79,15 +61,33 @@ export class PriceAllOf {
             "format": ""
         },
         {
-            "name": "application_fee_percent",
-            "baseName": "application_fee_percent",
-            "type": "number",
+            "name": "chain",
+            "baseName": "chain",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "string",
             "format": ""
         },
         {
             "name": "metadata",
             "baseName": "metadata",
             "type": "any",
+            "format": ""
+        },
+        {
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string | Account",
+            "format": ""
+        },
+        {
+            "name": "product",
+            "baseName": "product",
+            "type": "string | Product",
             "format": ""
         }    ];
 

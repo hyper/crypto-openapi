@@ -18,15 +18,27 @@ SubscriptionAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "string | Account",
+        "name": "cancel_at_period_end",
+        "baseName": "cancel_at_period_end",
+        "type": "boolean",
         "format": ""
     },
     {
-        "name": "price",
-        "baseName": "price",
-        "type": "string | Price",
+        "name": "canceled_at",
+        "baseName": "canceled_at",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "current_period_end",
+        "baseName": "current_period_end",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "current_period_start",
+        "baseName": "current_period_start",
+        "type": "number",
         "format": ""
     },
     {
@@ -42,9 +54,9 @@ SubscriptionAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "status",
-        "baseName": "status",
-        "type": "SubscriptionAllOfStatusEnum",
+        "name": "line_items",
+        "baseName": "line_items",
+        "type": "SubscriptionAllOfLineItems",
         "format": ""
     },
     {
@@ -54,39 +66,27 @@ SubscriptionAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "canceled_at",
-        "baseName": "canceled_at",
-        "type": "number",
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string | Account",
+        "format": ""
+    },
+    {
+        "name": "price",
+        "baseName": "price",
+        "type": "string | Price",
+        "format": ""
+    },
+    {
+        "name": "status",
+        "baseName": "status",
+        "type": "SubscriptionAllOfStatusEnum",
         "format": ""
     },
     {
         "name": "trial_period_duration",
         "baseName": "trial_period_duration",
         "type": "number",
-        "format": ""
-    },
-    {
-        "name": "line_items",
-        "baseName": "line_items",
-        "type": "SubscriptionAllOfLineItems",
-        "format": ""
-    },
-    {
-        "name": "current_period_start",
-        "baseName": "current_period_start",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "current_period_end",
-        "baseName": "current_period_end",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "cancel_at_period_end",
-        "baseName": "cancel_at_period_end",
-        "type": "boolean",
         "format": ""
     }
 ];

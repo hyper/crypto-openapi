@@ -98,8 +98,8 @@ import { Fee } from './Fee';
 import { FeeAllOf } from './FeeAllOf';
 import { InlineResponse400 } from './InlineResponse400';
 import { InlineResponse400Error } from './InlineResponse400Error';
-import { Invoice      , InvoiceChainEnum   , InvoiceStatusEnum               } from './Invoice';
-import { InvoiceAllOf  , InvoiceAllOfChainEnum   , InvoiceAllOfStatusEnum               } from './InvoiceAllOf';
+import { Invoice      , InvoiceChainEnum             , InvoiceStatusEnum     } from './Invoice';
+import { InvoiceAllOf  , InvoiceAllOfChainEnum             , InvoiceAllOfStatusEnum     } from './InvoiceAllOf';
 import { InvoiceAllOfLineItems } from './InvoiceAllOfLineItems';
 import { ListAccountsResponse } from './ListAccountsResponse';
 import { ListCustomersResponse } from './ListCustomersResponse';
@@ -117,10 +117,10 @@ import { ListWebhooksResponse } from './ListWebhooksResponse';
 import { Log        , LogMethodEnum       } from './Log';
 import { LogAllOf     , LogAllOfMethodEnum       } from './LogAllOf';
 import { Model } from './Model';
-import { Notification     , NotificationTypeEnum     } from './Notification';
-import { NotificationAllOf , NotificationAllOfTypeEnum     } from './NotificationAllOf';
-import { PaymentIntent        , PaymentIntentStatusEnum  , PaymentIntentChainEnum  , PaymentIntentCurrencyEnum                } from './PaymentIntent';
-import { PaymentIntentAllOf    , PaymentIntentAllOfStatusEnum  , PaymentIntentAllOfChainEnum  , PaymentIntentAllOfCurrencyEnum                } from './PaymentIntentAllOf';
+import { Notification       , NotificationTypeEnum   } from './Notification';
+import { NotificationAllOf   , NotificationAllOfTypeEnum   } from './NotificationAllOf';
+import { PaymentIntent       , PaymentIntentChainEnum  , PaymentIntentCurrencyEnum            , PaymentIntentStatusEnum       } from './PaymentIntent';
+import { PaymentIntentAllOf   , PaymentIntentAllOfChainEnum  , PaymentIntentAllOfCurrencyEnum            , PaymentIntentAllOfStatusEnum       } from './PaymentIntentAllOf';
 import { PayoutWallet       , PayoutWalletChainEnum   } from './PayoutWallet';
 import { PayoutWalletAllOf   , PayoutWalletAllOfChainEnum   } from './PayoutWalletAllOf';
 import { Price } from './Price';
@@ -128,8 +128,8 @@ import { PriceAllOf } from './PriceAllOf';
 import { PriceAllOfBasePrice } from './PriceAllOfBasePrice';
 import { Product } from './Product';
 import { ProductAllOf } from './ProductAllOf';
-import { Subscription         , SubscriptionStatusEnum          } from './Subscription';
-import { SubscriptionAllOf     , SubscriptionAllOfStatusEnum          } from './SubscriptionAllOf';
+import { Subscription               , SubscriptionStatusEnum    } from './Subscription';
+import { SubscriptionAllOf           , SubscriptionAllOfStatusEnum    } from './SubscriptionAllOf';
 import { SubscriptionAllOfLineItems } from './SubscriptionAllOfLineItems';
 import { Transfer } from './Transfer';
 import { TransferAllOf } from './TransferAllOf';
@@ -176,12 +176,12 @@ let enumsMap: Set<string> = new Set<string>([
     "LogAllOfMethodEnum",
     "NotificationTypeEnum",
     "NotificationAllOfTypeEnum",
-    "PaymentIntentStatusEnum",
     "PaymentIntentChainEnum",
     "PaymentIntentCurrencyEnum",
-    "PaymentIntentAllOfStatusEnum",
+    "PaymentIntentStatusEnum",
     "PaymentIntentAllOfChainEnum",
     "PaymentIntentAllOfCurrencyEnum",
+    "PaymentIntentAllOfStatusEnum",
     "PayoutWalletChainEnum",
     "PayoutWalletAllOfChainEnum",
     "SubscriptionStatusEnum",

@@ -13,27 +13,15 @@
 import { HttpFile } from '../http/http';
 
 export class UpdateSubscriptionBody {
-    'status'?: string;
-    'pause_collection'?: boolean;
     'cancel_at'?: number;
     'canceled_at'?: number;
+    'pause_collection'?: boolean;
     'price'?: string;
+    'status'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "status",
-            "baseName": "status",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "pause_collection",
-            "baseName": "pause_collection",
-            "type": "boolean",
-            "format": ""
-        },
         {
             "name": "cancel_at",
             "baseName": "cancel_at",
@@ -47,8 +35,20 @@ export class UpdateSubscriptionBody {
             "format": ""
         },
         {
+            "name": "pause_collection",
+            "baseName": "pause_collection",
+            "type": "boolean",
+            "format": ""
+        },
+        {
             "name": "price",
             "baseName": "price",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
             "type": "string",
             "format": ""
         }    ];

@@ -97,8 +97,9 @@ import {
   PaymentIntent,
   PaymentIntentsApiUpdateHashRequest,
   PaymentIntentsApiPollRequest,
-  SubscriptionsApiCancelRequest, PaymentIntentsApiCancelRequest
-} from "./openapi/index";
+  SubscriptionsApiCancelRequest,
+  PaymentIntentsApiCancelRequest,
+} from './openapi/index';
 import convertCasing from './helpers/convertCasing';
 import { ListPayoutWalletsResponse } from './openapi';
 export * from './openapi/models/all';
