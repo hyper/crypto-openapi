@@ -118,6 +118,12 @@ Subscription.attributeTypeMap = [
         "baseName": "current_period_end",
         "type": "number",
         "format": ""
+    },
+    {
+        "name": "cancel_at_period_end",
+        "baseName": "cancel_at_period_end",
+        "type": "boolean",
+        "format": ""
     }
 ];
 //# sourceMappingURL=Subscription.js.map

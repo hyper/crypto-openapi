@@ -33,6 +33,7 @@ export class SubscriptionAllOf {
     'line_items'?: SubscriptionAllOfLineItems;
     'current_period_start': number;
     'current_period_end': number;
+    'cancel_at_period_end': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -119,6 +120,12 @@ export class SubscriptionAllOf {
             "name": "current_period_end",
             "baseName": "current_period_end",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "cancel_at_period_end",
+            "baseName": "cancel_at_period_end",
+            "type": "boolean",
             "format": ""
         }    ];
 

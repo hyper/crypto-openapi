@@ -23,6 +23,7 @@ export declare class Subscription {
     'line_items'?: SubscriptionAllOfLineItems;
     'current_period_start': number;
     'current_period_end': number;
+    'cancel_at_period_end': boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
