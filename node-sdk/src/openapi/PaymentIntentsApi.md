@@ -4,12 +4,71 @@ All URIs are relative to *http://localhost:7070/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**cancel**](PaymentIntentsApi.md#cancel) | **DELETE** /payment_intents/{id} | Cancel Payment Intent
 [**create**](PaymentIntentsApi.md#create) | **POST** /payment_intents | Create Payment Intent
 [**list**](PaymentIntentsApi.md#list) | **GET** /payment_intents | List Payment Intents
 [**poll**](PaymentIntentsApi.md#poll) | **GET** /payment_intents/{id}/poll | Poll Payment Intent
 [**retrieve**](PaymentIntentsApi.md#retrieve) | **GET** /payment_intents/{id} | Retrieve Payment Intent
 [**updateHash**](PaymentIntentsApi.md#updateHash) | **POST** /payment_intents/{id}/update_hash | Update Payment Intent Hash
 
+
+# **cancel**
+> PaymentIntent cancel()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .PaymentIntentsApi(configuration);
+
+let body:.PaymentIntentsApiCancelRequest = {
+  // string
+  id: "id_example",
+  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
+  prism_account: "Prism-Account_example",
+};
+
+apiInstance.cancel(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**string**] |  | defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+
+
+### Return type
+
+**PaymentIntent**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
 > PaymentIntent create()
@@ -94,6 +153,10 @@ let body:.PaymentIntentsApiListRequest = {
   page: 3.14,
   // any | Specifies whether documents are sorted in an ascending or descending order. (optional)
   sort: null,
+  // 'processing' | 'succeeded' | 'failed' | 'canceled' | The status of the payment intent to filter by. (optional)
+  status: "processing",
+  // string | The ID of the customer on the payment intent to filter by. (optional)
+  customer: "customer_example",
 };
 
 apiInstance.list(body).then((data:any) => {
@@ -111,6 +174,8 @@ Name | Type | Description  | Notes
  **limit** | [**number**] | A limit on the number of objects to be returned between 1 and 100. | (optional) defaults to undefined
  **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
  **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
+ **status** | [**&#39;processing&#39; | &#39;succeeded&#39; | &#39;failed&#39; | &#39;canceled&#39;**]**Array<&#39;processing&#39; &#124; &#39;succeeded&#39; &#124; &#39;failed&#39; &#124; &#39;canceled&#39;>** | The status of the payment intent to filter by. | (optional) defaults to undefined
+ **customer** | [**string**] | The ID of the customer on the payment intent to filter by. | (optional) defaults to undefined
 
 
 ### Return type

@@ -53,7 +53,6 @@ class Prism {
         this.fees = new FeesApiLayer(config);
         this.invoices = new InvoicesApiLayer(config);
         this.logs = new LogsApiLayer(config);
-        this.payments = new PaymentsApiLayer(config);
         this.payoutWallets = new PayoutWalletsApiLayer(config);
         this.prices = new PricesApiLayer(config);
         this.products = new ProductsApiLayer(config);
@@ -164,30 +163,10 @@ class InvoicesApiLayer {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
         });
     }
-    poll(id, params, options) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.api.poll(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
-        });
-    }
 }
 class LogsApiLayer {
     constructor(config) {
         this.api = new index_1.LogsApi(config);
-    }
-    retrieve(id, params, options) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
-        });
-    }
-    list(params, options) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
-        });
-    }
-}
-class PaymentsApiLayer {
-    constructor(config) {
-        this.api = new index_1.PaymentsApi(config);
     }
     retrieve(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -296,7 +275,7 @@ class SubscriptionsApiLayer {
     }
     create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_subscription_body: data }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { subscription: data }));
         });
     }
     retrieve(id, params, options) {
@@ -314,9 +293,9 @@ class SubscriptionsApiLayer {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
         });
     }
-    delete(id, params, options) {
+    cancel(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api._delete(Object.assign({ id }, convertCasing_1.default(options)));
+            return this.api.cancel(Object.assign({ id }, convertCasing_1.default(options)));
         });
     }
 }
@@ -342,6 +321,16 @@ class PaymentIntentsApiLayer {
     list(params, options) {
         return __awaiter(this, void 0, void 0, function* () {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+        });
+    }
+    poll(id, params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.poll(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+        });
+    }
+    cancel(id, params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.cancel(Object.assign({ id }, convertCasing_1.default(options)));
         });
     }
 }

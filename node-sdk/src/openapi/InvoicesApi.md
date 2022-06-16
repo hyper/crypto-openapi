@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create**](InvoicesApi.md#create) | **POST** /invoices | Create Invoice
 [**list**](InvoicesApi.md#list) | **GET** /invoices | List Invoices
-[**poll**](InvoicesApi.md#poll) | **GET** /invoices/{id}/poll | Poll Invoice By ID
 [**retrieve**](InvoicesApi.md#retrieve) | **GET** /invoices/{id} | Retrieve Invoice By Id
 [**update**](InvoicesApi.md#update) | **PATCH** /invoices/{id} | Update Invoice By Id
 
@@ -116,67 +115,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 **ListInvoicesResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**401** | Unauthorized |  -  |
-**404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **poll**
-> Invoice poll()
-
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .InvoicesApi(configuration);
-
-let body:.InvoicesApiPollRequest = {
-  // string
-  id: "id_example",
-  // string | Specifies which fields to populate in the response. (optional)
-  expand: "expand_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
-};
-
-apiInstance.poll(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**string**] |  | defaults to undefined
- **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
-
-
-### Return type
-
-**Invoice**
 
 ### Authorization
 

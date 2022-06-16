@@ -13,7 +13,6 @@
 import { Account } from './Account';
 import { Customer } from './Customer';
 import { InvoiceAllOfLineItems } from './InvoiceAllOfLineItems';
-import { Payment } from './Payment';
 import { Price } from './Price';
 import { Subscription } from './Subscription';
 import { HttpFile } from '../http/http';
@@ -27,7 +26,6 @@ export class InvoiceAllOf {
     'number': string;
     'customer': string | Customer;
     'price': string | Price;
-    'payment'?: Payment;
     'subscription'?: string | Subscription;
     'line_items'?: InvoiceAllOfLineItems;
     'trial_period_duration'?: number;
@@ -87,12 +85,6 @@ export class InvoiceAllOf {
             "name": "price",
             "baseName": "price",
             "type": "string | Price",
-            "format": ""
-        },
-        {
-            "name": "payment",
-            "baseName": "payment",
-            "type": "Payment",
             "format": ""
         },
         {

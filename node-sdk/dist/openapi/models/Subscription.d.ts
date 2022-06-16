@@ -1,7 +1,6 @@
 import { Account } from './Account';
 import { Customer } from './Customer';
 import { Invoice } from './Invoice';
-import { Payment } from './Payment';
 import { Price } from './Price';
 import { SubscriptionAllOfLineItems } from './SubscriptionAllOfLineItems';
 export declare class Subscription {
@@ -17,8 +16,6 @@ export declare class Subscription {
     'status': SubscriptionStatusEnum;
     'pause_collection': boolean;
     'canceled_at'?: number;
-    'invoices'?: Array<Invoice>;
-    'payments'?: Array<Payment>;
     'trial_period_duration'?: number;
     'line_items'?: SubscriptionAllOfLineItems;
     'current_period_start': number;

@@ -24,7 +24,6 @@ __exportStar(require("./CreateCustomerBody"), exports);
 __exportStar(require("./CreateFeeBody"), exports);
 __exportStar(require("./CreatePayoutWalletBody"), exports);
 __exportStar(require("./CreateProductBody"), exports);
-__exportStar(require("./CreateSubscriptionBody"), exports);
 __exportStar(require("./CreateTransferBody"), exports);
 __exportStar(require("./CreateWalletBody"), exports);
 __exportStar(require("./CreateWebhookBody"), exports);
@@ -47,7 +46,6 @@ __exportStar(require("./ListFeesResponse"), exports);
 __exportStar(require("./ListInvoicesResponse"), exports);
 __exportStar(require("./ListLogsResponse"), exports);
 __exportStar(require("./ListPaymentIntentsResponse"), exports);
-__exportStar(require("./ListPaymentsResponse"), exports);
 __exportStar(require("./ListPayoutWalletsResponse"), exports);
 __exportStar(require("./ListPricesResponse"), exports);
 __exportStar(require("./ListProductsResponse"), exports);
@@ -60,8 +58,6 @@ __exportStar(require("./LogAllOf"), exports);
 __exportStar(require("./Model"), exports);
 __exportStar(require("./Notification"), exports);
 __exportStar(require("./NotificationAllOf"), exports);
-__exportStar(require("./Payment"), exports);
-__exportStar(require("./PaymentAllOf"), exports);
 __exportStar(require("./PaymentIntent"), exports);
 __exportStar(require("./PaymentIntentAllOf"), exports);
 __exportStar(require("./PayoutWallet"), exports);
@@ -101,7 +97,6 @@ const CreateCustomerBody_1 = require("./CreateCustomerBody");
 const CreateFeeBody_1 = require("./CreateFeeBody");
 const CreatePayoutWalletBody_1 = require("./CreatePayoutWalletBody");
 const CreateProductBody_1 = require("./CreateProductBody");
-const CreateSubscriptionBody_1 = require("./CreateSubscriptionBody");
 const CreateTransferBody_1 = require("./CreateTransferBody");
 const CreateWalletBody_1 = require("./CreateWalletBody");
 const CreateWebhookBody_1 = require("./CreateWebhookBody");
@@ -124,7 +119,6 @@ const ListFeesResponse_1 = require("./ListFeesResponse");
 const ListInvoicesResponse_1 = require("./ListInvoicesResponse");
 const ListLogsResponse_1 = require("./ListLogsResponse");
 const ListPaymentIntentsResponse_1 = require("./ListPaymentIntentsResponse");
-const ListPaymentsResponse_1 = require("./ListPaymentsResponse");
 const ListPayoutWalletsResponse_1 = require("./ListPayoutWalletsResponse");
 const ListPricesResponse_1 = require("./ListPricesResponse");
 const ListProductsResponse_1 = require("./ListProductsResponse");
@@ -137,8 +131,6 @@ const LogAllOf_1 = require("./LogAllOf");
 const Model_1 = require("./Model");
 const Notification_1 = require("./Notification");
 const NotificationAllOf_1 = require("./NotificationAllOf");
-const Payment_1 = require("./Payment");
-const PaymentAllOf_1 = require("./PaymentAllOf");
 const PaymentIntent_1 = require("./PaymentIntent");
 const PaymentIntentAllOf_1 = require("./PaymentIntentAllOf");
 const PayoutWallet_1 = require("./PayoutWallet");
@@ -191,8 +183,6 @@ let enumsMap = new Set([
     "LogAllOfMethodEnum",
     "NotificationTypeEnum",
     "NotificationAllOfTypeEnum",
-    "PaymentStatusEnum",
-    "PaymentAllOfStatusEnum",
     "PaymentIntentStatusEnum",
     "PaymentIntentChainEnum",
     "PaymentIntentCurrencyEnum",
@@ -220,7 +210,6 @@ let typeMap = {
     "CreateFeeBody": CreateFeeBody_1.CreateFeeBody,
     "CreatePayoutWalletBody": CreatePayoutWalletBody_1.CreatePayoutWalletBody,
     "CreateProductBody": CreateProductBody_1.CreateProductBody,
-    "CreateSubscriptionBody": CreateSubscriptionBody_1.CreateSubscriptionBody,
     "CreateTransferBody": CreateTransferBody_1.CreateTransferBody,
     "CreateWalletBody": CreateWalletBody_1.CreateWalletBody,
     "CreateWebhookBody": CreateWebhookBody_1.CreateWebhookBody,
@@ -243,7 +232,6 @@ let typeMap = {
     "ListInvoicesResponse": ListInvoicesResponse_1.ListInvoicesResponse,
     "ListLogsResponse": ListLogsResponse_1.ListLogsResponse,
     "ListPaymentIntentsResponse": ListPaymentIntentsResponse_1.ListPaymentIntentsResponse,
-    "ListPaymentsResponse": ListPaymentsResponse_1.ListPaymentsResponse,
     "ListPayoutWalletsResponse": ListPayoutWalletsResponse_1.ListPayoutWalletsResponse,
     "ListPricesResponse": ListPricesResponse_1.ListPricesResponse,
     "ListProductsResponse": ListProductsResponse_1.ListProductsResponse,
@@ -256,8 +244,6 @@ let typeMap = {
     "Model": Model_1.Model,
     "Notification": Notification_1.Notification,
     "NotificationAllOf": NotificationAllOf_1.NotificationAllOf,
-    "Payment": Payment_1.Payment,
-    "PaymentAllOf": PaymentAllOf_1.PaymentAllOf,
     "PaymentIntent": PaymentIntent_1.PaymentIntent,
     "PaymentIntentAllOf": PaymentIntentAllOf_1.PaymentIntentAllOf,
     "PayoutWallet": PayoutWallet_1.PayoutWallet,

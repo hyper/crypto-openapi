@@ -15,7 +15,6 @@ import { CreateCustomerBody } from '../models/CreateCustomerBody';
 import { CreateFeeBody } from '../models/CreateFeeBody';
 import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
 import { CreateProductBody } from '../models/CreateProductBody';
-import { CreateSubscriptionBody } from '../models/CreateSubscriptionBody';
 import { CreateTransferBody } from '../models/CreateTransferBody';
 import { CreateWalletBody } from '../models/CreateWalletBody';
 import { CreateWebhookBody } from '../models/CreateWebhookBody';
@@ -38,7 +37,6 @@ import { ListFeesResponse } from '../models/ListFeesResponse';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
 import { ListLogsResponse } from '../models/ListLogsResponse';
 import { ListPaymentIntentsResponse } from '../models/ListPaymentIntentsResponse';
-import { ListPaymentsResponse } from '../models/ListPaymentsResponse';
 import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
 import { ListPricesResponse } from '../models/ListPricesResponse';
 import { ListProductsResponse } from '../models/ListProductsResponse';
@@ -51,8 +49,6 @@ import { LogAllOf } from '../models/LogAllOf';
 import { Model } from '../models/Model';
 import { Notification } from '../models/Notification';
 import { NotificationAllOf } from '../models/NotificationAllOf';
-import { Payment } from '../models/Payment';
-import { PaymentAllOf } from '../models/PaymentAllOf';
 import { PaymentIntent } from '../models/PaymentIntent';
 import { PaymentIntentAllOf } from '../models/PaymentIntentAllOf';
 import { PayoutWallet } from '../models/PayoutWallet';
@@ -527,27 +523,6 @@ export interface InvoicesApiListRequest {
     prism_account?: string
 }
 
-export interface InvoicesApiPollRequest {
-    /**
-     * 
-     * @type string
-     * @memberof InvoicesApipoll
-     */
-    id: string
-    /**
-     * Specifies which fields to populate in the response.
-     * @type string
-     * @memberof InvoicesApipoll
-     */
-    expand?: string
-    /**
-     * The ID of the connected Prism account you are making a request on behalf on.
-     * @type string
-     * @memberof InvoicesApipoll
-     */
-    prism_account?: string
-}
-
 export interface InvoicesApiRetrieveRequest {
     /**
      * 
@@ -611,14 +586,6 @@ export class ObjectInvoicesApi {
      */
     public list(param: InvoicesApiListRequest = {}, options?: Configuration): Promise<ListInvoicesResponse> {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
-    }
-
-    /**
-     * Poll Invoice By ID
-     * @param param the request object
-     */
-    public poll(param: InvoicesApiPollRequest, options?: Configuration): Promise<Invoice> {
-        return this.api.poll(param.id, param.expand, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -724,6 +691,21 @@ export class ObjectLogsApi {
 import { ObservablePaymentIntentsApi } from "./ObservableAPI";
 import { PaymentIntentsApiRequestFactory, PaymentIntentsApiResponseProcessor} from "../apis/PaymentIntentsApi";
 
+export interface PaymentIntentsApiCancelRequest {
+    /**
+     * 
+     * @type string
+     * @memberof PaymentIntentsApicancel
+     */
+    id: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof PaymentIntentsApicancel
+     */
+    prism_account?: string
+}
+
 export interface PaymentIntentsApiCreateRequest {
     /**
      * The ID of the connected Prism account you are making a request on behalf on.
@@ -770,6 +752,18 @@ export interface PaymentIntentsApiListRequest {
      * @memberof PaymentIntentsApilist
      */
     sort?: any
+    /**
+     * The status of the payment intent to filter by.
+     * @type &#39;processing&#39; | &#39;succeeded&#39; | &#39;failed&#39; | &#39;canceled&#39;
+     * @memberof PaymentIntentsApilist
+     */
+    status?: 'processing' | 'succeeded' | 'failed' | 'canceled'
+    /**
+     * The ID of the customer on the payment intent to filter by.
+     * @type string
+     * @memberof PaymentIntentsApilist
+     */
+    customer?: string
 }
 
 export interface PaymentIntentsApiPollRequest {
@@ -843,6 +837,14 @@ export class ObjectPaymentIntentsApi {
     }
 
     /**
+     * Cancel Payment Intent
+     * @param param the request object
+     */
+    public cancel(param: PaymentIntentsApiCancelRequest, options?: Configuration): Promise<PaymentIntent> {
+        return this.api.cancel(param.id, param.prism_account,  options).toPromise();
+    }
+
+    /**
      * Create Payment Intent
      * @param param the request object
      */
@@ -855,7 +857,7 @@ export class ObjectPaymentIntentsApi {
      * @param param the request object
      */
     public list(param: PaymentIntentsApiListRequest = {}, options?: Configuration): Promise<ListPaymentIntentsResponse> {
-        return this.api.list(param.prism_account, param.expand, param.limit, param.page, param.sort,  options).toPromise();
+        return this.api.list(param.prism_account, param.expand, param.limit, param.page, param.sort, param.status, param.customer,  options).toPromise();
     }
 
     /**
@@ -880,88 +882,6 @@ export class ObjectPaymentIntentsApi {
      */
     public updateHash(param: PaymentIntentsApiUpdateHashRequest, options?: Configuration): Promise<PaymentIntent> {
         return this.api.updateHash(param.id, param.prism_account, param.body,  options).toPromise();
-    }
-
-}
-
-import { ObservablePaymentsApi } from "./ObservableAPI";
-import { PaymentsApiRequestFactory, PaymentsApiResponseProcessor} from "../apis/PaymentsApi";
-
-export interface PaymentsApiListRequest {
-    /**
-     * A limit on the number of objects to be returned between 1 and 100.
-     * @type number
-     * @memberof PaymentsApilist
-     */
-    limit?: number
-    /**
-     * Index of the page to be returned in a paginated response.
-     * @type number
-     * @memberof PaymentsApilist
-     */
-    page?: number
-    /**
-     * Specifies whether documents are sorted in an ascending or descending order.
-     * @type any
-     * @memberof PaymentsApilist
-     */
-    sort?: any
-    /**
-     * Specifies which fields to populate in the response.
-     * @type string
-     * @memberof PaymentsApilist
-     */
-    expand?: string
-    /**
-     * The ID of the connected Prism account you are making a request on behalf on.
-     * @type string
-     * @memberof PaymentsApilist
-     */
-    prism_account?: string
-}
-
-export interface PaymentsApiRetrieveRequest {
-    /**
-     * 
-     * @type string
-     * @memberof PaymentsApiretrieve
-     */
-    id: string
-    /**
-     * Specifies which fields to populate in the response.
-     * @type string
-     * @memberof PaymentsApiretrieve
-     */
-    expand?: string
-    /**
-     * The ID of the connected Prism account you are making a request on behalf on.
-     * @type string
-     * @memberof PaymentsApiretrieve
-     */
-    prism_account?: string
-}
-
-export class ObjectPaymentsApi {
-    private api: ObservablePaymentsApi
-
-    public constructor(configuration: Configuration, requestFactory?: PaymentsApiRequestFactory, responseProcessor?: PaymentsApiResponseProcessor) {
-        this.api = new ObservablePaymentsApi(configuration, requestFactory, responseProcessor);
-    }
-
-    /**
-     * List Payments
-     * @param param the request object
-     */
-    public list(param: PaymentsApiListRequest = {}, options?: Configuration): Promise<ListPaymentsResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
-    }
-
-    /**
-     * Retrieve Payment By Id
-     * @param param the request object
-     */
-    public retrieve(param: PaymentsApiRetrieveRequest, options?: Configuration): Promise<Payment> {
-        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
     }
 
 }
@@ -1440,17 +1360,17 @@ export class ObjectProductsApi {
 import { ObservableSubscriptionsApi } from "./ObservableAPI";
 import { SubscriptionsApiRequestFactory, SubscriptionsApiResponseProcessor} from "../apis/SubscriptionsApi";
 
-export interface SubscriptionsApiDeleteRequest {
+export interface SubscriptionsApiCancelRequest {
     /**
      * 
      * @type string
-     * @memberof SubscriptionsApi_delete
+     * @memberof SubscriptionsApicancel
      */
     id: string
     /**
      * The ID of the connected Prism account you are making a request on behalf on.
      * @type string
-     * @memberof SubscriptionsApi_delete
+     * @memberof SubscriptionsApicancel
      */
     prism_account?: string
 }
@@ -1464,10 +1384,10 @@ export interface SubscriptionsApiCreateRequest {
     prism_account?: string
     /**
      * 
-     * @type CreateSubscriptionBody
+     * @type Subscription
      * @memberof SubscriptionsApicreate
      */
-    create_subscription_body?: CreateSubscriptionBody
+    subscription?: Subscription
 }
 
 export interface SubscriptionsApiListRequest {
@@ -1553,11 +1473,11 @@ export class ObjectSubscriptionsApi {
     }
 
     /**
-     * Delete Subscription
+     * Cancel Subscription
      * @param param the request object
      */
-    public _delete(param: SubscriptionsApiDeleteRequest, options?: Configuration): Promise<void> {
-        return this.api._delete(param.id, param.prism_account,  options).toPromise();
+    public cancel(param: SubscriptionsApiCancelRequest, options?: Configuration): Promise<Subscription> {
+        return this.api.cancel(param.id, param.prism_account,  options).toPromise();
     }
 
     /**
@@ -1565,7 +1485,7 @@ export class ObjectSubscriptionsApi {
      * @param param the request object
      */
     public create(param: SubscriptionsApiCreateRequest = {}, options?: Configuration): Promise<Subscription> {
-        return this.api.create(param.prism_account, param.create_subscription_body,  options).toPromise();
+        return this.api.create(param.prism_account, param.subscription,  options).toPromise();
     }
 
     /**

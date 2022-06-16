@@ -396,9 +396,6 @@
               "number": {
                 "type": "string"
               },
-              "payment": {
-                "$ref": "#/components/schemas/Payment"
-              },
               "period_end": {
                 "type": "number"
               },
@@ -590,103 +587,6 @@
         "x-stoplight": {
           "id": "box03v954vyx6"
         }
-      },
-      "Payment": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Model"
-          },
-          {
-            "properties": {
-              "account": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Account"
-                  }
-                ]
-              },
-              "amount": {
-                "type": "number"
-              },
-              "currency": {
-                "type": "string"
-              },
-              "customer": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Customer"
-                  }
-                ]
-              },
-              "error_message": {
-                "type": "string"
-              },
-              "exchange_rate": {
-                "type": "number"
-              },
-              "invoice": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Invoice"
-                  }
-                ]
-              },
-              "status": {
-                "enum": ["succeeded", "failed"],
-                "type": "string"
-              },
-              "subscription": {
-                "oneOf": [
-                  {
-                    "properties": {},
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Subscription"
-                  }
-                ]
-              },
-              "usd_amount": {
-                "type": "number"
-              },
-              "wallet": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Wallet"
-                  },
-                  {
-                    "type": "object"
-                  }
-                ]
-              }
-            },
-            "required": [
-              "account",
-              "amount",
-              "currency",
-              "customer",
-              "exchange_rate",
-              "invoice",
-              "status",
-              "usd_amount",
-              "wallet"
-            ],
-            "type": "object"
-          }
-        ],
-        "title": "Payment"
       },
       "PaymentIntent": {
         "allOf": [
@@ -995,12 +895,6 @@
                   }
                 ]
               },
-              "invoices": {
-                "items": {
-                  "$ref": "#/components/schemas/Invoice"
-                },
-                "type": "array"
-              },
               "latest_invoice": {
                 "$ref": "#/components/schemas/Invoice"
               },
@@ -1017,12 +911,6 @@
               },
               "pause_collection": {
                 "type": "boolean"
-              },
-              "payments": {
-                "items": {
-                  "$ref": "#/components/schemas/Payment"
-                },
-                "type": "array"
               },
               "platform_account": {
                 "oneOf": [
@@ -2376,50 +2264,6 @@
         "tags": ["Invoices"]
       }
     },
-    "/invoices/{id}/poll": {
-      "get": {
-        "description": "",
-        "operationId": "invoices_poll",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/expand"
-          },
-          {
-            "$ref": "#/components/parameters/Prism-Account"
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Invoice"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "Poll Invoice By ID",
-        "tags": ["Invoices"]
-      },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ]
-    },
     "/logs": {
       "get": {
         "description": "",
@@ -2593,6 +2437,23 @@
           },
           {
             "$ref": "#/components/parameters/sort"
+          },
+          {
+            "description": "The status of the payment intent to filter by.",
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "enum": ["processing", "succeeded", "failed", "canceled"],
+              "type": "string"
+            }
+          },
+          {
+            "description": "The ID of the customer on the payment intent to filter by.",
+            "in": "query",
+            "name": "customer",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2674,6 +2535,34 @@
       }
     },
     "/payment_intents/{id}": {
+      "delete": {
+        "operationId": "payment-intents_cancel",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntent"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          }
+        },
+        "summary": "Cancel Payment Intent",
+        "tags": ["PaymentIntents"]
+      },
       "get": {
         "operationId": "payment-intents_retrieve",
         "parameters": [
@@ -2810,134 +2699,6 @@
         "summary": "Update Payment Intent Hash",
         "tags": ["PaymentIntents"]
       }
-    },
-    "/payments": {
-      "get": {
-        "operationId": "payments_list",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/limit"
-          },
-          {
-            "$ref": "#/components/parameters/page"
-          },
-          {
-            "$ref": "#/components/parameters/sort"
-          },
-          {
-            "$ref": "#/components/parameters/expand"
-          },
-          {
-            "$ref": "#/components/parameters/Prism-Account"
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "description": "",
-                  "properties": {
-                    "data": {
-                      "items": {
-                        "$ref": "#/components/schemas/Payment"
-                      },
-                      "minItems": 1,
-                      "type": "array",
-                      "uniqueItems": true
-                    },
-                    "has_more": {
-                      "type": "boolean"
-                    },
-                    "page": {
-                      "type": "number"
-                    },
-                    "total": {
-                      "type": "number"
-                    }
-                  },
-                  "required": ["data", "has_more", "page", "total"],
-                  "title": "ListPaymentsResponse",
-                  "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "data": [
-                        {
-                          "account": "acct",
-                          "amount": 4000,
-                          "currency": "string",
-                          "customer": "s",
-                          "error_message": "piggle",
-                          "exchange_rate": "string",
-                          "invoice": "string",
-                          "status": "s",
-                          "usd_amount": 23,
-                          "wallet": "piggle"
-                        }
-                      ],
-                      "has_more": true,
-                      "page": 3,
-                      "total": 50
-                    }
-                  }
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "List Payments",
-        "tags": ["Payments"]
-      }
-    },
-    "/payments/{id}": {
-      "get": {
-        "operationId": "payments_retrieve",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/expand"
-          },
-          {
-            "$ref": "#/components/parameters/Prism-Account"
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Payment"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "Retrieve Payment By Id",
-        "tags": ["Payments"]
-      },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ]
     },
     "/payout_wallets": {
       "get": {
@@ -3700,32 +3461,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "cancel_at": {
-                    "type": "number"
-                  },
-                  "customer": {
-                    "type": "string"
-                  },
-                  "metadata": {
-                    "type": "object"
-                  },
-                  "pause_collection": {
-                    "type": "boolean"
-                  },
-                  "price": {
-                    "type": "string"
-                  },
-                  "status": {
-                    "type": "string"
-                  },
-                  "trial_period_duration": {
-                    "type": "number"
-                  }
-                },
-                "required": ["price", "customer"],
-                "title": "CreateSubscriptionBody",
-                "type": "object"
+                "$ref": "#/components/schemas/Subscription"
               }
             }
           },
@@ -3755,7 +3491,7 @@
     },
     "/subscriptions/{id}": {
       "delete": {
-        "operationId": "subscriptions_delete",
+        "operationId": "subscriptions_cancel",
         "parameters": [
           {
             "$ref": "#/components/parameters/Prism-Account"
@@ -3763,6 +3499,13 @@
         ],
         "responses": {
           "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Subscription"
+                }
+              }
+            },
             "description": "OK"
           },
           "401": {
@@ -3772,7 +3515,7 @@
             "$ref": "#/components/responses/404"
           }
         },
-        "summary": "Delete Subscription",
+        "summary": "Cancel Subscription",
         "tags": ["Subscriptions"]
       },
       "get": {
@@ -4628,9 +4371,6 @@
     },
     {
       "name": "Logs"
-    },
-    {
-      "name": "Payments"
     },
     {
       "name": "PayoutWallets"

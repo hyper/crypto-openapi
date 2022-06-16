@@ -5,7 +5,6 @@ import { CreateCustomerBody } from '../models/CreateCustomerBody';
 import { CreateFeeBody } from '../models/CreateFeeBody';
 import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
 import { CreateProductBody } from '../models/CreateProductBody';
-import { CreateSubscriptionBody } from '../models/CreateSubscriptionBody';
 import { CreateTransferBody } from '../models/CreateTransferBody';
 import { CreateWalletBody } from '../models/CreateWalletBody';
 import { CreateWebhookBody } from '../models/CreateWebhookBody';
@@ -18,7 +17,6 @@ import { ListFeesResponse } from '../models/ListFeesResponse';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
 import { ListLogsResponse } from '../models/ListLogsResponse';
 import { ListPaymentIntentsResponse } from '../models/ListPaymentIntentsResponse';
-import { ListPaymentsResponse } from '../models/ListPaymentsResponse';
 import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
 import { ListPricesResponse } from '../models/ListPricesResponse';
 import { ListProductsResponse } from '../models/ListProductsResponse';
@@ -27,7 +25,6 @@ import { ListTransfersResponse } from '../models/ListTransfersResponse';
 import { ListWalletsResponse } from '../models/ListWalletsResponse';
 import { ListWebhooksResponse } from '../models/ListWebhooksResponse';
 import { Log } from '../models/Log';
-import { Payment } from '../models/Payment';
 import { PaymentIntent } from '../models/PaymentIntent';
 import { PayoutWallet } from '../models/PayoutWallet';
 import { Price } from '../models/Price';
@@ -145,11 +142,6 @@ export interface InvoicesApiListRequest {
     expand?: string;
     prism_account?: string;
 }
-export interface InvoicesApiPollRequest {
-    id: string;
-    expand?: string;
-    prism_account?: string;
-}
 export interface InvoicesApiRetrieveRequest {
     id: string;
     expand?: string;
@@ -165,7 +157,6 @@ export declare class ObjectInvoicesApi {
     constructor(configuration: Configuration, requestFactory?: InvoicesApiRequestFactory, responseProcessor?: InvoicesApiResponseProcessor);
     create(param?: InvoicesApiCreateRequest, options?: Configuration): Promise<Invoice>;
     list(param?: InvoicesApiListRequest, options?: Configuration): Promise<ListInvoicesResponse>;
-    poll(param: InvoicesApiPollRequest, options?: Configuration): Promise<Invoice>;
     retrieve(param: InvoicesApiRetrieveRequest, options?: Configuration): Promise<Invoice>;
     update(param: InvoicesApiUpdateRequest, options?: Configuration): Promise<Invoice>;
 }
@@ -189,6 +180,10 @@ export declare class ObjectLogsApi {
     retrieve(param: LogsApiRetrieveRequest, options?: Configuration): Promise<Log>;
 }
 import { PaymentIntentsApiRequestFactory, PaymentIntentsApiResponseProcessor } from "../apis/PaymentIntentsApi";
+export interface PaymentIntentsApiCancelRequest {
+    id: string;
+    prism_account?: string;
+}
 export interface PaymentIntentsApiCreateRequest {
     prism_account?: string;
     payment_intent?: PaymentIntent;
@@ -199,6 +194,8 @@ export interface PaymentIntentsApiListRequest {
     limit?: number;
     page?: number;
     sort?: any;
+    status?: 'processing' | 'succeeded' | 'failed' | 'canceled';
+    customer?: string;
 }
 export interface PaymentIntentsApiPollRequest {
     id: string;
@@ -218,30 +215,12 @@ export interface PaymentIntentsApiUpdateHashRequest {
 export declare class ObjectPaymentIntentsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: PaymentIntentsApiRequestFactory, responseProcessor?: PaymentIntentsApiResponseProcessor);
+    cancel(param: PaymentIntentsApiCancelRequest, options?: Configuration): Promise<PaymentIntent>;
     create(param?: PaymentIntentsApiCreateRequest, options?: Configuration): Promise<PaymentIntent>;
     list(param?: PaymentIntentsApiListRequest, options?: Configuration): Promise<ListPaymentIntentsResponse>;
     poll(param: PaymentIntentsApiPollRequest, options?: Configuration): Promise<PaymentIntent>;
     retrieve(param: PaymentIntentsApiRetrieveRequest, options?: Configuration): Promise<PaymentIntent>;
     updateHash(param: PaymentIntentsApiUpdateHashRequest, options?: Configuration): Promise<PaymentIntent>;
-}
-import { PaymentsApiRequestFactory, PaymentsApiResponseProcessor } from "../apis/PaymentsApi";
-export interface PaymentsApiListRequest {
-    limit?: number;
-    page?: number;
-    sort?: any;
-    expand?: string;
-    prism_account?: string;
-}
-export interface PaymentsApiRetrieveRequest {
-    id: string;
-    expand?: string;
-    prism_account?: string;
-}
-export declare class ObjectPaymentsApi {
-    private api;
-    constructor(configuration: Configuration, requestFactory?: PaymentsApiRequestFactory, responseProcessor?: PaymentsApiResponseProcessor);
-    list(param?: PaymentsApiListRequest, options?: Configuration): Promise<ListPaymentsResponse>;
-    retrieve(param: PaymentsApiRetrieveRequest, options?: Configuration): Promise<Payment>;
 }
 import { PayoutWalletsApiRequestFactory, PayoutWalletsApiResponseProcessor } from "../apis/PayoutWalletsApi";
 export interface PayoutWalletsApiDeleteRequest {
@@ -349,13 +328,13 @@ export declare class ObjectProductsApi {
     update(param: ProductsApiUpdateRequest, options?: Configuration): Promise<Product>;
 }
 import { SubscriptionsApiRequestFactory, SubscriptionsApiResponseProcessor } from "../apis/SubscriptionsApi";
-export interface SubscriptionsApiDeleteRequest {
+export interface SubscriptionsApiCancelRequest {
     id: string;
     prism_account?: string;
 }
 export interface SubscriptionsApiCreateRequest {
     prism_account?: string;
-    create_subscription_body?: CreateSubscriptionBody;
+    subscription?: Subscription;
 }
 export interface SubscriptionsApiListRequest {
     expand?: string;
@@ -377,7 +356,7 @@ export interface SubscriptionsApiUpdateRequest {
 export declare class ObjectSubscriptionsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: SubscriptionsApiRequestFactory, responseProcessor?: SubscriptionsApiResponseProcessor);
-    _delete(param: SubscriptionsApiDeleteRequest, options?: Configuration): Promise<void>;
+    cancel(param: SubscriptionsApiCancelRequest, options?: Configuration): Promise<Subscription>;
     create(param?: SubscriptionsApiCreateRequest, options?: Configuration): Promise<Subscription>;
     list(param?: SubscriptionsApiListRequest, options?: Configuration): Promise<ListSubscriptionsResponse>;
     retrieve(param: SubscriptionsApiRetrieveRequest, options?: Configuration): Promise<Subscription>;

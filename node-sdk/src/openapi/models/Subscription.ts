@@ -14,7 +14,6 @@ import { Account } from './Account';
 import { Customer } from './Customer';
 import { Invoice } from './Invoice';
 import { Model } from './Model';
-import { Payment } from './Payment';
 import { Price } from './Price';
 import { SubscriptionAllOf } from './SubscriptionAllOf';
 import { SubscriptionAllOfLineItems } from './SubscriptionAllOfLineItems';
@@ -33,8 +32,6 @@ export class Subscription {
     'status': SubscriptionStatusEnum;
     'pause_collection': boolean;
     'canceled_at'?: number;
-    'invoices'?: Array<Invoice>;
-    'payments'?: Array<Payment>;
     'trial_period_duration'?: number;
     'line_items'?: SubscriptionAllOfLineItems;
     'current_period_start': number;
@@ -114,18 +111,6 @@ export class Subscription {
             "name": "canceled_at",
             "baseName": "canceled_at",
             "type": "number",
-            "format": ""
-        },
-        {
-            "name": "invoices",
-            "baseName": "invoices",
-            "type": "Array<Invoice>",
-            "format": ""
-        },
-        {
-            "name": "payments",
-            "baseName": "payments",
-            "type": "Array<Payment>",
             "format": ""
         },
         {

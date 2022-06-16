@@ -60,12 +60,6 @@ InvoiceAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "payment",
-        "baseName": "payment",
-        "type": "Payment",
-        "format": ""
-    },
-    {
         "name": "subscription",
         "baseName": "subscription",
         "type": "string | Subscription",

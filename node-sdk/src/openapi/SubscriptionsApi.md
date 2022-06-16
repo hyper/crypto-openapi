@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost:7070/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**_delete**](SubscriptionsApi.md#_delete) | **DELETE** /subscriptions/{id} | Delete Subscription
+[**cancel**](SubscriptionsApi.md#cancel) | **DELETE** /subscriptions/{id} | Cancel Subscription
 [**create**](SubscriptionsApi.md#create) | **POST** /subscriptions | Create Subscription
 [**list**](SubscriptionsApi.md#list) | **GET** /subscriptions | List Subscriptions
 [**retrieve**](SubscriptionsApi.md#retrieve) | **GET** /subscriptions/{id} | Retrieve Subscription
 [**update**](SubscriptionsApi.md#update) | **PATCH** /subscriptions/{id} | Update Subscription
 
 
-# **_delete**
-> void _delete()
+# **cancel**
+> Subscription cancel()
 
 
 ### Example
@@ -25,14 +25,14 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .SubscriptionsApi(configuration);
 
-let body:.SubscriptionsApiDeleteRequest = {
+let body:.SubscriptionsApiCancelRequest = {
   // string
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
 };
 
-apiInstance._delete(body).then((data:any) => {
+apiInstance.cancel(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**Subscription**
 
 ### Authorization
 
@@ -57,7 +57,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -86,16 +86,8 @@ const apiInstance = new .SubscriptionsApi(configuration);
 let body:.SubscriptionsApiCreateRequest = {
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // CreateSubscriptionBody (optional)
-  create_subscription_body: {
-    price: "price_example",
-    customer: "customer_example",
-    status: "status_example",
-    pause_collection: true,
-    cancel_at: 3.14,
-    trial_period_duration: 3.14,
-    metadata: {},
-  },
+  // Subscription (optional)
+  subscription: null,
 };
 
 apiInstance.create(body).then((data:any) => {
@@ -108,7 +100,7 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_subscription_body** | **CreateSubscriptionBody**|  |
+ **subscription** | **Subscription**|  |
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 
 

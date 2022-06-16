@@ -4,7 +4,6 @@ FeesApi.md
 InvoicesApi.md
 LogsApi.md
 PaymentIntentsApi.md
-PaymentsApi.md
 PayoutWalletsApi.md
 PricesApi.md
 ProductsApi.md
@@ -18,7 +17,6 @@ apis/FeesApi.ts
 apis/InvoicesApi.ts
 apis/LogsApi.ts
 apis/PaymentIntentsApi.ts
-apis/PaymentsApi.ts
 apis/PayoutWalletsApi.ts
 apis/PricesApi.ts
 apis/ProductsApi.ts
@@ -45,7 +43,6 @@ models/CreateCustomerBody.ts
 models/CreateFeeBody.ts
 models/CreatePayoutWalletBody.ts
 models/CreateProductBody.ts
-models/CreateSubscriptionBody.ts
 models/CreateTransferBody.ts
 models/CreateWalletBody.ts
 models/CreateWebhookBody.ts
@@ -68,7 +65,6 @@ models/ListFeesResponse.ts
 models/ListInvoicesResponse.ts
 models/ListLogsResponse.ts
 models/ListPaymentIntentsResponse.ts
-models/ListPaymentsResponse.ts
 models/ListPayoutWalletsResponse.ts
 models/ListPricesResponse.ts
 models/ListProductsResponse.ts
@@ -82,8 +78,6 @@ models/Model.ts
 models/Notification.ts
 models/NotificationAllOf.ts
 models/ObjectSerializer.ts
-models/Payment.ts
-models/PaymentAllOf.ts
 models/PaymentIntent.ts
 models/PaymentIntentAllOf.ts
 models/PayoutWallet.ts

@@ -15,7 +15,6 @@ import { CreateCustomerBody } from '../models/CreateCustomerBody';
 import { CreateFeeBody } from '../models/CreateFeeBody';
 import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
 import { CreateProductBody } from '../models/CreateProductBody';
-import { CreateSubscriptionBody } from '../models/CreateSubscriptionBody';
 import { CreateTransferBody } from '../models/CreateTransferBody';
 import { CreateWalletBody } from '../models/CreateWalletBody';
 import { CreateWebhookBody } from '../models/CreateWebhookBody';
@@ -38,7 +37,6 @@ import { ListFeesResponse } from '../models/ListFeesResponse';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
 import { ListLogsResponse } from '../models/ListLogsResponse';
 import { ListPaymentIntentsResponse } from '../models/ListPaymentIntentsResponse';
-import { ListPaymentsResponse } from '../models/ListPaymentsResponse';
 import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
 import { ListPricesResponse } from '../models/ListPricesResponse';
 import { ListProductsResponse } from '../models/ListProductsResponse';
@@ -51,8 +49,6 @@ import { LogAllOf } from '../models/LogAllOf';
 import { Model } from '../models/Model';
 import { Notification } from '../models/Notification';
 import { NotificationAllOf } from '../models/NotificationAllOf';
-import { Payment } from '../models/Payment';
-import { PaymentAllOf } from '../models/PaymentAllOf';
 import { PaymentIntent } from '../models/PaymentIntent';
 import { PaymentIntentAllOf } from '../models/PaymentIntentAllOf';
 import { PayoutWallet } from '../models/PayoutWallet';
@@ -308,17 +304,6 @@ export class PromiseInvoicesApi {
     }
 
     /**
-     * Poll Invoice By ID
-     * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     */
-    public poll(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Invoice> {
-        const result = this.api.poll(id, expand, prism_account, _options);
-        return result.toPromise();
-    }
-
-    /**
      * Retrieve Invoice By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
@@ -403,6 +388,16 @@ export class PromisePaymentIntentsApi {
     }
 
     /**
+     * Cancel Payment Intent
+     * @param id 
+     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     */
+    public cancel(id: string, prism_account?: string, _options?: Configuration): Promise<PaymentIntent> {
+        const result = this.api.cancel(id, prism_account, _options);
+        return result.toPromise();
+    }
+
+    /**
      * Create Payment Intent
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      * @param payment_intent 
@@ -419,9 +414,11 @@ export class PromisePaymentIntentsApi {
      * @param limit A limit on the number of objects to be returned between 1 and 100.
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
+     * @param status The status of the payment intent to filter by.
+     * @param customer The ID of the customer on the payment intent to filter by.
      */
-    public list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListPaymentIntentsResponse> {
-        const result = this.api.list(prism_account, expand, limit, page, sort, _options);
+    public list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, status?: 'processing' | 'succeeded' | 'failed' | 'canceled', customer?: string, _options?: Configuration): Promise<ListPaymentIntentsResponse> {
+        const result = this.api.list(prism_account, expand, limit, page, sort, status, customer, _options);
         return result.toPromise();
     }
 
@@ -455,49 +452,6 @@ export class PromisePaymentIntentsApi {
      */
     public updateHash(id: string, prism_account?: string, body?: string, _options?: Configuration): Promise<PaymentIntent> {
         const result = this.api.updateHash(id, prism_account, body, _options);
-        return result.toPromise();
-    }
-
-
-}
-
-
-
-import { ObservablePaymentsApi } from './ObservableAPI';
-
-import { PaymentsApiRequestFactory, PaymentsApiResponseProcessor} from "../apis/PaymentsApi";
-export class PromisePaymentsApi {
-    private api: ObservablePaymentsApi
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: PaymentsApiRequestFactory,
-        responseProcessor?: PaymentsApiResponseProcessor
-    ) {
-        this.api = new ObservablePaymentsApi(configuration, requestFactory, responseProcessor);
-    }
-
-    /**
-     * List Payments
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<ListPaymentsResponse> {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Retrieve Payment By Id
-     * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Payment> {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
         return result.toPromise();
     }
 
@@ -743,22 +697,22 @@ export class PromiseSubscriptionsApi {
     }
 
     /**
-     * Delete Subscription
+     * Cancel Subscription
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public _delete(id: string, prism_account?: string, _options?: Configuration): Promise<void> {
-        const result = this.api._delete(id, prism_account, _options);
+    public cancel(id: string, prism_account?: string, _options?: Configuration): Promise<Subscription> {
+        const result = this.api.cancel(id, prism_account, _options);
         return result.toPromise();
     }
 
     /**
      * Create Subscription
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param create_subscription_body 
+     * @param subscription 
      */
-    public create(prism_account?: string, create_subscription_body?: CreateSubscriptionBody, _options?: Configuration): Promise<Subscription> {
-        const result = this.api.create(prism_account, create_subscription_body, _options);
+    public create(prism_account?: string, subscription?: Subscription, _options?: Configuration): Promise<Subscription> {
+        const result = this.api.create(prism_account, subscription, _options);
         return result.toPromise();
     }
 

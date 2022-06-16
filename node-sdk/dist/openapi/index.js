@@ -24,7 +24,6 @@ Object.defineProperty(exports, "FeesApi", { enumerable: true, get: function () {
 Object.defineProperty(exports, "InvoicesApi", { enumerable: true, get: function () { return ObjectParamAPI_1.ObjectInvoicesApi; } });
 Object.defineProperty(exports, "LogsApi", { enumerable: true, get: function () { return ObjectParamAPI_1.ObjectLogsApi; } });
 Object.defineProperty(exports, "PaymentIntentsApi", { enumerable: true, get: function () { return ObjectParamAPI_1.ObjectPaymentIntentsApi; } });
-Object.defineProperty(exports, "PaymentsApi", { enumerable: true, get: function () { return ObjectParamAPI_1.ObjectPaymentsApi; } });
 Object.defineProperty(exports, "PayoutWalletsApi", { enumerable: true, get: function () { return ObjectParamAPI_1.ObjectPayoutWalletsApi; } });
 Object.defineProperty(exports, "PricesApi", { enumerable: true, get: function () { return ObjectParamAPI_1.ObjectPricesApi; } });
 Object.defineProperty(exports, "ProductsApi", { enumerable: true, get: function () { return ObjectParamAPI_1.ObjectProductsApi; } });

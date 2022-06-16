@@ -5,7 +5,6 @@ import {
   FeesApi,
   InvoicesApi,
   LogsApi,
-  PaymentsApi,
   ProductsApi,
   WalletsApi,
   WebhooksApi,
@@ -28,9 +27,6 @@ import {
   FeesApiListRequest,
   CustomersApiListRequest,
   Log,
-  PaymentsApiRetrieveRequest,
-  Payment,
-  PaymentsApiListRequest,
   ProductsApiCreateRequest,
   ProductsApiRetrieveRequest,
   Product,
@@ -49,7 +45,6 @@ import {
   ListWebhooksResponse,
   ListWalletsResponse,
   ListFeesResponse,
-  ListPaymentsResponse,
   WalletsApiUpdateRequest,
   WebhooksApiUpdateRequest,
   CustomersApiUpdateRequest,
@@ -88,14 +83,12 @@ import {
   SubscriptionsApiUpdateRequest,
   SubscriptionsApiListRequest,
   ListSubscriptionsResponse,
-  InvoicesApiPollRequest,
   FeesApiDeleteRequest,
   PayoutWalletsApiDeleteRequest,
   ProductsApiDeleteRequest,
   WalletsApiDeleteRequest,
   WebhooksApiDeleteRequest,
   PricesApiDeleteRequest,
-  SubscriptionsApiDeleteRequest,
   PricesApiUpdateRequest,
   PaymentIntentsApi,
   PaymentIntentsApiRetrieveRequest,
@@ -103,7 +96,9 @@ import {
   PaymentIntentsApiListRequest,
   PaymentIntent,
   PaymentIntentsApiUpdateHashRequest,
-} from './openapi/index';
+  PaymentIntentsApiPollRequest,
+  SubscriptionsApiCancelRequest, PaymentIntentsApiCancelRequest
+} from "./openapi/index";
 import convertCasing from './helpers/convertCasing';
 import { ListPayoutWalletsResponse } from './openapi';
 export * from './openapi/models/all';
@@ -132,7 +127,6 @@ export class Prism {
   public readonly fees: FeesApiLayer;
   public readonly invoices: InvoicesApiLayer;
   public readonly logs: LogsApiLayer;
-  public readonly payments: PaymentsApiLayer;
   public readonly payoutWallets: PayoutWalletsApiLayer;
   public readonly prices: PricesApiLayer;
   public readonly products: ProductsApiLayer;
@@ -164,7 +158,6 @@ export class Prism {
     this.fees = new FeesApiLayer(config);
     this.invoices = new InvoicesApiLayer(config);
     this.logs = new LogsApiLayer(config);
-    this.payments = new PaymentsApiLayer(config);
     this.payoutWallets = new PayoutWalletsApiLayer(config);
     this.prices = new PricesApiLayer(config);
     this.products = new ProductsApiLayer(config);
@@ -326,14 +319,6 @@ class InvoicesApiLayer {
   ): Promise<ListInvoicesResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
-
-  public async poll(
-    id: string,
-    params?: Omit<InvoicesApiPollRequest, 'prism_account' | 'id'>,
-    options?: { prismAccount: string }
-  ): Promise<Invoice> {
-    return this.api.poll({ id, ...convertCasing(options), ...params });
-  }
 }
 
 class LogsApiLayer {
@@ -355,29 +340,6 @@ class LogsApiLayer {
     params?: Omit<LogsApiListRequest, 'prism_account'>,
     options?: { prismAccount: string }
   ): Promise<ListLogsResponse> {
-    return this.api.list({ ...convertCasing(options), ...params });
-  }
-}
-
-class PaymentsApiLayer {
-  private readonly api: PaymentsApi;
-
-  constructor(config: Configuration) {
-    this.api = new PaymentsApi(config);
-  }
-
-  public async retrieve(
-    id: string,
-    params?: Omit<PaymentsApiRetrieveRequest, 'prism_account' | 'id'>,
-    options?: { prismAccount: string }
-  ): Promise<Payment> {
-    return this.api.retrieve({ id, ...convertCasing(options), ...params });
-  }
-
-  public async list(
-    params?: Omit<PaymentsApiListRequest, 'prism_account'>,
-    options?: { prismAccount: string }
-  ): Promise<ListPaymentsResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
 }
@@ -528,10 +490,10 @@ class SubscriptionsApiLayer {
   }
 
   public async create(
-    data: SubscriptionsApiCreateRequest['create_subscription_body'],
+    data: SubscriptionsApiCreateRequest['subscription'],
     options?: { prismAccount: string }
   ): Promise<Subscription> {
-    return this.api.create({ ...convertCasing(options), create_subscription_body: data });
+    return this.api.create({ ...convertCasing(options), subscription: data });
   }
 
   public async retrieve(
@@ -557,12 +519,12 @@ class SubscriptionsApiLayer {
     return this.api.list({ ...convertCasing(options), ...params });
   }
 
-  public async delete(
+  public async cancel(
     id: string,
-    params: Omit<SubscriptionsApiDeleteRequest, 'prism_account'>,
+    params: Omit<SubscriptionsApiCancelRequest, 'prism_account'>,
     options?: { prismAccount: string }
-  ): Promise<void> {
-    return this.api._delete({ id, ...convertCasing(options) });
+  ): Promise<Subscription> {
+    return this.api.cancel({ id, ...convertCasing(options) });
   }
 }
 
@@ -601,6 +563,22 @@ class PaymentIntentsApiLayer {
     options?: { prismAccount: string }
   ): Promise<ListPaymentIntentsResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
+  }
+
+  public async poll(
+    id: string,
+    params?: Omit<PaymentIntentsApiPollRequest, 'prism_account' | 'id'>,
+    options?: { prismAccount: string }
+  ): Promise<PaymentIntent> {
+    return this.api.poll({ id, ...convertCasing(options), ...params });
+  }
+
+  public async cancel(
+    id: string,
+    params: Omit<PaymentIntentsApiCancelRequest, 'prism_account'>,
+    options?: { prismAccount: string }
+  ): Promise<PaymentIntent> {
+    return this.api.cancel({ id, ...convertCasing(options) });
   }
 }
 

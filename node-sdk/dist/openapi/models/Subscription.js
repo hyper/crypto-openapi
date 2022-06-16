@@ -84,18 +84,6 @@ Subscription.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "invoices",
-        "baseName": "invoices",
-        "type": "Array<Invoice>",
-        "format": ""
-    },
-    {
-        "name": "payments",
-        "baseName": "payments",
-        "type": "Array<Payment>",
-        "format": ""
-    },
-    {
         "name": "trial_period_duration",
         "baseName": "trial_period_duration",
         "type": "number",
