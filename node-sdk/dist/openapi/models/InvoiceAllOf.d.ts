@@ -15,6 +15,9 @@ export declare class InvoiceAllOf {
     'subscription'?: string | Subscription;
     'period_start': number;
     'period_end': number;
+    'chain': InvoiceAllOfChainEnum;
+    'amount': number;
+    'send_reminders'?: boolean;
     'due': number;
     'metadata'?: any;
     static readonly discriminator: string | undefined;
@@ -33,3 +36,4 @@ export declare class InvoiceAllOf {
     constructor();
 }
 export declare type InvoiceAllOfStatusEnum = "open" | "paid" | "void" | "past_due" | "uncollectible";
+export declare type InvoiceAllOfChainEnum = "eth" | "sol";

@@ -293,9 +293,6 @@
                   }
                 ]
               },
-              "currency": {
-                "type": "string"
-              },
               "description": {
                 "type": "string"
               },
@@ -328,13 +325,7 @@
                 ]
               }
             },
-            "required": [
-              "account",
-              "currency",
-              "payment_intent",
-              "percent",
-              "wallet"
-            ],
+            "required": ["account", "payment_intent", "percent", "wallet"],
             "type": "object"
           }
         ],
@@ -357,6 +348,13 @@
                     "$ref": "#/components/schemas/Account"
                   }
                 ]
+              },
+              "amount": {
+                "type": "number"
+              },
+              "chain": {
+                "enum": ["eth", "sol"],
+                "type": "string"
               },
               "customer": {
                 "oneOf": [
@@ -417,6 +415,9 @@
                   }
                 ]
               },
+              "send_reminders": {
+                "type": "boolean"
+              },
               "status": {
                 "enum": ["open", "paid", "void", "past_due", "uncollectible"],
                 "type": "string"
@@ -443,6 +444,8 @@
               "customer",
               "period_start",
               "period_end",
+              "chain",
+              "amount",
               "due"
             ],
             "type": "object"

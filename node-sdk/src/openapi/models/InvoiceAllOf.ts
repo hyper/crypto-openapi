@@ -29,6 +29,9 @@ export class InvoiceAllOf {
     'subscription'?: string | Subscription;
     'period_start': number;
     'period_end': number;
+    'chain': InvoiceAllOfChainEnum;
+    'amount': number;
+    'send_reminders'?: boolean;
     'due': number;
     'metadata'?: any;
 
@@ -102,6 +105,24 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "InvoiceAllOfChainEnum",
+            "format": ""
+        },
+        {
+            "name": "amount",
+            "baseName": "amount",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "send_reminders",
+            "baseName": "send_reminders",
+            "type": "boolean",
+            "format": ""
+        },
+        {
             "name": "due",
             "baseName": "due",
             "type": "number",
@@ -124,4 +145,5 @@ export class InvoiceAllOf {
 
 
 export type InvoiceAllOfStatusEnum = "open" | "paid" | "void" | "past_due" | "uncollectible" ;
+export type InvoiceAllOfChainEnum = "eth" | "sol" ;
 

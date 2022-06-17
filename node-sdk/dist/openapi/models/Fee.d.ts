@@ -7,7 +7,6 @@ export declare class Fee {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'currency': string;
     'description'?: string;
     'internal'?: boolean;
     'payment_intent': string | PaymentIntent;

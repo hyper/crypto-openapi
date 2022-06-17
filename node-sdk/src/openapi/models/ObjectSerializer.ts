@@ -97,8 +97,8 @@ import { Fee } from './Fee';
 import { FeeAllOf } from './FeeAllOf';
 import { InlineResponse400 } from './InlineResponse400';
 import { InlineResponse400Error } from './InlineResponse400Error';
-import { Invoice      , InvoiceStatusEnum             } from './Invoice';
-import { InvoiceAllOf  , InvoiceAllOfStatusEnum             } from './InvoiceAllOf';
+import { Invoice      , InvoiceStatusEnum          , InvoiceChainEnum       } from './Invoice';
+import { InvoiceAllOf  , InvoiceAllOfStatusEnum          , InvoiceAllOfChainEnum       } from './InvoiceAllOf';
 import { InvoiceAllOfLineItems } from './InvoiceAllOfLineItems';
 import { ListAccountsResponse } from './ListAccountsResponse';
 import { ListCustomersResponse } from './ListCustomersResponse';
@@ -167,7 +167,9 @@ let enumsMap: Set<string> = new Set<string>([
     "ApiKeyTypeEnum",
     "ApiKeyAllOfTypeEnum",
     "InvoiceStatusEnum",
+    "InvoiceChainEnum",
     "InvoiceAllOfStatusEnum",
+    "InvoiceAllOfChainEnum",
     "LogMethodEnum",
     "LogAllOfMethodEnum",
     "NotificationTypeEnum",

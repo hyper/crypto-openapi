@@ -3,7 +3,6 @@ import { PaymentIntent } from './PaymentIntent';
 import { Wallet } from './Wallet';
 export declare class FeeAllOf {
     'account': string | Account;
-    'currency': string;
     'description'?: string;
     'internal'?: boolean;
     'payment_intent': string | PaymentIntent;

@@ -19,6 +19,9 @@ export declare class Invoice {
     'subscription'?: string | Subscription;
     'period_start': number;
     'period_end': number;
+    'chain': InvoiceChainEnum;
+    'amount': number;
+    'send_reminders'?: boolean;
     'due': number;
     'metadata'?: any;
     static readonly discriminator: string | undefined;
@@ -37,3 +40,4 @@ export declare class Invoice {
     constructor();
 }
 export declare type InvoiceStatusEnum = "open" | "paid" | "void" | "past_due" | "uncollectible";
+export declare type InvoiceChainEnum = "eth" | "sol";

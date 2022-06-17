@@ -102,6 +102,24 @@ Invoice.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "chain",
+        "baseName": "chain",
+        "type": "InvoiceChainEnum",
+        "format": ""
+    },
+    {
+        "name": "amount",
+        "baseName": "amount",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "send_reminders",
+        "baseName": "send_reminders",
+        "type": "boolean",
+        "format": ""
+    },
+    {
         "name": "due",
         "baseName": "due",
         "type": "number",
