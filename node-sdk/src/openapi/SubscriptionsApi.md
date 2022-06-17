@@ -277,11 +277,11 @@ let body:.SubscriptionsApiUpdateRequest = {
   prism_account: "Prism-Account_example",
   // UpdateSubscriptionBody (optional)
   update_subscription_body: {
+    status: "status_example",
+    pause_collection: true,
     cancel_at: 3.14,
     canceled_at: 3.14,
-    pause_collection: true,
     price: "price_example",
-    status: "status_example",
   },
 };
 

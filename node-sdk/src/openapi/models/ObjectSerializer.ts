@@ -56,7 +56,6 @@ export * from './Product';
 export * from './ProductAllOf';
 export * from './Subscription';
 export * from './SubscriptionAllOf';
-export * from './SubscriptionAllOfLineItems';
 export * from './Transfer';
 export * from './TransferAllOf';
 export * from './UpdateAccountBody';
@@ -98,8 +97,8 @@ import { Fee } from './Fee';
 import { FeeAllOf } from './FeeAllOf';
 import { InlineResponse400 } from './InlineResponse400';
 import { InlineResponse400Error } from './InlineResponse400Error';
-import { Invoice      , InvoiceChainEnum             , InvoiceStatusEnum     } from './Invoice';
-import { InvoiceAllOf  , InvoiceAllOfChainEnum             , InvoiceAllOfStatusEnum     } from './InvoiceAllOf';
+import { Invoice      , InvoiceStatusEnum             } from './Invoice';
+import { InvoiceAllOf  , InvoiceAllOfStatusEnum             } from './InvoiceAllOf';
 import { InvoiceAllOfLineItems } from './InvoiceAllOfLineItems';
 import { ListAccountsResponse } from './ListAccountsResponse';
 import { ListCustomersResponse } from './ListCustomersResponse';
@@ -117,10 +116,10 @@ import { ListWebhooksResponse } from './ListWebhooksResponse';
 import { Log        , LogMethodEnum       } from './Log';
 import { LogAllOf     , LogAllOfMethodEnum       } from './LogAllOf';
 import { Model } from './Model';
-import { Notification       , NotificationTypeEnum   } from './Notification';
-import { NotificationAllOf   , NotificationAllOfTypeEnum   } from './NotificationAllOf';
-import { PaymentIntent       , PaymentIntentChainEnum  , PaymentIntentCurrencyEnum            , PaymentIntentStatusEnum       } from './PaymentIntent';
-import { PaymentIntentAllOf   , PaymentIntentAllOfChainEnum  , PaymentIntentAllOfCurrencyEnum            , PaymentIntentAllOfStatusEnum       } from './PaymentIntentAllOf';
+import { Notification     , NotificationTypeEnum     } from './Notification';
+import { NotificationAllOf , NotificationAllOfTypeEnum     } from './NotificationAllOf';
+import { PaymentIntent        , PaymentIntentStatusEnum  , PaymentIntentChainEnum  , PaymentIntentCurrencyEnum                } from './PaymentIntent';
+import { PaymentIntentAllOf    , PaymentIntentAllOfStatusEnum  , PaymentIntentAllOfChainEnum  , PaymentIntentAllOfCurrencyEnum                } from './PaymentIntentAllOf';
 import { PayoutWallet       , PayoutWalletChainEnum   } from './PayoutWallet';
 import { PayoutWalletAllOf   , PayoutWalletAllOfChainEnum   } from './PayoutWalletAllOf';
 import { Price } from './Price';
@@ -128,9 +127,8 @@ import { PriceAllOf } from './PriceAllOf';
 import { PriceAllOfBasePrice } from './PriceAllOfBasePrice';
 import { Product } from './Product';
 import { ProductAllOf } from './ProductAllOf';
-import { Subscription               , SubscriptionStatusEnum    } from './Subscription';
-import { SubscriptionAllOf           , SubscriptionAllOfStatusEnum    } from './SubscriptionAllOf';
-import { SubscriptionAllOfLineItems } from './SubscriptionAllOfLineItems';
+import { Subscription         , SubscriptionStatusEnum           } from './Subscription';
+import { SubscriptionAllOf     , SubscriptionAllOfStatusEnum           } from './SubscriptionAllOf';
 import { Transfer } from './Transfer';
 import { TransferAllOf } from './TransferAllOf';
 import { UpdateAccountBody } from './UpdateAccountBody';
@@ -168,20 +166,18 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 let enumsMap: Set<string> = new Set<string>([
     "ApiKeyTypeEnum",
     "ApiKeyAllOfTypeEnum",
-    "InvoiceChainEnum",
     "InvoiceStatusEnum",
-    "InvoiceAllOfChainEnum",
     "InvoiceAllOfStatusEnum",
     "LogMethodEnum",
     "LogAllOfMethodEnum",
     "NotificationTypeEnum",
     "NotificationAllOfTypeEnum",
+    "PaymentIntentStatusEnum",
     "PaymentIntentChainEnum",
     "PaymentIntentCurrencyEnum",
-    "PaymentIntentStatusEnum",
+    "PaymentIntentAllOfStatusEnum",
     "PaymentIntentAllOfChainEnum",
     "PaymentIntentAllOfCurrencyEnum",
-    "PaymentIntentAllOfStatusEnum",
     "PayoutWalletChainEnum",
     "PayoutWalletAllOfChainEnum",
     "SubscriptionStatusEnum",
@@ -249,7 +245,6 @@ let typeMap: {[index: string]: any} = {
     "ProductAllOf": ProductAllOf,
     "Subscription": Subscription,
     "SubscriptionAllOf": SubscriptionAllOf,
-    "SubscriptionAllOfLineItems": SubscriptionAllOfLineItems,
     "Transfer": Transfer,
     "TransferAllOf": TransferAllOf,
     "UpdateAccountBody": UpdateAccountBody,

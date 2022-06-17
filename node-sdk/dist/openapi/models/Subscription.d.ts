@@ -1,26 +1,27 @@
 import { Account } from './Account';
 import { Customer } from './Customer';
 import { Invoice } from './Invoice';
+import { InvoiceAllOfLineItems } from './InvoiceAllOfLineItems';
 import { Price } from './Price';
-import { SubscriptionAllOfLineItems } from './SubscriptionAllOfLineItems';
 export declare class Subscription {
     'created': Date;
     'id': string;
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'cancel_at_period_end': boolean;
-    'canceled_at'?: number;
-    'current_period_end': number;
-    'current_period_start': number;
-    'customer': string | Customer;
-    'latest_invoice'?: Invoice;
-    'line_items'?: SubscriptionAllOfLineItems;
-    'pause_collection': boolean;
     'platform_account'?: string | Account;
     'price': string | Price;
+    'customer': string | Customer;
+    'latest_invoice'?: Invoice;
     'status': SubscriptionStatusEnum;
+    'pause_collection': boolean;
+    'canceled_at'?: number;
     'trial_period_duration'?: number;
+    'line_items'?: Array<InvoiceAllOfLineItems>;
+    'current_period_start': number;
+    'current_period_end': number;
+    'cancel_at_period_end': boolean;
+    'cancel_at'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -60,7 +60,6 @@ import { Product } from '../models/Product';
 import { ProductAllOf } from '../models/ProductAllOf';
 import { Subscription } from '../models/Subscription';
 import { SubscriptionAllOf } from '../models/SubscriptionAllOf';
-import { SubscriptionAllOfLineItems } from '../models/SubscriptionAllOfLineItems';
 import { Transfer } from '../models/Transfer';
 import { TransferAllOf } from '../models/TransferAllOf';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';

@@ -358,13 +358,6 @@
                   }
                 ]
               },
-              "amount": {
-                "type": "number"
-              },
-              "chain": {
-                "enum": ["eth", "sol"],
-                "type": "string"
-              },
               "customer": {
                 "oneOf": [
                   {
@@ -379,16 +372,18 @@
                 "type": "number"
               },
               "line_items": {
-                "properties": {
-                  "amount": {
-                    "minimum": 0,
-                    "type": "number"
+                "items": {
+                  "properties": {
+                    "amount": {
+                      "type": "number"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
                   },
-                  "description": {
-                    "type": "string"
-                  }
+                  "type": "object"
                 },
-                "type": "object"
+                "type": "array"
               },
               "metadata": {
                 "type": "object"
@@ -422,12 +417,6 @@
                   }
                 ]
               },
-              "renewal": {
-                "type": "boolean"
-              },
-              "send_reminders": {
-                "type": "string"
-              },
               "status": {
                 "enum": ["open", "paid", "void", "past_due", "uncollectible"],
                 "type": "string"
@@ -448,12 +437,10 @@
             },
             "required": [
               "account",
-              "chain",
-              "amount",
               "status",
               "number",
-              "customer",
               "price",
+              "customer",
               "period_start",
               "period_end",
               "due"
@@ -624,10 +611,18 @@
                 "type": "string"
               },
               "customer": {
-                "type": "string"
+                "oneOf": [
+                  {
+                    "properties": {},
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                ]
               },
               "exchange_rate": {
-                "type": "string"
+                "type": "number"
               },
               "fees": {
                 "items": {
@@ -653,7 +648,18 @@
                 "type": "string"
               },
               "line_items": {
-                "type": "string"
+                "items": {
+                  "properties": {
+                    "amount": {
+                      "type": "number"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
               },
               "metadata": {
                 "type": "object"
@@ -669,7 +675,15 @@
                 ]
               },
               "price": {
-                "type": "string"
+                "oneOf": [
+                  {
+                    "properties": {},
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Price"
+                  }
+                ]
               },
               "status": {
                 "default": "pending",
@@ -677,7 +691,15 @@
                 "type": "string"
               },
               "subscription": {
-                "type": "string"
+                "oneOf": [
+                  {
+                    "properties": {},
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Subscription"
+                  }
+                ]
               },
               "transfers": {
                 "items": {
@@ -686,10 +708,18 @@
                 "type": "array"
               },
               "usd_amount": {
-                "type": "string"
+                "type": "number"
               },
               "wallet": {
-                "type": "string"
+                "oneOf": [
+                  {
+                    "properties": {},
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Wallet"
+                  }
+                ]
               }
             },
             "required": [
@@ -698,7 +728,6 @@
               "chain",
               "currency",
               "amount",
-              "customer",
               "fees",
               "transfers"
             ],
@@ -873,6 +902,9 @@
                   }
                 ]
               },
+              "cancel_at": {
+                "type": "number"
+              },
               "cancel_at_period_end": {
                 "type": "boolean"
               },
@@ -899,15 +931,18 @@
                 "$ref": "#/components/schemas/Invoice"
               },
               "line_items": {
-                "properties": {
-                  "amount": {
-                    "type": "number"
+                "items": {
+                  "properties": {
+                    "amount": {
+                      "type": "number"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
                   },
-                  "description": {
-                    "type": "string"
-                  }
+                  "type": "object"
                 },
-                "type": "object"
+                "type": "array"
               },
               "pause_collection": {
                 "type": "boolean"

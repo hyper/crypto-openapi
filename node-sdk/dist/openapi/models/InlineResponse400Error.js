@@ -12,14 +12,14 @@ exports.InlineResponse400Error = InlineResponse400Error;
 InlineResponse400Error.discriminator = undefined;
 InlineResponse400Error.attributeTypeMap = [
     {
-        "name": "message",
-        "baseName": "message",
+        "name": "param",
+        "baseName": "param",
         "type": "string",
         "format": ""
     },
     {
-        "name": "param",
-        "baseName": "param",
+        "name": "message",
+        "baseName": "message",
         "type": "string",
         "format": ""
     },

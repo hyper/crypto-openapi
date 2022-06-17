@@ -56,7 +56,6 @@ export * from './Product';
 export * from './ProductAllOf';
 export * from './Subscription';
 export * from './SubscriptionAllOf';
-export * from './SubscriptionAllOfLineItems';
 export * from './Transfer';
 export * from './TransferAllOf';
 export * from './UpdateAccountBody';

@@ -89,7 +89,6 @@ models/Product.ts
 models/ProductAllOf.ts
 models/Subscription.ts
 models/SubscriptionAllOf.ts
-models/SubscriptionAllOfLineItems.ts
 models/Transfer.ts
 models/TransferAllOf.ts
 models/UpdateAccountBody.ts

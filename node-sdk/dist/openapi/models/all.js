@@ -68,7 +68,6 @@ __exportStar(require("./Product"), exports);
 __exportStar(require("./ProductAllOf"), exports);
 __exportStar(require("./Subscription"), exports);
 __exportStar(require("./SubscriptionAllOf"), exports);
-__exportStar(require("./SubscriptionAllOfLineItems"), exports);
 __exportStar(require("./Transfer"), exports);
 __exportStar(require("./TransferAllOf"), exports);
 __exportStar(require("./UpdateAccountBody"), exports);

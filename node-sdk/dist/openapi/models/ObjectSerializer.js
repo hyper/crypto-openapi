@@ -69,7 +69,6 @@ __exportStar(require("./Product"), exports);
 __exportStar(require("./ProductAllOf"), exports);
 __exportStar(require("./Subscription"), exports);
 __exportStar(require("./SubscriptionAllOf"), exports);
-__exportStar(require("./SubscriptionAllOfLineItems"), exports);
 __exportStar(require("./Transfer"), exports);
 __exportStar(require("./TransferAllOf"), exports);
 __exportStar(require("./UpdateAccountBody"), exports);
@@ -142,7 +141,6 @@ const Product_1 = require("./Product");
 const ProductAllOf_1 = require("./ProductAllOf");
 const Subscription_1 = require("./Subscription");
 const SubscriptionAllOf_1 = require("./SubscriptionAllOf");
-const SubscriptionAllOfLineItems_1 = require("./SubscriptionAllOfLineItems");
 const Transfer_1 = require("./Transfer");
 const TransferAllOf_1 = require("./TransferAllOf");
 const UpdateAccountBody_1 = require("./UpdateAccountBody");
@@ -175,20 +173,18 @@ const supportedMediaTypes = {
 let enumsMap = new Set([
     "ApiKeyTypeEnum",
     "ApiKeyAllOfTypeEnum",
-    "InvoiceChainEnum",
     "InvoiceStatusEnum",
-    "InvoiceAllOfChainEnum",
     "InvoiceAllOfStatusEnum",
     "LogMethodEnum",
     "LogAllOfMethodEnum",
     "NotificationTypeEnum",
     "NotificationAllOfTypeEnum",
+    "PaymentIntentStatusEnum",
     "PaymentIntentChainEnum",
     "PaymentIntentCurrencyEnum",
-    "PaymentIntentStatusEnum",
+    "PaymentIntentAllOfStatusEnum",
     "PaymentIntentAllOfChainEnum",
     "PaymentIntentAllOfCurrencyEnum",
-    "PaymentIntentAllOfStatusEnum",
     "PayoutWalletChainEnum",
     "PayoutWalletAllOfChainEnum",
     "SubscriptionStatusEnum",
@@ -255,7 +251,6 @@ let typeMap = {
     "ProductAllOf": ProductAllOf_1.ProductAllOf,
     "Subscription": Subscription_1.Subscription,
     "SubscriptionAllOf": SubscriptionAllOf_1.SubscriptionAllOf,
-    "SubscriptionAllOfLineItems": SubscriptionAllOfLineItems_1.SubscriptionAllOfLineItems,
     "Transfer": Transfer_1.Transfer,
     "TransferAllOf": TransferAllOf_1.TransferAllOf,
     "UpdateAccountBody": UpdateAccountBody_1.UpdateAccountBody,

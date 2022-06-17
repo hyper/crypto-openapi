@@ -1,28 +1,33 @@
 import { Account } from './Account';
+import { Customer } from './Customer';
 import { Fee } from './Fee';
 import { Invoice } from './Invoice';
+import { InvoiceAllOfLineItems } from './InvoiceAllOfLineItems';
+import { Price } from './Price';
+import { Subscription } from './Subscription';
 import { Transfer } from './Transfer';
+import { Wallet } from './Wallet';
 export declare class PaymentIntentAllOf {
     'account'?: string | Account;
-    'amount': number;
-    'application_fee_percent'?: number;
-    'chain': PaymentIntentAllOfChainEnum;
-    'currency': PaymentIntentAllOfCurrencyEnum;
-    'customer': string;
-    'exchange_rate'?: string;
-    'fees': Array<Fee>;
+    'platform_account'?: string | Account;
     'hash'?: string;
     'invoice': string | Invoice;
-    'last_payment_error'?: string;
-    'line_items'?: string;
-    'metadata'?: any;
-    'platform_account'?: string | Account;
-    'price'?: string;
     'status': PaymentIntentAllOfStatusEnum;
-    'subscription'?: string;
+    'chain': PaymentIntentAllOfChainEnum;
+    'currency': PaymentIntentAllOfCurrencyEnum;
+    'amount': number;
+    'subscription'?: string | Subscription;
+    'price'?: string | Price;
+    'line_items'?: Array<InvoiceAllOfLineItems>;
+    'customer'?: string | Customer;
+    'wallet'?: string | Wallet;
+    'usd_amount'?: number;
+    'exchange_rate'?: number;
+    'application_fee_percent'?: number;
+    'last_payment_error'?: string;
+    'fees': Array<Fee>;
     'transfers': Array<Transfer>;
-    'usd_amount'?: string;
-    'wallet'?: string;
+    'metadata'?: any;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
@@ -38,6 +43,6 @@ export declare class PaymentIntentAllOf {
     }[];
     constructor();
 }
+export declare type PaymentIntentAllOfStatusEnum = "pending" | "failed" | "succeeded" | "canceled";
 export declare type PaymentIntentAllOfChainEnum = "eth" | "sol";
 export declare type PaymentIntentAllOfCurrencyEnum = "eth" | "sol";
-export declare type PaymentIntentAllOfStatusEnum = "pending" | "failed" | "succeeded" | "canceled";
