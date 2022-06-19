@@ -63,7 +63,6 @@ export * from './UpdateCustomerBody';
 export * from './UpdateInvoiceBody';
 export * from './UpdatePriceBody';
 export * from './UpdateProductBody';
-export * from './UpdateSubscriptionBody';
 export * from './UpdateWalletBody';
 export * from './UpdateWebhookBody';
 export * from './Wallet';

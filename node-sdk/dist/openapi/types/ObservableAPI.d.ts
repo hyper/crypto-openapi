@@ -37,7 +37,6 @@ import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
-import { UpdateSubscriptionBody } from '../models/UpdateSubscriptionBody';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
 import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
 import { Wallet } from '../models/Wallet';
@@ -154,7 +153,7 @@ export declare class ObservableSubscriptionsApi {
     create(prism_account?: string, subscription?: Subscription, _options?: Configuration): Observable<Subscription>;
     list(expand?: string, limit?: number, page?: number, sort?: any, prism_account?: string, _options?: Configuration): Observable<ListSubscriptionsResponse>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Subscription>;
-    update(id: string, prism_account?: string, update_subscription_body?: UpdateSubscriptionBody, _options?: Configuration): Observable<Subscription>;
+    update(id: string, prism_account?: string, subscription?: Subscription, _options?: Configuration): Observable<Subscription>;
 }
 import { TransfersApiRequestFactory, TransfersApiResponseProcessor } from "../apis/TransfersApi";
 export declare class ObservableTransfersApi {

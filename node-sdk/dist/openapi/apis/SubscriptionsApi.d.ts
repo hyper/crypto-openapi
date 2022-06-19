@@ -3,13 +3,12 @@ import { Configuration } from '../configuration';
 import { RequestContext, ResponseContext } from '../http/http';
 import { ListSubscriptionsResponse } from '../models/ListSubscriptionsResponse';
 import { Subscription } from '../models/Subscription';
-import { UpdateSubscriptionBody } from '../models/UpdateSubscriptionBody';
 export declare class SubscriptionsApiRequestFactory extends BaseAPIRequestFactory {
     cancel(id: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
     create(prism_account?: string, subscription?: Subscription, _options?: Configuration): Promise<RequestContext>;
     list(expand?: string, limit?: number, page?: number, sort?: any, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
-    update(id: string, prism_account?: string, update_subscription_body?: UpdateSubscriptionBody, _options?: Configuration): Promise<RequestContext>;
+    update(id: string, prism_account?: string, subscription?: Subscription, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class SubscriptionsApiResponseProcessor {
     cancel(response: ResponseContext): Promise<Subscription>;

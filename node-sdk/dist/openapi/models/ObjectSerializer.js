@@ -76,7 +76,6 @@ __exportStar(require("./UpdateCustomerBody"), exports);
 __exportStar(require("./UpdateInvoiceBody"), exports);
 __exportStar(require("./UpdatePriceBody"), exports);
 __exportStar(require("./UpdateProductBody"), exports);
-__exportStar(require("./UpdateSubscriptionBody"), exports);
 __exportStar(require("./UpdateWalletBody"), exports);
 __exportStar(require("./UpdateWebhookBody"), exports);
 __exportStar(require("./Wallet"), exports);
@@ -148,7 +147,6 @@ const UpdateCustomerBody_1 = require("./UpdateCustomerBody");
 const UpdateInvoiceBody_1 = require("./UpdateInvoiceBody");
 const UpdatePriceBody_1 = require("./UpdatePriceBody");
 const UpdateProductBody_1 = require("./UpdateProductBody");
-const UpdateSubscriptionBody_1 = require("./UpdateSubscriptionBody");
 const UpdateWalletBody_1 = require("./UpdateWalletBody");
 const UpdateWebhookBody_1 = require("./UpdateWebhookBody");
 const Wallet_1 = require("./Wallet");
@@ -173,20 +171,20 @@ const supportedMediaTypes = {
 let enumsMap = new Set([
     "ApiKeyTypeEnum",
     "ApiKeyAllOfTypeEnum",
-    "InvoiceStatusEnum",
     "InvoiceChainEnum",
-    "InvoiceAllOfStatusEnum",
+    "InvoiceStatusEnum",
     "InvoiceAllOfChainEnum",
+    "InvoiceAllOfStatusEnum",
     "LogMethodEnum",
     "LogAllOfMethodEnum",
     "NotificationTypeEnum",
     "NotificationAllOfTypeEnum",
-    "PaymentIntentStatusEnum",
     "PaymentIntentChainEnum",
     "PaymentIntentCurrencyEnum",
-    "PaymentIntentAllOfStatusEnum",
+    "PaymentIntentStatusEnum",
     "PaymentIntentAllOfChainEnum",
     "PaymentIntentAllOfCurrencyEnum",
+    "PaymentIntentAllOfStatusEnum",
     "PayoutWalletChainEnum",
     "PayoutWalletAllOfChainEnum",
     "SubscriptionStatusEnum",
@@ -260,7 +258,6 @@ let typeMap = {
     "UpdateInvoiceBody": UpdateInvoiceBody_1.UpdateInvoiceBody,
     "UpdatePriceBody": UpdatePriceBody_1.UpdatePriceBody,
     "UpdateProductBody": UpdateProductBody_1.UpdateProductBody,
-    "UpdateSubscriptionBody": UpdateSubscriptionBody_1.UpdateSubscriptionBody,
     "UpdateWalletBody": UpdateWalletBody_1.UpdateWalletBody,
     "UpdateWebhookBody": UpdateWebhookBody_1.UpdateWebhookBody,
     "Wallet": Wallet_1.Wallet,

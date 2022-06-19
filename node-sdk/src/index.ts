@@ -507,10 +507,10 @@ class SubscriptionsApiLayer {
 
   public async update(
     id: string,
-    data: SubscriptionsApiUpdateRequest['update_subscription_body'],
+    data: SubscriptionsApiUpdateRequest['subscription'],
     options?: { prismAccount: string }
   ): Promise<Subscription> {
-    return this.api.update({ id, ...convertCasing(options), update_subscription_body: data });
+    return this.api.update({ id, ...convertCasing(options), subscription: data });
   }
 
   public async list(

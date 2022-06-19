@@ -17,6 +17,7 @@ import { HttpFile } from '../http/http';
 
 export class FeeAllOf {
     'account': string | Account;
+    'currency': string;
     'description'?: string;
     'internal'?: boolean;
     'payment_intent': string | PaymentIntent;
@@ -30,6 +31,12 @@ export class FeeAllOf {
             "name": "account",
             "baseName": "account",
             "type": "string | Account",
+            "format": ""
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "string",
             "format": ""
         },
         {

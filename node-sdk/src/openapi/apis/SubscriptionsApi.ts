@@ -11,7 +11,6 @@ import {SecurityAuthentication} from '../auth/auth';
 import { InlineResponse400 } from '../models/InlineResponse400';
 import { ListSubscriptionsResponse } from '../models/ListSubscriptionsResponse';
 import { Subscription } from '../models/Subscription';
-import { UpdateSubscriptionBody } from '../models/UpdateSubscriptionBody';
 
 /**
  * no description
@@ -206,9 +205,9 @@ export class SubscriptionsApiRequestFactory extends BaseAPIRequestFactory {
      * Update Subscription
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param update_subscription_body 
+     * @param subscription 
      */
-    public async update(id: string, prism_account?: string, update_subscription_body?: UpdateSubscriptionBody, _options?: Configuration): Promise<RequestContext> {
+    public async update(id: string, prism_account?: string, subscription?: Subscription, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -239,7 +238,7 @@ export class SubscriptionsApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(update_subscription_body, "UpdateSubscriptionBody", ""),
+            ObjectSerializer.serialize(subscription, "Subscription", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

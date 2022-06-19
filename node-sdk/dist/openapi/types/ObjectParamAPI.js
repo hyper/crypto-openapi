@@ -199,7 +199,7 @@ class ObjectSubscriptionsApi {
         return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.update_subscription_body, options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.subscription, options).toPromise();
     }
 }
 exports.ObjectSubscriptionsApi = ObjectSubscriptionsApi;

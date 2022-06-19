@@ -10,8 +10,8 @@ export declare class Transfer {
     'account': string | Account;
     'description'?: string;
     'invoice': string | Invoice;
-    'percent': number;
     'payment_intent': string | PaymentIntent;
+    'percent': number;
     'wallet': string | PayoutWallet;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

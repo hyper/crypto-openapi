@@ -23,6 +23,7 @@ export class Fee {
     'object': string;
     'test': boolean;
     'account': string | Account;
+    'currency': string;
     'description'?: string;
     'internal'?: boolean;
     'payment_intent': string | PaymentIntent;
@@ -60,6 +61,12 @@ export class Fee {
             "name": "account",
             "baseName": "account",
             "type": "string | Account",
+            "format": ""
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "string",
             "format": ""
         },
         {

@@ -736,8 +736,8 @@ class ObservableSubscriptionsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
         }));
     }
-    update(id, prism_account, update_subscription_body, _options) {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, update_subscription_body, _options);
+    update(id, prism_account, subscription, _options) {
+        const requestContextPromise = this.requestFactory.update(id, prism_account, subscription, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));

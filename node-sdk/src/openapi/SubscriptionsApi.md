@@ -275,14 +275,8 @@ let body:.SubscriptionsApiUpdateRequest = {
   id: "id_example",
   // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
   prism_account: "Prism-Account_example",
-  // UpdateSubscriptionBody (optional)
-  update_subscription_body: {
-    status: "status_example",
-    pause_collection: true,
-    cancel_at: 3.14,
-    canceled_at: 3.14,
-    price: "price_example",
-  },
+  // Subscription (optional)
+  subscription: null,
 };
 
 apiInstance.update(body).then((data:any) => {
@@ -295,7 +289,7 @@ apiInstance.update(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **update_subscription_body** | **UpdateSubscriptionBody**|  |
+ **subscription** | **Subscription**|  |
  **id** | [**string**] |  | defaults to undefined
  **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
 

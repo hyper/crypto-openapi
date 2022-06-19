@@ -96,7 +96,6 @@ models/UpdateCustomerBody.ts
 models/UpdateInvoiceBody.ts
 models/UpdatePriceBody.ts
 models/UpdateProductBody.ts
-models/UpdateSubscriptionBody.ts
 models/UpdateWalletBody.ts
 models/UpdateWebhookBody.ts
 models/Wallet.ts

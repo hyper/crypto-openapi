@@ -18,6 +18,12 @@ FeeAllOf.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "currency",
+        "baseName": "currency",
+        "type": "string",
+        "format": ""
+    },
+    {
         "name": "description",
         "baseName": "description",
         "type": "string",

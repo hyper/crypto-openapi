@@ -36,7 +36,6 @@ import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
-import { UpdateSubscriptionBody } from '../models/UpdateSubscriptionBody';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
 import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
 import { Wallet } from '../models/Wallet';
@@ -351,7 +350,7 @@ export interface SubscriptionsApiRetrieveRequest {
 export interface SubscriptionsApiUpdateRequest {
     id: string;
     prism_account?: string;
-    update_subscription_body?: UpdateSubscriptionBody;
+    subscription?: Subscription;
 }
 export declare class ObjectSubscriptionsApi {
     private api;

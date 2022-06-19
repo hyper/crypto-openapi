@@ -68,7 +68,6 @@ import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
-import { UpdateSubscriptionBody } from '../models/UpdateSubscriptionBody';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
 import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
 import { Wallet } from '../models/Wallet';
@@ -1340,10 +1339,10 @@ export class ObservableSubscriptionsApi {
      * Update Subscription
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param update_subscription_body 
+     * @param subscription 
      */
-    public update(id: string, prism_account?: string, update_subscription_body?: UpdateSubscriptionBody, _options?: Configuration): Observable<Subscription> {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, update_subscription_body, _options);
+    public update(id: string, prism_account?: string, subscription?: Subscription, _options?: Configuration): Observable<Subscription> {
+        const requestContextPromise = this.requestFactory.update(id, prism_account, subscription, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);

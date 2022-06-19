@@ -67,7 +67,6 @@ import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
-import { UpdateSubscriptionBody } from '../models/UpdateSubscriptionBody';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
 import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
 import { Wallet } from '../models/Wallet';
@@ -1458,10 +1457,10 @@ export interface SubscriptionsApiUpdateRequest {
     prism_account?: string
     /**
      * 
-     * @type UpdateSubscriptionBody
+     * @type Subscription
      * @memberof SubscriptionsApiupdate
      */
-    update_subscription_body?: UpdateSubscriptionBody
+    subscription?: Subscription
 }
 
 export class ObjectSubscriptionsApi {
@@ -1508,7 +1507,7 @@ export class ObjectSubscriptionsApi {
      * @param param the request object
      */
     public update(param: SubscriptionsApiUpdateRequest, options?: Configuration): Promise<Subscription> {
-        return this.api.update(param.id, param.prism_account, param.update_subscription_body,  options).toPromise();
+        return this.api.update(param.id, param.prism_account, param.subscription,  options).toPromise();
     }
 
 }

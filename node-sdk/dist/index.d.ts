@@ -161,7 +161,7 @@ declare class SubscriptionsApiLayer {
     retrieve(id: string, params?: Omit<SubscriptionsApiRetrieveRequest, 'prism_account' | 'id'>, options?: {
         prismAccount: string;
     }): Promise<Subscription>;
-    update(id: string, data: SubscriptionsApiUpdateRequest['update_subscription_body'], options?: {
+    update(id: string, data: SubscriptionsApiUpdateRequest['subscription'], options?: {
         prismAccount: string;
     }): Promise<Subscription>;
     list(params?: Omit<SubscriptionsApiListRequest, 'prism_account'>, options?: {
