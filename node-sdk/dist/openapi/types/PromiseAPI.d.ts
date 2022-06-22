@@ -59,6 +59,12 @@ export declare class PromiseCustomersApi {
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Customer>;
     update(id: string, prism_account?: string, update_customer_body?: UpdateCustomerBody, _options?: Configuration): Promise<Customer>;
 }
+import { DefaultApiRequestFactory, DefaultApiResponseProcessor } from "../apis/DefaultApi";
+export declare class PromiseDefaultApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor);
+    pay(id: string, prism_account?: string, _options?: Configuration): Promise<void>;
+}
 import { FeesApiRequestFactory, FeesApiResponseProcessor } from "../apis/FeesApi";
 export declare class PromiseFeesApi {
     private api;

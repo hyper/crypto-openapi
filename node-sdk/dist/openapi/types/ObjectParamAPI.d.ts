@@ -101,6 +101,16 @@ export declare class ObjectCustomersApi {
     retrieve(param: CustomersApiRetrieveRequest, options?: Configuration): Promise<Customer>;
     update(param: CustomersApiUpdateRequest, options?: Configuration): Promise<Customer>;
 }
+import { DefaultApiRequestFactory, DefaultApiResponseProcessor } from "../apis/DefaultApi";
+export interface DefaultApiPayRequest {
+    id: string;
+    prism_account?: string;
+}
+export declare class ObjectDefaultApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor);
+    pay(param: DefaultApiPayRequest, options?: Configuration): Promise<void>;
+}
 import { FeesApiRequestFactory, FeesApiResponseProcessor } from "../apis/FeesApi";
 export interface FeesApiDeleteRequest {
     id: string;

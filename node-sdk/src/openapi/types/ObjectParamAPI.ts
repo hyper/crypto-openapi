@@ -343,6 +343,41 @@ export class ObjectCustomersApi {
 
 }
 
+import { ObservableDefaultApi } from "./ObservableAPI";
+import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
+
+export interface DefaultApiPayRequest {
+    /**
+     * 
+     * @type string
+     * @memberof DefaultApipay
+     */
+    id: string
+    /**
+     * The ID of the connected Prism account you are making a request on behalf on.
+     * @type string
+     * @memberof DefaultApipay
+     */
+    prism_account?: string
+}
+
+export class ObjectDefaultApi {
+    private api: ObservableDefaultApi
+
+    public constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor) {
+        this.api = new ObservableDefaultApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Pay Invoice
+     * @param param the request object
+     */
+    public pay(param: DefaultApiPayRequest, options?: Configuration): Promise<void> {
+        return this.api.pay(param.id, param.prism_account,  options).toPromise();
+    }
+
+}
+
 import { ObservableFeesApi } from "./ObservableAPI";
 import { FeesApiRequestFactory, FeesApiResponseProcessor} from "../apis/FeesApi";
 

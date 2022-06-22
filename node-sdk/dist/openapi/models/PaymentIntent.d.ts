@@ -47,6 +47,6 @@ export declare class PaymentIntent {
     }[];
     constructor();
 }
-export declare type PaymentIntentStatusEnum = "pending" | "failed" | "succeeded" | "canceled";
+export declare type PaymentIntentStatusEnum = "failed" | "succeeded" | "canceled" | "processing";
 export declare type PaymentIntentChainEnum = "eth" | "sol";
 export declare type PaymentIntentCurrencyEnum = "eth" | "sol";

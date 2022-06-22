@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObservableWebhooksApi = exports.ObservableWalletsApi = exports.ObservableTransfersApi = exports.ObservableSubscriptionsApi = exports.ObservableProductsApi = exports.ObservablePricesApi = exports.ObservablePayoutWalletsApi = exports.ObservablePaymentIntentsApi = exports.ObservableLogsApi = exports.ObservableInvoicesApi = exports.ObservableFeesApi = exports.ObservableCustomersApi = exports.ObservableAccountsApi = void 0;
+exports.ObservableWebhooksApi = exports.ObservableWalletsApi = exports.ObservableTransfersApi = exports.ObservableSubscriptionsApi = exports.ObservableProductsApi = exports.ObservablePricesApi = exports.ObservablePayoutWalletsApi = exports.ObservablePaymentIntentsApi = exports.ObservableLogsApi = exports.ObservableInvoicesApi = exports.ObservableFeesApi = exports.ObservableDefaultApi = exports.ObservableCustomersApi = exports.ObservableAccountsApi = void 0;
 const rxjsStub_1 = require("../rxjsStub");
 const rxjsStub_2 = require("../rxjsStub");
 const AccountsApi_1 = require("../apis/AccountsApi");
@@ -141,6 +141,30 @@ class ObservableCustomersApi {
     }
 }
 exports.ObservableCustomersApi = ObservableCustomersApi;
+const DefaultApi_1 = require("../apis/DefaultApi");
+class ObservableDefaultApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new DefaultApi_1.DefaultApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new DefaultApi_1.DefaultApiResponseProcessor();
+    }
+    pay(id, prism_account, _options) {
+        const requestContextPromise = this.requestFactory.pay(id, prism_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.pay(rsp)));
+        }));
+    }
+}
+exports.ObservableDefaultApi = ObservableDefaultApi;
 const FeesApi_1 = require("../apis/FeesApi");
 class ObservableFeesApi {
     constructor(configuration, requestFactory, responseProcessor) {

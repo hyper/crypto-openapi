@@ -625,7 +625,6 @@
               "customer": {
                 "oneOf": [
                   {
-                    "properties": {},
                     "type": "string"
                   },
                   {
@@ -689,7 +688,6 @@
               "price": {
                 "oneOf": [
                   {
-                    "properties": {},
                     "type": "string"
                   },
                   {
@@ -699,13 +697,12 @@
               },
               "status": {
                 "default": "pending",
-                "enum": ["pending", "failed", "succeeded", "canceled"],
+                "enum": ["failed", "succeeded", "canceled", "processing"],
                 "type": "string"
               },
               "subscription": {
                 "oneOf": [
                   {
-                    "properties": {},
                     "type": "string"
                   },
                   {
@@ -725,7 +722,6 @@
               "wallet": {
                 "oneOf": [
                   {
-                    "properties": {},
                     "type": "string"
                   },
                   {
@@ -2309,6 +2305,38 @@
         },
         "summary": "Update Invoice By Id",
         "tags": ["Invoices"]
+      }
+    },
+    "/invoices/{id}/pay": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "invoices_pay",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Pay Invoice"
       }
     },
     "/logs": {

@@ -1,5 +1,6 @@
 AccountsApi.md
 CustomersApi.md
+DefaultApi.md
 FeesApi.md
 InvoicesApi.md
 LogsApi.md
@@ -13,6 +14,7 @@ WalletsApi.md
 WebhooksApi.md
 apis/AccountsApi.ts
 apis/CustomersApi.ts
+apis/DefaultApi.ts
 apis/FeesApi.ts
 apis/InvoicesApi.ts
 apis/LogsApi.ts

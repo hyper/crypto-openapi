@@ -206,7 +206,7 @@ export class PaymentIntent {
 }
 
 
-export type PaymentIntentStatusEnum = "pending" | "failed" | "succeeded" | "canceled" ;
+export type PaymentIntentStatusEnum = "failed" | "succeeded" | "canceled" | "processing" ;
 export type PaymentIntentChainEnum = "eth" | "sol" ;
 export type PaymentIntentCurrencyEnum = "eth" | "sol" ;
 

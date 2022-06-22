@@ -176,7 +176,7 @@ export class PaymentIntentAllOf {
 }
 
 
-export type PaymentIntentAllOfStatusEnum = "pending" | "failed" | "succeeded" | "canceled" ;
+export type PaymentIntentAllOfStatusEnum = "failed" | "succeeded" | "canceled" | "processing" ;
 export type PaymentIntentAllOfChainEnum = "eth" | "sol" ;
 export type PaymentIntentAllOfCurrencyEnum = "eth" | "sol" ;
 
