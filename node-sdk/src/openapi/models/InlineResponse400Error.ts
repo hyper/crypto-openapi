@@ -13,22 +13,22 @@
 import { HttpFile } from '../http/http';
 
 export class InlineResponse400Error {
-    'message'?: string;
     'param'?: string;
+    'message'?: string;
     'type'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "message",
-            "baseName": "message",
+            "name": "param",
+            "baseName": "param",
             "type": "string",
             "format": ""
         },
         {
-            "name": "param",
-            "baseName": "param",
+            "name": "message",
+            "baseName": "message",
             "type": "string",
             "format": ""
         },

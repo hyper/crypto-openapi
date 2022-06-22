@@ -35,6 +35,7 @@ import { Transfer } from '../models/Transfer';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
+import { UpdatePaymentIntentBody } from '../models/UpdatePaymentIntentBody';
 import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
@@ -105,7 +106,7 @@ export declare class ObservablePaymentIntentsApi {
     list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, status?: 'processing' | 'succeeded' | 'failed' | 'canceled', customer?: string, _options?: Configuration): Observable<ListPaymentIntentsResponse>;
     poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<PaymentIntent>;
     retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<PaymentIntent>;
-    updateHash(id: string, prism_account?: string, body?: string, _options?: Configuration): Observable<PaymentIntent>;
+    update(id: string, prism_account?: string, update_payment_intent_body?: UpdatePaymentIntentBody, _options?: Configuration): Observable<PaymentIntent>;
 }
 import { PayoutWalletsApiRequestFactory, PayoutWalletsApiResponseProcessor } from "../apis/PayoutWalletsApi";
 export declare class ObservablePayoutWalletsApi {

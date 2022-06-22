@@ -66,6 +66,7 @@ import { TransferAllOf } from '../models/TransferAllOf';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
+import { UpdatePaymentIntentBody } from '../models/UpdatePaymentIntentBody';
 import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
@@ -764,13 +765,13 @@ export class ObservablePaymentIntentsApi {
     }
 
     /**
-     * Update Payment Intent Hash
+     * Update Payment Intent
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param body 
+     * @param update_payment_intent_body 
      */
-    public updateHash(id: string, prism_account?: string, body?: string, _options?: Configuration): Observable<PaymentIntent> {
-        const requestContextPromise = this.requestFactory.updateHash(id, prism_account, body, _options);
+    public update(id: string, prism_account?: string, update_payment_intent_body?: UpdatePaymentIntentBody, _options?: Configuration): Observable<PaymentIntent> {
+        const requestContextPromise = this.requestFactory.update(id, prism_account, update_payment_intent_body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -784,7 +785,7 @@ export class ObservablePaymentIntentsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updateHash(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update(rsp)));
             }));
     }
 

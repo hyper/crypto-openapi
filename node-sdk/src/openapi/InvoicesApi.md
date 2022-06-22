@@ -217,14 +217,14 @@ let body:.InvoicesApiUpdateRequest = {
   prism_account: "Prism-Account_example",
   // UpdateInvoiceBody (optional)
   update_invoice_body: {
-    application_fee_percent: 3.14,
     chain: "chain_example",
     currency: "currency_example",
     due: "due_example",
-    metadata: {},
-    send_reminders: "send_reminders_example",
+    application_fee_percent: 3.14,
     status: "status_example",
     trial_period_duration: 3.14,
+    send_reminders: "send_reminders_example",
+    metadata: {},
   },
 };
 

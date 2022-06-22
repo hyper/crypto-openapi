@@ -313,9 +313,9 @@ class PaymentIntentsApiLayer {
             return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
         });
     }
-    updateHash(id, data, options) {
+    update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.updateHash(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { body: data }));
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { update_payment_intent_body: data }));
         });
     }
     list(params, options) {

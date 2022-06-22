@@ -40,8 +40,8 @@ let body:.AccountsApiCreateRequest = {
     parent_account: "parent_account_example",
     platform_account: "platform_account_example",
     settings: {
-      past_due_period_duration: 3.14,
       retry_period_duration: 3.14,
+      past_due_period_duration: 3.14,
     },
   },
 };

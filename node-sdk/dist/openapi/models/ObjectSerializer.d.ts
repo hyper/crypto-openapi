@@ -61,6 +61,7 @@ export * from './TransferAllOf';
 export * from './UpdateAccountBody';
 export * from './UpdateCustomerBody';
 export * from './UpdateInvoiceBody';
+export * from './UpdatePaymentIntentBody';
 export * from './UpdatePriceBody';
 export * from './UpdateProductBody';
 export * from './UpdateWalletBody';

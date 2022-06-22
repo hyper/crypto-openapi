@@ -65,6 +65,7 @@ import { TransferAllOf } from '../models/TransferAllOf';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
+import { UpdatePaymentIntentBody } from '../models/UpdatePaymentIntentBody';
 import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
@@ -806,25 +807,25 @@ export interface PaymentIntentsApiRetrieveRequest {
     expand?: string
 }
 
-export interface PaymentIntentsApiUpdateHashRequest {
+export interface PaymentIntentsApiUpdateRequest {
     /**
      * 
      * @type string
-     * @memberof PaymentIntentsApiupdateHash
+     * @memberof PaymentIntentsApiupdate
      */
     id: string
     /**
      * The ID of the connected Prism account you are making a request on behalf on.
      * @type string
-     * @memberof PaymentIntentsApiupdateHash
+     * @memberof PaymentIntentsApiupdate
      */
     prism_account?: string
     /**
      * 
-     * @type string
-     * @memberof PaymentIntentsApiupdateHash
+     * @type UpdatePaymentIntentBody
+     * @memberof PaymentIntentsApiupdate
      */
-    body?: string
+    update_payment_intent_body?: UpdatePaymentIntentBody
 }
 
 export class ObjectPaymentIntentsApi {
@@ -875,11 +876,11 @@ export class ObjectPaymentIntentsApi {
     }
 
     /**
-     * Update Payment Intent Hash
+     * Update Payment Intent
      * @param param the request object
      */
-    public updateHash(param: PaymentIntentsApiUpdateHashRequest, options?: Configuration): Promise<PaymentIntent> {
-        return this.api.updateHash(param.id, param.prism_account, param.body,  options).toPromise();
+    public update(param: PaymentIntentsApiUpdateRequest, options?: Configuration): Promise<PaymentIntent> {
+        return this.api.update(param.id, param.prism_account, param.update_payment_intent_body,  options).toPromise();
     }
 
 }

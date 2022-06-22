@@ -1,6 +1,5 @@
-export declare class CreateProductBody {
-    'name': string;
-    'description'?: string;
+export declare class UpdatePaymentIntentBody {
+    'hash'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

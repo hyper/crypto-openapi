@@ -110,8 +110,8 @@ class ObjectPaymentIntentsApi {
     retrieve(param, options) {
         return this.api.retrieve(param.id, param.prism_account, param.expand, options).toPromise();
     }
-    updateHash(param, options) {
-        return this.api.updateHash(param.id, param.prism_account, param.body, options).toPromise();
+    update(param, options) {
+        return this.api.update(param.id, param.prism_account, param.update_payment_intent_body, options).toPromise();
     }
 }
 exports.ObjectPaymentIntentsApi = ObjectPaymentIntentsApi;

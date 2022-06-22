@@ -11,6 +11,7 @@ import {SecurityAuthentication} from '../auth/auth';
 import { InlineResponse400 } from '../models/InlineResponse400';
 import { ListPaymentIntentsResponse } from '../models/ListPaymentIntentsResponse';
 import { PaymentIntent } from '../models/PaymentIntent';
+import { UpdatePaymentIntentBody } from '../models/UpdatePaymentIntentBody';
 
 /**
  * no description
@@ -261,28 +262,28 @@ export class PaymentIntentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Update Payment Intent Hash
+     * Update Payment Intent
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param body 
+     * @param update_payment_intent_body 
      */
-    public async updateHash(id: string, prism_account?: string, body?: string, _options?: Configuration): Promise<RequestContext> {
+    public async update(id: string, prism_account?: string, update_payment_intent_body?: UpdatePaymentIntentBody, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
-            throw new RequiredError("PaymentIntentsApi", "updateHash", "id");
+            throw new RequiredError("PaymentIntentsApi", "update", "id");
         }
 
 
 
 
         // Path Params
-        const localVarPath = '/payment_intents/{id}/update_hash'
+        const localVarPath = '/payment_intents/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PATCH);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
@@ -297,7 +298,7 @@ export class PaymentIntentsApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(body, "string", ""),
+            ObjectSerializer.serialize(update_payment_intent_body, "UpdatePaymentIntentBody", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -502,10 +503,10 @@ export class PaymentIntentsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to updateHash
+     * @params response Response returned by the server for a request to update
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async updateHash(response: ResponseContext): Promise<PaymentIntent > {
+     public async update(response: ResponseContext): Promise<PaymentIntent > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: PaymentIntent = ObjectSerializer.deserialize(
@@ -520,9 +521,6 @@ export class PaymentIntentsApiResponseProcessor {
                 "InlineResponse400", ""
             ) as InlineResponse400;
             throw new ApiException<InlineResponse400>(400, "Bad Request", body, response.headers);
-        }
-        if (isCodeInRange("401", response.httpStatusCode)) {
-            throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
         }
         if (isCodeInRange("404", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Not Found", undefined, response.headers);

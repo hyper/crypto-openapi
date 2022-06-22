@@ -65,6 +65,7 @@ import { TransferAllOf } from '../models/TransferAllOf';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
+import { UpdatePaymentIntentBody } from '../models/UpdatePaymentIntentBody';
 import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
@@ -443,13 +444,13 @@ export class PromisePaymentIntentsApi {
     }
 
     /**
-     * Update Payment Intent Hash
+     * Update Payment Intent
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
-     * @param body 
+     * @param update_payment_intent_body 
      */
-    public updateHash(id: string, prism_account?: string, body?: string, _options?: Configuration): Promise<PaymentIntent> {
-        const result = this.api.updateHash(id, prism_account, body, _options);
+    public update(id: string, prism_account?: string, update_payment_intent_body?: UpdatePaymentIntentBody, _options?: Configuration): Promise<PaymentIntent> {
+        const result = this.api.update(id, prism_account, update_payment_intent_body, _options);
         return result.toPromise();
     }
 

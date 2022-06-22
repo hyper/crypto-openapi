@@ -13,21 +13,21 @@
 import { HttpFile } from '../http/http';
 
 export class AccountsSettings {
-    'past_due_period_duration'?: number;
     'retry_period_duration'?: number;
+    'past_due_period_duration'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "past_due_period_duration",
-            "baseName": "past_due_period_duration",
+            "name": "retry_period_duration",
+            "baseName": "retry_period_duration",
             "type": "number",
             "format": ""
         },
         {
-            "name": "retry_period_duration",
-            "baseName": "retry_period_duration",
+            "name": "past_due_period_duration",
+            "baseName": "past_due_period_duration",
             "type": "number",
             "format": ""
         }    ];

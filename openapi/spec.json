@@ -2650,7 +2650,50 @@
             "type": "string"
           }
         }
-      ]
+      ],
+      "patch": {
+        "operationId": "payment-intents_update",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Prism-Account"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "hash": {
+                    "type": "string"
+                  }
+                },
+                "title": "UpdatePaymentIntentBody",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntent"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "summary": "Update Payment Intent",
+        "tags": ["PaymentIntents"]
+      }
     },
     "/payment_intents/{id}/poll": {
       "get": {
@@ -2694,58 +2737,6 @@
           }
         }
       ]
-    },
-    "/payment_intents/{id}/update_hash": {
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ],
-      "post": {
-        "operationId": "payment-intents_updateHash",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Prism-Account"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaymentIntent"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "Update Payment Intent Hash",
-        "tags": ["PaymentIntents"]
-      }
     },
     "/payout_wallets": {
       "get": {

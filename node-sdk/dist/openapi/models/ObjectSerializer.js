@@ -74,6 +74,7 @@ __exportStar(require("./TransferAllOf"), exports);
 __exportStar(require("./UpdateAccountBody"), exports);
 __exportStar(require("./UpdateCustomerBody"), exports);
 __exportStar(require("./UpdateInvoiceBody"), exports);
+__exportStar(require("./UpdatePaymentIntentBody"), exports);
 __exportStar(require("./UpdatePriceBody"), exports);
 __exportStar(require("./UpdateProductBody"), exports);
 __exportStar(require("./UpdateWalletBody"), exports);
@@ -145,6 +146,7 @@ const TransferAllOf_1 = require("./TransferAllOf");
 const UpdateAccountBody_1 = require("./UpdateAccountBody");
 const UpdateCustomerBody_1 = require("./UpdateCustomerBody");
 const UpdateInvoiceBody_1 = require("./UpdateInvoiceBody");
+const UpdatePaymentIntentBody_1 = require("./UpdatePaymentIntentBody");
 const UpdatePriceBody_1 = require("./UpdatePriceBody");
 const UpdateProductBody_1 = require("./UpdateProductBody");
 const UpdateWalletBody_1 = require("./UpdateWalletBody");
@@ -171,20 +173,20 @@ const supportedMediaTypes = {
 let enumsMap = new Set([
     "ApiKeyTypeEnum",
     "ApiKeyAllOfTypeEnum",
-    "InvoiceChainEnum",
     "InvoiceStatusEnum",
-    "InvoiceAllOfChainEnum",
+    "InvoiceChainEnum",
     "InvoiceAllOfStatusEnum",
+    "InvoiceAllOfChainEnum",
     "LogMethodEnum",
     "LogAllOfMethodEnum",
     "NotificationTypeEnum",
     "NotificationAllOfTypeEnum",
+    "PaymentIntentStatusEnum",
     "PaymentIntentChainEnum",
     "PaymentIntentCurrencyEnum",
-    "PaymentIntentStatusEnum",
+    "PaymentIntentAllOfStatusEnum",
     "PaymentIntentAllOfChainEnum",
     "PaymentIntentAllOfCurrencyEnum",
-    "PaymentIntentAllOfStatusEnum",
     "PayoutWalletChainEnum",
     "PayoutWalletAllOfChainEnum",
     "SubscriptionStatusEnum",
@@ -256,6 +258,7 @@ let typeMap = {
     "UpdateAccountBody": UpdateAccountBody_1.UpdateAccountBody,
     "UpdateCustomerBody": UpdateCustomerBody_1.UpdateCustomerBody,
     "UpdateInvoiceBody": UpdateInvoiceBody_1.UpdateInvoiceBody,
+    "UpdatePaymentIntentBody": UpdatePaymentIntentBody_1.UpdatePaymentIntentBody,
     "UpdatePriceBody": UpdatePriceBody_1.UpdatePriceBody,
     "UpdateProductBody": UpdateProductBody_1.UpdateProductBody,
     "UpdateWalletBody": UpdateWalletBody_1.UpdateWalletBody,

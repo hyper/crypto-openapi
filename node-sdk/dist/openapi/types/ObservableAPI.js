@@ -400,8 +400,8 @@ class ObservablePaymentIntentsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
         }));
     }
-    updateHash(id, prism_account, body, _options) {
-        const requestContextPromise = this.requestFactory.updateHash(id, prism_account, body, _options);
+    update(id, prism_account, update_payment_intent_body, _options) {
+        const requestContextPromise = this.requestFactory.update(id, prism_account, update_payment_intent_body, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -412,7 +412,7 @@ class ObservablePaymentIntentsApi {
             for (let middleware of this.configuration.middleware) {
                 middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.updateHash(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
         }));
     }
 }

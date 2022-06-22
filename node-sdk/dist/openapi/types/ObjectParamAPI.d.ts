@@ -34,6 +34,7 @@ import { Transfer } from '../models/Transfer';
 import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
+import { UpdatePaymentIntentBody } from '../models/UpdatePaymentIntentBody';
 import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
 import { UpdateWalletBody } from '../models/UpdateWalletBody';
@@ -206,10 +207,10 @@ export interface PaymentIntentsApiRetrieveRequest {
     prism_account?: string;
     expand?: string;
 }
-export interface PaymentIntentsApiUpdateHashRequest {
+export interface PaymentIntentsApiUpdateRequest {
     id: string;
     prism_account?: string;
-    body?: string;
+    update_payment_intent_body?: UpdatePaymentIntentBody;
 }
 export declare class ObjectPaymentIntentsApi {
     private api;
@@ -219,7 +220,7 @@ export declare class ObjectPaymentIntentsApi {
     list(param?: PaymentIntentsApiListRequest, options?: Configuration): Promise<ListPaymentIntentsResponse>;
     poll(param: PaymentIntentsApiPollRequest, options?: Configuration): Promise<PaymentIntent>;
     retrieve(param: PaymentIntentsApiRetrieveRequest, options?: Configuration): Promise<PaymentIntent>;
-    updateHash(param: PaymentIntentsApiUpdateHashRequest, options?: Configuration): Promise<PaymentIntent>;
+    update(param: PaymentIntentsApiUpdateRequest, options?: Configuration): Promise<PaymentIntent>;
 }
 import { PayoutWalletsApiRequestFactory, PayoutWalletsApiResponseProcessor } from "../apis/PayoutWalletsApi";
 export interface PayoutWalletsApiDeleteRequest {

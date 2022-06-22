@@ -12,7 +12,7 @@
 
 import { HttpFile } from '../http/http';
 
-export class InlineObject {
+export class UpdatePaymentIntentBody {
     'hash'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -26,7 +26,7 @@ export class InlineObject {
         }    ];
 
     static getAttributeTypeMap() {
-        return InlineObject.attributeTypeMap;
+        return UpdatePaymentIntentBody.attributeTypeMap;
     }
 
     public constructor() {
