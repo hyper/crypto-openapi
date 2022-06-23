@@ -137,7 +137,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **pay**
-> void pay()
+> PaymentIntent pay()
 
 
 ### Example
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void**
+**PaymentIntent**
 
 ### Authorization
 
@@ -182,7 +182,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -276,14 +276,14 @@ let body:.InvoicesApiUpdateRequest = {
   prism_account: "Prism-Account_example",
   // UpdateInvoiceBody (optional)
   update_invoice_body: {
-    application_fee_percent: 3.14,
     chain: "chain_example",
     currency: "currency_example",
     due: "due_example",
-    metadata: {},
-    send_reminders: "send_reminders_example",
+    application_fee_percent: 3.14,
     status: "status_example",
     trial_period_duration: 3.14,
+    send_reminders: "send_reminders_example",
+    metadata: {},
   },
 };
 

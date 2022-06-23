@@ -74,7 +74,7 @@ export declare class PromiseInvoicesApi {
     constructor(configuration: Configuration, requestFactory?: InvoicesApiRequestFactory, responseProcessor?: InvoicesApiResponseProcessor);
     create(prism_account?: string, invoice?: Invoice, _options?: Configuration): Promise<Invoice>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<ListInvoicesResponse>;
-    pay(id: string, prism_account?: string, _options?: Configuration): Promise<void>;
+    pay(id: string, prism_account?: string, _options?: Configuration): Promise<PaymentIntent>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Invoice>;
     update(id: string, prism_account?: string, update_invoice_body?: UpdateInvoiceBody, _options?: Configuration): Promise<Invoice>;
 }

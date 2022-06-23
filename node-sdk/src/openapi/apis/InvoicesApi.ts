@@ -11,6 +11,7 @@ import {SecurityAuthentication} from '../auth/auth';
 import { InlineResponse400 } from '../models/InlineResponse400';
 import { Invoice } from '../models/Invoice';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
+import { PaymentIntent } from '../models/PaymentIntent';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 
 /**
@@ -338,10 +339,14 @@ export class InvoicesApiResponseProcessor {
      * @params response Response returned by the server for a request to pay
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async pay(response: ResponseContext): Promise<void > {
+     public async pay(response: ResponseContext): Promise<PaymentIntent > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            return;
+            const body: PaymentIntent = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "PaymentIntent", ""
+            ) as PaymentIntent;
+            return body;
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
@@ -352,10 +357,10 @@ export class InvoicesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void = ObjectSerializer.deserialize(
+            const body: PaymentIntent = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "void", ""
-            ) as void;
+                "PaymentIntent", ""
+            ) as PaymentIntent;
             return body;
         }
 

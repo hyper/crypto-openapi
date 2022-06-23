@@ -20,8 +20,8 @@ export class TransferAllOf {
     'account': string | Account;
     'description'?: string;
     'invoice': string | Invoice;
-    'payment_intent': string | PaymentIntent;
     'percent': number;
+    'payment_intent': string | PaymentIntent;
     'wallet': string | PayoutWallet;
 
     static readonly discriminator: string | undefined = undefined;
@@ -46,15 +46,15 @@ export class TransferAllOf {
             "format": ""
         },
         {
-            "name": "payment_intent",
-            "baseName": "payment_intent",
-            "type": "string | PaymentIntent",
-            "format": ""
-        },
-        {
             "name": "percent",
             "baseName": "percent",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "payment_intent",
+            "baseName": "payment_intent",
+            "type": "string | PaymentIntent",
             "format": ""
         },
         {

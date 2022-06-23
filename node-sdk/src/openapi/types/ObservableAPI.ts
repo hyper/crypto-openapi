@@ -504,7 +504,7 @@ export class ObservableInvoicesApi {
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public pay(id: string, prism_account?: string, _options?: Configuration): Observable<void> {
+    public pay(id: string, prism_account?: string, _options?: Configuration): Observable<PaymentIntent> {
         const requestContextPromise = this.requestFactory.pay(id, prism_account, _options);
 
         // build promise chain

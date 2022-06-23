@@ -5,19 +5,19 @@ import { InvoiceAllOfLineItems } from './InvoiceAllOfLineItems';
 import { Price } from './Price';
 export declare class SubscriptionAllOf {
     'account': string | Account;
-    'cancel_at'?: number;
-    'cancel_at_period_end': boolean;
-    'canceled_at'?: number;
-    'current_period_end': number;
-    'current_period_start': number;
-    'customer': string | Customer;
-    'latest_invoice'?: Invoice;
-    'line_items'?: Array<InvoiceAllOfLineItems>;
-    'pause_collection': boolean;
     'platform_account'?: string | Account;
     'price': string | Price;
+    'customer': string | Customer;
+    'latest_invoice'?: Invoice;
     'status': SubscriptionAllOfStatusEnum;
+    'pause_collection': boolean;
+    'canceled_at'?: number;
     'trial_period_duration'?: number;
+    'line_items'?: Array<InvoiceAllOfLineItems>;
+    'current_period_start': number;
+    'current_period_end': number;
+    'cancel_at_period_end': boolean;
+    'cancel_at'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

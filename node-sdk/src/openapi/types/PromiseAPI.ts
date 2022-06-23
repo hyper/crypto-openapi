@@ -307,7 +307,7 @@ export class PromiseInvoicesApi {
      * @param id 
      * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
      */
-    public pay(id: string, prism_account?: string, _options?: Configuration): Promise<void> {
+    public pay(id: string, prism_account?: string, _options?: Configuration): Promise<PaymentIntent> {
         const result = this.api.pay(id, prism_account, _options);
         return result.toPromise();
     }

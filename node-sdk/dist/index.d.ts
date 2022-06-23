@@ -86,7 +86,7 @@ declare class InvoicesApiLayer {
     }): Promise<ListInvoicesResponse>;
     pay(id: string, params?: Omit<InvoicesApiPayRequest, 'prism_account' | 'id'>, options?: {
         prismAccount: string;
-    }): Promise<void>;
+    }): Promise<PaymentIntent>;
 }
 declare class LogsApiLayer {
     private readonly api;

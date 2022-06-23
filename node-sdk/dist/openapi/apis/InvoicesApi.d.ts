@@ -3,6 +3,7 @@ import { Configuration } from '../configuration';
 import { RequestContext, ResponseContext } from '../http/http';
 import { Invoice } from '../models/Invoice';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
+import { PaymentIntent } from '../models/PaymentIntent';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 export declare class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
     create(prism_account?: string, invoice?: Invoice, _options?: Configuration): Promise<RequestContext>;
@@ -14,7 +15,7 @@ export declare class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
 export declare class InvoicesApiResponseProcessor {
     create(response: ResponseContext): Promise<Invoice>;
     list(response: ResponseContext): Promise<ListInvoicesResponse>;
-    pay(response: ResponseContext): Promise<void>;
+    pay(response: ResponseContext): Promise<PaymentIntent>;
     retrieve(response: ResponseContext): Promise<Invoice>;
     update(response: ResponseContext): Promise<Invoice>;
 }

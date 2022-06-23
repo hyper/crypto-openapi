@@ -13,25 +13,25 @@ export declare class PaymentIntent {
     'object': string;
     'test': boolean;
     'account'?: string | Account;
-    'amount': number;
-    'application_fee_percent'?: number;
-    'chain': PaymentIntentChainEnum;
-    'currency': PaymentIntentCurrencyEnum;
-    'customer'?: string | Customer;
-    'exchange_rate'?: number;
-    'fees': Array<Fee>;
+    'platform_account'?: string | Account;
     'hash'?: string;
     'invoice': string | Invoice;
-    'last_payment_error'?: string;
-    'line_items'?: Array<InvoiceAllOfLineItems>;
-    'metadata'?: any;
-    'platform_account'?: string | Account;
-    'price'?: string | Price;
     'status': PaymentIntentStatusEnum;
+    'chain': PaymentIntentChainEnum;
+    'currency': PaymentIntentCurrencyEnum;
+    'amount': number;
     'subscription'?: string | Subscription;
-    'transfers': Array<Transfer>;
-    'usd_amount'?: number;
+    'price'?: string | Price;
+    'line_items'?: Array<InvoiceAllOfLineItems>;
+    'customer'?: string | Customer;
     'wallet'?: string | Wallet;
+    'usd_amount'?: number;
+    'exchange_rate'?: number;
+    'application_fee_percent'?: number;
+    'last_payment_error'?: string;
+    'fees': Array<Fee>;
+    'transfers': Array<Transfer>;
+    'metadata'?: any;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
@@ -47,6 +47,6 @@ export declare class PaymentIntent {
     }[];
     constructor();
 }
+export declare type PaymentIntentStatusEnum = "failed" | "succeeded" | "canceled" | "processing";
 export declare type PaymentIntentChainEnum = "eth" | "sol";
 export declare type PaymentIntentCurrencyEnum = "eth" | "sol";
-export declare type PaymentIntentStatusEnum = "failed" | "succeeded" | "canceled" | "processing";

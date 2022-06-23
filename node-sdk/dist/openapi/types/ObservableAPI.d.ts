@@ -83,7 +83,7 @@ export declare class ObservableInvoicesApi {
     constructor(configuration: Configuration, requestFactory?: InvoicesApiRequestFactory, responseProcessor?: InvoicesApiResponseProcessor);
     create(prism_account?: string, invoice?: Invoice, _options?: Configuration): Observable<Invoice>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListInvoicesResponse>;
-    pay(id: string, prism_account?: string, _options?: Configuration): Observable<void>;
+    pay(id: string, prism_account?: string, _options?: Configuration): Observable<PaymentIntent>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Invoice>;
     update(id: string, prism_account?: string, update_invoice_body?: UpdateInvoiceBody, _options?: Configuration): Observable<Invoice>;
 }

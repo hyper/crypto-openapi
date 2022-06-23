@@ -606,7 +606,7 @@ export class ObjectInvoicesApi {
      * Pay Invoice
      * @param param the request object
      */
-    public pay(param: InvoicesApiPayRequest, options?: Configuration): Promise<void> {
+    public pay(param: InvoicesApiPayRequest, options?: Configuration): Promise<PaymentIntent> {
         return this.api.pay(param.id, param.prism_account,  options).toPromise();
     }
 

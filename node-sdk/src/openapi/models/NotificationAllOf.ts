@@ -15,9 +15,9 @@ import { HttpFile } from '../http/http';
 
 export class NotificationAllOf {
     'account': string | Account;
+    'type': NotificationAllOfTypeEnum;
     'data': string;
     'emails'?: Array<string>;
-    'type': NotificationAllOfTypeEnum;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -26,6 +26,12 @@ export class NotificationAllOf {
             "name": "account",
             "baseName": "account",
             "type": "string | Account",
+            "format": ""
+        },
+        {
+            "name": "type",
+            "baseName": "type",
+            "type": "NotificationAllOfTypeEnum",
             "format": ""
         },
         {
@@ -38,12 +44,6 @@ export class NotificationAllOf {
             "name": "emails",
             "baseName": "emails",
             "type": "Array<string>",
-            "format": ""
-        },
-        {
-            "name": "type",
-            "baseName": "type",
-            "type": "NotificationAllOfTypeEnum",
             "format": ""
         }    ];
 
