@@ -84,7 +84,7 @@ declare class InvoicesApiLayer {
     list(params?: Omit<InvoicesApiListRequest, 'prism_account'>, options?: {
         prismAccount: string;
     }): Promise<ListInvoicesResponse>;
-    pay(id: string, params?: Omit<InvoicesApiPayRequest, 'prism_account'>, options?: {
+    pay(id: string, params?: Omit<InvoicesApiPayRequest, 'prism_account' | 'id'>, options?: {
         prismAccount: string;
     }): Promise<void>;
 }

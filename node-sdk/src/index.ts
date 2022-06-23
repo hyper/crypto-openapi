@@ -324,7 +324,7 @@ class InvoicesApiLayer {
 
   public async pay(
     id: string,
-    params?: Omit<InvoicesApiPayRequest, 'prism_account'>,
+    params?: Omit<InvoicesApiPayRequest, 'prism_account' | 'id'>,
     options?: { prismAccount: string }
   ): Promise<void> {
     return this.api.pay({ id, ...convertCasing(options), ...params });
