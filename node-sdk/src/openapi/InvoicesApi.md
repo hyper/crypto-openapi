@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create**](InvoicesApi.md#create) | **POST** /invoices | Create Invoice
 [**list**](InvoicesApi.md#list) | **GET** /invoices | List Invoices
+[**pay**](InvoicesApi.md#pay) | **POST** /invoices/{id}/pay | Pay Invoice
 [**retrieve**](InvoicesApi.md#retrieve) | **GET** /invoices/{id} | Retrieve Invoice By Id
 [**update**](InvoicesApi.md#update) | **PATCH** /invoices/{id} | Update Invoice By Id
 
@@ -135,6 +136,64 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+# **pay**
+> void pay()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .InvoicesApi(configuration);
+
+let body:.InvoicesApiPayRequest = {
+  // string
+  id: "id_example",
+  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
+  prism_account: "Prism-Account_example",
+};
+
+apiInstance.pay(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**string**] |  | defaults to undefined
+ **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+
+
+### Return type
+
+**void**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 # **retrieve**
 > Invoice retrieve()
 
@@ -217,14 +276,14 @@ let body:.InvoicesApiUpdateRequest = {
   prism_account: "Prism-Account_example",
   // UpdateInvoiceBody (optional)
   update_invoice_body: {
+    application_fee_percent: 3.14,
     chain: "chain_example",
     currency: "currency_example",
     due: "due_example",
-    application_fee_percent: 3.14,
+    metadata: {},
+    send_reminders: "send_reminders_example",
     status: "status_example",
     trial_period_duration: 3.14,
-    send_reminders: "send_reminders_example",
-    metadata: {},
   },
 };
 

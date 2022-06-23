@@ -9,21 +9,21 @@ export declare class Invoice {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'platform_account'?: string | Account;
-    'status': InvoiceStatusEnum;
-    'number': string;
-    'price': string | Price;
-    'customer': string | Customer;
-    'line_items'?: Array<InvoiceAllOfLineItems>;
-    'trial_period_duration'?: number;
-    'subscription'?: string | Subscription;
-    'period_start': number;
-    'period_end': number;
-    'chain': InvoiceChainEnum;
     'amount': number;
-    'send_reminders'?: boolean;
+    'chain': InvoiceChainEnum;
+    'customer': string | Customer;
     'due': number;
+    'line_items'?: Array<InvoiceAllOfLineItems>;
     'metadata'?: any;
+    'number': string;
+    'period_end': number;
+    'period_start': number;
+    'platform_account'?: string | Account;
+    'price': string | Price;
+    'send_reminders'?: boolean;
+    'status': InvoiceStatusEnum;
+    'subscription'?: string | Subscription;
+    'trial_period_duration'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
@@ -39,5 +39,5 @@ export declare class Invoice {
     }[];
     constructor();
 }
-export declare type InvoiceStatusEnum = "open" | "paid" | "void" | "past_due" | "uncollectible";
 export declare type InvoiceChainEnum = "eth" | "sol";
+export declare type InvoiceStatusEnum = "open" | "paid" | "void" | "past_due" | "uncollectible";

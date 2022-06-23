@@ -25,19 +25,19 @@ export class Subscription {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'platform_account'?: string | Account;
-    'price': string | Price;
+    'cancel_at'?: number;
+    'cancel_at_period_end': boolean;
+    'canceled_at'?: number;
+    'current_period_end': number;
+    'current_period_start': number;
     'customer': string | Customer;
     'latest_invoice'?: Invoice;
-    'status': SubscriptionStatusEnum;
-    'pause_collection': boolean;
-    'canceled_at'?: number;
-    'trial_period_duration'?: number;
     'line_items'?: Array<InvoiceAllOfLineItems>;
-    'current_period_start': number;
-    'current_period_end': number;
-    'cancel_at_period_end': boolean;
-    'cancel_at'?: number;
+    'pause_collection': boolean;
+    'platform_account'?: string | Account;
+    'price': string | Price;
+    'status': SubscriptionStatusEnum;
+    'trial_period_duration'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -73,15 +73,33 @@ export class Subscription {
             "format": ""
         },
         {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string | Account",
+            "name": "cancel_at",
+            "baseName": "cancel_at",
+            "type": "number",
             "format": ""
         },
         {
-            "name": "price",
-            "baseName": "price",
-            "type": "string | Price",
+            "name": "cancel_at_period_end",
+            "baseName": "cancel_at_period_end",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "canceled_at",
+            "baseName": "canceled_at",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "current_period_end",
+            "baseName": "current_period_end",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "current_period_start",
+            "baseName": "current_period_start",
+            "type": "number",
             "format": ""
         },
         {
@@ -97,9 +115,9 @@ export class Subscription {
             "format": ""
         },
         {
-            "name": "status",
-            "baseName": "status",
-            "type": "SubscriptionStatusEnum",
+            "name": "line_items",
+            "baseName": "line_items",
+            "type": "Array<InvoiceAllOfLineItems>",
             "format": ""
         },
         {
@@ -109,44 +127,26 @@ export class Subscription {
             "format": ""
         },
         {
-            "name": "canceled_at",
-            "baseName": "canceled_at",
-            "type": "number",
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string | Account",
+            "format": ""
+        },
+        {
+            "name": "price",
+            "baseName": "price",
+            "type": "string | Price",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "SubscriptionStatusEnum",
             "format": ""
         },
         {
             "name": "trial_period_duration",
             "baseName": "trial_period_duration",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "line_items",
-            "baseName": "line_items",
-            "type": "Array<InvoiceAllOfLineItems>",
-            "format": ""
-        },
-        {
-            "name": "current_period_start",
-            "baseName": "current_period_start",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "current_period_end",
-            "baseName": "current_period_end",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "cancel_at_period_end",
-            "baseName": "cancel_at_period_end",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "cancel_at",
-            "baseName": "cancel_at",
             "type": "number",
             "format": ""
         }    ];

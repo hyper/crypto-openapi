@@ -99,6 +99,7 @@ import {
   SubscriptionsApiCancelRequest,
   PaymentIntentsApiCancelRequest,
   PaymentIntentsApiUpdateRequest,
+  InvoicesApiPayRequest,
 } from './openapi/index';
 import convertCasing from './helpers/convertCasing';
 import { ListPayoutWalletsResponse } from './openapi';
@@ -319,6 +320,14 @@ class InvoicesApiLayer {
     options?: { prismAccount: string }
   ): Promise<ListInvoicesResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
+  }
+
+  public async pay(
+    id: string,
+    params?: Omit<InvoicesApiPayRequest, 'prism_account'>,
+    options?: { prismAccount: string }
+  ): Promise<void> {
+    return this.api.pay({ id, ...convertCasing(options), ...params });
   }
 }
 

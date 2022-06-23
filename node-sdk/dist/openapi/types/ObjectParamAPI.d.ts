@@ -101,16 +101,6 @@ export declare class ObjectCustomersApi {
     retrieve(param: CustomersApiRetrieveRequest, options?: Configuration): Promise<Customer>;
     update(param: CustomersApiUpdateRequest, options?: Configuration): Promise<Customer>;
 }
-import { DefaultApiRequestFactory, DefaultApiResponseProcessor } from "../apis/DefaultApi";
-export interface DefaultApiPayRequest {
-    id: string;
-    prism_account?: string;
-}
-export declare class ObjectDefaultApi {
-    private api;
-    constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor);
-    pay(param: DefaultApiPayRequest, options?: Configuration): Promise<void>;
-}
 import { FeesApiRequestFactory, FeesApiResponseProcessor } from "../apis/FeesApi";
 export interface FeesApiDeleteRequest {
     id: string;
@@ -152,6 +142,10 @@ export interface InvoicesApiListRequest {
     expand?: string;
     prism_account?: string;
 }
+export interface InvoicesApiPayRequest {
+    id: string;
+    prism_account?: string;
+}
 export interface InvoicesApiRetrieveRequest {
     id: string;
     expand?: string;
@@ -167,6 +161,7 @@ export declare class ObjectInvoicesApi {
     constructor(configuration: Configuration, requestFactory?: InvoicesApiRequestFactory, responseProcessor?: InvoicesApiResponseProcessor);
     create(param?: InvoicesApiCreateRequest, options?: Configuration): Promise<Invoice>;
     list(param?: InvoicesApiListRequest, options?: Configuration): Promise<ListInvoicesResponse>;
+    pay(param: InvoicesApiPayRequest, options?: Configuration): Promise<void>;
     retrieve(param: InvoicesApiRetrieveRequest, options?: Configuration): Promise<Invoice>;
     update(param: InvoicesApiUpdateRequest, options?: Configuration): Promise<Invoice>;
 }

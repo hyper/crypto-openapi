@@ -88,8 +88,8 @@ let body:.ProductsApiCreateRequest = {
   prism_account: "Prism-Account_example",
   // CreateProductBody (optional)
   create_product_body: {
-    name: "name_example",
     description: "description_example",
+    name: "name_example",
   },
 };
 
@@ -279,8 +279,8 @@ let body:.ProductsApiUpdateRequest = {
   prism_account: "Prism-Account_example",
   // UpdateProductBody (optional)
   update_product_body: {
-    name: "name_example",
     description: "description_example",
+    name: "name_example",
   },
 };
 

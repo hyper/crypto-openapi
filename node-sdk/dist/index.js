@@ -163,6 +163,11 @@ class InvoicesApiLayer {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
         });
     }
+    pay(id, params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.pay(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+        });
+    }
 }
 class LogsApiLayer {
     constructor(config) {

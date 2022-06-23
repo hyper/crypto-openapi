@@ -64,14 +64,6 @@ export declare class ObservableCustomersApi {
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Customer>;
     update(id: string, prism_account?: string, update_customer_body?: UpdateCustomerBody, _options?: Configuration): Observable<Customer>;
 }
-import { DefaultApiRequestFactory, DefaultApiResponseProcessor } from "../apis/DefaultApi";
-export declare class ObservableDefaultApi {
-    private requestFactory;
-    private responseProcessor;
-    private configuration;
-    constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor);
-    pay(id: string, prism_account?: string, _options?: Configuration): Observable<void>;
-}
 import { FeesApiRequestFactory, FeesApiResponseProcessor } from "../apis/FeesApi";
 export declare class ObservableFeesApi {
     private requestFactory;
@@ -91,6 +83,7 @@ export declare class ObservableInvoicesApi {
     constructor(configuration: Configuration, requestFactory?: InvoicesApiRequestFactory, responseProcessor?: InvoicesApiResponseProcessor);
     create(prism_account?: string, invoice?: Invoice, _options?: Configuration): Observable<Invoice>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListInvoicesResponse>;
+    pay(id: string, prism_account?: string, _options?: Configuration): Observable<void>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Invoice>;
     update(id: string, prism_account?: string, update_invoice_body?: UpdateInvoiceBody, _options?: Configuration): Observable<Invoice>;
 }

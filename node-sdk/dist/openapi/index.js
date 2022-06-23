@@ -20,7 +20,6 @@ __exportStar(require("./servers"), exports);
 var ObjectParamAPI_1 = require("./types/ObjectParamAPI");
 Object.defineProperty(exports, "AccountsApi", { enumerable: true, get: function () { return ObjectParamAPI_1.ObjectAccountsApi; } });
 Object.defineProperty(exports, "CustomersApi", { enumerable: true, get: function () { return ObjectParamAPI_1.ObjectCustomersApi; } });
-Object.defineProperty(exports, "DefaultApi", { enumerable: true, get: function () { return ObjectParamAPI_1.ObjectDefaultApi; } });
 Object.defineProperty(exports, "FeesApi", { enumerable: true, get: function () { return ObjectParamAPI_1.ObjectFeesApi; } });
 Object.defineProperty(exports, "InvoicesApi", { enumerable: true, get: function () { return ObjectParamAPI_1.ObjectInvoicesApi; } });
 Object.defineProperty(exports, "LogsApi", { enumerable: true, get: function () { return ObjectParamAPI_1.ObjectLogsApi; } });

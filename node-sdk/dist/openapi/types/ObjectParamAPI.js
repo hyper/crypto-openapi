@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObjectWebhooksApi = exports.ObjectWalletsApi = exports.ObjectTransfersApi = exports.ObjectSubscriptionsApi = exports.ObjectProductsApi = exports.ObjectPricesApi = exports.ObjectPayoutWalletsApi = exports.ObjectPaymentIntentsApi = exports.ObjectLogsApi = exports.ObjectInvoicesApi = exports.ObjectFeesApi = exports.ObjectDefaultApi = exports.ObjectCustomersApi = exports.ObjectAccountsApi = void 0;
+exports.ObjectWebhooksApi = exports.ObjectWalletsApi = exports.ObjectTransfersApi = exports.ObjectSubscriptionsApi = exports.ObjectProductsApi = exports.ObjectPricesApi = exports.ObjectPayoutWalletsApi = exports.ObjectPaymentIntentsApi = exports.ObjectLogsApi = exports.ObjectInvoicesApi = exports.ObjectFeesApi = exports.ObjectCustomersApi = exports.ObjectAccountsApi = void 0;
 const ObservableAPI_1 = require("./ObservableAPI");
 class ObjectAccountsApi {
     constructor(configuration, requestFactory, responseProcessor) {
@@ -40,19 +40,9 @@ class ObjectCustomersApi {
 }
 exports.ObjectCustomersApi = ObjectCustomersApi;
 const ObservableAPI_3 = require("./ObservableAPI");
-class ObjectDefaultApi {
-    constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_3.ObservableDefaultApi(configuration, requestFactory, responseProcessor);
-    }
-    pay(param, options) {
-        return this.api.pay(param.id, param.prism_account, options).toPromise();
-    }
-}
-exports.ObjectDefaultApi = ObjectDefaultApi;
-const ObservableAPI_4 = require("./ObservableAPI");
 class ObjectFeesApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_4.ObservableFeesApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_3.ObservableFeesApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
         return this.api._delete(param.id, param.prism_account, options).toPromise();
@@ -68,16 +58,19 @@ class ObjectFeesApi {
     }
 }
 exports.ObjectFeesApi = ObjectFeesApi;
-const ObservableAPI_5 = require("./ObservableAPI");
+const ObservableAPI_4 = require("./ObservableAPI");
 class ObjectInvoicesApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_5.ObservableInvoicesApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_4.ObservableInvoicesApi(configuration, requestFactory, responseProcessor);
     }
     create(param = {}, options) {
         return this.api.create(param.prism_account, param.invoice, options).toPromise();
     }
     list(param = {}, options) {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
+    }
+    pay(param, options) {
+        return this.api.pay(param.id, param.prism_account, options).toPromise();
     }
     retrieve(param, options) {
         return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
@@ -87,10 +80,10 @@ class ObjectInvoicesApi {
     }
 }
 exports.ObjectInvoicesApi = ObjectInvoicesApi;
-const ObservableAPI_6 = require("./ObservableAPI");
+const ObservableAPI_5 = require("./ObservableAPI");
 class ObjectLogsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_6.ObservableLogsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_5.ObservableLogsApi(configuration, requestFactory, responseProcessor);
     }
     list(param = {}, options) {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
@@ -100,10 +93,10 @@ class ObjectLogsApi {
     }
 }
 exports.ObjectLogsApi = ObjectLogsApi;
-const ObservableAPI_7 = require("./ObservableAPI");
+const ObservableAPI_6 = require("./ObservableAPI");
 class ObjectPaymentIntentsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_7.ObservablePaymentIntentsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_6.ObservablePaymentIntentsApi(configuration, requestFactory, responseProcessor);
     }
     cancel(param, options) {
         return this.api.cancel(param.id, param.prism_account, options).toPromise();
@@ -125,10 +118,10 @@ class ObjectPaymentIntentsApi {
     }
 }
 exports.ObjectPaymentIntentsApi = ObjectPaymentIntentsApi;
-const ObservableAPI_8 = require("./ObservableAPI");
+const ObservableAPI_7 = require("./ObservableAPI");
 class ObjectPayoutWalletsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_8.ObservablePayoutWalletsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_7.ObservablePayoutWalletsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
         return this.api._delete(param.id, param.prism_account, options).toPromise();
@@ -147,10 +140,10 @@ class ObjectPayoutWalletsApi {
     }
 }
 exports.ObjectPayoutWalletsApi = ObjectPayoutWalletsApi;
-const ObservableAPI_9 = require("./ObservableAPI");
+const ObservableAPI_8 = require("./ObservableAPI");
 class ObjectPricesApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_9.ObservablePricesApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_8.ObservablePricesApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
         return this.api._delete(param.id, param.prism_account, options).toPromise();
@@ -169,10 +162,10 @@ class ObjectPricesApi {
     }
 }
 exports.ObjectPricesApi = ObjectPricesApi;
-const ObservableAPI_10 = require("./ObservableAPI");
+const ObservableAPI_9 = require("./ObservableAPI");
 class ObjectProductsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_10.ObservableProductsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_9.ObservableProductsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
         return this.api._delete(param.id, param.prism_account, options).toPromise();
@@ -191,10 +184,10 @@ class ObjectProductsApi {
     }
 }
 exports.ObjectProductsApi = ObjectProductsApi;
-const ObservableAPI_11 = require("./ObservableAPI");
+const ObservableAPI_10 = require("./ObservableAPI");
 class ObjectSubscriptionsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_11.ObservableSubscriptionsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_10.ObservableSubscriptionsApi(configuration, requestFactory, responseProcessor);
     }
     cancel(param, options) {
         return this.api.cancel(param.id, param.prism_account, options).toPromise();
@@ -213,10 +206,10 @@ class ObjectSubscriptionsApi {
     }
 }
 exports.ObjectSubscriptionsApi = ObjectSubscriptionsApi;
-const ObservableAPI_12 = require("./ObservableAPI");
+const ObservableAPI_11 = require("./ObservableAPI");
 class ObjectTransfersApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_12.ObservableTransfersApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_11.ObservableTransfersApi(configuration, requestFactory, responseProcessor);
     }
     create(param = {}, options) {
         return this.api.create(param.prism_account, param.create_transfer_body, options).toPromise();
@@ -229,10 +222,10 @@ class ObjectTransfersApi {
     }
 }
 exports.ObjectTransfersApi = ObjectTransfersApi;
-const ObservableAPI_13 = require("./ObservableAPI");
+const ObservableAPI_12 = require("./ObservableAPI");
 class ObjectWalletsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_13.ObservableWalletsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_12.ObservableWalletsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
         return this.api._delete(param.id, param.expand, param.prism_account, options).toPromise();
@@ -251,10 +244,10 @@ class ObjectWalletsApi {
     }
 }
 exports.ObjectWalletsApi = ObjectWalletsApi;
-const ObservableAPI_14 = require("./ObservableAPI");
+const ObservableAPI_13 = require("./ObservableAPI");
 class ObjectWebhooksApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_14.ObservableWebhooksApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_13.ObservableWebhooksApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
         return this.api._delete(param.id, param.prism_account, options).toPromise();

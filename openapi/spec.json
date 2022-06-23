@@ -2336,7 +2336,8 @@
             "$ref": "#/components/responses/404"
           }
         },
-        "summary": "Pay Invoice"
+        "summary": "Pay Invoice",
+        "tags": ["Invoices"]
       }
     },
     "/logs": {

@@ -59,12 +59,6 @@ export declare class PromiseCustomersApi {
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Customer>;
     update(id: string, prism_account?: string, update_customer_body?: UpdateCustomerBody, _options?: Configuration): Promise<Customer>;
 }
-import { DefaultApiRequestFactory, DefaultApiResponseProcessor } from "../apis/DefaultApi";
-export declare class PromiseDefaultApi {
-    private api;
-    constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor);
-    pay(id: string, prism_account?: string, _options?: Configuration): Promise<void>;
-}
 import { FeesApiRequestFactory, FeesApiResponseProcessor } from "../apis/FeesApi";
 export declare class PromiseFeesApi {
     private api;
@@ -80,6 +74,7 @@ export declare class PromiseInvoicesApi {
     constructor(configuration: Configuration, requestFactory?: InvoicesApiRequestFactory, responseProcessor?: InvoicesApiResponseProcessor);
     create(prism_account?: string, invoice?: Invoice, _options?: Configuration): Promise<Invoice>;
     list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<ListInvoicesResponse>;
+    pay(id: string, prism_account?: string, _options?: Configuration): Promise<void>;
     retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Invoice>;
     update(id: string, prism_account?: string, update_invoice_body?: UpdateInvoiceBody, _options?: Configuration): Promise<Invoice>;
 }
