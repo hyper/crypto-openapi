@@ -60,6 +60,7 @@ __exportStar(require("./Notification"), exports);
 __exportStar(require("./NotificationAllOf"), exports);
 __exportStar(require("./PaymentIntent"), exports);
 __exportStar(require("./PaymentIntentAllOf"), exports);
+__exportStar(require("./PaymentIntentAllOfLineItems"), exports);
 __exportStar(require("./PayoutWallet"), exports);
 __exportStar(require("./PayoutWalletAllOf"), exports);
 __exportStar(require("./Price"), exports);
@@ -132,6 +133,7 @@ const Notification_1 = require("./Notification");
 const NotificationAllOf_1 = require("./NotificationAllOf");
 const PaymentIntent_1 = require("./PaymentIntent");
 const PaymentIntentAllOf_1 = require("./PaymentIntentAllOf");
+const PaymentIntentAllOfLineItems_1 = require("./PaymentIntentAllOfLineItems");
 const PayoutWallet_1 = require("./PayoutWallet");
 const PayoutWalletAllOf_1 = require("./PayoutWalletAllOf");
 const Price_1 = require("./Price");
@@ -244,6 +246,7 @@ let typeMap = {
     "NotificationAllOf": NotificationAllOf_1.NotificationAllOf,
     "PaymentIntent": PaymentIntent_1.PaymentIntent,
     "PaymentIntentAllOf": PaymentIntentAllOf_1.PaymentIntentAllOf,
+    "PaymentIntentAllOfLineItems": PaymentIntentAllOfLineItems_1.PaymentIntentAllOfLineItems,
     "PayoutWallet": PayoutWallet_1.PayoutWallet,
     "PayoutWalletAllOf": PayoutWalletAllOf_1.PayoutWalletAllOf,
     "Price": Price_1.Price,

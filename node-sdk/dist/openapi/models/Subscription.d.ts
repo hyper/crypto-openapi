@@ -1,7 +1,7 @@
 import { Account } from './Account';
 import { Customer } from './Customer';
 import { Invoice } from './Invoice';
-import { InvoiceAllOfLineItems } from './InvoiceAllOfLineItems';
+import { PaymentIntentAllOfLineItems } from './PaymentIntentAllOfLineItems';
 import { Price } from './Price';
 export declare class Subscription {
     'created': Date;
@@ -17,7 +17,7 @@ export declare class Subscription {
     'pause_collection': boolean;
     'canceled_at'?: number;
     'trial_period_duration'?: number;
-    'line_items'?: Array<InvoiceAllOfLineItems>;
+    'line_items'?: Array<PaymentIntentAllOfLineItems>;
     'current_period_start': number;
     'current_period_end': number;
     'cancel_at_period_end': boolean;

@@ -15,6 +15,7 @@ export declare class Price {
     'base_price'?: PriceAllOfBasePrice;
     'billing_period_duration'?: number;
     'application_fee_percent'?: number;
+    'archived'?: boolean;
     'metadata'?: any;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

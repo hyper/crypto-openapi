@@ -13,8 +13,8 @@
 import { Account } from './Account';
 import { Customer } from './Customer';
 import { Invoice } from './Invoice';
-import { InvoiceAllOfLineItems } from './InvoiceAllOfLineItems';
 import { Model } from './Model';
+import { PaymentIntentAllOfLineItems } from './PaymentIntentAllOfLineItems';
 import { Price } from './Price';
 import { SubscriptionAllOf } from './SubscriptionAllOf';
 import { HttpFile } from '../http/http';
@@ -33,7 +33,7 @@ export class Subscription {
     'pause_collection': boolean;
     'canceled_at'?: number;
     'trial_period_duration'?: number;
-    'line_items'?: Array<InvoiceAllOfLineItems>;
+    'line_items'?: Array<PaymentIntentAllOfLineItems>;
     'current_period_start': number;
     'current_period_end': number;
     'cancel_at_period_end': boolean;
@@ -123,7 +123,7 @@ export class Subscription {
         {
             "name": "line_items",
             "baseName": "line_items",
-            "type": "Array<InvoiceAllOfLineItems>",
+            "type": "Array<PaymentIntentAllOfLineItems>",
             "format": ""
         },
         {

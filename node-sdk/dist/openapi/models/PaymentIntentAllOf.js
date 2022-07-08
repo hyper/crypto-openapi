@@ -74,7 +74,7 @@ PaymentIntentAllOf.attributeTypeMap = [
     {
         "name": "line_items",
         "baseName": "line_items",
-        "type": "Array<InvoiceAllOfLineItems>",
+        "type": "Array<PaymentIntentAllOfLineItems>",
         "format": ""
     },
     {

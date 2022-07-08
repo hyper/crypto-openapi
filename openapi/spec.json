@@ -381,11 +381,22 @@
               "line_items": {
                 "items": {
                   "properties": {
-                    "amount": {
-                      "type": "number"
+                    "price": {
+                      "oneOf": [
+                        {
+                          "properties": {},
+                          "type": "string"
+                        },
+                        {
+                          "$ref": "#/components/schemas/Price"
+                        }
+                      ]
                     },
-                    "description": {
-                      "type": "string"
+                    "price_data": {
+                      "type": "object"
+                    },
+                    "quantity": {
+                      "type": "number"
                     }
                   },
                   "type": "object"
@@ -661,11 +672,21 @@
               "line_items": {
                 "items": {
                   "properties": {
-                    "amount": {
-                      "type": "number"
+                    "price": {
+                      "oneOf": [
+                        {
+                          "type": "object"
+                        },
+                        {
+                          "$ref": "#/components/schemas/Price"
+                        }
+                      ]
                     },
-                    "description": {
-                      "type": "string"
+                    "price_data": {
+                      "type": "object"
+                    },
+                    "quantity": {
+                      "type": "number"
                     }
                   },
                   "type": "object"
@@ -802,6 +823,9 @@
               },
               "application_fee_percent": {
                 "type": "number"
+              },
+              "archived": {
+                "type": "boolean"
               },
               "base_price": {
                 "properties": {
@@ -941,11 +965,21 @@
               "line_items": {
                 "items": {
                   "properties": {
-                    "amount": {
-                      "type": "number"
+                    "price": {
+                      "oneOf": [
+                        {
+                          "type": "object"
+                        },
+                        {
+                          "$ref": "#/components/schemas/Price"
+                        }
+                      ]
                     },
-                    "description": {
-                      "type": "string"
+                    "price_data": {
+                      "type": "object"
+                    },
+                    "quantity": {
+                      "type": "number"
                     }
                   },
                   "type": "object"
@@ -1460,6 +1494,9 @@
                       }
                     },
                     "type": "object"
+                  },
+                  "settings.retry_period_duration": {
+                    "type": "string"
                   }
                 },
                 "title": "UpdateAccountBody",

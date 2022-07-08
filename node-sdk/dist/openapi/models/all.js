@@ -59,6 +59,7 @@ __exportStar(require("./Notification"), exports);
 __exportStar(require("./NotificationAllOf"), exports);
 __exportStar(require("./PaymentIntent"), exports);
 __exportStar(require("./PaymentIntentAllOf"), exports);
+__exportStar(require("./PaymentIntentAllOfLineItems"), exports);
 __exportStar(require("./PayoutWallet"), exports);
 __exportStar(require("./PayoutWalletAllOf"), exports);
 __exportStar(require("./Price"), exports);

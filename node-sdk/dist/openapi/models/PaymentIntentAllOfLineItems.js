@@ -1,20 +1,20 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.InvoiceAllOfLineItems = void 0;
-class InvoiceAllOfLineItems {
+exports.PaymentIntentAllOfLineItems = void 0;
+class PaymentIntentAllOfLineItems {
     constructor() {
     }
     static getAttributeTypeMap() {
-        return InvoiceAllOfLineItems.attributeTypeMap;
+        return PaymentIntentAllOfLineItems.attributeTypeMap;
     }
 }
-exports.InvoiceAllOfLineItems = InvoiceAllOfLineItems;
-InvoiceAllOfLineItems.discriminator = undefined;
-InvoiceAllOfLineItems.attributeTypeMap = [
+exports.PaymentIntentAllOfLineItems = PaymentIntentAllOfLineItems;
+PaymentIntentAllOfLineItems.discriminator = undefined;
+PaymentIntentAllOfLineItems.attributeTypeMap = [
     {
         "name": "price",
         "baseName": "price",
-        "type": "string | Price",
+        "type": "any | Price",
         "format": ""
     },
     {
@@ -30,4 +30,4 @@ InvoiceAllOfLineItems.attributeTypeMap = [
         "format": ""
     }
 ];
-//# sourceMappingURL=InvoiceAllOfLineItems.js.map
+//# sourceMappingURL=PaymentIntentAllOfLineItems.js.map

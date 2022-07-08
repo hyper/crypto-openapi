@@ -13,8 +13,8 @@
 import { Price } from './Price';
 import { HttpFile } from '../http/http';
 
-export class InvoiceAllOfLineItems {
-    'price'?: string | Price;
+export class PaymentIntentAllOfLineItems {
+    'price'?: any | Price;
     'price_data'?: any;
     'quantity'?: number;
 
@@ -24,7 +24,7 @@ export class InvoiceAllOfLineItems {
         {
             "name": "price",
             "baseName": "price",
-            "type": "string | Price",
+            "type": "any | Price",
             "format": ""
         },
         {
@@ -41,7 +41,7 @@ export class InvoiceAllOfLineItems {
         }    ];
 
     static getAttributeTypeMap() {
-        return InvoiceAllOfLineItems.attributeTypeMap;
+        return PaymentIntentAllOfLineItems.attributeTypeMap;
     }
 
     public constructor() {

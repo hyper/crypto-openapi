@@ -19,6 +19,7 @@ export class UpdateAccountBody {
     'invoice_prefix'?: string;
     'name'?: string;
     'settings'?: AccountsIdSettings;
+    'settings_retry_period_duration'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -45,6 +46,12 @@ export class UpdateAccountBody {
             "name": "settings",
             "baseName": "settings",
             "type": "AccountsIdSettings",
+            "format": ""
+        },
+        {
+            "name": "settings_retry_period_duration",
+            "baseName": "settings.retry_period_duration",
+            "type": "string",
             "format": ""
         }    ];
 

@@ -25,6 +25,7 @@ export class PriceAllOf {
     'base_price'?: PriceAllOfBasePrice;
     'billing_period_duration'?: number;
     'application_fee_percent'?: number;
+    'archived'?: boolean;
     'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
@@ -82,6 +83,12 @@ export class PriceAllOf {
             "name": "application_fee_percent",
             "baseName": "application_fee_percent",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "archived",
+            "baseName": "archived",
+            "type": "boolean",
             "format": ""
         },
         {

@@ -14,7 +14,7 @@ import { Account } from './Account';
 import { Customer } from './Customer';
 import { Fee } from './Fee';
 import { Invoice } from './Invoice';
-import { InvoiceAllOfLineItems } from './InvoiceAllOfLineItems';
+import { PaymentIntentAllOfLineItems } from './PaymentIntentAllOfLineItems';
 import { Price } from './Price';
 import { Subscription } from './Subscription';
 import { Transfer } from './Transfer';
@@ -32,7 +32,7 @@ export class PaymentIntentAllOf {
     'amount': number;
     'subscription'?: string | Subscription;
     'price'?: string | Price;
-    'line_items'?: Array<InvoiceAllOfLineItems>;
+    'line_items'?: Array<PaymentIntentAllOfLineItems>;
     'customer'?: string | Customer;
     'wallet'?: string | Wallet;
     'usd_amount'?: number;
@@ -109,7 +109,7 @@ export class PaymentIntentAllOf {
         {
             "name": "line_items",
             "baseName": "line_items",
-            "type": "Array<InvoiceAllOfLineItems>",
+            "type": "Array<PaymentIntentAllOfLineItems>",
             "format": ""
         },
         {

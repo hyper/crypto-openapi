@@ -66,6 +66,12 @@ PriceAllOf.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "archived",
+        "baseName": "archived",
+        "type": "boolean",
+        "format": ""
+    },
+    {
         "name": "metadata",
         "baseName": "metadata",
         "type": "any",

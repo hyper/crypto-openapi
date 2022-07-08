@@ -47,6 +47,7 @@ export * from './Notification';
 export * from './NotificationAllOf';
 export * from './PaymentIntent';
 export * from './PaymentIntentAllOf';
+export * from './PaymentIntentAllOfLineItems';
 export * from './PayoutWallet';
 export * from './PayoutWalletAllOf';
 export * from './Price';

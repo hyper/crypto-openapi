@@ -1,6 +1,6 @@
 import { Price } from './Price';
-export declare class InvoiceAllOfLineItems {
-    'price'?: string | Price;
+export declare class PaymentIntentAllOfLineItems {
+    'price'?: any | Price;
     'price_data'?: any;
     'quantity'?: number;
     static readonly discriminator: string | undefined;

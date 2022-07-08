@@ -34,6 +34,12 @@ UpdateAccountBody.attributeTypeMap = [
         "baseName": "settings",
         "type": "AccountsIdSettings",
         "format": ""
+    },
+    {
+        "name": "settings_retry_period_duration",
+        "baseName": "settings.retry_period_duration",
+        "type": "string",
+        "format": ""
     }
 ];
 //# sourceMappingURL=UpdateAccountBody.js.map

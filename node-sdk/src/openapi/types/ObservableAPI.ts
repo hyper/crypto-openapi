@@ -52,6 +52,7 @@ import { Notification } from '../models/Notification';
 import { NotificationAllOf } from '../models/NotificationAllOf';
 import { PaymentIntent } from '../models/PaymentIntent';
 import { PaymentIntentAllOf } from '../models/PaymentIntentAllOf';
+import { PaymentIntentAllOfLineItems } from '../models/PaymentIntentAllOfLineItems';
 import { PayoutWallet } from '../models/PayoutWallet';
 import { PayoutWalletAllOf } from '../models/PayoutWalletAllOf';
 import { Price } from '../models/Price';

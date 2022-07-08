@@ -5,6 +5,7 @@ export declare class UpdateAccountBody {
     'invoice_prefix'?: string;
     'name'?: string;
     'settings'?: AccountsIdSettings;
+    'settings_retry_period_duration'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

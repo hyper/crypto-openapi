@@ -80,6 +80,7 @@ models/NotificationAllOf.ts
 models/ObjectSerializer.ts
 models/PaymentIntent.ts
 models/PaymentIntentAllOf.ts
+models/PaymentIntentAllOfLineItems.ts
 models/PayoutWallet.ts
 models/PayoutWalletAllOf.ts
 models/Price.ts

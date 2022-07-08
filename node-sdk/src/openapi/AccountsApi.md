@@ -240,6 +240,7 @@ let body:.AccountsApiUpdateRequest = {
     settings: {
       retry_period_duration: 3.14,
     },
+    settings_retry_period_duration: "settings_retry_period_duration_example",
   },
 };
 

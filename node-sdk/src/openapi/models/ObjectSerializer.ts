@@ -47,6 +47,7 @@ export * from './Notification';
 export * from './NotificationAllOf';
 export * from './PaymentIntent';
 export * from './PaymentIntentAllOf';
+export * from './PaymentIntentAllOfLineItems';
 export * from './PayoutWallet';
 export * from './PayoutWalletAllOf';
 export * from './Price';
@@ -120,6 +121,7 @@ import { Notification     , NotificationTypeEnum     } from './Notification';
 import { NotificationAllOf , NotificationAllOfTypeEnum     } from './NotificationAllOf';
 import { PaymentIntent        , PaymentIntentStatusEnum  , PaymentIntentChainEnum  , PaymentIntentCurrencyEnum                } from './PaymentIntent';
 import { PaymentIntentAllOf    , PaymentIntentAllOfStatusEnum  , PaymentIntentAllOfChainEnum  , PaymentIntentAllOfCurrencyEnum                } from './PaymentIntentAllOf';
+import { PaymentIntentAllOfLineItems } from './PaymentIntentAllOfLineItems';
 import { PayoutWallet       , PayoutWalletChainEnum   } from './PayoutWallet';
 import { PayoutWalletAllOf   , PayoutWalletAllOfChainEnum   } from './PayoutWalletAllOf';
 import { Price } from './Price';
@@ -238,6 +240,7 @@ let typeMap: {[index: string]: any} = {
     "NotificationAllOf": NotificationAllOf,
     "PaymentIntent": PaymentIntent,
     "PaymentIntentAllOf": PaymentIntentAllOf,
+    "PaymentIntentAllOfLineItems": PaymentIntentAllOfLineItems,
     "PayoutWallet": PayoutWallet,
     "PayoutWalletAllOf": PayoutWalletAllOf,
     "Price": Price,
