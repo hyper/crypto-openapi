@@ -28,8 +28,8 @@ const apiInstance = new .SubscriptionsApi(configuration);
 let body:.SubscriptionsApiCancelRequest = {
   // string
   id: "id_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
 };
 
 apiInstance.cancel(body).then((data:any) => {
@@ -43,7 +43,7 @@ apiInstance.cancel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -84,8 +84,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .SubscriptionsApi(configuration);
 
 let body:.SubscriptionsApiCreateRequest = {
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
   // Subscription (optional)
   subscription: null,
 };
@@ -101,7 +101,7 @@ apiInstance.create(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **subscription** | **Subscription**|  |
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -150,8 +150,8 @@ let body:.SubscriptionsApiListRequest = {
   page: 3.14,
   // any | Specifies whether documents are sorted in an ascending or descending order. (optional)
   sort: null,
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
 };
 
 apiInstance.list(body).then((data:any) => {
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
  **limit** | [**number**] | A limit on the number of objects to be returned between 1 and 100. | (optional) defaults to undefined
  **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
  **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -213,8 +213,8 @@ let body:.SubscriptionsApiRetrieveRequest = {
   id: "id_example",
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
 };
 
 apiInstance.retrieve(body).then((data:any) => {
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -273,8 +273,8 @@ const apiInstance = new .SubscriptionsApi(configuration);
 let body:.SubscriptionsApiUpdateRequest = {
   // string
   id: "id_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
   // Subscription (optional)
   subscription: null,
 };
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **subscription** | **Subscription**|  |
  **id** | [**string**] |  | defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type

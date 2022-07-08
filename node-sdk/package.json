@@ -1,5 +1,5 @@
 {
-  "name": "prism-node",
+  "name": "@plutohq/pluto-node",
   "version": "1.3.9",
   "type": "commonjs",
   "keywords": [],

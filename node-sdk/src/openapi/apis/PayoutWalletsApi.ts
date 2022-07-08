@@ -21,9 +21,9 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Delete Payout Wallet By ID
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public async _delete(id: string, prism_account?: string, _options?: Configuration): Promise<RequestContext> {
+    public async _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -42,8 +42,8 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        if (prism_account !== undefined) {
-            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (pluto_account !== undefined) {
+            requestContext.setHeaderParam("Pluto-Account", ObjectSerializer.serialize(pluto_account, "string", ""));
         }
 
 
@@ -58,10 +58,10 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Create Payout Wallets
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param create_payout_wallet_body 
      */
-    public async create(prism_account?: string, create_payout_wallet_body?: CreatePayoutWalletBody, _options?: Configuration): Promise<RequestContext> {
+    public async create(pluto_account?: string, create_payout_wallet_body?: CreatePayoutWalletBody, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -74,8 +74,8 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        if (prism_account !== undefined) {
-            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (pluto_account !== undefined) {
+            requestContext.setHeaderParam("Pluto-Account", ObjectSerializer.serialize(pluto_account, "string", ""));
         }
 
 
@@ -105,9 +105,9 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public async list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext> {
+    public async list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -143,8 +143,8 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        if (prism_account !== undefined) {
-            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (pluto_account !== undefined) {
+            requestContext.setHeaderParam("Pluto-Account", ObjectSerializer.serialize(pluto_account, "string", ""));
         }
 
 
@@ -161,9 +161,9 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
      * Retrieve Payout Wallet By ID
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public async retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -188,8 +188,8 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        if (prism_account !== undefined) {
-            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (pluto_account !== undefined) {
+            requestContext.setHeaderParam("Pluto-Account", ObjectSerializer.serialize(pluto_account, "string", ""));
         }
 
 
@@ -205,10 +205,10 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Update Payout Wallet By ID
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param payout_wallet 
      */
-    public async update(id: string, prism_account?: string, payout_wallet?: PayoutWallet, _options?: Configuration): Promise<RequestContext> {
+    public async update(id: string, pluto_account?: string, payout_wallet?: PayoutWallet, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -228,8 +228,8 @@ export class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        if (prism_account !== undefined) {
-            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (pluto_account !== undefined) {
+            requestContext.setHeaderParam("Pluto-Account", ObjectSerializer.serialize(pluto_account, "string", ""));
         }
 
 

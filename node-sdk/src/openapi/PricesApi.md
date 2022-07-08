@@ -28,8 +28,8 @@ const apiInstance = new .PricesApi(configuration);
 let body:.PricesApiDeleteRequest = {
   // string
   id: "id_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
 };
 
 apiInstance._delete(body).then((data:any) => {
@@ -43,7 +43,7 @@ apiInstance._delete(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -84,8 +84,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .PricesApi(configuration);
 
 let body:.PricesApiCreateRequest = {
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
   // Price (optional)
   price: null,
 };
@@ -101,7 +101,7 @@ apiInstance.create(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **price** | **Price**|  |
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -142,8 +142,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .PricesApi(configuration);
 
 let body:.PricesApiListRequest = {
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
   // number | A limit on the number of objects to be returned between 1 and 100. (optional)
@@ -164,7 +164,7 @@ apiInstance.list(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
  **limit** | [**number**] | A limit on the number of objects to be returned between 1 and 100. | (optional) defaults to undefined
  **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
@@ -211,8 +211,8 @@ const apiInstance = new .PricesApi(configuration);
 let body:.PricesApiRetrieveRequest = {
   // string
   id: "id_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
 };
@@ -228,7 +228,7 @@ apiInstance.retrieve(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
 
 
@@ -272,8 +272,8 @@ const apiInstance = new .PricesApi(configuration);
 let body:.PricesApiUpdateRequest = {
   // string
   id: "id_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
   // UpdatePriceBody (optional)
   update_price_body: {
     application_fee_percent: 3.14,
@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **update_price_body** | **UpdatePriceBody**|  |
  **id** | [**string**] |  | defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type

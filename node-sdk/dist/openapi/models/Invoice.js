@@ -42,62 +42,8 @@ Invoice.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "string | Account",
-        "format": ""
-    },
-    {
-        "name": "status",
-        "baseName": "status",
-        "type": "InvoiceStatusEnum",
-        "format": ""
-    },
-    {
-        "name": "number",
-        "baseName": "number",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "price",
-        "baseName": "price",
-        "type": "string | Price",
-        "format": ""
-    },
-    {
-        "name": "customer",
-        "baseName": "customer",
-        "type": "string | Customer",
-        "format": ""
-    },
-    {
-        "name": "line_items",
-        "baseName": "line_items",
-        "type": "Array<InvoiceAllOfLineItems>",
-        "format": ""
-    },
-    {
-        "name": "trial_period_duration",
-        "baseName": "trial_period_duration",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "subscription",
-        "baseName": "subscription",
-        "type": "string | Subscription",
-        "format": ""
-    },
-    {
-        "name": "period_start",
-        "baseName": "period_start",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "period_end",
-        "baseName": "period_end",
+        "name": "amount",
+        "baseName": "amount",
         "type": "number",
         "format": ""
     },
@@ -108,15 +54,9 @@ Invoice.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "amount",
-        "baseName": "amount",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "send_reminders",
-        "baseName": "send_reminders",
-        "type": "boolean",
+        "name": "customer",
+        "baseName": "customer",
+        "type": "string | Customer",
         "format": ""
     },
     {
@@ -126,9 +66,69 @@ Invoice.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "line_items",
+        "baseName": "line_items",
+        "type": "Array<InvoiceAllOfLineItems>",
+        "format": ""
+    },
+    {
         "name": "metadata",
         "baseName": "metadata",
         "type": "any",
+        "format": ""
+    },
+    {
+        "name": "number",
+        "baseName": "number",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "period_end",
+        "baseName": "period_end",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "period_start",
+        "baseName": "period_start",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string | Account",
+        "format": ""
+    },
+    {
+        "name": "price",
+        "baseName": "price",
+        "type": "string | Price",
+        "format": ""
+    },
+    {
+        "name": "send_reminders",
+        "baseName": "send_reminders",
+        "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "status",
+        "baseName": "status",
+        "type": "InvoiceStatusEnum",
+        "format": ""
+    },
+    {
+        "name": "subscription",
+        "baseName": "subscription",
+        "type": "string | Subscription",
+        "format": ""
+    },
+    {
+        "name": "trial_period_duration",
+        "baseName": "trial_period_duration",
+        "type": "number",
         "format": ""
     }
 ];

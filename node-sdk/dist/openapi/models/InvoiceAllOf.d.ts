@@ -5,21 +5,21 @@ import { Price } from './Price';
 import { Subscription } from './Subscription';
 export declare class InvoiceAllOf {
     'account': string | Account;
-    'platform_account'?: string | Account;
-    'status': InvoiceAllOfStatusEnum;
-    'number': string;
-    'price': string | Price;
-    'customer': string | Customer;
-    'line_items'?: Array<InvoiceAllOfLineItems>;
-    'trial_period_duration'?: number;
-    'subscription'?: string | Subscription;
-    'period_start': number;
-    'period_end': number;
-    'chain': InvoiceAllOfChainEnum;
     'amount': number;
-    'send_reminders'?: boolean;
+    'chain': InvoiceAllOfChainEnum;
+    'customer': string | Customer;
     'due': number;
+    'line_items'?: Array<InvoiceAllOfLineItems>;
     'metadata'?: any;
+    'number': string;
+    'period_end': number;
+    'period_start': number;
+    'platform_account'?: string | Account;
+    'price': string | Price;
+    'send_reminders'?: boolean;
+    'status': InvoiceAllOfStatusEnum;
+    'subscription'?: string | Subscription;
+    'trial_period_duration'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
@@ -35,5 +35,5 @@ export declare class InvoiceAllOf {
     }[];
     constructor();
 }
-export declare type InvoiceAllOfStatusEnum = "open" | "paid" | "void" | "past_due" | "uncollectible";
 export declare type InvoiceAllOfChainEnum = "eth" | "sol";
+export declare type InvoiceAllOfStatusEnum = "open" | "paid" | "void" | "past_due" | "uncollectible";

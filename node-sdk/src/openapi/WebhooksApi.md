@@ -28,8 +28,8 @@ const apiInstance = new .WebhooksApi(configuration);
 let body:.WebhooksApiDeleteRequest = {
   // string
   id: "id_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
 };
 
 apiInstance._delete(body).then((data:any) => {
@@ -43,7 +43,7 @@ apiInstance._delete(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -84,8 +84,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .WebhooksApi(configuration);
 
 let body:.WebhooksApiCreateRequest = {
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
   // CreateWebhookBody (optional)
   create_webhook_body: {
     account: "account_example",
@@ -108,7 +108,7 @@ apiInstance.create(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **create_webhook_body** | **CreateWebhookBody**|  |
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -157,8 +157,8 @@ let body:.WebhooksApiListRequest = {
   sort: null,
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
 };
 
 apiInstance.list(body).then((data:any) => {
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
  **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
  **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -220,8 +220,8 @@ let body:.WebhooksApiRetrieveRequest = {
   id: "id_example",
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
 };
 
 apiInstance.retrieve(body).then((data:any) => {
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -279,8 +279,8 @@ const apiInstance = new .WebhooksApi(configuration);
 let body:.WebhooksApiUpdateRequest = {
   // string
   id: "id_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
   // UpdateWebhookBody (optional)
   update_webhook_body: {
     endpoint_url: "endpoint_url_example",
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **update_webhook_body** | **UpdateWebhookBody**|  |
  **id** | [**string**] |  | defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type

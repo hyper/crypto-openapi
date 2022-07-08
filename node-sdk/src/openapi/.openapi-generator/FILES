@@ -1,3 +1,4 @@
+.gitignore
 AccountsApi.md
 CustomersApi.md
 FeesApi.md
@@ -7,6 +8,7 @@ PaymentIntentsApi.md
 PayoutWalletsApi.md
 PricesApi.md
 ProductsApi.md
+README.md
 SubscriptionsApi.md
 TransfersApi.md
 WalletsApi.md
@@ -28,6 +30,9 @@ apis/baseapi.ts
 apis/exception.ts
 auth/auth.ts
 configuration.ts
+git_push.sh
+http/http.ts
+http/isomorphic-fetch.ts
 index.ts
 middleware.ts
 models/Account.ts
@@ -105,8 +110,10 @@ models/WalletAllOf.ts
 models/Webhook.ts
 models/WebhookAllOf.ts
 models/all.ts
+package.json
 rxjsStub.ts
 servers.ts
+tsconfig.json
 types/ObjectParamAPI.ts
 types/ObservableAPI.ts
 types/PromiseAPI.ts

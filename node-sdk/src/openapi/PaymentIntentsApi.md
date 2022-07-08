@@ -29,8 +29,8 @@ const apiInstance = new .PaymentIntentsApi(configuration);
 let body:.PaymentIntentsApiCancelRequest = {
   // string
   id: "id_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
 };
 
 apiInstance.cancel(body).then((data:any) => {
@@ -44,7 +44,7 @@ apiInstance.cancel(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -85,8 +85,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .PaymentIntentsApi(configuration);
 
 let body:.PaymentIntentsApiCreateRequest = {
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
   // PaymentIntent (optional)
   payment_intent: null,
 };
@@ -102,7 +102,7 @@ apiInstance.create(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **payment_intent** | **PaymentIntent**|  |
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -143,8 +143,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .PaymentIntentsApi(configuration);
 
 let body:.PaymentIntentsApiListRequest = {
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
   // number | A limit on the number of objects to be returned between 1 and 100. (optional)
@@ -169,7 +169,7 @@ apiInstance.list(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
  **limit** | [**number**] | A limit on the number of objects to be returned between 1 and 100. | (optional) defaults to undefined
  **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
@@ -218,8 +218,8 @@ const apiInstance = new .PaymentIntentsApi(configuration);
 let body:.PaymentIntentsApiPollRequest = {
   // string
   id: "id_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
 };
@@ -235,7 +235,7 @@ apiInstance.poll(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
 
 
@@ -279,8 +279,8 @@ const apiInstance = new .PaymentIntentsApi(configuration);
 let body:.PaymentIntentsApiRetrieveRequest = {
   // string
   id: "id_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
 };
@@ -296,7 +296,7 @@ apiInstance.retrieve(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
 
 
@@ -340,8 +340,8 @@ const apiInstance = new .PaymentIntentsApi(configuration);
 let body:.PaymentIntentsApiUpdateRequest = {
   // string
   id: "id_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
   // UpdatePaymentIntentBody (optional)
   update_payment_intent_body: {
     hash: "hash_example",
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **update_payment_intent_body** | **UpdatePaymentIntentBody**|  |
  **id** | [**string**] |  | defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type

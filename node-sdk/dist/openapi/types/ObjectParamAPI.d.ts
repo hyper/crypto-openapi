@@ -43,7 +43,7 @@ import { Wallet } from '../models/Wallet';
 import { Webhook } from '../models/Webhook';
 import { AccountsApiRequestFactory, AccountsApiResponseProcessor } from "../apis/AccountsApi";
 export interface AccountsApiCreateRequest {
-    prism_account?: string;
+    pluto_account?: string;
     create_account_body?: CreateAccountBody;
 }
 export interface AccountsApiListRequest {
@@ -51,16 +51,16 @@ export interface AccountsApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface AccountsApiRetrieveRequest {
     id: string;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface AccountsApiUpdateRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
     update_account_body?: UpdateAccountBody;
 }
 export declare class ObjectAccountsApi {
@@ -73,7 +73,7 @@ export declare class ObjectAccountsApi {
 }
 import { CustomersApiRequestFactory, CustomersApiResponseProcessor } from "../apis/CustomersApi";
 export interface CustomersApiCreateRequest {
-    prism_account?: string;
+    pluto_account?: string;
     create_customer_body?: CreateCustomerBody;
 }
 export interface CustomersApiListRequest {
@@ -81,16 +81,16 @@ export interface CustomersApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface CustomersApiRetrieveRequest {
     id: string;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface CustomersApiUpdateRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
     update_customer_body?: UpdateCustomerBody;
 }
 export declare class ObjectCustomersApi {
@@ -104,10 +104,10 @@ export declare class ObjectCustomersApi {
 import { FeesApiRequestFactory, FeesApiResponseProcessor } from "../apis/FeesApi";
 export interface FeesApiDeleteRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface FeesApiCreateRequest {
-    prism_account?: string;
+    pluto_account?: string;
     create_fee_body?: CreateFeeBody;
 }
 export interface FeesApiListRequest {
@@ -115,12 +115,12 @@ export interface FeesApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface FeesApiRetrieveRequest {
     id: string;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export declare class ObjectFeesApi {
     private api;
@@ -132,7 +132,7 @@ export declare class ObjectFeesApi {
 }
 import { InvoicesApiRequestFactory, InvoicesApiResponseProcessor } from "../apis/InvoicesApi";
 export interface InvoicesApiCreateRequest {
-    prism_account?: string;
+    pluto_account?: string;
     invoice?: Invoice;
 }
 export interface InvoicesApiListRequest {
@@ -140,20 +140,20 @@ export interface InvoicesApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface InvoicesApiPayRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface InvoicesApiRetrieveRequest {
     id: string;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface InvoicesApiUpdateRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
     update_invoice_body?: UpdateInvoiceBody;
 }
 export declare class ObjectInvoicesApi {
@@ -171,12 +171,12 @@ export interface LogsApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface LogsApiRetrieveRequest {
     id: string;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export declare class ObjectLogsApi {
     private api;
@@ -187,14 +187,14 @@ export declare class ObjectLogsApi {
 import { PaymentIntentsApiRequestFactory, PaymentIntentsApiResponseProcessor } from "../apis/PaymentIntentsApi";
 export interface PaymentIntentsApiCancelRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface PaymentIntentsApiCreateRequest {
-    prism_account?: string;
+    pluto_account?: string;
     payment_intent?: PaymentIntent;
 }
 export interface PaymentIntentsApiListRequest {
-    prism_account?: string;
+    pluto_account?: string;
     expand?: string;
     limit?: number;
     page?: number;
@@ -204,17 +204,17 @@ export interface PaymentIntentsApiListRequest {
 }
 export interface PaymentIntentsApiPollRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
     expand?: string;
 }
 export interface PaymentIntentsApiRetrieveRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
     expand?: string;
 }
 export interface PaymentIntentsApiUpdateRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
     update_payment_intent_body?: UpdatePaymentIntentBody;
 }
 export declare class ObjectPaymentIntentsApi {
@@ -230,10 +230,10 @@ export declare class ObjectPaymentIntentsApi {
 import { PayoutWalletsApiRequestFactory, PayoutWalletsApiResponseProcessor } from "../apis/PayoutWalletsApi";
 export interface PayoutWalletsApiDeleteRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface PayoutWalletsApiCreateRequest {
-    prism_account?: string;
+    pluto_account?: string;
     create_payout_wallet_body?: CreatePayoutWalletBody;
 }
 export interface PayoutWalletsApiListRequest {
@@ -241,16 +241,16 @@ export interface PayoutWalletsApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface PayoutWalletsApiRetrieveRequest {
     id: string;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface PayoutWalletsApiUpdateRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
     payout_wallet?: PayoutWallet;
 }
 export declare class ObjectPayoutWalletsApi {
@@ -265,14 +265,14 @@ export declare class ObjectPayoutWalletsApi {
 import { PricesApiRequestFactory, PricesApiResponseProcessor } from "../apis/PricesApi";
 export interface PricesApiDeleteRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface PricesApiCreateRequest {
-    prism_account?: string;
+    pluto_account?: string;
     price?: Price;
 }
 export interface PricesApiListRequest {
-    prism_account?: string;
+    pluto_account?: string;
     expand?: string;
     limit?: number;
     page?: number;
@@ -280,12 +280,12 @@ export interface PricesApiListRequest {
 }
 export interface PricesApiRetrieveRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
     expand?: string;
 }
 export interface PricesApiUpdateRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
     update_price_body?: UpdatePriceBody;
 }
 export declare class ObjectPricesApi {
@@ -300,10 +300,10 @@ export declare class ObjectPricesApi {
 import { ProductsApiRequestFactory, ProductsApiResponseProcessor } from "../apis/ProductsApi";
 export interface ProductsApiDeleteRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface ProductsApiCreateRequest {
-    prism_account?: string;
+    pluto_account?: string;
     create_product_body?: CreateProductBody;
 }
 export interface ProductsApiListRequest {
@@ -311,16 +311,16 @@ export interface ProductsApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface ProductsApiRetrieveRequest {
     id: string;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface ProductsApiUpdateRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
     update_product_body?: UpdateProductBody;
 }
 export declare class ObjectProductsApi {
@@ -335,10 +335,10 @@ export declare class ObjectProductsApi {
 import { SubscriptionsApiRequestFactory, SubscriptionsApiResponseProcessor } from "../apis/SubscriptionsApi";
 export interface SubscriptionsApiCancelRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface SubscriptionsApiCreateRequest {
-    prism_account?: string;
+    pluto_account?: string;
     subscription?: Subscription;
 }
 export interface SubscriptionsApiListRequest {
@@ -346,16 +346,16 @@ export interface SubscriptionsApiListRequest {
     limit?: number;
     page?: number;
     sort?: any;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface SubscriptionsApiRetrieveRequest {
     id: string;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface SubscriptionsApiUpdateRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
     subscription?: Subscription;
 }
 export declare class ObjectSubscriptionsApi {
@@ -369,7 +369,7 @@ export declare class ObjectSubscriptionsApi {
 }
 import { TransfersApiRequestFactory, TransfersApiResponseProcessor } from "../apis/TransfersApi";
 export interface TransfersApiCreateRequest {
-    prism_account?: string;
+    pluto_account?: string;
     create_transfer_body?: CreateTransferBody;
 }
 export interface TransfersApiListRequest {
@@ -377,12 +377,12 @@ export interface TransfersApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface TransfersApiRetrieveRequest {
     id: string;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export declare class ObjectTransfersApi {
     private api;
@@ -395,10 +395,10 @@ import { WalletsApiRequestFactory, WalletsApiResponseProcessor } from "../apis/W
 export interface WalletsApiDeleteRequest {
     id: string;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface WalletsApiCreateRequest {
-    prism_account?: string;
+    pluto_account?: string;
     create_wallet_body?: CreateWalletBody;
 }
 export interface WalletsApiListRequest {
@@ -406,16 +406,16 @@ export interface WalletsApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface WalletsApiRetrieveRequest {
     id: string;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface WalletsApiUpdateRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
     update_wallet_body?: UpdateWalletBody;
 }
 export declare class ObjectWalletsApi {
@@ -430,10 +430,10 @@ export declare class ObjectWalletsApi {
 import { WebhooksApiRequestFactory, WebhooksApiResponseProcessor } from "../apis/WebhooksApi";
 export interface WebhooksApiDeleteRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface WebhooksApiCreateRequest {
-    prism_account?: string;
+    pluto_account?: string;
     create_webhook_body?: CreateWebhookBody;
 }
 export interface WebhooksApiListRequest {
@@ -441,16 +441,16 @@ export interface WebhooksApiListRequest {
     page?: number;
     sort?: any;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface WebhooksApiRetrieveRequest {
     id: string;
     expand?: string;
-    prism_account?: string;
+    pluto_account?: string;
 }
 export interface WebhooksApiUpdateRequest {
     id: string;
-    prism_account?: string;
+    pluto_account?: string;
     update_webhook_body?: UpdateWebhookBody;
 }
 export declare class ObjectWebhooksApi {

@@ -5,11 +5,11 @@ import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
 import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
 import { PayoutWallet } from '../models/PayoutWallet';
 export declare class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactory {
-    _delete(id: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
-    create(prism_account?: string, create_payout_wallet_body?: CreatePayoutWalletBody, _options?: Configuration): Promise<RequestContext>;
-    list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
-    retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
-    update(id: string, prism_account?: string, payout_wallet?: PayoutWallet, _options?: Configuration): Promise<RequestContext>;
+    _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<RequestContext>;
+    create(pluto_account?: string, create_payout_wallet_body?: CreatePayoutWalletBody, _options?: Configuration): Promise<RequestContext>;
+    list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<RequestContext>;
+    retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<RequestContext>;
+    update(id: string, pluto_account?: string, payout_wallet?: PayoutWallet, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class PayoutWalletsApiResponseProcessor {
     _delete(response: ResponseContext): Promise<void>;

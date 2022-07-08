@@ -16,7 +16,7 @@ const ObjectSerializer_1 = require("../models/ObjectSerializer");
 const exception_1 = require("./exception");
 const util_1 = require("../util");
 class WalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
-    _delete(id, expand, prism_account, _options) {
+    _delete(id, expand, pluto_account, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -30,8 +30,8 @@ class WalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             if (expand !== undefined) {
                 requestContext.setQueryParam("expand", ObjectSerializer_1.ObjectSerializer.serialize(expand, "string", ""));
             }
-            if (prism_account !== undefined) {
-                requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
+            if (pluto_account !== undefined) {
+                requestContext.setHeaderParam("Pluto-Account", ObjectSerializer_1.ObjectSerializer.serialize(pluto_account, "string", ""));
             }
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
@@ -40,15 +40,15 @@ class WalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    create(prism_account, create_wallet_body, _options) {
+    create(pluto_account, create_wallet_body, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
             const localVarPath = '/wallets';
             const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
             requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-            if (prism_account !== undefined) {
-                requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
+            if (pluto_account !== undefined) {
+                requestContext.setHeaderParam("Pluto-Account", ObjectSerializer_1.ObjectSerializer.serialize(pluto_account, "string", ""));
             }
             const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
                 "application/json"
@@ -63,7 +63,7 @@ class WalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    list(limit, page, sort, expand, prism_account, _options) {
+    list(limit, page, sort, expand, pluto_account, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -82,8 +82,8 @@ class WalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             if (expand !== undefined) {
                 requestContext.setQueryParam("expand", ObjectSerializer_1.ObjectSerializer.serialize(expand, "string", ""));
             }
-            if (prism_account !== undefined) {
-                requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
+            if (pluto_account !== undefined) {
+                requestContext.setHeaderParam("Pluto-Account", ObjectSerializer_1.ObjectSerializer.serialize(pluto_account, "string", ""));
             }
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
@@ -92,7 +92,7 @@ class WalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    retrieve(id, expand, prism_account, _options) {
+    retrieve(id, expand, pluto_account, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -106,8 +106,8 @@ class WalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             if (expand !== undefined) {
                 requestContext.setQueryParam("expand", ObjectSerializer_1.ObjectSerializer.serialize(expand, "string", ""));
             }
-            if (prism_account !== undefined) {
-                requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
+            if (pluto_account !== undefined) {
+                requestContext.setHeaderParam("Pluto-Account", ObjectSerializer_1.ObjectSerializer.serialize(pluto_account, "string", ""));
             }
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
@@ -116,7 +116,7 @@ class WalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    update(id, prism_account, update_wallet_body, _options) {
+    update(id, pluto_account, update_wallet_body, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -127,8 +127,8 @@ class WalletsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
                 .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
             const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PATCH);
             requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-            if (prism_account !== undefined) {
-                requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
+            if (pluto_account !== undefined) {
+                requestContext.setHeaderParam("Pluto-Account", ObjectSerializer_1.ObjectSerializer.serialize(pluto_account, "string", ""));
             }
             const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
                 "application/json"
