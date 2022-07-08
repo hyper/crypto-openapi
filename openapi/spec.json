@@ -1,10 +1,10 @@
 {
   "components": {
     "parameters": {
-      "Prism-Account": {
-        "description": "The ID of the connected Prism account you are making a request on behalf on.",
+      "Pluto-Account": {
+        "description": "The ID of the connected Pluto account you are making a request on behalf on.",
         "in": "header",
-        "name": "Prism-Account",
+        "name": "Pluto-Account",
         "schema": {
           "type": "string"
         }
@@ -1217,13 +1217,13 @@
   },
   "info": {
     "contact": {
-      "email": "support@prism.com",
-      "name": "Prism",
-      "url": "https://prism.com"
+      "email": "support@pluto.com",
+      "name": "Pluto",
+      "url": "https://pluto.co"
     },
-    "description": "The API for Prism",
-    "termsOfService": "https://prism.com/terms",
-    "title": "Prism",
+    "description": "The API for Pluto",
+    "termsOfService": "https://pluto.co/terms",
+    "title": "Pluto",
     "version": "1.0"
   },
   "openapi": "3.0.0",
@@ -1246,7 +1246,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -1322,7 +1322,7 @@
         "operationId": "accounts_create",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -1427,7 +1427,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -1465,7 +1465,7 @@
         "operationId": "accounts_update",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -1564,7 +1564,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -1639,7 +1639,7 @@
         "operationId": "customers_create",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -1755,7 +1755,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -1793,7 +1793,7 @@
         "operationId": "customers_update",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -1904,7 +1904,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -1974,7 +1974,7 @@
         "operationId": "fees_create",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -2040,7 +2040,7 @@
         "operationId": "fees_delete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -2064,7 +2064,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -2116,7 +2116,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -2192,7 +2192,7 @@
         "operationId": "invoices_create",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -2234,7 +2234,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -2272,7 +2272,7 @@
         "operationId": "invoices_update",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -2359,7 +2359,7 @@
         "operationId": "invoices_pay",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -2402,7 +2402,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -2504,7 +2504,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -2544,7 +2544,7 @@
         "operationId": "payment-intents_list",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           },
           {
             "$ref": "#/components/parameters/expand"
@@ -2620,7 +2620,7 @@
         "operationId": "payment-intents_create",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -2659,7 +2659,7 @@
         "operationId": "payment-intents_cancel",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -2687,7 +2687,7 @@
         "operationId": "payment-intents_retrieve",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           },
           {
             "$ref": "#/components/parameters/expand"
@@ -2728,7 +2728,7 @@
         "operationId": "payment-intents_update",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -2773,7 +2773,7 @@
         "operationId": "payment-intents_poll",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           },
           {
             "$ref": "#/components/parameters/expand"
@@ -2829,7 +2829,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -2875,7 +2875,7 @@
         "operationId": "payout-wallets_create",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -2934,7 +2934,7 @@
         "operationId": "payout-wallets_delete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -2958,7 +2958,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -2996,7 +2996,7 @@
         "operationId": "payout-wallets_update",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -3038,7 +3038,7 @@
         "operationId": "prices_list",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           },
           {
             "$ref": "#/components/parameters/expand"
@@ -3096,7 +3096,7 @@
         "operationId": "prices_create",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -3136,7 +3136,7 @@
         "operationId": "prices_delete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -3157,7 +3157,7 @@
         "operationId": "prices_retrieve",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           },
           {
             "$ref": "#/components/parameters/expand"
@@ -3198,7 +3198,7 @@
         "operationId": "prices_update",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -3258,7 +3258,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -3328,7 +3328,7 @@
         "operationId": "products_create",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -3387,7 +3387,7 @@
         "operationId": "products_delete",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -3411,7 +3411,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -3449,7 +3449,7 @@
         "operationId": "products_update",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -3521,7 +3521,7 @@
             "$ref": "#/components/parameters/sort"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -3565,7 +3565,7 @@
         "operationId": "subscriptions_create",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -3605,7 +3605,7 @@
         "operationId": "subscriptions_cancel",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -3636,7 +3636,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -3677,7 +3677,7 @@
         "operationId": "subscriptions_update",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -3732,7 +3732,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -3778,7 +3778,7 @@
         "operationId": "transfers_create",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -3850,7 +3850,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -3902,7 +3902,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -3967,7 +3967,7 @@
         "operationId": "wallets_create",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -4038,7 +4038,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -4063,7 +4063,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -4111,7 +4111,7 @@
         "operationId": "wallets_update",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -4177,7 +4177,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -4241,7 +4241,7 @@
         "operationId": "webhooks_create",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -4311,9 +4311,9 @@
         "operationId": "webhooks_delete",
         "parameters": [
           {
-            "description": "The ID of the connected Prism account you are making a request on behalf on.",
+            "description": "The ID of the connected Pluto account you are making a request on behalf on.",
             "in": "header",
-            "name": "Prism-Account",
+            "name": "Pluto-Account",
             "schema": {
               "type": "string"
             }
@@ -4341,7 +4341,7 @@
             "$ref": "#/components/parameters/expand"
           },
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "responses": {
@@ -4379,7 +4379,7 @@
         "operationId": "webhooks_update",
         "parameters": [
           {
-            "$ref": "#/components/parameters/Prism-Account"
+            "$ref": "#/components/parameters/Pluto-Account"
           }
         ],
         "requestBody": {
@@ -4442,11 +4442,11 @@
     },
     {
       "description": "staging",
-      "url": "https://prism-api-stg.herokuapp.com/v1"
+      "url": "https://pluto-api-stg.herokuapp.com/v1"
     },
     {
       "description": "production",
-      "url": "https://api.prism.rest/v1"
+      "url": "https://api.pluto.co/v1"
     }
   ],
   "tags": [
