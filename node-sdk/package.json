@@ -1,5 +1,5 @@
 {
-  "name": "prism-node",
+  "name": "@plutohq/pluto-node",
   "version": "1.4.0",
   "type": "commonjs",
   "keywords": [],
@@ -8,7 +8,7 @@
   "typings": "./dist/index.d.ts",
   "files": [
     "dist/**/*"
-  ],g
+  ],
   "scripts": {
     "build": "tsc",
     "format": "prettier . --write"

@@ -1,5 +1,5 @@
 {
-  "name": "prism-openapi",
+  "name": "pluto-openapi",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/hyper/prism-openapi.git",
