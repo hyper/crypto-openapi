@@ -18,14 +18,20 @@ ProductAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "name",
-        "baseName": "name",
-        "type": "string",
+        "name": "active",
+        "baseName": "active",
+        "type": "boolean",
         "format": ""
     },
     {
         "name": "description",
         "baseName": "description",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "name",
+        "baseName": "name",
         "type": "string",
         "format": ""
     },

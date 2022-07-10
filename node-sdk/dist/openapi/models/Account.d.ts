@@ -1,19 +1,23 @@
 import { AccountAllOfBranding } from './AccountAllOfBranding';
-import { AccountsSettings } from './AccountsSettings';
+import { AccountAllOfSettings } from './AccountAllOfSettings';
+import { AccountAllOfTeam } from './AccountAllOfTeam';
 import { PayoutWallet } from './PayoutWallet';
 export declare class Account {
     'created': Date;
     'id': string;
     'object': string;
     'test': boolean;
+    'application_fee_percent': number;
     'branding'?: AccountAllOfBranding;
-    'connected_accounts'?: Account;
+    'connected_accounts'?: Array<Account>;
     'invoice_prefix'?: string;
     'name': string;
     'parent_account'?: string | Account;
-    'platform_account': string;
     'payout_wallets'?: Array<PayoutWallet>;
-    'settings'?: AccountsSettings;
+    'platform_account': boolean;
+    'settings'?: AccountAllOfSettings;
+    'team'?: Array<AccountAllOfTeam>;
+    'verified'?: boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

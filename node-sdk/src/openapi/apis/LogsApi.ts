@@ -22,9 +22,9 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public async list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext> {
+    public async list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -60,8 +60,8 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        if (prism_account !== undefined) {
-            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (pluto_account !== undefined) {
+            requestContext.setHeaderParam("Pluto-Account", ObjectSerializer.serialize(pluto_account, "string", ""));
         }
 
 
@@ -78,9 +78,9 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
      * Retrieve Log By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public async retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -105,8 +105,8 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        if (prism_account !== undefined) {
-            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (pluto_account !== undefined) {
+            requestContext.setHeaderParam("Pluto-Account", ObjectSerializer.serialize(pluto_account, "string", ""));
         }
 
 

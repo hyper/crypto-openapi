@@ -5,9 +5,9 @@ export declare class Notification {
     'object': string;
     'test': boolean;
     'account': string | Account;
+    'data': any;
+    'emails': Array<string>;
     'type': NotificationTypeEnum;
-    'data': string;
-    'emails'?: Array<string>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
@@ -23,4 +23,4 @@ export declare class Notification {
     }[];
     constructor();
 }
-export declare type NotificationTypeEnum = "invoice.paid" | "invoice.unpaid" | "invoice.void" | "payment.failed" | "payment.succeeded";
+export declare type NotificationTypeEnum = "invoice.open" | "invoice.uncollectible" | "invoice.void" | "payment_intent.failed" | "payment_intent.succeeded" | "login" | "team.invite";

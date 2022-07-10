@@ -33,6 +33,8 @@ middleware.ts
 models/Account.ts
 models/AccountAllOf.ts
 models/AccountAllOfBranding.ts
+models/AccountAllOfSettings.ts
+models/AccountAllOfTeam.ts
 models/AccountsBranding.ts
 models/AccountsIdSettings.ts
 models/AccountsSettings.ts

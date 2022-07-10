@@ -21,9 +21,9 @@ export class PaymentIntentsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Cancel Payment Intent
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public async cancel(id: string, prism_account?: string, _options?: Configuration): Promise<RequestContext> {
+    public async cancel(id: string, pluto_account?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -42,8 +42,8 @@ export class PaymentIntentsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        if (prism_account !== undefined) {
-            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (pluto_account !== undefined) {
+            requestContext.setHeaderParam("Pluto-Account", ObjectSerializer.serialize(pluto_account, "string", ""));
         }
 
 
@@ -58,10 +58,10 @@ export class PaymentIntentsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Create Payment Intent
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param payment_intent 
      */
-    public async create(prism_account?: string, payment_intent?: PaymentIntent, _options?: Configuration): Promise<RequestContext> {
+    public async create(pluto_account?: string, payment_intent?: PaymentIntent, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -74,8 +74,8 @@ export class PaymentIntentsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        if (prism_account !== undefined) {
-            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (pluto_account !== undefined) {
+            requestContext.setHeaderParam("Pluto-Account", ObjectSerializer.serialize(pluto_account, "string", ""));
         }
 
 
@@ -101,7 +101,7 @@ export class PaymentIntentsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * List Payment Intents
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
      * @param limit A limit on the number of objects to be returned between 1 and 100.
      * @param page Index of the page to be returned in a paginated response.
@@ -109,7 +109,7 @@ export class PaymentIntentsApiRequestFactory extends BaseAPIRequestFactory {
      * @param status The status of the payment intent to filter by.
      * @param customer The ID of the customer on the payment intent to filter by.
      */
-    public async list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, status?: 'processing' | 'succeeded' | 'failed' | 'canceled', customer?: string, _options?: Configuration): Promise<RequestContext> {
+    public async list(pluto_account?: string, expand?: string, limit?: number, page?: number, sort?: any, status?: 'processing' | 'succeeded' | 'failed' | 'canceled', customer?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -157,8 +157,8 @@ export class PaymentIntentsApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        if (prism_account !== undefined) {
-            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (pluto_account !== undefined) {
+            requestContext.setHeaderParam("Pluto-Account", ObjectSerializer.serialize(pluto_account, "string", ""));
         }
 
 
@@ -174,10 +174,10 @@ export class PaymentIntentsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Poll Payment Intent
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
      */
-    public async poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext> {
+    public async poll(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -202,8 +202,8 @@ export class PaymentIntentsApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        if (prism_account !== undefined) {
-            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (pluto_account !== undefined) {
+            requestContext.setHeaderParam("Pluto-Account", ObjectSerializer.serialize(pluto_account, "string", ""));
         }
 
 
@@ -219,10 +219,10 @@ export class PaymentIntentsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Retrieve Payment Intent
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
      */
-    public async retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext> {
+    public async retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -247,8 +247,8 @@ export class PaymentIntentsApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Header Params
-        if (prism_account !== undefined) {
-            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (pluto_account !== undefined) {
+            requestContext.setHeaderParam("Pluto-Account", ObjectSerializer.serialize(pluto_account, "string", ""));
         }
 
 
@@ -264,10 +264,10 @@ export class PaymentIntentsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Update Payment Intent
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param update_payment_intent_body 
      */
-    public async update(id: string, prism_account?: string, update_payment_intent_body?: UpdatePaymentIntentBody, _options?: Configuration): Promise<RequestContext> {
+    public async update(id: string, pluto_account?: string, update_payment_intent_body?: UpdatePaymentIntentBody, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -287,8 +287,8 @@ export class PaymentIntentsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Header Params
-        if (prism_account !== undefined) {
-            requestContext.setHeaderParam("Prism-Account", ObjectSerializer.serialize(prism_account, "string", ""));
+        if (pluto_account !== undefined) {
+            requestContext.setHeaderParam("Pluto-Account", ObjectSerializer.serialize(pluto_account, "string", ""));
         }
 
 

@@ -5,6 +5,8 @@ import { Configuration} from '../configuration'
 import { Account } from '../models/Account';
 import { AccountAllOf } from '../models/AccountAllOf';
 import { AccountAllOfBranding } from '../models/AccountAllOfBranding';
+import { AccountAllOfSettings } from '../models/AccountAllOfSettings';
+import { AccountAllOfTeam } from '../models/AccountAllOfTeam';
 import { AccountsBranding } from '../models/AccountsBranding';
 import { AccountsIdSettings } from '../models/AccountsIdSettings';
 import { AccountsSettings } from '../models/AccountsSettings';
@@ -91,11 +93,11 @@ export class PromiseAccountsApi {
 
     /**
      * Create Account
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param create_account_body 
      */
-    public create(prism_account?: string, create_account_body?: CreateAccountBody, _options?: Configuration): Promise<Account> {
-        const result = this.api.create(prism_account, create_account_body, _options);
+    public create(pluto_account?: string, create_account_body?: CreateAccountBody, _options?: Configuration): Promise<Account> {
+        const result = this.api.create(pluto_account, create_account_body, _options);
         return result.toPromise();
     }
 
@@ -105,10 +107,10 @@ export class PromiseAccountsApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<ListAccountsResponse> {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListAccountsResponse> {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
 
@@ -116,21 +118,21 @@ export class PromiseAccountsApi {
      * Retrieve Account By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Account> {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Account> {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
      * Update Account By Id
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param update_account_body 
      */
-    public update(id: string, prism_account?: string, update_account_body?: UpdateAccountBody, _options?: Configuration): Promise<Account> {
-        const result = this.api.update(id, prism_account, update_account_body, _options);
+    public update(id: string, pluto_account?: string, update_account_body?: UpdateAccountBody, _options?: Configuration): Promise<Account> {
+        const result = this.api.update(id, pluto_account, update_account_body, _options);
         return result.toPromise();
     }
 
@@ -155,11 +157,11 @@ export class PromiseCustomersApi {
 
     /**
      * Create Customer
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param create_customer_body 
      */
-    public create(prism_account?: string, create_customer_body?: CreateCustomerBody, _options?: Configuration): Promise<Customer> {
-        const result = this.api.create(prism_account, create_customer_body, _options);
+    public create(pluto_account?: string, create_customer_body?: CreateCustomerBody, _options?: Configuration): Promise<Customer> {
+        const result = this.api.create(pluto_account, create_customer_body, _options);
         return result.toPromise();
     }
 
@@ -169,10 +171,10 @@ export class PromiseCustomersApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<ListCustomersResponse> {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListCustomersResponse> {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
 
@@ -180,21 +182,21 @@ export class PromiseCustomersApi {
      * Retrieve Customer By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Customer> {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Customer> {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
      * Update Customer By Id
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param update_customer_body 
      */
-    public update(id: string, prism_account?: string, update_customer_body?: UpdateCustomerBody, _options?: Configuration): Promise<Customer> {
-        const result = this.api.update(id, prism_account, update_customer_body, _options);
+    public update(id: string, pluto_account?: string, update_customer_body?: UpdateCustomerBody, _options?: Configuration): Promise<Customer> {
+        const result = this.api.update(id, pluto_account, update_customer_body, _options);
         return result.toPromise();
     }
 
@@ -220,20 +222,20 @@ export class PromiseFeesApi {
     /**
      * Delete Fee By Id
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public _delete(id: string, prism_account?: string, _options?: Configuration): Promise<void> {
-        const result = this.api._delete(id, prism_account, _options);
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void> {
+        const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
      * Create Fee
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param create_fee_body 
      */
-    public create(prism_account?: string, create_fee_body?: CreateFeeBody, _options?: Configuration): Promise<Fee> {
-        const result = this.api.create(prism_account, create_fee_body, _options);
+    public create(pluto_account?: string, create_fee_body?: CreateFeeBody, _options?: Configuration): Promise<Fee> {
+        const result = this.api.create(pluto_account, create_fee_body, _options);
         return result.toPromise();
     }
 
@@ -243,10 +245,10 @@ export class PromiseFeesApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<ListFeesResponse> {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListFeesResponse> {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
 
@@ -254,10 +256,10 @@ export class PromiseFeesApi {
      * Retrieve Fee By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Fee> {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Fee> {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
 
@@ -282,11 +284,11 @@ export class PromiseInvoicesApi {
 
     /**
      * Create Invoice
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param invoice 
      */
-    public create(prism_account?: string, invoice?: Invoice, _options?: Configuration): Promise<Invoice> {
-        const result = this.api.create(prism_account, invoice, _options);
+    public create(pluto_account?: string, invoice?: Invoice, _options?: Configuration): Promise<Invoice> {
+        const result = this.api.create(pluto_account, invoice, _options);
         return result.toPromise();
     }
 
@@ -296,20 +298,20 @@ export class PromiseInvoicesApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<ListInvoicesResponse> {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListInvoicesResponse> {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
      * Pay Invoice
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public pay(id: string, prism_account?: string, _options?: Configuration): Promise<PaymentIntent> {
-        const result = this.api.pay(id, prism_account, _options);
+    public pay(id: string, pluto_account?: string, _options?: Configuration): Promise<PaymentIntent> {
+        const result = this.api.pay(id, pluto_account, _options);
         return result.toPromise();
     }
 
@@ -317,21 +319,21 @@ export class PromiseInvoicesApi {
      * Retrieve Invoice By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Invoice> {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Invoice> {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
      * Update Invoice By Id
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param update_invoice_body 
      */
-    public update(id: string, prism_account?: string, update_invoice_body?: UpdateInvoiceBody, _options?: Configuration): Promise<Invoice> {
-        const result = this.api.update(id, prism_account, update_invoice_body, _options);
+    public update(id: string, pluto_account?: string, update_invoice_body?: UpdateInvoiceBody, _options?: Configuration): Promise<Invoice> {
+        const result = this.api.update(id, pluto_account, update_invoice_body, _options);
         return result.toPromise();
     }
 
@@ -360,10 +362,10 @@ export class PromiseLogsApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<ListLogsResponse> {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListLogsResponse> {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
 
@@ -371,10 +373,10 @@ export class PromiseLogsApi {
      * Retrieve Log By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Log> {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Log> {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
 
@@ -400,26 +402,26 @@ export class PromisePaymentIntentsApi {
     /**
      * Cancel Payment Intent
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public cancel(id: string, prism_account?: string, _options?: Configuration): Promise<PaymentIntent> {
-        const result = this.api.cancel(id, prism_account, _options);
+    public cancel(id: string, pluto_account?: string, _options?: Configuration): Promise<PaymentIntent> {
+        const result = this.api.cancel(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
      * Create Payment Intent
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param payment_intent 
      */
-    public create(prism_account?: string, payment_intent?: PaymentIntent, _options?: Configuration): Promise<PaymentIntent> {
-        const result = this.api.create(prism_account, payment_intent, _options);
+    public create(pluto_account?: string, payment_intent?: PaymentIntent, _options?: Configuration): Promise<PaymentIntent> {
+        const result = this.api.create(pluto_account, payment_intent, _options);
         return result.toPromise();
     }
 
     /**
      * List Payment Intents
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
      * @param limit A limit on the number of objects to be returned between 1 and 100.
      * @param page Index of the page to be returned in a paginated response.
@@ -427,41 +429,41 @@ export class PromisePaymentIntentsApi {
      * @param status The status of the payment intent to filter by.
      * @param customer The ID of the customer on the payment intent to filter by.
      */
-    public list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, status?: 'processing' | 'succeeded' | 'failed' | 'canceled', customer?: string, _options?: Configuration): Promise<ListPaymentIntentsResponse> {
-        const result = this.api.list(prism_account, expand, limit, page, sort, status, customer, _options);
+    public list(pluto_account?: string, expand?: string, limit?: number, page?: number, sort?: any, status?: 'processing' | 'succeeded' | 'failed' | 'canceled', customer?: string, _options?: Configuration): Promise<ListPaymentIntentsResponse> {
+        const result = this.api.list(pluto_account, expand, limit, page, sort, status, customer, _options);
         return result.toPromise();
     }
 
     /**
      * Poll Payment Intent
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
      */
-    public poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<PaymentIntent> {
-        const result = this.api.poll(id, prism_account, expand, _options);
+    public poll(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<PaymentIntent> {
+        const result = this.api.poll(id, pluto_account, expand, _options);
         return result.toPromise();
     }
 
     /**
      * Retrieve Payment Intent
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
      */
-    public retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<PaymentIntent> {
-        const result = this.api.retrieve(id, prism_account, expand, _options);
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<PaymentIntent> {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
         return result.toPromise();
     }
 
     /**
      * Update Payment Intent
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param update_payment_intent_body 
      */
-    public update(id: string, prism_account?: string, update_payment_intent_body?: UpdatePaymentIntentBody, _options?: Configuration): Promise<PaymentIntent> {
-        const result = this.api.update(id, prism_account, update_payment_intent_body, _options);
+    public update(id: string, pluto_account?: string, update_payment_intent_body?: UpdatePaymentIntentBody, _options?: Configuration): Promise<PaymentIntent> {
+        const result = this.api.update(id, pluto_account, update_payment_intent_body, _options);
         return result.toPromise();
     }
 
@@ -487,20 +489,20 @@ export class PromisePayoutWalletsApi {
     /**
      * Delete Payout Wallet By ID
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public _delete(id: string, prism_account?: string, _options?: Configuration): Promise<void> {
-        const result = this.api._delete(id, prism_account, _options);
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void> {
+        const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
      * Create Payout Wallets
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param create_payout_wallet_body 
      */
-    public create(prism_account?: string, create_payout_wallet_body?: CreatePayoutWalletBody, _options?: Configuration): Promise<PayoutWallet> {
-        const result = this.api.create(prism_account, create_payout_wallet_body, _options);
+    public create(pluto_account?: string, create_payout_wallet_body?: CreatePayoutWalletBody, _options?: Configuration): Promise<PayoutWallet> {
+        const result = this.api.create(pluto_account, create_payout_wallet_body, _options);
         return result.toPromise();
     }
 
@@ -510,10 +512,10 @@ export class PromisePayoutWalletsApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<ListPayoutWalletsResponse> {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListPayoutWalletsResponse> {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
 
@@ -521,21 +523,21 @@ export class PromisePayoutWalletsApi {
      * Retrieve Payout Wallet By ID
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<PayoutWallet> {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<PayoutWallet> {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
      * Update Payout Wallet By ID
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param payout_wallet 
      */
-    public update(id: string, prism_account?: string, payout_wallet?: PayoutWallet, _options?: Configuration): Promise<PayoutWallet> {
-        const result = this.api.update(id, prism_account, payout_wallet, _options);
+    public update(id: string, pluto_account?: string, payout_wallet?: PayoutWallet, _options?: Configuration): Promise<PayoutWallet> {
+        const result = this.api.update(id, pluto_account, payout_wallet, _options);
         return result.toPromise();
     }
 
@@ -561,55 +563,55 @@ export class PromisePricesApi {
     /**
      * Delete Price
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public _delete(id: string, prism_account?: string, _options?: Configuration): Promise<void> {
-        const result = this.api._delete(id, prism_account, _options);
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void> {
+        const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
      * Create Price
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param price 
      */
-    public create(prism_account?: string, price?: Price, _options?: Configuration): Promise<Price> {
-        const result = this.api.create(prism_account, price, _options);
+    public create(pluto_account?: string, price?: Price, _options?: Configuration): Promise<Price> {
+        const result = this.api.create(pluto_account, price, _options);
         return result.toPromise();
     }
 
     /**
      * List Prices
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
      * @param limit A limit on the number of objects to be returned between 1 and 100.
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      */
-    public list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListPricesResponse> {
-        const result = this.api.list(prism_account, expand, limit, page, sort, _options);
+    public list(pluto_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListPricesResponse> {
+        const result = this.api.list(pluto_account, expand, limit, page, sort, _options);
         return result.toPromise();
     }
 
     /**
      * Retrieve Price
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
      */
-    public retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Promise<Price> {
-        const result = this.api.retrieve(id, prism_account, expand, _options);
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<Price> {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
         return result.toPromise();
     }
 
     /**
      * Update Price
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param update_price_body 
      */
-    public update(id: string, prism_account?: string, update_price_body?: UpdatePriceBody, _options?: Configuration): Promise<Price> {
-        const result = this.api.update(id, prism_account, update_price_body, _options);
+    public update(id: string, pluto_account?: string, update_price_body?: UpdatePriceBody, _options?: Configuration): Promise<Price> {
+        const result = this.api.update(id, pluto_account, update_price_body, _options);
         return result.toPromise();
     }
 
@@ -635,20 +637,20 @@ export class PromiseProductsApi {
     /**
      * Delete Product By Id
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public _delete(id: string, prism_account?: string, _options?: Configuration): Promise<void> {
-        const result = this.api._delete(id, prism_account, _options);
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void> {
+        const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
      * Create Product
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param create_product_body 
      */
-    public create(prism_account?: string, create_product_body?: CreateProductBody, _options?: Configuration): Promise<Product> {
-        const result = this.api.create(prism_account, create_product_body, _options);
+    public create(pluto_account?: string, create_product_body?: CreateProductBody, _options?: Configuration): Promise<Product> {
+        const result = this.api.create(pluto_account, create_product_body, _options);
         return result.toPromise();
     }
 
@@ -658,10 +660,10 @@ export class PromiseProductsApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<ListProductsResponse> {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListProductsResponse> {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
 
@@ -669,21 +671,21 @@ export class PromiseProductsApi {
      * Retrieve Product By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Product> {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Product> {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
      * Update Product By Id
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param update_product_body 
      */
-    public update(id: string, prism_account?: string, update_product_body?: UpdateProductBody, _options?: Configuration): Promise<Product> {
-        const result = this.api.update(id, prism_account, update_product_body, _options);
+    public update(id: string, pluto_account?: string, update_product_body?: UpdateProductBody, _options?: Configuration): Promise<Product> {
+        const result = this.api.update(id, pluto_account, update_product_body, _options);
         return result.toPromise();
     }
 
@@ -709,20 +711,20 @@ export class PromiseSubscriptionsApi {
     /**
      * Cancel Subscription
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public cancel(id: string, prism_account?: string, _options?: Configuration): Promise<Subscription> {
-        const result = this.api.cancel(id, prism_account, _options);
+    public cancel(id: string, pluto_account?: string, _options?: Configuration): Promise<Subscription> {
+        const result = this.api.cancel(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
      * Create Subscription
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param subscription 
      */
-    public create(prism_account?: string, subscription?: Subscription, _options?: Configuration): Promise<Subscription> {
-        const result = this.api.create(prism_account, subscription, _options);
+    public create(pluto_account?: string, subscription?: Subscription, _options?: Configuration): Promise<Subscription> {
+        const result = this.api.create(pluto_account, subscription, _options);
         return result.toPromise();
     }
 
@@ -732,10 +734,10 @@ export class PromiseSubscriptionsApi {
      * @param limit A limit on the number of objects to be returned between 1 and 100.
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(expand?: string, limit?: number, page?: number, sort?: any, prism_account?: string, _options?: Configuration): Promise<ListSubscriptionsResponse> {
-        const result = this.api.list(expand, limit, page, sort, prism_account, _options);
+    public list(expand?: string, limit?: number, page?: number, sort?: any, pluto_account?: string, _options?: Configuration): Promise<ListSubscriptionsResponse> {
+        const result = this.api.list(expand, limit, page, sort, pluto_account, _options);
         return result.toPromise();
     }
 
@@ -743,21 +745,21 @@ export class PromiseSubscriptionsApi {
      * Retrieve Subscription
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Subscription> {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Subscription> {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
      * Update Subscription
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param subscription 
      */
-    public update(id: string, prism_account?: string, subscription?: Subscription, _options?: Configuration): Promise<Subscription> {
-        const result = this.api.update(id, prism_account, subscription, _options);
+    public update(id: string, pluto_account?: string, subscription?: Subscription, _options?: Configuration): Promise<Subscription> {
+        const result = this.api.update(id, pluto_account, subscription, _options);
         return result.toPromise();
     }
 
@@ -782,11 +784,11 @@ export class PromiseTransfersApi {
 
     /**
      * Create Transfer
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param create_transfer_body 
      */
-    public create(prism_account?: string, create_transfer_body?: CreateTransferBody, _options?: Configuration): Promise<Transfer> {
-        const result = this.api.create(prism_account, create_transfer_body, _options);
+    public create(pluto_account?: string, create_transfer_body?: CreateTransferBody, _options?: Configuration): Promise<Transfer> {
+        const result = this.api.create(pluto_account, create_transfer_body, _options);
         return result.toPromise();
     }
 
@@ -796,10 +798,10 @@ export class PromiseTransfersApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<ListTransfersResponse> {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListTransfersResponse> {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
 
@@ -807,10 +809,10 @@ export class PromiseTransfersApi {
      * Retrieve Transfer By ID
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Transfer> {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Transfer> {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
 
@@ -837,20 +839,20 @@ export class PromiseWalletsApi {
      * Delete Wallet By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public _delete(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<void> {
-        const result = this.api._delete(id, expand, prism_account, _options);
+    public _delete(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<void> {
+        const result = this.api._delete(id, expand, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
      * Create Wallet
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param create_wallet_body 
      */
-    public create(prism_account?: string, create_wallet_body?: CreateWalletBody, _options?: Configuration): Promise<Wallet> {
-        const result = this.api.create(prism_account, create_wallet_body, _options);
+    public create(pluto_account?: string, create_wallet_body?: CreateWalletBody, _options?: Configuration): Promise<Wallet> {
+        const result = this.api.create(pluto_account, create_wallet_body, _options);
         return result.toPromise();
     }
 
@@ -860,10 +862,10 @@ export class PromiseWalletsApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<ListWalletsResponse> {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListWalletsResponse> {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
 
@@ -871,21 +873,21 @@ export class PromiseWalletsApi {
      * Retrieve Wallet By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Wallet> {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Wallet> {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
      * Update Wallet By Id
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param update_wallet_body 
      */
-    public update(id: string, prism_account?: string, update_wallet_body?: UpdateWalletBody, _options?: Configuration): Promise<Wallet> {
-        const result = this.api.update(id, prism_account, update_wallet_body, _options);
+    public update(id: string, pluto_account?: string, update_wallet_body?: UpdateWalletBody, _options?: Configuration): Promise<Wallet> {
+        const result = this.api.update(id, pluto_account, update_wallet_body, _options);
         return result.toPromise();
     }
 
@@ -911,20 +913,20 @@ export class PromiseWebhooksApi {
     /**
      * Delete Webhook By Id
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public _delete(id: string, prism_account?: string, _options?: Configuration): Promise<void> {
-        const result = this.api._delete(id, prism_account, _options);
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void> {
+        const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
      * Create Webhook
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param create_webhook_body 
      */
-    public create(prism_account?: string, create_webhook_body?: CreateWebhookBody, _options?: Configuration): Promise<Webhook> {
-        const result = this.api.create(prism_account, create_webhook_body, _options);
+    public create(pluto_account?: string, create_webhook_body?: CreateWebhookBody, _options?: Configuration): Promise<Webhook> {
+        const result = this.api.create(pluto_account, create_webhook_body, _options);
         return result.toPromise();
     }
 
@@ -934,10 +936,10 @@ export class PromiseWebhooksApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<ListWebhooksResponse> {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListWebhooksResponse> {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
 
@@ -945,21 +947,21 @@ export class PromiseWebhooksApi {
      * Retrieve Webhook By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<Webhook> {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Webhook> {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
      * Update Webhook By Id
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param update_webhook_body 
      */
-    public update(id: string, prism_account?: string, update_webhook_body?: UpdateWebhookBody, _options?: Configuration): Promise<Webhook> {
-        const result = this.api.update(id, prism_account, update_webhook_body, _options);
+    public update(id: string, pluto_account?: string, update_webhook_body?: UpdateWebhookBody, _options?: Configuration): Promise<Webhook> {
+        const result = this.api.update(id, pluto_account, update_webhook_body, _options);
         return result.toPromise();
     }
 

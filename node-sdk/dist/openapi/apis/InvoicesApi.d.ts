@@ -6,11 +6,11 @@ import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
 import { PaymentIntent } from '../models/PaymentIntent';
 import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 export declare class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
-    create(prism_account?: string, invoice?: Invoice, _options?: Configuration): Promise<RequestContext>;
-    list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
-    pay(id: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
-    retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
-    update(id: string, prism_account?: string, update_invoice_body?: UpdateInvoiceBody, _options?: Configuration): Promise<RequestContext>;
+    create(pluto_account?: string, invoice?: Invoice, _options?: Configuration): Promise<RequestContext>;
+    list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<RequestContext>;
+    pay(id: string, pluto_account?: string, _options?: Configuration): Promise<RequestContext>;
+    retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<RequestContext>;
+    update(id: string, pluto_account?: string, update_invoice_body?: UpdateInvoiceBody, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class InvoicesApiResponseProcessor {
     create(response: ResponseContext): Promise<Invoice>;

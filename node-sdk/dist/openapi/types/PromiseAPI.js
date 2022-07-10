@@ -6,20 +6,20 @@ class PromiseAccountsApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_1.ObservableAccountsApi(configuration, requestFactory, responseProcessor);
     }
-    create(prism_account, create_account_body, _options) {
-        const result = this.api.create(prism_account, create_account_body, _options);
+    create(pluto_account, create_account_body, _options) {
+        const result = this.api.create(pluto_account, create_account_body, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, prism_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    list(limit, page, sort, expand, pluto_account, _options) {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
-    retrieve(id, expand, prism_account, _options) {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    retrieve(id, expand, pluto_account, _options) {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
-    update(id, prism_account, update_account_body, _options) {
-        const result = this.api.update(id, prism_account, update_account_body, _options);
+    update(id, pluto_account, update_account_body, _options) {
+        const result = this.api.update(id, pluto_account, update_account_body, _options);
         return result.toPromise();
     }
 }
@@ -29,20 +29,20 @@ class PromiseCustomersApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_2.ObservableCustomersApi(configuration, requestFactory, responseProcessor);
     }
-    create(prism_account, create_customer_body, _options) {
-        const result = this.api.create(prism_account, create_customer_body, _options);
+    create(pluto_account, create_customer_body, _options) {
+        const result = this.api.create(pluto_account, create_customer_body, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, prism_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    list(limit, page, sort, expand, pluto_account, _options) {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
-    retrieve(id, expand, prism_account, _options) {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    retrieve(id, expand, pluto_account, _options) {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
-    update(id, prism_account, update_customer_body, _options) {
-        const result = this.api.update(id, prism_account, update_customer_body, _options);
+    update(id, pluto_account, update_customer_body, _options) {
+        const result = this.api.update(id, pluto_account, update_customer_body, _options);
         return result.toPromise();
     }
 }
@@ -52,20 +52,20 @@ class PromiseFeesApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_3.ObservableFeesApi(configuration, requestFactory, responseProcessor);
     }
-    _delete(id, prism_account, _options) {
-        const result = this.api._delete(id, prism_account, _options);
+    _delete(id, pluto_account, _options) {
+        const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
-    create(prism_account, create_fee_body, _options) {
-        const result = this.api.create(prism_account, create_fee_body, _options);
+    create(pluto_account, create_fee_body, _options) {
+        const result = this.api.create(pluto_account, create_fee_body, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, prism_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    list(limit, page, sort, expand, pluto_account, _options) {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
-    retrieve(id, expand, prism_account, _options) {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    retrieve(id, expand, pluto_account, _options) {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
 }
@@ -75,24 +75,24 @@ class PromiseInvoicesApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_4.ObservableInvoicesApi(configuration, requestFactory, responseProcessor);
     }
-    create(prism_account, invoice, _options) {
-        const result = this.api.create(prism_account, invoice, _options);
+    create(pluto_account, invoice, _options) {
+        const result = this.api.create(pluto_account, invoice, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, prism_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    list(limit, page, sort, expand, pluto_account, _options) {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
-    pay(id, prism_account, _options) {
-        const result = this.api.pay(id, prism_account, _options);
+    pay(id, pluto_account, _options) {
+        const result = this.api.pay(id, pluto_account, _options);
         return result.toPromise();
     }
-    retrieve(id, expand, prism_account, _options) {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    retrieve(id, expand, pluto_account, _options) {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
-    update(id, prism_account, update_invoice_body, _options) {
-        const result = this.api.update(id, prism_account, update_invoice_body, _options);
+    update(id, pluto_account, update_invoice_body, _options) {
+        const result = this.api.update(id, pluto_account, update_invoice_body, _options);
         return result.toPromise();
     }
 }
@@ -102,12 +102,12 @@ class PromiseLogsApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_5.ObservableLogsApi(configuration, requestFactory, responseProcessor);
     }
-    list(limit, page, sort, expand, prism_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    list(limit, page, sort, expand, pluto_account, _options) {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
-    retrieve(id, expand, prism_account, _options) {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    retrieve(id, expand, pluto_account, _options) {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
 }
@@ -117,28 +117,28 @@ class PromisePaymentIntentsApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_6.ObservablePaymentIntentsApi(configuration, requestFactory, responseProcessor);
     }
-    cancel(id, prism_account, _options) {
-        const result = this.api.cancel(id, prism_account, _options);
+    cancel(id, pluto_account, _options) {
+        const result = this.api.cancel(id, pluto_account, _options);
         return result.toPromise();
     }
-    create(prism_account, payment_intent, _options) {
-        const result = this.api.create(prism_account, payment_intent, _options);
+    create(pluto_account, payment_intent, _options) {
+        const result = this.api.create(pluto_account, payment_intent, _options);
         return result.toPromise();
     }
-    list(prism_account, expand, limit, page, sort, status, customer, _options) {
-        const result = this.api.list(prism_account, expand, limit, page, sort, status, customer, _options);
+    list(pluto_account, expand, limit, page, sort, status, customer, _options) {
+        const result = this.api.list(pluto_account, expand, limit, page, sort, status, customer, _options);
         return result.toPromise();
     }
-    poll(id, prism_account, expand, _options) {
-        const result = this.api.poll(id, prism_account, expand, _options);
+    poll(id, pluto_account, expand, _options) {
+        const result = this.api.poll(id, pluto_account, expand, _options);
         return result.toPromise();
     }
-    retrieve(id, prism_account, expand, _options) {
-        const result = this.api.retrieve(id, prism_account, expand, _options);
+    retrieve(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
         return result.toPromise();
     }
-    update(id, prism_account, update_payment_intent_body, _options) {
-        const result = this.api.update(id, prism_account, update_payment_intent_body, _options);
+    update(id, pluto_account, update_payment_intent_body, _options) {
+        const result = this.api.update(id, pluto_account, update_payment_intent_body, _options);
         return result.toPromise();
     }
 }
@@ -148,24 +148,24 @@ class PromisePayoutWalletsApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_7.ObservablePayoutWalletsApi(configuration, requestFactory, responseProcessor);
     }
-    _delete(id, prism_account, _options) {
-        const result = this.api._delete(id, prism_account, _options);
+    _delete(id, pluto_account, _options) {
+        const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
-    create(prism_account, create_payout_wallet_body, _options) {
-        const result = this.api.create(prism_account, create_payout_wallet_body, _options);
+    create(pluto_account, create_payout_wallet_body, _options) {
+        const result = this.api.create(pluto_account, create_payout_wallet_body, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, prism_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    list(limit, page, sort, expand, pluto_account, _options) {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
-    retrieve(id, expand, prism_account, _options) {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    retrieve(id, expand, pluto_account, _options) {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
-    update(id, prism_account, payout_wallet, _options) {
-        const result = this.api.update(id, prism_account, payout_wallet, _options);
+    update(id, pluto_account, payout_wallet, _options) {
+        const result = this.api.update(id, pluto_account, payout_wallet, _options);
         return result.toPromise();
     }
 }
@@ -175,24 +175,24 @@ class PromisePricesApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_8.ObservablePricesApi(configuration, requestFactory, responseProcessor);
     }
-    _delete(id, prism_account, _options) {
-        const result = this.api._delete(id, prism_account, _options);
+    _delete(id, pluto_account, _options) {
+        const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
-    create(prism_account, price, _options) {
-        const result = this.api.create(prism_account, price, _options);
+    create(pluto_account, price, _options) {
+        const result = this.api.create(pluto_account, price, _options);
         return result.toPromise();
     }
-    list(prism_account, expand, limit, page, sort, _options) {
-        const result = this.api.list(prism_account, expand, limit, page, sort, _options);
+    list(pluto_account, expand, limit, page, sort, _options) {
+        const result = this.api.list(pluto_account, expand, limit, page, sort, _options);
         return result.toPromise();
     }
-    retrieve(id, prism_account, expand, _options) {
-        const result = this.api.retrieve(id, prism_account, expand, _options);
+    retrieve(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
         return result.toPromise();
     }
-    update(id, prism_account, update_price_body, _options) {
-        const result = this.api.update(id, prism_account, update_price_body, _options);
+    update(id, pluto_account, update_price_body, _options) {
+        const result = this.api.update(id, pluto_account, update_price_body, _options);
         return result.toPromise();
     }
 }
@@ -202,24 +202,24 @@ class PromiseProductsApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_9.ObservableProductsApi(configuration, requestFactory, responseProcessor);
     }
-    _delete(id, prism_account, _options) {
-        const result = this.api._delete(id, prism_account, _options);
+    _delete(id, pluto_account, _options) {
+        const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
-    create(prism_account, create_product_body, _options) {
-        const result = this.api.create(prism_account, create_product_body, _options);
+    create(pluto_account, create_product_body, _options) {
+        const result = this.api.create(pluto_account, create_product_body, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, prism_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    list(limit, page, sort, expand, pluto_account, _options) {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
-    retrieve(id, expand, prism_account, _options) {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    retrieve(id, expand, pluto_account, _options) {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
-    update(id, prism_account, update_product_body, _options) {
-        const result = this.api.update(id, prism_account, update_product_body, _options);
+    update(id, pluto_account, update_product_body, _options) {
+        const result = this.api.update(id, pluto_account, update_product_body, _options);
         return result.toPromise();
     }
 }
@@ -229,24 +229,24 @@ class PromiseSubscriptionsApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_10.ObservableSubscriptionsApi(configuration, requestFactory, responseProcessor);
     }
-    cancel(id, prism_account, _options) {
-        const result = this.api.cancel(id, prism_account, _options);
+    cancel(id, pluto_account, _options) {
+        const result = this.api.cancel(id, pluto_account, _options);
         return result.toPromise();
     }
-    create(prism_account, subscription, _options) {
-        const result = this.api.create(prism_account, subscription, _options);
+    create(pluto_account, subscription, _options) {
+        const result = this.api.create(pluto_account, subscription, _options);
         return result.toPromise();
     }
-    list(expand, limit, page, sort, prism_account, _options) {
-        const result = this.api.list(expand, limit, page, sort, prism_account, _options);
+    list(expand, limit, page, sort, pluto_account, _options) {
+        const result = this.api.list(expand, limit, page, sort, pluto_account, _options);
         return result.toPromise();
     }
-    retrieve(id, expand, prism_account, _options) {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    retrieve(id, expand, pluto_account, _options) {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
-    update(id, prism_account, subscription, _options) {
-        const result = this.api.update(id, prism_account, subscription, _options);
+    update(id, pluto_account, subscription, _options) {
+        const result = this.api.update(id, pluto_account, subscription, _options);
         return result.toPromise();
     }
 }
@@ -256,16 +256,16 @@ class PromiseTransfersApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_11.ObservableTransfersApi(configuration, requestFactory, responseProcessor);
     }
-    create(prism_account, create_transfer_body, _options) {
-        const result = this.api.create(prism_account, create_transfer_body, _options);
+    create(pluto_account, create_transfer_body, _options) {
+        const result = this.api.create(pluto_account, create_transfer_body, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, prism_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    list(limit, page, sort, expand, pluto_account, _options) {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
-    retrieve(id, expand, prism_account, _options) {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    retrieve(id, expand, pluto_account, _options) {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
 }
@@ -275,24 +275,24 @@ class PromiseWalletsApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_12.ObservableWalletsApi(configuration, requestFactory, responseProcessor);
     }
-    _delete(id, expand, prism_account, _options) {
-        const result = this.api._delete(id, expand, prism_account, _options);
+    _delete(id, expand, pluto_account, _options) {
+        const result = this.api._delete(id, expand, pluto_account, _options);
         return result.toPromise();
     }
-    create(prism_account, create_wallet_body, _options) {
-        const result = this.api.create(prism_account, create_wallet_body, _options);
+    create(pluto_account, create_wallet_body, _options) {
+        const result = this.api.create(pluto_account, create_wallet_body, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, prism_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    list(limit, page, sort, expand, pluto_account, _options) {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
-    retrieve(id, expand, prism_account, _options) {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    retrieve(id, expand, pluto_account, _options) {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
-    update(id, prism_account, update_wallet_body, _options) {
-        const result = this.api.update(id, prism_account, update_wallet_body, _options);
+    update(id, pluto_account, update_wallet_body, _options) {
+        const result = this.api.update(id, pluto_account, update_wallet_body, _options);
         return result.toPromise();
     }
 }
@@ -302,24 +302,24 @@ class PromiseWebhooksApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_13.ObservableWebhooksApi(configuration, requestFactory, responseProcessor);
     }
-    _delete(id, prism_account, _options) {
-        const result = this.api._delete(id, prism_account, _options);
+    _delete(id, pluto_account, _options) {
+        const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
-    create(prism_account, create_webhook_body, _options) {
-        const result = this.api.create(prism_account, create_webhook_body, _options);
+    create(pluto_account, create_webhook_body, _options) {
+        const result = this.api.create(pluto_account, create_webhook_body, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, prism_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, prism_account, _options);
+    list(limit, page, sort, expand, pluto_account, _options) {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
         return result.toPromise();
     }
-    retrieve(id, expand, prism_account, _options) {
-        const result = this.api.retrieve(id, expand, prism_account, _options);
+    retrieve(id, expand, pluto_account, _options) {
+        const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
-    update(id, prism_account, update_webhook_body, _options) {
-        const result = this.api.update(id, prism_account, update_webhook_body, _options);
+    update(id, pluto_account, update_webhook_body, _options) {
+        const result = this.api.update(id, pluto_account, update_webhook_body, _options);
         return result.toPromise();
     }
 }

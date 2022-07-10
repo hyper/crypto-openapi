@@ -25,8 +25,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .AccountsApi(configuration);
 
 let body:.AccountsApiCreateRequest = {
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
   // CreateAccountBody (optional)
   create_account_body: {
     branding: {
@@ -40,8 +40,8 @@ let body:.AccountsApiCreateRequest = {
     parent_account: "parent_account_example",
     platform_account: "platform_account_example",
     settings: {
-      retry_period_duration: 3.14,
       past_due_period_duration: 3.14,
+      retry_period_duration: 3.14,
     },
   },
 };
@@ -57,7 +57,7 @@ apiInstance.create(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **create_account_body** | **CreateAccountBody**|  |
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -106,8 +106,8 @@ let body:.AccountsApiListRequest = {
   sort: null,
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
 };
 
 apiInstance.list(body).then((data:any) => {
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
  **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
  **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -169,8 +169,8 @@ let body:.AccountsApiRetrieveRequest = {
   id: "id_example",
   // string | Specifies which fields to populate in the response. (optional)
   expand: "expand_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
 };
 
 apiInstance.retrieve(body).then((data:any) => {
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type
@@ -228,8 +228,8 @@ const apiInstance = new .AccountsApi(configuration);
 let body:.AccountsApiUpdateRequest = {
   // string
   id: "id_example",
-  // string | The ID of the connected Prism account you are making a request on behalf on. (optional)
-  prism_account: "Prism-Account_example",
+  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  pluto_account: "Pluto-Account_example",
   // UpdateAccountBody (optional)
   update_account_body: {
     branding: {
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **update_account_body** | **UpdateAccountBody**|  |
  **id** | [**string**] |  | defaults to undefined
- **prism_account** | [**string**] | The ID of the connected Prism account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
 ### Return type

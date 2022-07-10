@@ -1,6 +1,8 @@
 export * from './Account';
 export * from './AccountAllOf';
 export * from './AccountAllOfBranding';
+export * from './AccountAllOfSettings';
+export * from './AccountAllOfTeam';
 export * from './AccountsBranding';
 export * from './AccountsIdSettings';
 export * from './AccountsSettings';
@@ -75,11 +77,13 @@ export * from './WebhookAllOf';
 import { Account } from './Account';
 import { AccountAllOf } from './AccountAllOf';
 import { AccountAllOfBranding } from './AccountAllOfBranding';
+import { AccountAllOfSettings } from './AccountAllOfSettings';
+import { AccountAllOfTeam } from './AccountAllOfTeam';
 import { AccountsBranding } from './AccountsBranding';
 import { AccountsIdSettings } from './AccountsIdSettings';
 import { AccountsSettings } from './AccountsSettings';
-import { ApiKey       , ApiKeyTypeEnum   } from './ApiKey';
-import { ApiKeyAllOf   , ApiKeyAllOfTypeEnum   } from './ApiKeyAllOf';
+import { ApiKey      , ApiKeyKeyEnum    , ApiKeyTypeEnum   } from './ApiKey';
+import { ApiKeyAllOf  , ApiKeyAllOfKeyEnum    , ApiKeyAllOfTypeEnum   } from './ApiKeyAllOf';
 import { CreateAccountBody } from './CreateAccountBody';
 import { CreateCustomerBody } from './CreateCustomerBody';
 import { CreateFeeBody } from './CreateFeeBody';
@@ -98,8 +102,8 @@ import { Fee } from './Fee';
 import { FeeAllOf } from './FeeAllOf';
 import { InlineResponse400 } from './InlineResponse400';
 import { InlineResponse400Error } from './InlineResponse400Error';
-import { Invoice      , InvoiceStatusEnum          , InvoiceChainEnum       } from './Invoice';
-import { InvoiceAllOf  , InvoiceAllOfStatusEnum          , InvoiceAllOfChainEnum       } from './InvoiceAllOf';
+import { Invoice      , InvoiceChainEnum             , InvoiceStatusEnum     } from './Invoice';
+import { InvoiceAllOf  , InvoiceAllOfChainEnum             , InvoiceAllOfStatusEnum     } from './InvoiceAllOf';
 import { InvoiceAllOfLineItems } from './InvoiceAllOfLineItems';
 import { ListAccountsResponse } from './ListAccountsResponse';
 import { ListCustomersResponse } from './ListCustomersResponse';
@@ -117,20 +121,20 @@ import { ListWebhooksResponse } from './ListWebhooksResponse';
 import { Log        , LogMethodEnum       } from './Log';
 import { LogAllOf     , LogAllOfMethodEnum       } from './LogAllOf';
 import { Model } from './Model';
-import { Notification     , NotificationTypeEnum     } from './Notification';
-import { NotificationAllOf , NotificationAllOfTypeEnum     } from './NotificationAllOf';
-import { PaymentIntent        , PaymentIntentStatusEnum  , PaymentIntentChainEnum  , PaymentIntentCurrencyEnum                } from './PaymentIntent';
-import { PaymentIntentAllOf    , PaymentIntentAllOfStatusEnum  , PaymentIntentAllOfChainEnum  , PaymentIntentAllOfCurrencyEnum                } from './PaymentIntentAllOf';
+import { Notification       , NotificationTypeEnum   } from './Notification';
+import { NotificationAllOf   , NotificationAllOfTypeEnum   } from './NotificationAllOf';
+import { PaymentIntent       , PaymentIntentChainEnum  , PaymentIntentCurrencyEnum            , PaymentIntentStatusEnum       } from './PaymentIntent';
+import { PaymentIntentAllOf   , PaymentIntentAllOfChainEnum  , PaymentIntentAllOfCurrencyEnum            , PaymentIntentAllOfStatusEnum       } from './PaymentIntentAllOf';
 import { PaymentIntentAllOfLineItems } from './PaymentIntentAllOfLineItems';
-import { PayoutWallet       , PayoutWalletChainEnum   } from './PayoutWallet';
-import { PayoutWalletAllOf   , PayoutWalletAllOfChainEnum   } from './PayoutWalletAllOf';
+import { PayoutWallet      , PayoutWalletChainEnum    } from './PayoutWallet';
+import { PayoutWalletAllOf  , PayoutWalletAllOfChainEnum    } from './PayoutWalletAllOf';
 import { Price } from './Price';
 import { PriceAllOf } from './PriceAllOf';
 import { PriceAllOfBasePrice } from './PriceAllOfBasePrice';
 import { Product } from './Product';
 import { ProductAllOf } from './ProductAllOf';
-import { Subscription         , SubscriptionStatusEnum           } from './Subscription';
-import { SubscriptionAllOf     , SubscriptionAllOfStatusEnum           } from './SubscriptionAllOf';
+import { Subscription                , SubscriptionStatusEnum    } from './Subscription';
+import { SubscriptionAllOf            , SubscriptionAllOfStatusEnum    } from './SubscriptionAllOf';
 import { Transfer } from './Transfer';
 import { TransferAllOf } from './TransferAllOf';
 import { UpdateAccountBody } from './UpdateAccountBody';
@@ -141,8 +145,8 @@ import { UpdatePriceBody } from './UpdatePriceBody';
 import { UpdateProductBody } from './UpdateProductBody';
 import { UpdateWalletBody } from './UpdateWalletBody';
 import { UpdateWebhookBody } from './UpdateWebhookBody';
-import { Wallet       , WalletChainEnum    } from './Wallet';
-import { WalletAllOf   , WalletAllOfChainEnum    } from './WalletAllOf';
+import { Wallet      , WalletChainEnum    } from './Wallet';
+import { WalletAllOf  , WalletAllOfChainEnum    } from './WalletAllOf';
 import { Webhook } from './Webhook';
 import { WebhookAllOf } from './WebhookAllOf';
 
@@ -166,22 +170,24 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 
 let enumsMap: Set<string> = new Set<string>([
+    "ApiKeyKeyEnum",
     "ApiKeyTypeEnum",
+    "ApiKeyAllOfKeyEnum",
     "ApiKeyAllOfTypeEnum",
-    "InvoiceStatusEnum",
     "InvoiceChainEnum",
-    "InvoiceAllOfStatusEnum",
+    "InvoiceStatusEnum",
     "InvoiceAllOfChainEnum",
+    "InvoiceAllOfStatusEnum",
     "LogMethodEnum",
     "LogAllOfMethodEnum",
     "NotificationTypeEnum",
     "NotificationAllOfTypeEnum",
-    "PaymentIntentStatusEnum",
     "PaymentIntentChainEnum",
     "PaymentIntentCurrencyEnum",
-    "PaymentIntentAllOfStatusEnum",
+    "PaymentIntentStatusEnum",
     "PaymentIntentAllOfChainEnum",
     "PaymentIntentAllOfCurrencyEnum",
+    "PaymentIntentAllOfStatusEnum",
     "PayoutWalletChainEnum",
     "PayoutWalletAllOfChainEnum",
     "SubscriptionStatusEnum",
@@ -194,6 +200,8 @@ let typeMap: {[index: string]: any} = {
     "Account": Account,
     "AccountAllOf": AccountAllOf,
     "AccountAllOfBranding": AccountAllOfBranding,
+    "AccountAllOfSettings": AccountAllOfSettings,
+    "AccountAllOfTeam": AccountAllOfTeam,
     "AccountsBranding": AccountsBranding,
     "AccountsIdSettings": AccountsIdSettings,
     "AccountsSettings": AccountsSettings,

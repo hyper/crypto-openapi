@@ -16,7 +16,7 @@ const ObjectSerializer_1 = require("../models/ObjectSerializer");
 const exception_1 = require("./exception");
 const util_1 = require("../util");
 class LogsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
-    list(limit, page, sort, expand, prism_account, _options) {
+    list(limit, page, sort, expand, pluto_account, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -35,8 +35,8 @@ class LogsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             if (expand !== undefined) {
                 requestContext.setQueryParam("expand", ObjectSerializer_1.ObjectSerializer.serialize(expand, "string", ""));
             }
-            if (prism_account !== undefined) {
-                requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
+            if (pluto_account !== undefined) {
+                requestContext.setHeaderParam("Pluto-Account", ObjectSerializer_1.ObjectSerializer.serialize(pluto_account, "string", ""));
             }
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
@@ -45,7 +45,7 @@ class LogsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    retrieve(id, expand, prism_account, _options) {
+    retrieve(id, expand, pluto_account, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -59,8 +59,8 @@ class LogsApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             if (expand !== undefined) {
                 requestContext.setQueryParam("expand", ObjectSerializer_1.ObjectSerializer.serialize(expand, "string", ""));
             }
-            if (prism_account !== undefined) {
-                requestContext.setHeaderParam("Prism-Account", ObjectSerializer_1.ObjectSerializer.serialize(prism_account, "string", ""));
+            if (pluto_account !== undefined) {
+                requestContext.setHeaderParam("Pluto-Account", ObjectSerializer_1.ObjectSerializer.serialize(pluto_account, "string", ""));
             }
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {

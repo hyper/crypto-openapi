@@ -7,7 +7,6 @@ export declare class Wallet {
     'test': boolean;
     'account': string | Account;
     'address': string;
-    'admin': boolean;
     'chain': WalletChainEnum;
     'customer': string | Customer;
     static readonly discriminator: string | undefined;

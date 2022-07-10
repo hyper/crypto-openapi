@@ -1,18 +1,18 @@
 import { Account } from './Account';
 import { PaymentIntent } from './PaymentIntent';
-import { Wallet } from './Wallet';
+import { PayoutWallet } from './PayoutWallet';
 export declare class Fee {
     'created': Date;
     'id': string;
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'currency': string;
     'description'?: string;
-    'internal'?: boolean;
+    'internal': boolean;
     'payment_intent': string | PaymentIntent;
     'percent': number;
-    'wallet': string | Wallet;
+    'platform_account'?: string | Account;
+    'wallet': string | PayoutWallet;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

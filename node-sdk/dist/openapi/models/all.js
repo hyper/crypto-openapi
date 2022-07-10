@@ -13,6 +13,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./Account"), exports);
 __exportStar(require("./AccountAllOf"), exports);
 __exportStar(require("./AccountAllOfBranding"), exports);
+__exportStar(require("./AccountAllOfSettings"), exports);
+__exportStar(require("./AccountAllOfTeam"), exports);
 __exportStar(require("./AccountsBranding"), exports);
 __exportStar(require("./AccountsIdSettings"), exports);
 __exportStar(require("./AccountsSettings"), exports);

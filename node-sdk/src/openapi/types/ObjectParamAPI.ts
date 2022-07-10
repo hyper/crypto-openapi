@@ -5,6 +5,8 @@ import { Configuration} from '../configuration'
 import { Account } from '../models/Account';
 import { AccountAllOf } from '../models/AccountAllOf';
 import { AccountAllOfBranding } from '../models/AccountAllOfBranding';
+import { AccountAllOfSettings } from '../models/AccountAllOfSettings';
+import { AccountAllOfTeam } from '../models/AccountAllOfTeam';
 import { AccountsBranding } from '../models/AccountsBranding';
 import { AccountsIdSettings } from '../models/AccountsIdSettings';
 import { AccountsSettings } from '../models/AccountsSettings';
@@ -81,11 +83,11 @@ import { AccountsApiRequestFactory, AccountsApiResponseProcessor} from "../apis/
 
 export interface AccountsApiCreateRequest {
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof AccountsApicreate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type CreateAccountBody
@@ -120,11 +122,11 @@ export interface AccountsApiListRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof AccountsApilist
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface AccountsApiRetrieveRequest {
@@ -141,11 +143,11 @@ export interface AccountsApiRetrieveRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof AccountsApiretrieve
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface AccountsApiUpdateRequest {
@@ -156,11 +158,11 @@ export interface AccountsApiUpdateRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof AccountsApiupdate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type UpdateAccountBody
@@ -181,7 +183,7 @@ export class ObjectAccountsApi {
      * @param param the request object
      */
     public create(param: AccountsApiCreateRequest = {}, options?: Configuration): Promise<Account> {
-        return this.api.create(param.prism_account, param.create_account_body,  options).toPromise();
+        return this.api.create(param.pluto_account, param.create_account_body,  options).toPromise();
     }
 
     /**
@@ -189,7 +191,7 @@ export class ObjectAccountsApi {
      * @param param the request object
      */
     public list(param: AccountsApiListRequest = {}, options?: Configuration): Promise<ListAccountsResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -197,7 +199,7 @@ export class ObjectAccountsApi {
      * @param param the request object
      */
     public retrieve(param: AccountsApiRetrieveRequest, options?: Configuration): Promise<Account> {
-        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -205,7 +207,7 @@ export class ObjectAccountsApi {
      * @param param the request object
      */
     public update(param: AccountsApiUpdateRequest, options?: Configuration): Promise<Account> {
-        return this.api.update(param.id, param.prism_account, param.update_account_body,  options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.update_account_body,  options).toPromise();
     }
 
 }
@@ -215,11 +217,11 @@ import { CustomersApiRequestFactory, CustomersApiResponseProcessor} from "../api
 
 export interface CustomersApiCreateRequest {
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof CustomersApicreate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type CreateCustomerBody
@@ -254,11 +256,11 @@ export interface CustomersApiListRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof CustomersApilist
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface CustomersApiRetrieveRequest {
@@ -275,11 +277,11 @@ export interface CustomersApiRetrieveRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof CustomersApiretrieve
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface CustomersApiUpdateRequest {
@@ -290,11 +292,11 @@ export interface CustomersApiUpdateRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof CustomersApiupdate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type UpdateCustomerBody
@@ -315,7 +317,7 @@ export class ObjectCustomersApi {
      * @param param the request object
      */
     public create(param: CustomersApiCreateRequest = {}, options?: Configuration): Promise<Customer> {
-        return this.api.create(param.prism_account, param.create_customer_body,  options).toPromise();
+        return this.api.create(param.pluto_account, param.create_customer_body,  options).toPromise();
     }
 
     /**
@@ -323,7 +325,7 @@ export class ObjectCustomersApi {
      * @param param the request object
      */
     public list(param: CustomersApiListRequest = {}, options?: Configuration): Promise<ListCustomersResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -331,7 +333,7 @@ export class ObjectCustomersApi {
      * @param param the request object
      */
     public retrieve(param: CustomersApiRetrieveRequest, options?: Configuration): Promise<Customer> {
-        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -339,7 +341,7 @@ export class ObjectCustomersApi {
      * @param param the request object
      */
     public update(param: CustomersApiUpdateRequest, options?: Configuration): Promise<Customer> {
-        return this.api.update(param.id, param.prism_account, param.update_customer_body,  options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.update_customer_body,  options).toPromise();
     }
 
 }
@@ -355,20 +357,20 @@ export interface FeesApiDeleteRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof FeesApi_delete
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface FeesApiCreateRequest {
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof FeesApicreate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type CreateFeeBody
@@ -403,11 +405,11 @@ export interface FeesApiListRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof FeesApilist
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface FeesApiRetrieveRequest {
@@ -424,11 +426,11 @@ export interface FeesApiRetrieveRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof FeesApiretrieve
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export class ObjectFeesApi {
@@ -443,7 +445,7 @@ export class ObjectFeesApi {
      * @param param the request object
      */
     public _delete(param: FeesApiDeleteRequest, options?: Configuration): Promise<void> {
-        return this.api._delete(param.id, param.prism_account,  options).toPromise();
+        return this.api._delete(param.id, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -451,7 +453,7 @@ export class ObjectFeesApi {
      * @param param the request object
      */
     public create(param: FeesApiCreateRequest = {}, options?: Configuration): Promise<Fee> {
-        return this.api.create(param.prism_account, param.create_fee_body,  options).toPromise();
+        return this.api.create(param.pluto_account, param.create_fee_body,  options).toPromise();
     }
 
     /**
@@ -459,7 +461,7 @@ export class ObjectFeesApi {
      * @param param the request object
      */
     public list(param: FeesApiListRequest = {}, options?: Configuration): Promise<ListFeesResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -467,7 +469,7 @@ export class ObjectFeesApi {
      * @param param the request object
      */
     public retrieve(param: FeesApiRetrieveRequest, options?: Configuration): Promise<Fee> {
-        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account,  options).toPromise();
     }
 
 }
@@ -477,11 +479,11 @@ import { InvoicesApiRequestFactory, InvoicesApiResponseProcessor} from "../apis/
 
 export interface InvoicesApiCreateRequest {
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof InvoicesApicreate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type Invoice
@@ -516,11 +518,11 @@ export interface InvoicesApiListRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof InvoicesApilist
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface InvoicesApiPayRequest {
@@ -531,11 +533,11 @@ export interface InvoicesApiPayRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof InvoicesApipay
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface InvoicesApiRetrieveRequest {
@@ -552,11 +554,11 @@ export interface InvoicesApiRetrieveRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof InvoicesApiretrieve
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface InvoicesApiUpdateRequest {
@@ -567,11 +569,11 @@ export interface InvoicesApiUpdateRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof InvoicesApiupdate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type UpdateInvoiceBody
@@ -592,7 +594,7 @@ export class ObjectInvoicesApi {
      * @param param the request object
      */
     public create(param: InvoicesApiCreateRequest = {}, options?: Configuration): Promise<Invoice> {
-        return this.api.create(param.prism_account, param.invoice,  options).toPromise();
+        return this.api.create(param.pluto_account, param.invoice,  options).toPromise();
     }
 
     /**
@@ -600,7 +602,7 @@ export class ObjectInvoicesApi {
      * @param param the request object
      */
     public list(param: InvoicesApiListRequest = {}, options?: Configuration): Promise<ListInvoicesResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -608,7 +610,7 @@ export class ObjectInvoicesApi {
      * @param param the request object
      */
     public pay(param: InvoicesApiPayRequest, options?: Configuration): Promise<PaymentIntent> {
-        return this.api.pay(param.id, param.prism_account,  options).toPromise();
+        return this.api.pay(param.id, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -616,7 +618,7 @@ export class ObjectInvoicesApi {
      * @param param the request object
      */
     public retrieve(param: InvoicesApiRetrieveRequest, options?: Configuration): Promise<Invoice> {
-        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -624,7 +626,7 @@ export class ObjectInvoicesApi {
      * @param param the request object
      */
     public update(param: InvoicesApiUpdateRequest, options?: Configuration): Promise<Invoice> {
-        return this.api.update(param.id, param.prism_account, param.update_invoice_body,  options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.update_invoice_body,  options).toPromise();
     }
 
 }
@@ -658,11 +660,11 @@ export interface LogsApiListRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof LogsApilist
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface LogsApiRetrieveRequest {
@@ -679,11 +681,11 @@ export interface LogsApiRetrieveRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof LogsApiretrieve
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export class ObjectLogsApi {
@@ -698,7 +700,7 @@ export class ObjectLogsApi {
      * @param param the request object
      */
     public list(param: LogsApiListRequest = {}, options?: Configuration): Promise<ListLogsResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -706,7 +708,7 @@ export class ObjectLogsApi {
      * @param param the request object
      */
     public retrieve(param: LogsApiRetrieveRequest, options?: Configuration): Promise<Log> {
-        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account,  options).toPromise();
     }
 
 }
@@ -722,20 +724,20 @@ export interface PaymentIntentsApiCancelRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof PaymentIntentsApicancel
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface PaymentIntentsApiCreateRequest {
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof PaymentIntentsApicreate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type PaymentIntent
@@ -746,11 +748,11 @@ export interface PaymentIntentsApiCreateRequest {
 
 export interface PaymentIntentsApiListRequest {
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof PaymentIntentsApilist
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * Specifies which fields to populate in the response.
      * @type string
@@ -797,11 +799,11 @@ export interface PaymentIntentsApiPollRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof PaymentIntentsApipoll
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * Specifies which fields to populate in the response.
      * @type string
@@ -818,11 +820,11 @@ export interface PaymentIntentsApiRetrieveRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof PaymentIntentsApiretrieve
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * Specifies which fields to populate in the response.
      * @type string
@@ -839,11 +841,11 @@ export interface PaymentIntentsApiUpdateRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof PaymentIntentsApiupdate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type UpdatePaymentIntentBody
@@ -864,7 +866,7 @@ export class ObjectPaymentIntentsApi {
      * @param param the request object
      */
     public cancel(param: PaymentIntentsApiCancelRequest, options?: Configuration): Promise<PaymentIntent> {
-        return this.api.cancel(param.id, param.prism_account,  options).toPromise();
+        return this.api.cancel(param.id, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -872,7 +874,7 @@ export class ObjectPaymentIntentsApi {
      * @param param the request object
      */
     public create(param: PaymentIntentsApiCreateRequest = {}, options?: Configuration): Promise<PaymentIntent> {
-        return this.api.create(param.prism_account, param.payment_intent,  options).toPromise();
+        return this.api.create(param.pluto_account, param.payment_intent,  options).toPromise();
     }
 
     /**
@@ -880,7 +882,7 @@ export class ObjectPaymentIntentsApi {
      * @param param the request object
      */
     public list(param: PaymentIntentsApiListRequest = {}, options?: Configuration): Promise<ListPaymentIntentsResponse> {
-        return this.api.list(param.prism_account, param.expand, param.limit, param.page, param.sort, param.status, param.customer,  options).toPromise();
+        return this.api.list(param.pluto_account, param.expand, param.limit, param.page, param.sort, param.status, param.customer,  options).toPromise();
     }
 
     /**
@@ -888,7 +890,7 @@ export class ObjectPaymentIntentsApi {
      * @param param the request object
      */
     public poll(param: PaymentIntentsApiPollRequest, options?: Configuration): Promise<PaymentIntent> {
-        return this.api.poll(param.id, param.prism_account, param.expand,  options).toPromise();
+        return this.api.poll(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
     /**
@@ -896,7 +898,7 @@ export class ObjectPaymentIntentsApi {
      * @param param the request object
      */
     public retrieve(param: PaymentIntentsApiRetrieveRequest, options?: Configuration): Promise<PaymentIntent> {
-        return this.api.retrieve(param.id, param.prism_account, param.expand,  options).toPromise();
+        return this.api.retrieve(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
     /**
@@ -904,7 +906,7 @@ export class ObjectPaymentIntentsApi {
      * @param param the request object
      */
     public update(param: PaymentIntentsApiUpdateRequest, options?: Configuration): Promise<PaymentIntent> {
-        return this.api.update(param.id, param.prism_account, param.update_payment_intent_body,  options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.update_payment_intent_body,  options).toPromise();
     }
 
 }
@@ -920,20 +922,20 @@ export interface PayoutWalletsApiDeleteRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof PayoutWalletsApi_delete
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface PayoutWalletsApiCreateRequest {
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof PayoutWalletsApicreate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type CreatePayoutWalletBody
@@ -968,11 +970,11 @@ export interface PayoutWalletsApiListRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof PayoutWalletsApilist
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface PayoutWalletsApiRetrieveRequest {
@@ -989,11 +991,11 @@ export interface PayoutWalletsApiRetrieveRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof PayoutWalletsApiretrieve
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface PayoutWalletsApiUpdateRequest {
@@ -1004,11 +1006,11 @@ export interface PayoutWalletsApiUpdateRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof PayoutWalletsApiupdate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type PayoutWallet
@@ -1029,7 +1031,7 @@ export class ObjectPayoutWalletsApi {
      * @param param the request object
      */
     public _delete(param: PayoutWalletsApiDeleteRequest, options?: Configuration): Promise<void> {
-        return this.api._delete(param.id, param.prism_account,  options).toPromise();
+        return this.api._delete(param.id, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -1037,7 +1039,7 @@ export class ObjectPayoutWalletsApi {
      * @param param the request object
      */
     public create(param: PayoutWalletsApiCreateRequest = {}, options?: Configuration): Promise<PayoutWallet> {
-        return this.api.create(param.prism_account, param.create_payout_wallet_body,  options).toPromise();
+        return this.api.create(param.pluto_account, param.create_payout_wallet_body,  options).toPromise();
     }
 
     /**
@@ -1045,7 +1047,7 @@ export class ObjectPayoutWalletsApi {
      * @param param the request object
      */
     public list(param: PayoutWalletsApiListRequest = {}, options?: Configuration): Promise<ListPayoutWalletsResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -1053,7 +1055,7 @@ export class ObjectPayoutWalletsApi {
      * @param param the request object
      */
     public retrieve(param: PayoutWalletsApiRetrieveRequest, options?: Configuration): Promise<PayoutWallet> {
-        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -1061,7 +1063,7 @@ export class ObjectPayoutWalletsApi {
      * @param param the request object
      */
     public update(param: PayoutWalletsApiUpdateRequest, options?: Configuration): Promise<PayoutWallet> {
-        return this.api.update(param.id, param.prism_account, param.payout_wallet,  options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.payout_wallet,  options).toPromise();
     }
 
 }
@@ -1077,20 +1079,20 @@ export interface PricesApiDeleteRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof PricesApi_delete
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface PricesApiCreateRequest {
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof PricesApicreate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type Price
@@ -1101,11 +1103,11 @@ export interface PricesApiCreateRequest {
 
 export interface PricesApiListRequest {
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof PricesApilist
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * Specifies which fields to populate in the response.
      * @type string
@@ -1140,11 +1142,11 @@ export interface PricesApiRetrieveRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof PricesApiretrieve
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * Specifies which fields to populate in the response.
      * @type string
@@ -1161,11 +1163,11 @@ export interface PricesApiUpdateRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof PricesApiupdate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type UpdatePriceBody
@@ -1186,7 +1188,7 @@ export class ObjectPricesApi {
      * @param param the request object
      */
     public _delete(param: PricesApiDeleteRequest, options?: Configuration): Promise<void> {
-        return this.api._delete(param.id, param.prism_account,  options).toPromise();
+        return this.api._delete(param.id, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -1194,7 +1196,7 @@ export class ObjectPricesApi {
      * @param param the request object
      */
     public create(param: PricesApiCreateRequest = {}, options?: Configuration): Promise<Price> {
-        return this.api.create(param.prism_account, param.price,  options).toPromise();
+        return this.api.create(param.pluto_account, param.price,  options).toPromise();
     }
 
     /**
@@ -1202,7 +1204,7 @@ export class ObjectPricesApi {
      * @param param the request object
      */
     public list(param: PricesApiListRequest = {}, options?: Configuration): Promise<ListPricesResponse> {
-        return this.api.list(param.prism_account, param.expand, param.limit, param.page, param.sort,  options).toPromise();
+        return this.api.list(param.pluto_account, param.expand, param.limit, param.page, param.sort,  options).toPromise();
     }
 
     /**
@@ -1210,7 +1212,7 @@ export class ObjectPricesApi {
      * @param param the request object
      */
     public retrieve(param: PricesApiRetrieveRequest, options?: Configuration): Promise<Price> {
-        return this.api.retrieve(param.id, param.prism_account, param.expand,  options).toPromise();
+        return this.api.retrieve(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
     /**
@@ -1218,7 +1220,7 @@ export class ObjectPricesApi {
      * @param param the request object
      */
     public update(param: PricesApiUpdateRequest, options?: Configuration): Promise<Price> {
-        return this.api.update(param.id, param.prism_account, param.update_price_body,  options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.update_price_body,  options).toPromise();
     }
 
 }
@@ -1234,20 +1236,20 @@ export interface ProductsApiDeleteRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof ProductsApi_delete
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface ProductsApiCreateRequest {
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof ProductsApicreate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type CreateProductBody
@@ -1282,11 +1284,11 @@ export interface ProductsApiListRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof ProductsApilist
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface ProductsApiRetrieveRequest {
@@ -1303,11 +1305,11 @@ export interface ProductsApiRetrieveRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof ProductsApiretrieve
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface ProductsApiUpdateRequest {
@@ -1318,11 +1320,11 @@ export interface ProductsApiUpdateRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof ProductsApiupdate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type UpdateProductBody
@@ -1343,7 +1345,7 @@ export class ObjectProductsApi {
      * @param param the request object
      */
     public _delete(param: ProductsApiDeleteRequest, options?: Configuration): Promise<void> {
-        return this.api._delete(param.id, param.prism_account,  options).toPromise();
+        return this.api._delete(param.id, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -1351,7 +1353,7 @@ export class ObjectProductsApi {
      * @param param the request object
      */
     public create(param: ProductsApiCreateRequest = {}, options?: Configuration): Promise<Product> {
-        return this.api.create(param.prism_account, param.create_product_body,  options).toPromise();
+        return this.api.create(param.pluto_account, param.create_product_body,  options).toPromise();
     }
 
     /**
@@ -1359,7 +1361,7 @@ export class ObjectProductsApi {
      * @param param the request object
      */
     public list(param: ProductsApiListRequest = {}, options?: Configuration): Promise<ListProductsResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -1367,7 +1369,7 @@ export class ObjectProductsApi {
      * @param param the request object
      */
     public retrieve(param: ProductsApiRetrieveRequest, options?: Configuration): Promise<Product> {
-        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -1375,7 +1377,7 @@ export class ObjectProductsApi {
      * @param param the request object
      */
     public update(param: ProductsApiUpdateRequest, options?: Configuration): Promise<Product> {
-        return this.api.update(param.id, param.prism_account, param.update_product_body,  options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.update_product_body,  options).toPromise();
     }
 
 }
@@ -1391,20 +1393,20 @@ export interface SubscriptionsApiCancelRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof SubscriptionsApicancel
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface SubscriptionsApiCreateRequest {
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof SubscriptionsApicreate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type Subscription
@@ -1439,11 +1441,11 @@ export interface SubscriptionsApiListRequest {
      */
     sort?: any
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof SubscriptionsApilist
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface SubscriptionsApiRetrieveRequest {
@@ -1460,11 +1462,11 @@ export interface SubscriptionsApiRetrieveRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof SubscriptionsApiretrieve
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface SubscriptionsApiUpdateRequest {
@@ -1475,11 +1477,11 @@ export interface SubscriptionsApiUpdateRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof SubscriptionsApiupdate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type Subscription
@@ -1500,7 +1502,7 @@ export class ObjectSubscriptionsApi {
      * @param param the request object
      */
     public cancel(param: SubscriptionsApiCancelRequest, options?: Configuration): Promise<Subscription> {
-        return this.api.cancel(param.id, param.prism_account,  options).toPromise();
+        return this.api.cancel(param.id, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -1508,7 +1510,7 @@ export class ObjectSubscriptionsApi {
      * @param param the request object
      */
     public create(param: SubscriptionsApiCreateRequest = {}, options?: Configuration): Promise<Subscription> {
-        return this.api.create(param.prism_account, param.subscription,  options).toPromise();
+        return this.api.create(param.pluto_account, param.subscription,  options).toPromise();
     }
 
     /**
@@ -1516,7 +1518,7 @@ export class ObjectSubscriptionsApi {
      * @param param the request object
      */
     public list(param: SubscriptionsApiListRequest = {}, options?: Configuration): Promise<ListSubscriptionsResponse> {
-        return this.api.list(param.expand, param.limit, param.page, param.sort, param.prism_account,  options).toPromise();
+        return this.api.list(param.expand, param.limit, param.page, param.sort, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -1524,7 +1526,7 @@ export class ObjectSubscriptionsApi {
      * @param param the request object
      */
     public retrieve(param: SubscriptionsApiRetrieveRequest, options?: Configuration): Promise<Subscription> {
-        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -1532,7 +1534,7 @@ export class ObjectSubscriptionsApi {
      * @param param the request object
      */
     public update(param: SubscriptionsApiUpdateRequest, options?: Configuration): Promise<Subscription> {
-        return this.api.update(param.id, param.prism_account, param.subscription,  options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.subscription,  options).toPromise();
     }
 
 }
@@ -1542,11 +1544,11 @@ import { TransfersApiRequestFactory, TransfersApiResponseProcessor} from "../api
 
 export interface TransfersApiCreateRequest {
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof TransfersApicreate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type CreateTransferBody
@@ -1581,11 +1583,11 @@ export interface TransfersApiListRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof TransfersApilist
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface TransfersApiRetrieveRequest {
@@ -1602,11 +1604,11 @@ export interface TransfersApiRetrieveRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof TransfersApiretrieve
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export class ObjectTransfersApi {
@@ -1621,7 +1623,7 @@ export class ObjectTransfersApi {
      * @param param the request object
      */
     public create(param: TransfersApiCreateRequest = {}, options?: Configuration): Promise<Transfer> {
-        return this.api.create(param.prism_account, param.create_transfer_body,  options).toPromise();
+        return this.api.create(param.pluto_account, param.create_transfer_body,  options).toPromise();
     }
 
     /**
@@ -1629,7 +1631,7 @@ export class ObjectTransfersApi {
      * @param param the request object
      */
     public list(param: TransfersApiListRequest = {}, options?: Configuration): Promise<ListTransfersResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -1637,7 +1639,7 @@ export class ObjectTransfersApi {
      * @param param the request object
      */
     public retrieve(param: TransfersApiRetrieveRequest, options?: Configuration): Promise<Transfer> {
-        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account,  options).toPromise();
     }
 
 }
@@ -1659,20 +1661,20 @@ export interface WalletsApiDeleteRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof WalletsApi_delete
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface WalletsApiCreateRequest {
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof WalletsApicreate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type CreateWalletBody
@@ -1707,11 +1709,11 @@ export interface WalletsApiListRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof WalletsApilist
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface WalletsApiRetrieveRequest {
@@ -1728,11 +1730,11 @@ export interface WalletsApiRetrieveRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof WalletsApiretrieve
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface WalletsApiUpdateRequest {
@@ -1743,11 +1745,11 @@ export interface WalletsApiUpdateRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof WalletsApiupdate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type UpdateWalletBody
@@ -1768,7 +1770,7 @@ export class ObjectWalletsApi {
      * @param param the request object
      */
     public _delete(param: WalletsApiDeleteRequest, options?: Configuration): Promise<void> {
-        return this.api._delete(param.id, param.expand, param.prism_account,  options).toPromise();
+        return this.api._delete(param.id, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -1776,7 +1778,7 @@ export class ObjectWalletsApi {
      * @param param the request object
      */
     public create(param: WalletsApiCreateRequest = {}, options?: Configuration): Promise<Wallet> {
-        return this.api.create(param.prism_account, param.create_wallet_body,  options).toPromise();
+        return this.api.create(param.pluto_account, param.create_wallet_body,  options).toPromise();
     }
 
     /**
@@ -1784,7 +1786,7 @@ export class ObjectWalletsApi {
      * @param param the request object
      */
     public list(param: WalletsApiListRequest = {}, options?: Configuration): Promise<ListWalletsResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -1792,7 +1794,7 @@ export class ObjectWalletsApi {
      * @param param the request object
      */
     public retrieve(param: WalletsApiRetrieveRequest, options?: Configuration): Promise<Wallet> {
-        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -1800,7 +1802,7 @@ export class ObjectWalletsApi {
      * @param param the request object
      */
     public update(param: WalletsApiUpdateRequest, options?: Configuration): Promise<Wallet> {
-        return this.api.update(param.id, param.prism_account, param.update_wallet_body,  options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.update_wallet_body,  options).toPromise();
     }
 
 }
@@ -1816,20 +1818,20 @@ export interface WebhooksApiDeleteRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof WebhooksApi_delete
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface WebhooksApiCreateRequest {
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof WebhooksApicreate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type CreateWebhookBody
@@ -1864,11 +1866,11 @@ export interface WebhooksApiListRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof WebhooksApilist
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface WebhooksApiRetrieveRequest {
@@ -1885,11 +1887,11 @@ export interface WebhooksApiRetrieveRequest {
      */
     expand?: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof WebhooksApiretrieve
      */
-    prism_account?: string
+    pluto_account?: string
 }
 
 export interface WebhooksApiUpdateRequest {
@@ -1900,11 +1902,11 @@ export interface WebhooksApiUpdateRequest {
      */
     id: string
     /**
-     * The ID of the connected Prism account you are making a request on behalf on.
+     * The ID of the connected Pluto account you are making a request on behalf on.
      * @type string
      * @memberof WebhooksApiupdate
      */
-    prism_account?: string
+    pluto_account?: string
     /**
      * 
      * @type UpdateWebhookBody
@@ -1925,7 +1927,7 @@ export class ObjectWebhooksApi {
      * @param param the request object
      */
     public _delete(param: WebhooksApiDeleteRequest, options?: Configuration): Promise<void> {
-        return this.api._delete(param.id, param.prism_account,  options).toPromise();
+        return this.api._delete(param.id, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -1933,7 +1935,7 @@ export class ObjectWebhooksApi {
      * @param param the request object
      */
     public create(param: WebhooksApiCreateRequest = {}, options?: Configuration): Promise<Webhook> {
-        return this.api.create(param.prism_account, param.create_webhook_body,  options).toPromise();
+        return this.api.create(param.pluto_account, param.create_webhook_body,  options).toPromise();
     }
 
     /**
@@ -1941,7 +1943,7 @@ export class ObjectWebhooksApi {
      * @param param the request object
      */
     public list(param: WebhooksApiListRequest = {}, options?: Configuration): Promise<ListWebhooksResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -1949,7 +1951,7 @@ export class ObjectWebhooksApi {
      * @param param the request object
      */
     public retrieve(param: WebhooksApiRetrieveRequest, options?: Configuration): Promise<Webhook> {
-        return this.api.retrieve(param.id, param.expand, param.prism_account,  options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account,  options).toPromise();
     }
 
     /**
@@ -1957,7 +1959,7 @@ export class ObjectWebhooksApi {
      * @param param the request object
      */
     public update(param: WebhooksApiUpdateRequest, options?: Configuration): Promise<Webhook> {
-        return this.api.update(param.id, param.prism_account, param.update_webhook_body,  options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.update_webhook_body,  options).toPromise();
     }
 
 }

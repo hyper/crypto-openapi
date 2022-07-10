@@ -48,12 +48,6 @@ Wallet.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "admin",
-        "baseName": "admin",
-        "type": "boolean",
-        "format": ""
-    },
-    {
         "name": "chain",
         "baseName": "chain",
         "type": "WalletChainEnum",

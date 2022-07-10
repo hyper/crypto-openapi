@@ -7,16 +7,16 @@ class ObjectAccountsApi {
         this.api = new ObservableAPI_1.ObservableAccountsApi(configuration, requestFactory, responseProcessor);
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.create_account_body, options).toPromise();
+        return this.api.create(param.pluto_account, param.create_account_body, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.update_account_body, options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.update_account_body, options).toPromise();
     }
 }
 exports.ObjectAccountsApi = ObjectAccountsApi;
@@ -26,16 +26,16 @@ class ObjectCustomersApi {
         this.api = new ObservableAPI_2.ObservableCustomersApi(configuration, requestFactory, responseProcessor);
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.create_customer_body, options).toPromise();
+        return this.api.create(param.pluto_account, param.create_customer_body, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.update_customer_body, options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.update_customer_body, options).toPromise();
     }
 }
 exports.ObjectCustomersApi = ObjectCustomersApi;
@@ -45,16 +45,16 @@ class ObjectFeesApi {
         this.api = new ObservableAPI_3.ObservableFeesApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
-        return this.api._delete(param.id, param.prism_account, options).toPromise();
+        return this.api._delete(param.id, param.pluto_account, options).toPromise();
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.create_fee_body, options).toPromise();
+        return this.api.create(param.pluto_account, param.create_fee_body, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account, options).toPromise();
     }
 }
 exports.ObjectFeesApi = ObjectFeesApi;
@@ -64,19 +64,19 @@ class ObjectInvoicesApi {
         this.api = new ObservableAPI_4.ObservableInvoicesApi(configuration, requestFactory, responseProcessor);
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.invoice, options).toPromise();
+        return this.api.create(param.pluto_account, param.invoice, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account, options).toPromise();
     }
     pay(param, options) {
-        return this.api.pay(param.id, param.prism_account, options).toPromise();
+        return this.api.pay(param.id, param.pluto_account, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.update_invoice_body, options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.update_invoice_body, options).toPromise();
     }
 }
 exports.ObjectInvoicesApi = ObjectInvoicesApi;
@@ -86,10 +86,10 @@ class ObjectLogsApi {
         this.api = new ObservableAPI_5.ObservableLogsApi(configuration, requestFactory, responseProcessor);
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account, options).toPromise();
     }
 }
 exports.ObjectLogsApi = ObjectLogsApi;
@@ -99,22 +99,22 @@ class ObjectPaymentIntentsApi {
         this.api = new ObservableAPI_6.ObservablePaymentIntentsApi(configuration, requestFactory, responseProcessor);
     }
     cancel(param, options) {
-        return this.api.cancel(param.id, param.prism_account, options).toPromise();
+        return this.api.cancel(param.id, param.pluto_account, options).toPromise();
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.payment_intent, options).toPromise();
+        return this.api.create(param.pluto_account, param.payment_intent, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.prism_account, param.expand, param.limit, param.page, param.sort, param.status, param.customer, options).toPromise();
+        return this.api.list(param.pluto_account, param.expand, param.limit, param.page, param.sort, param.status, param.customer, options).toPromise();
     }
     poll(param, options) {
-        return this.api.poll(param.id, param.prism_account, param.expand, options).toPromise();
+        return this.api.poll(param.id, param.pluto_account, param.expand, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.id, param.prism_account, param.expand, options).toPromise();
+        return this.api.retrieve(param.id, param.pluto_account, param.expand, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.update_payment_intent_body, options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.update_payment_intent_body, options).toPromise();
     }
 }
 exports.ObjectPaymentIntentsApi = ObjectPaymentIntentsApi;
@@ -124,19 +124,19 @@ class ObjectPayoutWalletsApi {
         this.api = new ObservableAPI_7.ObservablePayoutWalletsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
-        return this.api._delete(param.id, param.prism_account, options).toPromise();
+        return this.api._delete(param.id, param.pluto_account, options).toPromise();
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.create_payout_wallet_body, options).toPromise();
+        return this.api.create(param.pluto_account, param.create_payout_wallet_body, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.payout_wallet, options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.payout_wallet, options).toPromise();
     }
 }
 exports.ObjectPayoutWalletsApi = ObjectPayoutWalletsApi;
@@ -146,19 +146,19 @@ class ObjectPricesApi {
         this.api = new ObservableAPI_8.ObservablePricesApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
-        return this.api._delete(param.id, param.prism_account, options).toPromise();
+        return this.api._delete(param.id, param.pluto_account, options).toPromise();
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.price, options).toPromise();
+        return this.api.create(param.pluto_account, param.price, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.prism_account, param.expand, param.limit, param.page, param.sort, options).toPromise();
+        return this.api.list(param.pluto_account, param.expand, param.limit, param.page, param.sort, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.id, param.prism_account, param.expand, options).toPromise();
+        return this.api.retrieve(param.id, param.pluto_account, param.expand, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.update_price_body, options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.update_price_body, options).toPromise();
     }
 }
 exports.ObjectPricesApi = ObjectPricesApi;
@@ -168,19 +168,19 @@ class ObjectProductsApi {
         this.api = new ObservableAPI_9.ObservableProductsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
-        return this.api._delete(param.id, param.prism_account, options).toPromise();
+        return this.api._delete(param.id, param.pluto_account, options).toPromise();
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.create_product_body, options).toPromise();
+        return this.api.create(param.pluto_account, param.create_product_body, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.update_product_body, options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.update_product_body, options).toPromise();
     }
 }
 exports.ObjectProductsApi = ObjectProductsApi;
@@ -190,19 +190,19 @@ class ObjectSubscriptionsApi {
         this.api = new ObservableAPI_10.ObservableSubscriptionsApi(configuration, requestFactory, responseProcessor);
     }
     cancel(param, options) {
-        return this.api.cancel(param.id, param.prism_account, options).toPromise();
+        return this.api.cancel(param.id, param.pluto_account, options).toPromise();
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.subscription, options).toPromise();
+        return this.api.create(param.pluto_account, param.subscription, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.expand, param.limit, param.page, param.sort, param.prism_account, options).toPromise();
+        return this.api.list(param.expand, param.limit, param.page, param.sort, param.pluto_account, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.subscription, options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.subscription, options).toPromise();
     }
 }
 exports.ObjectSubscriptionsApi = ObjectSubscriptionsApi;
@@ -212,13 +212,13 @@ class ObjectTransfersApi {
         this.api = new ObservableAPI_11.ObservableTransfersApi(configuration, requestFactory, responseProcessor);
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.create_transfer_body, options).toPromise();
+        return this.api.create(param.pluto_account, param.create_transfer_body, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account, options).toPromise();
     }
 }
 exports.ObjectTransfersApi = ObjectTransfersApi;
@@ -228,19 +228,19 @@ class ObjectWalletsApi {
         this.api = new ObservableAPI_12.ObservableWalletsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
-        return this.api._delete(param.id, param.expand, param.prism_account, options).toPromise();
+        return this.api._delete(param.id, param.expand, param.pluto_account, options).toPromise();
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.create_wallet_body, options).toPromise();
+        return this.api.create(param.pluto_account, param.create_wallet_body, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.update_wallet_body, options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.update_wallet_body, options).toPromise();
     }
 }
 exports.ObjectWalletsApi = ObjectWalletsApi;
@@ -250,19 +250,19 @@ class ObjectWebhooksApi {
         this.api = new ObservableAPI_13.ObservableWebhooksApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
-        return this.api._delete(param.id, param.prism_account, options).toPromise();
+        return this.api._delete(param.id, param.pluto_account, options).toPromise();
     }
     create(param = {}, options) {
-        return this.api.create(param.prism_account, param.create_webhook_body, options).toPromise();
+        return this.api.create(param.pluto_account, param.create_webhook_body, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.prism_account, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account, options).toPromise();
     }
     retrieve(param, options) {
-        return this.api.retrieve(param.id, param.expand, param.prism_account, options).toPromise();
+        return this.api.retrieve(param.id, param.expand, param.pluto_account, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.prism_account, param.update_webhook_body, options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.update_webhook_body, options).toPromise();
     }
 }
 exports.ObjectWebhooksApi = ObjectWebhooksApi;

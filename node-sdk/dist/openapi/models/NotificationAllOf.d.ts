@@ -1,9 +1,9 @@
 import { Account } from './Account';
 export declare class NotificationAllOf {
     'account': string | Account;
+    'data': any;
+    'emails': Array<string>;
     'type': NotificationAllOfTypeEnum;
-    'data': string;
-    'emails'?: Array<string>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
@@ -19,4 +19,4 @@ export declare class NotificationAllOf {
     }[];
     constructor();
 }
-export declare type NotificationAllOfTypeEnum = "invoice.paid" | "invoice.unpaid" | "invoice.void" | "payment.failed" | "payment.succeeded";
+export declare type NotificationAllOfTypeEnum = "invoice.open" | "invoice.uncollectible" | "invoice.void" | "payment_intent.failed" | "payment_intent.succeeded" | "login" | "team.invite";

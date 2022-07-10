@@ -6,7 +6,9 @@ export declare class ApiKey {
     'test': boolean;
     'account': string | Account;
     'admin': boolean;
-    'key': string;
+    'key': ApiKeyKeyEnum;
+    'last_used'?: number;
+    'name'?: string;
     'type': ApiKeyTypeEnum;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
@@ -23,4 +25,5 @@ export declare class ApiKey {
     }[];
     constructor();
 }
+export declare type ApiKeyKeyEnum = "publishable" | "secret" | "restricted";
 export declare type ApiKeyTypeEnum = "publishable" | "secret" | "restricted";

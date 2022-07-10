@@ -5,19 +5,19 @@ import { PaymentIntentAllOfLineItems } from './PaymentIntentAllOfLineItems';
 import { Price } from './Price';
 export declare class SubscriptionAllOf {
     'account': string | Account;
-    'platform_account'?: string | Account;
-    'price': string | Price;
+    'cancel_at'?: number;
+    'cancel_at_period_end': boolean;
+    'canceled_at'?: number;
+    'current_period_end'?: number;
+    'current_period_start'?: number;
     'customer': string | Customer;
     'latest_invoice'?: Invoice;
-    'status': SubscriptionAllOfStatusEnum;
-    'pause_collection': boolean;
-    'canceled_at'?: number;
-    'trial_period_duration'?: number;
     'line_items'?: Array<PaymentIntentAllOfLineItems>;
-    'current_period_start': number;
-    'current_period_end': number;
-    'cancel_at_period_end': boolean;
-    'cancel_at'?: number;
+    'pause_collection'?: boolean;
+    'platform_account'?: string | Account;
+    'price': string | Price;
+    'status': SubscriptionAllOfStatusEnum;
+    'trial_period_duration'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
@@ -33,4 +33,4 @@ export declare class SubscriptionAllOf {
     }[];
     constructor();
 }
-export declare type SubscriptionAllOfStatusEnum = "active" | "canceled" | "trialing" | "past_due";
+export declare type SubscriptionAllOfStatusEnum = "active" | "canceled" | "trialing" | "past_due" | "incomplete";

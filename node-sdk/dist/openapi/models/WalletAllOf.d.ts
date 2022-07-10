@@ -3,7 +3,6 @@ import { Customer } from './Customer';
 export declare class WalletAllOf {
     'account': string | Account;
     'address': string;
-    'admin': boolean;
     'chain': WalletAllOfChainEnum;
     'customer': string | Customer;
     static readonly discriminator: string | undefined;

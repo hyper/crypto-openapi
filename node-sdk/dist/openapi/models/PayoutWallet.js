@@ -48,15 +48,15 @@ PayoutWallet.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "admin",
-        "baseName": "admin",
-        "type": "boolean",
-        "format": ""
-    },
-    {
         "name": "chain",
         "baseName": "chain",
         "type": "PayoutWalletChainEnum",
+        "format": ""
+    },
+    {
+        "name": "_default",
+        "baseName": "default",
+        "type": "boolean",
         "format": ""
     }
 ];

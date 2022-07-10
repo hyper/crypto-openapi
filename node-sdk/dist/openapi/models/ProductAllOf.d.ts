@@ -2,8 +2,9 @@ import { Account } from './Account';
 import { Price } from './Price';
 export declare class ProductAllOf {
     'account': string | Account;
-    'name': string;
+    'active'?: boolean;
     'description'?: string;
+    'name': string;
     'prices'?: Array<Price>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

@@ -1,17 +1,20 @@
 import { Account } from './Account';
 import { CustomersIdBillingDetails } from './CustomersIdBillingDetails';
+import { PaymentIntent } from './PaymentIntent';
 import { Wallet } from './Wallet';
 export declare class Customer {
     'created': Date;
     'id': string;
     'object': string;
     'test': boolean;
-    'account'?: string | Account;
+    'account': string | Account;
     'billing_details'?: CustomersIdBillingDetails;
     'email'?: string;
+    'last_payment': string | PaymentIntent;
     'name'?: string;
+    'payments': Array<PaymentIntent>;
     'phone'?: string;
-    'wallets'?: Array<Wallet>;
+    'wallets': Array<Wallet>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

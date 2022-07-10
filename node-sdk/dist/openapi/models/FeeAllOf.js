@@ -18,12 +18,6 @@ FeeAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "currency",
-        "baseName": "currency",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "description",
         "baseName": "description",
         "type": "string",
@@ -48,9 +42,15 @@ FeeAllOf.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string | Account",
+        "format": ""
+    },
+    {
         "name": "wallet",
         "baseName": "wallet",
-        "type": "string | Wallet",
+        "type": "string | PayoutWallet",
         "format": ""
     }
 ];

@@ -14,6 +14,8 @@ exports.ObjectSerializer = void 0;
 __exportStar(require("./Account"), exports);
 __exportStar(require("./AccountAllOf"), exports);
 __exportStar(require("./AccountAllOfBranding"), exports);
+__exportStar(require("./AccountAllOfSettings"), exports);
+__exportStar(require("./AccountAllOfTeam"), exports);
 __exportStar(require("./AccountsBranding"), exports);
 __exportStar(require("./AccountsIdSettings"), exports);
 __exportStar(require("./AccountsSettings"), exports);
@@ -87,6 +89,8 @@ __exportStar(require("./WebhookAllOf"), exports);
 const Account_1 = require("./Account");
 const AccountAllOf_1 = require("./AccountAllOf");
 const AccountAllOfBranding_1 = require("./AccountAllOfBranding");
+const AccountAllOfSettings_1 = require("./AccountAllOfSettings");
+const AccountAllOfTeam_1 = require("./AccountAllOfTeam");
 const AccountsBranding_1 = require("./AccountsBranding");
 const AccountsIdSettings_1 = require("./AccountsIdSettings");
 const AccountsSettings_1 = require("./AccountsSettings");
@@ -173,22 +177,24 @@ const supportedMediaTypes = {
     "application/x-www-form-urlencoded": 0
 };
 let enumsMap = new Set([
+    "ApiKeyKeyEnum",
     "ApiKeyTypeEnum",
+    "ApiKeyAllOfKeyEnum",
     "ApiKeyAllOfTypeEnum",
-    "InvoiceStatusEnum",
     "InvoiceChainEnum",
-    "InvoiceAllOfStatusEnum",
+    "InvoiceStatusEnum",
     "InvoiceAllOfChainEnum",
+    "InvoiceAllOfStatusEnum",
     "LogMethodEnum",
     "LogAllOfMethodEnum",
     "NotificationTypeEnum",
     "NotificationAllOfTypeEnum",
-    "PaymentIntentStatusEnum",
     "PaymentIntentChainEnum",
     "PaymentIntentCurrencyEnum",
-    "PaymentIntentAllOfStatusEnum",
+    "PaymentIntentStatusEnum",
     "PaymentIntentAllOfChainEnum",
     "PaymentIntentAllOfCurrencyEnum",
+    "PaymentIntentAllOfStatusEnum",
     "PayoutWalletChainEnum",
     "PayoutWalletAllOfChainEnum",
     "SubscriptionStatusEnum",
@@ -200,6 +206,8 @@ let typeMap = {
     "Account": Account_1.Account,
     "AccountAllOf": AccountAllOf_1.AccountAllOf,
     "AccountAllOfBranding": AccountAllOfBranding_1.AccountAllOfBranding,
+    "AccountAllOfSettings": AccountAllOfSettings_1.AccountAllOfSettings,
+    "AccountAllOfTeam": AccountAllOfTeam_1.AccountAllOfTeam,
     "AccountsBranding": AccountsBranding_1.AccountsBranding,
     "AccountsIdSettings": AccountsIdSettings_1.AccountsIdSettings,
     "AccountsSettings": AccountsSettings_1.AccountsSettings,

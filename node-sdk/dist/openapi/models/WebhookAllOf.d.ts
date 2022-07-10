@@ -4,7 +4,7 @@ export declare class WebhookAllOf {
     'created': Date;
     'endpoint_url': string;
     'event_types': Array<string>;
-    'secret': string;
+    'secret'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

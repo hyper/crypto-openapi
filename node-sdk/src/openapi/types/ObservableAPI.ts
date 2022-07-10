@@ -6,6 +6,8 @@ import {mergeMap, map} from  '../rxjsStub';
 import { Account } from '../models/Account';
 import { AccountAllOf } from '../models/AccountAllOf';
 import { AccountAllOfBranding } from '../models/AccountAllOfBranding';
+import { AccountAllOfSettings } from '../models/AccountAllOfSettings';
+import { AccountAllOfTeam } from '../models/AccountAllOfTeam';
 import { AccountsBranding } from '../models/AccountsBranding';
 import { AccountsIdSettings } from '../models/AccountsIdSettings';
 import { AccountsSettings } from '../models/AccountsSettings';
@@ -95,11 +97,11 @@ export class ObservableAccountsApi {
 
     /**
      * Create Account
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param create_account_body 
      */
-    public create(prism_account?: string, create_account_body?: CreateAccountBody, _options?: Configuration): Observable<Account> {
-        const requestContextPromise = this.requestFactory.create(prism_account, create_account_body, _options);
+    public create(pluto_account?: string, create_account_body?: CreateAccountBody, _options?: Configuration): Observable<Account> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, create_account_body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -123,10 +125,10 @@ export class ObservableAccountsApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListAccountsResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListAccountsResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -148,10 +150,10 @@ export class ObservableAccountsApi {
      * Retrieve Account By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Account> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Account> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -172,11 +174,11 @@ export class ObservableAccountsApi {
     /**
      * Update Account By Id
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param update_account_body 
      */
-    public update(id: string, prism_account?: string, update_account_body?: UpdateAccountBody, _options?: Configuration): Observable<Account> {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, update_account_body, _options);
+    public update(id: string, pluto_account?: string, update_account_body?: UpdateAccountBody, _options?: Configuration): Observable<Account> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_account_body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -214,11 +216,11 @@ export class ObservableCustomersApi {
 
     /**
      * Create Customer
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param create_customer_body 
      */
-    public create(prism_account?: string, create_customer_body?: CreateCustomerBody, _options?: Configuration): Observable<Customer> {
-        const requestContextPromise = this.requestFactory.create(prism_account, create_customer_body, _options);
+    public create(pluto_account?: string, create_customer_body?: CreateCustomerBody, _options?: Configuration): Observable<Customer> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, create_customer_body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -242,10 +244,10 @@ export class ObservableCustomersApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListCustomersResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListCustomersResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -267,10 +269,10 @@ export class ObservableCustomersApi {
      * Retrieve Customer By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Customer> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Customer> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -291,11 +293,11 @@ export class ObservableCustomersApi {
     /**
      * Update Customer By Id
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param update_customer_body 
      */
-    public update(id: string, prism_account?: string, update_customer_body?: UpdateCustomerBody, _options?: Configuration): Observable<Customer> {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, update_customer_body, _options);
+    public update(id: string, pluto_account?: string, update_customer_body?: UpdateCustomerBody, _options?: Configuration): Observable<Customer> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_customer_body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -334,10 +336,10 @@ export class ObservableFeesApi {
     /**
      * Delete Fee By Id
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public _delete(id: string, prism_account?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory._delete(id, prism_account, _options);
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -357,11 +359,11 @@ export class ObservableFeesApi {
 
     /**
      * Create Fee
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param create_fee_body 
      */
-    public create(prism_account?: string, create_fee_body?: CreateFeeBody, _options?: Configuration): Observable<Fee> {
-        const requestContextPromise = this.requestFactory.create(prism_account, create_fee_body, _options);
+    public create(pluto_account?: string, create_fee_body?: CreateFeeBody, _options?: Configuration): Observable<Fee> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, create_fee_body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -385,10 +387,10 @@ export class ObservableFeesApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListFeesResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListFeesResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -410,10 +412,10 @@ export class ObservableFeesApi {
      * Retrieve Fee By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Fee> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Fee> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -451,11 +453,11 @@ export class ObservableInvoicesApi {
 
     /**
      * Create Invoice
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param invoice 
      */
-    public create(prism_account?: string, invoice?: Invoice, _options?: Configuration): Observable<Invoice> {
-        const requestContextPromise = this.requestFactory.create(prism_account, invoice, _options);
+    public create(pluto_account?: string, invoice?: Invoice, _options?: Configuration): Observable<Invoice> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, invoice, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -479,10 +481,10 @@ export class ObservableInvoicesApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListInvoicesResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListInvoicesResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -503,10 +505,10 @@ export class ObservableInvoicesApi {
     /**
      * Pay Invoice
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public pay(id: string, prism_account?: string, _options?: Configuration): Observable<PaymentIntent> {
-        const requestContextPromise = this.requestFactory.pay(id, prism_account, _options);
+    public pay(id: string, pluto_account?: string, _options?: Configuration): Observable<PaymentIntent> {
+        const requestContextPromise = this.requestFactory.pay(id, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -528,10 +530,10 @@ export class ObservableInvoicesApi {
      * Retrieve Invoice By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Invoice> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Invoice> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -552,11 +554,11 @@ export class ObservableInvoicesApi {
     /**
      * Update Invoice By Id
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param update_invoice_body 
      */
-    public update(id: string, prism_account?: string, update_invoice_body?: UpdateInvoiceBody, _options?: Configuration): Observable<Invoice> {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, update_invoice_body, _options);
+    public update(id: string, pluto_account?: string, update_invoice_body?: UpdateInvoiceBody, _options?: Configuration): Observable<Invoice> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_invoice_body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -598,10 +600,10 @@ export class ObservableLogsApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListLogsResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListLogsResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -623,10 +625,10 @@ export class ObservableLogsApi {
      * Retrieve Log By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Log> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Log> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -665,10 +667,10 @@ export class ObservablePaymentIntentsApi {
     /**
      * Cancel Payment Intent
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public cancel(id: string, prism_account?: string, _options?: Configuration): Observable<PaymentIntent> {
-        const requestContextPromise = this.requestFactory.cancel(id, prism_account, _options);
+    public cancel(id: string, pluto_account?: string, _options?: Configuration): Observable<PaymentIntent> {
+        const requestContextPromise = this.requestFactory.cancel(id, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -688,11 +690,11 @@ export class ObservablePaymentIntentsApi {
 
     /**
      * Create Payment Intent
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param payment_intent 
      */
-    public create(prism_account?: string, payment_intent?: PaymentIntent, _options?: Configuration): Observable<PaymentIntent> {
-        const requestContextPromise = this.requestFactory.create(prism_account, payment_intent, _options);
+    public create(pluto_account?: string, payment_intent?: PaymentIntent, _options?: Configuration): Observable<PaymentIntent> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, payment_intent, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -712,7 +714,7 @@ export class ObservablePaymentIntentsApi {
 
     /**
      * List Payment Intents
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
      * @param limit A limit on the number of objects to be returned between 1 and 100.
      * @param page Index of the page to be returned in a paginated response.
@@ -720,8 +722,8 @@ export class ObservablePaymentIntentsApi {
      * @param status The status of the payment intent to filter by.
      * @param customer The ID of the customer on the payment intent to filter by.
      */
-    public list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, status?: 'processing' | 'succeeded' | 'failed' | 'canceled', customer?: string, _options?: Configuration): Observable<ListPaymentIntentsResponse> {
-        const requestContextPromise = this.requestFactory.list(prism_account, expand, limit, page, sort, status, customer, _options);
+    public list(pluto_account?: string, expand?: string, limit?: number, page?: number, sort?: any, status?: 'processing' | 'succeeded' | 'failed' | 'canceled', customer?: string, _options?: Configuration): Observable<ListPaymentIntentsResponse> {
+        const requestContextPromise = this.requestFactory.list(pluto_account, expand, limit, page, sort, status, customer, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -742,11 +744,11 @@ export class ObservablePaymentIntentsApi {
     /**
      * Poll Payment Intent
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
      */
-    public poll(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<PaymentIntent> {
-        const requestContextPromise = this.requestFactory.poll(id, prism_account, expand, _options);
+    public poll(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<PaymentIntent> {
+        const requestContextPromise = this.requestFactory.poll(id, pluto_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -767,11 +769,11 @@ export class ObservablePaymentIntentsApi {
     /**
      * Retrieve Payment Intent
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
      */
-    public retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<PaymentIntent> {
-        const requestContextPromise = this.requestFactory.retrieve(id, prism_account, expand, _options);
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<PaymentIntent> {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -792,11 +794,11 @@ export class ObservablePaymentIntentsApi {
     /**
      * Update Payment Intent
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param update_payment_intent_body 
      */
-    public update(id: string, prism_account?: string, update_payment_intent_body?: UpdatePaymentIntentBody, _options?: Configuration): Observable<PaymentIntent> {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, update_payment_intent_body, _options);
+    public update(id: string, pluto_account?: string, update_payment_intent_body?: UpdatePaymentIntentBody, _options?: Configuration): Observable<PaymentIntent> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_payment_intent_body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -835,10 +837,10 @@ export class ObservablePayoutWalletsApi {
     /**
      * Delete Payout Wallet By ID
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public _delete(id: string, prism_account?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory._delete(id, prism_account, _options);
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -858,11 +860,11 @@ export class ObservablePayoutWalletsApi {
 
     /**
      * Create Payout Wallets
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param create_payout_wallet_body 
      */
-    public create(prism_account?: string, create_payout_wallet_body?: CreatePayoutWalletBody, _options?: Configuration): Observable<PayoutWallet> {
-        const requestContextPromise = this.requestFactory.create(prism_account, create_payout_wallet_body, _options);
+    public create(pluto_account?: string, create_payout_wallet_body?: CreatePayoutWalletBody, _options?: Configuration): Observable<PayoutWallet> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, create_payout_wallet_body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -886,10 +888,10 @@ export class ObservablePayoutWalletsApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListPayoutWalletsResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListPayoutWalletsResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -911,10 +913,10 @@ export class ObservablePayoutWalletsApi {
      * Retrieve Payout Wallet By ID
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<PayoutWallet> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<PayoutWallet> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -935,11 +937,11 @@ export class ObservablePayoutWalletsApi {
     /**
      * Update Payout Wallet By ID
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param payout_wallet 
      */
-    public update(id: string, prism_account?: string, payout_wallet?: PayoutWallet, _options?: Configuration): Observable<PayoutWallet> {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, payout_wallet, _options);
+    public update(id: string, pluto_account?: string, payout_wallet?: PayoutWallet, _options?: Configuration): Observable<PayoutWallet> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, payout_wallet, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -978,10 +980,10 @@ export class ObservablePricesApi {
     /**
      * Delete Price
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public _delete(id: string, prism_account?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory._delete(id, prism_account, _options);
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1001,11 +1003,11 @@ export class ObservablePricesApi {
 
     /**
      * Create Price
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param price 
      */
-    public create(prism_account?: string, price?: Price, _options?: Configuration): Observable<Price> {
-        const requestContextPromise = this.requestFactory.create(prism_account, price, _options);
+    public create(pluto_account?: string, price?: Price, _options?: Configuration): Observable<Price> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, price, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1025,14 +1027,14 @@ export class ObservablePricesApi {
 
     /**
      * List Prices
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
      * @param limit A limit on the number of objects to be returned between 1 and 100.
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      */
-    public list(prism_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Observable<ListPricesResponse> {
-        const requestContextPromise = this.requestFactory.list(prism_account, expand, limit, page, sort, _options);
+    public list(pluto_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Observable<ListPricesResponse> {
+        const requestContextPromise = this.requestFactory.list(pluto_account, expand, limit, page, sort, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1053,11 +1055,11 @@ export class ObservablePricesApi {
     /**
      * Retrieve Price
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param expand Specifies which fields to populate in the response.
      */
-    public retrieve(id: string, prism_account?: string, expand?: string, _options?: Configuration): Observable<Price> {
-        const requestContextPromise = this.requestFactory.retrieve(id, prism_account, expand, _options);
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<Price> {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1078,11 +1080,11 @@ export class ObservablePricesApi {
     /**
      * Update Price
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param update_price_body 
      */
-    public update(id: string, prism_account?: string, update_price_body?: UpdatePriceBody, _options?: Configuration): Observable<Price> {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, update_price_body, _options);
+    public update(id: string, pluto_account?: string, update_price_body?: UpdatePriceBody, _options?: Configuration): Observable<Price> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_price_body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1121,10 +1123,10 @@ export class ObservableProductsApi {
     /**
      * Delete Product By Id
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public _delete(id: string, prism_account?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory._delete(id, prism_account, _options);
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1144,11 +1146,11 @@ export class ObservableProductsApi {
 
     /**
      * Create Product
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param create_product_body 
      */
-    public create(prism_account?: string, create_product_body?: CreateProductBody, _options?: Configuration): Observable<Product> {
-        const requestContextPromise = this.requestFactory.create(prism_account, create_product_body, _options);
+    public create(pluto_account?: string, create_product_body?: CreateProductBody, _options?: Configuration): Observable<Product> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, create_product_body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1172,10 +1174,10 @@ export class ObservableProductsApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListProductsResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListProductsResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1197,10 +1199,10 @@ export class ObservableProductsApi {
      * Retrieve Product By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Product> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Product> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1221,11 +1223,11 @@ export class ObservableProductsApi {
     /**
      * Update Product By Id
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param update_product_body 
      */
-    public update(id: string, prism_account?: string, update_product_body?: UpdateProductBody, _options?: Configuration): Observable<Product> {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, update_product_body, _options);
+    public update(id: string, pluto_account?: string, update_product_body?: UpdateProductBody, _options?: Configuration): Observable<Product> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_product_body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1264,10 +1266,10 @@ export class ObservableSubscriptionsApi {
     /**
      * Cancel Subscription
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public cancel(id: string, prism_account?: string, _options?: Configuration): Observable<Subscription> {
-        const requestContextPromise = this.requestFactory.cancel(id, prism_account, _options);
+    public cancel(id: string, pluto_account?: string, _options?: Configuration): Observable<Subscription> {
+        const requestContextPromise = this.requestFactory.cancel(id, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1287,11 +1289,11 @@ export class ObservableSubscriptionsApi {
 
     /**
      * Create Subscription
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param subscription 
      */
-    public create(prism_account?: string, subscription?: Subscription, _options?: Configuration): Observable<Subscription> {
-        const requestContextPromise = this.requestFactory.create(prism_account, subscription, _options);
+    public create(pluto_account?: string, subscription?: Subscription, _options?: Configuration): Observable<Subscription> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, subscription, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1315,10 +1317,10 @@ export class ObservableSubscriptionsApi {
      * @param limit A limit on the number of objects to be returned between 1 and 100.
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(expand?: string, limit?: number, page?: number, sort?: any, prism_account?: string, _options?: Configuration): Observable<ListSubscriptionsResponse> {
-        const requestContextPromise = this.requestFactory.list(expand, limit, page, sort, prism_account, _options);
+    public list(expand?: string, limit?: number, page?: number, sort?: any, pluto_account?: string, _options?: Configuration): Observable<ListSubscriptionsResponse> {
+        const requestContextPromise = this.requestFactory.list(expand, limit, page, sort, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1340,10 +1342,10 @@ export class ObservableSubscriptionsApi {
      * Retrieve Subscription
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Subscription> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Subscription> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1364,11 +1366,11 @@ export class ObservableSubscriptionsApi {
     /**
      * Update Subscription
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param subscription 
      */
-    public update(id: string, prism_account?: string, subscription?: Subscription, _options?: Configuration): Observable<Subscription> {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, subscription, _options);
+    public update(id: string, pluto_account?: string, subscription?: Subscription, _options?: Configuration): Observable<Subscription> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, subscription, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1406,11 +1408,11 @@ export class ObservableTransfersApi {
 
     /**
      * Create Transfer
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param create_transfer_body 
      */
-    public create(prism_account?: string, create_transfer_body?: CreateTransferBody, _options?: Configuration): Observable<Transfer> {
-        const requestContextPromise = this.requestFactory.create(prism_account, create_transfer_body, _options);
+    public create(pluto_account?: string, create_transfer_body?: CreateTransferBody, _options?: Configuration): Observable<Transfer> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, create_transfer_body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1434,10 +1436,10 @@ export class ObservableTransfersApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListTransfersResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListTransfersResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1459,10 +1461,10 @@ export class ObservableTransfersApi {
      * Retrieve Transfer By ID
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Transfer> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Transfer> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1502,10 +1504,10 @@ export class ObservableWalletsApi {
      * Delete Wallet By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public _delete(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory._delete(id, expand, prism_account, _options);
+    public _delete(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory._delete(id, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1525,11 +1527,11 @@ export class ObservableWalletsApi {
 
     /**
      * Create Wallet
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param create_wallet_body 
      */
-    public create(prism_account?: string, create_wallet_body?: CreateWalletBody, _options?: Configuration): Observable<Wallet> {
-        const requestContextPromise = this.requestFactory.create(prism_account, create_wallet_body, _options);
+    public create(pluto_account?: string, create_wallet_body?: CreateWalletBody, _options?: Configuration): Observable<Wallet> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, create_wallet_body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1553,10 +1555,10 @@ export class ObservableWalletsApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListWalletsResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListWalletsResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1578,10 +1580,10 @@ export class ObservableWalletsApi {
      * Retrieve Wallet By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Wallet> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Wallet> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1602,11 +1604,11 @@ export class ObservableWalletsApi {
     /**
      * Update Wallet By Id
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param update_wallet_body 
      */
-    public update(id: string, prism_account?: string, update_wallet_body?: UpdateWalletBody, _options?: Configuration): Observable<Wallet> {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, update_wallet_body, _options);
+    public update(id: string, pluto_account?: string, update_wallet_body?: UpdateWalletBody, _options?: Configuration): Observable<Wallet> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_wallet_body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1645,10 +1647,10 @@ export class ObservableWebhooksApi {
     /**
      * Delete Webhook By Id
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public _delete(id: string, prism_account?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory._delete(id, prism_account, _options);
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1668,11 +1670,11 @@ export class ObservableWebhooksApi {
 
     /**
      * Create Webhook
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param create_webhook_body 
      */
-    public create(prism_account?: string, create_webhook_body?: CreateWebhookBody, _options?: Configuration): Observable<Webhook> {
-        const requestContextPromise = this.requestFactory.create(prism_account, create_webhook_body, _options);
+    public create(pluto_account?: string, create_webhook_body?: CreateWebhookBody, _options?: Configuration): Observable<Webhook> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, create_webhook_body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1696,10 +1698,10 @@ export class ObservableWebhooksApi {
      * @param page Index of the page to be returned in a paginated response.
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Observable<ListWebhooksResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, prism_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListWebhooksResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1721,10 +1723,10 @@ export class ObservableWebhooksApi {
      * Retrieve Webhook By Id
      * @param id 
      * @param expand Specifies which fields to populate in the response.
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      */
-    public retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Observable<Webhook> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, prism_account, _options);
+    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Webhook> {
+        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1745,11 +1747,11 @@ export class ObservableWebhooksApi {
     /**
      * Update Webhook By Id
      * @param id 
-     * @param prism_account The ID of the connected Prism account you are making a request on behalf on.
+     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
      * @param update_webhook_body 
      */
-    public update(id: string, prism_account?: string, update_webhook_body?: UpdateWebhookBody, _options?: Configuration): Observable<Webhook> {
-        const requestContextPromise = this.requestFactory.update(id, prism_account, update_webhook_body, _options);
+    public update(id: string, pluto_account?: string, update_webhook_body?: UpdateWebhookBody, _options?: Configuration): Observable<Webhook> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_webhook_body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);

@@ -30,9 +30,21 @@ CustomerAllOf.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "last_payment",
+        "baseName": "last_payment",
+        "type": "string | PaymentIntent",
+        "format": ""
+    },
+    {
         "name": "name",
         "baseName": "name",
         "type": "string",
+        "format": ""
+    },
+    {
+        "name": "payments",
+        "baseName": "payments",
+        "type": "Array<PaymentIntent>",
         "format": ""
     },
     {

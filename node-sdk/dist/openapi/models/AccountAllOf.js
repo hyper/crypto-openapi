@@ -12,6 +12,12 @@ exports.AccountAllOf = AccountAllOf;
 AccountAllOf.discriminator = undefined;
 AccountAllOf.attributeTypeMap = [
     {
+        "name": "application_fee_percent",
+        "baseName": "application_fee_percent",
+        "type": "number",
+        "format": ""
+    },
+    {
         "name": "branding",
         "baseName": "branding",
         "type": "AccountAllOfBranding",
@@ -20,7 +26,7 @@ AccountAllOf.attributeTypeMap = [
     {
         "name": "connected_accounts",
         "baseName": "connected_accounts",
-        "type": "Account",
+        "type": "Array<Account>",
         "format": ""
     },
     {
@@ -42,21 +48,33 @@ AccountAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "payout_wallets",
         "baseName": "payout_wallets",
         "type": "Array<PayoutWallet>",
         "format": ""
     },
     {
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "boolean",
+        "format": ""
+    },
+    {
         "name": "settings",
         "baseName": "settings",
-        "type": "AccountsSettings",
+        "type": "AccountAllOfSettings",
+        "format": ""
+    },
+    {
+        "name": "team",
+        "baseName": "team",
+        "type": "Array<AccountAllOfTeam>",
+        "format": ""
+    },
+    {
+        "name": "verified",
+        "baseName": "verified",
+        "type": "boolean",
         "format": ""
     }
 ];

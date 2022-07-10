@@ -100,6 +100,7 @@ import {
   PaymentIntentsApiCancelRequest,
   PaymentIntentsApiUpdateRequest,
   InvoicesApiPayRequest,
+  Webhook,
 } from './openapi/index';
 import convertCasing from './helpers/convertCasing';
 import { ListPayoutWalletsResponse } from './openapi';
@@ -678,7 +679,7 @@ class WebhooksApiLayer {
   public async create(
     data: WebhooksApiCreateRequest['create_webhook_body'],
     options?: { prismAccount: string }
-  ): Promise<Customer> {
+  ): Promise<Webhook> {
     return this.api.create({ ...convertCasing(options), create_webhook_body: data });
   }
 
@@ -686,7 +687,7 @@ class WebhooksApiLayer {
     id: string,
     params?: Omit<WebhooksApiRetrieveRequest, 'prism_account' | 'id'>,
     options?: { prismAccount: string }
-  ): Promise<Customer> {
+  ): Promise<Webhook> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
   }
 
@@ -694,7 +695,7 @@ class WebhooksApiLayer {
     id: string,
     data: WebhooksApiUpdateRequest['update_webhook_body'],
     options?: { prismAccount: string }
-  ): Promise<Customer> {
+  ): Promise<Webhook> {
     return this.api.update({ id, ...convertCasing(options), update_webhook_body: data });
   }
 

@@ -50,6 +50,18 @@ ApiKey.attributeTypeMap = [
     {
         "name": "key",
         "baseName": "key",
+        "type": "ApiKeyKeyEnum",
+        "format": ""
+    },
+    {
+        "name": "last_used",
+        "baseName": "last_used",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "name",
+        "baseName": "name",
         "type": "string",
         "format": ""
     },

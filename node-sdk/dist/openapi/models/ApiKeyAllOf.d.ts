@@ -2,7 +2,9 @@ import { Account } from './Account';
 export declare class ApiKeyAllOf {
     'account': string | Account;
     'admin': boolean;
-    'key': string;
+    'key': ApiKeyAllOfKeyEnum;
+    'last_used'?: number;
+    'name'?: string;
     'type': ApiKeyAllOfTypeEnum;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
@@ -19,4 +21,5 @@ export declare class ApiKeyAllOf {
     }[];
     constructor();
 }
+export declare type ApiKeyAllOfKeyEnum = "publishable" | "secret" | "restricted";
 export declare type ApiKeyAllOfTypeEnum = "publishable" | "secret" | "restricted";

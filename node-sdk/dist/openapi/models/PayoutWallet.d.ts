@@ -6,8 +6,8 @@ export declare class PayoutWallet {
     'test': boolean;
     'account': string | Account;
     'address': string;
-    'admin': boolean;
     'chain': PayoutWalletChainEnum;
+    '_default'?: boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
