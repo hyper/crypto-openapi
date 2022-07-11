@@ -37,14 +37,11 @@ models/AccountAllOfBusinessProfileLinks.ts
 models/AccountAllOfBusinessProfileSupport.ts
 models/AccountAllOfSettings.ts
 models/AccountAllOfSettingsBilling.ts
+models/AccountAllOfSettingsBranding.ts
 models/AccountAllOfSettingsPayments.ts
 models/AccountAllOfTeam.ts
-models/AccountsBranding.ts
-models/AccountsIdSettings.ts
-models/AccountsSettings.ts
 models/ApiKey.ts
 models/ApiKeyAllOf.ts
-models/CreateAccountBody.ts
 models/CreateCustomerBody.ts
 models/CreateFeeBody.ts
 models/CreatePayoutWalletBody.ts
@@ -98,9 +95,7 @@ models/Subscription.ts
 models/SubscriptionAllOf.ts
 models/Transfer.ts
 models/TransferAllOf.ts
-models/UpdateAccountBody.ts
 models/UpdateCustomerBody.ts
-models/UpdateInvoiceBody.ts
 models/UpdatePaymentIntentBody.ts
 models/UpdatePriceBody.ts
 models/UpdateProductBody.ts

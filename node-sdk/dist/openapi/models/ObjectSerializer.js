@@ -18,14 +18,11 @@ __exportStar(require("./AccountAllOfBusinessProfileLinks"), exports);
 __exportStar(require("./AccountAllOfBusinessProfileSupport"), exports);
 __exportStar(require("./AccountAllOfSettings"), exports);
 __exportStar(require("./AccountAllOfSettingsBilling"), exports);
+__exportStar(require("./AccountAllOfSettingsBranding"), exports);
 __exportStar(require("./AccountAllOfSettingsPayments"), exports);
 __exportStar(require("./AccountAllOfTeam"), exports);
-__exportStar(require("./AccountsBranding"), exports);
-__exportStar(require("./AccountsIdSettings"), exports);
-__exportStar(require("./AccountsSettings"), exports);
 __exportStar(require("./ApiKey"), exports);
 __exportStar(require("./ApiKeyAllOf"), exports);
-__exportStar(require("./CreateAccountBody"), exports);
 __exportStar(require("./CreateCustomerBody"), exports);
 __exportStar(require("./CreateFeeBody"), exports);
 __exportStar(require("./CreatePayoutWalletBody"), exports);
@@ -78,9 +75,7 @@ __exportStar(require("./Subscription"), exports);
 __exportStar(require("./SubscriptionAllOf"), exports);
 __exportStar(require("./Transfer"), exports);
 __exportStar(require("./TransferAllOf"), exports);
-__exportStar(require("./UpdateAccountBody"), exports);
 __exportStar(require("./UpdateCustomerBody"), exports);
-__exportStar(require("./UpdateInvoiceBody"), exports);
 __exportStar(require("./UpdatePaymentIntentBody"), exports);
 __exportStar(require("./UpdatePriceBody"), exports);
 __exportStar(require("./UpdateProductBody"), exports);
@@ -97,14 +92,11 @@ const AccountAllOfBusinessProfileLinks_1 = require("./AccountAllOfBusinessProfil
 const AccountAllOfBusinessProfileSupport_1 = require("./AccountAllOfBusinessProfileSupport");
 const AccountAllOfSettings_1 = require("./AccountAllOfSettings");
 const AccountAllOfSettingsBilling_1 = require("./AccountAllOfSettingsBilling");
+const AccountAllOfSettingsBranding_1 = require("./AccountAllOfSettingsBranding");
 const AccountAllOfSettingsPayments_1 = require("./AccountAllOfSettingsPayments");
 const AccountAllOfTeam_1 = require("./AccountAllOfTeam");
-const AccountsBranding_1 = require("./AccountsBranding");
-const AccountsIdSettings_1 = require("./AccountsIdSettings");
-const AccountsSettings_1 = require("./AccountsSettings");
 const ApiKey_1 = require("./ApiKey");
 const ApiKeyAllOf_1 = require("./ApiKeyAllOf");
-const CreateAccountBody_1 = require("./CreateAccountBody");
 const CreateCustomerBody_1 = require("./CreateCustomerBody");
 const CreateFeeBody_1 = require("./CreateFeeBody");
 const CreatePayoutWalletBody_1 = require("./CreatePayoutWalletBody");
@@ -157,9 +149,7 @@ const Subscription_1 = require("./Subscription");
 const SubscriptionAllOf_1 = require("./SubscriptionAllOf");
 const Transfer_1 = require("./Transfer");
 const TransferAllOf_1 = require("./TransferAllOf");
-const UpdateAccountBody_1 = require("./UpdateAccountBody");
 const UpdateCustomerBody_1 = require("./UpdateCustomerBody");
-const UpdateInvoiceBody_1 = require("./UpdateInvoiceBody");
 const UpdatePaymentIntentBody_1 = require("./UpdatePaymentIntentBody");
 const UpdatePriceBody_1 = require("./UpdatePriceBody");
 const UpdateProductBody_1 = require("./UpdateProductBody");
@@ -218,14 +208,11 @@ let typeMap = {
     "AccountAllOfBusinessProfileSupport": AccountAllOfBusinessProfileSupport_1.AccountAllOfBusinessProfileSupport,
     "AccountAllOfSettings": AccountAllOfSettings_1.AccountAllOfSettings,
     "AccountAllOfSettingsBilling": AccountAllOfSettingsBilling_1.AccountAllOfSettingsBilling,
+    "AccountAllOfSettingsBranding": AccountAllOfSettingsBranding_1.AccountAllOfSettingsBranding,
     "AccountAllOfSettingsPayments": AccountAllOfSettingsPayments_1.AccountAllOfSettingsPayments,
     "AccountAllOfTeam": AccountAllOfTeam_1.AccountAllOfTeam,
-    "AccountsBranding": AccountsBranding_1.AccountsBranding,
-    "AccountsIdSettings": AccountsIdSettings_1.AccountsIdSettings,
-    "AccountsSettings": AccountsSettings_1.AccountsSettings,
     "ApiKey": ApiKey_1.ApiKey,
     "ApiKeyAllOf": ApiKeyAllOf_1.ApiKeyAllOf,
-    "CreateAccountBody": CreateAccountBody_1.CreateAccountBody,
     "CreateCustomerBody": CreateCustomerBody_1.CreateCustomerBody,
     "CreateFeeBody": CreateFeeBody_1.CreateFeeBody,
     "CreatePayoutWalletBody": CreatePayoutWalletBody_1.CreatePayoutWalletBody,
@@ -278,9 +265,7 @@ let typeMap = {
     "SubscriptionAllOf": SubscriptionAllOf_1.SubscriptionAllOf,
     "Transfer": Transfer_1.Transfer,
     "TransferAllOf": TransferAllOf_1.TransferAllOf,
-    "UpdateAccountBody": UpdateAccountBody_1.UpdateAccountBody,
     "UpdateCustomerBody": UpdateCustomerBody_1.UpdateCustomerBody,
-    "UpdateInvoiceBody": UpdateInvoiceBody_1.UpdateInvoiceBody,
     "UpdatePaymentIntentBody": UpdatePaymentIntentBody_1.UpdatePaymentIntentBody,
     "UpdatePriceBody": UpdatePriceBody_1.UpdatePriceBody,
     "UpdateProductBody": UpdateProductBody_1.UpdateProductBody,

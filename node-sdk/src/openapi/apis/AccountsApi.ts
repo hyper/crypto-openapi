@@ -9,10 +9,8 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { Account } from '../models/Account';
-import { CreateAccountBody } from '../models/CreateAccountBody';
 import { InlineResponse400 } from '../models/InlineResponse400';
 import { ListAccountsResponse } from '../models/ListAccountsResponse';
-import { UpdateAccountBody } from '../models/UpdateAccountBody';
 
 /**
  * no description
@@ -22,9 +20,9 @@ export class AccountsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Create Account
      * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param create_account_body 
+     * @param account 
      */
-    public async create(pluto_account?: string, create_account_body?: CreateAccountBody, _options?: Configuration): Promise<RequestContext> {
+    public async create(pluto_account?: string, account?: Account, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -48,7 +46,7 @@ export class AccountsApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(create_account_body, "CreateAccountBody", ""),
+            ObjectSerializer.serialize(account, "Account", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -169,9 +167,9 @@ export class AccountsApiRequestFactory extends BaseAPIRequestFactory {
      * Update Account By Id
      * @param id 
      * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param update_account_body 
+     * @param account 
      */
-    public async update(id: string, pluto_account?: string, update_account_body?: UpdateAccountBody, _options?: Configuration): Promise<RequestContext> {
+    public async update(id: string, pluto_account?: string, account?: Account, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -202,7 +200,7 @@ export class AccountsApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(update_account_body, "UpdateAccountBody", ""),
+            ObjectSerializer.serialize(account, "Account", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

@@ -24,7 +24,7 @@ export declare class Invoice {
     'send_reminders'?: boolean;
     'status': InvoiceStatusEnum;
     'subscription'?: string | Subscription;
-    'trial_period_duration'?: number;
+    'trial_period_days'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

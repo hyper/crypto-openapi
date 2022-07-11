@@ -66,8 +66,8 @@ Price.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "billing_period_duration",
-        "baseName": "billing_period_duration",
+        "name": "billing_period_days",
+        "baseName": "billing_period_days",
         "type": "number",
         "format": ""
     },

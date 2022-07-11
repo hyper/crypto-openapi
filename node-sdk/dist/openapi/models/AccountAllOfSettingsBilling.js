@@ -12,8 +12,8 @@ exports.AccountAllOfSettingsBilling = AccountAllOfSettingsBilling;
 AccountAllOfSettingsBilling.discriminator = undefined;
 AccountAllOfSettingsBilling.attributeTypeMap = [
     {
-        "name": "retry_period_duration",
-        "baseName": "retry_period_duration",
+        "name": "retry_period_days",
+        "baseName": "retry_period_days",
         "type": "number",
         "format": ""
     }

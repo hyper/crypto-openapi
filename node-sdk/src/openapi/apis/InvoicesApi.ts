@@ -12,7 +12,6 @@ import { InlineResponse400 } from '../models/InlineResponse400';
 import { Invoice } from '../models/Invoice';
 import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
 import { PaymentIntent } from '../models/PaymentIntent';
-import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 
 /**
  * no description
@@ -207,9 +206,9 @@ export class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
      * Update Invoice By Id
      * @param id 
      * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param update_invoice_body 
+     * @param invoice 
      */
-    public async update(id: string, pluto_account?: string, update_invoice_body?: UpdateInvoiceBody, _options?: Configuration): Promise<RequestContext> {
+    public async update(id: string, pluto_account?: string, invoice?: Invoice, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -240,7 +239,7 @@ export class InvoicesApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(update_invoice_body, "UpdateInvoiceBody", ""),
+            ObjectSerializer.serialize(invoice, "Invoice", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

@@ -21,7 +21,7 @@ export class PriceAllOf {
     'application_fee_percent'?: number;
     'archived'?: boolean;
     'base_price'?: PriceAllOfBasePrice;
-    'billing_period_duration'?: number;
+    'billing_period_days'?: number;
     'chain': string;
     'currency': string;
     'metadata'?: any;
@@ -62,8 +62,8 @@ export class PriceAllOf {
             "format": ""
         },
         {
-            "name": "billing_period_duration",
-            "baseName": "billing_period_duration",
+            "name": "billing_period_days",
+            "baseName": "billing_period_days",
             "type": "number",
             "format": ""
         },

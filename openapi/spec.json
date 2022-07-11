@@ -188,7 +188,7 @@
                 "properties": {
                   "billing": {
                     "properties": {
-                      "retry_period_duration": {
+                      "retry_period_days": {
                         "default": 14,
                         "type": "number"
                       }
@@ -239,33 +239,7 @@
         ],
         "description": "",
         "title": "Account",
-        "x-examples": {
-          "example-1": {
-            "branding": {
-              "logo": null
-            },
-            "connected_accounts": ["string"],
-            "created": "2019-08-24T14:15:22Z",
-            "id": "string",
-            "invoice_prefix": null,
-            "name": "string",
-            "object": "string",
-            "parent_account": "string",
-            "payout_wallets": [
-              {
-                "account": "string",
-                "address": "string",
-                "admin": true,
-                "chain": "eth"
-              }
-            ],
-            "platform_account": false,
-            "settings": {
-              "retry_period_duration": 0
-            },
-            "test": false
-          }
-        },
+        "x-examples": {},
         "x-internal": false
       },
       "ApiKey": {
@@ -581,7 +555,7 @@
                   }
                 ]
               },
-              "trial_period_duration": {
+              "trial_period_days": {
                 "type": "number"
               }
             },
@@ -847,7 +821,12 @@
               },
               "status": {
                 "default": "pending",
-                "enum": ["failed", "succeeded", "canceled", "processing"],
+                "enum": [
+                  "failed",
+                  "succeeded",
+                  "canceled",
+                  "requires_confirmation"
+                ],
                 "type": "string"
               },
               "subscription": {
@@ -969,7 +948,7 @@
                 },
                 "type": "object"
               },
-              "billing_period_duration": {
+              "billing_period_days": {
                 "minimum": 0,
                 "type": "number"
               },
@@ -1157,7 +1136,7 @@
                 ],
                 "type": "string"
               },
-              "trial_period_duration": {
+              "trial_period_days": {
                 "type": "number"
               }
             },
@@ -1459,69 +1438,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "description": "",
-                "properties": {
-                  "branding": {
-                    "properties": {
-                      "logo": {
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "connected_accounts": {
-                    "items": {
-                      "type": "string"
-                    },
-                    "type": "array"
-                  },
-                  "invoice_prefix": {
-                    "minLength": 1,
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "parent_account": {
-                    "minLength": 1,
-                    "type": "string"
-                  },
-                  "platform_account": {
-                    "type": "string"
-                  },
-                  "settings": {
-                    "properties": {
-                      "past_due_period_duration": {
-                        "type": "number"
-                      },
-                      "retry_period_duration": {
-                        "type": "number"
-                      }
-                    },
-                    "type": "object"
-                  }
-                },
-                "required": ["name"],
-                "title": "CreateAccountBody",
-                "type": "object",
-                "x-examples": {
-                  "example-1": {
-                    "account": "acct_oCV7GPmaqJzHCWu8FoxGP",
-                    "billing_details": {
-                      "address": {
-                        "city": "Palo Alto",
-                        "country": "US",
-                        "line1": "855 El Camino Real",
-                        "line2": "Suite 290",
-                        "postal_code": "94301",
-                        "state": "CA"
-                      }
-                    },
-                    "email": "admin@hyper.co",
-                    "name": "Lebon Jame",
-                    "phone": "+16508006399"
-                  }
-                }
+                "$ref": "#/components/schemas/Account"
               }
             }
           },
@@ -1602,52 +1519,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "branding": {
-                    "properties": {
-                      "logo": {
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "invoice_prefix": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "settings": {
-                    "properties": {
-                      "retry_period_duration": {
-                        "type": "number"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "settings.retry_period_duration": {
-                    "type": "string"
-                  }
-                },
-                "title": "UpdateAccountBody",
-                "type": "object",
-                "x-examples": {
-                  "example-1": {
-                    "billing_details": {
-                      "address": {
-                        "city": "string",
-                        "country": "string",
-                        "line1": "string",
-                        "line2": "string",
-                        "postal_code": "string",
-                        "state": "string"
-                      }
-                    },
-                    "email": "string",
-                    "name": "string",
-                    "phone": "string"
-                  }
-                }
+                "$ref": "#/components/schemas/Account"
               }
             }
           }
@@ -2409,42 +2281,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "application_fee_percent": {
-                    "type": "number"
-                  },
-                  "chain": {
-                    "type": "string"
-                  },
-                  "currency": {
-                    "type": "string"
-                  },
-                  "due": {
-                    "type": "string"
-                  },
-                  "metadata": {
-                    "type": "object"
-                  },
-                  "send_reminders": {
-                    "type": "string"
-                  },
-                  "status": {
-                    "type": "string"
-                  },
-                  "trial_period_duration": {
-                    "type": "number"
-                  }
-                },
-                "title": "UpdateInvoiceBody",
-                "type": "object",
-                "x-examples": {
-                  "example-1": {
-                    "amount": 0,
-                    "chain": "eth",
-                    "currency": "eth",
-                    "due": "2019-08-24T14:15:22Z"
-                  }
-                }
+                "$ref": "#/components/schemas/Invoice"
               }
             }
           }

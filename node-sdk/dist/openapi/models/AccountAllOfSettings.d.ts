@@ -1,9 +1,9 @@
 import { AccountAllOfSettingsBilling } from './AccountAllOfSettingsBilling';
+import { AccountAllOfSettingsBranding } from './AccountAllOfSettingsBranding';
 import { AccountAllOfSettingsPayments } from './AccountAllOfSettingsPayments';
-import { AccountsBranding } from './AccountsBranding';
 export declare class AccountAllOfSettings {
     'billing'?: AccountAllOfSettingsBilling;
-    'branding'?: AccountsBranding;
+    'branding'?: AccountAllOfSettingsBranding;
     'payments'?: AccountAllOfSettingsPayments;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

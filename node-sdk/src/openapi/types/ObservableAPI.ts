@@ -10,14 +10,11 @@ import { AccountAllOfBusinessProfileLinks } from '../models/AccountAllOfBusiness
 import { AccountAllOfBusinessProfileSupport } from '../models/AccountAllOfBusinessProfileSupport';
 import { AccountAllOfSettings } from '../models/AccountAllOfSettings';
 import { AccountAllOfSettingsBilling } from '../models/AccountAllOfSettingsBilling';
+import { AccountAllOfSettingsBranding } from '../models/AccountAllOfSettingsBranding';
 import { AccountAllOfSettingsPayments } from '../models/AccountAllOfSettingsPayments';
 import { AccountAllOfTeam } from '../models/AccountAllOfTeam';
-import { AccountsBranding } from '../models/AccountsBranding';
-import { AccountsIdSettings } from '../models/AccountsIdSettings';
-import { AccountsSettings } from '../models/AccountsSettings';
 import { ApiKey } from '../models/ApiKey';
 import { ApiKeyAllOf } from '../models/ApiKeyAllOf';
-import { CreateAccountBody } from '../models/CreateAccountBody';
 import { CreateCustomerBody } from '../models/CreateCustomerBody';
 import { CreateFeeBody } from '../models/CreateFeeBody';
 import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
@@ -70,9 +67,7 @@ import { Subscription } from '../models/Subscription';
 import { SubscriptionAllOf } from '../models/SubscriptionAllOf';
 import { Transfer } from '../models/Transfer';
 import { TransferAllOf } from '../models/TransferAllOf';
-import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
-import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 import { UpdatePaymentIntentBody } from '../models/UpdatePaymentIntentBody';
 import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
@@ -102,10 +97,10 @@ export class ObservableAccountsApi {
     /**
      * Create Account
      * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param create_account_body 
+     * @param account 
      */
-    public create(pluto_account?: string, create_account_body?: CreateAccountBody, _options?: Configuration): Observable<Account> {
-        const requestContextPromise = this.requestFactory.create(pluto_account, create_account_body, _options);
+    public create(pluto_account?: string, account?: Account, _options?: Configuration): Observable<Account> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -179,10 +174,10 @@ export class ObservableAccountsApi {
      * Update Account By Id
      * @param id 
      * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param update_account_body 
+     * @param account 
      */
-    public update(id: string, pluto_account?: string, update_account_body?: UpdateAccountBody, _options?: Configuration): Observable<Account> {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_account_body, _options);
+    public update(id: string, pluto_account?: string, account?: Account, _options?: Configuration): Observable<Account> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -559,10 +554,10 @@ export class ObservableInvoicesApi {
      * Update Invoice By Id
      * @param id 
      * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param update_invoice_body 
+     * @param invoice 
      */
-    public update(id: string, pluto_account?: string, update_invoice_body?: UpdateInvoiceBody, _options?: Configuration): Observable<Invoice> {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_invoice_body, _options);
+    public update(id: string, pluto_account?: string, invoice?: Invoice, _options?: Configuration): Observable<Invoice> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, invoice, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);

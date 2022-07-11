@@ -7,7 +7,7 @@ class ObjectAccountsApi {
         this.api = new ObservableAPI_1.ObservableAccountsApi(configuration, requestFactory, responseProcessor);
     }
     create(param = {}, options) {
-        return this.api.create(param.pluto_account, param.create_account_body, options).toPromise();
+        return this.api.create(param.pluto_account, param.account, options).toPromise();
     }
     list(param = {}, options) {
         return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account, options).toPromise();
@@ -16,7 +16,7 @@ class ObjectAccountsApi {
         return this.api.retrieve(param.id, param.expand, param.pluto_account, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.pluto_account, param.update_account_body, options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.account, options).toPromise();
     }
 }
 exports.ObjectAccountsApi = ObjectAccountsApi;
@@ -76,7 +76,7 @@ class ObjectInvoicesApi {
         return this.api.retrieve(param.id, param.expand, param.pluto_account, options).toPromise();
     }
     update(param, options) {
-        return this.api.update(param.id, param.pluto_account, param.update_invoice_body, options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.invoice, options).toPromise();
     }
 }
 exports.ObjectInvoicesApi = ObjectInvoicesApi;

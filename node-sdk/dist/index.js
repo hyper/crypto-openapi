@@ -71,7 +71,7 @@ class AccountsApiLayer {
     }
     create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_account_body: data }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { account: data }));
         });
     }
     retrieve(id, params, options) {
@@ -81,7 +81,7 @@ class AccountsApiLayer {
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { update_account_body: data }));
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { account: data }));
         });
     }
     list(params, options) {
@@ -156,7 +156,7 @@ class InvoicesApiLayer {
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { update_invoice_body: data }));
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { invoice: data }));
         });
     }
     list(params, options) {

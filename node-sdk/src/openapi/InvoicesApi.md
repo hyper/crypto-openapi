@@ -274,17 +274,8 @@ let body:.InvoicesApiUpdateRequest = {
   id: "id_example",
   // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
   pluto_account: "Pluto-Account_example",
-  // UpdateInvoiceBody (optional)
-  update_invoice_body: {
-    application_fee_percent: 3.14,
-    chain: "chain_example",
-    currency: "currency_example",
-    due: "due_example",
-    metadata: {},
-    send_reminders: "send_reminders_example",
-    status: "status_example",
-    trial_period_duration: 3.14,
-  },
+  // Invoice (optional)
+  invoice: null,
 };
 
 apiInstance.update(body).then((data:any) => {
@@ -297,7 +288,7 @@ apiInstance.update(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **update_invoice_body** | **UpdateInvoiceBody**|  |
+ **invoice** | **Invoice**|  |
  **id** | [**string**] |  | defaults to undefined
  **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 

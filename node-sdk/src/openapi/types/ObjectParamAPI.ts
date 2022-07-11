@@ -9,14 +9,11 @@ import { AccountAllOfBusinessProfileLinks } from '../models/AccountAllOfBusiness
 import { AccountAllOfBusinessProfileSupport } from '../models/AccountAllOfBusinessProfileSupport';
 import { AccountAllOfSettings } from '../models/AccountAllOfSettings';
 import { AccountAllOfSettingsBilling } from '../models/AccountAllOfSettingsBilling';
+import { AccountAllOfSettingsBranding } from '../models/AccountAllOfSettingsBranding';
 import { AccountAllOfSettingsPayments } from '../models/AccountAllOfSettingsPayments';
 import { AccountAllOfTeam } from '../models/AccountAllOfTeam';
-import { AccountsBranding } from '../models/AccountsBranding';
-import { AccountsIdSettings } from '../models/AccountsIdSettings';
-import { AccountsSettings } from '../models/AccountsSettings';
 import { ApiKey } from '../models/ApiKey';
 import { ApiKeyAllOf } from '../models/ApiKeyAllOf';
-import { CreateAccountBody } from '../models/CreateAccountBody';
 import { CreateCustomerBody } from '../models/CreateCustomerBody';
 import { CreateFeeBody } from '../models/CreateFeeBody';
 import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
@@ -69,9 +66,7 @@ import { Subscription } from '../models/Subscription';
 import { SubscriptionAllOf } from '../models/SubscriptionAllOf';
 import { Transfer } from '../models/Transfer';
 import { TransferAllOf } from '../models/TransferAllOf';
-import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
-import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 import { UpdatePaymentIntentBody } from '../models/UpdatePaymentIntentBody';
 import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
@@ -94,10 +89,10 @@ export interface AccountsApiCreateRequest {
     pluto_account?: string
     /**
      * 
-     * @type CreateAccountBody
+     * @type Account
      * @memberof AccountsApicreate
      */
-    create_account_body?: CreateAccountBody
+    account?: Account
 }
 
 export interface AccountsApiListRequest {
@@ -169,10 +164,10 @@ export interface AccountsApiUpdateRequest {
     pluto_account?: string
     /**
      * 
-     * @type UpdateAccountBody
+     * @type Account
      * @memberof AccountsApiupdate
      */
-    update_account_body?: UpdateAccountBody
+    account?: Account
 }
 
 export class ObjectAccountsApi {
@@ -187,7 +182,7 @@ export class ObjectAccountsApi {
      * @param param the request object
      */
     public create(param: AccountsApiCreateRequest = {}, options?: Configuration): Promise<Account> {
-        return this.api.create(param.pluto_account, param.create_account_body,  options).toPromise();
+        return this.api.create(param.pluto_account, param.account,  options).toPromise();
     }
 
     /**
@@ -211,7 +206,7 @@ export class ObjectAccountsApi {
      * @param param the request object
      */
     public update(param: AccountsApiUpdateRequest, options?: Configuration): Promise<Account> {
-        return this.api.update(param.id, param.pluto_account, param.update_account_body,  options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.account,  options).toPromise();
     }
 
 }
@@ -580,10 +575,10 @@ export interface InvoicesApiUpdateRequest {
     pluto_account?: string
     /**
      * 
-     * @type UpdateInvoiceBody
+     * @type Invoice
      * @memberof InvoicesApiupdate
      */
-    update_invoice_body?: UpdateInvoiceBody
+    invoice?: Invoice
 }
 
 export class ObjectInvoicesApi {
@@ -630,7 +625,7 @@ export class ObjectInvoicesApi {
      * @param param the request object
      */
     public update(param: InvoicesApiUpdateRequest, options?: Configuration): Promise<Invoice> {
-        return this.api.update(param.id, param.pluto_account, param.update_invoice_body,  options).toPromise();
+        return this.api.update(param.id, param.pluto_account, param.invoice,  options).toPromise();
     }
 
 }

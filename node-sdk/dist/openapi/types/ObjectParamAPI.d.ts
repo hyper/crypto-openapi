@@ -1,6 +1,5 @@
 import { Configuration } from '../configuration';
 import { Account } from '../models/Account';
-import { CreateAccountBody } from '../models/CreateAccountBody';
 import { CreateCustomerBody } from '../models/CreateCustomerBody';
 import { CreateFeeBody } from '../models/CreateFeeBody';
 import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
@@ -31,9 +30,7 @@ import { Price } from '../models/Price';
 import { Product } from '../models/Product';
 import { Subscription } from '../models/Subscription';
 import { Transfer } from '../models/Transfer';
-import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
-import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 import { UpdatePaymentIntentBody } from '../models/UpdatePaymentIntentBody';
 import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
@@ -44,7 +41,7 @@ import { Webhook } from '../models/Webhook';
 import { AccountsApiRequestFactory, AccountsApiResponseProcessor } from "../apis/AccountsApi";
 export interface AccountsApiCreateRequest {
     pluto_account?: string;
-    create_account_body?: CreateAccountBody;
+    account?: Account;
 }
 export interface AccountsApiListRequest {
     limit?: number;
@@ -61,7 +58,7 @@ export interface AccountsApiRetrieveRequest {
 export interface AccountsApiUpdateRequest {
     id: string;
     pluto_account?: string;
-    update_account_body?: UpdateAccountBody;
+    account?: Account;
 }
 export declare class ObjectAccountsApi {
     private api;
@@ -154,7 +151,7 @@ export interface InvoicesApiRetrieveRequest {
 export interface InvoicesApiUpdateRequest {
     id: string;
     pluto_account?: string;
-    update_invoice_body?: UpdateInvoiceBody;
+    invoice?: Invoice;
 }
 export declare class ObjectInvoicesApi {
     private api;

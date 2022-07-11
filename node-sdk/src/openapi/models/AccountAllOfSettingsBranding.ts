@@ -12,21 +12,21 @@
 
 import { HttpFile } from '../http/http';
 
-export class AccountAllOfSettingsBilling {
-    'retry_period_days'?: number;
+export class AccountAllOfSettingsBranding {
+    'logo'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "retry_period_days",
-            "baseName": "retry_period_days",
-            "type": "number",
+            "name": "logo",
+            "baseName": "logo",
+            "type": "string",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return AccountAllOfSettingsBilling.attributeTypeMap;
+        return AccountAllOfSettingsBranding.attributeTypeMap;
     }
 
     public constructor() {

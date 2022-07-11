@@ -9,14 +9,11 @@ import { AccountAllOfBusinessProfileLinks } from '../models/AccountAllOfBusiness
 import { AccountAllOfBusinessProfileSupport } from '../models/AccountAllOfBusinessProfileSupport';
 import { AccountAllOfSettings } from '../models/AccountAllOfSettings';
 import { AccountAllOfSettingsBilling } from '../models/AccountAllOfSettingsBilling';
+import { AccountAllOfSettingsBranding } from '../models/AccountAllOfSettingsBranding';
 import { AccountAllOfSettingsPayments } from '../models/AccountAllOfSettingsPayments';
 import { AccountAllOfTeam } from '../models/AccountAllOfTeam';
-import { AccountsBranding } from '../models/AccountsBranding';
-import { AccountsIdSettings } from '../models/AccountsIdSettings';
-import { AccountsSettings } from '../models/AccountsSettings';
 import { ApiKey } from '../models/ApiKey';
 import { ApiKeyAllOf } from '../models/ApiKeyAllOf';
-import { CreateAccountBody } from '../models/CreateAccountBody';
 import { CreateCustomerBody } from '../models/CreateCustomerBody';
 import { CreateFeeBody } from '../models/CreateFeeBody';
 import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
@@ -69,9 +66,7 @@ import { Subscription } from '../models/Subscription';
 import { SubscriptionAllOf } from '../models/SubscriptionAllOf';
 import { Transfer } from '../models/Transfer';
 import { TransferAllOf } from '../models/TransferAllOf';
-import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
-import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 import { UpdatePaymentIntentBody } from '../models/UpdatePaymentIntentBody';
 import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
@@ -98,10 +93,10 @@ export class PromiseAccountsApi {
     /**
      * Create Account
      * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param create_account_body 
+     * @param account 
      */
-    public create(pluto_account?: string, create_account_body?: CreateAccountBody, _options?: Configuration): Promise<Account> {
-        const result = this.api.create(pluto_account, create_account_body, _options);
+    public create(pluto_account?: string, account?: Account, _options?: Configuration): Promise<Account> {
+        const result = this.api.create(pluto_account, account, _options);
         return result.toPromise();
     }
 
@@ -133,10 +128,10 @@ export class PromiseAccountsApi {
      * Update Account By Id
      * @param id 
      * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param update_account_body 
+     * @param account 
      */
-    public update(id: string, pluto_account?: string, update_account_body?: UpdateAccountBody, _options?: Configuration): Promise<Account> {
-        const result = this.api.update(id, pluto_account, update_account_body, _options);
+    public update(id: string, pluto_account?: string, account?: Account, _options?: Configuration): Promise<Account> {
+        const result = this.api.update(id, pluto_account, account, _options);
         return result.toPromise();
     }
 
@@ -334,10 +329,10 @@ export class PromiseInvoicesApi {
      * Update Invoice By Id
      * @param id 
      * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param update_invoice_body 
+     * @param invoice 
      */
-    public update(id: string, pluto_account?: string, update_invoice_body?: UpdateInvoiceBody, _options?: Configuration): Promise<Invoice> {
-        const result = this.api.update(id, pluto_account, update_invoice_body, _options);
+    public update(id: string, pluto_account?: string, invoice?: Invoice, _options?: Configuration): Promise<Invoice> {
+        const result = this.api.update(id, pluto_account, invoice, _options);
         return result.toPromise();
     }
 

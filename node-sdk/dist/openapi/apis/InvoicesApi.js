@@ -113,7 +113,7 @@ class InvoicesApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    update(id, pluto_account, update_invoice_body, _options) {
+    update(id, pluto_account, invoice, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -131,7 +131,7 @@ class InvoicesApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
                 "application/json"
             ]);
             requestContext.setHeaderParam("Content-Type", contentType);
-            const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(update_invoice_body, "UpdateInvoiceBody", ""), contentType);
+            const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(invoice, "Invoice", ""), contentType);
             requestContext.setBody(serializedBody);
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {

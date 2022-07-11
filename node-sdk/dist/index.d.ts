@@ -25,13 +25,13 @@ export declare class Pluto {
 declare class AccountsApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: AccountsApiCreateRequest['create_account_body'], options?: {
+    create(data: AccountsApiCreateRequest['account'], options?: {
         plutoAccount: string;
     }): Promise<Account>;
     retrieve(id: string, params?: Omit<AccountsApiRetrieveRequest, 'pluto_account' | 'id'>, options?: {
         plutoAccount: string;
     }): Promise<Account>;
-    update(id: string, data: AccountsApiUpdateRequest['update_account_body'], options?: {
+    update(id: string, data: AccountsApiUpdateRequest['account'], options?: {
         plutoAccount: string;
     }): Promise<Account>;
     list(params?: Omit<AccountsApiListRequest, 'pluto_account'>, options?: {
@@ -79,7 +79,7 @@ declare class InvoicesApiLayer {
     retrieve(id: string, params?: Omit<InvoicesApiRetrieveRequest, 'pluto_account' | 'id'>, options?: {
         plutoAccount: string;
     }): Promise<Invoice>;
-    update(id: string, data: InvoicesApiUpdateRequest['update_invoice_body'], options?: {
+    update(id: string, data: InvoicesApiUpdateRequest['invoice'], options?: {
         plutoAccount: string;
     }): Promise<Invoice>;
     list(params?: Omit<InvoicesApiListRequest, 'pluto_account'>, options?: {

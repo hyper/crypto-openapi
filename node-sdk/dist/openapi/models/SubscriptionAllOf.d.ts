@@ -17,7 +17,7 @@ export declare class SubscriptionAllOf {
     'platform_account'?: string | Account;
     'price': string | Price;
     'status': SubscriptionAllOfStatusEnum;
-    'trial_period_duration'?: number;
+    'trial_period_days'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

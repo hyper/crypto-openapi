@@ -114,8 +114,8 @@ Subscription.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "trial_period_duration",
-        "baseName": "trial_period_duration",
+        "name": "trial_period_days",
+        "baseName": "trial_period_days",
         "type": "number",
         "format": ""
     }

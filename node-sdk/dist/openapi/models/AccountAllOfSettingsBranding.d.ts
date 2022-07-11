@@ -1,5 +1,5 @@
-export declare class AccountAllOfSettingsBilling {
-    'retry_period_days'?: number;
+export declare class AccountAllOfSettingsBranding {
+    'logo'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

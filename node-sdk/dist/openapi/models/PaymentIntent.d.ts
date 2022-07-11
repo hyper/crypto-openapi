@@ -49,4 +49,4 @@ export declare class PaymentIntent {
 }
 export declare type PaymentIntentChainEnum = "eth" | "sol";
 export declare type PaymentIntentCurrencyEnum = "eth" | "sol";
-export declare type PaymentIntentStatusEnum = "failed" | "succeeded" | "canceled" | "processing";
+export declare type PaymentIntentStatusEnum = "failed" | "succeeded" | "canceled" | "requires_confirmation";

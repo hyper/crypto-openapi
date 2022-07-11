@@ -208,5 +208,5 @@ export class PaymentIntent {
 
 export type PaymentIntentChainEnum = "eth" | "sol" ;
 export type PaymentIntentCurrencyEnum = "eth" | "sol" ;
-export type PaymentIntentStatusEnum = "failed" | "succeeded" | "canceled" | "processing" ;
+export type PaymentIntentStatusEnum = "failed" | "succeeded" | "canceled" | "requires_confirmation" ;
 

@@ -20,7 +20,7 @@ export declare class InvoiceAllOf {
     'send_reminders'?: boolean;
     'status': InvoiceAllOfStatusEnum;
     'subscription'?: string | Subscription;
-    'trial_period_duration'?: number;
+    'trial_period_days'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

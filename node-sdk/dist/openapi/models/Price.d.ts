@@ -11,7 +11,7 @@ export declare class Price {
     'application_fee_percent'?: number;
     'archived'?: boolean;
     'base_price'?: PriceAllOfBasePrice;
-    'billing_period_duration'?: number;
+    'billing_period_days'?: number;
     'chain': string;
     'currency': string;
     'metadata'?: any;

@@ -11,13 +11,13 @@
  */
 
 import { AccountAllOfSettingsBilling } from './AccountAllOfSettingsBilling';
+import { AccountAllOfSettingsBranding } from './AccountAllOfSettingsBranding';
 import { AccountAllOfSettingsPayments } from './AccountAllOfSettingsPayments';
-import { AccountsBranding } from './AccountsBranding';
 import { HttpFile } from '../http/http';
 
 export class AccountAllOfSettings {
     'billing'?: AccountAllOfSettingsBilling;
-    'branding'?: AccountsBranding;
+    'branding'?: AccountAllOfSettingsBranding;
     'payments'?: AccountAllOfSettingsPayments;
 
     static readonly discriminator: string | undefined = undefined;
@@ -32,7 +32,7 @@ export class AccountAllOfSettings {
         {
             "name": "branding",
             "baseName": "branding",
-            "type": "AccountsBranding",
+            "type": "AccountAllOfSettingsBranding",
             "format": ""
         },
         {

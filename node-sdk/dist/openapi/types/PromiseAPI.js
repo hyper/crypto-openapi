@@ -6,8 +6,8 @@ class PromiseAccountsApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_1.ObservableAccountsApi(configuration, requestFactory, responseProcessor);
     }
-    create(pluto_account, create_account_body, _options) {
-        const result = this.api.create(pluto_account, create_account_body, _options);
+    create(pluto_account, account, _options) {
+        const result = this.api.create(pluto_account, account, _options);
         return result.toPromise();
     }
     list(limit, page, sort, expand, pluto_account, _options) {
@@ -18,8 +18,8 @@ class PromiseAccountsApi {
         const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
-    update(id, pluto_account, update_account_body, _options) {
-        const result = this.api.update(id, pluto_account, update_account_body, _options);
+    update(id, pluto_account, account, _options) {
+        const result = this.api.update(id, pluto_account, account, _options);
         return result.toPromise();
     }
 }
@@ -91,8 +91,8 @@ class PromiseInvoicesApi {
         const result = this.api.retrieve(id, expand, pluto_account, _options);
         return result.toPromise();
     }
-    update(id, pluto_account, update_invoice_body, _options) {
-        const result = this.api.update(id, pluto_account, update_invoice_body, _options);
+    update(id, pluto_account, invoice, _options) {
+        const result = this.api.update(id, pluto_account, invoice, _options);
         return result.toPromise();
     }
 }

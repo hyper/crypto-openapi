@@ -40,7 +40,7 @@ export class Invoice {
     'send_reminders'?: boolean;
     'status': InvoiceStatusEnum;
     'subscription'?: string | Subscription;
-    'trial_period_duration'?: number;
+    'trial_period_days'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -166,8 +166,8 @@ export class Invoice {
             "format": ""
         },
         {
-            "name": "trial_period_duration",
-            "baseName": "trial_period_duration",
+            "name": "trial_period_days",
+            "baseName": "trial_period_days",
             "type": "number",
             "format": ""
         }    ];

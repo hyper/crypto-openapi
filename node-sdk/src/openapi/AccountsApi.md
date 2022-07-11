@@ -27,23 +27,8 @@ const apiInstance = new .AccountsApi(configuration);
 let body:.AccountsApiCreateRequest = {
   // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
   pluto_account: "Pluto-Account_example",
-  // CreateAccountBody (optional)
-  create_account_body: {
-    branding: {
-      logo: "logo_example",
-    },
-    connected_accounts: [
-      "connected_accounts_example",
-    ],
-    invoice_prefix: "invoice_prefix_example",
-    name: "name_example",
-    parent_account: "parent_account_example",
-    platform_account: "platform_account_example",
-    settings: {
-      past_due_period_duration: 3.14,
-      retry_period_duration: 3.14,
-    },
-  },
+  // Account (optional)
+  account: null,
 };
 
 apiInstance.create(body).then((data:any) => {
@@ -56,7 +41,7 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_account_body** | **CreateAccountBody**|  |
+ **account** | **Account**|  |
  **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 
 
@@ -230,18 +215,8 @@ let body:.AccountsApiUpdateRequest = {
   id: "id_example",
   // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
   pluto_account: "Pluto-Account_example",
-  // UpdateAccountBody (optional)
-  update_account_body: {
-    branding: {
-      logo: "logo_example",
-    },
-    invoice_prefix: "invoice_prefix_example",
-    name: "name_example",
-    settings: {
-      retry_period_duration: 3.14,
-    },
-    settings_retry_period_duration: "settings_retry_period_duration_example",
-  },
+  // Account (optional)
+  account: null,
 };
 
 apiInstance.update(body).then((data:any) => {
@@ -254,7 +229,7 @@ apiInstance.update(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **update_account_body** | **UpdateAccountBody**|  |
+ **account** | **Account**|  |
  **id** | [**string**] |  | defaults to undefined
  **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
 

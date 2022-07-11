@@ -20,7 +20,7 @@ AccountAllOfSettings.attributeTypeMap = [
     {
         "name": "branding",
         "baseName": "branding",
-        "type": "AccountsBranding",
+        "type": "AccountAllOfSettingsBranding",
         "format": ""
     },
     {

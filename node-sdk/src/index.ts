@@ -182,10 +182,10 @@ class AccountsApiLayer {
   }
 
   public async create(
-    data: AccountsApiCreateRequest['create_account_body'],
+    data: AccountsApiCreateRequest['account'],
     options?: { plutoAccount: string }
   ): Promise<Account> {
-    return this.api.create({ ...convertCasing(options), create_account_body: data });
+    return this.api.create({ ...convertCasing(options), account: data });
   }
 
   public async retrieve(
@@ -198,10 +198,10 @@ class AccountsApiLayer {
 
   public async update(
     id: string,
-    data: AccountsApiUpdateRequest['update_account_body'],
+    data: AccountsApiUpdateRequest['account'],
     options?: { plutoAccount: string }
   ): Promise<Account> {
-    return this.api.update({ id, ...convertCasing(options), update_account_body: data });
+    return this.api.update({ id, ...convertCasing(options), account: data });
   }
 
   public async list(
@@ -312,10 +312,10 @@ class InvoicesApiLayer {
 
   public async update(
     id: string,
-    data: InvoicesApiUpdateRequest['update_invoice_body'],
+    data: InvoicesApiUpdateRequest['invoice'],
     options?: { plutoAccount: string }
   ): Promise<Invoice> {
-    return this.api.update({ id, ...convertCasing(options), update_invoice_body: data });
+    return this.api.update({ id, ...convertCasing(options), invoice: data });
   }
 
   public async list(

@@ -45,4 +45,4 @@ export declare class PaymentIntentAllOf {
 }
 export declare type PaymentIntentAllOfChainEnum = "eth" | "sol";
 export declare type PaymentIntentAllOfCurrencyEnum = "eth" | "sol";
-export declare type PaymentIntentAllOfStatusEnum = "failed" | "succeeded" | "canceled" | "processing";
+export declare type PaymentIntentAllOfStatusEnum = "failed" | "succeeded" | "canceled" | "requires_confirmation";

@@ -10,8 +10,8 @@ class ObservableAccountsApi {
         this.requestFactory = requestFactory || new AccountsApi_1.AccountsApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new AccountsApi_1.AccountsApiResponseProcessor();
     }
-    create(pluto_account, create_account_body, _options) {
-        const requestContextPromise = this.requestFactory.create(pluto_account, create_account_body, _options);
+    create(pluto_account, account, _options) {
+        const requestContextPromise = this.requestFactory.create(pluto_account, account, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -55,8 +55,8 @@ class ObservableAccountsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
         }));
     }
-    update(id, pluto_account, update_account_body, _options) {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_account_body, _options);
+    update(id, pluto_account, account, _options) {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, account, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -277,8 +277,8 @@ class ObservableInvoicesApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
         }));
     }
-    update(id, pluto_account, update_invoice_body, _options) {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_invoice_body, _options);
+    update(id, pluto_account, invoice, _options) {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, invoice, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));

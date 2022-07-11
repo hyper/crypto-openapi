@@ -1,6 +1,5 @@
 import { Configuration } from '../configuration';
 import { Account } from '../models/Account';
-import { CreateAccountBody } from '../models/CreateAccountBody';
 import { CreateCustomerBody } from '../models/CreateCustomerBody';
 import { CreateFeeBody } from '../models/CreateFeeBody';
 import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
@@ -31,9 +30,7 @@ import { Price } from '../models/Price';
 import { Product } from '../models/Product';
 import { Subscription } from '../models/Subscription';
 import { Transfer } from '../models/Transfer';
-import { UpdateAccountBody } from '../models/UpdateAccountBody';
 import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
-import { UpdateInvoiceBody } from '../models/UpdateInvoiceBody';
 import { UpdatePaymentIntentBody } from '../models/UpdatePaymentIntentBody';
 import { UpdatePriceBody } from '../models/UpdatePriceBody';
 import { UpdateProductBody } from '../models/UpdateProductBody';
@@ -45,10 +42,10 @@ import { AccountsApiRequestFactory, AccountsApiResponseProcessor } from "../apis
 export declare class PromiseAccountsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: AccountsApiRequestFactory, responseProcessor?: AccountsApiResponseProcessor);
-    create(pluto_account?: string, create_account_body?: CreateAccountBody, _options?: Configuration): Promise<Account>;
+    create(pluto_account?: string, account?: Account, _options?: Configuration): Promise<Account>;
     list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListAccountsResponse>;
     retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Account>;
-    update(id: string, pluto_account?: string, update_account_body?: UpdateAccountBody, _options?: Configuration): Promise<Account>;
+    update(id: string, pluto_account?: string, account?: Account, _options?: Configuration): Promise<Account>;
 }
 import { CustomersApiRequestFactory, CustomersApiResponseProcessor } from "../apis/CustomersApi";
 export declare class PromiseCustomersApi {
@@ -76,7 +73,7 @@ export declare class PromiseInvoicesApi {
     list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListInvoicesResponse>;
     pay(id: string, pluto_account?: string, _options?: Configuration): Promise<PaymentIntent>;
     retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Invoice>;
-    update(id: string, pluto_account?: string, update_invoice_body?: UpdateInvoiceBody, _options?: Configuration): Promise<Invoice>;
+    update(id: string, pluto_account?: string, invoice?: Invoice, _options?: Configuration): Promise<Invoice>;
 }
 import { LogsApiRequestFactory, LogsApiResponseProcessor } from "../apis/LogsApi";
 export declare class PromiseLogsApi {

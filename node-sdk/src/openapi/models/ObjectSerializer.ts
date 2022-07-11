@@ -5,14 +5,11 @@ export * from './AccountAllOfBusinessProfileLinks';
 export * from './AccountAllOfBusinessProfileSupport';
 export * from './AccountAllOfSettings';
 export * from './AccountAllOfSettingsBilling';
+export * from './AccountAllOfSettingsBranding';
 export * from './AccountAllOfSettingsPayments';
 export * from './AccountAllOfTeam';
-export * from './AccountsBranding';
-export * from './AccountsIdSettings';
-export * from './AccountsSettings';
 export * from './ApiKey';
 export * from './ApiKeyAllOf';
-export * from './CreateAccountBody';
 export * from './CreateCustomerBody';
 export * from './CreateFeeBody';
 export * from './CreatePayoutWalletBody';
@@ -65,9 +62,7 @@ export * from './Subscription';
 export * from './SubscriptionAllOf';
 export * from './Transfer';
 export * from './TransferAllOf';
-export * from './UpdateAccountBody';
 export * from './UpdateCustomerBody';
-export * from './UpdateInvoiceBody';
 export * from './UpdatePaymentIntentBody';
 export * from './UpdatePriceBody';
 export * from './UpdateProductBody';
@@ -85,14 +80,11 @@ import { AccountAllOfBusinessProfileLinks } from './AccountAllOfBusinessProfileL
 import { AccountAllOfBusinessProfileSupport } from './AccountAllOfBusinessProfileSupport';
 import { AccountAllOfSettings } from './AccountAllOfSettings';
 import { AccountAllOfSettingsBilling } from './AccountAllOfSettingsBilling';
+import { AccountAllOfSettingsBranding } from './AccountAllOfSettingsBranding';
 import { AccountAllOfSettingsPayments } from './AccountAllOfSettingsPayments';
 import { AccountAllOfTeam } from './AccountAllOfTeam';
-import { AccountsBranding } from './AccountsBranding';
-import { AccountsIdSettings } from './AccountsIdSettings';
-import { AccountsSettings } from './AccountsSettings';
 import { ApiKey      , ApiKeyKeyEnum    , ApiKeyTypeEnum   } from './ApiKey';
 import { ApiKeyAllOf  , ApiKeyAllOfKeyEnum    , ApiKeyAllOfTypeEnum   } from './ApiKeyAllOf';
-import { CreateAccountBody } from './CreateAccountBody';
 import { CreateCustomerBody } from './CreateCustomerBody';
 import { CreateFeeBody } from './CreateFeeBody';
 import { CreatePayoutWalletBody } from './CreatePayoutWalletBody';
@@ -145,9 +137,7 @@ import { Subscription                , SubscriptionStatusEnum    } from './Subsc
 import { SubscriptionAllOf            , SubscriptionAllOfStatusEnum    } from './SubscriptionAllOf';
 import { Transfer } from './Transfer';
 import { TransferAllOf } from './TransferAllOf';
-import { UpdateAccountBody } from './UpdateAccountBody';
 import { UpdateCustomerBody } from './UpdateCustomerBody';
-import { UpdateInvoiceBody } from './UpdateInvoiceBody';
 import { UpdatePaymentIntentBody } from './UpdatePaymentIntentBody';
 import { UpdatePriceBody } from './UpdatePriceBody';
 import { UpdateProductBody } from './UpdateProductBody';
@@ -212,14 +202,11 @@ let typeMap: {[index: string]: any} = {
     "AccountAllOfBusinessProfileSupport": AccountAllOfBusinessProfileSupport,
     "AccountAllOfSettings": AccountAllOfSettings,
     "AccountAllOfSettingsBilling": AccountAllOfSettingsBilling,
+    "AccountAllOfSettingsBranding": AccountAllOfSettingsBranding,
     "AccountAllOfSettingsPayments": AccountAllOfSettingsPayments,
     "AccountAllOfTeam": AccountAllOfTeam,
-    "AccountsBranding": AccountsBranding,
-    "AccountsIdSettings": AccountsIdSettings,
-    "AccountsSettings": AccountsSettings,
     "ApiKey": ApiKey,
     "ApiKeyAllOf": ApiKeyAllOf,
-    "CreateAccountBody": CreateAccountBody,
     "CreateCustomerBody": CreateCustomerBody,
     "CreateFeeBody": CreateFeeBody,
     "CreatePayoutWalletBody": CreatePayoutWalletBody,
@@ -272,9 +259,7 @@ let typeMap: {[index: string]: any} = {
     "SubscriptionAllOf": SubscriptionAllOf,
     "Transfer": Transfer,
     "TransferAllOf": TransferAllOf,
-    "UpdateAccountBody": UpdateAccountBody,
     "UpdateCustomerBody": UpdateCustomerBody,
-    "UpdateInvoiceBody": UpdateInvoiceBody,
     "UpdatePaymentIntentBody": UpdatePaymentIntentBody,
     "UpdatePriceBody": UpdatePriceBody,
     "UpdateProductBody": UpdateProductBody,
