@@ -4,10 +4,22 @@ import { RequestContext, ResponseContext } from '../http/http';
 import { ListPaymentsResponse } from '../models/ListPaymentsResponse';
 import { Payment } from '../models/Payment';
 export declare class PaymentsApiRequestFactory extends BaseAPIRequestFactory {
-    list(limit?: number, page?: number, sort?: any, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
-    retrieve(id: string, expand?: string, prism_account?: string, _options?: Configuration): Promise<RequestContext>;
+  list(
+    limit?: number,
+    page?: number,
+    sort?: any,
+    expand?: string,
+    prism_account?: string,
+    _options?: Configuration
+  ): Promise<RequestContext>;
+  retrieve(
+    id: string,
+    expand?: string,
+    prism_account?: string,
+    _options?: Configuration
+  ): Promise<RequestContext>;
 }
 export declare class PaymentsApiResponseProcessor {
-    list(response: ResponseContext): Promise<ListPaymentsResponse>;
-    retrieve(response: ResponseContext): Promise<Payment>;
+  list(response: ResponseContext): Promise<ListPaymentsResponse>;
+  retrieve(response: ResponseContext): Promise<Payment>;
 }
