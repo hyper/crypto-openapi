@@ -19,7 +19,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Prism = void 0;
+exports.Pluto = void 0;
 const index_1 = require("./openapi/index");
 const convertCasing_1 = require("./helpers/convertCasing");
 __exportStar(require("./openapi/models/all"), exports);
@@ -27,14 +27,14 @@ __exportStar(require("./openapi/apis/exception"), exports);
 const VERSION = '0.0.0';
 class UserAgentMiddleware {
     pre(context) {
-        context.setHeaderParam('User-Agent', `prism-node/${VERSION}/javascript`);
+        context.setHeaderParam('User-Agent', `pluto-node/${VERSION}/javascript`);
         return Promise.resolve(context);
     }
     post(context) {
         return Promise.resolve(context);
     }
 }
-class Prism {
+class Pluto {
     constructor(token, options) {
         const envs = ['dev', 'stg', 'prd'];
         const baseServer = (options === null || options === void 0 ? void 0 : options.env) ? index_1.servers[envs.indexOf(options.env)] : index_1.servers[2];
@@ -63,7 +63,7 @@ class Prism {
         this.webhooks = new WebhooksApiLayer(config);
     }
 }
-exports.Prism = Prism;
+exports.Pluto = Pluto;
 class AccountsApiLayer {
     constructor(config) {
         this.api = new index_1.AccountsApi(config);
