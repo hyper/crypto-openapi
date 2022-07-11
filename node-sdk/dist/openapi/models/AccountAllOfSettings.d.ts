@@ -1,6 +1,10 @@
+import { AccountAllOfSettingsBilling } from './AccountAllOfSettingsBilling';
+import { AccountAllOfSettingsPayments } from './AccountAllOfSettingsPayments';
+import { AccountsBranding } from './AccountsBranding';
 export declare class AccountAllOfSettings {
-    'past_due_period_duration'?: number;
-    'retry_period_duration'?: number;
+    'billing'?: AccountAllOfSettingsBilling;
+    'branding'?: AccountsBranding;
+    'payments'?: AccountAllOfSettingsPayments;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

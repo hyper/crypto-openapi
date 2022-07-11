@@ -11,7 +11,7 @@
  */
 
 import { Account } from './Account';
-import { AccountAllOfBranding } from './AccountAllOfBranding';
+import { AccountAllOfBusinessProfile } from './AccountAllOfBusinessProfile';
 import { AccountAllOfSettings } from './AccountAllOfSettings';
 import { AccountAllOfTeam } from './AccountAllOfTeam';
 import { PayoutWallet } from './PayoutWallet';
@@ -19,10 +19,8 @@ import { HttpFile } from '../http/http';
 
 export class AccountAllOf {
     'application_fee_percent': number;
-    'branding'?: AccountAllOfBranding;
+    'business_profile'?: AccountAllOfBusinessProfile;
     'connected_accounts'?: Array<Account>;
-    'invoice_prefix'?: string;
-    'name': string;
     'parent_account'?: string | Account;
     'payout_wallets'?: Array<PayoutWallet>;
     'platform_account': boolean;
@@ -40,27 +38,15 @@ export class AccountAllOf {
             "format": ""
         },
         {
-            "name": "branding",
-            "baseName": "branding",
-            "type": "AccountAllOfBranding",
+            "name": "business_profile",
+            "baseName": "business_profile",
+            "type": "AccountAllOfBusinessProfile",
             "format": ""
         },
         {
             "name": "connected_accounts",
             "baseName": "connected_accounts",
             "type": "Array<Account>",
-            "format": ""
-        },
-        {
-            "name": "invoice_prefix",
-            "baseName": "invoice_prefix",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
             "format": ""
         },
         {

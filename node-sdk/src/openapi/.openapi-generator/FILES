@@ -32,8 +32,12 @@ index.ts
 middleware.ts
 models/Account.ts
 models/AccountAllOf.ts
-models/AccountAllOfBranding.ts
+models/AccountAllOfBusinessProfile.ts
+models/AccountAllOfBusinessProfileLinks.ts
+models/AccountAllOfBusinessProfileSupport.ts
 models/AccountAllOfSettings.ts
+models/AccountAllOfSettingsBilling.ts
+models/AccountAllOfSettingsPayments.ts
 models/AccountAllOfTeam.ts
 models/AccountsBranding.ts
 models/AccountsIdSettings.ts

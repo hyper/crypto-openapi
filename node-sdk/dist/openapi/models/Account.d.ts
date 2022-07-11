@@ -1,4 +1,4 @@
-import { AccountAllOfBranding } from './AccountAllOfBranding';
+import { AccountAllOfBusinessProfile } from './AccountAllOfBusinessProfile';
 import { AccountAllOfSettings } from './AccountAllOfSettings';
 import { AccountAllOfTeam } from './AccountAllOfTeam';
 import { PayoutWallet } from './PayoutWallet';
@@ -8,10 +8,8 @@ export declare class Account {
     'object': string;
     'test': boolean;
     'application_fee_percent': number;
-    'branding'?: AccountAllOfBranding;
+    'business_profile'?: AccountAllOfBusinessProfile;
     'connected_accounts'?: Array<Account>;
-    'invoice_prefix'?: string;
-    'name': string;
     'parent_account'?: string | Account;
     'payout_wallets'?: Array<PayoutWallet>;
     'platform_account': boolean;

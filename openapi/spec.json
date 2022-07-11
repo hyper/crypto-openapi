@@ -90,11 +90,70 @@
                 "default": 1,
                 "type": "number"
               },
-              "branding": {
+              "business_profile": {
                 "properties": {
-                  "logo": {
-                    "default": null,
+                  "business_description": {
                     "type": "string"
+                  },
+                  "links": {
+                    "properties": {
+                      "email": {
+                        "type": "string"
+                      },
+                      "instagram": {
+                        "type": "string"
+                      },
+                      "tiktok": {
+                        "type": "string"
+                      },
+                      "twitter": {
+                        "type": "string"
+                      },
+                      "website": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "support": {
+                    "properties": {
+                      "address": {
+                        "properties": {
+                          "city": {
+                            "type": "string"
+                          },
+                          "country": {
+                            "type": "string"
+                          },
+                          "line1": {
+                            "type": "string"
+                          },
+                          "line2": {
+                            "type": "string"
+                          },
+                          "postal_code": {
+                            "type": "string"
+                          },
+                          "state": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "phone": {
+                        "type": "string"
+                      },
+                      "website": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "type": "object"
@@ -104,14 +163,6 @@
                   "$ref": "#/components/schemas/Account"
                 },
                 "type": "array"
-              },
-              "invoice_prefix": {
-                "default": null,
-                "pattern": "^[A-Z]{3,12}$",
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
               },
               "parent_account": {
                 "oneOf": [
@@ -135,13 +186,30 @@
               },
               "settings": {
                 "properties": {
-                  "past_due_period_duration": {
-                    "default": 0,
-                    "type": "number"
+                  "billing": {
+                    "properties": {
+                      "retry_period_duration": {
+                        "default": 14,
+                        "type": "number"
+                      }
+                    },
+                    "type": "object"
                   },
-                  "retry_period_duration": {
-                    "default": 0,
-                    "type": "number"
+                  "branding": {
+                    "properties": {
+                      "logo": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "payments": {
+                    "properties": {
+                      "invoice_prefix": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
                   }
                 },
                 "type": "object"
@@ -165,7 +233,7 @@
                 "type": "boolean"
               }
             },
-            "required": ["name", "platform_account", "application_fee_percent"],
+            "required": ["platform_account", "application_fee_percent"],
             "type": "object"
           }
         ],

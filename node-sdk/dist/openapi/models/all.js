@@ -12,8 +12,12 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./Account"), exports);
 __exportStar(require("./AccountAllOf"), exports);
-__exportStar(require("./AccountAllOfBranding"), exports);
+__exportStar(require("./AccountAllOfBusinessProfile"), exports);
+__exportStar(require("./AccountAllOfBusinessProfileLinks"), exports);
+__exportStar(require("./AccountAllOfBusinessProfileSupport"), exports);
 __exportStar(require("./AccountAllOfSettings"), exports);
+__exportStar(require("./AccountAllOfSettingsBilling"), exports);
+__exportStar(require("./AccountAllOfSettingsPayments"), exports);
 __exportStar(require("./AccountAllOfTeam"), exports);
 __exportStar(require("./AccountsBranding"), exports);
 __exportStar(require("./AccountsIdSettings"), exports);

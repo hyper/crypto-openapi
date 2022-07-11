@@ -12,15 +12,21 @@ exports.AccountAllOfSettings = AccountAllOfSettings;
 AccountAllOfSettings.discriminator = undefined;
 AccountAllOfSettings.attributeTypeMap = [
     {
-        "name": "past_due_period_duration",
-        "baseName": "past_due_period_duration",
-        "type": "number",
+        "name": "billing",
+        "baseName": "billing",
+        "type": "AccountAllOfSettingsBilling",
         "format": ""
     },
     {
-        "name": "retry_period_duration",
-        "baseName": "retry_period_duration",
-        "type": "number",
+        "name": "branding",
+        "baseName": "branding",
+        "type": "AccountsBranding",
+        "format": ""
+    },
+    {
+        "name": "payments",
+        "baseName": "payments",
+        "type": "AccountAllOfSettingsPayments",
         "format": ""
     }
 ];

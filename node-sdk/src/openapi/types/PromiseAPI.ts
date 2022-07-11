@@ -4,8 +4,12 @@ import { Configuration} from '../configuration'
 
 import { Account } from '../models/Account';
 import { AccountAllOf } from '../models/AccountAllOf';
-import { AccountAllOfBranding } from '../models/AccountAllOfBranding';
+import { AccountAllOfBusinessProfile } from '../models/AccountAllOfBusinessProfile';
+import { AccountAllOfBusinessProfileLinks } from '../models/AccountAllOfBusinessProfileLinks';
+import { AccountAllOfBusinessProfileSupport } from '../models/AccountAllOfBusinessProfileSupport';
 import { AccountAllOfSettings } from '../models/AccountAllOfSettings';
+import { AccountAllOfSettingsBilling } from '../models/AccountAllOfSettingsBilling';
+import { AccountAllOfSettingsPayments } from '../models/AccountAllOfSettingsPayments';
 import { AccountAllOfTeam } from '../models/AccountAllOfTeam';
 import { AccountsBranding } from '../models/AccountsBranding';
 import { AccountsIdSettings } from '../models/AccountsIdSettings';

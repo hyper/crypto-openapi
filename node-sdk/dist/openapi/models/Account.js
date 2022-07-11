@@ -42,27 +42,15 @@ Account.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "branding",
-        "baseName": "branding",
-        "type": "AccountAllOfBranding",
+        "name": "business_profile",
+        "baseName": "business_profile",
+        "type": "AccountAllOfBusinessProfile",
         "format": ""
     },
     {
         "name": "connected_accounts",
         "baseName": "connected_accounts",
         "type": "Array<Account>",
-        "format": ""
-    },
-    {
-        "name": "invoice_prefix",
-        "baseName": "invoice_prefix",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "name",
-        "baseName": "name",
-        "type": "string",
         "format": ""
     },
     {

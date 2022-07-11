@@ -1,7 +1,11 @@
 export * from './Account';
 export * from './AccountAllOf';
-export * from './AccountAllOfBranding';
+export * from './AccountAllOfBusinessProfile';
+export * from './AccountAllOfBusinessProfileLinks';
+export * from './AccountAllOfBusinessProfileSupport';
 export * from './AccountAllOfSettings';
+export * from './AccountAllOfSettingsBilling';
+export * from './AccountAllOfSettingsPayments';
 export * from './AccountAllOfTeam';
 export * from './AccountsBranding';
 export * from './AccountsIdSettings';
@@ -76,8 +80,12 @@ export * from './WebhookAllOf';
 
 import { Account } from './Account';
 import { AccountAllOf } from './AccountAllOf';
-import { AccountAllOfBranding } from './AccountAllOfBranding';
+import { AccountAllOfBusinessProfile } from './AccountAllOfBusinessProfile';
+import { AccountAllOfBusinessProfileLinks } from './AccountAllOfBusinessProfileLinks';
+import { AccountAllOfBusinessProfileSupport } from './AccountAllOfBusinessProfileSupport';
 import { AccountAllOfSettings } from './AccountAllOfSettings';
+import { AccountAllOfSettingsBilling } from './AccountAllOfSettingsBilling';
+import { AccountAllOfSettingsPayments } from './AccountAllOfSettingsPayments';
 import { AccountAllOfTeam } from './AccountAllOfTeam';
 import { AccountsBranding } from './AccountsBranding';
 import { AccountsIdSettings } from './AccountsIdSettings';
@@ -199,8 +207,12 @@ let enumsMap: Set<string> = new Set<string>([
 let typeMap: {[index: string]: any} = {
     "Account": Account,
     "AccountAllOf": AccountAllOf,
-    "AccountAllOfBranding": AccountAllOfBranding,
+    "AccountAllOfBusinessProfile": AccountAllOfBusinessProfile,
+    "AccountAllOfBusinessProfileLinks": AccountAllOfBusinessProfileLinks,
+    "AccountAllOfBusinessProfileSupport": AccountAllOfBusinessProfileSupport,
     "AccountAllOfSettings": AccountAllOfSettings,
+    "AccountAllOfSettingsBilling": AccountAllOfSettingsBilling,
+    "AccountAllOfSettingsPayments": AccountAllOfSettingsPayments,
     "AccountAllOfTeam": AccountAllOfTeam,
     "AccountsBranding": AccountsBranding,
     "AccountsIdSettings": AccountsIdSettings,

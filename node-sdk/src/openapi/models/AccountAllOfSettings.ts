@@ -10,25 +10,35 @@
  * Do not edit the class manually.
  */
 
+import { AccountAllOfSettingsBilling } from './AccountAllOfSettingsBilling';
+import { AccountAllOfSettingsPayments } from './AccountAllOfSettingsPayments';
+import { AccountsBranding } from './AccountsBranding';
 import { HttpFile } from '../http/http';
 
 export class AccountAllOfSettings {
-    'past_due_period_duration'?: number;
-    'retry_period_duration'?: number;
+    'billing'?: AccountAllOfSettingsBilling;
+    'branding'?: AccountsBranding;
+    'payments'?: AccountAllOfSettingsPayments;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "past_due_period_duration",
-            "baseName": "past_due_period_duration",
-            "type": "number",
+            "name": "billing",
+            "baseName": "billing",
+            "type": "AccountAllOfSettingsBilling",
             "format": ""
         },
         {
-            "name": "retry_period_duration",
-            "baseName": "retry_period_duration",
-            "type": "number",
+            "name": "branding",
+            "baseName": "branding",
+            "type": "AccountsBranding",
+            "format": ""
+        },
+        {
+            "name": "payments",
+            "baseName": "payments",
+            "type": "AccountAllOfSettingsPayments",
             "format": ""
         }    ];
 

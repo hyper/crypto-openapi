@@ -13,8 +13,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ObjectSerializer = void 0;
 __exportStar(require("./Account"), exports);
 __exportStar(require("./AccountAllOf"), exports);
-__exportStar(require("./AccountAllOfBranding"), exports);
+__exportStar(require("./AccountAllOfBusinessProfile"), exports);
+__exportStar(require("./AccountAllOfBusinessProfileLinks"), exports);
+__exportStar(require("./AccountAllOfBusinessProfileSupport"), exports);
 __exportStar(require("./AccountAllOfSettings"), exports);
+__exportStar(require("./AccountAllOfSettingsBilling"), exports);
+__exportStar(require("./AccountAllOfSettingsPayments"), exports);
 __exportStar(require("./AccountAllOfTeam"), exports);
 __exportStar(require("./AccountsBranding"), exports);
 __exportStar(require("./AccountsIdSettings"), exports);
@@ -88,8 +92,12 @@ __exportStar(require("./Webhook"), exports);
 __exportStar(require("./WebhookAllOf"), exports);
 const Account_1 = require("./Account");
 const AccountAllOf_1 = require("./AccountAllOf");
-const AccountAllOfBranding_1 = require("./AccountAllOfBranding");
+const AccountAllOfBusinessProfile_1 = require("./AccountAllOfBusinessProfile");
+const AccountAllOfBusinessProfileLinks_1 = require("./AccountAllOfBusinessProfileLinks");
+const AccountAllOfBusinessProfileSupport_1 = require("./AccountAllOfBusinessProfileSupport");
 const AccountAllOfSettings_1 = require("./AccountAllOfSettings");
+const AccountAllOfSettingsBilling_1 = require("./AccountAllOfSettingsBilling");
+const AccountAllOfSettingsPayments_1 = require("./AccountAllOfSettingsPayments");
 const AccountAllOfTeam_1 = require("./AccountAllOfTeam");
 const AccountsBranding_1 = require("./AccountsBranding");
 const AccountsIdSettings_1 = require("./AccountsIdSettings");
@@ -205,8 +213,12 @@ let enumsMap = new Set([
 let typeMap = {
     "Account": Account_1.Account,
     "AccountAllOf": AccountAllOf_1.AccountAllOf,
-    "AccountAllOfBranding": AccountAllOfBranding_1.AccountAllOfBranding,
+    "AccountAllOfBusinessProfile": AccountAllOfBusinessProfile_1.AccountAllOfBusinessProfile,
+    "AccountAllOfBusinessProfileLinks": AccountAllOfBusinessProfileLinks_1.AccountAllOfBusinessProfileLinks,
+    "AccountAllOfBusinessProfileSupport": AccountAllOfBusinessProfileSupport_1.AccountAllOfBusinessProfileSupport,
     "AccountAllOfSettings": AccountAllOfSettings_1.AccountAllOfSettings,
+    "AccountAllOfSettingsBilling": AccountAllOfSettingsBilling_1.AccountAllOfSettingsBilling,
+    "AccountAllOfSettingsPayments": AccountAllOfSettingsPayments_1.AccountAllOfSettingsPayments,
     "AccountAllOfTeam": AccountAllOfTeam_1.AccountAllOfTeam,
     "AccountsBranding": AccountsBranding_1.AccountsBranding,
     "AccountsIdSettings": AccountsIdSettings_1.AccountsIdSettings,
