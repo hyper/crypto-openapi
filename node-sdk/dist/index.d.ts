@@ -4,6 +4,7 @@ export * from './openapi/models/all';
 export * from './openapi/apis/exception';
 export interface PlutoOptions {
     env?: string;
+    serverUrl?: string;
 }
 export declare class Pluto {
     readonly accounts: AccountsApiLayer;

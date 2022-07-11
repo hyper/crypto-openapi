@@ -37,9 +37,10 @@ class UserAgentMiddleware {
 class Pluto {
     constructor(token, options) {
         const envs = ['dev', 'stg', 'prd'];
-        const baseServer = (options === null || options === void 0 ? void 0 : options.env) ? index_1.servers[envs.indexOf(options.env)] : index_1.servers[2];
+        const customServer = (options === null || options === void 0 ? void 0 : options.serverUrl) && new index_1.ServerConfiguration(options === null || options === void 0 ? void 0 : options.serverUrl, {});
+        const envServer = (options === null || options === void 0 ? void 0 : options.env) ? index_1.servers[envs.indexOf(options.env)] : index_1.servers[2];
         const config = index_1.createConfiguration({
-            baseServer,
+            baseServer: customServer || envServer,
             promiseMiddleware: [new UserAgentMiddleware()],
             authMethods: {
                 default: {

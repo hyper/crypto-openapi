@@ -101,6 +101,7 @@ import {
   PaymentIntentsApiUpdateRequest,
   InvoicesApiPayRequest,
   Webhook,
+  ServerConfiguration,
 } from './openapi/index';
 import convertCasing from './helpers/convertCasing';
 import { ListPayoutWalletsResponse } from './openapi';
@@ -122,6 +123,7 @@ class UserAgentMiddleware implements Middleware {
 
 export interface PlutoOptions {
   env?: string;
+  serverUrl?: string;
 }
 
 export class Pluto {
@@ -141,11 +143,11 @@ export class Pluto {
 
   public constructor(token: string, options?: PlutoOptions) {
     const envs = ['dev', 'stg', 'prd'];
-
-    const baseServer = options?.env ? servers[envs.indexOf(options.env)] : servers[2];
+    const customServer = options?.serverUrl && new ServerConfiguration<{}>(options?.serverUrl, {});
+    const envServer = options?.env ? servers[envs.indexOf(options.env)] : servers[2];
 
     const config = createConfiguration({
-      baseServer,
+      baseServer: customServer || envServer,
       promiseMiddleware: [new UserAgentMiddleware()],
       authMethods: {
         default: {
