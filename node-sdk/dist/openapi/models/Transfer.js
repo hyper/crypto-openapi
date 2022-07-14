@@ -12,16 +12,16 @@ exports.Transfer = Transfer;
 Transfer.discriminator = undefined;
 Transfer.attributeTypeMap = [
     {
-        "name": "created",
-        "baseName": "created",
-        "type": "Date",
-        "format": "date-time"
-    },
-    {
         "name": "id",
         "baseName": "id",
         "type": "string",
         "format": ""
+    },
+    {
+        "name": "created",
+        "baseName": "created",
+        "type": "Date",
+        "format": "date-time"
     },
     {
         "name": "object",
@@ -54,15 +54,15 @@ Transfer.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "payment_intent",
-        "baseName": "payment_intent",
-        "type": "string | PaymentIntent",
-        "format": ""
-    },
-    {
         "name": "percent",
         "baseName": "percent",
         "type": "number",
+        "format": ""
+    },
+    {
+        "name": "payment_intent",
+        "baseName": "payment_intent",
+        "type": "string | PaymentIntent",
         "format": ""
     },
     {

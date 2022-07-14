@@ -17,9 +17,9 @@ export class ApiKeyAllOf {
     'account': string | Account;
     'admin': boolean;
     'key': ApiKeyAllOfKeyEnum;
-    'last_used'?: number;
-    'name'?: string;
     'type': ApiKeyAllOfTypeEnum;
+    'name'?: string;
+    'last_used'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -43,9 +43,9 @@ export class ApiKeyAllOf {
             "format": ""
         },
         {
-            "name": "last_used",
-            "baseName": "last_used",
-            "type": "number",
+            "name": "type",
+            "baseName": "type",
+            "type": "ApiKeyAllOfTypeEnum",
             "format": ""
         },
         {
@@ -55,9 +55,9 @@ export class ApiKeyAllOf {
             "format": ""
         },
         {
-            "name": "type",
-            "baseName": "type",
-            "type": "ApiKeyAllOfTypeEnum",
+            "name": "last_used",
+            "baseName": "last_used",
+            "type": "number",
             "format": ""
         }    ];
 

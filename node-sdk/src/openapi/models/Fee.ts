@@ -18,32 +18,32 @@ import { PayoutWallet } from './PayoutWallet';
 import { HttpFile } from '../http/http';
 
 export class Fee {
-    'created': Date;
     'id': string;
+    'created': Date;
     'object': string;
     'test': boolean;
     'account': string | Account;
+    'platform_account'?: string | Account;
     'description'?: string;
     'internal': boolean;
     'payment_intent': string | PaymentIntent;
     'percent': number;
-    'platform_account'?: string | Account;
     'wallet': string | PayoutWallet;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
             "name": "id",
             "baseName": "id",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "Date",
+            "format": "date-time"
         },
         {
             "name": "object",
@@ -60,6 +60,12 @@ export class Fee {
         {
             "name": "account",
             "baseName": "account",
+            "type": "string | Account",
+            "format": ""
+        },
+        {
+            "name": "platform_account",
+            "baseName": "platform_account",
             "type": "string | Account",
             "format": ""
         },
@@ -85,12 +91,6 @@ export class Fee {
             "name": "percent",
             "baseName": "percent",
             "type": "number",
-            "format": ""
-        },
-        {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string | Account",
             "format": ""
         },
         {

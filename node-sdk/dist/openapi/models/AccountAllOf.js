@@ -12,15 +12,9 @@ exports.AccountAllOf = AccountAllOf;
 AccountAllOf.discriminator = undefined;
 AccountAllOf.attributeTypeMap = [
     {
-        "name": "application_fee_percent",
-        "baseName": "application_fee_percent",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "business_profile",
-        "baseName": "business_profile",
-        "type": "AccountAllOfBusinessProfile",
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "boolean",
         "format": ""
     },
     {
@@ -36,14 +30,26 @@ AccountAllOf.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "team",
+        "baseName": "team",
+        "type": "Array<AccountAllOfTeam>",
+        "format": ""
+    },
+    {
         "name": "payout_wallets",
         "baseName": "payout_wallets",
         "type": "Array<PayoutWallet>",
         "format": ""
     },
     {
-        "name": "platform_account",
-        "baseName": "platform_account",
+        "name": "application_fee_percent",
+        "baseName": "application_fee_percent",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "verified",
+        "baseName": "verified",
         "type": "boolean",
         "format": ""
     },
@@ -54,15 +60,9 @@ AccountAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "team",
-        "baseName": "team",
-        "type": "Array<AccountAllOfTeam>",
-        "format": ""
-    },
-    {
-        "name": "verified",
-        "baseName": "verified",
-        "type": "boolean",
+        "name": "business_profile",
+        "baseName": "business_profile",
+        "type": "AccountAllOfBusinessProfile",
         "format": ""
     }
 ];

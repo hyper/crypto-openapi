@@ -12,16 +12,16 @@ exports.Customer = Customer;
 Customer.discriminator = undefined;
 Customer.attributeTypeMap = [
     {
-        "name": "created",
-        "baseName": "created",
-        "type": "Date",
-        "format": "date-time"
-    },
-    {
         "name": "id",
         "baseName": "id",
         "type": "string",
         "format": ""
+    },
+    {
+        "name": "created",
+        "baseName": "created",
+        "type": "Date",
+        "format": "date-time"
     },
     {
         "name": "object",
@@ -54,21 +54,9 @@ Customer.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "last_payment",
-        "baseName": "last_payment",
-        "type": "string | PaymentIntent",
-        "format": ""
-    },
-    {
         "name": "name",
         "baseName": "name",
         "type": "string",
-        "format": ""
-    },
-    {
-        "name": "payments",
-        "baseName": "payments",
-        "type": "Array<PaymentIntent>",
         "format": ""
     },
     {
@@ -81,6 +69,18 @@ Customer.attributeTypeMap = [
         "name": "wallets",
         "baseName": "wallets",
         "type": "Array<Wallet>",
+        "format": ""
+    },
+    {
+        "name": "payments",
+        "baseName": "payments",
+        "type": "Array<PaymentIntent>",
+        "format": ""
+    },
+    {
+        "name": "last_payment",
+        "baseName": "last_payment",
+        "type": "string | PaymentIntent",
         "format": ""
     }
 ];

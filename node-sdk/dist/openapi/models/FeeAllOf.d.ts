@@ -3,11 +3,11 @@ import { PaymentIntent } from './PaymentIntent';
 import { PayoutWallet } from './PayoutWallet';
 export declare class FeeAllOf {
     'account': string | Account;
+    'platform_account'?: string | Account;
     'description'?: string;
     'internal': boolean;
     'payment_intent': string | PaymentIntent;
     'percent': number;
-    'platform_account'?: string | Account;
     'wallet': string | PayoutWallet;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

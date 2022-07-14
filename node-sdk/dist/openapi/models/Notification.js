@@ -12,16 +12,16 @@ exports.Notification = Notification;
 Notification.discriminator = undefined;
 Notification.attributeTypeMap = [
     {
-        "name": "created",
-        "baseName": "created",
-        "type": "Date",
-        "format": "date-time"
-    },
-    {
         "name": "id",
         "baseName": "id",
         "type": "string",
         "format": ""
+    },
+    {
+        "name": "created",
+        "baseName": "created",
+        "type": "Date",
+        "format": "date-time"
     },
     {
         "name": "object",
@@ -42,6 +42,12 @@ Notification.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "type",
+        "baseName": "type",
+        "type": "NotificationTypeEnum",
+        "format": ""
+    },
+    {
         "name": "data",
         "baseName": "data",
         "type": "any",
@@ -51,12 +57,6 @@ Notification.attributeTypeMap = [
         "name": "emails",
         "baseName": "emails",
         "type": "Array<string>",
-        "format": ""
-    },
-    {
-        "name": "type",
-        "baseName": "type",
-        "type": "NotificationTypeEnum",
         "format": ""
     }
 ];

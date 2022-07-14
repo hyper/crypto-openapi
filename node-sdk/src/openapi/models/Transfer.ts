@@ -19,31 +19,31 @@ import { TransferAllOf } from './TransferAllOf';
 import { HttpFile } from '../http/http';
 
 export class Transfer {
-    'created': Date;
     'id': string;
+    'created': Date;
     'object': string;
     'test': boolean;
     'account': string | Account;
     'description'?: string;
     'invoice': string | Invoice;
-    'payment_intent': string | PaymentIntent;
     'percent': number;
+    'payment_intent': string | PaymentIntent;
     'wallet': string | PayoutWallet;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
             "name": "id",
             "baseName": "id",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "Date",
+            "format": "date-time"
         },
         {
             "name": "object",
@@ -76,15 +76,15 @@ export class Transfer {
             "format": ""
         },
         {
-            "name": "payment_intent",
-            "baseName": "payment_intent",
-            "type": "string | PaymentIntent",
-            "format": ""
-        },
-        {
             "name": "percent",
             "baseName": "percent",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "payment_intent",
+            "baseName": "payment_intent",
+            "type": "string | PaymentIntent",
             "format": ""
         },
         {

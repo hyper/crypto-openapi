@@ -12,16 +12,16 @@ exports.Fee = Fee;
 Fee.discriminator = undefined;
 Fee.attributeTypeMap = [
     {
-        "name": "created",
-        "baseName": "created",
-        "type": "Date",
-        "format": "date-time"
-    },
-    {
         "name": "id",
         "baseName": "id",
         "type": "string",
         "format": ""
+    },
+    {
+        "name": "created",
+        "baseName": "created",
+        "type": "Date",
+        "format": "date-time"
     },
     {
         "name": "object",
@@ -38,6 +38,12 @@ Fee.attributeTypeMap = [
     {
         "name": "account",
         "baseName": "account",
+        "type": "string | Account",
+        "format": ""
+    },
+    {
+        "name": "platform_account",
+        "baseName": "platform_account",
         "type": "string | Account",
         "format": ""
     },
@@ -63,12 +69,6 @@ Fee.attributeTypeMap = [
         "name": "percent",
         "baseName": "percent",
         "type": "number",
-        "format": ""
-    },
-    {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "string | Account",
         "format": ""
     },
     {

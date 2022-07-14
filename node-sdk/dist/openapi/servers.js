@@ -28,6 +28,6 @@ class ServerConfiguration {
 exports.ServerConfiguration = ServerConfiguration;
 exports.server1 = new ServerConfiguration("http://localhost:7070/v1", {});
 exports.server2 = new ServerConfiguration("https://pluto-api-stg.herokuapp.com/v1", {});
-exports.server3 = new ServerConfiguration("https://api.pluto.rest/v1", {});
+exports.server3 = new ServerConfiguration("https://api.pluto.co/v1", {});
 exports.servers = [exports.server1, exports.server2, exports.server3];
 //# sourceMappingURL=servers.js.map

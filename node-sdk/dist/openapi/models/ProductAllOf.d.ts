@@ -2,10 +2,10 @@ import { Account } from './Account';
 import { Price } from './Price';
 export declare class ProductAllOf {
     'account': string | Account;
-    'active'?: boolean;
-    'description'?: string;
     'name': string;
+    'description'?: string;
     'prices'?: Array<Price>;
+    'active'?: boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

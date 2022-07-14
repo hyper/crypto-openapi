@@ -1,6 +1,6 @@
 export declare class AccountAllOfTeam {
-    'owner'?: boolean;
     'user'?: string;
+    'owner'?: boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -30,9 +30,9 @@ ApiKeyAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "last_used",
-        "baseName": "last_used",
-        "type": "number",
+        "name": "type",
+        "baseName": "type",
+        "type": "ApiKeyAllOfTypeEnum",
         "format": ""
     },
     {
@@ -42,9 +42,9 @@ ApiKeyAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "type",
-        "baseName": "type",
-        "type": "ApiKeyAllOfTypeEnum",
+        "name": "last_used",
+        "baseName": "last_used",
+        "type": "number",
         "format": ""
     }
 ];

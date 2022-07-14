@@ -23,25 +23,25 @@ import { HttpFile } from '../http/http';
 
 export class PaymentIntentAllOf {
     'account'?: string | Account;
-    'amount': number;
-    'application_fee_percent'?: number;
-    'chain': PaymentIntentAllOfChainEnum;
-    'currency': PaymentIntentAllOfCurrencyEnum;
-    'customer': string | Customer;
-    'exchange_rate'?: number;
-    'fees': Array<Fee>;
+    'platform_account'?: string | Account;
     'hash'?: string;
     'invoice'?: string | Invoice;
-    'last_payment_error'?: string;
-    'line_items'?: Array<PaymentIntentAllOfLineItems>;
-    'metadata'?: any;
-    'platform_account'?: string | Account;
-    'price'?: string | Price;
     'status': PaymentIntentAllOfStatusEnum;
+    'chain': PaymentIntentAllOfChainEnum;
+    'currency': PaymentIntentAllOfCurrencyEnum;
+    'amount': number;
     'subscription'?: string | Subscription;
-    'transfers': Array<Transfer>;
-    'usd_amount'?: number;
+    'price'?: string | Price;
+    'line_items'?: Array<PaymentIntentAllOfLineItems>;
+    'customer': string | Customer;
     'wallet'?: string | Wallet;
+    'usd_amount'?: number;
+    'exchange_rate'?: number;
+    'application_fee_percent'?: number;
+    'last_payment_error'?: string;
+    'fees': Array<Fee>;
+    'transfers': Array<Transfer>;
+    'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -53,45 +53,9 @@ export class PaymentIntentAllOf {
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "application_fee_percent",
-            "baseName": "application_fee_percent",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "PaymentIntentAllOfChainEnum",
-            "format": ""
-        },
-        {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "PaymentIntentAllOfCurrencyEnum",
-            "format": ""
-        },
-        {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string | Customer",
-            "format": ""
-        },
-        {
-            "name": "exchange_rate",
-            "baseName": "exchange_rate",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "fees",
-            "baseName": "fees",
-            "type": "Array<Fee>",
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string | Account",
             "format": ""
         },
         {
@@ -107,39 +71,27 @@ export class PaymentIntentAllOf {
             "format": ""
         },
         {
-            "name": "last_payment_error",
-            "baseName": "last_payment_error",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "line_items",
-            "baseName": "line_items",
-            "type": "Array<PaymentIntentAllOfLineItems>",
-            "format": ""
-        },
-        {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "any",
-            "format": ""
-        },
-        {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string | Account",
-            "format": ""
-        },
-        {
-            "name": "price",
-            "baseName": "price",
-            "type": "string | Price",
-            "format": ""
-        },
-        {
             "name": "status",
             "baseName": "status",
             "type": "PaymentIntentAllOfStatusEnum",
+            "format": ""
+        },
+        {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "PaymentIntentAllOfChainEnum",
+            "format": ""
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "PaymentIntentAllOfCurrencyEnum",
+            "format": ""
+        },
+        {
+            "name": "amount",
+            "baseName": "amount",
+            "type": "number",
             "format": ""
         },
         {
@@ -149,9 +101,27 @@ export class PaymentIntentAllOf {
             "format": ""
         },
         {
-            "name": "transfers",
-            "baseName": "transfers",
-            "type": "Array<Transfer>",
+            "name": "price",
+            "baseName": "price",
+            "type": "string | Price",
+            "format": ""
+        },
+        {
+            "name": "line_items",
+            "baseName": "line_items",
+            "type": "Array<PaymentIntentAllOfLineItems>",
+            "format": ""
+        },
+        {
+            "name": "customer",
+            "baseName": "customer",
+            "type": "string | Customer",
+            "format": ""
+        },
+        {
+            "name": "wallet",
+            "baseName": "wallet",
+            "type": "string | Wallet",
             "format": ""
         },
         {
@@ -161,9 +131,39 @@ export class PaymentIntentAllOf {
             "format": ""
         },
         {
-            "name": "wallet",
-            "baseName": "wallet",
-            "type": "string | Wallet",
+            "name": "exchange_rate",
+            "baseName": "exchange_rate",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "application_fee_percent",
+            "baseName": "application_fee_percent",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "last_payment_error",
+            "baseName": "last_payment_error",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "fees",
+            "baseName": "fees",
+            "type": "Array<Fee>",
+            "format": ""
+        },
+        {
+            "name": "transfers",
+            "baseName": "transfers",
+            "type": "Array<Transfer>",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
             "format": ""
         }    ];
 
@@ -176,7 +176,7 @@ export class PaymentIntentAllOf {
 }
 
 
+export type PaymentIntentAllOfStatusEnum = "failed" | "succeeded" | "canceled" | "requires_confirmation" ;
 export type PaymentIntentAllOfChainEnum = "eth" | "sol" ;
 export type PaymentIntentAllOfCurrencyEnum = "eth" | "sol" ;
-export type PaymentIntentAllOfStatusEnum = "failed" | "succeeded" | "canceled" | "requires_confirmation" ;
 

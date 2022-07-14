@@ -12,20 +12,14 @@ exports.AccountAllOfBusinessProfile = AccountAllOfBusinessProfile;
 AccountAllOfBusinessProfile.discriminator = undefined;
 AccountAllOfBusinessProfile.attributeTypeMap = [
     {
-        "name": "business_description",
-        "baseName": "business_description",
+        "name": "name",
+        "baseName": "name",
         "type": "string",
         "format": ""
     },
     {
-        "name": "links",
-        "baseName": "links",
-        "type": "AccountAllOfBusinessProfileLinks",
-        "format": ""
-    },
-    {
-        "name": "name",
-        "baseName": "name",
+        "name": "business_description",
+        "baseName": "business_description",
         "type": "string",
         "format": ""
     },
@@ -33,6 +27,12 @@ AccountAllOfBusinessProfile.attributeTypeMap = [
         "name": "support",
         "baseName": "support",
         "type": "AccountAllOfBusinessProfileSupport",
+        "format": ""
+    },
+    {
+        "name": "links",
+        "baseName": "links",
+        "type": "AccountAllOfBusinessProfileLinks",
         "format": ""
     }
 ];

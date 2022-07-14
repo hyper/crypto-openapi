@@ -30,21 +30,9 @@ CustomerAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "last_payment",
-        "baseName": "last_payment",
-        "type": "string | PaymentIntent",
-        "format": ""
-    },
-    {
         "name": "name",
         "baseName": "name",
         "type": "string",
-        "format": ""
-    },
-    {
-        "name": "payments",
-        "baseName": "payments",
-        "type": "Array<PaymentIntent>",
         "format": ""
     },
     {
@@ -57,6 +45,18 @@ CustomerAllOf.attributeTypeMap = [
         "name": "wallets",
         "baseName": "wallets",
         "type": "Array<Wallet>",
+        "format": ""
+    },
+    {
+        "name": "payments",
+        "baseName": "payments",
+        "type": "Array<PaymentIntent>",
+        "format": ""
+    },
+    {
+        "name": "last_payment",
+        "baseName": "last_payment",
+        "type": "string | PaymentIntent",
         "format": ""
     }
 ];

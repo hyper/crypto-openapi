@@ -20,11 +20,11 @@ export class CustomerAllOf {
     'account': string | Account;
     'billing_details'?: CustomersIdBillingDetails;
     'email'?: string;
-    'last_payment': string | PaymentIntent;
     'name'?: string;
-    'payments': Array<PaymentIntent>;
     'phone'?: string;
     'wallets': Array<Wallet>;
+    'payments': Array<PaymentIntent>;
+    'last_payment': string | PaymentIntent;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -48,21 +48,9 @@ export class CustomerAllOf {
             "format": ""
         },
         {
-            "name": "last_payment",
-            "baseName": "last_payment",
-            "type": "string | PaymentIntent",
-            "format": ""
-        },
-        {
             "name": "name",
             "baseName": "name",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "payments",
-            "baseName": "payments",
-            "type": "Array<PaymentIntent>",
             "format": ""
         },
         {
@@ -75,6 +63,18 @@ export class CustomerAllOf {
             "name": "wallets",
             "baseName": "wallets",
             "type": "Array<Wallet>",
+            "format": ""
+        },
+        {
+            "name": "payments",
+            "baseName": "payments",
+            "type": "Array<PaymentIntent>",
+            "format": ""
+        },
+        {
+            "name": "last_payment",
+            "baseName": "last_payment",
+            "type": "string | PaymentIntent",
             "format": ""
         }    ];
 

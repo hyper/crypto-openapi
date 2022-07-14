@@ -1,13 +1,13 @@
 import { Account } from './Account';
 export declare class Notification {
-    'created': Date;
     'id': string;
+    'created': Date;
     'object': string;
     'test': boolean;
     'account': string | Account;
+    'type': NotificationTypeEnum;
     'data': any;
     'emails': Array<string>;
-    'type': NotificationTypeEnum;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

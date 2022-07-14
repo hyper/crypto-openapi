@@ -17,30 +17,30 @@ import { ProductAllOf } from './ProductAllOf';
 import { HttpFile } from '../http/http';
 
 export class Product {
-    'created': Date;
     'id': string;
+    'created': Date;
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'active'?: boolean;
-    'description'?: string;
     'name': string;
+    'description'?: string;
     'prices'?: Array<Price>;
+    'active'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
             "name": "id",
             "baseName": "id",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "Date",
+            "format": "date-time"
         },
         {
             "name": "object",
@@ -61,9 +61,9 @@ export class Product {
             "format": ""
         },
         {
-            "name": "active",
-            "baseName": "active",
-            "type": "boolean",
+            "name": "name",
+            "baseName": "name",
+            "type": "string",
             "format": ""
         },
         {
@@ -73,15 +73,15 @@ export class Product {
             "format": ""
         },
         {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "prices",
             "baseName": "prices",
             "type": "Array<Price>",
+            "format": ""
+        },
+        {
+            "name": "active",
+            "baseName": "active",
+            "type": "boolean",
             "format": ""
         }    ];
 

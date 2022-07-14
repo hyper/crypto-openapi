@@ -1,6 +1,6 @@
 export declare class Model {
-    'created': Date;
     'id': string;
+    'created': Date;
     'object': string;
     'test': boolean;
     static readonly discriminator: string | undefined;

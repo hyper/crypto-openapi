@@ -19,22 +19,22 @@ import { HttpFile } from '../http/http';
 
 export class InvoiceAllOf {
     'account': string | Account;
-    'amount': number;
-    'chain': InvoiceAllOfChainEnum;
-    'customer': string | Customer;
-    'due'?: number;
-    'line_items'?: Array<InvoiceAllOfLineItems>;
-    'metadata'?: any;
-    'notify': boolean;
-    'number': string;
-    'period_end'?: number;
-    'period_start'?: number;
     'platform_account'?: string | Account;
-    'price': string | Price;
-    'send_reminders'?: boolean;
     'status': InvoiceAllOfStatusEnum;
-    'subscription'?: string | Subscription;
+    'number': string;
+    'price': string | Price;
+    'customer': string | Customer;
+    'line_items'?: Array<InvoiceAllOfLineItems>;
     'trial_period_days'?: number;
+    'subscription'?: string | Subscription;
+    'period_start'?: number;
+    'period_end'?: number;
+    'chain': InvoiceAllOfChainEnum;
+    'amount': number;
+    'send_reminders'?: boolean;
+    'due'?: number;
+    'notify': boolean;
+    'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -46,8 +46,62 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
-            "name": "amount",
-            "baseName": "amount",
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string | Account",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "InvoiceAllOfStatusEnum",
+            "format": ""
+        },
+        {
+            "name": "number",
+            "baseName": "number",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "price",
+            "baseName": "price",
+            "type": "string | Price",
+            "format": ""
+        },
+        {
+            "name": "customer",
+            "baseName": "customer",
+            "type": "string | Customer",
+            "format": ""
+        },
+        {
+            "name": "line_items",
+            "baseName": "line_items",
+            "type": "Array<InvoiceAllOfLineItems>",
+            "format": ""
+        },
+        {
+            "name": "trial_period_days",
+            "baseName": "trial_period_days",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "subscription",
+            "baseName": "subscription",
+            "type": "string | Subscription",
+            "format": ""
+        },
+        {
+            "name": "period_start",
+            "baseName": "period_start",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "period_end",
+            "baseName": "period_end",
             "type": "number",
             "format": ""
         },
@@ -58,63 +112,9 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string | Customer",
-            "format": ""
-        },
-        {
-            "name": "due",
-            "baseName": "due",
+            "name": "amount",
+            "baseName": "amount",
             "type": "number",
-            "format": ""
-        },
-        {
-            "name": "line_items",
-            "baseName": "line_items",
-            "type": "Array<InvoiceAllOfLineItems>",
-            "format": ""
-        },
-        {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "any",
-            "format": ""
-        },
-        {
-            "name": "notify",
-            "baseName": "notify",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "number",
-            "baseName": "number",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "period_end",
-            "baseName": "period_end",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "period_start",
-            "baseName": "period_start",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string | Account",
-            "format": ""
-        },
-        {
-            "name": "price",
-            "baseName": "price",
-            "type": "string | Price",
             "format": ""
         },
         {
@@ -124,21 +124,21 @@ export class InvoiceAllOf {
             "format": ""
         },
         {
-            "name": "status",
-            "baseName": "status",
-            "type": "InvoiceAllOfStatusEnum",
-            "format": ""
-        },
-        {
-            "name": "subscription",
-            "baseName": "subscription",
-            "type": "string | Subscription",
-            "format": ""
-        },
-        {
-            "name": "trial_period_days",
-            "baseName": "trial_period_days",
+            "name": "due",
+            "baseName": "due",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "notify",
+            "baseName": "notify",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
             "format": ""
         }    ];
 
@@ -151,6 +151,6 @@ export class InvoiceAllOf {
 }
 
 
-export type InvoiceAllOfChainEnum = "eth" | "sol" ;
 export type InvoiceAllOfStatusEnum = "open" | "paid" | "void" | "past_due" | "uncollectible" ;
+export type InvoiceAllOfChainEnum = "eth" | "sol" ;
 

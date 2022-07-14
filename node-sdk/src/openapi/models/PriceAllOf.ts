@@ -17,16 +17,16 @@ import { HttpFile } from '../http/http';
 
 export class PriceAllOf {
     'account': string | Account;
+    'platform_account'?: string | Account;
     'amount': number;
-    'application_fee_percent'?: number;
-    'archived'?: boolean;
+    'currency': string;
+    'chain': string;
+    'product'?: string | Product;
     'base_price'?: PriceAllOfBasePrice;
     'billing_period_days'?: number;
-    'chain': string;
-    'currency': string;
+    'application_fee_percent'?: number;
+    'archived'?: boolean;
     'metadata'?: any;
-    'platform_account'?: string | Account;
-    'product'?: string | Product;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -38,8 +38,44 @@ export class PriceAllOf {
             "format": ""
         },
         {
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string | Account",
+            "format": ""
+        },
+        {
             "name": "amount",
             "baseName": "amount",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "product",
+            "baseName": "product",
+            "type": "string | Product",
+            "format": ""
+        },
+        {
+            "name": "base_price",
+            "baseName": "base_price",
+            "type": "PriceAllOfBasePrice",
+            "format": ""
+        },
+        {
+            "name": "billing_period_days",
+            "baseName": "billing_period_days",
             "type": "number",
             "format": ""
         },
@@ -56,45 +92,9 @@ export class PriceAllOf {
             "format": ""
         },
         {
-            "name": "base_price",
-            "baseName": "base_price",
-            "type": "PriceAllOfBasePrice",
-            "format": ""
-        },
-        {
-            "name": "billing_period_days",
-            "baseName": "billing_period_days",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "metadata",
             "baseName": "metadata",
             "type": "any",
-            "format": ""
-        },
-        {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string | Account",
-            "format": ""
-        },
-        {
-            "name": "product",
-            "baseName": "product",
-            "type": "string | Product",
             "format": ""
         }    ];
 

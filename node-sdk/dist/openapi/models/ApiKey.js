@@ -12,16 +12,16 @@ exports.ApiKey = ApiKey;
 ApiKey.discriminator = undefined;
 ApiKey.attributeTypeMap = [
     {
-        "name": "created",
-        "baseName": "created",
-        "type": "Date",
-        "format": "date-time"
-    },
-    {
         "name": "id",
         "baseName": "id",
         "type": "string",
         "format": ""
+    },
+    {
+        "name": "created",
+        "baseName": "created",
+        "type": "Date",
+        "format": "date-time"
     },
     {
         "name": "object",
@@ -54,9 +54,9 @@ ApiKey.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "last_used",
-        "baseName": "last_used",
-        "type": "number",
+        "name": "type",
+        "baseName": "type",
+        "type": "ApiKeyTypeEnum",
         "format": ""
     },
     {
@@ -66,9 +66,9 @@ ApiKey.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "type",
-        "baseName": "type",
-        "type": "ApiKeyTypeEnum",
+        "name": "last_used",
+        "baseName": "last_used",
+        "type": "number",
         "format": ""
     }
 ];

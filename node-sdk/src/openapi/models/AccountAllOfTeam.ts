@@ -13,22 +13,22 @@
 import { HttpFile } from '../http/http';
 
 export class AccountAllOfTeam {
-    'owner'?: boolean;
     'user'?: string;
+    'owner'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "owner",
-            "baseName": "owner",
-            "type": "boolean",
-            "format": ""
-        },
-        {
             "name": "user",
             "baseName": "user",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "owner",
+            "baseName": "owner",
+            "type": "boolean",
             "format": ""
         }    ];
 

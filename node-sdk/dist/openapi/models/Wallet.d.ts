@@ -1,8 +1,8 @@
 import { Account } from './Account';
 import { Customer } from './Customer';
 export declare class Wallet {
-    'created': Date;
     'id': string;
+    'created': Date;
     'object': string;
     'test': boolean;
     'account': string | Account;

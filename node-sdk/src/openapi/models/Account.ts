@@ -19,34 +19,34 @@ import { PayoutWallet } from './PayoutWallet';
 import { HttpFile } from '../http/http';
 
 export class Account {
-    'created': Date;
     'id': string;
+    'created': Date;
     'object': string;
     'test': boolean;
-    'application_fee_percent': number;
-    'business_profile'?: AccountAllOfBusinessProfile;
+    'platform_account': boolean;
     'connected_accounts'?: Array<Account>;
     'parent_account'?: string | Account;
-    'payout_wallets'?: Array<PayoutWallet>;
-    'platform_account': boolean;
-    'settings'?: AccountAllOfSettings;
     'team'?: Array<AccountAllOfTeam>;
+    'payout_wallets'?: Array<PayoutWallet>;
+    'application_fee_percent': number;
     'verified'?: boolean;
+    'settings'?: AccountAllOfSettings;
+    'business_profile'?: AccountAllOfBusinessProfile;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
             "name": "id",
             "baseName": "id",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "Date",
+            "format": "date-time"
         },
         {
             "name": "object",
@@ -61,15 +61,9 @@ export class Account {
             "format": ""
         },
         {
-            "name": "application_fee_percent",
-            "baseName": "application_fee_percent",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "business_profile",
-            "baseName": "business_profile",
-            "type": "AccountAllOfBusinessProfile",
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "boolean",
             "format": ""
         },
         {
@@ -85,14 +79,26 @@ export class Account {
             "format": ""
         },
         {
+            "name": "team",
+            "baseName": "team",
+            "type": "Array<AccountAllOfTeam>",
+            "format": ""
+        },
+        {
             "name": "payout_wallets",
             "baseName": "payout_wallets",
             "type": "Array<PayoutWallet>",
             "format": ""
         },
         {
-            "name": "platform_account",
-            "baseName": "platform_account",
+            "name": "application_fee_percent",
+            "baseName": "application_fee_percent",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "verified",
+            "baseName": "verified",
             "type": "boolean",
             "format": ""
         },
@@ -103,15 +109,9 @@ export class Account {
             "format": ""
         },
         {
-            "name": "team",
-            "baseName": "team",
-            "type": "Array<AccountAllOfTeam>",
-            "format": ""
-        },
-        {
-            "name": "verified",
-            "baseName": "verified",
-            "type": "boolean",
+            "name": "business_profile",
+            "baseName": "business_profile",
+            "type": "AccountAllOfBusinessProfile",
             "format": ""
         }    ];
 

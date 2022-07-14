@@ -16,31 +16,31 @@ import { Model } from './Model';
 import { HttpFile } from '../http/http';
 
 export class ApiKey {
-    'created': Date;
     'id': string;
+    'created': Date;
     'object': string;
     'test': boolean;
     'account': string | Account;
     'admin': boolean;
     'key': ApiKeyKeyEnum;
-    'last_used'?: number;
-    'name'?: string;
     'type': ApiKeyTypeEnum;
+    'name'?: string;
+    'last_used'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
             "name": "id",
             "baseName": "id",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "Date",
+            "format": "date-time"
         },
         {
             "name": "object",
@@ -73,9 +73,9 @@ export class ApiKey {
             "format": ""
         },
         {
-            "name": "last_used",
-            "baseName": "last_used",
-            "type": "number",
+            "name": "type",
+            "baseName": "type",
+            "type": "ApiKeyTypeEnum",
             "format": ""
         },
         {
@@ -85,9 +85,9 @@ export class ApiKey {
             "format": ""
         },
         {
-            "name": "type",
-            "baseName": "type",
-            "type": "ApiKeyTypeEnum",
+            "name": "last_used",
+            "baseName": "last_used",
+            "type": "number",
             "format": ""
         }    ];
 

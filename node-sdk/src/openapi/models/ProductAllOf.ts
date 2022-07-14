@@ -16,10 +16,10 @@ import { HttpFile } from '../http/http';
 
 export class ProductAllOf {
     'account': string | Account;
-    'active'?: boolean;
-    'description'?: string;
     'name': string;
+    'description'?: string;
     'prices'?: Array<Price>;
+    'active'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -31,9 +31,9 @@ export class ProductAllOf {
             "format": ""
         },
         {
-            "name": "active",
-            "baseName": "active",
-            "type": "boolean",
+            "name": "name",
+            "baseName": "name",
+            "type": "string",
             "format": ""
         },
         {
@@ -43,15 +43,15 @@ export class ProductAllOf {
             "format": ""
         },
         {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "prices",
             "baseName": "prices",
             "type": "Array<Price>",
+            "format": ""
+        },
+        {
+            "name": "active",
+            "baseName": "active",
+            "type": "boolean",
             "format": ""
         }    ];
 

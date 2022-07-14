@@ -15,26 +15,14 @@ import { AccountAllOfBusinessProfileSupport } from './AccountAllOfBusinessProfil
 import { HttpFile } from '../http/http';
 
 export class AccountAllOfBusinessProfile {
-    'business_description'?: string;
-    'links'?: AccountAllOfBusinessProfileLinks;
     'name'?: string;
+    'business_description'?: string;
     'support'?: AccountAllOfBusinessProfileSupport;
+    'links'?: AccountAllOfBusinessProfileLinks;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "business_description",
-            "baseName": "business_description",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "links",
-            "baseName": "links",
-            "type": "AccountAllOfBusinessProfileLinks",
-            "format": ""
-        },
         {
             "name": "name",
             "baseName": "name",
@@ -42,9 +30,21 @@ export class AccountAllOfBusinessProfile {
             "format": ""
         },
         {
+            "name": "business_description",
+            "baseName": "business_description",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "support",
             "baseName": "support",
             "type": "AccountAllOfBusinessProfileSupport",
+            "format": ""
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "AccountAllOfBusinessProfileLinks",
             "format": ""
         }    ];
 

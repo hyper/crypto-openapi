@@ -18,6 +18,12 @@ FeeAllOf.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string | Account",
+        "format": ""
+    },
+    {
         "name": "description",
         "baseName": "description",
         "type": "string",
@@ -39,12 +45,6 @@ FeeAllOf.attributeTypeMap = [
         "name": "percent",
         "baseName": "percent",
         "type": "number",
-        "format": ""
-    },
-    {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "string | Account",
         "format": ""
     },
     {

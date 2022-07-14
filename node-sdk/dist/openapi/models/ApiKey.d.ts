@@ -1,15 +1,15 @@
 import { Account } from './Account';
 export declare class ApiKey {
-    'created': Date;
     'id': string;
+    'created': Date;
     'object': string;
     'test': boolean;
     'account': string | Account;
     'admin': boolean;
     'key': ApiKeyKeyEnum;
-    'last_used'?: number;
-    'name'?: string;
     'type': ApiKeyTypeEnum;
+    'name'?: string;
+    'last_used'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

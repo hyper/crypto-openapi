@@ -14,20 +14,14 @@ import { CustomersIdBillingDetailsAddress } from './CustomersIdBillingDetailsAdd
 import { HttpFile } from '../http/http';
 
 export class AccountAllOfBusinessProfileSupport {
-    'address'?: CustomersIdBillingDetailsAddress;
     'email'?: string;
     'phone'?: string;
     'website'?: string;
+    'address'?: CustomersIdBillingDetailsAddress;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "address",
-            "baseName": "address",
-            "type": "CustomersIdBillingDetailsAddress",
-            "format": ""
-        },
         {
             "name": "email",
             "baseName": "email",
@@ -44,6 +38,12 @@ export class AccountAllOfBusinessProfileSupport {
             "name": "website",
             "baseName": "website",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "address",
+            "baseName": "address",
+            "type": "CustomersIdBillingDetailsAddress",
             "format": ""
         }    ];
 

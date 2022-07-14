@@ -18,9 +18,9 @@ ProductAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "active",
-        "baseName": "active",
-        "type": "boolean",
+        "name": "name",
+        "baseName": "name",
+        "type": "string",
         "format": ""
     },
     {
@@ -30,15 +30,15 @@ ProductAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "name",
-        "baseName": "name",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "prices",
         "baseName": "prices",
         "type": "Array<Price>",
+        "format": ""
+    },
+    {
+        "name": "active",
+        "baseName": "active",
+        "type": "boolean",
         "format": ""
     }
 ];

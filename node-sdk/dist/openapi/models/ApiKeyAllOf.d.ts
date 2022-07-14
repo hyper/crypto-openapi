@@ -3,9 +3,9 @@ export declare class ApiKeyAllOf {
     'account': string | Account;
     'admin': boolean;
     'key': ApiKeyAllOfKeyEnum;
-    'last_used'?: number;
-    'name'?: string;
     'type': ApiKeyAllOfTypeEnum;
+    'name'?: string;
+    'last_used'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

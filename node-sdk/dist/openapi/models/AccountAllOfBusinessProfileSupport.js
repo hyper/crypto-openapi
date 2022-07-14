@@ -12,12 +12,6 @@ exports.AccountAllOfBusinessProfileSupport = AccountAllOfBusinessProfileSupport;
 AccountAllOfBusinessProfileSupport.discriminator = undefined;
 AccountAllOfBusinessProfileSupport.attributeTypeMap = [
     {
-        "name": "address",
-        "baseName": "address",
-        "type": "CustomersIdBillingDetailsAddress",
-        "format": ""
-    },
-    {
         "name": "email",
         "baseName": "email",
         "type": "string",
@@ -33,6 +27,12 @@ AccountAllOfBusinessProfileSupport.attributeTypeMap = [
         "name": "website",
         "baseName": "website",
         "type": "string",
+        "format": ""
+    },
+    {
+        "name": "address",
+        "baseName": "address",
+        "type": "CustomersIdBillingDetailsAddress",
         "format": ""
     }
 ];

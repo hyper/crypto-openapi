@@ -16,29 +16,29 @@ import { NotificationAllOf } from './NotificationAllOf';
 import { HttpFile } from '../http/http';
 
 export class Notification {
-    'created': Date;
     'id': string;
+    'created': Date;
     'object': string;
     'test': boolean;
     'account': string | Account;
+    'type': NotificationTypeEnum;
     'data': any;
     'emails': Array<string>;
-    'type': NotificationTypeEnum;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
             "name": "id",
             "baseName": "id",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "Date",
+            "format": "date-time"
         },
         {
             "name": "object",
@@ -59,6 +59,12 @@ export class Notification {
             "format": ""
         },
         {
+            "name": "type",
+            "baseName": "type",
+            "type": "NotificationTypeEnum",
+            "format": ""
+        },
+        {
             "name": "data",
             "baseName": "data",
             "type": "any",
@@ -68,12 +74,6 @@ export class Notification {
             "name": "emails",
             "baseName": "emails",
             "type": "Array<string>",
-            "format": ""
-        },
-        {
-            "name": "type",
-            "baseName": "type",
-            "type": "NotificationTypeEnum",
             "format": ""
         }    ];
 

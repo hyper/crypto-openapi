@@ -1,7 +1,7 @@
 import { Account } from './Account';
 export declare class Webhook {
-    'created': Date;
     'id': string;
+    'created': Date;
     'object': string;
     'test': boolean;
     'account': string | Account;

@@ -12,16 +12,16 @@ exports.Product = Product;
 Product.discriminator = undefined;
 Product.attributeTypeMap = [
     {
-        "name": "created",
-        "baseName": "created",
-        "type": "Date",
-        "format": "date-time"
-    },
-    {
         "name": "id",
         "baseName": "id",
         "type": "string",
         "format": ""
+    },
+    {
+        "name": "created",
+        "baseName": "created",
+        "type": "Date",
+        "format": "date-time"
     },
     {
         "name": "object",
@@ -42,9 +42,9 @@ Product.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "active",
-        "baseName": "active",
-        "type": "boolean",
+        "name": "name",
+        "baseName": "name",
+        "type": "string",
         "format": ""
     },
     {
@@ -54,15 +54,15 @@ Product.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "name",
-        "baseName": "name",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "prices",
         "baseName": "prices",
         "type": "Array<Price>",
+        "format": ""
+    },
+    {
+        "name": "active",
+        "baseName": "active",
+        "type": "boolean",
         "format": ""
     }
 ];

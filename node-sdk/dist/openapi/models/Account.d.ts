@@ -3,19 +3,19 @@ import { AccountAllOfSettings } from './AccountAllOfSettings';
 import { AccountAllOfTeam } from './AccountAllOfTeam';
 import { PayoutWallet } from './PayoutWallet';
 export declare class Account {
-    'created': Date;
     'id': string;
+    'created': Date;
     'object': string;
     'test': boolean;
-    'application_fee_percent': number;
-    'business_profile'?: AccountAllOfBusinessProfile;
+    'platform_account': boolean;
     'connected_accounts'?: Array<Account>;
     'parent_account'?: string | Account;
-    'payout_wallets'?: Array<PayoutWallet>;
-    'platform_account': boolean;
-    'settings'?: AccountAllOfSettings;
     'team'?: Array<AccountAllOfTeam>;
+    'payout_wallets'?: Array<PayoutWallet>;
+    'application_fee_percent': number;
     'verified'?: boolean;
+    'settings'?: AccountAllOfSettings;
+    'business_profile'?: AccountAllOfBusinessProfile;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

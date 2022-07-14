@@ -19,33 +19,33 @@ import { Wallet } from './Wallet';
 import { HttpFile } from '../http/http';
 
 export class Customer {
-    'created': Date;
     'id': string;
+    'created': Date;
     'object': string;
     'test': boolean;
     'account': string | Account;
     'billing_details'?: CustomersIdBillingDetails;
     'email'?: string;
-    'last_payment': string | PaymentIntent;
     'name'?: string;
-    'payments': Array<PaymentIntent>;
     'phone'?: string;
     'wallets': Array<Wallet>;
+    'payments': Array<PaymentIntent>;
+    'last_payment': string | PaymentIntent;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
             "name": "id",
             "baseName": "id",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "Date",
+            "format": "date-time"
         },
         {
             "name": "object",
@@ -78,21 +78,9 @@ export class Customer {
             "format": ""
         },
         {
-            "name": "last_payment",
-            "baseName": "last_payment",
-            "type": "string | PaymentIntent",
-            "format": ""
-        },
-        {
             "name": "name",
             "baseName": "name",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "payments",
-            "baseName": "payments",
-            "type": "Array<PaymentIntent>",
             "format": ""
         },
         {
@@ -105,6 +93,18 @@ export class Customer {
             "name": "wallets",
             "baseName": "wallets",
             "type": "Array<Wallet>",
+            "format": ""
+        },
+        {
+            "name": "payments",
+            "baseName": "payments",
+            "type": "Array<PaymentIntent>",
+            "format": ""
+        },
+        {
+            "name": "last_payment",
+            "baseName": "last_payment",
+            "type": "string | PaymentIntent",
             "format": ""
         }    ];
 

@@ -1,6 +1,6 @@
 export declare class Log {
-    'created': Date;
     'id': string;
+    'created': Date;
     'object': string;
     'test': boolean;
     'api_key': string;

@@ -1,10 +1,10 @@
 import { AccountAllOfBusinessProfileLinks } from './AccountAllOfBusinessProfileLinks';
 import { AccountAllOfBusinessProfileSupport } from './AccountAllOfBusinessProfileSupport';
 export declare class AccountAllOfBusinessProfile {
-    'business_description'?: string;
-    'links'?: AccountAllOfBusinessProfileLinks;
     'name'?: string;
+    'business_description'?: string;
     'support'?: AccountAllOfBusinessProfileSupport;
+    'links'?: AccountAllOfBusinessProfileLinks;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -88,8 +88,8 @@ let body:.ProductsApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // CreateProductBody (optional)
   create_product_body: {
-    description: "description_example",
     name: "name_example",
+    description: "description_example",
   },
 };
 
@@ -279,8 +279,8 @@ let body:.ProductsApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // UpdateProductBody (optional)
   update_product_body: {
-    description: "description_example",
     name: "name_example",
+    description: "description_example",
   },
 };
 

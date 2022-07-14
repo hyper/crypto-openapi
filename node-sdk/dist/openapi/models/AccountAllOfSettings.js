@@ -12,12 +12,6 @@ exports.AccountAllOfSettings = AccountAllOfSettings;
 AccountAllOfSettings.discriminator = undefined;
 AccountAllOfSettings.attributeTypeMap = [
     {
-        "name": "billing",
-        "baseName": "billing",
-        "type": "AccountAllOfSettingsBilling",
-        "format": ""
-    },
-    {
         "name": "branding",
         "baseName": "branding",
         "type": "AccountAllOfSettingsBranding",
@@ -27,6 +21,12 @@ AccountAllOfSettings.attributeTypeMap = [
         "name": "payments",
         "baseName": "payments",
         "type": "AccountAllOfSettingsPayments",
+        "format": ""
+    },
+    {
+        "name": "billing",
+        "baseName": "billing",
+        "type": "AccountAllOfSettingsBilling",
         "format": ""
     }
 ];

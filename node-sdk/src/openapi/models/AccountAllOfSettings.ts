@@ -16,19 +16,13 @@ import { AccountAllOfSettingsPayments } from './AccountAllOfSettingsPayments';
 import { HttpFile } from '../http/http';
 
 export class AccountAllOfSettings {
-    'billing'?: AccountAllOfSettingsBilling;
     'branding'?: AccountAllOfSettingsBranding;
     'payments'?: AccountAllOfSettingsPayments;
+    'billing'?: AccountAllOfSettingsBilling;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "billing",
-            "baseName": "billing",
-            "type": "AccountAllOfSettingsBilling",
-            "format": ""
-        },
         {
             "name": "branding",
             "baseName": "branding",
@@ -39,6 +33,12 @@ export class AccountAllOfSettings {
             "name": "payments",
             "baseName": "payments",
             "type": "AccountAllOfSettingsPayments",
+            "format": ""
+        },
+        {
+            "name": "billing",
+            "baseName": "billing",
+            "type": "AccountAllOfSettingsBilling",
             "format": ""
         }    ];
 

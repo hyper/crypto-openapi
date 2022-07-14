@@ -4413,7 +4413,7 @@
     },
     {
       "description": "production",
-      "url": "https://api.pluto.rest/v1"
+      "url": "https://api.pluto.co/v1"
     }
   ],
   "tags": [
