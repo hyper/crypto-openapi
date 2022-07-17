@@ -1,1 +1,1 @@
-## Prism OpenAPI Specification
+## Pluto OpenAPI Specification
