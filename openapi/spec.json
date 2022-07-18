@@ -160,7 +160,7 @@
               },
               "connected_accounts": {
                 "items": {
-                  "$ref": "#/components/schemas/Account"
+                  "type": "string"
                 },
                 "type": "array"
               },

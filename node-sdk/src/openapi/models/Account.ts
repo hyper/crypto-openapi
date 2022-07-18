@@ -24,7 +24,7 @@ export class Account {
     'object': string;
     'test': boolean;
     'platform_account': boolean;
-    'connected_accounts'?: Array<Account>;
+    'connected_accounts'?: Array<string>;
     'parent_account'?: string | Account;
     'team'?: Array<AccountAllOfTeam>;
     'payout_wallets'?: Array<PayoutWallet>;
@@ -69,7 +69,7 @@ export class Account {
         {
             "name": "connected_accounts",
             "baseName": "connected_accounts",
-            "type": "Array<Account>",
+            "type": "Array<string>",
             "format": ""
         },
         {

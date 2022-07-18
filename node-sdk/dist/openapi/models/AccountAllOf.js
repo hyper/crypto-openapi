@@ -20,7 +20,7 @@ AccountAllOf.attributeTypeMap = [
     {
         "name": "connected_accounts",
         "baseName": "connected_accounts",
-        "type": "Array<Account>",
+        "type": "Array<string>",
         "format": ""
     },
     {

@@ -5,7 +5,7 @@ import { AccountAllOfTeam } from './AccountAllOfTeam';
 import { PayoutWallet } from './PayoutWallet';
 export declare class AccountAllOf {
     'platform_account': boolean;
-    'connected_accounts'?: Array<Account>;
+    'connected_accounts'?: Array<string>;
     'parent_account'?: string | Account;
     'team'?: Array<AccountAllOfTeam>;
     'payout_wallets'?: Array<PayoutWallet>;
