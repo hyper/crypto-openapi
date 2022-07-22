@@ -260,6 +260,12 @@ export interface CustomersApiListRequest {
      * @memberof CustomersApilist
      */
     pluto_account?: string
+    /**
+     * Email of the customer.
+     * @type string
+     * @memberof CustomersApilist
+     */
+    email?: string
 }
 
 export interface CustomersApiRetrieveRequest {
@@ -324,7 +330,7 @@ export class ObjectCustomersApi {
      * @param param the request object
      */
     public list(param: CustomersApiListRequest = {}, options?: Configuration): Promise<ListCustomersResponse> {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account,  options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account, param.email,  options).toPromise();
     }
 
     /**

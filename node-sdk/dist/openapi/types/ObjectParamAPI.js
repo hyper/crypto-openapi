@@ -29,7 +29,7 @@ class ObjectCustomersApi {
         return this.api.create(param.pluto_account, param.create_customer_body, options).toPromise();
     }
     list(param = {}, options) {
-        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account, options).toPromise();
+        return this.api.list(param.limit, param.page, param.sort, param.expand, param.pluto_account, param.email, options).toPromise();
     }
     retrieve(param, options) {
         return this.api.retrieve(param.id, param.expand, param.pluto_account, options).toPromise();

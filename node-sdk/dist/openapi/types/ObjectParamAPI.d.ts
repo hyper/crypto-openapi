@@ -79,6 +79,7 @@ export interface CustomersApiListRequest {
     sort?: any;
     expand?: string;
     pluto_account?: string;
+    email?: string;
 }
 export interface CustomersApiRetrieveRequest {
     id: string;

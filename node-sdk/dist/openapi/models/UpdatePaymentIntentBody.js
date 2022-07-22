@@ -16,6 +16,12 @@ UpdatePaymentIntentBody.attributeTypeMap = [
         "baseName": "hash",
         "type": "string",
         "format": ""
+    },
+    {
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "any",
+        "format": ""
     }
 ];
 //# sourceMappingURL=UpdatePaymentIntentBody.js.map

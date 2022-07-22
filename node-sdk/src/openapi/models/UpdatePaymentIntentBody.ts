@@ -14,6 +14,7 @@ import { HttpFile } from '../http/http';
 
 export class UpdatePaymentIntentBody {
     'hash'?: string;
+    'metadata'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,6 +23,12 @@ export class UpdatePaymentIntentBody {
             "name": "hash",
             "baseName": "hash",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "any",
             "format": ""
         }    ];
 

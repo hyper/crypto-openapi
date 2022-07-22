@@ -244,9 +244,10 @@ export class ObservableCustomersApi {
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
      * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param email Email of the customer.
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListCustomersResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
+    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, email?: string, _options?: Configuration): Observable<ListCustomersResponse> {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, email, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);

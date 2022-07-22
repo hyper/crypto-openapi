@@ -108,6 +108,8 @@ let body:.CustomersApiListRequest = {
   expand: "expand_example",
   // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
   pluto_account: "Pluto-Account_example",
+  // string | Email of the customer. (optional)
+  email: "email_example",
 };
 
 apiInstance.list(body).then((data:any) => {
@@ -125,6 +127,7 @@ Name | Type | Description  | Notes
  **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
  **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
  **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
+ **email** | [**string**] | Email of the customer. | (optional) defaults to undefined
 
 
 ### Return type

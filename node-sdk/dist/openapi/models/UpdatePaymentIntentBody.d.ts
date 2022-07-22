@@ -1,5 +1,6 @@
 export declare class UpdatePaymentIntentBody {
     'hash'?: string;
+    'metadata'?: any;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

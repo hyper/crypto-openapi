@@ -33,8 +33,8 @@ class PromiseCustomersApi {
         const result = this.api.create(pluto_account, create_customer_body, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
+    list(limit, page, sort, expand, pluto_account, email, _options) {
+        const result = this.api.list(limit, page, sort, expand, pluto_account, email, _options);
         return result.toPromise();
     }
     retrieve(id, expand, pluto_account, _options) {

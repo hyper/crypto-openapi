@@ -1567,6 +1567,14 @@
           },
           {
             "$ref": "#/components/parameters/Pluto-Account"
+          },
+          {
+            "description": "Email of the customer.",
+            "in": "query",
+            "name": "email",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2705,6 +2713,9 @@
                 "properties": {
                   "hash": {
                     "type": "string"
+                  },
+                  "metadata": {
+                    "type": "object"
                   }
                 },
                 "title": "UpdatePaymentIntentBody",

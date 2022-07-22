@@ -345,6 +345,7 @@ let body:.PaymentIntentsApiUpdateRequest = {
   // UpdatePaymentIntentBody (optional)
   update_payment_intent_body: {
     hash: "hash_example",
+    metadata: {},
   },
 };
 

@@ -69,9 +69,11 @@ export class CustomersApiRequestFactory extends BaseAPIRequestFactory {
      * @param sort Specifies whether documents are sorted in an ascending or descending order.
      * @param expand Specifies which fields to populate in the response.
      * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param email Email of the customer.
      */
-    public async list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<RequestContext> {
+    public async list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, email?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -103,6 +105,11 @@ export class CustomersApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (expand !== undefined) {
             requestContext.setQueryParam("expand", ObjectSerializer.serialize(expand, "string", ""));
+        }
+
+        // Query Params
+        if (email !== undefined) {
+            requestContext.setQueryParam("email", ObjectSerializer.serialize(email, "string", ""));
         }
 
         // Header Params

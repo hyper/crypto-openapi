@@ -57,7 +57,7 @@ export declare class ObservableCustomersApi {
     private configuration;
     constructor(configuration: Configuration, requestFactory?: CustomersApiRequestFactory, responseProcessor?: CustomersApiResponseProcessor);
     create(pluto_account?: string, create_customer_body?: CreateCustomerBody, _options?: Configuration): Observable<Customer>;
-    list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListCustomersResponse>;
+    list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, email?: string, _options?: Configuration): Observable<ListCustomersResponse>;
     retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Customer>;
     update(id: string, pluto_account?: string, update_customer_body?: UpdateCustomerBody, _options?: Configuration): Observable<Customer>;
 }

@@ -94,8 +94,8 @@ class ObservableCustomersApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
         }));
     }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
+    list(limit, page, sort, expand, pluto_account, email, _options) {
+        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, email, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));

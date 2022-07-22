@@ -39,7 +39,7 @@ class CustomersApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    list(limit, page, sort, expand, pluto_account, _options) {
+    list(limit, page, sort, expand, pluto_account, email, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -57,6 +57,9 @@ class CustomersApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             }
             if (expand !== undefined) {
                 requestContext.setQueryParam("expand", ObjectSerializer_1.ObjectSerializer.serialize(expand, "string", ""));
+            }
+            if (email !== undefined) {
+                requestContext.setQueryParam("email", ObjectSerializer_1.ObjectSerializer.serialize(email, "string", ""));
             }
             if (pluto_account !== undefined) {
                 requestContext.setHeaderParam("Pluto-Account", ObjectSerializer_1.ObjectSerializer.serialize(pluto_account, "string", ""));
