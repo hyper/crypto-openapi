@@ -46,30 +46,30 @@
     },
     "responses": {
       "400": {
+        "description": "Bad Request",
         "content": {
           "application/json": {
             "schema": {
+              "type": "object",
               "properties": {
                 "error": {
+                  "type": "object",
                   "properties": {
-                    "message": {
+                    "param": {
                       "type": "string"
                     },
-                    "param": {
+                    "message": {
                       "type": "string"
                     },
                     "type": {
                       "type": "string"
                     }
-                  },
-                  "type": "object"
+                  }
                 }
-              },
-              "type": "object"
+              }
             }
           }
-        },
-        "description": "Bad Request"
+        }
       },
       "401": {
         "description": "Unauthorized"
@@ -85,85 +85,8 @@
             "$ref": "#/components/schemas/Model"
           },
           {
+            "type": "object",
             "properties": {
-              "application_fee_percent": {
-                "default": 1,
-                "type": "number"
-              },
-              "business_profile": {
-                "properties": {
-                  "business_description": {
-                    "type": "string"
-                  },
-                  "links": {
-                    "properties": {
-                      "email": {
-                        "type": "string"
-                      },
-                      "instagram": {
-                        "type": "string"
-                      },
-                      "tiktok": {
-                        "type": "string"
-                      },
-                      "twitter": {
-                        "type": "string"
-                      },
-                      "website": {
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "support": {
-                    "properties": {
-                      "address": {
-                        "properties": {
-                          "city": {
-                            "type": "string"
-                          },
-                          "country": {
-                            "type": "string"
-                          },
-                          "line1": {
-                            "type": "string"
-                          },
-                          "line2": {
-                            "type": "string"
-                          },
-                          "postal_code": {
-                            "type": "string"
-                          },
-                          "state": {
-                            "type": "string"
-                          }
-                        },
-                        "type": "object"
-                      },
-                      "email": {
-                        "type": "string"
-                      },
-                      "phone": {
-                        "type": "string"
-                      },
-                      "website": {
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
-                  }
-                },
-                "type": "object"
-              },
-              "connected_accounts": {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
               "parent_account": {
                 "oneOf": [
                   {
@@ -174,73 +97,158 @@
                   }
                 ]
               },
-              "payout_wallets": {
+              "connected_accounts": {
+                "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/PayoutWallet"
-                },
-                "type": "array"
+                  "type": "string"
+                }
               },
               "platform_account": {
                 "default": false,
                 "type": "boolean"
               },
-              "settings": {
-                "properties": {
-                  "billing": {
-                    "properties": {
-                      "retry_period_days": {
-                        "default": 14,
-                        "type": "number"
-                      }
+              "application_fee_percent": {
+                "type": "number",
+                "default": 1
+              },
+              "team": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "type": "string"
                     },
-                    "type": "object"
+                    "owner": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              },
+              "verified": {
+                "type": "boolean",
+                "default": false
+              },
+              "business_profile": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
                   },
+                  "product_description": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "support_url": {
+                    "type": "string"
+                  },
+                  "support_email": {
+                    "type": "string"
+                  },
+                  "support_phone": {
+                    "type": "string"
+                  },
+                  "support_address": {
+                    "$ref": "#/components/schemas/Address"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "settings": {
+                "type": "object",
+                "properties": {
                   "branding": {
+                    "type": "object",
                     "properties": {
                       "logo": {
                         "type": "string"
                       }
-                    },
-                    "type": "object"
+                    }
                   },
                   "payments": {
+                    "type": "object",
                     "properties": {
                       "invoice_prefix": {
                         "type": "string"
+                      },
+                      "invoice_reminder_frequency": {
+                        "type": "number",
+                        "default": 3
                       }
-                    },
-                    "type": "object"
-                  }
-                },
-                "type": "object"
-              },
-              "team": {
-                "items": {
-                  "properties": {
-                    "owner": {
-                      "type": "boolean"
-                    },
-                    "user": {
-                      "type": "string"
                     }
                   },
-                  "type": "object"
-                },
-                "type": "array"
+                  "billing": {
+                    "type": "object",
+                    "properties": {
+                      "retry_period_days": {
+                        "type": "number",
+                        "default": 14
+                      }
+                    }
+                  }
+                }
               },
-              "verified": {
-                "default": false,
-                "type": "boolean"
+              "integrations": {
+                "type": "object",
+                "properties": {
+                  "ftx": {
+                    "type": "object",
+                    "properties": {
+                      "nickname": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "payout_wallets": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PayoutWallet"
+                }
               }
             },
-            "required": ["platform_account", "application_fee_percent"],
-            "type": "object"
+            "required": [
+              "platform_account",
+              "application_fee_percent"
+            ]
           }
         ],
         "description": "",
         "title": "Account",
+        "x-internal": false,
+        "x-examples": {}
+      },
+      "Address": {
+        "description": "",
+        "title": "Address",
+        "x-internal": true,
         "x-examples": {},
-        "x-internal": false
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "line1": {
+            "type": "string"
+          },
+          "line2": {
+            "type": "string"
+          },
+          "postal_code": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        }
       },
       "ApiKey": {
         "allOf": [
@@ -248,6 +256,7 @@
             "$ref": "#/components/schemas/Model"
           },
           {
+            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -259,27 +268,43 @@
                   }
                 ]
               },
-              "admin": {
-                "default": false,
-                "type": "boolean"
-              },
-              "key": {
-                "enum": ["publishable", "secret", "restricted"],
-                "type": "string"
-              },
-              "last_used": {
-                "type": "number"
-              },
               "name": {
                 "type": "string"
               },
-              "type": {
-                "enum": ["publishable", "secret", "restricted"],
+              "note": {
                 "type": "string"
+              },
+              "key": {
+                "type": "string",
+                "enum": [
+                  "publishable",
+                  "secret",
+                  "restricted"
+                ]
+              },
+              "type": {
+                "enum": [
+                  "publishable",
+                  "secret",
+                  "restricted"
+                ],
+                "type": "string"
+              },
+              "last_used": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "admin": {
+                "default": false,
+                "type": "boolean"
               }
             },
-            "required": ["account", "admin", "key", "type"],
-            "type": "object"
+            "required": [
+              "account",
+              "key",
+              "type",
+              "admin"
+            ]
           }
         ],
         "description": "",
@@ -292,6 +317,7 @@
             "$ref": "#/components/schemas/Model"
           },
           {
+            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -303,38 +329,124 @@
                   }
                 ]
               },
-              "billing_details": {
-                "properties": {
-                  "address": {
-                    "properties": {
-                      "city": {
-                        "type": "string"
-                      },
-                      "country": {
-                        "type": "string"
-                      },
-                      "line1": {
-                        "type": "string"
-                      },
-                      "line2": {
-                        "type": "string"
-                      },
-                      "postal_code": {
-                        "type": "string"
-                      },
-                      "state": {
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
-                  }
-                },
-                "type": "object"
+              "name": {
+                "type": "string"
               },
               "email": {
                 "type": "string"
               },
+              "phone": {
+                "type": "string"
+              },
+              "billing_details": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "$ref": "#/components/schemas/Address"
+                  }
+                }
+              },
+              "wallets": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Wallet"
+                }
+              },
+              "payments": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PaymentIntent"
+                }
+              },
               "last_payment": {
+                "oneOf": [
+                  {
+                    "nullable": true
+                  },
+                  {
+                    "$ref": "#/components/schemas/PaymentIntent"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "account",
+              "wallets",
+              "payments",
+              "last_payment"
+            ]
+          }
+        ],
+        "title": "Customer",
+        "description": ""
+      },
+      "Checkout": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "platform_account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "status": {
+                "type": "string",
+                "default": "processing",
+                "enum": [
+                  "processing",
+                  "requires_confirmation",
+                  "succeeded",
+                  "failed"
+                ]
+              },
+              "customer_details": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "email"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                }
+              },
+              "amount": {
+                "type": "number"
+              },
+              "payment_link": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/PaymentLink"
+                  }
+                ]
+              },
+              "payment_intent": {
                 "oneOf": [
                   {
                     "type": "string"
@@ -344,30 +456,34 @@
                   }
                 ]
               },
-              "name": {
+              "customer": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                ]
+              },
+              "last_payment_error": {
                 "type": "string"
-              },
-              "payments": {
-                "items": {
-                  "$ref": "#/components/schemas/PaymentIntent"
-                },
-                "type": "array"
-              },
-              "phone": {
-                "type": "string"
-              },
-              "wallets": {
-                "items": {
-                  "$ref": "#/components/schemas/Wallet"
-                },
-                "type": "array"
               }
             },
-            "required": ["account", "wallets", "payments", "last_payment"],
-            "type": "object"
+            "required": [
+              "account",
+              "platform_account",
+              "customer_details",
+              "amount",
+              "payment_link",
+              "payment_intent",
+              "customer",
+              "last_payment_error"
+            ]
           }
         ],
-        "title": "Customer"
+        "title": "Checkout",
+        "description": ""
       },
       "Fee": {
         "allOf": [
@@ -375,6 +491,7 @@
             "$ref": "#/components/schemas/Model"
           },
           {
+            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -386,8 +503,15 @@
                   }
                 ]
               },
-              "description": {
-                "type": "string"
+              "platform_account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
               },
               "internal": {
                 "type": "boolean"
@@ -402,22 +526,6 @@
                   }
                 ]
               },
-              "percent": {
-                "maximum": 100,
-                "minimum": 0,
-                "type": "number"
-              },
-              "platform_account": {
-                "oneOf": [
-                  {
-                    "properties": {},
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Account"
-                  }
-                ]
-              },
               "wallet": {
                 "oneOf": [
                   {
@@ -427,20 +535,27 @@
                     "$ref": "#/components/schemas/PayoutWallet"
                   }
                 ]
+              },
+              "percent": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "description": {
+                "type": "string"
               }
             },
             "required": [
               "account",
               "internal",
               "payment_intent",
-              "percent",
-              "wallet"
-            ],
-            "type": "object"
+              "wallet",
+              "percent"
+            ]
           }
         ],
-        "description": "",
-        "title": "Fee"
+        "title": "Fee",
+        "description": ""
       },
       "Invoice": {
         "allOf": [
@@ -448,6 +563,7 @@
             "$ref": "#/components/schemas/Model"
           },
           {
+            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -459,65 +575,6 @@
                   }
                 ]
               },
-              "amount": {
-                "type": "number"
-              },
-              "chain": {
-                "enum": ["eth", "sol"],
-                "type": "string"
-              },
-              "customer": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Customer"
-                  }
-                ]
-              },
-              "due": {
-                "type": "number"
-              },
-              "line_items": {
-                "items": {
-                  "properties": {
-                    "price": {
-                      "oneOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "$ref": "#/components/schemas/Price"
-                        }
-                      ]
-                    },
-                    "price_data": {
-                      "type": "object"
-                    },
-                    "quantity": {
-                      "type": "number"
-                    }
-                  },
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              "metadata": {
-                "type": "object"
-              },
-              "notify": {
-                "type": "boolean"
-              },
-              "number": {
-                "type": "string"
-              },
-              "period_end": {
-                "type": "number"
-              },
-              "period_start": {
-                "type": "number"
-              },
               "platform_account": {
                 "oneOf": [
                   {
@@ -527,6 +584,19 @@
                     "$ref": "#/components/schemas/Account"
                   }
                 ]
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "open",
+                  "paid",
+                  "void",
+                  "past_due",
+                  "uncollectible"
+                ]
+              },
+              "number": {
+                "type": "string"
               },
               "price": {
                 "oneOf": [
@@ -538,12 +608,25 @@
                   }
                 ]
               },
-              "send_reminders": {
-                "type": "boolean"
+              "customer": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                ]
               },
-              "status": {
-                "enum": ["open", "paid", "void", "past_due", "uncollectible"],
-                "type": "string"
+              "line_items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/LineItem"
+                }
+              },
+              "trial_period_days": {
+                "type": "number",
+                "default": 0
               },
               "subscription": {
                 "oneOf": [
@@ -555,8 +638,20 @@
                   }
                 ]
               },
-              "trial_period_days": {
+              "period_start": {
                 "type": "number"
+              },
+              "period_end": {
+                "type": "number"
+              },
+              "due": {
+                "type": "number"
+              },
+              "notify": {
+                "type": "boolean"
+              },
+              "metadata": {
+                "type": "object"
               }
             },
             "required": [
@@ -565,14 +660,41 @@
               "number",
               "price",
               "customer",
-              "chain",
-              "amount",
               "notify"
-            ],
-            "type": "object"
+            ]
           }
         ],
         "title": "Invoice"
+      },
+      "LineItem": {
+        "title": "Line Item",
+        "description": "",
+        "type": "object",
+        "properties": {
+          "price": {
+            "oneOf": [
+              {
+                "type": "string",
+                "properties": {}
+              },
+              {
+                "$ref": "#/components/schemas/Price"
+              }
+            ]
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "price_data": {
+            "$ref": "#/components/schemas/Price"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "quantity"
+        ]
       },
       "Log": {
         "allOf": [
@@ -598,7 +720,11 @@
                 "type": "string"
               },
               "method": {
-                "enum": ["POST", "PATCH", "DELETE"],
+                "enum": [
+                  "POST",
+                  "PATCH",
+                  "DELETE"
+                ],
                 "type": "string"
               },
               "origin": {
@@ -630,13 +756,15 @@
         "x-internal": true
       },
       "Model": {
+        "title": "Model",
+        "type": "object",
         "properties": {
-          "created": {
-            "format": "date-time",
-            "type": "string"
-          },
           "id": {
             "pattern": "^[a-z]{2,4}_[A-Za-z0-9]{21}$",
+            "type": "string"
+          },
+          "created": {
+            "format": "date-time",
             "type": "string"
           },
           "object": {
@@ -647,16 +775,25 @@
             "type": "boolean"
           }
         },
-        "required": ["id", "created", "object", "test"],
-        "title": "Model",
-        "type": "object"
+        "required": [
+          "id",
+          "created",
+          "object",
+          "test"
+        ]
       },
       "Notification": {
+        "title": "Notification",
+        "x-stoplight": {
+          "id": "box03v954vyx6"
+        },
+        "description": "",
         "allOf": [
           {
             "$ref": "#/components/schemas/Model"
           },
           {
+            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -668,16 +805,8 @@
                   }
                 ]
               },
-              "data": {
-                "type": "object"
-              },
-              "emails": {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
               "type": {
+                "type": "string",
                 "enum": [
                   "invoice.open",
                   "invoice.uncollectible",
@@ -686,20 +815,27 @@
                   "payment_intent.succeeded",
                   "login",
                   "team.invite"
-                ],
-                "type": "string"
+                ]
+              },
+              "data": {
+                "type": "object"
+              },
+              "emails": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               }
             },
-            "required": ["account", "type", "data", "emails"],
-            "type": "object"
+            "required": [
+              "account",
+              "type",
+              "data",
+              "emails"
+            ]
           }
         ],
-        "description": "",
-        "title": "Notification",
-        "x-internal": true,
-        "x-stoplight": {
-          "id": "box03v954vyx6"
-        }
+        "x-internal": true
       },
       "PaymentIntent": {
         "allOf": [
@@ -707,6 +843,7 @@
             "$ref": "#/components/schemas/Model"
           },
           {
+            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -718,42 +855,15 @@
                   }
                 ]
               },
-              "amount": {
-                "exclusiveMinimum": true,
-                "minimum": 0,
-                "type": "number"
-              },
-              "application_fee_percent": {
-                "type": "number"
-              },
-              "chain": {
-                "default": "pending",
-                "enum": ["eth", "sol"],
-                "type": "string"
-              },
-              "currency": {
-                "default": "eth",
-                "enum": ["eth", "sol"],
-                "type": "string"
-              },
-              "customer": {
+              "platform_account": {
                 "oneOf": [
                   {
                     "type": "string"
                   },
                   {
-                    "$ref": "#/components/schemas/Customer"
+                    "$ref": "#/components/schemas/Account"
                   }
                 ]
-              },
-              "exchange_rate": {
-                "type": "number"
-              },
-              "fees": {
-                "items": {
-                  "$ref": "#/components/schemas/Fee"
-                },
-                "type": "array"
               },
               "hash": {
                 "type": "string"
@@ -769,43 +879,23 @@
                   }
                 ]
               },
-              "last_payment_error": {
-                "type": "string"
-              },
-              "line_items": {
-                "items": {
-                  "properties": {
-                    "price": {
-                      "oneOf": [
-                        {
-                          "type": "object"
-                        },
-                        {
-                          "$ref": "#/components/schemas/Price"
-                        }
-                      ]
-                    },
-                    "price_data": {
-                      "type": "object"
-                    },
-                    "quantity": {
-                      "type": "number"
-                    }
-                  },
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              "metadata": {
-                "type": "object"
-              },
-              "platform_account": {
+              "subscription": {
                 "oneOf": [
                   {
                     "type": "string"
                   },
                   {
-                    "$ref": "#/components/schemas/Account"
+                    "$ref": "#/components/schemas/Subscription"
+                  }
+                ]
+              },
+              "checkout": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Subscription"
                   }
                 ]
               },
@@ -819,34 +909,21 @@
                   }
                 ]
               },
-              "status": {
-                "default": "pending",
-                "enum": [
-                  "failed",
-                  "succeeded",
-                  "canceled",
-                  "requires_confirmation"
-                ],
-                "type": "string"
+              "line_items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/LineItem"
+                }
               },
-              "subscription": {
+              "customer": {
                 "oneOf": [
                   {
                     "type": "string"
                   },
                   {
-                    "$ref": "#/components/schemas/Subscription"
+                    "$ref": "#/components/schemas/Customer"
                   }
                 ]
-              },
-              "transfers": {
-                "items": {
-                  "$ref": "#/components/schemas/Transfer"
-                },
-                "type": "array"
-              },
-              "usd_amount": {
-                "type": "number"
               },
               "wallet": {
                 "oneOf": [
@@ -857,28 +934,87 @@
                     "$ref": "#/components/schemas/Wallet"
                   }
                 ]
+              },
+              "amount": {
+                "exclusiveMinimum": true,
+                "minimum": 0,
+                "type": "number"
+              },
+              "usd_amount": {
+                "type": "number"
+              },
+              "exchange_rate": {
+                "type": "number"
+              },
+              "application_fee_percent": {
+                "type": "number"
+              },
+              "status": {
+                "type": "string",
+                "default": "pending",
+                "enum": [
+                  "failed",
+                  "succeeded",
+                  "canceled",
+                  "requires_confirmation"
+                ]
+              },
+              "chain": {
+                "default": "pending",
+                "enum": [
+                  "eth",
+                  "sol"
+                ],
+                "type": "string"
+              },
+              "currency": {
+                "default": "eth",
+                "enum": [
+                  "eth",
+                  "sol"
+                ],
+                "type": "string"
+              },
+              "last_payment_error": {
+                "type": "string"
+              },
+              "fees": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Fee"
+                }
+              },
+              "transfers": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Transfer"
+                }
+              },
+              "metadata": {
+                "type": "object"
               }
             },
             "required": [
+              "customer",
+              "amount",
               "status",
               "chain",
               "currency",
-              "amount",
-              "customer",
               "fees",
               "transfers"
-            ],
-            "type": "object"
+            ]
           }
         ],
-        "title": "PaymentIntent"
+        "title": "PaymentIntent",
+        "description": ""
       },
-      "PayoutWallet": {
+      "PaymentLink": {
         "allOf": [
           {
             "$ref": "#/components/schemas/Model"
           },
           {
+            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -890,33 +1026,155 @@
                   }
                 ]
               },
-              "address": {
+              "platform_account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "active": {
+                "type": "boolean"
+              },
+              "after_completion": {
+                "type": "object",
+                "properties": {
+                  "redirect_url": {
+                    "type": "string"
+                  },
+                  "hosted_confirmation_message": {
+                    "type": "string"
+                  }
+                }
+              },
+              "line_items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/LineItem"
+                }
+              },
+              "currency": {
+                "default": "eth",
+                "enum": [
+                  "eth",
+                  "sol"
+                ],
                 "type": "string"
               },
               "chain": {
-                "enum": ["eth", "sol"],
+                "default": "pending",
+                "enum": [
+                  "eth",
+                  "sol"
+                ],
+                "type": "string"
+              },
+              "expires_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "max_usages": {
+                "type": "number"
+              },
+              "remaining_stock": {
+                "type": "number"
+              },
+              "application_fee_percent": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "currency",
+              "chain"
+            ]
+          }
+        ],
+        "title": "PaymentLink",
+        "description": ""
+      },
+      "PayoutWallet": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "chain": {
+                "enum": [
+                  "eth",
+                  "sol"
+                ],
                 "type": "string"
               },
               "default": {
-                "default": true,
-                "type": "boolean"
+                "type": "boolean",
+                "default": true
+              },
+              "address": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "external",
+                  "ftx"
+                ],
+                "default": "external"
               }
             },
-            "required": ["account", "address", "chain"],
-            "type": "object"
+            "required": [
+              "account",
+              "chain",
+              "address",
+              "type"
+            ]
           }
         ],
         "description": "",
         "title": "PayoutWallet"
       },
       "Price": {
+        "title": "Price",
+        "x-stoplight": {
+          "id": "m0pyvk4d0thqq"
+        },
+        "x-examples": {},
         "allOf": [
           {
             "$ref": "#/components/schemas/Model"
           },
           {
+            "type": "object",
             "properties": {
               "account": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                ]
+              },
+              "platform_account": {
                 "oneOf": [
                   {
                     "type": "string"
@@ -929,47 +1187,25 @@
               "amount": {
                 "type": "number"
               },
-              "application_fee_percent": {
-                "maximum": 99,
-                "minimum": 0,
-                "type": "number"
-              },
-              "archived": {
-                "type": "boolean"
-              },
-              "base_price": {
+              "custom_amount": {
+                "type": "object",
                 "properties": {
-                  "amount": {
+                  "minimum": {
                     "type": "number"
                   },
-                  "currency": {
-                    "type": "string"
+                  "maximum": {
+                    "type": "number"
+                  },
+                  "default": {
+                    "type": "number"
                   }
-                },
-                "type": "object"
-              },
-              "billing_period_days": {
-                "minimum": 0,
-                "type": "number"
-              },
-              "chain": {
-                "type": "string"
+                }
               },
               "currency": {
                 "type": "string"
               },
-              "metadata": {
-                "type": "object"
-              },
-              "platform_account": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Account"
-                  }
-                ]
+              "chain": {
+                "type": "string"
               },
               "product": {
                 "oneOf": [
@@ -980,17 +1216,57 @@
                     "$ref": "#/components/schemas/Product"
                   }
                 ]
+              },
+              "base_price": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "number"
+                  },
+                  "custom_amount": {
+                    "type": "object",
+                    "properties": {
+                      "minimum": {
+                        "type": "number"
+                      },
+                      "maximum": {
+                        "type": "number"
+                      },
+                      "default": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "currency": {
+                    "type": "string"
+                  }
+                }
+              },
+              "billing_period_days": {
+                "type": "number",
+                "minimum": 0
+              },
+              "application_fee_percent": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 99
+              },
+              "archived": {
+                "type": "boolean"
+              },
+              "metadata": {
+                "type": "object"
               }
             },
-            "required": ["account", "amount", "currency", "chain"],
-            "type": "object"
+            "required": [
+              "account",
+              "amount",
+              "custom_amount",
+              "currency",
+              "chain"
+            ]
           }
-        ],
-        "title": "Price",
-        "x-examples": {},
-        "x-stoplight": {
-          "id": "m0pyvk4d0thqq"
-        }
+        ]
       },
       "Product": {
         "allOf": [
@@ -998,6 +1274,7 @@
             "$ref": "#/components/schemas/Model"
           },
           {
+            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -1009,25 +1286,27 @@
                   }
                 ]
               },
-              "active": {
-                "default": true,
-                "type": "boolean"
+              "name": {
+                "type": "string"
               },
               "description": {
                 "type": "string"
               },
-              "name": {
-                "type": "string"
+              "active": {
+                "type": "boolean",
+                "default": true
               },
               "prices": {
+                "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/Price"
-                },
-                "type": "array"
+                }
               }
             },
-            "required": ["account", "name"],
-            "type": "object"
+            "required": [
+              "account",
+              "name"
+            ]
           }
         ],
         "title": "Product"
@@ -1038,6 +1317,7 @@
             "$ref": "#/components/schemas/Model"
           },
           {
+            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -1048,62 +1328,6 @@
                     "$ref": "#/components/schemas/Account"
                   }
                 ]
-              },
-              "cancel_at": {
-                "type": "number"
-              },
-              "cancel_at_period_end": {
-                "type": "boolean"
-              },
-              "canceled_at": {
-                "type": "number"
-              },
-              "current_period_end": {
-                "type": "number"
-              },
-              "current_period_start": {
-                "format": "date-time",
-                "type": "number"
-              },
-              "customer": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Customer"
-                  }
-                ]
-              },
-              "latest_invoice": {
-                "$ref": "#/components/schemas/Invoice"
-              },
-              "line_items": {
-                "items": {
-                  "properties": {
-                    "price": {
-                      "oneOf": [
-                        {
-                          "type": "object"
-                        },
-                        {
-                          "$ref": "#/components/schemas/Price"
-                        }
-                      ]
-                    },
-                    "price_data": {
-                      "type": "object"
-                    },
-                    "quantity": {
-                      "type": "number"
-                    }
-                  },
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              "pause_collection": {
-                "type": "boolean"
               },
               "platform_account": {
                 "oneOf": [
@@ -1125,8 +1349,27 @@
                   }
                 ]
               },
+              "line_items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/LineItem"
+                }
+              },
+              "trial_period_days": {
+                "type": "number"
+              },
+              "customer": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                ]
+              },
               "status": {
-                "default": "incomplete",
+                "type": "string",
                 "enum": [
                   "active",
                   "canceled",
@@ -1134,10 +1377,29 @@
                   "past_due",
                   "incomplete"
                 ],
-                "type": "string"
+                "default": "incomplete"
               },
-              "trial_period_days": {
+              "pause_collection": {
+                "type": "boolean"
+              },
+              "canceled_at": {
                 "type": "number"
+              },
+              "current_period_start": {
+                "type": "number",
+                "format": "date-time"
+              },
+              "current_period_end": {
+                "type": "number"
+              },
+              "cancel_at_period_end": {
+                "type": "boolean"
+              },
+              "cancel_at": {
+                "type": "number"
+              },
+              "latest_invoice": {
+                "$ref": "#/components/schemas/Invoice"
               }
             },
             "required": [
@@ -1146,8 +1408,7 @@
               "customer",
               "status",
               "cancel_at_period_end"
-            ],
-            "type": "object"
+            ]
           }
         ],
         "description": ""
@@ -1158,6 +1419,7 @@
             "$ref": "#/components/schemas/Model"
           },
           {
+            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -1166,19 +1428,6 @@
                   },
                   {
                     "$ref": "#/components/schemas/Account"
-                  }
-                ]
-              },
-              "description": {
-                "type": "string"
-              },
-              "invoice": {
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/components/schemas/Invoice"
                   }
                 ]
               },
@@ -1192,12 +1441,6 @@
                   }
                 ]
               },
-              "percent": {
-                "exclusiveMinimum": true,
-                "maximum": 100,
-                "minimum": 0,
-                "type": "number"
-              },
               "wallet": {
                 "oneOf": [
                   {
@@ -1207,20 +1450,27 @@
                     "$ref": "#/components/schemas/PayoutWallet"
                   }
                 ]
+              },
+              "percent": {
+                "exclusiveMinimum": true,
+                "maximum": 100,
+                "minimum": 0,
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
               }
             },
             "required": [
               "account",
-              "invoice",
               "percent",
               "payment_intent",
               "wallet"
-            ],
-            "type": "object"
+            ]
           }
         ],
-        "description": "",
-        "title": "Transfer"
+        "title": "Transfer",
+        "description": ""
       },
       "Wallet": {
         "allOf": [
@@ -1228,6 +1478,7 @@
             "$ref": "#/components/schemas/Model"
           },
           {
+            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -1239,11 +1490,14 @@
                   }
                 ]
               },
-              "address": {
+              "chain": {
+                "enum": [
+                  "eth",
+                  "sol"
+                ],
                 "type": "string"
               },
-              "chain": {
-                "enum": ["eth", "sol"],
+              "address": {
                 "type": "string"
               },
               "customer": {
@@ -1257,8 +1511,12 @@
                 ]
               }
             },
-            "required": ["account", "address", "chain", "customer"],
-            "type": "object"
+            "required": [
+              "account",
+              "chain",
+              "address",
+              "customer"
+            ]
           }
         ],
         "title": "Wallet",
@@ -1281,6 +1539,7 @@
             "$ref": "#/components/schemas/Model"
           },
           {
+            "type": "object",
             "properties": {
               "account": {
                 "oneOf": [
@@ -1292,25 +1551,24 @@
                   }
                 ]
               },
-              "created": {
-                "format": "date-time",
-                "type": "string"
-              },
               "endpoint_url": {
                 "type": "string"
               },
               "event_types": {
+                "type": "array",
                 "items": {
                   "type": "string"
-                },
-                "type": "array"
+                }
               },
               "secret": {
                 "type": "string"
               }
             },
-            "required": ["account", "created", "endpoint_url", "event_types"],
-            "type": "object"
+            "required": [
+              "account",
+              "endpoint_url",
+              "event_types"
+            ]
           }
         ],
         "description": "",
@@ -1323,6 +1581,9 @@
         "type": "http"
       }
     }
+  },
+  "x-stoplight": {
+    "id": "b8226f588c3aa"
   },
   "info": {
     "contact": {
@@ -1339,7 +1600,6 @@
   "paths": {
     "/accounts": {
       "get": {
-        "description": "",
         "operationId": "accounts_list",
         "parameters": [
           {
@@ -1383,7 +1643,12 @@
                       "type": "number"
                     }
                   },
-                  "required": ["data", "has_more", "page", "total"],
+                  "required": [
+                    "data",
+                    "has_more",
+                    "page",
+                    "total"
+                  ],
                   "title": "ListAccountsResponse",
                   "type": "object",
                   "x-examples": {
@@ -1424,7 +1689,10 @@
           }
         },
         "summary": "List Accounts",
-        "tags": ["Accounts"]
+        "tags": [
+          "Accounts"
+        ],
+        "description": ""
       },
       "parameters": [],
       "post": {
@@ -1463,7 +1731,9 @@
           }
         },
         "summary": "Create Account",
-        "tags": ["Accounts"]
+        "tags": [
+          "Accounts"
+        ]
       }
     },
     "/accounts/{id}": {
@@ -1496,7 +1766,9 @@
           }
         },
         "summary": "Retrieve Account By Id",
-        "tags": ["Accounts"]
+        "tags": [
+          "Accounts"
+        ]
       },
       "parameters": [
         {
@@ -1546,7 +1818,9 @@
           }
         },
         "summary": "Update Account By Id",
-        "tags": ["Accounts"]
+        "tags": [
+          "Accounts"
+        ]
       }
     },
     "/customers": {
@@ -1569,12 +1843,12 @@
             "$ref": "#/components/parameters/Pluto-Account"
           },
           {
-            "description": "Email of the customer.",
-            "in": "query",
-            "name": "email",
             "schema": {
               "type": "string"
-            }
+            },
+            "in": "query",
+            "name": "email",
+            "description": "Email of the customer."
           }
         ],
         "responses": {
@@ -1602,7 +1876,12 @@
                       "type": "number"
                     }
                   },
-                  "required": ["data", "has_more", "page", "total"],
+                  "required": [
+                    "data",
+                    "has_more",
+                    "page",
+                    "total"
+                  ],
                   "title": "ListCustomersResponse",
                   "type": "object",
                   "x-examples": {
@@ -1643,7 +1922,9 @@
           }
         },
         "summary": "List Customers",
-        "tags": ["Customers"]
+        "tags": [
+          "Customers"
+        ]
       },
       "post": {
         "operationId": "customers_create",
@@ -1709,7 +1990,9 @@
                     "type": "string"
                   }
                 },
-                "required": ["account"],
+                "required": [
+                  "account"
+                ],
                 "title": "CreateCustomerBody",
                 "type": "object",
                 "x-examples": {
@@ -1754,7 +2037,9 @@
           }
         },
         "summary": "Create Customer",
-        "tags": ["Customers"]
+        "tags": [
+          "Customers"
+        ]
       }
     },
     "/customers/{id}": {
@@ -1787,7 +2072,9 @@
           }
         },
         "summary": "Retrieve Customer By Id",
-        "tags": ["Customers"]
+        "tags": [
+          "Customers"
+        ]
       },
       "parameters": [
         {
@@ -1894,7 +2181,9 @@
           }
         },
         "summary": "Update Customer By Id",
-        "tags": ["Customers"]
+        "tags": [
+          "Customers"
+        ]
       }
     },
     "/fees": {
@@ -1942,7 +2231,12 @@
                       "type": "number"
                     }
                   },
-                  "required": ["data", "has_more", "page", "total"],
+                  "required": [
+                    "data",
+                    "has_more",
+                    "page",
+                    "total"
+                  ],
                   "title": "ListFeesResponse",
                   "type": "object",
                   "x-examples": {
@@ -1978,7 +2272,9 @@
           }
         },
         "summary": "List Fees",
-        "tags": ["Fees"]
+        "tags": [
+          "Fees"
+        ]
       },
       "post": {
         "operationId": "fees_create",
@@ -2008,7 +2304,11 @@
                     "type": "string"
                   }
                 },
-                "required": ["invoice", "wallet", "percent"],
+                "required": [
+                  "invoice",
+                  "wallet",
+                  "percent"
+                ],
                 "title": "CreateFeeBody",
                 "type": "object",
                 "x-examples": {
@@ -2042,7 +2342,9 @@
           }
         },
         "summary": "Create Fee",
-        "tags": ["Fees"]
+        "tags": [
+          "Fees"
+        ]
       }
     },
     "/fees/{id}": {
@@ -2065,7 +2367,9 @@
           }
         },
         "summary": "Delete Fee By Id",
-        "tags": ["Fees"]
+        "tags": [
+          "Fees"
+        ]
       },
       "get": {
         "operationId": "fees_retrieve",
@@ -2096,7 +2400,9 @@
           }
         },
         "summary": "Retrieve Fee By Id",
-        "tags": ["Fees"]
+        "tags": [
+          "Fees"
+        ]
       },
       "parameters": [
         {
@@ -2154,7 +2460,12 @@
                       "type": "number"
                     }
                   },
-                  "required": ["data", "has_more", "page", "total"],
+                  "required": [
+                    "data",
+                    "has_more",
+                    "page",
+                    "total"
+                  ],
                   "title": "ListInvoicesResponse",
                   "type": "object",
                   "x-examples": {
@@ -2195,7 +2506,9 @@
           }
         },
         "summary": "List Invoices",
-        "tags": ["Invoices"]
+        "tags": [
+          "Invoices"
+        ]
       },
       "post": {
         "description": "",
@@ -2233,7 +2546,9 @@
           }
         },
         "summary": "Create Invoice",
-        "tags": ["Invoices"]
+        "tags": [
+          "Invoices"
+        ]
       }
     },
     "/invoices/{id}": {
@@ -2266,7 +2581,9 @@
           }
         },
         "summary": "Retrieve Invoice By Id",
-        "tags": ["Invoices"]
+        "tags": [
+          "Invoices"
+        ]
       },
       "parameters": [
         {
@@ -2316,37 +2633,35 @@
           }
         },
         "summary": "Update Invoice By Id",
-        "tags": ["Invoices"]
+        "tags": [
+          "Invoices"
+        ]
       }
     },
     "/invoices/{id}/pay": {
       "parameters": [
         {
-          "in": "path",
-          "name": "id",
-          "required": true,
           "schema": {
             "type": "string"
-          }
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
         }
       ],
       "post": {
+        "summary": "Pay Invoice",
         "operationId": "invoices_pay",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Pluto-Account"
-          }
-        ],
         "responses": {
           "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PaymentIntent"
                 }
               }
-            },
-            "description": "OK"
+            }
           },
           "401": {
             "$ref": "#/components/responses/401"
@@ -2355,8 +2670,14 @@
             "$ref": "#/components/responses/404"
           }
         },
-        "summary": "Pay Invoice",
-        "tags": ["Invoices"]
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Pluto-Account"
+          }
+        ],
+        "tags": [
+          "Invoices"
+        ]
       }
     },
     "/logs": {
@@ -2406,7 +2727,12 @@
                       "type": "number"
                     }
                   },
-                  "required": ["data", "has_more", "page", "total"],
+                  "required": [
+                    "data",
+                    "has_more",
+                    "page",
+                    "total"
+                  ],
                   "title": "ListLogsResponse",
                   "type": "object",
                   "x-examples": {
@@ -2467,7 +2793,9 @@
           }
         },
         "summary": "List Logs",
-        "tags": ["Logs"],
+        "tags": [
+          "Logs"
+        ],
         "x-internal": false
       }
     },
@@ -2501,282 +2829,9 @@
           }
         },
         "summary": "Retrieve Log By Id",
-        "tags": ["Logs"]
-      },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ]
-    },
-    "/payment_intents": {
-      "get": {
-        "operationId": "payment-intents_list",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Pluto-Account"
-          },
-          {
-            "$ref": "#/components/parameters/expand"
-          },
-          {
-            "$ref": "#/components/parameters/limit"
-          },
-          {
-            "$ref": "#/components/parameters/page"
-          },
-          {
-            "$ref": "#/components/parameters/sort"
-          },
-          {
-            "description": "The status of the payment intent to filter by.",
-            "in": "query",
-            "name": "status",
-            "schema": {
-              "enum": ["processing", "succeeded", "failed", "canceled"],
-              "type": "string"
-            }
-          },
-          {
-            "description": "The ID of the customer on the payment intent to filter by.",
-            "in": "query",
-            "name": "customer",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "data": {
-                      "items": {
-                        "$ref": "#/components/schemas/PaymentIntent"
-                      },
-                      "type": "array"
-                    },
-                    "has_more": {
-                      "type": "boolean"
-                    },
-                    "page": {
-                      "type": "number"
-                    },
-                    "total": {
-                      "type": "number"
-                    }
-                  },
-                  "title": "ListPaymentIntentsResponse",
-                  "type": "object"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "List Payment Intents",
-        "tags": ["PaymentIntents"]
-      },
-      "parameters": [],
-      "post": {
-        "operationId": "payment-intents_create",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Pluto-Account"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PaymentIntent"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaymentIntent"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          }
-        },
-        "summary": "Create Payment Intent",
-        "tags": ["PaymentIntents"]
-      }
-    },
-    "/payment_intents/{id}": {
-      "delete": {
-        "operationId": "payment-intents_cancel",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Pluto-Account"
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaymentIntent"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          }
-        },
-        "summary": "Cancel Payment Intent",
-        "tags": ["PaymentIntents"]
-      },
-      "get": {
-        "operationId": "payment-intents_retrieve",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Pluto-Account"
-          },
-          {
-            "$ref": "#/components/parameters/expand"
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaymentIntent"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "Retrieve Payment Intent",
-        "tags": ["PaymentIntents"]
-      },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ],
-      "patch": {
-        "operationId": "payment-intents_update",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Pluto-Account"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "hash": {
-                    "type": "string"
-                  },
-                  "metadata": {
-                    "type": "object"
-                  }
-                },
-                "title": "UpdatePaymentIntentBody",
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaymentIntent"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "Update Payment Intent",
-        "tags": ["PaymentIntents"]
-      }
-    },
-    "/payment_intents/{id}/poll": {
-      "get": {
-        "operationId": "payment-intents_poll",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Pluto-Account"
-          },
-          {
-            "$ref": "#/components/parameters/expand"
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaymentIntent"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "Poll Payment Intent",
-        "tags": ["PaymentIntents"]
+        "tags": [
+          "Logs"
+        ]
       },
       "parameters": [
         {
@@ -2847,7 +2902,9 @@
           }
         },
         "summary": "List Payout Wallets",
-        "tags": ["PayoutWallets"]
+        "tags": [
+          "PayoutWallets"
+        ]
       },
       "post": {
         "operationId": "payout-wallets_create",
@@ -2871,7 +2928,11 @@
                     "type": "string"
                   }
                 },
-                "required": ["account", "chain", "address"],
+                "required": [
+                  "account",
+                  "chain",
+                  "address"
+                ],
                 "title": "CreatePayoutWalletBody",
                 "type": "object",
                 "x-examples": {
@@ -2904,7 +2965,9 @@
           }
         },
         "summary": "Create Payout Wallets",
-        "tags": ["PayoutWallets"]
+        "tags": [
+          "PayoutWallets"
+        ]
       }
     },
     "/payout_wallets/{id}": {
@@ -2927,7 +2990,9 @@
           }
         },
         "summary": "Delete Payout Wallet By ID",
-        "tags": ["PayoutWallets"]
+        "tags": [
+          "PayoutWallets"
+        ]
       },
       "get": {
         "operationId": "payout-wallets_retrieve",
@@ -2958,7 +3023,9 @@
           }
         },
         "summary": "Retrieve Payout Wallet By ID",
-        "tags": ["PayoutWallets"]
+        "tags": [
+          "PayoutWallets"
+        ]
       },
       "parameters": [
         {
@@ -3008,215 +3075,9 @@
           }
         },
         "summary": "Update Payout Wallet By ID",
-        "tags": ["PayoutWallets"]
-      }
-    },
-    "/prices": {
-      "get": {
-        "operationId": "prices_list",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Pluto-Account"
-          },
-          {
-            "$ref": "#/components/parameters/expand"
-          },
-          {
-            "$ref": "#/components/parameters/limit"
-          },
-          {
-            "$ref": "#/components/parameters/page"
-          },
-          {
-            "$ref": "#/components/parameters/sort"
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "data": {
-                      "items": {
-                        "$ref": "#/components/schemas/Price"
-                      },
-                      "type": "array"
-                    },
-                    "has_more": {
-                      "type": "boolean"
-                    },
-                    "page": {
-                      "type": "number"
-                    },
-                    "total": {
-                      "type": "number"
-                    }
-                  },
-                  "title": "ListPricesResponse",
-                  "type": "object"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "List Prices",
-        "tags": ["Prices"]
-      },
-      "post": {
-        "operationId": "prices_create",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Pluto-Account"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Price"
-              }
-            }
-          },
-          "description": ""
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Price"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          }
-        },
-        "summary": "Create Price",
-        "tags": ["Prices"]
-      }
-    },
-    "/prices/{id}": {
-      "delete": {
-        "operationId": "prices_delete",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Pluto-Account"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "Delete Price",
-        "tags": ["Prices"]
-      },
-      "get": {
-        "operationId": "prices_retrieve",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Pluto-Account"
-          },
-          {
-            "$ref": "#/components/parameters/expand"
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Price"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "Retrieve Price",
-        "tags": ["Prices"]
-      },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ],
-      "patch": {
-        "operationId": "prices_update",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Pluto-Account"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "application_fee_percent": {
-                    "type": "number"
-                  }
-                },
-                "title": "UpdatePriceBody",
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Price"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "Update Price",
-        "tags": ["Prices"]
+        "tags": [
+          "PayoutWallets"
+        ]
       }
     },
     "/products": {
@@ -3264,7 +3125,12 @@
                       "type": "number"
                     }
                   },
-                  "required": ["data", "has_more", "page", "total"],
+                  "required": [
+                    "data",
+                    "has_more",
+                    "page",
+                    "total"
+                  ],
                   "title": "ListProductsResponse",
                   "type": "object",
                   "x-examples": {
@@ -3300,7 +3166,9 @@
           }
         },
         "summary": "List Products",
-        "tags": ["Products"]
+        "tags": [
+          "Products"
+        ]
       },
       "post": {
         "operationId": "products_create",
@@ -3314,16 +3182,6 @@
             "application/json": {
               "schema": {
                 "description": "",
-                "properties": {
-                  "description": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "minLength": 1,
-                    "type": "string"
-                  }
-                },
-                "required": ["name"],
                 "title": "CreateProductBody",
                 "type": "object",
                 "x-examples": {
@@ -3333,7 +3191,19 @@
                     "currency": "eth",
                     "name": "Product 0"
                   }
-                }
+                },
+                "properties": {
+                  "name": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
               }
             }
           }
@@ -3357,7 +3227,9 @@
           }
         },
         "summary": "Create Product",
-        "tags": ["Products"]
+        "tags": [
+          "Products"
+        ]
       }
     },
     "/products/{id}": {
@@ -3380,7 +3252,9 @@
           }
         },
         "summary": "Delete Product By Id",
-        "tags": ["Products"]
+        "tags": [
+          "Products"
+        ]
       },
       "get": {
         "operationId": "products_retrieve",
@@ -3411,7 +3285,9 @@
           }
         },
         "summary": "Retrieve Product By Id",
-        "tags": ["Products"]
+        "tags": [
+          "Products"
+        ]
       },
       "parameters": [
         {
@@ -3434,14 +3310,6 @@
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "description": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  }
-                },
                 "title": "UpdateProductBody",
                 "type": "object",
                 "x-examples": {
@@ -3451,6 +3319,14 @@
                     "chain": "string",
                     "currency": "succeeded",
                     "name": "string"
+                  }
+                },
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
                   }
                 }
               }
@@ -3479,218 +3355,9 @@
           }
         },
         "summary": "Update Product By Id",
-        "tags": ["Products"]
-      }
-    },
-    "/subscriptions": {
-      "get": {
-        "operationId": "subscriptions_list",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/expand"
-          },
-          {
-            "$ref": "#/components/parameters/limit"
-          },
-          {
-            "$ref": "#/components/parameters/page"
-          },
-          {
-            "$ref": "#/components/parameters/sort"
-          },
-          {
-            "$ref": "#/components/parameters/Pluto-Account"
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Subscription"
-                    },
-                    "has_more": {
-                      "type": "boolean"
-                    },
-                    "page": {
-                      "type": "number"
-                    },
-                    "total": {
-                      "type": "number"
-                    }
-                  },
-                  "required": ["data", "has_more", "page", "total"],
-                  "title": "ListSubscriptionsResponse",
-                  "type": "object"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          }
-        },
-        "summary": "List Subscriptions",
-        "tags": ["Subscriptions"]
-      },
-      "post": {
-        "operationId": "subscriptions_create",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Pluto-Account"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Subscription"
-              }
-            }
-          },
-          "description": ""
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Subscription"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          }
-        },
-        "summary": "Create Subscription",
-        "tags": ["Subscriptions"]
-      }
-    },
-    "/subscriptions/{id}": {
-      "delete": {
-        "operationId": "subscriptions_cancel",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Pluto-Account"
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Subscription"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "Cancel Subscription",
-        "tags": ["Subscriptions"]
-      },
-      "get": {
-        "operationId": "subscriptions_retrieve",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/expand"
-          },
-          {
-            "$ref": "#/components/parameters/Pluto-Account"
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Subscription"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "Retrieve Subscription",
-        "tags": ["Subscriptions"]
-      },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ],
-      "patch": {
-        "operationId": "subscriptions_update",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Pluto-Account"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Subscription"
-              }
-            }
-          },
-          "description": ""
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Subscription"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
-          },
-          "401": {
-            "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
-          }
-        },
-        "summary": "Update Subscription",
-        "tags": ["Subscriptions"]
+        "tags": [
+          "Products"
+        ]
       }
     },
     "/transfers": {
@@ -3750,7 +3417,9 @@
           }
         },
         "summary": "List Transfers",
-        "tags": ["Transfers"]
+        "tags": [
+          "Transfers"
+        ]
       },
       "post": {
         "operationId": "transfers_create",
@@ -3763,6 +3432,19 @@
           "content": {
             "application/json": {
               "schema": {
+                "title": "CreateTransferBody",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "account": "eth",
+                    "amount": "e",
+                    "description": "oo",
+                    "invoice": "E",
+                    "percent": 3,
+                    "usd_amount": 3,
+                    "wallet": "e"
+                  }
+                },
                 "properties": {
                   "account": {
                     "type": "string"
@@ -3780,20 +3462,11 @@
                     "type": "string"
                   }
                 },
-                "required": ["account", "invoice", "wallet"],
-                "title": "CreateTransferBody",
-                "type": "object",
-                "x-examples": {
-                  "example-1": {
-                    "account": "eth",
-                    "amount": "e",
-                    "description": "oo",
-                    "invoice": "E",
-                    "percent": 3,
-                    "usd_amount": 3,
-                    "wallet": "e"
-                  }
-                }
+                "required": [
+                  "account",
+                  "invoice",
+                  "wallet"
+                ]
               }
             }
           }
@@ -3817,7 +3490,9 @@
           }
         },
         "summary": "Create Transfer",
-        "tags": ["Transfers"]
+        "tags": [
+          "Transfers"
+        ]
       }
     },
     "/transfers/{id}": {
@@ -3850,7 +3525,9 @@
           }
         },
         "summary": "Retrieve Transfer By ID",
-        "tags": ["Transfers"]
+        "tags": [
+          "Transfers"
+        ]
       },
       "parameters": [
         {
@@ -3908,7 +3585,12 @@
                       "type": "number"
                     }
                   },
-                  "required": ["data", "has_more", "page", "total"],
+                  "required": [
+                    "data",
+                    "has_more",
+                    "page",
+                    "total"
+                  ],
                   "title": "ListWalletsResponse",
                   "type": "object",
                   "x-examples": {
@@ -3939,7 +3621,9 @@
           }
         },
         "summary": "List Wallets",
-        "tags": ["Wallets"]
+        "tags": [
+          "Wallets"
+        ]
       },
       "post": {
         "operationId": "wallets_create",
@@ -3971,7 +3655,12 @@
                     "type": "string"
                   }
                 },
-                "required": ["account", "chain", "address", "customer"],
+                "required": [
+                  "account",
+                  "chain",
+                  "address",
+                  "customer"
+                ],
                 "title": "CreateWalletBody",
                 "type": "object",
                 "x-examples": {
@@ -4005,7 +3694,9 @@
           }
         },
         "summary": "Create Wallet",
-        "tags": ["Wallets"]
+        "tags": [
+          "Wallets"
+        ]
       }
     },
     "/wallets/{id}": {
@@ -4031,7 +3722,9 @@
           }
         },
         "summary": "Delete Wallet By Id",
-        "tags": ["Wallets"]
+        "tags": [
+          "Wallets"
+        ]
       },
       "get": {
         "description": "",
@@ -4073,7 +3766,9 @@
           }
         },
         "summary": "Retrieve Wallet By Id",
-        "tags": ["Wallets"]
+        "tags": [
+          "Wallets"
+        ]
       },
       "parameters": [
         {
@@ -4135,7 +3830,9 @@
           }
         },
         "summary": "Update Wallet By Id",
-        "tags": ["Wallets"]
+        "tags": [
+          "Wallets"
+        ]
       }
     },
     "/webhooks": {
@@ -4183,7 +3880,12 @@
                       "type": "number"
                     }
                   },
-                  "required": ["data", "has_more", "page", "total"],
+                  "required": [
+                    "data",
+                    "has_more",
+                    "page",
+                    "total"
+                  ],
                   "title": "ListWebhooksResponse",
                   "type": "object",
                   "x-examples": {
@@ -4192,7 +3894,10 @@
                         {
                           "account": "test",
                           "endpoint_url": "e",
-                          "event_types": ["s", "b"]
+                          "event_types": [
+                            "s",
+                            "b"
+                          ]
                         }
                       ],
                       "has_more": true,
@@ -4213,7 +3918,9 @@
           }
         },
         "summary": "List Webhooks",
-        "tags": ["Webhooks"]
+        "tags": [
+          "Webhooks"
+        ]
       },
       "post": {
         "operationId": "webhooks_create",
@@ -4247,7 +3954,11 @@
                     "type": "string"
                   }
                 },
-                "required": ["account", "endpoint_url", "event_types"],
+                "required": [
+                  "account",
+                  "endpoint_url",
+                  "event_types"
+                ],
                 "title": "CreateWebhookBody",
                 "type": "object",
                 "x-examples": {
@@ -4281,7 +3992,9 @@
           }
         },
         "summary": "Create Webhook",
-        "tags": ["Webhooks"]
+        "tags": [
+          "Webhooks"
+        ]
       }
     },
     "/webhooks/{id}": {
@@ -4309,7 +4022,9 @@
           }
         },
         "summary": "Delete Webhook By Id",
-        "tags": ["Webhooks"]
+        "tags": [
+          "Webhooks"
+        ]
       },
       "get": {
         "description": "",
@@ -4341,7 +4056,9 @@
           }
         },
         "summary": "Retrieve Webhook By Id",
-        "tags": ["Webhooks"]
+        "tags": [
+          "Webhooks"
+        ]
       },
       "parameters": [
         {
@@ -4380,7 +4097,9 @@
                 "x-examples": {
                   "example-1": {
                     "endpoint_url": "string",
-                    "event_types": ["string"]
+                    "event_types": [
+                      "string"
+                    ]
                   }
                 }
               }
@@ -4409,7 +4128,745 @@
           }
         },
         "summary": "Update Webhook By Id",
-        "tags": ["Webhooks"]
+        "tags": [
+          "Webhooks"
+        ]
+      }
+    },
+    "/payment_intents": {
+      "get": {
+        "summary": "List Payment Intents",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "ListPaymentIntentsResponse",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/PaymentIntent"
+                      }
+                    },
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "payment-intents_list",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Pluto-Account"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/sort"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "processing",
+                "succeeded",
+                "failed",
+                "canceled"
+              ]
+            },
+            "in": "query",
+            "name": "status",
+            "description": "The status of the payment intent to filter by."
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "customer",
+            "description": "The ID of the customer on the payment intent to filter by."
+          }
+        ],
+        "tags": [
+          "PaymentIntents"
+        ]
+      },
+      "post": {
+        "summary": "Create Payment Intent",
+        "operationId": "payment-intents_create",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntent"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Pluto-Account"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentIntent"
+              }
+            }
+          }
+        },
+        "tags": [
+          "PaymentIntents"
+        ]
+      },
+      "parameters": []
+    },
+    "/payment_intents/{id}/poll": {
+      "get": {
+        "summary": "Poll Payment Intent",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntent"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "payment-intents_poll",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Pluto-Account"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          }
+        ],
+        "tags": [
+          "PaymentIntents"
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ]
+    },
+    "/payment_intents/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Retrieve Payment Intent",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntent"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "payment-intents_retrieve",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Pluto-Account"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          }
+        ],
+        "tags": [
+          "PaymentIntents"
+        ]
+      },
+      "patch": {
+        "summary": "Update Payment Intent",
+        "operationId": "payment-intents_update",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntent"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Pluto-Account"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "UpdatePaymentIntentBody",
+                "type": "object",
+                "properties": {
+                  "hash": {
+                    "type": "string"
+                  },
+                  "metadata": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "PaymentIntents"
+        ]
+      },
+      "delete": {
+        "summary": "Cancel Payment Intent",
+        "operationId": "payment-intents_cancel",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntent"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Pluto-Account"
+          }
+        ],
+        "tags": [
+          "PaymentIntents"
+        ]
+      }
+    },
+    "/prices": {
+      "get": {
+        "summary": "List Prices",
+        "tags": [
+          "Prices"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "ListPricesResponse",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Price"
+                      }
+                    },
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "prices_list",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Pluto-Account"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/sort"
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create Price",
+        "operationId": "prices_create",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Pluto-Account"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Price"
+              }
+            }
+          },
+          "description": ""
+        },
+        "tags": [
+          "Prices"
+        ]
+      }
+    },
+    "/prices/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Retrieve Price",
+        "tags": [
+          "Prices"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "prices_retrieve",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Pluto-Account"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Delete Price",
+        "operationId": "prices_delete",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Pluto-Account"
+          }
+        ],
+        "tags": [
+          "Prices"
+        ]
+      },
+      "patch": {
+        "summary": "Update Price",
+        "operationId": "prices_update",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Pluto-Account"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "UpdatePriceBody",
+                "properties": {
+                  "application_fee_percent": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Prices"
+        ]
+      }
+    },
+    "/subscriptions": {
+      "get": {
+        "summary": "List Subscriptions",
+        "tags": [
+          "Subscriptions"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "ListSubscriptionsResponse",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Subscription"
+                    },
+                    "has_more": {
+                      "type": "boolean"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "has_more",
+                    "page",
+                    "total"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          }
+        },
+        "operationId": "subscriptions_list",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/sort"
+          },
+          {
+            "$ref": "#/components/parameters/Pluto-Account"
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create Subscription",
+        "operationId": "subscriptions_create",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Subscription"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Pluto-Account"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Subscription"
+              }
+            }
+          },
+          "description": ""
+        }
+      }
+    },
+    "/subscriptions/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Retrieve Subscription",
+        "tags": [
+          "Subscriptions"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Subscription"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "operationId": "subscriptions_retrieve",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/Pluto-Account"
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Cancel Subscription",
+        "operationId": "subscriptions_cancel",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Subscription"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Pluto-Account"
+          }
+        ]
+      },
+      "patch": {
+        "summary": "Update Subscription",
+        "operationId": "subscriptions_update",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Subscription"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        },
+        "tags": [
+          "Subscriptions"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Subscription"
+              }
+            }
+          },
+          "description": ""
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Pluto-Account"
+          }
+        ]
       }
     }
   },
@@ -4458,8 +4915,5 @@
     {
       "name": "Webhooks"
     }
-  ],
-  "x-stoplight": {
-    "id": "b8226f588c3aa"
-  }
+  ]
 }
