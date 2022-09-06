@@ -10,10 +10,12 @@
  * Do not edit the class manually.
  */
 
+import { PriceAllOfCustomAmount } from './PriceAllOfCustomAmount';
 import { HttpFile } from '../http/http';
 
 export class PriceAllOfBasePrice {
     'amount'?: number;
+    'custom_amount'?: PriceAllOfCustomAmount;
     'currency'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -23,6 +25,12 @@ export class PriceAllOfBasePrice {
             "name": "amount",
             "baseName": "amount",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "custom_amount",
+            "baseName": "custom_amount",
+            "type": "PriceAllOfCustomAmount",
             "format": ""
         },
         {

@@ -5,9 +5,10 @@ export declare class PayoutWallet {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'address': string;
     'chain': PayoutWalletChainEnum;
     '_default'?: boolean;
+    'address': string;
+    'type': PayoutWalletTypeEnum;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
@@ -24,3 +25,4 @@ export declare class PayoutWallet {
     constructor();
 }
 export declare type PayoutWalletChainEnum = "eth" | "sol";
+export declare type PayoutWalletTypeEnum = "external" | "ftx";

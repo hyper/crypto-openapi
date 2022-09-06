@@ -16,6 +16,12 @@ AccountAllOfSettingsPayments.attributeTypeMap = [
         "baseName": "invoice_prefix",
         "type": "string",
         "format": ""
+    },
+    {
+        "name": "invoice_reminder_frequency",
+        "baseName": "invoice_reminder_frequency",
+        "type": "number",
+        "format": ""
     }
 ];
 //# sourceMappingURL=AccountAllOfSettingsPayments.js.map

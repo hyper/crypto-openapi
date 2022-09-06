@@ -1,10 +1,12 @@
-import { AccountAllOfBusinessProfileLinks } from './AccountAllOfBusinessProfileLinks';
-import { AccountAllOfBusinessProfileSupport } from './AccountAllOfBusinessProfileSupport';
+import { Address } from './Address';
 export declare class AccountAllOfBusinessProfile {
-    'name'?: string;
-    'business_description'?: string;
-    'support'?: AccountAllOfBusinessProfileSupport;
-    'links'?: AccountAllOfBusinessProfileLinks;
+    'name': string;
+    'product_description'?: string;
+    'url'?: string;
+    'support_url'?: string;
+    'support_email'?: string;
+    'support_phone'?: string;
+    'support_address'?: Address;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

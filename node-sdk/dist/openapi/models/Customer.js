@@ -42,9 +42,9 @@ Customer.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "billing_details",
-        "baseName": "billing_details",
-        "type": "CustomersIdBillingDetails",
+        "name": "name",
+        "baseName": "name",
+        "type": "string",
         "format": ""
     },
     {
@@ -54,15 +54,15 @@ Customer.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "name",
-        "baseName": "name",
+        "name": "phone",
+        "baseName": "phone",
         "type": "string",
         "format": ""
     },
     {
-        "name": "phone",
-        "baseName": "phone",
-        "type": "string",
+        "name": "billing_details",
+        "baseName": "billing_details",
+        "type": "CustomerAllOfBillingDetails",
         "format": ""
     },
     {
@@ -80,7 +80,7 @@ Customer.attributeTypeMap = [
     {
         "name": "last_payment",
         "baseName": "last_payment",
-        "type": "string | PaymentIntent",
+        "type": "PaymentIntent",
         "format": ""
     }
 ];

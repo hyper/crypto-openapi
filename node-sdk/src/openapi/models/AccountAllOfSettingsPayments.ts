@@ -14,6 +14,7 @@ import { HttpFile } from '../http/http';
 
 export class AccountAllOfSettingsPayments {
     'invoice_prefix'?: string;
+    'invoice_reminder_frequency'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,6 +23,12 @@ export class AccountAllOfSettingsPayments {
             "name": "invoice_prefix",
             "baseName": "invoice_prefix",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "invoice_reminder_frequency",
+            "baseName": "invoice_reminder_frequency",
+            "type": "number",
             "format": ""
         }    ];
 

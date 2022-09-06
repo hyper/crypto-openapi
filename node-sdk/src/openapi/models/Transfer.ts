@@ -11,7 +11,6 @@
  */
 
 import { Account } from './Account';
-import { Invoice } from './Invoice';
 import { Model } from './Model';
 import { PaymentIntent } from './PaymentIntent';
 import { PayoutWallet } from './PayoutWallet';
@@ -24,11 +23,10 @@ export class Transfer {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'description'?: string;
-    'invoice': string | Invoice;
-    'percent': number;
     'payment_intent': string | PaymentIntent;
     'wallet': string | PayoutWallet;
+    'percent': number;
+    'description'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -64,24 +62,6 @@ export class Transfer {
             "format": ""
         },
         {
-            "name": "description",
-            "baseName": "description",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "invoice",
-            "baseName": "invoice",
-            "type": "string | Invoice",
-            "format": ""
-        },
-        {
-            "name": "percent",
-            "baseName": "percent",
-            "type": "number",
-            "format": ""
-        },
-        {
             "name": "payment_intent",
             "baseName": "payment_intent",
             "type": "string | PaymentIntent",
@@ -91,6 +71,18 @@ export class Transfer {
             "name": "wallet",
             "baseName": "wallet",
             "type": "string | PayoutWallet",
+            "format": ""
+        },
+        {
+            "name": "percent",
+            "baseName": "percent",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "description",
+            "baseName": "description",
+            "type": "string",
             "format": ""
         }    ];
 

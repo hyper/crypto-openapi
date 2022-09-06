@@ -12,7 +12,7 @@
 
 import { Account } from './Account';
 import { Customer } from './Customer';
-import { InvoiceAllOfLineItems } from './InvoiceAllOfLineItems';
+import { LineItem } from './LineItem';
 import { Price } from './Price';
 import { Subscription } from './Subscription';
 import { HttpFile } from '../http/http';
@@ -24,14 +24,11 @@ export class InvoiceAllOf {
     'number': string;
     'price': string | Price;
     'customer': string | Customer;
-    'line_items'?: Array<InvoiceAllOfLineItems>;
+    'line_items'?: Array<LineItem>;
     'trial_period_days'?: number;
     'subscription'?: string | Subscription;
     'period_start'?: number;
     'period_end'?: number;
-    'chain': InvoiceAllOfChainEnum;
-    'amount': number;
-    'send_reminders'?: boolean;
     'due'?: number;
     'notify': boolean;
     'metadata'?: any;
@@ -78,7 +75,7 @@ export class InvoiceAllOf {
         {
             "name": "line_items",
             "baseName": "line_items",
-            "type": "Array<InvoiceAllOfLineItems>",
+            "type": "Array<LineItem>",
             "format": ""
         },
         {
@@ -103,24 +100,6 @@ export class InvoiceAllOf {
             "name": "period_end",
             "baseName": "period_end",
             "type": "number",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "InvoiceAllOfChainEnum",
-            "format": ""
-        },
-        {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "send_reminders",
-            "baseName": "send_reminders",
-            "type": "boolean",
             "format": ""
         },
         {
@@ -152,5 +131,4 @@ export class InvoiceAllOf {
 
 
 export type InvoiceAllOfStatusEnum = "open" | "paid" | "void" | "past_due" | "uncollectible" ;
-export type InvoiceAllOfChainEnum = "eth" | "sol" ;
 

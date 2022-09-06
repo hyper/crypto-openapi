@@ -18,8 +18,8 @@ export class ProductAllOf {
     'account': string | Account;
     'name': string;
     'description'?: string;
-    'prices'?: Array<Price>;
     'active'?: boolean;
+    'prices'?: Array<Price>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -43,15 +43,15 @@ export class ProductAllOf {
             "format": ""
         },
         {
-            "name": "prices",
-            "baseName": "prices",
-            "type": "Array<Price>",
-            "format": ""
-        },
-        {
             "name": "active",
             "baseName": "active",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "prices",
+            "baseName": "prices",
+            "type": "Array<Price>",
             "format": ""
         }    ];
 

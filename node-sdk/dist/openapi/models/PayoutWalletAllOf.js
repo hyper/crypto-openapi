@@ -18,12 +18,6 @@ PayoutWalletAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "address",
-        "baseName": "address",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "chain",
         "baseName": "chain",
         "type": "PayoutWalletAllOfChainEnum",
@@ -33,6 +27,18 @@ PayoutWalletAllOf.attributeTypeMap = [
         "name": "_default",
         "baseName": "default",
         "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "address",
+        "baseName": "address",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "type",
+        "baseName": "type",
+        "type": "PayoutWalletAllOfTypeEnum",
         "format": ""
     }
 ];

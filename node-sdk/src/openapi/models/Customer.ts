@@ -12,7 +12,7 @@
 
 import { Account } from './Account';
 import { CustomerAllOf } from './CustomerAllOf';
-import { CustomersIdBillingDetails } from './CustomersIdBillingDetails';
+import { CustomerAllOfBillingDetails } from './CustomerAllOfBillingDetails';
 import { Model } from './Model';
 import { PaymentIntent } from './PaymentIntent';
 import { Wallet } from './Wallet';
@@ -24,13 +24,13 @@ export class Customer {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'billing_details'?: CustomersIdBillingDetails;
-    'email'?: string;
     'name'?: string;
+    'email'?: string;
     'phone'?: string;
+    'billing_details'?: CustomerAllOfBillingDetails;
     'wallets': Array<Wallet>;
     'payments': Array<PaymentIntent>;
-    'last_payment': string | PaymentIntent;
+    'last_payment': PaymentIntent;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -66,9 +66,9 @@ export class Customer {
             "format": ""
         },
         {
-            "name": "billing_details",
-            "baseName": "billing_details",
-            "type": "CustomersIdBillingDetails",
+            "name": "name",
+            "baseName": "name",
+            "type": "string",
             "format": ""
         },
         {
@@ -78,15 +78,15 @@ export class Customer {
             "format": ""
         },
         {
-            "name": "name",
-            "baseName": "name",
+            "name": "phone",
+            "baseName": "phone",
             "type": "string",
             "format": ""
         },
         {
-            "name": "phone",
-            "baseName": "phone",
-            "type": "string",
+            "name": "billing_details",
+            "baseName": "billing_details",
+            "type": "CustomerAllOfBillingDetails",
             "format": ""
         },
         {
@@ -104,7 +104,7 @@ export class Customer {
         {
             "name": "last_payment",
             "baseName": "last_payment",
-            "type": "string | PaymentIntent",
+            "type": "PaymentIntent",
             "format": ""
         }    ];
 

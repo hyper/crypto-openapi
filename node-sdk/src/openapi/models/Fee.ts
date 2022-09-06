@@ -24,11 +24,11 @@ export class Fee {
     'test': boolean;
     'account': string | Account;
     'platform_account'?: string | Account;
-    'description'?: string;
     'internal': boolean;
     'payment_intent': string | PaymentIntent;
-    'percent': number;
     'wallet': string | PayoutWallet;
+    'percent': number;
+    'description'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -70,12 +70,6 @@ export class Fee {
             "format": ""
         },
         {
-            "name": "description",
-            "baseName": "description",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "internal",
             "baseName": "internal",
             "type": "boolean",
@@ -88,15 +82,21 @@ export class Fee {
             "format": ""
         },
         {
+            "name": "wallet",
+            "baseName": "wallet",
+            "type": "string | PayoutWallet",
+            "format": ""
+        },
+        {
             "name": "percent",
             "baseName": "percent",
             "type": "number",
             "format": ""
         },
         {
-            "name": "wallet",
-            "baseName": "wallet",
-            "type": "string | PayoutWallet",
+            "name": "description",
+            "baseName": "description",
+            "type": "string",
             "format": ""
         }    ];
 

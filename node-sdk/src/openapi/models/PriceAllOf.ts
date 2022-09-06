@@ -12,6 +12,7 @@
 
 import { Account } from './Account';
 import { PriceAllOfBasePrice } from './PriceAllOfBasePrice';
+import { PriceAllOfCustomAmount } from './PriceAllOfCustomAmount';
 import { Product } from './Product';
 import { HttpFile } from '../http/http';
 
@@ -19,6 +20,7 @@ export class PriceAllOf {
     'account': string | Account;
     'platform_account'?: string | Account;
     'amount': number;
+    'custom_amount': PriceAllOfCustomAmount;
     'currency': string;
     'chain': string;
     'product'?: string | Product;
@@ -47,6 +49,12 @@ export class PriceAllOf {
             "name": "amount",
             "baseName": "amount",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "custom_amount",
+            "baseName": "custom_amount",
+            "type": "PriceAllOfCustomAmount",
             "format": ""
         },
         {

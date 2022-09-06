@@ -42,9 +42,15 @@ ApiKey.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "admin",
-        "baseName": "admin",
-        "type": "boolean",
+        "name": "name",
+        "baseName": "name",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "note",
+        "baseName": "note",
+        "type": "string",
         "format": ""
     },
     {
@@ -60,15 +66,15 @@ ApiKey.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "name",
-        "baseName": "name",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "last_used",
         "baseName": "last_used",
-        "type": "number",
+        "type": "Date",
+        "format": "date-time"
+    },
+    {
+        "name": "admin",
+        "baseName": "admin",
+        "type": "boolean",
         "format": ""
     }
 ];

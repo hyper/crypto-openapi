@@ -11,18 +11,16 @@
  */
 
 import { Account } from './Account';
-import { Invoice } from './Invoice';
 import { PaymentIntent } from './PaymentIntent';
 import { PayoutWallet } from './PayoutWallet';
 import { HttpFile } from '../http/http';
 
 export class TransferAllOf {
     'account': string | Account;
-    'description'?: string;
-    'invoice': string | Invoice;
-    'percent': number;
     'payment_intent': string | PaymentIntent;
     'wallet': string | PayoutWallet;
+    'percent': number;
+    'description'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -31,24 +29,6 @@ export class TransferAllOf {
             "name": "account",
             "baseName": "account",
             "type": "string | Account",
-            "format": ""
-        },
-        {
-            "name": "description",
-            "baseName": "description",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "invoice",
-            "baseName": "invoice",
-            "type": "string | Invoice",
-            "format": ""
-        },
-        {
-            "name": "percent",
-            "baseName": "percent",
-            "type": "number",
             "format": ""
         },
         {
@@ -61,6 +41,18 @@ export class TransferAllOf {
             "name": "wallet",
             "baseName": "wallet",
             "type": "string | PayoutWallet",
+            "format": ""
+        },
+        {
+            "name": "percent",
+            "baseName": "percent",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "description",
+            "baseName": "description",
+            "type": "string",
             "format": ""
         }    ];
 

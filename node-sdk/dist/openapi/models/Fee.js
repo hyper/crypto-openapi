@@ -48,12 +48,6 @@ Fee.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "description",
-        "baseName": "description",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "internal",
         "baseName": "internal",
         "type": "boolean",
@@ -66,15 +60,21 @@ Fee.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "wallet",
+        "baseName": "wallet",
+        "type": "string | PayoutWallet",
+        "format": ""
+    },
+    {
         "name": "percent",
         "baseName": "percent",
         "type": "number",
         "format": ""
     },
     {
-        "name": "wallet",
-        "baseName": "wallet",
-        "type": "string | PayoutWallet",
+        "name": "description",
+        "baseName": "description",
+        "type": "string",
         "format": ""
     }
 ];

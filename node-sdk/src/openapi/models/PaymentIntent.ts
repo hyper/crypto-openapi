@@ -14,9 +14,9 @@ import { Account } from './Account';
 import { Customer } from './Customer';
 import { Fee } from './Fee';
 import { Invoice } from './Invoice';
+import { LineItem } from './LineItem';
 import { Model } from './Model';
 import { PaymentIntentAllOf } from './PaymentIntentAllOf';
-import { PaymentIntentAllOfLineItems } from './PaymentIntentAllOfLineItems';
 import { Price } from './Price';
 import { Subscription } from './Subscription';
 import { Transfer } from './Transfer';
@@ -32,18 +32,19 @@ export class PaymentIntent {
     'platform_account'?: string | Account;
     'hash'?: string;
     'invoice'?: string | Invoice;
-    'status': PaymentIntentStatusEnum;
-    'chain': PaymentIntentChainEnum;
-    'currency': PaymentIntentCurrencyEnum;
-    'amount': number;
     'subscription'?: string | Subscription;
+    'checkout'?: string | Subscription;
     'price'?: string | Price;
-    'line_items'?: Array<PaymentIntentAllOfLineItems>;
+    'line_items'?: Array<LineItem>;
     'customer': string | Customer;
     'wallet'?: string | Wallet;
+    'amount': number;
     'usd_amount'?: number;
     'exchange_rate'?: number;
     'application_fee_percent'?: number;
+    'status': PaymentIntentStatusEnum;
+    'chain': PaymentIntentChainEnum;
+    'currency': PaymentIntentCurrencyEnum;
     'last_payment_error'?: string;
     'fees': Array<Fee>;
     'transfers': Array<Transfer>;
@@ -101,32 +102,14 @@ export class PaymentIntent {
             "format": ""
         },
         {
-            "name": "status",
-            "baseName": "status",
-            "type": "PaymentIntentStatusEnum",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "PaymentIntentChainEnum",
-            "format": ""
-        },
-        {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "PaymentIntentCurrencyEnum",
-            "format": ""
-        },
-        {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
-            "format": ""
-        },
-        {
             "name": "subscription",
             "baseName": "subscription",
+            "type": "string | Subscription",
+            "format": ""
+        },
+        {
+            "name": "checkout",
+            "baseName": "checkout",
             "type": "string | Subscription",
             "format": ""
         },
@@ -139,7 +122,7 @@ export class PaymentIntent {
         {
             "name": "line_items",
             "baseName": "line_items",
-            "type": "Array<PaymentIntentAllOfLineItems>",
+            "type": "Array<LineItem>",
             "format": ""
         },
         {
@@ -152,6 +135,12 @@ export class PaymentIntent {
             "name": "wallet",
             "baseName": "wallet",
             "type": "string | Wallet",
+            "format": ""
+        },
+        {
+            "name": "amount",
+            "baseName": "amount",
+            "type": "number",
             "format": ""
         },
         {
@@ -170,6 +159,24 @@ export class PaymentIntent {
             "name": "application_fee_percent",
             "baseName": "application_fee_percent",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "PaymentIntentStatusEnum",
+            "format": ""
+        },
+        {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "PaymentIntentChainEnum",
+            "format": ""
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "PaymentIntentCurrencyEnum",
             "format": ""
         },
         {

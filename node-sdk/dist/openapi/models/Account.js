@@ -36,9 +36,9 @@ Account.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "platform_account",
-        "baseName": "platform_account",
-        "type": "boolean",
+        "name": "parent_account",
+        "baseName": "parent_account",
+        "type": "string | Account",
         "format": ""
     },
     {
@@ -48,21 +48,9 @@ Account.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "parent_account",
-        "baseName": "parent_account",
-        "type": "string | Account",
-        "format": ""
-    },
-    {
-        "name": "team",
-        "baseName": "team",
-        "type": "Array<AccountAllOfTeam>",
-        "format": ""
-    },
-    {
-        "name": "payout_wallets",
-        "baseName": "payout_wallets",
-        "type": "Array<PayoutWallet>",
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "boolean",
         "format": ""
     },
     {
@@ -72,9 +60,21 @@ Account.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "team",
+        "baseName": "team",
+        "type": "Array<AccountAllOfTeam>",
+        "format": ""
+    },
+    {
         "name": "verified",
         "baseName": "verified",
         "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "business_profile",
+        "baseName": "business_profile",
+        "type": "AccountAllOfBusinessProfile",
         "format": ""
     },
     {
@@ -84,9 +84,15 @@ Account.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "business_profile",
-        "baseName": "business_profile",
-        "type": "AccountAllOfBusinessProfile",
+        "name": "integrations",
+        "baseName": "integrations",
+        "type": "AccountAllOfIntegrations",
+        "format": ""
+    },
+    {
+        "name": "payout_wallets",
+        "baseName": "payout_wallets",
+        "type": "Array<PayoutWallet>",
         "format": ""
     }
 ];

@@ -21,9 +21,10 @@ export class PayoutWallet {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'address': string;
     'chain': PayoutWalletChainEnum;
     '_default'?: boolean;
+    'address': string;
+    'type': PayoutWalletTypeEnum;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -59,12 +60,6 @@ export class PayoutWallet {
             "format": ""
         },
         {
-            "name": "address",
-            "baseName": "address",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "chain",
             "baseName": "chain",
             "type": "PayoutWalletChainEnum",
@@ -74,6 +69,18 @@ export class PayoutWallet {
             "name": "_default",
             "baseName": "default",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "address",
+            "baseName": "address",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "type",
+            "baseName": "type",
+            "type": "PayoutWalletTypeEnum",
             "format": ""
         }    ];
 
@@ -87,4 +94,5 @@ export class PayoutWallet {
 
 
 export type PayoutWalletChainEnum = "eth" | "sol" ;
+export type PayoutWalletTypeEnum = "external" | "ftx" ;
 

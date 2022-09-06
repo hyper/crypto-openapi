@@ -36,32 +36,14 @@ PaymentIntentAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "status",
-        "baseName": "status",
-        "type": "PaymentIntentAllOfStatusEnum",
-        "format": ""
-    },
-    {
-        "name": "chain",
-        "baseName": "chain",
-        "type": "PaymentIntentAllOfChainEnum",
-        "format": ""
-    },
-    {
-        "name": "currency",
-        "baseName": "currency",
-        "type": "PaymentIntentAllOfCurrencyEnum",
-        "format": ""
-    },
-    {
-        "name": "amount",
-        "baseName": "amount",
-        "type": "number",
-        "format": ""
-    },
-    {
         "name": "subscription",
         "baseName": "subscription",
+        "type": "string | Subscription",
+        "format": ""
+    },
+    {
+        "name": "checkout",
+        "baseName": "checkout",
         "type": "string | Subscription",
         "format": ""
     },
@@ -74,7 +56,7 @@ PaymentIntentAllOf.attributeTypeMap = [
     {
         "name": "line_items",
         "baseName": "line_items",
-        "type": "Array<PaymentIntentAllOfLineItems>",
+        "type": "Array<LineItem>",
         "format": ""
     },
     {
@@ -87,6 +69,12 @@ PaymentIntentAllOf.attributeTypeMap = [
         "name": "wallet",
         "baseName": "wallet",
         "type": "string | Wallet",
+        "format": ""
+    },
+    {
+        "name": "amount",
+        "baseName": "amount",
+        "type": "number",
         "format": ""
     },
     {
@@ -105,6 +93,24 @@ PaymentIntentAllOf.attributeTypeMap = [
         "name": "application_fee_percent",
         "baseName": "application_fee_percent",
         "type": "number",
+        "format": ""
+    },
+    {
+        "name": "status",
+        "baseName": "status",
+        "type": "PaymentIntentAllOfStatusEnum",
+        "format": ""
+    },
+    {
+        "name": "chain",
+        "baseName": "chain",
+        "type": "PaymentIntentAllOfChainEnum",
+        "format": ""
+    },
+    {
+        "name": "currency",
+        "baseName": "currency",
+        "type": "PaymentIntentAllOfCurrencyEnum",
         "format": ""
     },
     {

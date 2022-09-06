@@ -13,7 +13,7 @@
 import { Account } from './Account';
 import { Customer } from './Customer';
 import { InvoiceAllOf } from './InvoiceAllOf';
-import { InvoiceAllOfLineItems } from './InvoiceAllOfLineItems';
+import { LineItem } from './LineItem';
 import { Model } from './Model';
 import { Price } from './Price';
 import { Subscription } from './Subscription';
@@ -30,14 +30,11 @@ export class Invoice {
     'number': string;
     'price': string | Price;
     'customer': string | Customer;
-    'line_items'?: Array<InvoiceAllOfLineItems>;
+    'line_items'?: Array<LineItem>;
     'trial_period_days'?: number;
     'subscription'?: string | Subscription;
     'period_start'?: number;
     'period_end'?: number;
-    'chain': InvoiceChainEnum;
-    'amount': number;
-    'send_reminders'?: boolean;
     'due'?: number;
     'notify': boolean;
     'metadata'?: any;
@@ -108,7 +105,7 @@ export class Invoice {
         {
             "name": "line_items",
             "baseName": "line_items",
-            "type": "Array<InvoiceAllOfLineItems>",
+            "type": "Array<LineItem>",
             "format": ""
         },
         {
@@ -133,24 +130,6 @@ export class Invoice {
             "name": "period_end",
             "baseName": "period_end",
             "type": "number",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "InvoiceChainEnum",
-            "format": ""
-        },
-        {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "send_reminders",
-            "baseName": "send_reminders",
-            "type": "boolean",
             "format": ""
         },
         {
@@ -182,5 +161,4 @@ export class Invoice {
 
 
 export type InvoiceStatusEnum = "open" | "paid" | "void" | "past_due" | "uncollectible" ;
-export type InvoiceChainEnum = "eth" | "sol" ;
 

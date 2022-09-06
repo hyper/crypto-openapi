@@ -1,7 +1,7 @@
 import { Account } from './Account';
 import { Customer } from './Customer';
 import { Invoice } from './Invoice';
-import { PaymentIntentAllOfLineItems } from './PaymentIntentAllOfLineItems';
+import { LineItem } from './LineItem';
 import { Price } from './Price';
 export declare class Subscription {
     'id': string;
@@ -11,17 +11,17 @@ export declare class Subscription {
     'account': string | Account;
     'platform_account'?: string | Account;
     'price': string | Price;
+    'line_items'?: Array<LineItem>;
+    'trial_period_days'?: number;
     'customer': string | Customer;
-    'latest_invoice'?: Invoice;
     'status': SubscriptionStatusEnum;
     'pause_collection'?: boolean;
     'canceled_at'?: number;
-    'trial_period_days'?: number;
-    'line_items'?: Array<PaymentIntentAllOfLineItems>;
     'current_period_start'?: number;
     'current_period_end'?: number;
     'cancel_at_period_end': boolean;
     'cancel_at'?: number;
+    'latest_invoice'?: Invoice;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

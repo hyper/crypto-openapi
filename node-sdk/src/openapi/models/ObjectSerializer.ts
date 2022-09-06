@@ -1,15 +1,19 @@
 export * from './Account';
 export * from './AccountAllOf';
 export * from './AccountAllOfBusinessProfile';
-export * from './AccountAllOfBusinessProfileLinks';
-export * from './AccountAllOfBusinessProfileSupport';
+export * from './AccountAllOfIntegrations';
+export * from './AccountAllOfIntegrationsFtx';
 export * from './AccountAllOfSettings';
 export * from './AccountAllOfSettingsBilling';
 export * from './AccountAllOfSettingsBranding';
 export * from './AccountAllOfSettingsPayments';
 export * from './AccountAllOfTeam';
+export * from './Address';
 export * from './ApiKey';
 export * from './ApiKeyAllOf';
+export * from './Checkout';
+export * from './CheckoutAllOf';
+export * from './CheckoutAllOfCustomerDetails';
 export * from './CreateCustomerBody';
 export * from './CreateFeeBody';
 export * from './CreatePayoutWalletBody';
@@ -19,6 +23,7 @@ export * from './CreateWalletBody';
 export * from './CreateWebhookBody';
 export * from './Customer';
 export * from './CustomerAllOf';
+export * from './CustomerAllOfBillingDetails';
 export * from './CustomersBillingDetails';
 export * from './CustomersBillingDetailsAddress';
 export * from './CustomersIdBillingDetails';
@@ -29,7 +34,7 @@ export * from './InlineResponse400';
 export * from './InlineResponse400Error';
 export * from './Invoice';
 export * from './InvoiceAllOf';
-export * from './InvoiceAllOfLineItems';
+export * from './LineItem';
 export * from './ListAccountsResponse';
 export * from './ListCustomersResponse';
 export * from './ListFeesResponse';
@@ -50,12 +55,15 @@ export * from './Notification';
 export * from './NotificationAllOf';
 export * from './PaymentIntent';
 export * from './PaymentIntentAllOf';
-export * from './PaymentIntentAllOfLineItems';
+export * from './PaymentLink';
+export * from './PaymentLinkAllOf';
+export * from './PaymentLinkAllOfAfterCompletion';
 export * from './PayoutWallet';
 export * from './PayoutWalletAllOf';
 export * from './Price';
 export * from './PriceAllOf';
 export * from './PriceAllOfBasePrice';
+export * from './PriceAllOfCustomAmount';
 export * from './Product';
 export * from './ProductAllOf';
 export * from './Subscription';
@@ -76,15 +84,19 @@ export * from './WebhookAllOf';
 import { Account } from './Account';
 import { AccountAllOf } from './AccountAllOf';
 import { AccountAllOfBusinessProfile } from './AccountAllOfBusinessProfile';
-import { AccountAllOfBusinessProfileLinks } from './AccountAllOfBusinessProfileLinks';
-import { AccountAllOfBusinessProfileSupport } from './AccountAllOfBusinessProfileSupport';
+import { AccountAllOfIntegrations } from './AccountAllOfIntegrations';
+import { AccountAllOfIntegrationsFtx } from './AccountAllOfIntegrationsFtx';
 import { AccountAllOfSettings } from './AccountAllOfSettings';
 import { AccountAllOfSettingsBilling } from './AccountAllOfSettingsBilling';
 import { AccountAllOfSettingsBranding } from './AccountAllOfSettingsBranding';
 import { AccountAllOfSettingsPayments } from './AccountAllOfSettingsPayments';
 import { AccountAllOfTeam } from './AccountAllOfTeam';
-import { ApiKey      , ApiKeyKeyEnum  , ApiKeyTypeEnum     } from './ApiKey';
-import { ApiKeyAllOf  , ApiKeyAllOfKeyEnum  , ApiKeyAllOfTypeEnum     } from './ApiKeyAllOf';
+import { Address } from './Address';
+import { ApiKey       , ApiKeyKeyEnum  , ApiKeyTypeEnum     } from './ApiKey';
+import { ApiKeyAllOf   , ApiKeyAllOfKeyEnum  , ApiKeyAllOfTypeEnum     } from './ApiKeyAllOf';
+import { Checkout      , CheckoutStatusEnum         } from './Checkout';
+import { CheckoutAllOf  , CheckoutAllOfStatusEnum         } from './CheckoutAllOf';
+import { CheckoutAllOfCustomerDetails } from './CheckoutAllOfCustomerDetails';
 import { CreateCustomerBody } from './CreateCustomerBody';
 import { CreateFeeBody } from './CreateFeeBody';
 import { CreatePayoutWalletBody } from './CreatePayoutWalletBody';
@@ -94,6 +106,7 @@ import { CreateWalletBody } from './CreateWalletBody';
 import { CreateWebhookBody } from './CreateWebhookBody';
 import { Customer } from './Customer';
 import { CustomerAllOf } from './CustomerAllOf';
+import { CustomerAllOfBillingDetails } from './CustomerAllOfBillingDetails';
 import { CustomersBillingDetails } from './CustomersBillingDetails';
 import { CustomersBillingDetailsAddress } from './CustomersBillingDetailsAddress';
 import { CustomersIdBillingDetails } from './CustomersIdBillingDetails';
@@ -102,9 +115,9 @@ import { Fee } from './Fee';
 import { FeeAllOf } from './FeeAllOf';
 import { InlineResponse400 } from './InlineResponse400';
 import { InlineResponse400Error } from './InlineResponse400Error';
-import { Invoice      , InvoiceStatusEnum          , InvoiceChainEnum        } from './Invoice';
-import { InvoiceAllOf  , InvoiceAllOfStatusEnum          , InvoiceAllOfChainEnum        } from './InvoiceAllOf';
-import { InvoiceAllOfLineItems } from './InvoiceAllOfLineItems';
+import { Invoice      , InvoiceStatusEnum              } from './Invoice';
+import { InvoiceAllOf  , InvoiceAllOfStatusEnum              } from './InvoiceAllOf';
+import { LineItem } from './LineItem';
 import { ListAccountsResponse } from './ListAccountsResponse';
 import { ListCustomersResponse } from './ListCustomersResponse';
 import { ListFeesResponse } from './ListFeesResponse';
@@ -123,18 +136,21 @@ import { LogAllOf     , LogAllOfMethodEnum       } from './LogAllOf';
 import { Model } from './Model';
 import { Notification     , NotificationTypeEnum     } from './Notification';
 import { NotificationAllOf , NotificationAllOfTypeEnum     } from './NotificationAllOf';
-import { PaymentIntent        , PaymentIntentStatusEnum  , PaymentIntentChainEnum  , PaymentIntentCurrencyEnum                } from './PaymentIntent';
-import { PaymentIntentAllOf    , PaymentIntentAllOfStatusEnum  , PaymentIntentAllOfChainEnum  , PaymentIntentAllOfCurrencyEnum                } from './PaymentIntentAllOf';
-import { PaymentIntentAllOfLineItems } from './PaymentIntentAllOfLineItems';
-import { PayoutWallet      , PayoutWalletChainEnum    } from './PayoutWallet';
-import { PayoutWalletAllOf  , PayoutWalletAllOfChainEnum    } from './PayoutWalletAllOf';
+import { PaymentIntent                  , PaymentIntentStatusEnum  , PaymentIntentChainEnum  , PaymentIntentCurrencyEnum       } from './PaymentIntent';
+import { PaymentIntentAllOf              , PaymentIntentAllOfStatusEnum  , PaymentIntentAllOfChainEnum  , PaymentIntentAllOfCurrencyEnum       } from './PaymentIntentAllOf';
+import { PaymentLink         , PaymentLinkCurrencyEnum  , PaymentLinkChainEnum        } from './PaymentLink';
+import { PaymentLinkAllOf     , PaymentLinkAllOfCurrencyEnum  , PaymentLinkAllOfChainEnum        } from './PaymentLinkAllOf';
+import { PaymentLinkAllOfAfterCompletion } from './PaymentLinkAllOfAfterCompletion';
+import { PayoutWallet     , PayoutWalletChainEnum    , PayoutWalletTypeEnum   } from './PayoutWallet';
+import { PayoutWalletAllOf , PayoutWalletAllOfChainEnum    , PayoutWalletAllOfTypeEnum   } from './PayoutWalletAllOf';
 import { Price } from './Price';
 import { PriceAllOf } from './PriceAllOf';
 import { PriceAllOfBasePrice } from './PriceAllOfBasePrice';
+import { PriceAllOfCustomAmount } from './PriceAllOfCustomAmount';
 import { Product } from './Product';
 import { ProductAllOf } from './ProductAllOf';
-import { Subscription         , SubscriptionStatusEnum           } from './Subscription';
-import { SubscriptionAllOf     , SubscriptionAllOfStatusEnum           } from './SubscriptionAllOf';
+import { Subscription          , SubscriptionStatusEnum          } from './Subscription';
+import { SubscriptionAllOf      , SubscriptionAllOfStatusEnum          } from './SubscriptionAllOf';
 import { Transfer } from './Transfer';
 import { TransferAllOf } from './TransferAllOf';
 import { UpdateCustomerBody } from './UpdateCustomerBody';
@@ -143,8 +159,8 @@ import { UpdatePriceBody } from './UpdatePriceBody';
 import { UpdateProductBody } from './UpdateProductBody';
 import { UpdateWalletBody } from './UpdateWalletBody';
 import { UpdateWebhookBody } from './UpdateWebhookBody';
-import { Wallet      , WalletChainEnum    } from './Wallet';
-import { WalletAllOf  , WalletAllOfChainEnum    } from './WalletAllOf';
+import { Wallet     , WalletChainEnum     } from './Wallet';
+import { WalletAllOf , WalletAllOfChainEnum     } from './WalletAllOf';
 import { Webhook } from './Webhook';
 import { WebhookAllOf } from './WebhookAllOf';
 
@@ -172,10 +188,10 @@ let enumsMap: Set<string> = new Set<string>([
     "ApiKeyTypeEnum",
     "ApiKeyAllOfKeyEnum",
     "ApiKeyAllOfTypeEnum",
+    "CheckoutStatusEnum",
+    "CheckoutAllOfStatusEnum",
     "InvoiceStatusEnum",
-    "InvoiceChainEnum",
     "InvoiceAllOfStatusEnum",
-    "InvoiceAllOfChainEnum",
     "LogMethodEnum",
     "LogAllOfMethodEnum",
     "NotificationTypeEnum",
@@ -186,8 +202,14 @@ let enumsMap: Set<string> = new Set<string>([
     "PaymentIntentAllOfStatusEnum",
     "PaymentIntentAllOfChainEnum",
     "PaymentIntentAllOfCurrencyEnum",
+    "PaymentLinkCurrencyEnum",
+    "PaymentLinkChainEnum",
+    "PaymentLinkAllOfCurrencyEnum",
+    "PaymentLinkAllOfChainEnum",
     "PayoutWalletChainEnum",
+    "PayoutWalletTypeEnum",
     "PayoutWalletAllOfChainEnum",
+    "PayoutWalletAllOfTypeEnum",
     "SubscriptionStatusEnum",
     "SubscriptionAllOfStatusEnum",
     "WalletChainEnum",
@@ -198,15 +220,19 @@ let typeMap: {[index: string]: any} = {
     "Account": Account,
     "AccountAllOf": AccountAllOf,
     "AccountAllOfBusinessProfile": AccountAllOfBusinessProfile,
-    "AccountAllOfBusinessProfileLinks": AccountAllOfBusinessProfileLinks,
-    "AccountAllOfBusinessProfileSupport": AccountAllOfBusinessProfileSupport,
+    "AccountAllOfIntegrations": AccountAllOfIntegrations,
+    "AccountAllOfIntegrationsFtx": AccountAllOfIntegrationsFtx,
     "AccountAllOfSettings": AccountAllOfSettings,
     "AccountAllOfSettingsBilling": AccountAllOfSettingsBilling,
     "AccountAllOfSettingsBranding": AccountAllOfSettingsBranding,
     "AccountAllOfSettingsPayments": AccountAllOfSettingsPayments,
     "AccountAllOfTeam": AccountAllOfTeam,
+    "Address": Address,
     "ApiKey": ApiKey,
     "ApiKeyAllOf": ApiKeyAllOf,
+    "Checkout": Checkout,
+    "CheckoutAllOf": CheckoutAllOf,
+    "CheckoutAllOfCustomerDetails": CheckoutAllOfCustomerDetails,
     "CreateCustomerBody": CreateCustomerBody,
     "CreateFeeBody": CreateFeeBody,
     "CreatePayoutWalletBody": CreatePayoutWalletBody,
@@ -216,6 +242,7 @@ let typeMap: {[index: string]: any} = {
     "CreateWebhookBody": CreateWebhookBody,
     "Customer": Customer,
     "CustomerAllOf": CustomerAllOf,
+    "CustomerAllOfBillingDetails": CustomerAllOfBillingDetails,
     "CustomersBillingDetails": CustomersBillingDetails,
     "CustomersBillingDetailsAddress": CustomersBillingDetailsAddress,
     "CustomersIdBillingDetails": CustomersIdBillingDetails,
@@ -226,7 +253,7 @@ let typeMap: {[index: string]: any} = {
     "InlineResponse400Error": InlineResponse400Error,
     "Invoice": Invoice,
     "InvoiceAllOf": InvoiceAllOf,
-    "InvoiceAllOfLineItems": InvoiceAllOfLineItems,
+    "LineItem": LineItem,
     "ListAccountsResponse": ListAccountsResponse,
     "ListCustomersResponse": ListCustomersResponse,
     "ListFeesResponse": ListFeesResponse,
@@ -247,12 +274,15 @@ let typeMap: {[index: string]: any} = {
     "NotificationAllOf": NotificationAllOf,
     "PaymentIntent": PaymentIntent,
     "PaymentIntentAllOf": PaymentIntentAllOf,
-    "PaymentIntentAllOfLineItems": PaymentIntentAllOfLineItems,
+    "PaymentLink": PaymentLink,
+    "PaymentLinkAllOf": PaymentLinkAllOf,
+    "PaymentLinkAllOfAfterCompletion": PaymentLinkAllOfAfterCompletion,
     "PayoutWallet": PayoutWallet,
     "PayoutWalletAllOf": PayoutWalletAllOf,
     "Price": Price,
     "PriceAllOf": PriceAllOf,
     "PriceAllOfBasePrice": PriceAllOfBasePrice,
+    "PriceAllOfCustomAmount": PriceAllOfCustomAmount,
     "Product": Product,
     "ProductAllOf": ProductAllOf,
     "Subscription": Subscription,

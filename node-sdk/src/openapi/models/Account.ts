@@ -12,6 +12,7 @@
 
 import { AccountAllOf } from './AccountAllOf';
 import { AccountAllOfBusinessProfile } from './AccountAllOfBusinessProfile';
+import { AccountAllOfIntegrations } from './AccountAllOfIntegrations';
 import { AccountAllOfSettings } from './AccountAllOfSettings';
 import { AccountAllOfTeam } from './AccountAllOfTeam';
 import { Model } from './Model';
@@ -23,15 +24,16 @@ export class Account {
     'created': Date;
     'object': string;
     'test': boolean;
-    'platform_account': boolean;
-    'connected_accounts'?: Array<string>;
     'parent_account'?: string | Account;
-    'team'?: Array<AccountAllOfTeam>;
-    'payout_wallets'?: Array<PayoutWallet>;
+    'connected_accounts'?: Array<string>;
+    'platform_account': boolean;
     'application_fee_percent': number;
+    'team'?: Array<AccountAllOfTeam>;
     'verified'?: boolean;
-    'settings'?: AccountAllOfSettings;
     'business_profile'?: AccountAllOfBusinessProfile;
+    'settings'?: AccountAllOfSettings;
+    'integrations'?: AccountAllOfIntegrations;
+    'payout_wallets'?: Array<PayoutWallet>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -61,9 +63,9 @@ export class Account {
             "format": ""
         },
         {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "boolean",
+            "name": "parent_account",
+            "baseName": "parent_account",
+            "type": "string | Account",
             "format": ""
         },
         {
@@ -73,21 +75,9 @@ export class Account {
             "format": ""
         },
         {
-            "name": "parent_account",
-            "baseName": "parent_account",
-            "type": "string | Account",
-            "format": ""
-        },
-        {
-            "name": "team",
-            "baseName": "team",
-            "type": "Array<AccountAllOfTeam>",
-            "format": ""
-        },
-        {
-            "name": "payout_wallets",
-            "baseName": "payout_wallets",
-            "type": "Array<PayoutWallet>",
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "boolean",
             "format": ""
         },
         {
@@ -97,9 +87,21 @@ export class Account {
             "format": ""
         },
         {
+            "name": "team",
+            "baseName": "team",
+            "type": "Array<AccountAllOfTeam>",
+            "format": ""
+        },
+        {
             "name": "verified",
             "baseName": "verified",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "business_profile",
+            "baseName": "business_profile",
+            "type": "AccountAllOfBusinessProfile",
             "format": ""
         },
         {
@@ -109,9 +111,15 @@ export class Account {
             "format": ""
         },
         {
-            "name": "business_profile",
-            "baseName": "business_profile",
-            "type": "AccountAllOfBusinessProfile",
+            "name": "integrations",
+            "baseName": "integrations",
+            "type": "AccountAllOfIntegrations",
+            "format": ""
+        },
+        {
+            "name": "payout_wallets",
+            "baseName": "payout_wallets",
+            "type": "Array<PayoutWallet>",
             "format": ""
         }    ];
 

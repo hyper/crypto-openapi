@@ -18,6 +18,12 @@ PriceAllOfBasePrice.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "custom_amount",
+        "baseName": "custom_amount",
+        "type": "PriceAllOfCustomAmount",
+        "format": ""
+    },
+    {
         "name": "currency",
         "baseName": "currency",
         "type": "string",

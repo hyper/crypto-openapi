@@ -1,11 +1,12 @@
 import { Account } from './Account';
 export declare class ApiKeyAllOf {
     'account': string | Account;
-    'admin': boolean;
+    'name'?: string;
+    'note'?: string;
     'key': ApiKeyAllOfKeyEnum;
     'type': ApiKeyAllOfTypeEnum;
-    'name'?: string;
-    'last_used'?: number;
+    'last_used'?: Date;
+    'admin': boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

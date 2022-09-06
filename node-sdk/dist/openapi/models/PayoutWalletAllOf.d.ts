@@ -1,9 +1,10 @@
 import { Account } from './Account';
 export declare class PayoutWalletAllOf {
     'account': string | Account;
-    'address': string;
     'chain': PayoutWalletAllOfChainEnum;
     '_default'?: boolean;
+    'address': string;
+    'type': PayoutWalletAllOfTypeEnum;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
@@ -20,3 +21,4 @@ export declare class PayoutWalletAllOf {
     constructor();
 }
 export declare type PayoutWalletAllOfChainEnum = "eth" | "sol";
+export declare type PayoutWalletAllOfTypeEnum = "external" | "ftx";

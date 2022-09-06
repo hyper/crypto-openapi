@@ -18,15 +18,15 @@ WalletAllOf.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "address",
-        "baseName": "address",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "chain",
         "baseName": "chain",
         "type": "WalletAllOfChainEnum",
+        "format": ""
+    },
+    {
+        "name": "address",
+        "baseName": "address",
+        "type": "string",
         "format": ""
     },
     {

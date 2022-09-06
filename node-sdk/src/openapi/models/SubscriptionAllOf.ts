@@ -13,7 +13,7 @@
 import { Account } from './Account';
 import { Customer } from './Customer';
 import { Invoice } from './Invoice';
-import { PaymentIntentAllOfLineItems } from './PaymentIntentAllOfLineItems';
+import { LineItem } from './LineItem';
 import { Price } from './Price';
 import { HttpFile } from '../http/http';
 
@@ -21,17 +21,17 @@ export class SubscriptionAllOf {
     'account': string | Account;
     'platform_account'?: string | Account;
     'price': string | Price;
+    'line_items'?: Array<LineItem>;
+    'trial_period_days'?: number;
     'customer': string | Customer;
-    'latest_invoice'?: Invoice;
     'status': SubscriptionAllOfStatusEnum;
     'pause_collection'?: boolean;
     'canceled_at'?: number;
-    'trial_period_days'?: number;
-    'line_items'?: Array<PaymentIntentAllOfLineItems>;
     'current_period_start'?: number;
     'current_period_end'?: number;
     'cancel_at_period_end': boolean;
     'cancel_at'?: number;
+    'latest_invoice'?: Invoice;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -55,15 +55,21 @@ export class SubscriptionAllOf {
             "format": ""
         },
         {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string | Customer",
+            "name": "line_items",
+            "baseName": "line_items",
+            "type": "Array<LineItem>",
             "format": ""
         },
         {
-            "name": "latest_invoice",
-            "baseName": "latest_invoice",
-            "type": "Invoice",
+            "name": "trial_period_days",
+            "baseName": "trial_period_days",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "customer",
+            "baseName": "customer",
+            "type": "string | Customer",
             "format": ""
         },
         {
@@ -82,18 +88,6 @@ export class SubscriptionAllOf {
             "name": "canceled_at",
             "baseName": "canceled_at",
             "type": "number",
-            "format": ""
-        },
-        {
-            "name": "trial_period_days",
-            "baseName": "trial_period_days",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "line_items",
-            "baseName": "line_items",
-            "type": "Array<PaymentIntentAllOfLineItems>",
             "format": ""
         },
         {
@@ -118,6 +112,12 @@ export class SubscriptionAllOf {
             "name": "cancel_at",
             "baseName": "cancel_at",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "latest_invoice",
+            "baseName": "latest_invoice",
+            "type": "Invoice",
             "format": ""
         }    ];
 

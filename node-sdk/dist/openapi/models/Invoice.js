@@ -74,7 +74,7 @@ Invoice.attributeTypeMap = [
     {
         "name": "line_items",
         "baseName": "line_items",
-        "type": "Array<InvoiceAllOfLineItems>",
+        "type": "Array<LineItem>",
         "format": ""
     },
     {
@@ -99,24 +99,6 @@ Invoice.attributeTypeMap = [
         "name": "period_end",
         "baseName": "period_end",
         "type": "number",
-        "format": ""
-    },
-    {
-        "name": "chain",
-        "baseName": "chain",
-        "type": "InvoiceChainEnum",
-        "format": ""
-    },
-    {
-        "name": "amount",
-        "baseName": "amount",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "send_reminders",
-        "baseName": "send_reminders",
-        "type": "boolean",
         "format": ""
     },
     {

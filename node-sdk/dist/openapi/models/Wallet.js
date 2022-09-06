@@ -42,15 +42,15 @@ Wallet.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "address",
-        "baseName": "address",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "chain",
         "baseName": "chain",
         "type": "WalletChainEnum",
+        "format": ""
+    },
+    {
+        "name": "address",
+        "baseName": "address",
+        "type": "string",
         "format": ""
     },
     {

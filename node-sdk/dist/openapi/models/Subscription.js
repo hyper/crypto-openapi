@@ -54,15 +54,21 @@ Subscription.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "customer",
-        "baseName": "customer",
-        "type": "string | Customer",
+        "name": "line_items",
+        "baseName": "line_items",
+        "type": "Array<LineItem>",
         "format": ""
     },
     {
-        "name": "latest_invoice",
-        "baseName": "latest_invoice",
-        "type": "Invoice",
+        "name": "trial_period_days",
+        "baseName": "trial_period_days",
+        "type": "number",
+        "format": ""
+    },
+    {
+        "name": "customer",
+        "baseName": "customer",
+        "type": "string | Customer",
         "format": ""
     },
     {
@@ -81,18 +87,6 @@ Subscription.attributeTypeMap = [
         "name": "canceled_at",
         "baseName": "canceled_at",
         "type": "number",
-        "format": ""
-    },
-    {
-        "name": "trial_period_days",
-        "baseName": "trial_period_days",
-        "type": "number",
-        "format": ""
-    },
-    {
-        "name": "line_items",
-        "baseName": "line_items",
-        "type": "Array<PaymentIntentAllOfLineItems>",
         "format": ""
     },
     {
@@ -117,6 +111,12 @@ Subscription.attributeTypeMap = [
         "name": "cancel_at",
         "baseName": "cancel_at",
         "type": "number",
+        "format": ""
+    },
+    {
+        "name": "latest_invoice",
+        "baseName": "latest_invoice",
+        "type": "Invoice",
         "format": ""
     }
 ];

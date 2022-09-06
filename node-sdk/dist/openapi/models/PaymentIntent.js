@@ -60,32 +60,14 @@ PaymentIntent.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "status",
-        "baseName": "status",
-        "type": "PaymentIntentStatusEnum",
-        "format": ""
-    },
-    {
-        "name": "chain",
-        "baseName": "chain",
-        "type": "PaymentIntentChainEnum",
-        "format": ""
-    },
-    {
-        "name": "currency",
-        "baseName": "currency",
-        "type": "PaymentIntentCurrencyEnum",
-        "format": ""
-    },
-    {
-        "name": "amount",
-        "baseName": "amount",
-        "type": "number",
-        "format": ""
-    },
-    {
         "name": "subscription",
         "baseName": "subscription",
+        "type": "string | Subscription",
+        "format": ""
+    },
+    {
+        "name": "checkout",
+        "baseName": "checkout",
         "type": "string | Subscription",
         "format": ""
     },
@@ -98,7 +80,7 @@ PaymentIntent.attributeTypeMap = [
     {
         "name": "line_items",
         "baseName": "line_items",
-        "type": "Array<PaymentIntentAllOfLineItems>",
+        "type": "Array<LineItem>",
         "format": ""
     },
     {
@@ -111,6 +93,12 @@ PaymentIntent.attributeTypeMap = [
         "name": "wallet",
         "baseName": "wallet",
         "type": "string | Wallet",
+        "format": ""
+    },
+    {
+        "name": "amount",
+        "baseName": "amount",
+        "type": "number",
         "format": ""
     },
     {
@@ -129,6 +117,24 @@ PaymentIntent.attributeTypeMap = [
         "name": "application_fee_percent",
         "baseName": "application_fee_percent",
         "type": "number",
+        "format": ""
+    },
+    {
+        "name": "status",
+        "baseName": "status",
+        "type": "PaymentIntentStatusEnum",
+        "format": ""
+    },
+    {
+        "name": "chain",
+        "baseName": "chain",
+        "type": "PaymentIntentChainEnum",
+        "format": ""
+    },
+    {
+        "name": "currency",
+        "baseName": "currency",
+        "type": "PaymentIntentCurrencyEnum",
         "format": ""
     },
     {

@@ -1,5 +1,5 @@
 import { Account } from './Account';
-import { CustomersIdBillingDetails } from './CustomersIdBillingDetails';
+import { CustomerAllOfBillingDetails } from './CustomerAllOfBillingDetails';
 import { PaymentIntent } from './PaymentIntent';
 import { Wallet } from './Wallet';
 export declare class Customer {
@@ -8,13 +8,13 @@ export declare class Customer {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'billing_details'?: CustomersIdBillingDetails;
-    'email'?: string;
     'name'?: string;
+    'email'?: string;
     'phone'?: string;
+    'billing_details'?: CustomerAllOfBillingDetails;
     'wallets': Array<Wallet>;
     'payments': Array<PaymentIntent>;
-    'last_payment': string | PaymentIntent;
+    'last_payment': PaymentIntent;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

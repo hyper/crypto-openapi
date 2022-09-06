@@ -10,15 +10,17 @@
  * Do not edit the class manually.
  */
 
-import { AccountAllOfBusinessProfileLinks } from './AccountAllOfBusinessProfileLinks';
-import { AccountAllOfBusinessProfileSupport } from './AccountAllOfBusinessProfileSupport';
+import { Address } from './Address';
 import { HttpFile } from '../http/http';
 
 export class AccountAllOfBusinessProfile {
-    'name'?: string;
-    'business_description'?: string;
-    'support'?: AccountAllOfBusinessProfileSupport;
-    'links'?: AccountAllOfBusinessProfileLinks;
+    'name': string;
+    'product_description'?: string;
+    'url'?: string;
+    'support_url'?: string;
+    'support_email'?: string;
+    'support_phone'?: string;
+    'support_address'?: Address;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -30,21 +32,39 @@ export class AccountAllOfBusinessProfile {
             "format": ""
         },
         {
-            "name": "business_description",
-            "baseName": "business_description",
+            "name": "product_description",
+            "baseName": "product_description",
             "type": "string",
             "format": ""
         },
         {
-            "name": "support",
-            "baseName": "support",
-            "type": "AccountAllOfBusinessProfileSupport",
+            "name": "url",
+            "baseName": "url",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "links",
-            "baseName": "links",
-            "type": "AccountAllOfBusinessProfileLinks",
+            "name": "support_url",
+            "baseName": "support_url",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "support_email",
+            "baseName": "support_email",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "support_phone",
+            "baseName": "support_phone",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "support_address",
+            "baseName": "support_address",
+            "type": "Address",
             "format": ""
         }    ];
 

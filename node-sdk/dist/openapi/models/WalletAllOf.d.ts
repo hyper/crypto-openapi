@@ -2,8 +2,8 @@ import { Account } from './Account';
 import { Customer } from './Customer';
 export declare class WalletAllOf {
     'account': string | Account;
-    'address': string;
     'chain': WalletAllOfChainEnum;
+    'address': string;
     'customer': string | Customer;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

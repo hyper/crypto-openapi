@@ -5,11 +5,12 @@ export declare class ApiKey {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'admin': boolean;
+    'name'?: string;
+    'note'?: string;
     'key': ApiKeyKeyEnum;
     'type': ApiKeyTypeEnum;
-    'name'?: string;
-    'last_used'?: number;
+    'last_used'?: Date;
+    'admin': boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

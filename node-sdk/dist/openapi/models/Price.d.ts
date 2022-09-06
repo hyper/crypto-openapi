@@ -1,5 +1,6 @@
 import { Account } from './Account';
 import { PriceAllOfBasePrice } from './PriceAllOfBasePrice';
+import { PriceAllOfCustomAmount } from './PriceAllOfCustomAmount';
 import { Product } from './Product';
 export declare class Price {
     'id': string;
@@ -9,6 +10,7 @@ export declare class Price {
     'account': string | Account;
     'platform_account'?: string | Account;
     'amount': number;
+    'custom_amount': PriceAllOfCustomAmount;
     'currency': string;
     'chain': string;
     'product'?: string | Product;

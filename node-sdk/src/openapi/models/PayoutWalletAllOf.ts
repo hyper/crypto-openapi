@@ -15,9 +15,10 @@ import { HttpFile } from '../http/http';
 
 export class PayoutWalletAllOf {
     'account': string | Account;
-    'address': string;
     'chain': PayoutWalletAllOfChainEnum;
     '_default'?: boolean;
+    'address': string;
+    'type': PayoutWalletAllOfTypeEnum;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -26,12 +27,6 @@ export class PayoutWalletAllOf {
             "name": "account",
             "baseName": "account",
             "type": "string | Account",
-            "format": ""
-        },
-        {
-            "name": "address",
-            "baseName": "address",
-            "type": "string",
             "format": ""
         },
         {
@@ -45,6 +40,18 @@ export class PayoutWalletAllOf {
             "baseName": "default",
             "type": "boolean",
             "format": ""
+        },
+        {
+            "name": "address",
+            "baseName": "address",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "type",
+            "baseName": "type",
+            "type": "PayoutWalletAllOfTypeEnum",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {
@@ -57,4 +64,5 @@ export class PayoutWalletAllOf {
 
 
 export type PayoutWalletAllOfChainEnum = "eth" | "sol" ;
+export type PayoutWalletAllOfTypeEnum = "external" | "ftx" ;
 

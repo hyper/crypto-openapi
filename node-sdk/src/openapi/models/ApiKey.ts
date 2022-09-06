@@ -21,11 +21,12 @@ export class ApiKey {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'admin': boolean;
+    'name'?: string;
+    'note'?: string;
     'key': ApiKeyKeyEnum;
     'type': ApiKeyTypeEnum;
-    'name'?: string;
-    'last_used'?: number;
+    'last_used'?: Date;
+    'admin': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -61,9 +62,15 @@ export class ApiKey {
             "format": ""
         },
         {
-            "name": "admin",
-            "baseName": "admin",
-            "type": "boolean",
+            "name": "name",
+            "baseName": "name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "note",
+            "baseName": "note",
+            "type": "string",
             "format": ""
         },
         {
@@ -79,15 +86,15 @@ export class ApiKey {
             "format": ""
         },
         {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "last_used",
             "baseName": "last_used",
-            "type": "number",
+            "type": "Date",
+            "format": "date-time"
+        },
+        {
+            "name": "admin",
+            "baseName": "admin",
+            "type": "boolean",
             "format": ""
         }    ];
 

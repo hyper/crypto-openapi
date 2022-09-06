@@ -22,8 +22,8 @@ export class Wallet {
     'object': string;
     'test': boolean;
     'account': string | Account;
-    'address': string;
     'chain': WalletChainEnum;
+    'address': string;
     'customer': string | Customer;
 
     static readonly discriminator: string | undefined = undefined;
@@ -60,15 +60,15 @@ export class Wallet {
             "format": ""
         },
         {
-            "name": "address",
-            "baseName": "address",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "chain",
             "baseName": "chain",
             "type": "WalletChainEnum",
+            "format": ""
+        },
+        {
+            "name": "address",
+            "baseName": "address",
+            "type": "string",
             "format": ""
         },
         {
