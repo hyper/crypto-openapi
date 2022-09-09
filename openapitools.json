@@ -1,7 +1,3 @@
-{
-  "$schema": "node_modules/@openapitools/openapi-generator-cli/config.schema.json",
-  "generator-cli": {
-    "version": "5.4.0"
-  },
-  "spaces": 2
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:08399028a802c9bba3d832f337320c6b21d971f805733448552f1773926e051d
+size 151

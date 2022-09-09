@@ -1,25 +1,3 @@
-{
-  "compilerOptions": {
-    "strict": true,
-    /* Basic Options */
-    "target": "es6",
-    "module": "CommonJS",
-    "moduleResolution": "node",
-    "declaration": true,
-    "allowJs": true,
-
-    /* Additional Checks */
-    "noUnusedLocals": false /* Report errors on unused locals. */, // TODO: reenable (unused imports!)
-    "noUnusedParameters": false /* Report errors on unused parameters. */, // TODO: set to true again
-    "noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
-    "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
-
-    "removeComments": true,
-    "sourceMap": true,
-    "outDir": "./dist",
-    "noLib": false,
-    "lib": ["es6", "dom"]
-  },
-  "exclude": ["dist", "/node_modules", "jest.config.js", "src/**/*.test.ts"],
-  "filesGlob": ["./src/**/*.ts"]
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:fe3bd1ee1d5fe80cf604bbba6107d5130d4b247d4475eeff4a0616d291a78dde
+size 873
