@@ -16,7 +16,7 @@ const ObjectSerializer_1 = require("../models/ObjectSerializer");
 const exception_1 = require("./exception");
 const util_1 = require("../util");
 class CustomersApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
-    create(pluto_account, create_customer_body, _options) {
+    create(pluto_account, customer_create_request, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -30,7 +30,7 @@ class CustomersApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
                 "application/json"
             ]);
             requestContext.setHeaderParam("Content-Type", contentType);
-            const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(create_customer_body, "CreateCustomerBody", ""), contentType);
+            const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(customer_create_request, "CustomerCreateRequest", ""), contentType);
             requestContext.setBody(serializedBody);
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
@@ -39,7 +39,30 @@ class CustomersApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    list(limit, page, sort, expand, pluto_account, email, _options) {
+    create_1(pluto_account, customer_create_request, _options) {
+        var _a, _b, _c;
+        return __awaiter(this, void 0, void 0, function* () {
+            let _config = _options || this.configuration;
+            const localVarPath = '/customers';
+            const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
+            requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+            if (pluto_account !== undefined) {
+                requestContext.setHeaderParam("Pluto-Account", ObjectSerializer_1.ObjectSerializer.serialize(pluto_account, "string", ""));
+            }
+            const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
+                "application/json"
+            ]);
+            requestContext.setHeaderParam("Content-Type", contentType);
+            const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(customer_create_request, "CustomerCreateRequest", ""), contentType);
+            requestContext.setBody(serializedBody);
+            const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+            if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+                yield (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+            }
+            return requestContext;
+        });
+    }
+    list(pluto_account, limit, page, sort, expand, email, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -47,13 +70,13 @@ class CustomersApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
             requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
             if (limit !== undefined) {
-                requestContext.setQueryParam("limit", ObjectSerializer_1.ObjectSerializer.serialize(limit, "number", ""));
+                requestContext.setQueryParam("limit", ObjectSerializer_1.ObjectSerializer.serialize(limit, "number", "double"));
             }
             if (page !== undefined) {
-                requestContext.setQueryParam("page", ObjectSerializer_1.ObjectSerializer.serialize(page, "number", ""));
+                requestContext.setQueryParam("page", ObjectSerializer_1.ObjectSerializer.serialize(page, "number", "double"));
             }
             if (sort !== undefined) {
-                requestContext.setQueryParam("sort", ObjectSerializer_1.ObjectSerializer.serialize(sort, "any", ""));
+                requestContext.setQueryParam("sort", ObjectSerializer_1.ObjectSerializer.serialize(sort, "number", "double"));
             }
             if (expand !== undefined) {
                 requestContext.setQueryParam("expand", ObjectSerializer_1.ObjectSerializer.serialize(expand, "string", ""));
@@ -71,7 +94,39 @@ class CustomersApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    retrieve(id, expand, pluto_account, _options) {
+    list_2(pluto_account, limit, page, sort, expand, email, _options) {
+        var _a, _b, _c;
+        return __awaiter(this, void 0, void 0, function* () {
+            let _config = _options || this.configuration;
+            const localVarPath = '/customers';
+            const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
+            requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+            if (limit !== undefined) {
+                requestContext.setQueryParam("limit", ObjectSerializer_1.ObjectSerializer.serialize(limit, "number", "double"));
+            }
+            if (page !== undefined) {
+                requestContext.setQueryParam("page", ObjectSerializer_1.ObjectSerializer.serialize(page, "number", "double"));
+            }
+            if (sort !== undefined) {
+                requestContext.setQueryParam("sort", ObjectSerializer_1.ObjectSerializer.serialize(sort, "number", "double"));
+            }
+            if (expand !== undefined) {
+                requestContext.setQueryParam("expand", ObjectSerializer_1.ObjectSerializer.serialize(expand, "string", ""));
+            }
+            if (email !== undefined) {
+                requestContext.setQueryParam("email", ObjectSerializer_1.ObjectSerializer.serialize(email, "string", ""));
+            }
+            if (pluto_account !== undefined) {
+                requestContext.setHeaderParam("Pluto-Account", ObjectSerializer_1.ObjectSerializer.serialize(pluto_account, "string", ""));
+            }
+            const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+            if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+                yield (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+            }
+            return requestContext;
+        });
+    }
+    retrieve(id, pluto_account, expand, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -95,7 +150,31 @@ class CustomersApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
             return requestContext;
         });
     }
-    update(id, pluto_account, update_customer_body, _options) {
+    retrieve_3(id, pluto_account, expand, _options) {
+        var _a, _b, _c;
+        return __awaiter(this, void 0, void 0, function* () {
+            let _config = _options || this.configuration;
+            if (id === null || id === undefined) {
+                throw new baseapi_1.RequiredError("CustomersApi", "retrieve_3", "id");
+            }
+            const localVarPath = '/customers/{id}'
+                .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
+            requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+            if (expand !== undefined) {
+                requestContext.setQueryParam("expand", ObjectSerializer_1.ObjectSerializer.serialize(expand, "string", ""));
+            }
+            if (pluto_account !== undefined) {
+                requestContext.setHeaderParam("Pluto-Account", ObjectSerializer_1.ObjectSerializer.serialize(pluto_account, "string", ""));
+            }
+            const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+            if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+                yield (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+            }
+            return requestContext;
+        });
+    }
+    update(id, pluto_account, customer_update_request, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             let _config = _options || this.configuration;
@@ -113,7 +192,34 @@ class CustomersApiRequestFactory extends baseapi_1.BaseAPIRequestFactory {
                 "application/json"
             ]);
             requestContext.setHeaderParam("Content-Type", contentType);
-            const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(update_customer_body, "UpdateCustomerBody", ""), contentType);
+            const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(customer_update_request, "CustomerUpdateRequest", ""), contentType);
+            requestContext.setBody(serializedBody);
+            const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+            if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
+                yield (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext));
+            }
+            return requestContext;
+        });
+    }
+    update_4(id, pluto_account, customer_update_request, _options) {
+        var _a, _b, _c;
+        return __awaiter(this, void 0, void 0, function* () {
+            let _config = _options || this.configuration;
+            if (id === null || id === undefined) {
+                throw new baseapi_1.RequiredError("CustomersApi", "update_4", "id");
+            }
+            const localVarPath = '/customers/{id}'
+                .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+            const requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PATCH);
+            requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+            if (pluto_account !== undefined) {
+                requestContext.setHeaderParam("Pluto-Account", ObjectSerializer_1.ObjectSerializer.serialize(pluto_account, "string", ""));
+            }
+            const contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
+                "application/json"
+            ]);
+            requestContext.setHeaderParam("Content-Type", contentType);
+            const serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(customer_update_request, "CustomerUpdateRequest", ""), contentType);
             requestContext.setBody(serializedBody);
             const defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
             if (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication) {
@@ -129,18 +235,37 @@ class CustomersApiResponseProcessor {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
             if (util_1.isCodeInRange("200", response.httpStatusCode)) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Customer", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ICustomer", "");
                 return body;
             }
             if (util_1.isCodeInRange("400", response.httpStatusCode)) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse400", "");
-                throw new exception_1.ApiException(400, "Bad Request", body, response.headers);
+                throw new exception_1.ApiException(response.httpStatusCode, "Bad Request", undefined, response.headers);
             }
             if (util_1.isCodeInRange("401", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Customer", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ICustomer", "");
+                return body;
+            }
+            throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);
+        });
+    }
+    create_1(response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ICustomer", "");
+                return body;
+            }
+            if (util_1.isCodeInRange("400", response.httpStatusCode)) {
+                throw new exception_1.ApiException(response.httpStatusCode, "Bad Request", undefined, response.headers);
+            }
+            if (util_1.isCodeInRange("401", response.httpStatusCode)) {
+                throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+            }
+            if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ICustomer", "");
                 return body;
             }
             throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);
@@ -150,17 +275,37 @@ class CustomersApiResponseProcessor {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
             if (util_1.isCodeInRange("200", response.httpStatusCode)) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ListCustomersResponse", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "CustomerListResponse", "");
                 return body;
+            }
+            if (util_1.isCodeInRange("400", response.httpStatusCode)) {
+                throw new exception_1.ApiException(response.httpStatusCode, "Bad Request", undefined, response.headers);
             }
             if (util_1.isCodeInRange("401", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
             }
-            if (util_1.isCodeInRange("404", response.httpStatusCode)) {
-                throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);
+            if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "CustomerListResponse", "");
+                return body;
+            }
+            throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);
+        });
+    }
+    list_2(response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "CustomerListResponse", "");
+                return body;
+            }
+            if (util_1.isCodeInRange("400", response.httpStatusCode)) {
+                throw new exception_1.ApiException(response.httpStatusCode, "Bad Request", undefined, response.headers);
+            }
+            if (util_1.isCodeInRange("401", response.httpStatusCode)) {
+                throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ListCustomersResponse", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "CustomerListResponse", "");
                 return body;
             }
             throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);
@@ -170,7 +315,7 @@ class CustomersApiResponseProcessor {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
             if (util_1.isCodeInRange("200", response.httpStatusCode)) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Customer", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ICustomer", "");
                 return body;
             }
             if (util_1.isCodeInRange("401", response.httpStatusCode)) {
@@ -180,7 +325,27 @@ class CustomersApiResponseProcessor {
                 throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Customer", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ICustomer", "");
+                return body;
+            }
+            throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);
+        });
+    }
+    retrieve_3(response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ICustomer", "");
+                return body;
+            }
+            if (util_1.isCodeInRange("401", response.httpStatusCode)) {
+                throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+            }
+            if (util_1.isCodeInRange("404", response.httpStatusCode)) {
+                throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);
+            }
+            if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ICustomer", "");
                 return body;
             }
             throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);
@@ -190,12 +355,11 @@ class CustomersApiResponseProcessor {
         return __awaiter(this, void 0, void 0, function* () {
             const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
             if (util_1.isCodeInRange("200", response.httpStatusCode)) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Customer", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ICustomer", "");
                 return body;
             }
             if (util_1.isCodeInRange("400", response.httpStatusCode)) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "InlineResponse400", "");
-                throw new exception_1.ApiException(400, "Bad Request", body, response.headers);
+                throw new exception_1.ApiException(response.httpStatusCode, "Bad Request", undefined, response.headers);
             }
             if (util_1.isCodeInRange("401", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
@@ -204,7 +368,30 @@ class CustomersApiResponseProcessor {
                 throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "Customer", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ICustomer", "");
+                return body;
+            }
+            throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);
+        });
+    }
+    update_4(response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+            if (util_1.isCodeInRange("200", response.httpStatusCode)) {
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ICustomer", "");
+                return body;
+            }
+            if (util_1.isCodeInRange("400", response.httpStatusCode)) {
+                throw new exception_1.ApiException(response.httpStatusCode, "Bad Request", undefined, response.headers);
+            }
+            if (util_1.isCodeInRange("401", response.httpStatusCode)) {
+                throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+            }
+            if (util_1.isCodeInRange("404", response.httpStatusCode)) {
+                throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);
+            }
+            if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ICustomer", "");
                 return body;
             }
             throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);

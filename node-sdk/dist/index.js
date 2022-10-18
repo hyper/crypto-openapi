@@ -71,7 +71,7 @@ class AccountsApiLayer {
     }
     create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { account: data }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { account_create_request: data }));
         });
     }
     retrieve(id, params, options) {
@@ -81,7 +81,7 @@ class AccountsApiLayer {
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { account: data }));
+            return this.api.patch(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { account_update_request: data }));
         });
     }
     list(params, options) {
@@ -96,7 +96,7 @@ class CustomersApiLayer {
     }
     create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_customer_body: data }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { customer_create_request: data }));
         });
     }
     retrieve(id, params, options) {
@@ -106,7 +106,7 @@ class CustomersApiLayer {
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { update_customer_body: data }));
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { customer_update_request: data }));
         });
     }
     list(params, options) {
@@ -121,7 +121,7 @@ class FeesApiLayer {
     }
     create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_fee_body: data }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { fee_create_request: data }));
         });
     }
     retrieve(id, params, options) {
@@ -134,11 +134,6 @@ class FeesApiLayer {
             return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
         });
     }
-    delete(id, params, options) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.api._delete(Object.assign({ id }, convertCasing_1.default(options)));
-        });
-    }
 }
 class InvoicesApiLayer {
     constructor(config) {
@@ -146,7 +141,7 @@ class InvoicesApiLayer {
     }
     create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { invoice: data }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { invoice_create_request: data }));
         });
     }
     retrieve(id, params, options) {
@@ -156,7 +151,7 @@ class InvoicesApiLayer {
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { invoice: data }));
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { invoice_update_request: data }));
         });
     }
     list(params, options) {
@@ -191,7 +186,7 @@ class PricesApiLayer {
     }
     create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { price: data }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { price_create_request: data }));
         });
     }
     retrieve(id, params, options) {
@@ -201,7 +196,7 @@ class PricesApiLayer {
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { update_price_body: data }));
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { price_update_request: data }));
         });
     }
     list(params, options) {
@@ -221,7 +216,7 @@ class ProductsApiLayer {
     }
     create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_product_body: data }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { product_create_request: data }));
         });
     }
     retrieve(id, params, options) {
@@ -231,7 +226,7 @@ class ProductsApiLayer {
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { update_product_body: data }));
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { product_update_request: data }));
         });
     }
     list(params, options) {
@@ -251,7 +246,7 @@ class PayoutWalletsApiLayer {
     }
     create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_payout_wallet_body: data }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { payout_wallet_create_request: data }));
         });
     }
     retrieve(id, params, options) {
@@ -261,7 +256,7 @@ class PayoutWalletsApiLayer {
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { payout_wallet: data }));
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { payout_wallet_update_request: data }));
         });
     }
     list(params, options) {
@@ -281,7 +276,7 @@ class SubscriptionsApiLayer {
     }
     create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { subscription: data }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { subscription_create_request: data }));
         });
     }
     retrieve(id, params, options) {
@@ -291,7 +286,7 @@ class SubscriptionsApiLayer {
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { subscription: data }));
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { subscription_update_request: data }));
         });
     }
     list(params, options) {
@@ -301,7 +296,7 @@ class SubscriptionsApiLayer {
     }
     cancel(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.cancel(Object.assign({ id }, convertCasing_1.default(options)));
+            return this.api._delete(Object.assign({ id }, convertCasing_1.default(options)));
         });
     }
 }
@@ -311,7 +306,7 @@ class PaymentIntentsApiLayer {
     }
     create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { payment_intent: data }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { payment_intent_create_request: data }));
         });
     }
     retrieve(id, params, options) {
@@ -321,7 +316,7 @@ class PaymentIntentsApiLayer {
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { update_payment_intent_body: data }));
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { payment_intent_update_request: data }));
         });
     }
     list(params, options) {
@@ -336,7 +331,7 @@ class PaymentIntentsApiLayer {
     }
     cancel(id, params, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.cancel(Object.assign({ id }, convertCasing_1.default(options)));
+            return this.api._delete(Object.assign({ id }, convertCasing_1.default(options)));
         });
     }
 }
@@ -346,7 +341,7 @@ class TransfersApiLayer {
     }
     create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_transfer_body: data }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { transfer_create_request: data }));
         });
     }
     retrieve(id, params, options) {
@@ -366,7 +361,7 @@ class WalletsApiLayer {
     }
     create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_wallet_body: data }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { wallet_create_request: data }));
         });
     }
     retrieve(id, params, options) {
@@ -376,7 +371,7 @@ class WalletsApiLayer {
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { update_wallet_body: data }));
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { wallet_update_request: data }));
         });
     }
     list(params, options) {
@@ -396,7 +391,7 @@ class WebhooksApiLayer {
     }
     create(data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { create_webhook_body: data }));
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { webhook_create_request: data }));
         });
     }
     retrieve(id, params, options) {
@@ -406,7 +401,7 @@ class WebhooksApiLayer {
     }
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { update_webhook_body: data }));
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { webhook_update_request: data }));
         });
     }
     list(params, options) {

@@ -1,168 +1,180 @@
-export * from './Account';
-export * from './AccountAllOf';
-export * from './AccountAllOfBusinessProfile';
-export * from './AccountAllOfIntegrations';
-export * from './AccountAllOfIntegrationsFtx';
-export * from './AccountAllOfSettings';
-export * from './AccountAllOfSettingsBilling';
-export * from './AccountAllOfSettingsBranding';
-export * from './AccountAllOfSettingsPayments';
-export * from './AccountAllOfTeam';
+export * from './AccountConnectRequest';
+export * from './AccountCreateRequest';
+export * from './AccountDashboardAccessRequest';
+export * from './AccountDashboardAccessResponse';
+export * from './AccountListResponse';
+export * from './AccountUpdateRequest';
 export * from './Address';
-export * from './ApiKey';
-export * from './ApiKeyAllOf';
-export * from './Checkout';
-export * from './CheckoutAllOf';
-export * from './CheckoutAllOfCustomerDetails';
-export * from './CreateCustomerBody';
-export * from './CreateFeeBody';
-export * from './CreatePayoutWalletBody';
-export * from './CreateProductBody';
-export * from './CreateTransferBody';
-export * from './CreateWalletBody';
-export * from './CreateWebhookBody';
-export * from './Customer';
-export * from './CustomerAllOf';
-export * from './CustomerAllOfBillingDetails';
-export * from './CustomersBillingDetails';
-export * from './CustomersBillingDetailsAddress';
-export * from './CustomersIdBillingDetails';
-export * from './CustomersIdBillingDetailsAddress';
-export * from './Fee';
-export * from './FeeAllOf';
-export * from './InlineResponse400';
-export * from './InlineResponse400Error';
-export * from './Invoice';
-export * from './InvoiceAllOf';
+export * from './AfterCompletion';
+export * from './ApiKeyCreateRequest';
+export * from './ApiKeyListResponse';
+export * from './ApiKeyType';
+export * from './BasePrice';
+export * from './Chain';
+export * from './CheckoutCreateRequest';
+export * from './CheckoutListResponse';
+export * from './CheckoutStatus';
+export * from './Currency';
+export * from './CustomAmount';
+export * from './CustomerCreateRequest';
+export * from './CustomerCreateRequestBillingDetails';
+export * from './CustomerDetails';
+export * from './CustomerListResponse';
+export * from './CustomerUpdateRequest';
+export * from './EventType';
+export * from './FeeCreateRequest';
+export * from './FeeListResponse';
+export * from './Headers';
+export * from './IAccount';
+export * from './IApiKey';
+export * from './IBilling';
+export * from './IBranding';
+export * from './IBusinessProfile';
+export * from './ICheckout';
+export * from './ICustomer';
+export * from './IFee';
+export * from './IIntegrations';
+export * from './IIntegrationsFtx';
+export * from './IInvoice';
+export * from './ILog';
+export * from './IPaymentIntent';
+export * from './IPaymentLink';
+export * from './IPayments';
+export * from './IPayoutWallet';
+export * from './IPrice';
+export * from './IProduct';
+export * from './IRequest';
+export * from './IResponse';
+export * from './ISettings';
+export * from './ISubscription';
+export * from './ITeamMember';
+export * from './ITransfer';
+export * from './IWallet';
+export * from './IWebhook';
+export * from './InvoiceCreateRequest';
+export * from './InvoiceListResponse';
+export * from './InvoiceStatus';
+export * from './InvoiceUpdateRequest';
 export * from './LineItem';
-export * from './ListAccountsResponse';
-export * from './ListCustomersResponse';
-export * from './ListFeesResponse';
-export * from './ListInvoicesResponse';
-export * from './ListLogsResponse';
-export * from './ListPaymentIntentsResponse';
-export * from './ListPayoutWalletsResponse';
-export * from './ListPricesResponse';
-export * from './ListProductsResponse';
-export * from './ListSubscriptionsResponse';
-export * from './ListTransfersResponse';
-export * from './ListWalletsResponse';
-export * from './ListWebhooksResponse';
-export * from './Log';
-export * from './LogAllOf';
-export * from './Model';
-export * from './Notification';
-export * from './NotificationAllOf';
-export * from './PaymentIntent';
-export * from './PaymentIntentAllOf';
-export * from './PaymentLink';
-export * from './PaymentLinkAllOf';
-export * from './PaymentLinkAllOfAfterCompletion';
+export * from './LogListResponse';
+export * from './PaymentIntentCreateRequest';
+export * from './PaymentIntentListResponse';
+export * from './PaymentIntentStatus';
+export * from './PaymentIntentUpdateRequest';
+export * from './PaymentLinkCreateRequest';
+export * from './PaymentLinkListResponse';
+export * from './PaymentLinkUpdateRequest';
 export * from './PayoutWallet';
-export * from './PayoutWalletAllOf';
-export * from './Price';
-export * from './PriceAllOf';
-export * from './PriceAllOfBasePrice';
-export * from './PriceAllOfCustomAmount';
-export * from './Product';
-export * from './ProductAllOf';
-export * from './Subscription';
-export * from './SubscriptionAllOf';
-export * from './Transfer';
-export * from './TransferAllOf';
-export * from './UpdateCustomerBody';
-export * from './UpdatePaymentIntentBody';
-export * from './UpdatePriceBody';
-export * from './UpdateProductBody';
-export * from './UpdateWalletBody';
-export * from './UpdateWebhookBody';
-export * from './Wallet';
-export * from './WalletAllOf';
-export * from './Webhook';
-export * from './WebhookAllOf';
+export * from './PayoutWalletCreateRequest';
+export * from './PayoutWalletListResponse';
+export * from './PayoutWalletUpdateRequest';
+export * from './PriceCreateRequest';
+export * from './PriceListResponse';
+export * from './PriceUpdateRequest';
+export * from './ProductCreateRequest';
+export * from './ProductListResponse';
+export * from './ProductUpdateRequest';
+export * from './SubscriptionCreateRequest';
+export * from './SubscriptionListResponse';
+export * from './SubscriptionStatus';
+export * from './SubscriptionUpdateRequest';
+export * from './TransferCreateRequest';
+export * from './TransferListResponse';
+export * from './WalletCreateRequest';
+export * from './WalletListResponse';
+export * from './WalletUpdateRequest';
+export * from './WebhookCreateRequest';
+export * from './WebhookListResponse';
+export * from './WebhookUpdateRequest';
 
-import { Account } from './Account';
-import { AccountAllOf } from './AccountAllOf';
-import { AccountAllOfBusinessProfile } from './AccountAllOfBusinessProfile';
-import { AccountAllOfIntegrations } from './AccountAllOfIntegrations';
-import { AccountAllOfIntegrationsFtx } from './AccountAllOfIntegrationsFtx';
-import { AccountAllOfSettings } from './AccountAllOfSettings';
-import { AccountAllOfSettingsBilling } from './AccountAllOfSettingsBilling';
-import { AccountAllOfSettingsBranding } from './AccountAllOfSettingsBranding';
-import { AccountAllOfSettingsPayments } from './AccountAllOfSettingsPayments';
-import { AccountAllOfTeam } from './AccountAllOfTeam';
+import { AccountConnectRequest } from './AccountConnectRequest';
+import { AccountCreateRequest } from './AccountCreateRequest';
+import { AccountDashboardAccessRequest } from './AccountDashboardAccessRequest';
+import { AccountDashboardAccessResponse } from './AccountDashboardAccessResponse';
+import { AccountListResponse } from './AccountListResponse';
+import { AccountUpdateRequest } from './AccountUpdateRequest';
 import { Address } from './Address';
-import { ApiKey       , ApiKeyKeyEnum  , ApiKeyTypeEnum     } from './ApiKey';
-import { ApiKeyAllOf   , ApiKeyAllOfKeyEnum  , ApiKeyAllOfTypeEnum     } from './ApiKeyAllOf';
-import { Checkout      , CheckoutStatusEnum         } from './Checkout';
-import { CheckoutAllOf  , CheckoutAllOfStatusEnum         } from './CheckoutAllOf';
-import { CheckoutAllOfCustomerDetails } from './CheckoutAllOfCustomerDetails';
-import { CreateCustomerBody } from './CreateCustomerBody';
-import { CreateFeeBody } from './CreateFeeBody';
-import { CreatePayoutWalletBody } from './CreatePayoutWalletBody';
-import { CreateProductBody } from './CreateProductBody';
-import { CreateTransferBody } from './CreateTransferBody';
-import { CreateWalletBody } from './CreateWalletBody';
-import { CreateWebhookBody } from './CreateWebhookBody';
-import { Customer } from './Customer';
-import { CustomerAllOf } from './CustomerAllOf';
-import { CustomerAllOfBillingDetails } from './CustomerAllOfBillingDetails';
-import { CustomersBillingDetails } from './CustomersBillingDetails';
-import { CustomersBillingDetailsAddress } from './CustomersBillingDetailsAddress';
-import { CustomersIdBillingDetails } from './CustomersIdBillingDetails';
-import { CustomersIdBillingDetailsAddress } from './CustomersIdBillingDetailsAddress';
-import { Fee } from './Fee';
-import { FeeAllOf } from './FeeAllOf';
-import { InlineResponse400 } from './InlineResponse400';
-import { InlineResponse400Error } from './InlineResponse400Error';
-import { Invoice      , InvoiceStatusEnum              } from './Invoice';
-import { InvoiceAllOf  , InvoiceAllOfStatusEnum              } from './InvoiceAllOf';
+import { AfterCompletion } from './AfterCompletion';
+import { ApiKeyCreateRequest } from './ApiKeyCreateRequest';
+import { ApiKeyListResponse } from './ApiKeyListResponse';
+import { ApiKeyType } from './ApiKeyType';
+import { BasePrice } from './BasePrice';
+import { Chain } from './Chain';
+import { CheckoutCreateRequest } from './CheckoutCreateRequest';
+import { CheckoutListResponse } from './CheckoutListResponse';
+import { CheckoutStatus } from './CheckoutStatus';
+import { Currency } from './Currency';
+import { CustomAmount } from './CustomAmount';
+import { CustomerCreateRequest } from './CustomerCreateRequest';
+import { CustomerCreateRequestBillingDetails } from './CustomerCreateRequestBillingDetails';
+import { CustomerDetails } from './CustomerDetails';
+import { CustomerListResponse } from './CustomerListResponse';
+import { CustomerUpdateRequest } from './CustomerUpdateRequest';
+import { EventType } from './EventType';
+import { FeeCreateRequest } from './FeeCreateRequest';
+import { FeeListResponse } from './FeeListResponse';
+import { Headers } from './Headers';
+import { IAccount } from './IAccount';
+import { IApiKey } from './IApiKey';
+import { IBilling } from './IBilling';
+import { IBranding } from './IBranding';
+import { IBusinessProfile } from './IBusinessProfile';
+import { ICheckout } from './ICheckout';
+import { ICustomer } from './ICustomer';
+import { IFee } from './IFee';
+import { IIntegrations } from './IIntegrations';
+import { IIntegrationsFtx } from './IIntegrationsFtx';
+import { IInvoice } from './IInvoice';
+import { ILog } from './ILog';
+import { IPaymentIntent } from './IPaymentIntent';
+import { IPaymentLink } from './IPaymentLink';
+import { IPayments } from './IPayments';
+import { IPayoutWallet } from './IPayoutWallet';
+import { IPrice } from './IPrice';
+import { IProduct } from './IProduct';
+import { IRequest } from './IRequest';
+import { IResponse } from './IResponse';
+import { ISettings } from './ISettings';
+import { ISubscription } from './ISubscription';
+import { ITeamMember } from './ITeamMember';
+import { ITransfer } from './ITransfer';
+import { IWallet } from './IWallet';
+import { IWebhook } from './IWebhook';
+import { InvoiceCreateRequest } from './InvoiceCreateRequest';
+import { InvoiceListResponse } from './InvoiceListResponse';
+import { InvoiceStatus } from './InvoiceStatus';
+import { InvoiceUpdateRequest } from './InvoiceUpdateRequest';
 import { LineItem } from './LineItem';
-import { ListAccountsResponse } from './ListAccountsResponse';
-import { ListCustomersResponse } from './ListCustomersResponse';
-import { ListFeesResponse } from './ListFeesResponse';
-import { ListInvoicesResponse } from './ListInvoicesResponse';
-import { ListLogsResponse } from './ListLogsResponse';
-import { ListPaymentIntentsResponse } from './ListPaymentIntentsResponse';
-import { ListPayoutWalletsResponse } from './ListPayoutWalletsResponse';
-import { ListPricesResponse } from './ListPricesResponse';
-import { ListProductsResponse } from './ListProductsResponse';
-import { ListSubscriptionsResponse } from './ListSubscriptionsResponse';
-import { ListTransfersResponse } from './ListTransfersResponse';
-import { ListWalletsResponse } from './ListWalletsResponse';
-import { ListWebhooksResponse } from './ListWebhooksResponse';
-import { Log        , LogMethodEnum       } from './Log';
-import { LogAllOf     , LogAllOfMethodEnum       } from './LogAllOf';
-import { Model } from './Model';
-import { Notification     , NotificationTypeEnum     } from './Notification';
-import { NotificationAllOf , NotificationAllOfTypeEnum     } from './NotificationAllOf';
-import { PaymentIntent                  , PaymentIntentStatusEnum  , PaymentIntentChainEnum  , PaymentIntentCurrencyEnum       } from './PaymentIntent';
-import { PaymentIntentAllOf              , PaymentIntentAllOfStatusEnum  , PaymentIntentAllOfChainEnum  , PaymentIntentAllOfCurrencyEnum       } from './PaymentIntentAllOf';
-import { PaymentLink         , PaymentLinkCurrencyEnum  , PaymentLinkChainEnum        } from './PaymentLink';
-import { PaymentLinkAllOf     , PaymentLinkAllOfCurrencyEnum  , PaymentLinkAllOfChainEnum        } from './PaymentLinkAllOf';
-import { PaymentLinkAllOfAfterCompletion } from './PaymentLinkAllOfAfterCompletion';
-import { PayoutWallet     , PayoutWalletChainEnum    , PayoutWalletTypeEnum   } from './PayoutWallet';
-import { PayoutWalletAllOf , PayoutWalletAllOfChainEnum    , PayoutWalletAllOfTypeEnum   } from './PayoutWalletAllOf';
-import { Price } from './Price';
-import { PriceAllOf } from './PriceAllOf';
-import { PriceAllOfBasePrice } from './PriceAllOfBasePrice';
-import { PriceAllOfCustomAmount } from './PriceAllOfCustomAmount';
-import { Product } from './Product';
-import { ProductAllOf } from './ProductAllOf';
-import { Subscription          , SubscriptionStatusEnum          } from './Subscription';
-import { SubscriptionAllOf      , SubscriptionAllOfStatusEnum          } from './SubscriptionAllOf';
-import { Transfer } from './Transfer';
-import { TransferAllOf } from './TransferAllOf';
-import { UpdateCustomerBody } from './UpdateCustomerBody';
-import { UpdatePaymentIntentBody } from './UpdatePaymentIntentBody';
-import { UpdatePriceBody } from './UpdatePriceBody';
-import { UpdateProductBody } from './UpdateProductBody';
-import { UpdateWalletBody } from './UpdateWalletBody';
-import { UpdateWebhookBody } from './UpdateWebhookBody';
-import { Wallet     , WalletChainEnum     } from './Wallet';
-import { WalletAllOf , WalletAllOfChainEnum     } from './WalletAllOf';
-import { Webhook } from './Webhook';
-import { WebhookAllOf } from './WebhookAllOf';
+import { LogListResponse } from './LogListResponse';
+import { PaymentIntentCreateRequest } from './PaymentIntentCreateRequest';
+import { PaymentIntentListResponse } from './PaymentIntentListResponse';
+import { PaymentIntentStatus } from './PaymentIntentStatus';
+import { PaymentIntentUpdateRequest } from './PaymentIntentUpdateRequest';
+import { PaymentLinkCreateRequest } from './PaymentLinkCreateRequest';
+import { PaymentLinkListResponse } from './PaymentLinkListResponse';
+import { PaymentLinkUpdateRequest } from './PaymentLinkUpdateRequest';
+import { PayoutWallet } from './PayoutWallet';
+import { PayoutWalletCreateRequest } from './PayoutWalletCreateRequest';
+import { PayoutWalletListResponse } from './PayoutWalletListResponse';
+import { PayoutWalletUpdateRequest } from './PayoutWalletUpdateRequest';
+import { PriceCreateRequest } from './PriceCreateRequest';
+import { PriceListResponse } from './PriceListResponse';
+import { PriceUpdateRequest } from './PriceUpdateRequest';
+import { ProductCreateRequest } from './ProductCreateRequest';
+import { ProductListResponse } from './ProductListResponse';
+import { ProductUpdateRequest } from './ProductUpdateRequest';
+import { SubscriptionCreateRequest } from './SubscriptionCreateRequest';
+import { SubscriptionListResponse } from './SubscriptionListResponse';
+import { SubscriptionStatus } from './SubscriptionStatus';
+import { SubscriptionUpdateRequest } from './SubscriptionUpdateRequest';
+import { TransferCreateRequest } from './TransferCreateRequest';
+import { TransferListResponse } from './TransferListResponse';
+import { WalletCreateRequest } from './WalletCreateRequest';
+import { WalletListResponse } from './WalletListResponse';
+import { WalletUpdateRequest } from './WalletUpdateRequest';
+import { WebhookCreateRequest } from './WebhookCreateRequest';
+import { WebhookListResponse } from './WebhookListResponse';
+import { WebhookUpdateRequest } from './WebhookUpdateRequest';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -184,121 +196,97 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 
 let enumsMap: Set<string> = new Set<string>([
-    "ApiKeyKeyEnum",
-    "ApiKeyTypeEnum",
-    "ApiKeyAllOfKeyEnum",
-    "ApiKeyAllOfTypeEnum",
-    "CheckoutStatusEnum",
-    "CheckoutAllOfStatusEnum",
-    "InvoiceStatusEnum",
-    "InvoiceAllOfStatusEnum",
-    "LogMethodEnum",
-    "LogAllOfMethodEnum",
-    "NotificationTypeEnum",
-    "NotificationAllOfTypeEnum",
-    "PaymentIntentStatusEnum",
-    "PaymentIntentChainEnum",
-    "PaymentIntentCurrencyEnum",
-    "PaymentIntentAllOfStatusEnum",
-    "PaymentIntentAllOfChainEnum",
-    "PaymentIntentAllOfCurrencyEnum",
-    "PaymentLinkCurrencyEnum",
-    "PaymentLinkChainEnum",
-    "PaymentLinkAllOfCurrencyEnum",
-    "PaymentLinkAllOfChainEnum",
-    "PayoutWalletChainEnum",
-    "PayoutWalletTypeEnum",
-    "PayoutWalletAllOfChainEnum",
-    "PayoutWalletAllOfTypeEnum",
-    "SubscriptionStatusEnum",
-    "SubscriptionAllOfStatusEnum",
-    "WalletChainEnum",
-    "WalletAllOfChainEnum",
+    "ApiKeyType",
+    "Chain",
+    "CheckoutStatus",
+    "Currency",
+    "EventType",
+    "InvoiceStatus",
+    "PaymentIntentStatus",
+    "PayoutWallet",
+    "SubscriptionStatus",
 ]);
 
 let typeMap: {[index: string]: any} = {
-    "Account": Account,
-    "AccountAllOf": AccountAllOf,
-    "AccountAllOfBusinessProfile": AccountAllOfBusinessProfile,
-    "AccountAllOfIntegrations": AccountAllOfIntegrations,
-    "AccountAllOfIntegrationsFtx": AccountAllOfIntegrationsFtx,
-    "AccountAllOfSettings": AccountAllOfSettings,
-    "AccountAllOfSettingsBilling": AccountAllOfSettingsBilling,
-    "AccountAllOfSettingsBranding": AccountAllOfSettingsBranding,
-    "AccountAllOfSettingsPayments": AccountAllOfSettingsPayments,
-    "AccountAllOfTeam": AccountAllOfTeam,
+    "AccountConnectRequest": AccountConnectRequest,
+    "AccountCreateRequest": AccountCreateRequest,
+    "AccountDashboardAccessRequest": AccountDashboardAccessRequest,
+    "AccountDashboardAccessResponse": AccountDashboardAccessResponse,
+    "AccountListResponse": AccountListResponse,
+    "AccountUpdateRequest": AccountUpdateRequest,
     "Address": Address,
-    "ApiKey": ApiKey,
-    "ApiKeyAllOf": ApiKeyAllOf,
-    "Checkout": Checkout,
-    "CheckoutAllOf": CheckoutAllOf,
-    "CheckoutAllOfCustomerDetails": CheckoutAllOfCustomerDetails,
-    "CreateCustomerBody": CreateCustomerBody,
-    "CreateFeeBody": CreateFeeBody,
-    "CreatePayoutWalletBody": CreatePayoutWalletBody,
-    "CreateProductBody": CreateProductBody,
-    "CreateTransferBody": CreateTransferBody,
-    "CreateWalletBody": CreateWalletBody,
-    "CreateWebhookBody": CreateWebhookBody,
-    "Customer": Customer,
-    "CustomerAllOf": CustomerAllOf,
-    "CustomerAllOfBillingDetails": CustomerAllOfBillingDetails,
-    "CustomersBillingDetails": CustomersBillingDetails,
-    "CustomersBillingDetailsAddress": CustomersBillingDetailsAddress,
-    "CustomersIdBillingDetails": CustomersIdBillingDetails,
-    "CustomersIdBillingDetailsAddress": CustomersIdBillingDetailsAddress,
-    "Fee": Fee,
-    "FeeAllOf": FeeAllOf,
-    "InlineResponse400": InlineResponse400,
-    "InlineResponse400Error": InlineResponse400Error,
-    "Invoice": Invoice,
-    "InvoiceAllOf": InvoiceAllOf,
+    "AfterCompletion": AfterCompletion,
+    "ApiKeyCreateRequest": ApiKeyCreateRequest,
+    "ApiKeyListResponse": ApiKeyListResponse,
+    "BasePrice": BasePrice,
+    "CheckoutCreateRequest": CheckoutCreateRequest,
+    "CheckoutListResponse": CheckoutListResponse,
+    "CustomAmount": CustomAmount,
+    "CustomerCreateRequest": CustomerCreateRequest,
+    "CustomerCreateRequestBillingDetails": CustomerCreateRequestBillingDetails,
+    "CustomerDetails": CustomerDetails,
+    "CustomerListResponse": CustomerListResponse,
+    "CustomerUpdateRequest": CustomerUpdateRequest,
+    "FeeCreateRequest": FeeCreateRequest,
+    "FeeListResponse": FeeListResponse,
+    "Headers": Headers,
+    "IAccount": IAccount,
+    "IApiKey": IApiKey,
+    "IBilling": IBilling,
+    "IBranding": IBranding,
+    "IBusinessProfile": IBusinessProfile,
+    "ICheckout": ICheckout,
+    "ICustomer": ICustomer,
+    "IFee": IFee,
+    "IIntegrations": IIntegrations,
+    "IIntegrationsFtx": IIntegrationsFtx,
+    "IInvoice": IInvoice,
+    "ILog": ILog,
+    "IPaymentIntent": IPaymentIntent,
+    "IPaymentLink": IPaymentLink,
+    "IPayments": IPayments,
+    "IPayoutWallet": IPayoutWallet,
+    "IPrice": IPrice,
+    "IProduct": IProduct,
+    "IRequest": IRequest,
+    "IResponse": IResponse,
+    "ISettings": ISettings,
+    "ISubscription": ISubscription,
+    "ITeamMember": ITeamMember,
+    "ITransfer": ITransfer,
+    "IWallet": IWallet,
+    "IWebhook": IWebhook,
+    "InvoiceCreateRequest": InvoiceCreateRequest,
+    "InvoiceListResponse": InvoiceListResponse,
+    "InvoiceUpdateRequest": InvoiceUpdateRequest,
     "LineItem": LineItem,
-    "ListAccountsResponse": ListAccountsResponse,
-    "ListCustomersResponse": ListCustomersResponse,
-    "ListFeesResponse": ListFeesResponse,
-    "ListInvoicesResponse": ListInvoicesResponse,
-    "ListLogsResponse": ListLogsResponse,
-    "ListPaymentIntentsResponse": ListPaymentIntentsResponse,
-    "ListPayoutWalletsResponse": ListPayoutWalletsResponse,
-    "ListPricesResponse": ListPricesResponse,
-    "ListProductsResponse": ListProductsResponse,
-    "ListSubscriptionsResponse": ListSubscriptionsResponse,
-    "ListTransfersResponse": ListTransfersResponse,
-    "ListWalletsResponse": ListWalletsResponse,
-    "ListWebhooksResponse": ListWebhooksResponse,
-    "Log": Log,
-    "LogAllOf": LogAllOf,
-    "Model": Model,
-    "Notification": Notification,
-    "NotificationAllOf": NotificationAllOf,
-    "PaymentIntent": PaymentIntent,
-    "PaymentIntentAllOf": PaymentIntentAllOf,
-    "PaymentLink": PaymentLink,
-    "PaymentLinkAllOf": PaymentLinkAllOf,
-    "PaymentLinkAllOfAfterCompletion": PaymentLinkAllOfAfterCompletion,
-    "PayoutWallet": PayoutWallet,
-    "PayoutWalletAllOf": PayoutWalletAllOf,
-    "Price": Price,
-    "PriceAllOf": PriceAllOf,
-    "PriceAllOfBasePrice": PriceAllOfBasePrice,
-    "PriceAllOfCustomAmount": PriceAllOfCustomAmount,
-    "Product": Product,
-    "ProductAllOf": ProductAllOf,
-    "Subscription": Subscription,
-    "SubscriptionAllOf": SubscriptionAllOf,
-    "Transfer": Transfer,
-    "TransferAllOf": TransferAllOf,
-    "UpdateCustomerBody": UpdateCustomerBody,
-    "UpdatePaymentIntentBody": UpdatePaymentIntentBody,
-    "UpdatePriceBody": UpdatePriceBody,
-    "UpdateProductBody": UpdateProductBody,
-    "UpdateWalletBody": UpdateWalletBody,
-    "UpdateWebhookBody": UpdateWebhookBody,
-    "Wallet": Wallet,
-    "WalletAllOf": WalletAllOf,
-    "Webhook": Webhook,
-    "WebhookAllOf": WebhookAllOf,
+    "LogListResponse": LogListResponse,
+    "PaymentIntentCreateRequest": PaymentIntentCreateRequest,
+    "PaymentIntentListResponse": PaymentIntentListResponse,
+    "PaymentIntentUpdateRequest": PaymentIntentUpdateRequest,
+    "PaymentLinkCreateRequest": PaymentLinkCreateRequest,
+    "PaymentLinkListResponse": PaymentLinkListResponse,
+    "PaymentLinkUpdateRequest": PaymentLinkUpdateRequest,
+    "PayoutWalletCreateRequest": PayoutWalletCreateRequest,
+    "PayoutWalletListResponse": PayoutWalletListResponse,
+    "PayoutWalletUpdateRequest": PayoutWalletUpdateRequest,
+    "PriceCreateRequest": PriceCreateRequest,
+    "PriceListResponse": PriceListResponse,
+    "PriceUpdateRequest": PriceUpdateRequest,
+    "ProductCreateRequest": ProductCreateRequest,
+    "ProductListResponse": ProductListResponse,
+    "ProductUpdateRequest": ProductUpdateRequest,
+    "SubscriptionCreateRequest": SubscriptionCreateRequest,
+    "SubscriptionListResponse": SubscriptionListResponse,
+    "SubscriptionUpdateRequest": SubscriptionUpdateRequest,
+    "TransferCreateRequest": TransferCreateRequest,
+    "TransferListResponse": TransferListResponse,
+    "WalletCreateRequest": WalletCreateRequest,
+    "WalletListResponse": WalletListResponse,
+    "WalletUpdateRequest": WalletUpdateRequest,
+    "WebhookCreateRequest": WebhookCreateRequest,
+    "WebhookListResponse": WebhookListResponse,
+    "WebhookUpdateRequest": WebhookUpdateRequest,
 }
 
 export class ObjectSerializer {

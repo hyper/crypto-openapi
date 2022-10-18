@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObservableWebhooksApi = exports.ObservableWalletsApi = exports.ObservableTransfersApi = exports.ObservableSubscriptionsApi = exports.ObservableProductsApi = exports.ObservablePricesApi = exports.ObservablePayoutWalletsApi = exports.ObservablePaymentIntentsApi = exports.ObservableLogsApi = exports.ObservableInvoicesApi = exports.ObservableFeesApi = exports.ObservableCustomersApi = exports.ObservableAccountsApi = void 0;
+exports.ObservableWebhooksApi = exports.ObservableWalletsApi = exports.ObservableTransfersApi = exports.ObservableSubscriptionsApi = exports.ObservableProductsApi = exports.ObservablePricesApi = exports.ObservablePayoutWalletsApi = exports.ObservablePaymentLinksApi = exports.ObservablePaymentIntentsApi = exports.ObservableLogsApi = exports.ObservableInvoicesApi = exports.ObservableFeesApi = exports.ObservableCustomersApi = exports.ObservableCheckoutsApi = exports.ObservableAccountsApi = void 0;
 const rxjsStub_1 = require("../rxjsStub");
 const rxjsStub_2 = require("../rxjsStub");
 const AccountsApi_1 = require("../apis/AccountsApi");
@@ -10,8 +10,38 @@ class ObservableAccountsApi {
         this.requestFactory = requestFactory || new AccountsApi_1.AccountsApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new AccountsApi_1.AccountsApiResponseProcessor();
     }
-    create(pluto_account, account, _options) {
-        const requestContextPromise = this.requestFactory.create(pluto_account, account, _options);
+    connect(id, pluto_account, account_connect_request, _options) {
+        const requestContextPromise = this.requestFactory.connect(id, pluto_account, account_connect_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.connect(rsp)));
+        }));
+    }
+    connect_1(id, pluto_account, account_connect_request, _options) {
+        const requestContextPromise = this.requestFactory.connect_1(id, pluto_account, account_connect_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.connect_1(rsp)));
+        }));
+    }
+    create(pluto_account, account_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create(pluto_account, account_create_request, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -25,8 +55,53 @@ class ObservableAccountsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
         }));
     }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
+    create_2(pluto_account, account_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, account_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create_2(rsp)));
+        }));
+    }
+    dashboardAccess(id, pluto_account, expand, account_dashboard_access_request, _options) {
+        const requestContextPromise = this.requestFactory.dashboardAccess(id, pluto_account, expand, account_dashboard_access_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.dashboardAccess(rsp)));
+        }));
+    }
+    dashboardAccess_3(id, pluto_account, expand, account_dashboard_access_request, _options) {
+        const requestContextPromise = this.requestFactory.dashboardAccess_3(id, pluto_account, expand, account_dashboard_access_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.dashboardAccess_3(rsp)));
+        }));
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -40,8 +115,8 @@ class ObservableAccountsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
         }));
     }
-    retrieve(id, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
+    list_4(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list_4(pluto_account, limit, page, sort, expand, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -52,11 +127,11 @@ class ObservableAccountsApi {
             for (let middleware of this.configuration.middleware) {
                 middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list_4(rsp)));
         }));
     }
-    update(id, pluto_account, account, _options) {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, account, _options);
+    patch(id, pluto_account, account_update_request, _options) {
+        const requestContextPromise = this.requestFactory.patch(id, pluto_account, account_update_request, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -67,20 +142,11 @@ class ObservableAccountsApi {
             for (let middleware of this.configuration.middleware) {
                 middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.patch(rsp)));
         }));
     }
-}
-exports.ObservableAccountsApi = ObservableAccountsApi;
-const CustomersApi_1 = require("../apis/CustomersApi");
-class ObservableCustomersApi {
-    constructor(configuration, requestFactory, responseProcessor) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new CustomersApi_1.CustomersApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new CustomersApi_1.CustomersApiResponseProcessor();
-    }
-    create(pluto_account, create_customer_body, _options) {
-        const requestContextPromise = this.requestFactory.create(pluto_account, create_customer_body, _options);
+    patch_5(id, pluto_account, account_update_request, _options) {
+        const requestContextPromise = this.requestFactory.patch_5(id, pluto_account, account_update_request, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -91,313 +157,7 @@ class ObservableCustomersApi {
             for (let middleware of this.configuration.middleware) {
                 middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
-        }));
-    }
-    list(limit, page, sort, expand, pluto_account, email, _options) {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, email, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
-        }));
-    }
-    retrieve(id, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
-        }));
-    }
-    update(id, pluto_account, update_customer_body, _options) {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_customer_body, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
-        }));
-    }
-}
-exports.ObservableCustomersApi = ObservableCustomersApi;
-const FeesApi_1 = require("../apis/FeesApi");
-class ObservableFeesApi {
-    constructor(configuration, requestFactory, responseProcessor) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new FeesApi_1.FeesApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new FeesApi_1.FeesApiResponseProcessor();
-    }
-    _delete(id, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete(rsp)));
-        }));
-    }
-    create(pluto_account, create_fee_body, _options) {
-        const requestContextPromise = this.requestFactory.create(pluto_account, create_fee_body, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
-        }));
-    }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
-        }));
-    }
-    retrieve(id, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
-        }));
-    }
-}
-exports.ObservableFeesApi = ObservableFeesApi;
-const InvoicesApi_1 = require("../apis/InvoicesApi");
-class ObservableInvoicesApi {
-    constructor(configuration, requestFactory, responseProcessor) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new InvoicesApi_1.InvoicesApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new InvoicesApi_1.InvoicesApiResponseProcessor();
-    }
-    create(pluto_account, invoice, _options) {
-        const requestContextPromise = this.requestFactory.create(pluto_account, invoice, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
-        }));
-    }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
-        }));
-    }
-    pay(id, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.pay(id, pluto_account, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.pay(rsp)));
-        }));
-    }
-    retrieve(id, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
-        }));
-    }
-    update(id, pluto_account, invoice, _options) {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, invoice, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
-        }));
-    }
-}
-exports.ObservableInvoicesApi = ObservableInvoicesApi;
-const LogsApi_1 = require("../apis/LogsApi");
-class ObservableLogsApi {
-    constructor(configuration, requestFactory, responseProcessor) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new LogsApi_1.LogsApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new LogsApi_1.LogsApiResponseProcessor();
-    }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
-        }));
-    }
-    retrieve(id, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
-        }));
-    }
-}
-exports.ObservableLogsApi = ObservableLogsApi;
-const PaymentIntentsApi_1 = require("../apis/PaymentIntentsApi");
-class ObservablePaymentIntentsApi {
-    constructor(configuration, requestFactory, responseProcessor) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new PaymentIntentsApi_1.PaymentIntentsApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new PaymentIntentsApi_1.PaymentIntentsApiResponseProcessor();
-    }
-    cancel(id, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.cancel(id, pluto_account, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.cancel(rsp)));
-        }));
-    }
-    create(pluto_account, payment_intent, _options) {
-        const requestContextPromise = this.requestFactory.create(pluto_account, payment_intent, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
-        }));
-    }
-    list(pluto_account, expand, limit, page, sort, status, customer, _options) {
-        const requestContextPromise = this.requestFactory.list(pluto_account, expand, limit, page, sort, status, customer, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
-        }));
-    }
-    poll(id, pluto_account, expand, _options) {
-        const requestContextPromise = this.requestFactory.poll(id, pluto_account, expand, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.poll(rsp)));
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.patch_5(rsp)));
         }));
     }
     retrieve(id, pluto_account, expand, _options) {
@@ -415,8 +175,251 @@ class ObservablePaymentIntentsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
         }));
     }
-    update(id, pluto_account, update_payment_intent_body, _options) {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_payment_intent_body, _options);
+    retrieve_6(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve_6(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve_6(rsp)));
+        }));
+    }
+}
+exports.ObservableAccountsApi = ObservableAccountsApi;
+const CheckoutsApi_1 = require("../apis/CheckoutsApi");
+class ObservableCheckoutsApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new CheckoutsApi_1.CheckoutsApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new CheckoutsApi_1.CheckoutsApiResponseProcessor();
+    }
+    _delete(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete(rsp)));
+        }));
+    }
+    _delete_1(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete_1(rsp)));
+        }));
+    }
+    create(pluto_account, checkout_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create(pluto_account, checkout_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
+        }));
+    }
+    create_2(pluto_account, checkout_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, checkout_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create_2(rsp)));
+        }));
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
+        }));
+    }
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list_3(rsp)));
+        }));
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
+        }));
+    }
+    retrieve_4(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve_4(rsp)));
+        }));
+    }
+}
+exports.ObservableCheckoutsApi = ObservableCheckoutsApi;
+const CustomersApi_1 = require("../apis/CustomersApi");
+class ObservableCustomersApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new CustomersApi_1.CustomersApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new CustomersApi_1.CustomersApiResponseProcessor();
+    }
+    create(pluto_account, customer_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create(pluto_account, customer_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
+        }));
+    }
+    create_1(pluto_account, customer_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create_1(pluto_account, customer_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create_1(rsp)));
+        }));
+    }
+    list(pluto_account, limit, page, sort, expand, email, _options) {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, email, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
+        }));
+    }
+    list_2(pluto_account, limit, page, sort, expand, email, _options) {
+        const requestContextPromise = this.requestFactory.list_2(pluto_account, limit, page, sort, expand, email, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list_2(rsp)));
+        }));
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
+        }));
+    }
+    retrieve_3(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve_3(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve_3(rsp)));
+        }));
+    }
+    update(id, pluto_account, customer_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, customer_update_request, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -430,8 +433,758 @@ class ObservablePaymentIntentsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
         }));
     }
+    update_4(id, pluto_account, customer_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update_4(id, pluto_account, customer_update_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update_4(rsp)));
+        }));
+    }
+}
+exports.ObservableCustomersApi = ObservableCustomersApi;
+const FeesApi_1 = require("../apis/FeesApi");
+class ObservableFeesApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new FeesApi_1.FeesApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new FeesApi_1.FeesApiResponseProcessor();
+    }
+    create(pluto_account, fee_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create(pluto_account, fee_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
+        }));
+    }
+    create_1(pluto_account, fee_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create_1(pluto_account, fee_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create_1(rsp)));
+        }));
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
+        }));
+    }
+    list_2(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list_2(pluto_account, limit, page, sort, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list_2(rsp)));
+        }));
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
+        }));
+    }
+    retrieve_3(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve_3(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve_3(rsp)));
+        }));
+    }
+}
+exports.ObservableFeesApi = ObservableFeesApi;
+const InvoicesApi_1 = require("../apis/InvoicesApi");
+class ObservableInvoicesApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new InvoicesApi_1.InvoicesApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new InvoicesApi_1.InvoicesApiResponseProcessor();
+    }
+    _delete(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete(rsp)));
+        }));
+    }
+    _delete_1(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete_1(rsp)));
+        }));
+    }
+    create(pluto_account, invoice_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create(pluto_account, invoice_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
+        }));
+    }
+    create_2(pluto_account, invoice_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, invoice_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create_2(rsp)));
+        }));
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
+        }));
+    }
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list_3(rsp)));
+        }));
+    }
+    pay(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory.pay(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.pay(rsp)));
+        }));
+    }
+    pay_4(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory.pay_4(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.pay_4(rsp)));
+        }));
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
+        }));
+    }
+    retrieve_5(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve_5(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve_5(rsp)));
+        }));
+    }
+    update(id, pluto_account, invoice_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, invoice_update_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
+        }));
+    }
+    update_6(id, pluto_account, invoice_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update_6(id, pluto_account, invoice_update_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update_6(rsp)));
+        }));
+    }
+}
+exports.ObservableInvoicesApi = ObservableInvoicesApi;
+const LogsApi_1 = require("../apis/LogsApi");
+class ObservableLogsApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new LogsApi_1.LogsApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new LogsApi_1.LogsApiResponseProcessor();
+    }
+    list(pluto_account, _options) {
+        const requestContextPromise = this.requestFactory.list(pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
+        }));
+    }
+    list_1(pluto_account, _options) {
+        const requestContextPromise = this.requestFactory.list_1(pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list_1(rsp)));
+        }));
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
+        }));
+    }
+    retrieve_2(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve_2(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve_2(rsp)));
+        }));
+    }
+}
+exports.ObservableLogsApi = ObservableLogsApi;
+const PaymentIntentsApi_1 = require("../apis/PaymentIntentsApi");
+class ObservablePaymentIntentsApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new PaymentIntentsApi_1.PaymentIntentsApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new PaymentIntentsApi_1.PaymentIntentsApiResponseProcessor();
+    }
+    _delete(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete(rsp)));
+        }));
+    }
+    _delete_1(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete_1(rsp)));
+        }));
+    }
+    create(pluto_account, payment_intent_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create(pluto_account, payment_intent_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
+        }));
+    }
+    create_2(pluto_account, payment_intent_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, payment_intent_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create_2(rsp)));
+        }));
+    }
+    list(pluto_account, limit, page, sort, expand, status, customer, _options) {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, status, customer, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
+        }));
+    }
+    list_3(pluto_account, limit, page, sort, expand, status, customer, _options) {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, status, customer, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list_3(rsp)));
+        }));
+    }
+    poll(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.poll(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.poll(rsp)));
+        }));
+    }
+    poll_4(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.poll_4(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.poll_4(rsp)));
+        }));
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
+        }));
+    }
+    retrieve_5(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve_5(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve_5(rsp)));
+        }));
+    }
+    sendReceipt(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory.sendReceipt(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.sendReceipt(rsp)));
+        }));
+    }
+    sendReceipt_6(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory.sendReceipt_6(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.sendReceipt_6(rsp)));
+        }));
+    }
+    update(id, pluto_account, payment_intent_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, payment_intent_update_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
+        }));
+    }
+    update_7(id, pluto_account, payment_intent_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update_7(id, pluto_account, payment_intent_update_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update_7(rsp)));
+        }));
+    }
 }
 exports.ObservablePaymentIntentsApi = ObservablePaymentIntentsApi;
+const PaymentLinksApi_1 = require("../apis/PaymentLinksApi");
+class ObservablePaymentLinksApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new PaymentLinksApi_1.PaymentLinksApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new PaymentLinksApi_1.PaymentLinksApiResponseProcessor();
+    }
+    _delete(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete(rsp)));
+        }));
+    }
+    _delete_1(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete_1(rsp)));
+        }));
+    }
+    create(pluto_account, payment_link_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create(pluto_account, payment_link_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
+        }));
+    }
+    create_2(pluto_account, payment_link_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, payment_link_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create_2(rsp)));
+        }));
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
+        }));
+    }
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list_3(rsp)));
+        }));
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
+        }));
+    }
+    retrieve_4(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve_4(rsp)));
+        }));
+    }
+    update(id, pluto_account, payment_link_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, payment_link_update_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
+        }));
+    }
+    update_5(id, pluto_account, payment_link_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update_5(id, pluto_account, payment_link_update_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update_5(rsp)));
+        }));
+    }
+}
+exports.ObservablePaymentLinksApi = ObservablePaymentLinksApi;
 const PayoutWalletsApi_1 = require("../apis/PayoutWalletsApi");
 class ObservablePayoutWalletsApi {
     constructor(configuration, requestFactory, responseProcessor) {
@@ -454,8 +1207,23 @@ class ObservablePayoutWalletsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete(rsp)));
         }));
     }
-    create(pluto_account, create_payout_wallet_body, _options) {
-        const requestContextPromise = this.requestFactory.create(pluto_account, create_payout_wallet_body, _options);
+    _delete_1(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete_1(rsp)));
+        }));
+    }
+    create(pluto_account, payout_wallet_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create(pluto_account, payout_wallet_create_request, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -469,8 +1237,23 @@ class ObservablePayoutWalletsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
         }));
     }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
+    create_2(pluto_account, payout_wallet_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, payout_wallet_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create_2(rsp)));
+        }));
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -484,8 +1267,23 @@ class ObservablePayoutWalletsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
         }));
     }
-    retrieve(id, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list_3(rsp)));
+        }));
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -499,8 +1297,23 @@ class ObservablePayoutWalletsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
         }));
     }
-    update(id, pluto_account, payout_wallet, _options) {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, payout_wallet, _options);
+    retrieve_4(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve_4(rsp)));
+        }));
+    }
+    update(id, pluto_account, payout_wallet_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, payout_wallet_update_request, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -512,6 +1325,21 @@ class ObservablePayoutWalletsApi {
                 middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
+        }));
+    }
+    update_5(id, pluto_account, payout_wallet_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update_5(id, pluto_account, payout_wallet_update_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update_5(rsp)));
         }));
     }
 }
@@ -538,8 +1366,23 @@ class ObservablePricesApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete(rsp)));
         }));
     }
-    create(pluto_account, price, _options) {
-        const requestContextPromise = this.requestFactory.create(pluto_account, price, _options);
+    _delete_1(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete_1(rsp)));
+        }));
+    }
+    create(pluto_account, price_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create(pluto_account, price_create_request, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -553,8 +1396,23 @@ class ObservablePricesApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
         }));
     }
-    list(pluto_account, expand, limit, page, sort, _options) {
-        const requestContextPromise = this.requestFactory.list(pluto_account, expand, limit, page, sort, _options);
+    create_2(pluto_account, price_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, price_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create_2(rsp)));
+        }));
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -566,6 +1424,21 @@ class ObservablePricesApi {
                 middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
+        }));
+    }
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list_3(rsp)));
         }));
     }
     retrieve(id, pluto_account, expand, _options) {
@@ -583,8 +1456,23 @@ class ObservablePricesApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
         }));
     }
-    update(id, pluto_account, update_price_body, _options) {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_price_body, _options);
+    retrieve_4(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve_4(rsp)));
+        }));
+    }
+    update(id, pluto_account, price_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, price_update_request, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -596,6 +1484,21 @@ class ObservablePricesApi {
                 middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
+        }));
+    }
+    update_5(id, pluto_account, price_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update_5(id, pluto_account, price_update_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update_5(rsp)));
         }));
     }
 }
@@ -622,8 +1525,23 @@ class ObservableProductsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete(rsp)));
         }));
     }
-    create(pluto_account, create_product_body, _options) {
-        const requestContextPromise = this.requestFactory.create(pluto_account, create_product_body, _options);
+    _delete_1(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete_1(rsp)));
+        }));
+    }
+    create(pluto_account, product_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create(pluto_account, product_create_request, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -637,8 +1555,23 @@ class ObservableProductsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
         }));
     }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
+    create_2(pluto_account, product_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, product_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create_2(rsp)));
+        }));
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -652,8 +1585,23 @@ class ObservableProductsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
         }));
     }
-    retrieve(id, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list_3(rsp)));
+        }));
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -667,8 +1615,23 @@ class ObservableProductsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
         }));
     }
-    update(id, pluto_account, update_product_body, _options) {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_product_body, _options);
+    retrieve_4(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve_4(rsp)));
+        }));
+    }
+    update(id, pluto_account, product_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, product_update_request, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -680,6 +1643,21 @@ class ObservableProductsApi {
                 middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
+        }));
+    }
+    update_5(id, pluto_account, product_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update_5(id, pluto_account, product_update_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update_5(rsp)));
         }));
     }
 }
@@ -691,146 +1669,8 @@ class ObservableSubscriptionsApi {
         this.requestFactory = requestFactory || new SubscriptionsApi_1.SubscriptionsApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new SubscriptionsApi_1.SubscriptionsApiResponseProcessor();
     }
-    cancel(id, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.cancel(id, pluto_account, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.cancel(rsp)));
-        }));
-    }
-    create(pluto_account, subscription, _options) {
-        const requestContextPromise = this.requestFactory.create(pluto_account, subscription, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
-        }));
-    }
-    list(expand, limit, page, sort, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.list(expand, limit, page, sort, pluto_account, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
-        }));
-    }
-    retrieve(id, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
-        }));
-    }
-    update(id, pluto_account, subscription, _options) {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, subscription, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
-        }));
-    }
-}
-exports.ObservableSubscriptionsApi = ObservableSubscriptionsApi;
-const TransfersApi_1 = require("../apis/TransfersApi");
-class ObservableTransfersApi {
-    constructor(configuration, requestFactory, responseProcessor) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new TransfersApi_1.TransfersApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new TransfersApi_1.TransfersApiResponseProcessor();
-    }
-    create(pluto_account, create_transfer_body, _options) {
-        const requestContextPromise = this.requestFactory.create(pluto_account, create_transfer_body, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
-        }));
-    }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
-        }));
-    }
-    retrieve(id, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
-        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
-        }
-        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
-            pipe(rxjsStub_2.mergeMap((response) => {
-            let middlewarePostObservable = rxjsStub_1.of(response);
-            for (let middleware of this.configuration.middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
-            }
-            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
-        }));
-    }
-}
-exports.ObservableTransfersApi = ObservableTransfersApi;
-const WalletsApi_1 = require("../apis/WalletsApi");
-class ObservableWalletsApi {
-    constructor(configuration, requestFactory, responseProcessor) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new WalletsApi_1.WalletsApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new WalletsApi_1.WalletsApiResponseProcessor();
-    }
-    _delete(id, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory._delete(id, expand, pluto_account, _options);
+    _delete(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -844,8 +1684,23 @@ class ObservableWalletsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete(rsp)));
         }));
     }
-    create(pluto_account, create_wallet_body, _options) {
-        const requestContextPromise = this.requestFactory.create(pluto_account, create_wallet_body, _options);
+    _delete_1(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete_1(rsp)));
+        }));
+    }
+    create(pluto_account, subscription_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create(pluto_account, subscription_create_request, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -859,8 +1714,23 @@ class ObservableWalletsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
         }));
     }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
+    create_2(pluto_account, subscription_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, subscription_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create_2(rsp)));
+        }));
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -874,8 +1744,23 @@ class ObservableWalletsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
         }));
     }
-    retrieve(id, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list_3(rsp)));
+        }));
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -889,8 +1774,23 @@ class ObservableWalletsApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
         }));
     }
-    update(id, pluto_account, update_wallet_body, _options) {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_wallet_body, _options);
+    retrieve_4(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve_4(rsp)));
+        }));
+    }
+    update(id, pluto_account, subscription_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, subscription_update_request, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -902,6 +1802,279 @@ class ObservableWalletsApi {
                 middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
+        }));
+    }
+    update_5(id, pluto_account, subscription_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update_5(id, pluto_account, subscription_update_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update_5(rsp)));
+        }));
+    }
+}
+exports.ObservableSubscriptionsApi = ObservableSubscriptionsApi;
+const TransfersApi_1 = require("../apis/TransfersApi");
+class ObservableTransfersApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new TransfersApi_1.TransfersApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new TransfersApi_1.TransfersApiResponseProcessor();
+    }
+    create(pluto_account, transfer_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create(pluto_account, transfer_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
+        }));
+    }
+    create_1(pluto_account, transfer_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create_1(pluto_account, transfer_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create_1(rsp)));
+        }));
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
+        }));
+    }
+    list_2(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list_2(pluto_account, limit, page, sort, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list_2(rsp)));
+        }));
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
+        }));
+    }
+    retrieve_3(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve_3(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve_3(rsp)));
+        }));
+    }
+}
+exports.ObservableTransfersApi = ObservableTransfersApi;
+const WalletsApi_1 = require("../apis/WalletsApi");
+class ObservableWalletsApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new WalletsApi_1.WalletsApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new WalletsApi_1.WalletsApiResponseProcessor();
+    }
+    _delete(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete(rsp)));
+        }));
+    }
+    _delete_1(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete_1(rsp)));
+        }));
+    }
+    create(pluto_account, wallet_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create(pluto_account, wallet_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
+        }));
+    }
+    create_2(pluto_account, wallet_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, wallet_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create_2(rsp)));
+        }));
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
+        }));
+    }
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list_3(rsp)));
+        }));
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
+        }));
+    }
+    retrieve_4(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve_4(rsp)));
+        }));
+    }
+    update(id, pluto_account, wallet_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, wallet_update_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
+        }));
+    }
+    update_5(id, pluto_account, wallet_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update_5(id, pluto_account, wallet_update_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update_5(rsp)));
         }));
     }
 }
@@ -928,8 +2101,23 @@ class ObservableWebhooksApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete(rsp)));
         }));
     }
-    create(pluto_account, create_webhook_body, _options) {
-        const requestContextPromise = this.requestFactory.create(pluto_account, create_webhook_body, _options);
+    _delete_1(id, pluto_account, _options) {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor._delete_1(rsp)));
+        }));
+    }
+    create(pluto_account, webhook_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create(pluto_account, webhook_create_request, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -943,8 +2131,23 @@ class ObservableWebhooksApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create(rsp)));
         }));
     }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
+    create_2(pluto_account, webhook_create_request, _options) {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, webhook_create_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.create_2(rsp)));
+        }));
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -958,8 +2161,23 @@ class ObservableWebhooksApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list(rsp)));
         }));
     }
-    retrieve(id, expand, pluto_account, _options) {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.list_3(rsp)));
+        }));
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -973,8 +2191,23 @@ class ObservableWebhooksApi {
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve(rsp)));
         }));
     }
-    update(id, pluto_account, update_webhook_body, _options) {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_webhook_body, _options);
+    retrieve_4(id, pluto_account, expand, _options) {
+        const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.retrieve_4(rsp)));
+        }));
+    }
+    update(id, pluto_account, webhook_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, webhook_update_request, _options);
         let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
         for (let middleware of this.configuration.middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
@@ -986,6 +2219,21 @@ class ObservableWebhooksApi {
                 middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
             }
             return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update(rsp)));
+        }));
+    }
+    update_5(id, pluto_account, webhook_update_request, _options) {
+        const requestContextPromise = this.requestFactory.update_5(id, pluto_account, webhook_update_request, _options);
+        let middlewarePreObservable = rxjsStub_1.from(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => middleware.pre(ctx)));
+        }
+        return middlewarePreObservable.pipe(rxjsStub_2.mergeMap((ctx) => this.configuration.httpApi.send(ctx))).
+            pipe(rxjsStub_2.mergeMap((response) => {
+            let middlewarePostObservable = rxjsStub_1.of(response);
+            for (let middleware of this.configuration.middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe(rxjsStub_2.mergeMap((rsp) => middleware.post(rsp)));
+            }
+            return middlewarePostObservable.pipe(rxjsStub_2.map((rsp) => this.responseProcessor.update_5(rsp)));
         }));
     }
 }

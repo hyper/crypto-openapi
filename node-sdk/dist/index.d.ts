@@ -1,5 +1,4 @@
-import { Configuration, Customer, CustomersApiRetrieveRequest, CustomersApiCreateRequest, Fee, FeesApiCreateRequest, FeesApiRetrieveRequest, InvoicesApiCreateRequest, Invoice, InvoicesApiRetrieveRequest, InvoicesApiListRequest, LogsApiRetrieveRequest, ListProductsResponse, LogsApiListRequest, FeesApiListRequest, CustomersApiListRequest, Log, ProductsApiCreateRequest, ProductsApiRetrieveRequest, Product, ProductsApiListRequest, WalletsApiCreateRequest, WalletsApiRetrieveRequest, WalletsApiListRequest, WebhooksApiCreateRequest, WebhooksApiRetrieveRequest, WebhooksApiListRequest, Wallet, ListCustomersResponse, ListInvoicesResponse, ListLogsResponse, ListWebhooksResponse, ListWalletsResponse, ListFeesResponse, WalletsApiUpdateRequest, WebhooksApiUpdateRequest, CustomersApiUpdateRequest, InvoicesApiUpdateRequest, ProductsApiUpdateRequest, TransfersApiCreateRequest, Transfer, TransfersApiRetrieveRequest, TransfersApiListRequest, ListTransfersResponse, PayoutWalletsApiCreateRequest, PayoutWallet, PayoutWalletsApiRetrieveRequest, PayoutWalletsApiUpdateRequest, PayoutWalletsApiListRequest, AccountsApiRetrieveRequest, AccountsApiCreateRequest, Account, ListAccountsResponse, AccountsApiListRequest, AccountsApiUpdateRequest, PaymentIntentsApiCreateRequest, Price, PricesApiCreateRequest, PricesApiRetrieveRequest, PricesApiListRequest, ListPricesResponse, Subscription, SubscriptionsApiCreateRequest, SubscriptionsApiRetrieveRequest, SubscriptionsApiUpdateRequest, SubscriptionsApiListRequest, ListSubscriptionsResponse, FeesApiDeleteRequest, PayoutWalletsApiDeleteRequest, ProductsApiDeleteRequest, WalletsApiDeleteRequest, WebhooksApiDeleteRequest, PricesApiDeleteRequest, PricesApiUpdateRequest, PaymentIntentsApiRetrieveRequest, ListPaymentIntentsResponse, PaymentIntentsApiListRequest, PaymentIntent, PaymentIntentsApiPollRequest, SubscriptionsApiCancelRequest, PaymentIntentsApiCancelRequest, PaymentIntentsApiUpdateRequest, InvoicesApiPayRequest, Webhook } from './openapi/index';
-import { ListPayoutWalletsResponse } from './openapi';
+import { Configuration, CustomersApiRetrieveRequest, CustomersApiCreateRequest, FeesApiCreateRequest, FeesApiRetrieveRequest, InvoicesApiCreateRequest, InvoicesApiRetrieveRequest, InvoicesApiListRequest, LogsApiRetrieveRequest, LogsApiListRequest, FeesApiListRequest, CustomersApiListRequest, ProductsApiCreateRequest, ProductsApiRetrieveRequest, ProductsApiListRequest, WalletsApiCreateRequest, WalletsApiRetrieveRequest, WalletsApiListRequest, WebhooksApiCreateRequest, WebhooksApiRetrieveRequest, WebhooksApiListRequest, WalletsApiUpdateRequest, WebhooksApiUpdateRequest, CustomersApiUpdateRequest, InvoicesApiUpdateRequest, ProductsApiUpdateRequest, TransfersApiCreateRequest, TransfersApiRetrieveRequest, TransfersApiListRequest, PayoutWalletsApiCreateRequest, PayoutWalletsApiRetrieveRequest, PayoutWalletsApiUpdateRequest, PayoutWalletsApiListRequest, AccountsApiRetrieveRequest, AccountsApiCreateRequest, AccountsApiListRequest, PaymentIntentsApiCreateRequest, PricesApiCreateRequest, PricesApiRetrieveRequest, PricesApiListRequest, SubscriptionsApiCreateRequest, SubscriptionsApiRetrieveRequest, SubscriptionsApiUpdateRequest, SubscriptionsApiListRequest, PayoutWalletsApiDeleteRequest, ProductsApiDeleteRequest, WalletsApiDeleteRequest, WebhooksApiDeleteRequest, PricesApiDeleteRequest, PricesApiUpdateRequest, PaymentIntentsApiRetrieveRequest, PaymentIntentsApiListRequest, PaymentIntentsApiPollRequest, PaymentIntentsApiUpdateRequest, InvoicesApiPayRequest, IAccount, AccountListResponse, AccountsApiPatchRequest, ICustomer, CustomerListResponse, IFee, FeeListResponse, IInvoice, InvoiceListResponse, IPaymentIntent, ILog, LogListResponse, IPrice, PriceListResponse, ProductListResponse, IProduct, IPayoutWallet, PayoutWalletListResponse, ISubscription, SubscriptionListResponse, PaymentIntentListResponse, PaymentIntentsApiDeleteRequest, ITransfer, TransferListResponse, IWallet, WalletListResponse, IWebhook, WebhookListResponse, SubscriptionsApiDeleteRequest } from './openapi/index';
 export * from './openapi/models/all';
 export * from './openapi/apis/exception';
 export interface PlutoOptions {
@@ -25,226 +24,223 @@ export declare class Pluto {
 declare class AccountsApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: AccountsApiCreateRequest['account'], options?: {
+    create(data: AccountsApiCreateRequest['account_create_request'], options?: {
         plutoAccount?: string;
-    }): Promise<Account>;
+    }): Promise<IAccount>;
     retrieve(id: string, params?: Omit<AccountsApiRetrieveRequest, 'pluto_account' | 'id'>, options?: {
         plutoAccount?: string;
-    }): Promise<Account>;
-    update(id: string, data: AccountsApiUpdateRequest['account'], options?: {
+    }): Promise<IAccount>;
+    update(id: string, data: AccountsApiPatchRequest['account_update_request'], options?: {
         plutoAccount?: string;
-    }): Promise<Account>;
+    }): Promise<IAccount>;
     list(params?: Omit<AccountsApiListRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<ListAccountsResponse>;
+    }): Promise<AccountListResponse>;
 }
 declare class CustomersApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: CustomersApiCreateRequest['create_customer_body'], options?: {
+    create(data: CustomersApiCreateRequest['customer_create_request'], options?: {
         plutoAccount?: string;
-    }): Promise<Customer>;
+    }): Promise<ICustomer>;
     retrieve(id: string, params?: Omit<CustomersApiRetrieveRequest, 'pluto_account' | 'id'>, options?: {
         plutoAccount?: string;
-    }): Promise<Customer>;
-    update(id: string, data: CustomersApiUpdateRequest['update_customer_body'], options?: {
+    }): Promise<ICustomer>;
+    update(id: string, data: CustomersApiUpdateRequest['customer_update_request'], options?: {
         plutoAccount?: string;
-    }): Promise<Customer>;
+    }): Promise<ICustomer>;
     list(params?: Omit<CustomersApiListRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<ListCustomersResponse>;
+    }): Promise<CustomerListResponse>;
 }
 declare class FeesApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: FeesApiCreateRequest['create_fee_body'], options?: {
+    create(data: FeesApiCreateRequest['fee_create_request'], options?: {
         plutoAccount?: string;
-    }): Promise<Fee>;
+    }): Promise<IFee>;
     retrieve(id: string, params?: Omit<FeesApiRetrieveRequest, 'pluto_account' | 'id'>, options?: {
         plutoAccount?: string;
-    }): Promise<Fee>;
+    }): Promise<IFee>;
     list(params?: Omit<FeesApiListRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<ListFeesResponse>;
-    delete(id: string, params: Omit<FeesApiDeleteRequest, 'pluto_account'>, options?: {
-        plutoAccount?: string;
-    }): Promise<void>;
+    }): Promise<FeeListResponse>;
 }
 declare class InvoicesApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: InvoicesApiCreateRequest['invoice'], options?: {
+    create(data: InvoicesApiCreateRequest['invoice_create_request'], options?: {
         plutoAccount?: string;
-    }): Promise<Invoice>;
+    }): Promise<IInvoice>;
     retrieve(id: string, params?: Omit<InvoicesApiRetrieveRequest, 'pluto_account' | 'id'>, options?: {
         plutoAccount?: string;
-    }): Promise<Invoice>;
-    update(id: string, data: InvoicesApiUpdateRequest['invoice'], options?: {
+    }): Promise<IInvoice>;
+    update(id: string, data: InvoicesApiUpdateRequest['invoice_update_request'], options?: {
         plutoAccount?: string;
-    }): Promise<Invoice>;
+    }): Promise<IInvoice>;
     list(params?: Omit<InvoicesApiListRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<ListInvoicesResponse>;
+    }): Promise<InvoiceListResponse>;
     pay(id: string, params?: Omit<InvoicesApiPayRequest, 'pluto_account' | 'id'>, options?: {
         plutoAccount?: string;
-    }): Promise<PaymentIntent>;
+    }): Promise<IPaymentIntent>;
 }
 declare class LogsApiLayer {
     private readonly api;
     constructor(config: Configuration);
     retrieve(id: string, params?: Omit<LogsApiRetrieveRequest, 'pluto_account' | 'id'>, options?: {
         plutoAccount?: string;
-    }): Promise<Log>;
+    }): Promise<ILog>;
     list(params?: Omit<LogsApiListRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<ListLogsResponse>;
+    }): Promise<LogListResponse>;
 }
 declare class PricesApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: PricesApiCreateRequest['price'], options?: {
+    create(data: PricesApiCreateRequest['price_create_request'], options?: {
         plutoAccount?: string;
-    }): Promise<Price>;
+    }): Promise<IPrice>;
     retrieve(id: string, params?: Omit<PricesApiRetrieveRequest, 'pluto_account' | 'id'>, options?: {
         plutoAccount?: string;
-    }): Promise<Price>;
-    update(id: string, data: PricesApiUpdateRequest['update_price_body'], options?: {
+    }): Promise<IPrice>;
+    update(id: string, data: PricesApiUpdateRequest['price_update_request'], options?: {
         plutoAccount?: string;
-    }): Promise<Price>;
+    }): Promise<IPrice>;
     list(params?: Omit<PricesApiListRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<ListPricesResponse>;
+    }): Promise<PriceListResponse>;
     delete(id: string, params: Omit<PricesApiDeleteRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<void>;
+    }): Promise<IPrice>;
 }
 declare class ProductsApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: ProductsApiCreateRequest['create_product_body'], options?: {
+    create(data: ProductsApiCreateRequest['product_create_request'], options?: {
         plutoAccount?: string;
-    }): Promise<Product>;
+    }): Promise<IProduct>;
     retrieve(id: string, params?: Omit<ProductsApiRetrieveRequest, 'pluto_account' | 'id'>, options?: {
         plutoAccount?: string;
-    }): Promise<Product>;
-    update(id: string, data: ProductsApiUpdateRequest['update_product_body'], options?: {
+    }): Promise<IProduct>;
+    update(id: string, data: ProductsApiUpdateRequest['product_update_request'], options?: {
         plutoAccount?: string;
-    }): Promise<Product>;
+    }): Promise<IProduct>;
     list(params?: Omit<ProductsApiListRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<ListProductsResponse>;
+    }): Promise<ProductListResponse>;
     delete(id: string, params: Omit<ProductsApiDeleteRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<void>;
+    }): Promise<IProduct>;
 }
 declare class PayoutWalletsApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: PayoutWalletsApiCreateRequest['create_payout_wallet_body'], options?: {
+    create(data: PayoutWalletsApiCreateRequest['payout_wallet_create_request'], options?: {
         plutoAccount?: string;
-    }): Promise<PayoutWallet>;
+    }): Promise<IPayoutWallet>;
     retrieve(id: string, params?: Omit<PayoutWalletsApiRetrieveRequest, 'pluto_account' | 'id'>, options?: {
         plutoAccount?: string;
-    }): Promise<PayoutWallet>;
-    update(id: string, data: PayoutWalletsApiUpdateRequest['payout_wallet'], options?: {
+    }): Promise<IPayoutWallet>;
+    update(id: string, data: PayoutWalletsApiUpdateRequest['payout_wallet_update_request'], options?: {
         plutoAccount?: string;
-    }): Promise<PayoutWallet>;
+    }): Promise<IPayoutWallet>;
     list(params?: Omit<PayoutWalletsApiListRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<ListPayoutWalletsResponse>;
+    }): Promise<PayoutWalletListResponse>;
     delete(id: string, params: Omit<PayoutWalletsApiDeleteRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<void>;
+    }): Promise<IPayoutWallet>;
 }
 declare class SubscriptionsApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: SubscriptionsApiCreateRequest['subscription'], options?: {
+    create(data: SubscriptionsApiCreateRequest['subscription_create_request'], options?: {
         plutoAccount?: string;
-    }): Promise<Subscription>;
+    }): Promise<ISubscription>;
     retrieve(id: string, params?: Omit<SubscriptionsApiRetrieveRequest, 'pluto_account' | 'id'>, options?: {
         plutoAccount?: string;
-    }): Promise<Subscription>;
-    update(id: string, data: SubscriptionsApiUpdateRequest['subscription'], options?: {
+    }): Promise<ISubscription>;
+    update(id: string, data: SubscriptionsApiUpdateRequest['subscription_update_request'], options?: {
         plutoAccount?: string;
-    }): Promise<Subscription>;
+    }): Promise<ISubscription>;
     list(params?: Omit<SubscriptionsApiListRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<ListSubscriptionsResponse>;
-    cancel(id: string, params: Omit<SubscriptionsApiCancelRequest, 'pluto_account'>, options?: {
+    }): Promise<SubscriptionListResponse>;
+    cancel(id: string, params: Omit<SubscriptionsApiDeleteRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<Subscription>;
+    }): Promise<ISubscription>;
 }
 declare class PaymentIntentsApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: PaymentIntentsApiCreateRequest['payment_intent'], options?: {
+    create(data: PaymentIntentsApiCreateRequest['payment_intent_create_request'], options?: {
         plutoAccount?: string;
-    }): Promise<PaymentIntent>;
+    }): Promise<IPaymentIntent>;
     retrieve(id: string, params?: Omit<PaymentIntentsApiRetrieveRequest, 'pluto_account' | 'id'>, options?: {
         plutoAccount?: string;
-    }): Promise<PaymentIntent>;
-    update(id: string, data: PaymentIntentsApiUpdateRequest['update_payment_intent_body'], options?: {
+    }): Promise<IPaymentIntent>;
+    update(id: string, data: PaymentIntentsApiUpdateRequest['payment_intent_update_request'], options?: {
         plutoAccount?: string;
-    }): Promise<PaymentIntent>;
+    }): Promise<IPaymentIntent>;
     list(params?: Omit<PaymentIntentsApiListRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<ListPaymentIntentsResponse>;
+    }): Promise<PaymentIntentListResponse>;
     poll(id: string, params?: Omit<PaymentIntentsApiPollRequest, 'pluto_account' | 'id'>, options?: {
         plutoAccount?: string;
-    }): Promise<PaymentIntent>;
-    cancel(id: string, params: Omit<PaymentIntentsApiCancelRequest, 'pluto_account'>, options?: {
+    }): Promise<IPaymentIntent>;
+    cancel(id: string, params: Omit<PaymentIntentsApiDeleteRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<PaymentIntent>;
+    }): Promise<IPaymentIntent>;
 }
 declare class TransfersApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: TransfersApiCreateRequest['create_transfer_body'], options?: {
+    create(data: TransfersApiCreateRequest['transfer_create_request'], options?: {
         plutoAccount?: string;
-    }): Promise<Transfer>;
+    }): Promise<ITransfer>;
     retrieve(id: string, params?: Omit<TransfersApiRetrieveRequest, 'pluto_account' | 'id'>, options?: {
         plutoAccount?: string;
-    }): Promise<Transfer>;
+    }): Promise<ITransfer>;
     list(params?: Omit<TransfersApiListRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<ListTransfersResponse>;
+    }): Promise<TransferListResponse>;
 }
 declare class WalletsApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: WalletsApiCreateRequest['create_wallet_body'], options?: {
+    create(data: WalletsApiCreateRequest['wallet_create_request'], options?: {
         plutoAccount?: string;
-    }): Promise<Wallet>;
+    }): Promise<IWallet>;
     retrieve(id: string, params?: Omit<WalletsApiRetrieveRequest, 'pluto_account' | 'id'>, options?: {
         plutoAccount?: string;
-    }): Promise<Wallet>;
-    update(id: string, data: WalletsApiUpdateRequest['update_wallet_body'], options?: {
+    }): Promise<IWallet>;
+    update(id: string, data: WalletsApiUpdateRequest['wallet_update_request'], options?: {
         plutoAccount?: string;
-    }): Promise<Wallet>;
+    }): Promise<IWallet>;
     list(params?: Omit<WalletsApiListRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<ListWalletsResponse>;
+    }): Promise<WalletListResponse>;
     delete(id: string, params: Omit<WalletsApiDeleteRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<void>;
+    }): Promise<IWallet>;
 }
 declare class WebhooksApiLayer {
     private readonly api;
     constructor(config: Configuration);
-    create(data: WebhooksApiCreateRequest['create_webhook_body'], options?: {
+    create(data: WebhooksApiCreateRequest['webhook_create_request'], options?: {
         plutoAccount?: string;
-    }): Promise<Webhook>;
+    }): Promise<IWebhook>;
     retrieve(id: string, params?: Omit<WebhooksApiRetrieveRequest, 'pluto_account' | 'id'>, options?: {
         plutoAccount?: string;
-    }): Promise<Webhook>;
-    update(id: string, data: WebhooksApiUpdateRequest['update_webhook_body'], options?: {
+    }): Promise<IWebhook>;
+    update(id: string, data: WebhooksApiUpdateRequest['webhook_update_request'], options?: {
         plutoAccount?: string;
-    }): Promise<Webhook>;
+    }): Promise<IWebhook>;
     list(params?: Omit<WebhooksApiListRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<ListWebhooksResponse>;
+    }): Promise<WebhookListResponse>;
     delete(id: string, params: Omit<WebhooksApiDeleteRequest, 'pluto_account'>, options?: {
         plutoAccount?: string;
-    }): Promise<void>;
+    }): Promise<IWebhook>;
 }

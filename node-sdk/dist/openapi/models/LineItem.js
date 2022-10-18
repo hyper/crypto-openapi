@@ -12,28 +12,28 @@ exports.LineItem = LineItem;
 LineItem.discriminator = undefined;
 LineItem.attributeTypeMap = [
     {
+        "name": "description",
+        "baseName": "description",
+        "type": "string",
+        "format": ""
+    },
+    {
         "name": "price",
         "baseName": "price",
-        "type": "string | Price",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "price_data",
+        "baseName": "price_data",
+        "type": "IPrice",
         "format": ""
     },
     {
         "name": "quantity",
         "baseName": "quantity",
         "type": "number",
-        "format": ""
-    },
-    {
-        "name": "price_data",
-        "baseName": "price_data",
-        "type": "Price",
-        "format": ""
-    },
-    {
-        "name": "description",
-        "baseName": "description",
-        "type": "string",
-        "format": ""
+        "format": "double"
     }
 ];
 //# sourceMappingURL=LineItem.js.map

@@ -3,88 +3,94 @@ import * as models from '../models/all';
 import { Configuration} from '../configuration'
 import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
-import { Account } from '../models/Account';
-import { AccountAllOf } from '../models/AccountAllOf';
-import { AccountAllOfBusinessProfile } from '../models/AccountAllOfBusinessProfile';
-import { AccountAllOfIntegrations } from '../models/AccountAllOfIntegrations';
-import { AccountAllOfIntegrationsFtx } from '../models/AccountAllOfIntegrationsFtx';
-import { AccountAllOfSettings } from '../models/AccountAllOfSettings';
-import { AccountAllOfSettingsBilling } from '../models/AccountAllOfSettingsBilling';
-import { AccountAllOfSettingsBranding } from '../models/AccountAllOfSettingsBranding';
-import { AccountAllOfSettingsPayments } from '../models/AccountAllOfSettingsPayments';
-import { AccountAllOfTeam } from '../models/AccountAllOfTeam';
+import { AccountConnectRequest } from '../models/AccountConnectRequest';
+import { AccountCreateRequest } from '../models/AccountCreateRequest';
+import { AccountDashboardAccessRequest } from '../models/AccountDashboardAccessRequest';
+import { AccountDashboardAccessResponse } from '../models/AccountDashboardAccessResponse';
+import { AccountListResponse } from '../models/AccountListResponse';
+import { AccountUpdateRequest } from '../models/AccountUpdateRequest';
 import { Address } from '../models/Address';
-import { ApiKey } from '../models/ApiKey';
-import { ApiKeyAllOf } from '../models/ApiKeyAllOf';
-import { Checkout } from '../models/Checkout';
-import { CheckoutAllOf } from '../models/CheckoutAllOf';
-import { CheckoutAllOfCustomerDetails } from '../models/CheckoutAllOfCustomerDetails';
-import { CreateCustomerBody } from '../models/CreateCustomerBody';
-import { CreateFeeBody } from '../models/CreateFeeBody';
-import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
-import { CreateProductBody } from '../models/CreateProductBody';
-import { CreateTransferBody } from '../models/CreateTransferBody';
-import { CreateWalletBody } from '../models/CreateWalletBody';
-import { CreateWebhookBody } from '../models/CreateWebhookBody';
-import { Customer } from '../models/Customer';
-import { CustomerAllOf } from '../models/CustomerAllOf';
-import { CustomerAllOfBillingDetails } from '../models/CustomerAllOfBillingDetails';
-import { CustomersBillingDetails } from '../models/CustomersBillingDetails';
-import { CustomersBillingDetailsAddress } from '../models/CustomersBillingDetailsAddress';
-import { CustomersIdBillingDetails } from '../models/CustomersIdBillingDetails';
-import { CustomersIdBillingDetailsAddress } from '../models/CustomersIdBillingDetailsAddress';
-import { Fee } from '../models/Fee';
-import { FeeAllOf } from '../models/FeeAllOf';
-import { InlineResponse400 } from '../models/InlineResponse400';
-import { InlineResponse400Error } from '../models/InlineResponse400Error';
-import { Invoice } from '../models/Invoice';
-import { InvoiceAllOf } from '../models/InvoiceAllOf';
+import { AfterCompletion } from '../models/AfterCompletion';
+import { ApiKeyCreateRequest } from '../models/ApiKeyCreateRequest';
+import { ApiKeyListResponse } from '../models/ApiKeyListResponse';
+import { ApiKeyType } from '../models/ApiKeyType';
+import { BasePrice } from '../models/BasePrice';
+import { Chain } from '../models/Chain';
+import { CheckoutCreateRequest } from '../models/CheckoutCreateRequest';
+import { CheckoutListResponse } from '../models/CheckoutListResponse';
+import { CheckoutStatus } from '../models/CheckoutStatus';
+import { Currency } from '../models/Currency';
+import { CustomAmount } from '../models/CustomAmount';
+import { CustomerCreateRequest } from '../models/CustomerCreateRequest';
+import { CustomerCreateRequestBillingDetails } from '../models/CustomerCreateRequestBillingDetails';
+import { CustomerDetails } from '../models/CustomerDetails';
+import { CustomerListResponse } from '../models/CustomerListResponse';
+import { CustomerUpdateRequest } from '../models/CustomerUpdateRequest';
+import { EventType } from '../models/EventType';
+import { FeeCreateRequest } from '../models/FeeCreateRequest';
+import { FeeListResponse } from '../models/FeeListResponse';
+import { Headers } from '../models/Headers';
+import { IAccount } from '../models/IAccount';
+import { IApiKey } from '../models/IApiKey';
+import { IBilling } from '../models/IBilling';
+import { IBranding } from '../models/IBranding';
+import { IBusinessProfile } from '../models/IBusinessProfile';
+import { ICheckout } from '../models/ICheckout';
+import { ICustomer } from '../models/ICustomer';
+import { IFee } from '../models/IFee';
+import { IIntegrations } from '../models/IIntegrations';
+import { IIntegrationsFtx } from '../models/IIntegrationsFtx';
+import { IInvoice } from '../models/IInvoice';
+import { ILog } from '../models/ILog';
+import { IPaymentIntent } from '../models/IPaymentIntent';
+import { IPaymentLink } from '../models/IPaymentLink';
+import { IPayments } from '../models/IPayments';
+import { IPayoutWallet } from '../models/IPayoutWallet';
+import { IPrice } from '../models/IPrice';
+import { IProduct } from '../models/IProduct';
+import { IRequest } from '../models/IRequest';
+import { IResponse } from '../models/IResponse';
+import { ISettings } from '../models/ISettings';
+import { ISubscription } from '../models/ISubscription';
+import { ITeamMember } from '../models/ITeamMember';
+import { ITransfer } from '../models/ITransfer';
+import { IWallet } from '../models/IWallet';
+import { IWebhook } from '../models/IWebhook';
+import { InvoiceCreateRequest } from '../models/InvoiceCreateRequest';
+import { InvoiceListResponse } from '../models/InvoiceListResponse';
+import { InvoiceStatus } from '../models/InvoiceStatus';
+import { InvoiceUpdateRequest } from '../models/InvoiceUpdateRequest';
 import { LineItem } from '../models/LineItem';
-import { ListAccountsResponse } from '../models/ListAccountsResponse';
-import { ListCustomersResponse } from '../models/ListCustomersResponse';
-import { ListFeesResponse } from '../models/ListFeesResponse';
-import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
-import { ListLogsResponse } from '../models/ListLogsResponse';
-import { ListPaymentIntentsResponse } from '../models/ListPaymentIntentsResponse';
-import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
-import { ListPricesResponse } from '../models/ListPricesResponse';
-import { ListProductsResponse } from '../models/ListProductsResponse';
-import { ListSubscriptionsResponse } from '../models/ListSubscriptionsResponse';
-import { ListTransfersResponse } from '../models/ListTransfersResponse';
-import { ListWalletsResponse } from '../models/ListWalletsResponse';
-import { ListWebhooksResponse } from '../models/ListWebhooksResponse';
-import { Log } from '../models/Log';
-import { LogAllOf } from '../models/LogAllOf';
-import { Model } from '../models/Model';
-import { Notification } from '../models/Notification';
-import { NotificationAllOf } from '../models/NotificationAllOf';
-import { PaymentIntent } from '../models/PaymentIntent';
-import { PaymentIntentAllOf } from '../models/PaymentIntentAllOf';
-import { PaymentLink } from '../models/PaymentLink';
-import { PaymentLinkAllOf } from '../models/PaymentLinkAllOf';
-import { PaymentLinkAllOfAfterCompletion } from '../models/PaymentLinkAllOfAfterCompletion';
+import { LogListResponse } from '../models/LogListResponse';
+import { PaymentIntentCreateRequest } from '../models/PaymentIntentCreateRequest';
+import { PaymentIntentListResponse } from '../models/PaymentIntentListResponse';
+import { PaymentIntentStatus } from '../models/PaymentIntentStatus';
+import { PaymentIntentUpdateRequest } from '../models/PaymentIntentUpdateRequest';
+import { PaymentLinkCreateRequest } from '../models/PaymentLinkCreateRequest';
+import { PaymentLinkListResponse } from '../models/PaymentLinkListResponse';
+import { PaymentLinkUpdateRequest } from '../models/PaymentLinkUpdateRequest';
 import { PayoutWallet } from '../models/PayoutWallet';
-import { PayoutWalletAllOf } from '../models/PayoutWalletAllOf';
-import { Price } from '../models/Price';
-import { PriceAllOf } from '../models/PriceAllOf';
-import { PriceAllOfBasePrice } from '../models/PriceAllOfBasePrice';
-import { PriceAllOfCustomAmount } from '../models/PriceAllOfCustomAmount';
-import { Product } from '../models/Product';
-import { ProductAllOf } from '../models/ProductAllOf';
-import { Subscription } from '../models/Subscription';
-import { SubscriptionAllOf } from '../models/SubscriptionAllOf';
-import { Transfer } from '../models/Transfer';
-import { TransferAllOf } from '../models/TransferAllOf';
-import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
-import { UpdatePaymentIntentBody } from '../models/UpdatePaymentIntentBody';
-import { UpdatePriceBody } from '../models/UpdatePriceBody';
-import { UpdateProductBody } from '../models/UpdateProductBody';
-import { UpdateWalletBody } from '../models/UpdateWalletBody';
-import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
-import { Wallet } from '../models/Wallet';
-import { WalletAllOf } from '../models/WalletAllOf';
-import { Webhook } from '../models/Webhook';
-import { WebhookAllOf } from '../models/WebhookAllOf';
+import { PayoutWalletCreateRequest } from '../models/PayoutWalletCreateRequest';
+import { PayoutWalletListResponse } from '../models/PayoutWalletListResponse';
+import { PayoutWalletUpdateRequest } from '../models/PayoutWalletUpdateRequest';
+import { PriceCreateRequest } from '../models/PriceCreateRequest';
+import { PriceListResponse } from '../models/PriceListResponse';
+import { PriceUpdateRequest } from '../models/PriceUpdateRequest';
+import { ProductCreateRequest } from '../models/ProductCreateRequest';
+import { ProductListResponse } from '../models/ProductListResponse';
+import { ProductUpdateRequest } from '../models/ProductUpdateRequest';
+import { SubscriptionCreateRequest } from '../models/SubscriptionCreateRequest';
+import { SubscriptionListResponse } from '../models/SubscriptionListResponse';
+import { SubscriptionStatus } from '../models/SubscriptionStatus';
+import { SubscriptionUpdateRequest } from '../models/SubscriptionUpdateRequest';
+import { TransferCreateRequest } from '../models/TransferCreateRequest';
+import { TransferListResponse } from '../models/TransferListResponse';
+import { WalletCreateRequest } from '../models/WalletCreateRequest';
+import { WalletListResponse } from '../models/WalletListResponse';
+import { WalletUpdateRequest } from '../models/WalletUpdateRequest';
+import { WebhookCreateRequest } from '../models/WebhookCreateRequest';
+import { WebhookListResponse } from '../models/WebhookListResponse';
+import { WebhookUpdateRequest } from '../models/WebhookUpdateRequest';
 
 import { AccountsApiRequestFactory, AccountsApiResponseProcessor} from "../apis/AccountsApi";
 export class ObservableAccountsApi {
@@ -103,12 +109,62 @@ export class ObservableAccountsApi {
     }
 
     /**
-     * Create Account
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param account 
+     * Connect account
+     * @param id 
+     * @param pluto_account 
+     * @param account_connect_request 
      */
-    public create(pluto_account?: string, account?: Account, _options?: Configuration): Observable<Account> {
-        const requestContextPromise = this.requestFactory.create(pluto_account, account, _options);
+    public connect(id: string, pluto_account?: string, account_connect_request?: AccountConnectRequest, _options?: Configuration): Observable<IAccount> {
+        const requestContextPromise = this.requestFactory.connect(id, pluto_account, account_connect_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.connect(rsp)));
+            }));
+    }
+
+    /**
+     * Connect account
+     * @param id 
+     * @param pluto_account 
+     * @param account_connect_request 
+     */
+    public connect_1(id: string, pluto_account?: string, account_connect_request?: AccountConnectRequest, _options?: Configuration): Observable<IAccount> {
+        const requestContextPromise = this.requestFactory.connect_1(id, pluto_account, account_connect_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.connect_1(rsp)));
+            }));
+    }
+
+    /**
+     * Create account
+     * @param pluto_account 
+     * @param account_create_request 
+     */
+    public create(pluto_account?: string, account_create_request?: AccountCreateRequest, _options?: Configuration): Observable<IAccount> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, account_create_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -127,15 +183,91 @@ export class ObservableAccountsApi {
     }
 
     /**
-     * List Accounts
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * Create account
+     * @param pluto_account 
+     * @param account_create_request 
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListAccountsResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
+    public create_2(pluto_account?: string, account_create_request?: AccountCreateRequest, _options?: Configuration): Observable<IAccount> {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, account_create_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create_2(rsp)));
+            }));
+    }
+
+    /**
+     * Get dashboard access to account
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     * @param account_dashboard_access_request 
+     */
+    public dashboardAccess(id: string, pluto_account?: string, expand?: string, account_dashboard_access_request?: AccountDashboardAccessRequest, _options?: Configuration): Observable<AccountDashboardAccessResponse> {
+        const requestContextPromise = this.requestFactory.dashboardAccess(id, pluto_account, expand, account_dashboard_access_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.dashboardAccess(rsp)));
+            }));
+    }
+
+    /**
+     * Get dashboard access to account
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     * @param account_dashboard_access_request 
+     */
+    public dashboardAccess_3(id: string, pluto_account?: string, expand?: string, account_dashboard_access_request?: AccountDashboardAccessRequest, _options?: Configuration): Observable<AccountDashboardAccessResponse> {
+        const requestContextPromise = this.requestFactory.dashboardAccess_3(id, pluto_account, expand, account_dashboard_access_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.dashboardAccess_3(rsp)));
+            }));
+    }
+
+    /**
+     * List accounts
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<AccountListResponse> {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -154,13 +286,90 @@ export class ObservableAccountsApi {
     }
 
     /**
-     * Retrieve Account By Id
-     * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * List accounts
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Account> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
+    public list_4(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<AccountListResponse> {
+        const requestContextPromise = this.requestFactory.list_4(pluto_account, limit, page, sort, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list_4(rsp)));
+            }));
+    }
+
+    /**
+     * Update account
+     * @param id 
+     * @param pluto_account 
+     * @param account_update_request 
+     */
+    public patch(id: string, pluto_account?: string, account_update_request?: AccountUpdateRequest, _options?: Configuration): Observable<IAccount> {
+        const requestContextPromise = this.requestFactory.patch(id, pluto_account, account_update_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.patch(rsp)));
+            }));
+    }
+
+    /**
+     * Update account
+     * @param id 
+     * @param pluto_account 
+     * @param account_update_request 
+     */
+    public patch_5(id: string, pluto_account?: string, account_update_request?: AccountUpdateRequest, _options?: Configuration): Observable<IAccount> {
+        const requestContextPromise = this.requestFactory.patch_5(id, pluto_account, account_update_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.patch_5(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve account
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IAccount> {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -179,13 +388,13 @@ export class ObservableAccountsApi {
     }
 
     /**
-     * Update Account By Id
+     * Retrieve account
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param account 
+     * @param pluto_account 
+     * @param expand 
      */
-    public update(id: string, pluto_account?: string, account?: Account, _options?: Configuration): Observable<Account> {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, account, _options);
+    public retrieve_6(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IAccount> {
+        const requestContextPromise = this.requestFactory.retrieve_6(id, pluto_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -199,7 +408,225 @@ export class ObservableAccountsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve_6(rsp)));
+            }));
+    }
+
+}
+
+import { CheckoutsApiRequestFactory, CheckoutsApiResponseProcessor} from "../apis/CheckoutsApi";
+export class ObservableCheckoutsApi {
+    private requestFactory: CheckoutsApiRequestFactory;
+    private responseProcessor: CheckoutsApiResponseProcessor;
+    private configuration: Configuration;
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: CheckoutsApiRequestFactory,
+        responseProcessor?: CheckoutsApiResponseProcessor
+    ) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new CheckoutsApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new CheckoutsApiResponseProcessor();
+    }
+
+    /**
+     * Fail checkout
+     * @param id 
+     * @param pluto_account 
+     */
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<ICheckout> {
+        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor._delete(rsp)));
+            }));
+    }
+
+    /**
+     * Fail checkout
+     * @param id 
+     * @param pluto_account 
+     */
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<ICheckout> {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor._delete_1(rsp)));
+            }));
+    }
+
+    /**
+     * Create checkout
+     * @param pluto_account 
+     * @param checkout_create_request 
+     */
+    public create(pluto_account?: string, checkout_create_request?: CheckoutCreateRequest, _options?: Configuration): Observable<ICheckout> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, checkout_create_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create(rsp)));
+            }));
+    }
+
+    /**
+     * Create checkout
+     * @param pluto_account 
+     * @param checkout_create_request 
+     */
+    public create_2(pluto_account?: string, checkout_create_request?: CheckoutCreateRequest, _options?: Configuration): Observable<ICheckout> {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, checkout_create_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create_2(rsp)));
+            }));
+    }
+
+    /**
+     * List checkouts
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<CheckoutListResponse> {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list(rsp)));
+            }));
+    }
+
+    /**
+     * List checkouts
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<CheckoutListResponse> {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list_3(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve checkout
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ICheckout> {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve checkout
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ICheckout> {
+        const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve_4(rsp)));
             }));
     }
 
@@ -222,12 +649,12 @@ export class ObservableCustomersApi {
     }
 
     /**
-     * Create Customer
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param create_customer_body 
+     * Create customer
+     * @param pluto_account 
+     * @param customer_create_request 
      */
-    public create(pluto_account?: string, create_customer_body?: CreateCustomerBody, _options?: Configuration): Observable<Customer> {
-        const requestContextPromise = this.requestFactory.create(pluto_account, create_customer_body, _options);
+    public create(pluto_account?: string, customer_create_request?: CustomerCreateRequest, _options?: Configuration): Observable<ICustomer> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, customer_create_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -246,16 +673,40 @@ export class ObservableCustomersApi {
     }
 
     /**
-     * List Customers
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param email Email of the customer.
+     * Create customer
+     * @param pluto_account 
+     * @param customer_create_request 
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, email?: string, _options?: Configuration): Observable<ListCustomersResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, email, _options);
+    public create_1(pluto_account?: string, customer_create_request?: CustomerCreateRequest, _options?: Configuration): Observable<ICustomer> {
+        const requestContextPromise = this.requestFactory.create_1(pluto_account, customer_create_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create_1(rsp)));
+            }));
+    }
+
+    /**
+     * List customers
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     * @param email 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, email?: string, _options?: Configuration): Observable<CustomerListResponse> {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, email, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -274,13 +725,41 @@ export class ObservableCustomersApi {
     }
 
     /**
-     * Retrieve Customer By Id
-     * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * List customers
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     * @param email 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Customer> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
+    public list_2(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, email?: string, _options?: Configuration): Observable<CustomerListResponse> {
+        const requestContextPromise = this.requestFactory.list_2(pluto_account, limit, page, sort, expand, email, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list_2(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve customer
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ICustomer> {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -299,13 +778,38 @@ export class ObservableCustomersApi {
     }
 
     /**
-     * Update Customer By Id
+     * Retrieve customer
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param update_customer_body 
+     * @param pluto_account 
+     * @param expand 
      */
-    public update(id: string, pluto_account?: string, update_customer_body?: UpdateCustomerBody, _options?: Configuration): Observable<Customer> {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_customer_body, _options);
+    public retrieve_3(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ICustomer> {
+        const requestContextPromise = this.requestFactory.retrieve_3(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve_3(rsp)));
+            }));
+    }
+
+    /**
+     * Update customer
+     * @param id 
+     * @param pluto_account 
+     * @param customer_update_request 
+     */
+    public update(id: string, pluto_account?: string, customer_update_request?: CustomerUpdateRequest, _options?: Configuration): Observable<ICustomer> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, customer_update_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -320,6 +824,31 @@ export class ObservableCustomersApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update(rsp)));
+            }));
+    }
+
+    /**
+     * Update customer
+     * @param id 
+     * @param pluto_account 
+     * @param customer_update_request 
+     */
+    public update_4(id: string, pluto_account?: string, customer_update_request?: CustomerUpdateRequest, _options?: Configuration): Observable<ICustomer> {
+        const requestContextPromise = this.requestFactory.update_4(id, pluto_account, customer_update_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update_4(rsp)));
             }));
     }
 
@@ -342,36 +871,12 @@ export class ObservableFeesApi {
     }
 
     /**
-     * Delete Fee By Id
-     * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * Create fee
+     * @param pluto_account 
+     * @param fee_create_request 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor._delete(rsp)));
-            }));
-    }
-
-    /**
-     * Create Fee
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param create_fee_body 
-     */
-    public create(pluto_account?: string, create_fee_body?: CreateFeeBody, _options?: Configuration): Observable<Fee> {
-        const requestContextPromise = this.requestFactory.create(pluto_account, create_fee_body, _options);
+    public create(pluto_account?: string, fee_create_request?: FeeCreateRequest, _options?: Configuration): Observable<IFee> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, fee_create_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -390,15 +895,39 @@ export class ObservableFeesApi {
     }
 
     /**
-     * List Fees
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * Create fee
+     * @param pluto_account 
+     * @param fee_create_request 
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListFeesResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
+    public create_1(pluto_account?: string, fee_create_request?: FeeCreateRequest, _options?: Configuration): Observable<IFee> {
+        const requestContextPromise = this.requestFactory.create_1(pluto_account, fee_create_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create_1(rsp)));
+            }));
+    }
+
+    /**
+     * List fees
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<FeeListResponse> {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -417,13 +946,40 @@ export class ObservableFeesApi {
     }
 
     /**
-     * Retrieve Fee By Id
-     * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * List fees
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Fee> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
+    public list_2(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<FeeListResponse> {
+        const requestContextPromise = this.requestFactory.list_2(pluto_account, limit, page, sort, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list_2(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve fee
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IFee> {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -438,6 +994,31 @@ export class ObservableFeesApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve fee
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve_3(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IFee> {
+        const requestContextPromise = this.requestFactory.retrieve_3(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve_3(rsp)));
             }));
     }
 
@@ -460,12 +1041,60 @@ export class ObservableInvoicesApi {
     }
 
     /**
-     * Create Invoice
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param invoice 
+     * Delete invoice
+     * @param id 
+     * @param pluto_account 
      */
-    public create(pluto_account?: string, invoice?: Invoice, _options?: Configuration): Observable<Invoice> {
-        const requestContextPromise = this.requestFactory.create(pluto_account, invoice, _options);
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<IInvoice> {
+        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor._delete(rsp)));
+            }));
+    }
+
+    /**
+     * Delete invoice
+     * @param id 
+     * @param pluto_account 
+     */
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<IInvoice> {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor._delete_1(rsp)));
+            }));
+    }
+
+    /**
+     * Create invoice
+     * @param pluto_account 
+     * @param invoice_create_request 
+     */
+    public create(pluto_account?: string, invoice_create_request?: InvoiceCreateRequest, _options?: Configuration): Observable<IInvoice> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, invoice_create_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -484,15 +1113,39 @@ export class ObservableInvoicesApi {
     }
 
     /**
-     * List Invoices
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * Create invoice
+     * @param pluto_account 
+     * @param invoice_create_request 
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListInvoicesResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
+    public create_2(pluto_account?: string, invoice_create_request?: InvoiceCreateRequest, _options?: Configuration): Observable<IInvoice> {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, invoice_create_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create_2(rsp)));
+            }));
+    }
+
+    /**
+     * List invoices
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<InvoiceListResponse> {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -511,11 +1164,38 @@ export class ObservableInvoicesApi {
     }
 
     /**
-     * Pay Invoice
-     * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * List invoices
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
      */
-    public pay(id: string, pluto_account?: string, _options?: Configuration): Observable<PaymentIntent> {
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<InvoiceListResponse> {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list_3(rsp)));
+            }));
+    }
+
+    /**
+     * Pay invoice
+     * @param id 
+     * @param pluto_account 
+     */
+    public pay(id: string, pluto_account?: string, _options?: Configuration): Observable<IPaymentIntent> {
         const requestContextPromise = this.requestFactory.pay(id, pluto_account, _options);
 
         // build promise chain
@@ -535,13 +1215,37 @@ export class ObservableInvoicesApi {
     }
 
     /**
-     * Retrieve Invoice By Id
+     * Pay invoice
      * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Invoice> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
+    public pay_4(id: string, pluto_account?: string, _options?: Configuration): Observable<IPaymentIntent> {
+        const requestContextPromise = this.requestFactory.pay_4(id, pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pay_4(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve invoice
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IInvoice> {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -560,13 +1264,38 @@ export class ObservableInvoicesApi {
     }
 
     /**
-     * Update Invoice By Id
+     * Retrieve invoice
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param invoice 
+     * @param pluto_account 
+     * @param expand 
      */
-    public update(id: string, pluto_account?: string, invoice?: Invoice, _options?: Configuration): Observable<Invoice> {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, invoice, _options);
+    public retrieve_5(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IInvoice> {
+        const requestContextPromise = this.requestFactory.retrieve_5(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve_5(rsp)));
+            }));
+    }
+
+    /**
+     * Update invoice
+     * @param id 
+     * @param pluto_account 
+     * @param invoice_update_request 
+     */
+    public update(id: string, pluto_account?: string, invoice_update_request?: InvoiceUpdateRequest, _options?: Configuration): Observable<IInvoice> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, invoice_update_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -581,6 +1310,31 @@ export class ObservableInvoicesApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update(rsp)));
+            }));
+    }
+
+    /**
+     * Update invoice
+     * @param id 
+     * @param pluto_account 
+     * @param invoice_update_request 
+     */
+    public update_6(id: string, pluto_account?: string, invoice_update_request?: InvoiceUpdateRequest, _options?: Configuration): Observable<IInvoice> {
+        const requestContextPromise = this.requestFactory.update_6(id, pluto_account, invoice_update_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update_6(rsp)));
             }));
     }
 
@@ -603,15 +1357,11 @@ export class ObservableLogsApi {
     }
 
     /**
-     * List Logs
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * List logs
+     * @param pluto_account 
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListLogsResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
+    public list(pluto_account?: string, _options?: Configuration): Observable<LogListResponse> {
+        const requestContextPromise = this.requestFactory.list(pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -630,13 +1380,36 @@ export class ObservableLogsApi {
     }
 
     /**
-     * Retrieve Log By Id
-     * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * List logs
+     * @param pluto_account 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Log> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
+    public list_1(pluto_account?: string, _options?: Configuration): Observable<LogListResponse> {
+        const requestContextPromise = this.requestFactory.list_1(pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list_1(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve log
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ILog> {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -651,6 +1424,31 @@ export class ObservableLogsApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve log
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve_2(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ILog> {
+        const requestContextPromise = this.requestFactory.retrieve_2(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve_2(rsp)));
             }));
     }
 
@@ -673,12 +1471,12 @@ export class ObservablePaymentIntentsApi {
     }
 
     /**
-     * Cancel Payment Intent
+     * Delete payment intent
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public cancel(id: string, pluto_account?: string, _options?: Configuration): Observable<PaymentIntent> {
-        const requestContextPromise = this.requestFactory.cancel(id, pluto_account, _options);
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<IPaymentIntent> {
+        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -692,17 +1490,41 @@ export class ObservablePaymentIntentsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.cancel(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor._delete(rsp)));
             }));
     }
 
     /**
-     * Create Payment Intent
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param payment_intent 
+     * Delete payment intent
+     * @param id 
+     * @param pluto_account 
      */
-    public create(pluto_account?: string, payment_intent?: PaymentIntent, _options?: Configuration): Observable<PaymentIntent> {
-        const requestContextPromise = this.requestFactory.create(pluto_account, payment_intent, _options);
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<IPaymentIntent> {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor._delete_1(rsp)));
+            }));
+    }
+
+    /**
+     * Create payment intent
+     * @param pluto_account 
+     * @param payment_intent_create_request 
+     */
+    public create(pluto_account?: string, payment_intent_create_request?: PaymentIntentCreateRequest, _options?: Configuration): Observable<IPaymentIntent> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, payment_intent_create_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -721,17 +1543,41 @@ export class ObservablePaymentIntentsApi {
     }
 
     /**
-     * List Payment Intents
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param status The status of the payment intent to filter by.
-     * @param customer The ID of the customer on the payment intent to filter by.
+     * Create payment intent
+     * @param pluto_account 
+     * @param payment_intent_create_request 
      */
-    public list(pluto_account?: string, expand?: string, limit?: number, page?: number, sort?: any, status?: 'processing' | 'succeeded' | 'failed' | 'canceled', customer?: string, _options?: Configuration): Observable<ListPaymentIntentsResponse> {
-        const requestContextPromise = this.requestFactory.list(pluto_account, expand, limit, page, sort, status, customer, _options);
+    public create_2(pluto_account?: string, payment_intent_create_request?: PaymentIntentCreateRequest, _options?: Configuration): Observable<IPaymentIntent> {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, payment_intent_create_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create_2(rsp)));
+            }));
+    }
+
+    /**
+     * List payment intents
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     * @param status 
+     * @param customer 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, status?: string, customer?: string, _options?: Configuration): Observable<PaymentIntentListResponse> {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, status, customer, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -750,12 +1596,41 @@ export class ObservablePaymentIntentsApi {
     }
 
     /**
-     * Poll Payment Intent
-     * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
+     * List payment intents
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     * @param status 
+     * @param customer 
      */
-    public poll(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<PaymentIntent> {
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, status?: string, customer?: string, _options?: Configuration): Observable<PaymentIntentListResponse> {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, status, customer, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list_3(rsp)));
+            }));
+    }
+
+    /**
+     * Poll payment intent
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public poll(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPaymentIntent> {
         const requestContextPromise = this.requestFactory.poll(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -775,12 +1650,37 @@ export class ObservablePaymentIntentsApi {
     }
 
     /**
-     * Retrieve Payment Intent
+     * Poll payment intent
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
+     * @param pluto_account 
+     * @param expand 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<PaymentIntent> {
+    public poll_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPaymentIntent> {
+        const requestContextPromise = this.requestFactory.poll_4(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.poll_4(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve payment intent
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPaymentIntent> {
         const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -800,13 +1700,86 @@ export class ObservablePaymentIntentsApi {
     }
 
     /**
-     * Update Payment Intent
+     * Retrieve payment intent
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param update_payment_intent_body 
+     * @param pluto_account 
+     * @param expand 
      */
-    public update(id: string, pluto_account?: string, update_payment_intent_body?: UpdatePaymentIntentBody, _options?: Configuration): Observable<PaymentIntent> {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_payment_intent_body, _options);
+    public retrieve_5(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPaymentIntent> {
+        const requestContextPromise = this.requestFactory.retrieve_5(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve_5(rsp)));
+            }));
+    }
+
+    /**
+     * Send payment intent receipt
+     * @param id 
+     * @param pluto_account 
+     */
+    public sendReceipt(id: string, pluto_account?: string, _options?: Configuration): Observable<IPaymentIntent> {
+        const requestContextPromise = this.requestFactory.sendReceipt(id, pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.sendReceipt(rsp)));
+            }));
+    }
+
+    /**
+     * Send payment intent receipt
+     * @param id 
+     * @param pluto_account 
+     */
+    public sendReceipt_6(id: string, pluto_account?: string, _options?: Configuration): Observable<IPaymentIntent> {
+        const requestContextPromise = this.requestFactory.sendReceipt_6(id, pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.sendReceipt_6(rsp)));
+            }));
+    }
+
+    /**
+     * Update payment intent
+     * @param id 
+     * @param pluto_account 
+     * @param payment_intent_update_request 
+     */
+    public update(id: string, pluto_account?: string, payment_intent_update_request?: PaymentIntentUpdateRequest, _options?: Configuration): Observable<IPaymentIntent> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, payment_intent_update_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -821,6 +1794,299 @@ export class ObservablePaymentIntentsApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update(rsp)));
+            }));
+    }
+
+    /**
+     * Update payment intent
+     * @param id 
+     * @param pluto_account 
+     * @param payment_intent_update_request 
+     */
+    public update_7(id: string, pluto_account?: string, payment_intent_update_request?: PaymentIntentUpdateRequest, _options?: Configuration): Observable<IPaymentIntent> {
+        const requestContextPromise = this.requestFactory.update_7(id, pluto_account, payment_intent_update_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update_7(rsp)));
+            }));
+    }
+
+}
+
+import { PaymentLinksApiRequestFactory, PaymentLinksApiResponseProcessor} from "../apis/PaymentLinksApi";
+export class ObservablePaymentLinksApi {
+    private requestFactory: PaymentLinksApiRequestFactory;
+    private responseProcessor: PaymentLinksApiResponseProcessor;
+    private configuration: Configuration;
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: PaymentLinksApiRequestFactory,
+        responseProcessor?: PaymentLinksApiResponseProcessor
+    ) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new PaymentLinksApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new PaymentLinksApiResponseProcessor();
+    }
+
+    /**
+     * Delete payment link
+     * @param id 
+     * @param pluto_account 
+     */
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<IPaymentLink> {
+        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor._delete(rsp)));
+            }));
+    }
+
+    /**
+     * Delete payment link
+     * @param id 
+     * @param pluto_account 
+     */
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<IPaymentLink> {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor._delete_1(rsp)));
+            }));
+    }
+
+    /**
+     * Create payment link
+     * @param pluto_account 
+     * @param payment_link_create_request 
+     */
+    public create(pluto_account?: string, payment_link_create_request?: PaymentLinkCreateRequest, _options?: Configuration): Observable<IPaymentLink> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, payment_link_create_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create(rsp)));
+            }));
+    }
+
+    /**
+     * Create payment link
+     * @param pluto_account 
+     * @param payment_link_create_request 
+     */
+    public create_2(pluto_account?: string, payment_link_create_request?: PaymentLinkCreateRequest, _options?: Configuration): Observable<IPaymentLink> {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, payment_link_create_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create_2(rsp)));
+            }));
+    }
+
+    /**
+     * List payment links
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<PaymentLinkListResponse> {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list(rsp)));
+            }));
+    }
+
+    /**
+     * List payment links
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<PaymentLinkListResponse> {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list_3(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve payment link
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPaymentLink> {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve payment link
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPaymentLink> {
+        const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve_4(rsp)));
+            }));
+    }
+
+    /**
+     * Update payment link
+     * @param id 
+     * @param pluto_account 
+     * @param payment_link_update_request 
+     */
+    public update(id: string, pluto_account?: string, payment_link_update_request?: PaymentLinkUpdateRequest, _options?: Configuration): Observable<IPaymentLink> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, payment_link_update_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update(rsp)));
+            }));
+    }
+
+    /**
+     * Update payment link
+     * @param id 
+     * @param pluto_account 
+     * @param payment_link_update_request 
+     */
+    public update_5(id: string, pluto_account?: string, payment_link_update_request?: PaymentLinkUpdateRequest, _options?: Configuration): Observable<IPaymentLink> {
+        const requestContextPromise = this.requestFactory.update_5(id, pluto_account, payment_link_update_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update_5(rsp)));
             }));
     }
 
@@ -843,11 +2109,11 @@ export class ObservablePayoutWalletsApi {
     }
 
     /**
-     * Delete Payout Wallet By ID
+     * Delete payout wallet
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void> {
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<IPayoutWallet> {
         const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
@@ -867,12 +2133,36 @@ export class ObservablePayoutWalletsApi {
     }
 
     /**
-     * Create Payout Wallets
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param create_payout_wallet_body 
+     * Delete payout wallet
+     * @param id 
+     * @param pluto_account 
      */
-    public create(pluto_account?: string, create_payout_wallet_body?: CreatePayoutWalletBody, _options?: Configuration): Observable<PayoutWallet> {
-        const requestContextPromise = this.requestFactory.create(pluto_account, create_payout_wallet_body, _options);
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<IPayoutWallet> {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor._delete_1(rsp)));
+            }));
+    }
+
+    /**
+     * Create payout wallet
+     * @param pluto_account 
+     * @param payout_wallet_create_request 
+     */
+    public create(pluto_account?: string, payout_wallet_create_request?: PayoutWalletCreateRequest, _options?: Configuration): Observable<IPayoutWallet> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, payout_wallet_create_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -891,15 +2181,39 @@ export class ObservablePayoutWalletsApi {
     }
 
     /**
-     * List Payout Wallets
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * Create payout wallet
+     * @param pluto_account 
+     * @param payout_wallet_create_request 
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListPayoutWalletsResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
+    public create_2(pluto_account?: string, payout_wallet_create_request?: PayoutWalletCreateRequest, _options?: Configuration): Observable<IPayoutWallet> {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, payout_wallet_create_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create_2(rsp)));
+            }));
+    }
+
+    /**
+     * List payout wallets
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<PayoutWalletListResponse> {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -918,13 +2232,40 @@ export class ObservablePayoutWalletsApi {
     }
 
     /**
-     * Retrieve Payout Wallet By ID
-     * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * List payout wallets
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<PayoutWallet> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<PayoutWalletListResponse> {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list_3(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve payout wallet
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPayoutWallet> {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -943,13 +2284,38 @@ export class ObservablePayoutWalletsApi {
     }
 
     /**
-     * Update Payout Wallet By ID
+     * Retrieve payout wallet
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param payout_wallet 
+     * @param pluto_account 
+     * @param expand 
      */
-    public update(id: string, pluto_account?: string, payout_wallet?: PayoutWallet, _options?: Configuration): Observable<PayoutWallet> {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, payout_wallet, _options);
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPayoutWallet> {
+        const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve_4(rsp)));
+            }));
+    }
+
+    /**
+     * Update payout wallet
+     * @param id 
+     * @param pluto_account 
+     * @param payout_wallet_update_request 
+     */
+    public update(id: string, pluto_account?: string, payout_wallet_update_request?: PayoutWalletUpdateRequest, _options?: Configuration): Observable<IPayoutWallet> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, payout_wallet_update_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -964,6 +2330,31 @@ export class ObservablePayoutWalletsApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update(rsp)));
+            }));
+    }
+
+    /**
+     * Update payout wallet
+     * @param id 
+     * @param pluto_account 
+     * @param payout_wallet_update_request 
+     */
+    public update_5(id: string, pluto_account?: string, payout_wallet_update_request?: PayoutWalletUpdateRequest, _options?: Configuration): Observable<IPayoutWallet> {
+        const requestContextPromise = this.requestFactory.update_5(id, pluto_account, payout_wallet_update_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update_5(rsp)));
             }));
     }
 
@@ -986,11 +2377,11 @@ export class ObservablePricesApi {
     }
 
     /**
-     * Delete Price
+     * Delete price
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void> {
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<IPrice> {
         const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
@@ -1010,12 +2401,36 @@ export class ObservablePricesApi {
     }
 
     /**
-     * Create Price
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param price 
+     * Delete price
+     * @param id 
+     * @param pluto_account 
      */
-    public create(pluto_account?: string, price?: Price, _options?: Configuration): Observable<Price> {
-        const requestContextPromise = this.requestFactory.create(pluto_account, price, _options);
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<IPrice> {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor._delete_1(rsp)));
+            }));
+    }
+
+    /**
+     * Create price
+     * @param pluto_account 
+     * @param price_create_request 
+     */
+    public create(pluto_account?: string, price_create_request?: PriceCreateRequest, _options?: Configuration): Observable<IPrice> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, price_create_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1034,15 +2449,39 @@ export class ObservablePricesApi {
     }
 
     /**
-     * List Prices
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
+     * Create price
+     * @param pluto_account 
+     * @param price_create_request 
      */
-    public list(pluto_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Observable<ListPricesResponse> {
-        const requestContextPromise = this.requestFactory.list(pluto_account, expand, limit, page, sort, _options);
+    public create_2(pluto_account?: string, price_create_request?: PriceCreateRequest, _options?: Configuration): Observable<IPrice> {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, price_create_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create_2(rsp)));
+            }));
+    }
+
+    /**
+     * List prices
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<PriceListResponse> {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1061,12 +2500,39 @@ export class ObservablePricesApi {
     }
 
     /**
-     * Retrieve Price
-     * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
+     * List prices
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<Price> {
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<PriceListResponse> {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list_3(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve price
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPrice> {
         const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -1086,13 +2552,38 @@ export class ObservablePricesApi {
     }
 
     /**
-     * Update Price
+     * Retrieve price
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param update_price_body 
+     * @param pluto_account 
+     * @param expand 
      */
-    public update(id: string, pluto_account?: string, update_price_body?: UpdatePriceBody, _options?: Configuration): Observable<Price> {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_price_body, _options);
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPrice> {
+        const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve_4(rsp)));
+            }));
+    }
+
+    /**
+     * Update price
+     * @param id 
+     * @param pluto_account 
+     * @param price_update_request 
+     */
+    public update(id: string, pluto_account?: string, price_update_request?: PriceUpdateRequest, _options?: Configuration): Observable<IPrice> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, price_update_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1107,6 +2598,31 @@ export class ObservablePricesApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update(rsp)));
+            }));
+    }
+
+    /**
+     * Update price
+     * @param id 
+     * @param pluto_account 
+     * @param price_update_request 
+     */
+    public update_5(id: string, pluto_account?: string, price_update_request?: PriceUpdateRequest, _options?: Configuration): Observable<IPrice> {
+        const requestContextPromise = this.requestFactory.update_5(id, pluto_account, price_update_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update_5(rsp)));
             }));
     }
 
@@ -1129,11 +2645,11 @@ export class ObservableProductsApi {
     }
 
     /**
-     * Delete Product By Id
+     * Delete product
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void> {
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<IProduct> {
         const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
@@ -1153,12 +2669,36 @@ export class ObservableProductsApi {
     }
 
     /**
-     * Create Product
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param create_product_body 
+     * Delete product
+     * @param id 
+     * @param pluto_account 
      */
-    public create(pluto_account?: string, create_product_body?: CreateProductBody, _options?: Configuration): Observable<Product> {
-        const requestContextPromise = this.requestFactory.create(pluto_account, create_product_body, _options);
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<IProduct> {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor._delete_1(rsp)));
+            }));
+    }
+
+    /**
+     * Create product
+     * @param pluto_account 
+     * @param product_create_request 
+     */
+    public create(pluto_account?: string, product_create_request?: ProductCreateRequest, _options?: Configuration): Observable<IProduct> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, product_create_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1177,15 +2717,39 @@ export class ObservableProductsApi {
     }
 
     /**
-     * List Products
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * Create product
+     * @param pluto_account 
+     * @param product_create_request 
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListProductsResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
+    public create_2(pluto_account?: string, product_create_request?: ProductCreateRequest, _options?: Configuration): Observable<IProduct> {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, product_create_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create_2(rsp)));
+            }));
+    }
+
+    /**
+     * List products
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<ProductListResponse> {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1204,13 +2768,40 @@ export class ObservableProductsApi {
     }
 
     /**
-     * Retrieve Product By Id
-     * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * List products
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Product> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<ProductListResponse> {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list_3(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve product
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IProduct> {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1229,13 +2820,38 @@ export class ObservableProductsApi {
     }
 
     /**
-     * Update Product By Id
+     * Retrieve product
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param update_product_body 
+     * @param pluto_account 
+     * @param expand 
      */
-    public update(id: string, pluto_account?: string, update_product_body?: UpdateProductBody, _options?: Configuration): Observable<Product> {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_product_body, _options);
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IProduct> {
+        const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve_4(rsp)));
+            }));
+    }
+
+    /**
+     * Update product
+     * @param id 
+     * @param pluto_account 
+     * @param product_update_request 
+     */
+    public update(id: string, pluto_account?: string, product_update_request?: ProductUpdateRequest, _options?: Configuration): Observable<IProduct> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, product_update_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1250,6 +2866,31 @@ export class ObservableProductsApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update(rsp)));
+            }));
+    }
+
+    /**
+     * Update product
+     * @param id 
+     * @param pluto_account 
+     * @param product_update_request 
+     */
+    public update_5(id: string, pluto_account?: string, product_update_request?: ProductUpdateRequest, _options?: Configuration): Observable<IProduct> {
+        const requestContextPromise = this.requestFactory.update_5(id, pluto_account, product_update_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update_5(rsp)));
             }));
     }
 
@@ -1272,12 +2913,12 @@ export class ObservableSubscriptionsApi {
     }
 
     /**
-     * Cancel Subscription
+     * Delete subscription
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public cancel(id: string, pluto_account?: string, _options?: Configuration): Observable<Subscription> {
-        const requestContextPromise = this.requestFactory.cancel(id, pluto_account, _options);
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<ISubscription> {
+        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1291,17 +2932,41 @@ export class ObservableSubscriptionsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.cancel(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor._delete(rsp)));
             }));
     }
 
     /**
-     * Create Subscription
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param subscription 
+     * Delete subscription
+     * @param id 
+     * @param pluto_account 
      */
-    public create(pluto_account?: string, subscription?: Subscription, _options?: Configuration): Observable<Subscription> {
-        const requestContextPromise = this.requestFactory.create(pluto_account, subscription, _options);
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<ISubscription> {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor._delete_1(rsp)));
+            }));
+    }
+
+    /**
+     * Create subscription
+     * @param pluto_account 
+     * @param subscription_create_request 
+     */
+    public create(pluto_account?: string, subscription_create_request?: SubscriptionCreateRequest, _options?: Configuration): Observable<ISubscription> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, subscription_create_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1320,15 +2985,39 @@ export class ObservableSubscriptionsApi {
     }
 
     /**
-     * List Subscriptions
-     * @param expand Specifies which fields to populate in the response.
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * Create subscription
+     * @param pluto_account 
+     * @param subscription_create_request 
      */
-    public list(expand?: string, limit?: number, page?: number, sort?: any, pluto_account?: string, _options?: Configuration): Observable<ListSubscriptionsResponse> {
-        const requestContextPromise = this.requestFactory.list(expand, limit, page, sort, pluto_account, _options);
+    public create_2(pluto_account?: string, subscription_create_request?: SubscriptionCreateRequest, _options?: Configuration): Observable<ISubscription> {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, subscription_create_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create_2(rsp)));
+            }));
+    }
+
+    /**
+     * List subscriptions
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<SubscriptionListResponse> {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1347,13 +3036,40 @@ export class ObservableSubscriptionsApi {
     }
 
     /**
-     * Retrieve Subscription
-     * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * List subscriptions
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Subscription> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<SubscriptionListResponse> {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list_3(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve subscription
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ISubscription> {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1372,13 +3088,38 @@ export class ObservableSubscriptionsApi {
     }
 
     /**
-     * Update Subscription
+     * Retrieve subscription
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param subscription 
+     * @param pluto_account 
+     * @param expand 
      */
-    public update(id: string, pluto_account?: string, subscription?: Subscription, _options?: Configuration): Observable<Subscription> {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, subscription, _options);
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ISubscription> {
+        const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve_4(rsp)));
+            }));
+    }
+
+    /**
+     * Update subscription
+     * @param id 
+     * @param pluto_account 
+     * @param subscription_update_request 
+     */
+    public update(id: string, pluto_account?: string, subscription_update_request?: SubscriptionUpdateRequest, _options?: Configuration): Observable<ISubscription> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, subscription_update_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1393,6 +3134,31 @@ export class ObservableSubscriptionsApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update(rsp)));
+            }));
+    }
+
+    /**
+     * Update subscription
+     * @param id 
+     * @param pluto_account 
+     * @param subscription_update_request 
+     */
+    public update_5(id: string, pluto_account?: string, subscription_update_request?: SubscriptionUpdateRequest, _options?: Configuration): Observable<ISubscription> {
+        const requestContextPromise = this.requestFactory.update_5(id, pluto_account, subscription_update_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update_5(rsp)));
             }));
     }
 
@@ -1415,12 +3181,12 @@ export class ObservableTransfersApi {
     }
 
     /**
-     * Create Transfer
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param create_transfer_body 
+     * Create transfer
+     * @param pluto_account 
+     * @param transfer_create_request 
      */
-    public create(pluto_account?: string, create_transfer_body?: CreateTransferBody, _options?: Configuration): Observable<Transfer> {
-        const requestContextPromise = this.requestFactory.create(pluto_account, create_transfer_body, _options);
+    public create(pluto_account?: string, transfer_create_request?: TransferCreateRequest, _options?: Configuration): Observable<ITransfer> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, transfer_create_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1439,15 +3205,39 @@ export class ObservableTransfersApi {
     }
 
     /**
-     * List Transfers
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * Create transfer
+     * @param pluto_account 
+     * @param transfer_create_request 
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListTransfersResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
+    public create_1(pluto_account?: string, transfer_create_request?: TransferCreateRequest, _options?: Configuration): Observable<ITransfer> {
+        const requestContextPromise = this.requestFactory.create_1(pluto_account, transfer_create_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create_1(rsp)));
+            }));
+    }
+
+    /**
+     * List transfers
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<TransferListResponse> {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1466,13 +3256,40 @@ export class ObservableTransfersApi {
     }
 
     /**
-     * Retrieve Transfer By ID
-     * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * List transfers
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Transfer> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
+    public list_2(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<TransferListResponse> {
+        const requestContextPromise = this.requestFactory.list_2(pluto_account, limit, page, sort, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list_2(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve transfer
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ITransfer> {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1487,6 +3304,31 @@ export class ObservableTransfersApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve transfer
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve_3(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ITransfer> {
+        const requestContextPromise = this.requestFactory.retrieve_3(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve_3(rsp)));
             }));
     }
 
@@ -1509,13 +3351,12 @@ export class ObservableWalletsApi {
     }
 
     /**
-     * Delete Wallet By Id
+     * Delete wallet
      * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public _delete(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<void> {
-        const requestContextPromise = this.requestFactory._delete(id, expand, pluto_account, _options);
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<IWallet> {
+        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1534,12 +3375,36 @@ export class ObservableWalletsApi {
     }
 
     /**
-     * Create Wallet
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param create_wallet_body 
+     * Delete wallet
+     * @param id 
+     * @param pluto_account 
      */
-    public create(pluto_account?: string, create_wallet_body?: CreateWalletBody, _options?: Configuration): Observable<Wallet> {
-        const requestContextPromise = this.requestFactory.create(pluto_account, create_wallet_body, _options);
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<IWallet> {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor._delete_1(rsp)));
+            }));
+    }
+
+    /**
+     * Create wallet
+     * @param pluto_account 
+     * @param wallet_create_request 
+     */
+    public create(pluto_account?: string, wallet_create_request?: WalletCreateRequest, _options?: Configuration): Observable<IWallet> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, wallet_create_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1558,15 +3423,39 @@ export class ObservableWalletsApi {
     }
 
     /**
-     * List Wallets
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * Create wallet
+     * @param pluto_account 
+     * @param wallet_create_request 
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListWalletsResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
+    public create_2(pluto_account?: string, wallet_create_request?: WalletCreateRequest, _options?: Configuration): Observable<IWallet> {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, wallet_create_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create_2(rsp)));
+            }));
+    }
+
+    /**
+     * List wallets
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<WalletListResponse> {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1585,13 +3474,40 @@ export class ObservableWalletsApi {
     }
 
     /**
-     * Retrieve Wallet By Id
-     * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * List wallets
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Wallet> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<WalletListResponse> {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list_3(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve wallet
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IWallet> {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1610,13 +3526,38 @@ export class ObservableWalletsApi {
     }
 
     /**
-     * Update Wallet By Id
+     * Retrieve wallet
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param update_wallet_body 
+     * @param pluto_account 
+     * @param expand 
      */
-    public update(id: string, pluto_account?: string, update_wallet_body?: UpdateWalletBody, _options?: Configuration): Observable<Wallet> {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_wallet_body, _options);
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IWallet> {
+        const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve_4(rsp)));
+            }));
+    }
+
+    /**
+     * Update wallet
+     * @param id 
+     * @param pluto_account 
+     * @param wallet_update_request 
+     */
+    public update(id: string, pluto_account?: string, wallet_update_request?: WalletUpdateRequest, _options?: Configuration): Observable<IWallet> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, wallet_update_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1631,6 +3572,31 @@ export class ObservableWalletsApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update(rsp)));
+            }));
+    }
+
+    /**
+     * Update wallet
+     * @param id 
+     * @param pluto_account 
+     * @param wallet_update_request 
+     */
+    public update_5(id: string, pluto_account?: string, wallet_update_request?: WalletUpdateRequest, _options?: Configuration): Observable<IWallet> {
+        const requestContextPromise = this.requestFactory.update_5(id, pluto_account, wallet_update_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update_5(rsp)));
             }));
     }
 
@@ -1653,11 +3619,11 @@ export class ObservableWebhooksApi {
     }
 
     /**
-     * Delete Webhook By Id
+     * Delete webhook
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void> {
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<IWebhook> {
         const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
@@ -1677,12 +3643,36 @@ export class ObservableWebhooksApi {
     }
 
     /**
-     * Create Webhook
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param create_webhook_body 
+     * Delete webhook
+     * @param id 
+     * @param pluto_account 
      */
-    public create(pluto_account?: string, create_webhook_body?: CreateWebhookBody, _options?: Configuration): Observable<Webhook> {
-        const requestContextPromise = this.requestFactory.create(pluto_account, create_webhook_body, _options);
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<IWebhook> {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor._delete_1(rsp)));
+            }));
+    }
+
+    /**
+     * Create webhook
+     * @param pluto_account 
+     * @param webhook_create_request 
+     */
+    public create(pluto_account?: string, webhook_create_request?: WebhookCreateRequest, _options?: Configuration): Observable<IWebhook> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, webhook_create_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1701,15 +3691,39 @@ export class ObservableWebhooksApi {
     }
 
     /**
-     * List Webhooks
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * Create webhook
+     * @param pluto_account 
+     * @param webhook_create_request 
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Observable<ListWebhooksResponse> {
-        const requestContextPromise = this.requestFactory.list(limit, page, sort, expand, pluto_account, _options);
+    public create_2(pluto_account?: string, webhook_create_request?: WebhookCreateRequest, _options?: Configuration): Observable<IWebhook> {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, webhook_create_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create_2(rsp)));
+            }));
+    }
+
+    /**
+     * List webhooks
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<WebhookListResponse> {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1728,13 +3742,40 @@ export class ObservableWebhooksApi {
     }
 
     /**
-     * Retrieve Webhook By Id
-     * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * List webhooks
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Observable<Webhook> {
-        const requestContextPromise = this.requestFactory.retrieve(id, expand, pluto_account, _options);
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<WebhookListResponse> {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list_3(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve webhook
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IWebhook> {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1753,13 +3794,38 @@ export class ObservableWebhooksApi {
     }
 
     /**
-     * Update Webhook By Id
+     * Retrieve webhook
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param update_webhook_body 
+     * @param pluto_account 
+     * @param expand 
      */
-    public update(id: string, pluto_account?: string, update_webhook_body?: UpdateWebhookBody, _options?: Configuration): Observable<Webhook> {
-        const requestContextPromise = this.requestFactory.update(id, pluto_account, update_webhook_body, _options);
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IWebhook> {
+        const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve_4(rsp)));
+            }));
+    }
+
+    /**
+     * Update webhook
+     * @param id 
+     * @param pluto_account 
+     * @param webhook_update_request 
+     */
+    public update(id: string, pluto_account?: string, webhook_update_request?: WebhookUpdateRequest, _options?: Configuration): Observable<IWebhook> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, webhook_update_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1774,6 +3840,31 @@ export class ObservableWebhooksApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update(rsp)));
+            }));
+    }
+
+    /**
+     * Update webhook
+     * @param id 
+     * @param pluto_account 
+     * @param webhook_update_request 
+     */
+    public update_5(id: string, pluto_account?: string, webhook_update_request?: WebhookUpdateRequest, _options?: Configuration): Observable<IWebhook> {
+        const requestContextPromise = this.requestFactory.update_5(id, pluto_account, webhook_update_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update_5(rsp)));
             }));
     }
 

@@ -11,170 +11,173 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ObjectSerializer = void 0;
-__exportStar(require("./Account"), exports);
-__exportStar(require("./AccountAllOf"), exports);
-__exportStar(require("./AccountAllOfBusinessProfile"), exports);
-__exportStar(require("./AccountAllOfIntegrations"), exports);
-__exportStar(require("./AccountAllOfIntegrationsFtx"), exports);
-__exportStar(require("./AccountAllOfSettings"), exports);
-__exportStar(require("./AccountAllOfSettingsBilling"), exports);
-__exportStar(require("./AccountAllOfSettingsBranding"), exports);
-__exportStar(require("./AccountAllOfSettingsPayments"), exports);
-__exportStar(require("./AccountAllOfTeam"), exports);
+__exportStar(require("./AccountConnectRequest"), exports);
+__exportStar(require("./AccountCreateRequest"), exports);
+__exportStar(require("./AccountDashboardAccessRequest"), exports);
+__exportStar(require("./AccountDashboardAccessResponse"), exports);
+__exportStar(require("./AccountListResponse"), exports);
+__exportStar(require("./AccountUpdateRequest"), exports);
 __exportStar(require("./Address"), exports);
-__exportStar(require("./ApiKey"), exports);
-__exportStar(require("./ApiKeyAllOf"), exports);
-__exportStar(require("./Checkout"), exports);
-__exportStar(require("./CheckoutAllOf"), exports);
-__exportStar(require("./CheckoutAllOfCustomerDetails"), exports);
-__exportStar(require("./CreateCustomerBody"), exports);
-__exportStar(require("./CreateFeeBody"), exports);
-__exportStar(require("./CreatePayoutWalletBody"), exports);
-__exportStar(require("./CreateProductBody"), exports);
-__exportStar(require("./CreateTransferBody"), exports);
-__exportStar(require("./CreateWalletBody"), exports);
-__exportStar(require("./CreateWebhookBody"), exports);
-__exportStar(require("./Customer"), exports);
-__exportStar(require("./CustomerAllOf"), exports);
-__exportStar(require("./CustomerAllOfBillingDetails"), exports);
-__exportStar(require("./CustomersBillingDetails"), exports);
-__exportStar(require("./CustomersBillingDetailsAddress"), exports);
-__exportStar(require("./CustomersIdBillingDetails"), exports);
-__exportStar(require("./CustomersIdBillingDetailsAddress"), exports);
-__exportStar(require("./Fee"), exports);
-__exportStar(require("./FeeAllOf"), exports);
-__exportStar(require("./InlineResponse400"), exports);
-__exportStar(require("./InlineResponse400Error"), exports);
-__exportStar(require("./Invoice"), exports);
-__exportStar(require("./InvoiceAllOf"), exports);
+__exportStar(require("./AfterCompletion"), exports);
+__exportStar(require("./ApiKeyCreateRequest"), exports);
+__exportStar(require("./ApiKeyListResponse"), exports);
+__exportStar(require("./ApiKeyType"), exports);
+__exportStar(require("./BasePrice"), exports);
+__exportStar(require("./Chain"), exports);
+__exportStar(require("./CheckoutCreateRequest"), exports);
+__exportStar(require("./CheckoutListResponse"), exports);
+__exportStar(require("./CheckoutStatus"), exports);
+__exportStar(require("./Currency"), exports);
+__exportStar(require("./CustomAmount"), exports);
+__exportStar(require("./CustomerCreateRequest"), exports);
+__exportStar(require("./CustomerCreateRequestBillingDetails"), exports);
+__exportStar(require("./CustomerDetails"), exports);
+__exportStar(require("./CustomerListResponse"), exports);
+__exportStar(require("./CustomerUpdateRequest"), exports);
+__exportStar(require("./EventType"), exports);
+__exportStar(require("./FeeCreateRequest"), exports);
+__exportStar(require("./FeeListResponse"), exports);
+__exportStar(require("./Headers"), exports);
+__exportStar(require("./IAccount"), exports);
+__exportStar(require("./IApiKey"), exports);
+__exportStar(require("./IBilling"), exports);
+__exportStar(require("./IBranding"), exports);
+__exportStar(require("./IBusinessProfile"), exports);
+__exportStar(require("./ICheckout"), exports);
+__exportStar(require("./ICustomer"), exports);
+__exportStar(require("./IFee"), exports);
+__exportStar(require("./IIntegrations"), exports);
+__exportStar(require("./IIntegrationsFtx"), exports);
+__exportStar(require("./IInvoice"), exports);
+__exportStar(require("./ILog"), exports);
+__exportStar(require("./IPaymentIntent"), exports);
+__exportStar(require("./IPaymentLink"), exports);
+__exportStar(require("./IPayments"), exports);
+__exportStar(require("./IPayoutWallet"), exports);
+__exportStar(require("./IPrice"), exports);
+__exportStar(require("./IProduct"), exports);
+__exportStar(require("./IRequest"), exports);
+__exportStar(require("./IResponse"), exports);
+__exportStar(require("./ISettings"), exports);
+__exportStar(require("./ISubscription"), exports);
+__exportStar(require("./ITeamMember"), exports);
+__exportStar(require("./ITransfer"), exports);
+__exportStar(require("./IWallet"), exports);
+__exportStar(require("./IWebhook"), exports);
+__exportStar(require("./InvoiceCreateRequest"), exports);
+__exportStar(require("./InvoiceListResponse"), exports);
+__exportStar(require("./InvoiceStatus"), exports);
+__exportStar(require("./InvoiceUpdateRequest"), exports);
 __exportStar(require("./LineItem"), exports);
-__exportStar(require("./ListAccountsResponse"), exports);
-__exportStar(require("./ListCustomersResponse"), exports);
-__exportStar(require("./ListFeesResponse"), exports);
-__exportStar(require("./ListInvoicesResponse"), exports);
-__exportStar(require("./ListLogsResponse"), exports);
-__exportStar(require("./ListPaymentIntentsResponse"), exports);
-__exportStar(require("./ListPayoutWalletsResponse"), exports);
-__exportStar(require("./ListPricesResponse"), exports);
-__exportStar(require("./ListProductsResponse"), exports);
-__exportStar(require("./ListSubscriptionsResponse"), exports);
-__exportStar(require("./ListTransfersResponse"), exports);
-__exportStar(require("./ListWalletsResponse"), exports);
-__exportStar(require("./ListWebhooksResponse"), exports);
-__exportStar(require("./Log"), exports);
-__exportStar(require("./LogAllOf"), exports);
-__exportStar(require("./Model"), exports);
-__exportStar(require("./Notification"), exports);
-__exportStar(require("./NotificationAllOf"), exports);
-__exportStar(require("./PaymentIntent"), exports);
-__exportStar(require("./PaymentIntentAllOf"), exports);
-__exportStar(require("./PaymentLink"), exports);
-__exportStar(require("./PaymentLinkAllOf"), exports);
-__exportStar(require("./PaymentLinkAllOfAfterCompletion"), exports);
+__exportStar(require("./LogListResponse"), exports);
+__exportStar(require("./PaymentIntentCreateRequest"), exports);
+__exportStar(require("./PaymentIntentListResponse"), exports);
+__exportStar(require("./PaymentIntentStatus"), exports);
+__exportStar(require("./PaymentIntentUpdateRequest"), exports);
+__exportStar(require("./PaymentLinkCreateRequest"), exports);
+__exportStar(require("./PaymentLinkListResponse"), exports);
+__exportStar(require("./PaymentLinkUpdateRequest"), exports);
 __exportStar(require("./PayoutWallet"), exports);
-__exportStar(require("./PayoutWalletAllOf"), exports);
-__exportStar(require("./Price"), exports);
-__exportStar(require("./PriceAllOf"), exports);
-__exportStar(require("./PriceAllOfBasePrice"), exports);
-__exportStar(require("./PriceAllOfCustomAmount"), exports);
-__exportStar(require("./Product"), exports);
-__exportStar(require("./ProductAllOf"), exports);
-__exportStar(require("./Subscription"), exports);
-__exportStar(require("./SubscriptionAllOf"), exports);
-__exportStar(require("./Transfer"), exports);
-__exportStar(require("./TransferAllOf"), exports);
-__exportStar(require("./UpdateCustomerBody"), exports);
-__exportStar(require("./UpdatePaymentIntentBody"), exports);
-__exportStar(require("./UpdatePriceBody"), exports);
-__exportStar(require("./UpdateProductBody"), exports);
-__exportStar(require("./UpdateWalletBody"), exports);
-__exportStar(require("./UpdateWebhookBody"), exports);
-__exportStar(require("./Wallet"), exports);
-__exportStar(require("./WalletAllOf"), exports);
-__exportStar(require("./Webhook"), exports);
-__exportStar(require("./WebhookAllOf"), exports);
-const Account_1 = require("./Account");
-const AccountAllOf_1 = require("./AccountAllOf");
-const AccountAllOfBusinessProfile_1 = require("./AccountAllOfBusinessProfile");
-const AccountAllOfIntegrations_1 = require("./AccountAllOfIntegrations");
-const AccountAllOfIntegrationsFtx_1 = require("./AccountAllOfIntegrationsFtx");
-const AccountAllOfSettings_1 = require("./AccountAllOfSettings");
-const AccountAllOfSettingsBilling_1 = require("./AccountAllOfSettingsBilling");
-const AccountAllOfSettingsBranding_1 = require("./AccountAllOfSettingsBranding");
-const AccountAllOfSettingsPayments_1 = require("./AccountAllOfSettingsPayments");
-const AccountAllOfTeam_1 = require("./AccountAllOfTeam");
+__exportStar(require("./PayoutWalletCreateRequest"), exports);
+__exportStar(require("./PayoutWalletListResponse"), exports);
+__exportStar(require("./PayoutWalletUpdateRequest"), exports);
+__exportStar(require("./PriceCreateRequest"), exports);
+__exportStar(require("./PriceListResponse"), exports);
+__exportStar(require("./PriceUpdateRequest"), exports);
+__exportStar(require("./ProductCreateRequest"), exports);
+__exportStar(require("./ProductListResponse"), exports);
+__exportStar(require("./ProductUpdateRequest"), exports);
+__exportStar(require("./SubscriptionCreateRequest"), exports);
+__exportStar(require("./SubscriptionListResponse"), exports);
+__exportStar(require("./SubscriptionStatus"), exports);
+__exportStar(require("./SubscriptionUpdateRequest"), exports);
+__exportStar(require("./TransferCreateRequest"), exports);
+__exportStar(require("./TransferListResponse"), exports);
+__exportStar(require("./WalletCreateRequest"), exports);
+__exportStar(require("./WalletListResponse"), exports);
+__exportStar(require("./WalletUpdateRequest"), exports);
+__exportStar(require("./WebhookCreateRequest"), exports);
+__exportStar(require("./WebhookListResponse"), exports);
+__exportStar(require("./WebhookUpdateRequest"), exports);
+const AccountConnectRequest_1 = require("./AccountConnectRequest");
+const AccountCreateRequest_1 = require("./AccountCreateRequest");
+const AccountDashboardAccessRequest_1 = require("./AccountDashboardAccessRequest");
+const AccountDashboardAccessResponse_1 = require("./AccountDashboardAccessResponse");
+const AccountListResponse_1 = require("./AccountListResponse");
+const AccountUpdateRequest_1 = require("./AccountUpdateRequest");
 const Address_1 = require("./Address");
-const ApiKey_1 = require("./ApiKey");
-const ApiKeyAllOf_1 = require("./ApiKeyAllOf");
-const Checkout_1 = require("./Checkout");
-const CheckoutAllOf_1 = require("./CheckoutAllOf");
-const CheckoutAllOfCustomerDetails_1 = require("./CheckoutAllOfCustomerDetails");
-const CreateCustomerBody_1 = require("./CreateCustomerBody");
-const CreateFeeBody_1 = require("./CreateFeeBody");
-const CreatePayoutWalletBody_1 = require("./CreatePayoutWalletBody");
-const CreateProductBody_1 = require("./CreateProductBody");
-const CreateTransferBody_1 = require("./CreateTransferBody");
-const CreateWalletBody_1 = require("./CreateWalletBody");
-const CreateWebhookBody_1 = require("./CreateWebhookBody");
-const Customer_1 = require("./Customer");
-const CustomerAllOf_1 = require("./CustomerAllOf");
-const CustomerAllOfBillingDetails_1 = require("./CustomerAllOfBillingDetails");
-const CustomersBillingDetails_1 = require("./CustomersBillingDetails");
-const CustomersBillingDetailsAddress_1 = require("./CustomersBillingDetailsAddress");
-const CustomersIdBillingDetails_1 = require("./CustomersIdBillingDetails");
-const CustomersIdBillingDetailsAddress_1 = require("./CustomersIdBillingDetailsAddress");
-const Fee_1 = require("./Fee");
-const FeeAllOf_1 = require("./FeeAllOf");
-const InlineResponse400_1 = require("./InlineResponse400");
-const InlineResponse400Error_1 = require("./InlineResponse400Error");
-const Invoice_1 = require("./Invoice");
-const InvoiceAllOf_1 = require("./InvoiceAllOf");
+const AfterCompletion_1 = require("./AfterCompletion");
+const ApiKeyCreateRequest_1 = require("./ApiKeyCreateRequest");
+const ApiKeyListResponse_1 = require("./ApiKeyListResponse");
+const BasePrice_1 = require("./BasePrice");
+const CheckoutCreateRequest_1 = require("./CheckoutCreateRequest");
+const CheckoutListResponse_1 = require("./CheckoutListResponse");
+const CustomAmount_1 = require("./CustomAmount");
+const CustomerCreateRequest_1 = require("./CustomerCreateRequest");
+const CustomerCreateRequestBillingDetails_1 = require("./CustomerCreateRequestBillingDetails");
+const CustomerDetails_1 = require("./CustomerDetails");
+const CustomerListResponse_1 = require("./CustomerListResponse");
+const CustomerUpdateRequest_1 = require("./CustomerUpdateRequest");
+const FeeCreateRequest_1 = require("./FeeCreateRequest");
+const FeeListResponse_1 = require("./FeeListResponse");
+const Headers_1 = require("./Headers");
+const IAccount_1 = require("./IAccount");
+const IApiKey_1 = require("./IApiKey");
+const IBilling_1 = require("./IBilling");
+const IBranding_1 = require("./IBranding");
+const IBusinessProfile_1 = require("./IBusinessProfile");
+const ICheckout_1 = require("./ICheckout");
+const ICustomer_1 = require("./ICustomer");
+const IFee_1 = require("./IFee");
+const IIntegrations_1 = require("./IIntegrations");
+const IIntegrationsFtx_1 = require("./IIntegrationsFtx");
+const IInvoice_1 = require("./IInvoice");
+const ILog_1 = require("./ILog");
+const IPaymentIntent_1 = require("./IPaymentIntent");
+const IPaymentLink_1 = require("./IPaymentLink");
+const IPayments_1 = require("./IPayments");
+const IPayoutWallet_1 = require("./IPayoutWallet");
+const IPrice_1 = require("./IPrice");
+const IProduct_1 = require("./IProduct");
+const IRequest_1 = require("./IRequest");
+const IResponse_1 = require("./IResponse");
+const ISettings_1 = require("./ISettings");
+const ISubscription_1 = require("./ISubscription");
+const ITeamMember_1 = require("./ITeamMember");
+const ITransfer_1 = require("./ITransfer");
+const IWallet_1 = require("./IWallet");
+const IWebhook_1 = require("./IWebhook");
+const InvoiceCreateRequest_1 = require("./InvoiceCreateRequest");
+const InvoiceListResponse_1 = require("./InvoiceListResponse");
+const InvoiceUpdateRequest_1 = require("./InvoiceUpdateRequest");
 const LineItem_1 = require("./LineItem");
-const ListAccountsResponse_1 = require("./ListAccountsResponse");
-const ListCustomersResponse_1 = require("./ListCustomersResponse");
-const ListFeesResponse_1 = require("./ListFeesResponse");
-const ListInvoicesResponse_1 = require("./ListInvoicesResponse");
-const ListLogsResponse_1 = require("./ListLogsResponse");
-const ListPaymentIntentsResponse_1 = require("./ListPaymentIntentsResponse");
-const ListPayoutWalletsResponse_1 = require("./ListPayoutWalletsResponse");
-const ListPricesResponse_1 = require("./ListPricesResponse");
-const ListProductsResponse_1 = require("./ListProductsResponse");
-const ListSubscriptionsResponse_1 = require("./ListSubscriptionsResponse");
-const ListTransfersResponse_1 = require("./ListTransfersResponse");
-const ListWalletsResponse_1 = require("./ListWalletsResponse");
-const ListWebhooksResponse_1 = require("./ListWebhooksResponse");
-const Log_1 = require("./Log");
-const LogAllOf_1 = require("./LogAllOf");
-const Model_1 = require("./Model");
-const Notification_1 = require("./Notification");
-const NotificationAllOf_1 = require("./NotificationAllOf");
-const PaymentIntent_1 = require("./PaymentIntent");
-const PaymentIntentAllOf_1 = require("./PaymentIntentAllOf");
-const PaymentLink_1 = require("./PaymentLink");
-const PaymentLinkAllOf_1 = require("./PaymentLinkAllOf");
-const PaymentLinkAllOfAfterCompletion_1 = require("./PaymentLinkAllOfAfterCompletion");
-const PayoutWallet_1 = require("./PayoutWallet");
-const PayoutWalletAllOf_1 = require("./PayoutWalletAllOf");
-const Price_1 = require("./Price");
-const PriceAllOf_1 = require("./PriceAllOf");
-const PriceAllOfBasePrice_1 = require("./PriceAllOfBasePrice");
-const PriceAllOfCustomAmount_1 = require("./PriceAllOfCustomAmount");
-const Product_1 = require("./Product");
-const ProductAllOf_1 = require("./ProductAllOf");
-const Subscription_1 = require("./Subscription");
-const SubscriptionAllOf_1 = require("./SubscriptionAllOf");
-const Transfer_1 = require("./Transfer");
-const TransferAllOf_1 = require("./TransferAllOf");
-const UpdateCustomerBody_1 = require("./UpdateCustomerBody");
-const UpdatePaymentIntentBody_1 = require("./UpdatePaymentIntentBody");
-const UpdatePriceBody_1 = require("./UpdatePriceBody");
-const UpdateProductBody_1 = require("./UpdateProductBody");
-const UpdateWalletBody_1 = require("./UpdateWalletBody");
-const UpdateWebhookBody_1 = require("./UpdateWebhookBody");
-const Wallet_1 = require("./Wallet");
-const WalletAllOf_1 = require("./WalletAllOf");
-const Webhook_1 = require("./Webhook");
-const WebhookAllOf_1 = require("./WebhookAllOf");
+const LogListResponse_1 = require("./LogListResponse");
+const PaymentIntentCreateRequest_1 = require("./PaymentIntentCreateRequest");
+const PaymentIntentListResponse_1 = require("./PaymentIntentListResponse");
+const PaymentIntentUpdateRequest_1 = require("./PaymentIntentUpdateRequest");
+const PaymentLinkCreateRequest_1 = require("./PaymentLinkCreateRequest");
+const PaymentLinkListResponse_1 = require("./PaymentLinkListResponse");
+const PaymentLinkUpdateRequest_1 = require("./PaymentLinkUpdateRequest");
+const PayoutWalletCreateRequest_1 = require("./PayoutWalletCreateRequest");
+const PayoutWalletListResponse_1 = require("./PayoutWalletListResponse");
+const PayoutWalletUpdateRequest_1 = require("./PayoutWalletUpdateRequest");
+const PriceCreateRequest_1 = require("./PriceCreateRequest");
+const PriceListResponse_1 = require("./PriceListResponse");
+const PriceUpdateRequest_1 = require("./PriceUpdateRequest");
+const ProductCreateRequest_1 = require("./ProductCreateRequest");
+const ProductListResponse_1 = require("./ProductListResponse");
+const ProductUpdateRequest_1 = require("./ProductUpdateRequest");
+const SubscriptionCreateRequest_1 = require("./SubscriptionCreateRequest");
+const SubscriptionListResponse_1 = require("./SubscriptionListResponse");
+const SubscriptionUpdateRequest_1 = require("./SubscriptionUpdateRequest");
+const TransferCreateRequest_1 = require("./TransferCreateRequest");
+const TransferListResponse_1 = require("./TransferListResponse");
+const WalletCreateRequest_1 = require("./WalletCreateRequest");
+const WalletListResponse_1 = require("./WalletListResponse");
+const WalletUpdateRequest_1 = require("./WalletUpdateRequest");
+const WebhookCreateRequest_1 = require("./WebhookCreateRequest");
+const WebhookListResponse_1 = require("./WebhookListResponse");
+const WebhookUpdateRequest_1 = require("./WebhookUpdateRequest");
 let primitives = [
     "string",
     "boolean",
@@ -191,120 +194,96 @@ const supportedMediaTypes = {
     "application/x-www-form-urlencoded": 0
 };
 let enumsMap = new Set([
-    "ApiKeyKeyEnum",
-    "ApiKeyTypeEnum",
-    "ApiKeyAllOfKeyEnum",
-    "ApiKeyAllOfTypeEnum",
-    "CheckoutStatusEnum",
-    "CheckoutAllOfStatusEnum",
-    "InvoiceStatusEnum",
-    "InvoiceAllOfStatusEnum",
-    "LogMethodEnum",
-    "LogAllOfMethodEnum",
-    "NotificationTypeEnum",
-    "NotificationAllOfTypeEnum",
-    "PaymentIntentStatusEnum",
-    "PaymentIntentChainEnum",
-    "PaymentIntentCurrencyEnum",
-    "PaymentIntentAllOfStatusEnum",
-    "PaymentIntentAllOfChainEnum",
-    "PaymentIntentAllOfCurrencyEnum",
-    "PaymentLinkCurrencyEnum",
-    "PaymentLinkChainEnum",
-    "PaymentLinkAllOfCurrencyEnum",
-    "PaymentLinkAllOfChainEnum",
-    "PayoutWalletChainEnum",
-    "PayoutWalletTypeEnum",
-    "PayoutWalletAllOfChainEnum",
-    "PayoutWalletAllOfTypeEnum",
-    "SubscriptionStatusEnum",
-    "SubscriptionAllOfStatusEnum",
-    "WalletChainEnum",
-    "WalletAllOfChainEnum",
+    "ApiKeyType",
+    "Chain",
+    "CheckoutStatus",
+    "Currency",
+    "EventType",
+    "InvoiceStatus",
+    "PaymentIntentStatus",
+    "PayoutWallet",
+    "SubscriptionStatus",
 ]);
 let typeMap = {
-    "Account": Account_1.Account,
-    "AccountAllOf": AccountAllOf_1.AccountAllOf,
-    "AccountAllOfBusinessProfile": AccountAllOfBusinessProfile_1.AccountAllOfBusinessProfile,
-    "AccountAllOfIntegrations": AccountAllOfIntegrations_1.AccountAllOfIntegrations,
-    "AccountAllOfIntegrationsFtx": AccountAllOfIntegrationsFtx_1.AccountAllOfIntegrationsFtx,
-    "AccountAllOfSettings": AccountAllOfSettings_1.AccountAllOfSettings,
-    "AccountAllOfSettingsBilling": AccountAllOfSettingsBilling_1.AccountAllOfSettingsBilling,
-    "AccountAllOfSettingsBranding": AccountAllOfSettingsBranding_1.AccountAllOfSettingsBranding,
-    "AccountAllOfSettingsPayments": AccountAllOfSettingsPayments_1.AccountAllOfSettingsPayments,
-    "AccountAllOfTeam": AccountAllOfTeam_1.AccountAllOfTeam,
+    "AccountConnectRequest": AccountConnectRequest_1.AccountConnectRequest,
+    "AccountCreateRequest": AccountCreateRequest_1.AccountCreateRequest,
+    "AccountDashboardAccessRequest": AccountDashboardAccessRequest_1.AccountDashboardAccessRequest,
+    "AccountDashboardAccessResponse": AccountDashboardAccessResponse_1.AccountDashboardAccessResponse,
+    "AccountListResponse": AccountListResponse_1.AccountListResponse,
+    "AccountUpdateRequest": AccountUpdateRequest_1.AccountUpdateRequest,
     "Address": Address_1.Address,
-    "ApiKey": ApiKey_1.ApiKey,
-    "ApiKeyAllOf": ApiKeyAllOf_1.ApiKeyAllOf,
-    "Checkout": Checkout_1.Checkout,
-    "CheckoutAllOf": CheckoutAllOf_1.CheckoutAllOf,
-    "CheckoutAllOfCustomerDetails": CheckoutAllOfCustomerDetails_1.CheckoutAllOfCustomerDetails,
-    "CreateCustomerBody": CreateCustomerBody_1.CreateCustomerBody,
-    "CreateFeeBody": CreateFeeBody_1.CreateFeeBody,
-    "CreatePayoutWalletBody": CreatePayoutWalletBody_1.CreatePayoutWalletBody,
-    "CreateProductBody": CreateProductBody_1.CreateProductBody,
-    "CreateTransferBody": CreateTransferBody_1.CreateTransferBody,
-    "CreateWalletBody": CreateWalletBody_1.CreateWalletBody,
-    "CreateWebhookBody": CreateWebhookBody_1.CreateWebhookBody,
-    "Customer": Customer_1.Customer,
-    "CustomerAllOf": CustomerAllOf_1.CustomerAllOf,
-    "CustomerAllOfBillingDetails": CustomerAllOfBillingDetails_1.CustomerAllOfBillingDetails,
-    "CustomersBillingDetails": CustomersBillingDetails_1.CustomersBillingDetails,
-    "CustomersBillingDetailsAddress": CustomersBillingDetailsAddress_1.CustomersBillingDetailsAddress,
-    "CustomersIdBillingDetails": CustomersIdBillingDetails_1.CustomersIdBillingDetails,
-    "CustomersIdBillingDetailsAddress": CustomersIdBillingDetailsAddress_1.CustomersIdBillingDetailsAddress,
-    "Fee": Fee_1.Fee,
-    "FeeAllOf": FeeAllOf_1.FeeAllOf,
-    "InlineResponse400": InlineResponse400_1.InlineResponse400,
-    "InlineResponse400Error": InlineResponse400Error_1.InlineResponse400Error,
-    "Invoice": Invoice_1.Invoice,
-    "InvoiceAllOf": InvoiceAllOf_1.InvoiceAllOf,
+    "AfterCompletion": AfterCompletion_1.AfterCompletion,
+    "ApiKeyCreateRequest": ApiKeyCreateRequest_1.ApiKeyCreateRequest,
+    "ApiKeyListResponse": ApiKeyListResponse_1.ApiKeyListResponse,
+    "BasePrice": BasePrice_1.BasePrice,
+    "CheckoutCreateRequest": CheckoutCreateRequest_1.CheckoutCreateRequest,
+    "CheckoutListResponse": CheckoutListResponse_1.CheckoutListResponse,
+    "CustomAmount": CustomAmount_1.CustomAmount,
+    "CustomerCreateRequest": CustomerCreateRequest_1.CustomerCreateRequest,
+    "CustomerCreateRequestBillingDetails": CustomerCreateRequestBillingDetails_1.CustomerCreateRequestBillingDetails,
+    "CustomerDetails": CustomerDetails_1.CustomerDetails,
+    "CustomerListResponse": CustomerListResponse_1.CustomerListResponse,
+    "CustomerUpdateRequest": CustomerUpdateRequest_1.CustomerUpdateRequest,
+    "FeeCreateRequest": FeeCreateRequest_1.FeeCreateRequest,
+    "FeeListResponse": FeeListResponse_1.FeeListResponse,
+    "Headers": Headers_1.Headers,
+    "IAccount": IAccount_1.IAccount,
+    "IApiKey": IApiKey_1.IApiKey,
+    "IBilling": IBilling_1.IBilling,
+    "IBranding": IBranding_1.IBranding,
+    "IBusinessProfile": IBusinessProfile_1.IBusinessProfile,
+    "ICheckout": ICheckout_1.ICheckout,
+    "ICustomer": ICustomer_1.ICustomer,
+    "IFee": IFee_1.IFee,
+    "IIntegrations": IIntegrations_1.IIntegrations,
+    "IIntegrationsFtx": IIntegrationsFtx_1.IIntegrationsFtx,
+    "IInvoice": IInvoice_1.IInvoice,
+    "ILog": ILog_1.ILog,
+    "IPaymentIntent": IPaymentIntent_1.IPaymentIntent,
+    "IPaymentLink": IPaymentLink_1.IPaymentLink,
+    "IPayments": IPayments_1.IPayments,
+    "IPayoutWallet": IPayoutWallet_1.IPayoutWallet,
+    "IPrice": IPrice_1.IPrice,
+    "IProduct": IProduct_1.IProduct,
+    "IRequest": IRequest_1.IRequest,
+    "IResponse": IResponse_1.IResponse,
+    "ISettings": ISettings_1.ISettings,
+    "ISubscription": ISubscription_1.ISubscription,
+    "ITeamMember": ITeamMember_1.ITeamMember,
+    "ITransfer": ITransfer_1.ITransfer,
+    "IWallet": IWallet_1.IWallet,
+    "IWebhook": IWebhook_1.IWebhook,
+    "InvoiceCreateRequest": InvoiceCreateRequest_1.InvoiceCreateRequest,
+    "InvoiceListResponse": InvoiceListResponse_1.InvoiceListResponse,
+    "InvoiceUpdateRequest": InvoiceUpdateRequest_1.InvoiceUpdateRequest,
     "LineItem": LineItem_1.LineItem,
-    "ListAccountsResponse": ListAccountsResponse_1.ListAccountsResponse,
-    "ListCustomersResponse": ListCustomersResponse_1.ListCustomersResponse,
-    "ListFeesResponse": ListFeesResponse_1.ListFeesResponse,
-    "ListInvoicesResponse": ListInvoicesResponse_1.ListInvoicesResponse,
-    "ListLogsResponse": ListLogsResponse_1.ListLogsResponse,
-    "ListPaymentIntentsResponse": ListPaymentIntentsResponse_1.ListPaymentIntentsResponse,
-    "ListPayoutWalletsResponse": ListPayoutWalletsResponse_1.ListPayoutWalletsResponse,
-    "ListPricesResponse": ListPricesResponse_1.ListPricesResponse,
-    "ListProductsResponse": ListProductsResponse_1.ListProductsResponse,
-    "ListSubscriptionsResponse": ListSubscriptionsResponse_1.ListSubscriptionsResponse,
-    "ListTransfersResponse": ListTransfersResponse_1.ListTransfersResponse,
-    "ListWalletsResponse": ListWalletsResponse_1.ListWalletsResponse,
-    "ListWebhooksResponse": ListWebhooksResponse_1.ListWebhooksResponse,
-    "Log": Log_1.Log,
-    "LogAllOf": LogAllOf_1.LogAllOf,
-    "Model": Model_1.Model,
-    "Notification": Notification_1.Notification,
-    "NotificationAllOf": NotificationAllOf_1.NotificationAllOf,
-    "PaymentIntent": PaymentIntent_1.PaymentIntent,
-    "PaymentIntentAllOf": PaymentIntentAllOf_1.PaymentIntentAllOf,
-    "PaymentLink": PaymentLink_1.PaymentLink,
-    "PaymentLinkAllOf": PaymentLinkAllOf_1.PaymentLinkAllOf,
-    "PaymentLinkAllOfAfterCompletion": PaymentLinkAllOfAfterCompletion_1.PaymentLinkAllOfAfterCompletion,
-    "PayoutWallet": PayoutWallet_1.PayoutWallet,
-    "PayoutWalletAllOf": PayoutWalletAllOf_1.PayoutWalletAllOf,
-    "Price": Price_1.Price,
-    "PriceAllOf": PriceAllOf_1.PriceAllOf,
-    "PriceAllOfBasePrice": PriceAllOfBasePrice_1.PriceAllOfBasePrice,
-    "PriceAllOfCustomAmount": PriceAllOfCustomAmount_1.PriceAllOfCustomAmount,
-    "Product": Product_1.Product,
-    "ProductAllOf": ProductAllOf_1.ProductAllOf,
-    "Subscription": Subscription_1.Subscription,
-    "SubscriptionAllOf": SubscriptionAllOf_1.SubscriptionAllOf,
-    "Transfer": Transfer_1.Transfer,
-    "TransferAllOf": TransferAllOf_1.TransferAllOf,
-    "UpdateCustomerBody": UpdateCustomerBody_1.UpdateCustomerBody,
-    "UpdatePaymentIntentBody": UpdatePaymentIntentBody_1.UpdatePaymentIntentBody,
-    "UpdatePriceBody": UpdatePriceBody_1.UpdatePriceBody,
-    "UpdateProductBody": UpdateProductBody_1.UpdateProductBody,
-    "UpdateWalletBody": UpdateWalletBody_1.UpdateWalletBody,
-    "UpdateWebhookBody": UpdateWebhookBody_1.UpdateWebhookBody,
-    "Wallet": Wallet_1.Wallet,
-    "WalletAllOf": WalletAllOf_1.WalletAllOf,
-    "Webhook": Webhook_1.Webhook,
-    "WebhookAllOf": WebhookAllOf_1.WebhookAllOf,
+    "LogListResponse": LogListResponse_1.LogListResponse,
+    "PaymentIntentCreateRequest": PaymentIntentCreateRequest_1.PaymentIntentCreateRequest,
+    "PaymentIntentListResponse": PaymentIntentListResponse_1.PaymentIntentListResponse,
+    "PaymentIntentUpdateRequest": PaymentIntentUpdateRequest_1.PaymentIntentUpdateRequest,
+    "PaymentLinkCreateRequest": PaymentLinkCreateRequest_1.PaymentLinkCreateRequest,
+    "PaymentLinkListResponse": PaymentLinkListResponse_1.PaymentLinkListResponse,
+    "PaymentLinkUpdateRequest": PaymentLinkUpdateRequest_1.PaymentLinkUpdateRequest,
+    "PayoutWalletCreateRequest": PayoutWalletCreateRequest_1.PayoutWalletCreateRequest,
+    "PayoutWalletListResponse": PayoutWalletListResponse_1.PayoutWalletListResponse,
+    "PayoutWalletUpdateRequest": PayoutWalletUpdateRequest_1.PayoutWalletUpdateRequest,
+    "PriceCreateRequest": PriceCreateRequest_1.PriceCreateRequest,
+    "PriceListResponse": PriceListResponse_1.PriceListResponse,
+    "PriceUpdateRequest": PriceUpdateRequest_1.PriceUpdateRequest,
+    "ProductCreateRequest": ProductCreateRequest_1.ProductCreateRequest,
+    "ProductListResponse": ProductListResponse_1.ProductListResponse,
+    "ProductUpdateRequest": ProductUpdateRequest_1.ProductUpdateRequest,
+    "SubscriptionCreateRequest": SubscriptionCreateRequest_1.SubscriptionCreateRequest,
+    "SubscriptionListResponse": SubscriptionListResponse_1.SubscriptionListResponse,
+    "SubscriptionUpdateRequest": SubscriptionUpdateRequest_1.SubscriptionUpdateRequest,
+    "TransferCreateRequest": TransferCreateRequest_1.TransferCreateRequest,
+    "TransferListResponse": TransferListResponse_1.TransferListResponse,
+    "WalletCreateRequest": WalletCreateRequest_1.WalletCreateRequest,
+    "WalletListResponse": WalletListResponse_1.WalletListResponse,
+    "WalletUpdateRequest": WalletUpdateRequest_1.WalletUpdateRequest,
+    "WebhookCreateRequest": WebhookCreateRequest_1.WebhookCreateRequest,
+    "WebhookListResponse": WebhookListResponse_1.WebhookListResponse,
+    "WebhookUpdateRequest": WebhookUpdateRequest_1.WebhookUpdateRequest,
 };
 class ObjectSerializer {
     static findCorrectType(data, expectedType) {

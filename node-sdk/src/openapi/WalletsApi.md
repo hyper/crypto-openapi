@@ -4,15 +4,20 @@ All URIs are relative to *http://localhost:7070/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**_delete**](WalletsApi.md#_delete) | **DELETE** /wallets/{id} | Delete Wallet By Id
-[**create**](WalletsApi.md#create) | **POST** /wallets | Create Wallet
-[**list**](WalletsApi.md#list) | **GET** /wallets | List Wallets
-[**retrieve**](WalletsApi.md#retrieve) | **GET** /wallets/{id} | Retrieve Wallet By Id
-[**update**](WalletsApi.md#update) | **PATCH** /wallets/{id} | Update Wallet By Id
+[**_delete**](WalletsApi.md#_delete) | **DELETE** /wallets/{id} | Delete wallet
+[**_delete_0**](WalletsApi.md#_delete_0) | **DELETE** /wallets/{id} | Delete wallet
+[**create**](WalletsApi.md#create) | **POST** /wallets | Create wallet
+[**create_0**](WalletsApi.md#create_0) | **POST** /wallets | Create wallet
+[**list**](WalletsApi.md#list) | **GET** /wallets | List wallets
+[**list_0**](WalletsApi.md#list_0) | **GET** /wallets | List wallets
+[**retrieve**](WalletsApi.md#retrieve) | **GET** /wallets/{id} | Retrieve wallet
+[**retrieve_0**](WalletsApi.md#retrieve_0) | **GET** /wallets/{id} | Retrieve wallet
+[**update**](WalletsApi.md#update) | **PATCH** /wallets/{id} | Update wallet
+[**update_0**](WalletsApi.md#update_0) | **PATCH** /wallets/{id} | Update wallet
 
 
 # **_delete**
-> void _delete()
+> IWallet _delete()
 
 
 ### Example
@@ -28,9 +33,7 @@ const apiInstance = new .WalletsApi(configuration);
 let body:.WalletsApiDeleteRequest = {
   // string
   id: "id_example",
-  // string | Specifies which fields to populate in the response. (optional)
-  expand: "expand_example",
-  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  // string (optional)
   pluto_account: "Pluto-Account_example",
 };
 
@@ -45,13 +48,12 @@ apiInstance._delete(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**void**
+**IWallet**
 
 ### Authorization
 
@@ -60,20 +62,78 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | Ok |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **_delete_0**
+> IWallet _delete_0()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .WalletsApi(configuration);
+
+let body:.WalletsApiDelete0Request = {
+  // string
+  id: "id_example",
+  // string (optional)
+  pluto_account: "Pluto-Account_example",
+};
+
+apiInstance._delete_0(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**string**] |  | defaults to undefined
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**IWallet**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
-> Wallet create()
+> IWallet create()
 
 
 ### Example
@@ -87,13 +147,12 @@ const configuration = .createConfiguration();
 const apiInstance = new .WalletsApi(configuration);
 
 let body:.WalletsApiCreateRequest = {
-  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  // string (optional)
   pluto_account: "Pluto-Account_example",
-  // CreateWalletBody (optional)
-  create_wallet_body: {
-    account: "account_example",
+  // WalletCreateRequest (optional)
+  wallet_create_request: {
     address: "address_example",
-    chain: "chain_example",
+    chain: "eth",
     customer: "customer_example",
   },
 };
@@ -108,13 +167,13 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_wallet_body** | **CreateWalletBody**|  |
- **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
+ **wallet_create_request** | **WalletCreateRequest**|  |
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**Wallet**
+**IWallet**
 
 ### Authorization
 
@@ -129,14 +188,76 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | Ok |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **create_0**
+> IWallet create_0()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .WalletsApi(configuration);
+
+let body:.WalletsApiCreate0Request = {
+  // string (optional)
+  pluto_account: "Pluto-Account_example",
+  // WalletCreateRequest (optional)
+  wallet_create_request: {
+    address: "address_example",
+    chain: "eth",
+    customer: "customer_example",
+  },
+};
+
+apiInstance.create_0(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wallet_create_request** | **WalletCreateRequest**|  |
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**IWallet**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> ListWalletsResponse list()
+> WalletListResponse list()
 
 
 ### Example
@@ -150,16 +271,16 @@ const configuration = .createConfiguration();
 const apiInstance = new .WalletsApi(configuration);
 
 let body:.WalletsApiListRequest = {
-  // number | A limit on the number of objects to be returned between 1 and 100. (optional)
-  limit: 3.14,
-  // number | Index of the page to be returned in a paginated response. (optional)
-  page: 3.14,
-  // any | Specifies whether documents are sorted in an ascending or descending order. (optional)
-  sort: null,
-  // string | Specifies which fields to populate in the response. (optional)
-  expand: "expand_example",
-  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  // string (optional)
   pluto_account: "Pluto-Account_example",
+  // number (optional)
+  limit: 3.14,
+  // number (optional)
+  page: 3.14,
+  // number (optional)
+  sort: 3.14,
+  // string (optional)
+  expand: "expand_example",
 };
 
 apiInstance.list(body).then((data:any) => {
@@ -172,16 +293,16 @@ apiInstance.list(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | [**number**] | A limit on the number of objects to be returned between 1 and 100. | (optional) defaults to undefined
- **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
- **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
- **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
+ **limit** | [**number**] |  | (optional) defaults to undefined
+ **page** | [**number**] |  | (optional) defaults to undefined
+ **sort** | [**number**] |  | (optional) defaults to undefined
+ **expand** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**ListWalletsResponse**
+**WalletListResponse**
 
 ### Authorization
 
@@ -196,14 +317,81 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | Ok |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
-**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **list_0**
+> WalletListResponse list_0()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .WalletsApi(configuration);
+
+let body:.WalletsApiList0Request = {
+  // string (optional)
+  pluto_account: "Pluto-Account_example",
+  // number (optional)
+  limit: 3.14,
+  // number (optional)
+  page: 3.14,
+  // number (optional)
+  sort: 3.14,
+  // string (optional)
+  expand: "expand_example",
+};
+
+apiInstance.list_0(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
+ **limit** | [**number**] |  | (optional) defaults to undefined
+ **page** | [**number**] |  | (optional) defaults to undefined
+ **sort** | [**number**] |  | (optional) defaults to undefined
+ **expand** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**WalletListResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> Wallet retrieve()
+> IWallet retrieve()
 
 
 ### Example
@@ -219,10 +407,10 @@ const apiInstance = new .WalletsApi(configuration);
 let body:.WalletsApiRetrieveRequest = {
   // string
   id: "id_example",
-  // string | Specifies which fields to populate in the response. (optional)
-  expand: "expand_example",
-  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  // string (optional)
   pluto_account: "Pluto-Account_example",
+  // string (optional)
+  expand: "expand_example",
 };
 
 apiInstance.retrieve(body).then((data:any) => {
@@ -236,13 +424,13 @@ apiInstance.retrieve(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
+ **expand** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**Wallet**
+**IWallet**
 
 ### Authorization
 
@@ -257,14 +445,75 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | Ok |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **retrieve_0**
+> IWallet retrieve_0()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .WalletsApi(configuration);
+
+let body:.WalletsApiRetrieve0Request = {
+  // string
+  id: "id_example",
+  // string (optional)
+  pluto_account: "Pluto-Account_example",
+  // string (optional)
+  expand: "expand_example",
+};
+
+apiInstance.retrieve_0(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**string**] |  | defaults to undefined
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
+ **expand** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**IWallet**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update**
-> Wallet update()
+> IWallet update()
 
 
 ### Example
@@ -280,11 +529,12 @@ const apiInstance = new .WalletsApi(configuration);
 let body:.WalletsApiUpdateRequest = {
   // string
   id: "id_example",
-  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  // string (optional)
   pluto_account: "Pluto-Account_example",
-  // UpdateWalletBody (optional)
-  update_wallet_body: {
-    chain: "chain_example",
+  // WalletUpdateRequest (optional)
+  wallet_update_request: {
+    address: "address_example",
+    chain: "eth",
   },
 };
 
@@ -298,14 +548,14 @@ apiInstance.update(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **update_wallet_body** | **UpdateWalletBody**|  |
+ **wallet_update_request** | **WalletUpdateRequest**|  |
  **id** | [**string**] |  | defaults to undefined
- **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**Wallet**
+**IWallet**
 
 ### Authorization
 
@@ -320,10 +570,75 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | Ok |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
-**404** | Bad Request |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **update_0**
+> IWallet update_0()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .WalletsApi(configuration);
+
+let body:.WalletsApiUpdate0Request = {
+  // string
+  id: "id_example",
+  // string (optional)
+  pluto_account: "Pluto-Account_example",
+  // WalletUpdateRequest (optional)
+  wallet_update_request: {
+    address: "address_example",
+    chain: "eth",
+  },
+};
+
+apiInstance.update_0(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wallet_update_request** | **WalletUpdateRequest**|  |
+ **id** | [**string**] |  | defaults to undefined
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**IWallet**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 

@@ -1,325 +1,667 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PromiseWebhooksApi = exports.PromiseWalletsApi = exports.PromiseTransfersApi = exports.PromiseSubscriptionsApi = exports.PromiseProductsApi = exports.PromisePricesApi = exports.PromisePayoutWalletsApi = exports.PromisePaymentIntentsApi = exports.PromiseLogsApi = exports.PromiseInvoicesApi = exports.PromiseFeesApi = exports.PromiseCustomersApi = exports.PromiseAccountsApi = void 0;
+exports.PromiseWebhooksApi = exports.PromiseWalletsApi = exports.PromiseTransfersApi = exports.PromiseSubscriptionsApi = exports.PromiseProductsApi = exports.PromisePricesApi = exports.PromisePayoutWalletsApi = exports.PromisePaymentLinksApi = exports.PromisePaymentIntentsApi = exports.PromiseLogsApi = exports.PromiseInvoicesApi = exports.PromiseFeesApi = exports.PromiseCustomersApi = exports.PromiseCheckoutsApi = exports.PromiseAccountsApi = void 0;
 const ObservableAPI_1 = require("./ObservableAPI");
 class PromiseAccountsApi {
     constructor(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_1.ObservableAccountsApi(configuration, requestFactory, responseProcessor);
     }
-    create(pluto_account, account, _options) {
-        const result = this.api.create(pluto_account, account, _options);
+    connect(id, pluto_account, account_connect_request, _options) {
+        const result = this.api.connect(id, pluto_account, account_connect_request, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
+    connect_1(id, pluto_account, account_connect_request, _options) {
+        const result = this.api.connect_1(id, pluto_account, account_connect_request, _options);
         return result.toPromise();
     }
-    retrieve(id, expand, pluto_account, _options) {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
+    create(pluto_account, account_create_request, _options) {
+        const result = this.api.create(pluto_account, account_create_request, _options);
         return result.toPromise();
     }
-    update(id, pluto_account, account, _options) {
-        const result = this.api.update(id, pluto_account, account, _options);
+    create_2(pluto_account, account_create_request, _options) {
+        const result = this.api.create_2(pluto_account, account_create_request, _options);
+        return result.toPromise();
+    }
+    dashboardAccess(id, pluto_account, expand, account_dashboard_access_request, _options) {
+        const result = this.api.dashboardAccess(id, pluto_account, expand, account_dashboard_access_request, _options);
+        return result.toPromise();
+    }
+    dashboardAccess_3(id, pluto_account, expand, account_dashboard_access_request, _options) {
+        const result = this.api.dashboardAccess_3(id, pluto_account, expand, account_dashboard_access_request, _options);
+        return result.toPromise();
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    list_4(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list_4(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    patch(id, pluto_account, account_update_request, _options) {
+        const result = this.api.patch(id, pluto_account, account_update_request, _options);
+        return result.toPromise();
+    }
+    patch_5(id, pluto_account, account_update_request, _options) {
+        const result = this.api.patch_5(id, pluto_account, account_update_request, _options);
+        return result.toPromise();
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    retrieve_6(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve_6(id, pluto_account, expand, _options);
         return result.toPromise();
     }
 }
 exports.PromiseAccountsApi = PromiseAccountsApi;
 const ObservableAPI_2 = require("./ObservableAPI");
-class PromiseCustomersApi {
+class PromiseCheckoutsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_2.ObservableCustomersApi(configuration, requestFactory, responseProcessor);
-    }
-    create(pluto_account, create_customer_body, _options) {
-        const result = this.api.create(pluto_account, create_customer_body, _options);
-        return result.toPromise();
-    }
-    list(limit, page, sort, expand, pluto_account, email, _options) {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, email, _options);
-        return result.toPromise();
-    }
-    retrieve(id, expand, pluto_account, _options) {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
-        return result.toPromise();
-    }
-    update(id, pluto_account, update_customer_body, _options) {
-        const result = this.api.update(id, pluto_account, update_customer_body, _options);
-        return result.toPromise();
-    }
-}
-exports.PromiseCustomersApi = PromiseCustomersApi;
-const ObservableAPI_3 = require("./ObservableAPI");
-class PromiseFeesApi {
-    constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_3.ObservableFeesApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_2.ObservableCheckoutsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(id, pluto_account, _options) {
         const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
-    create(pluto_account, create_fee_body, _options) {
-        const result = this.api.create(pluto_account, create_fee_body, _options);
+    _delete_1(id, pluto_account, _options) {
+        const result = this.api._delete_1(id, pluto_account, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
+    create(pluto_account, checkout_create_request, _options) {
+        const result = this.api.create(pluto_account, checkout_create_request, _options);
         return result.toPromise();
     }
-    retrieve(id, expand, pluto_account, _options) {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
+    create_2(pluto_account, checkout_create_request, _options) {
+        const result = this.api.create_2(pluto_account, checkout_create_request, _options);
+        return result.toPromise();
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    retrieve_4(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+}
+exports.PromiseCheckoutsApi = PromiseCheckoutsApi;
+const ObservableAPI_3 = require("./ObservableAPI");
+class PromiseCustomersApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_3.ObservableCustomersApi(configuration, requestFactory, responseProcessor);
+    }
+    create(pluto_account, customer_create_request, _options) {
+        const result = this.api.create(pluto_account, customer_create_request, _options);
+        return result.toPromise();
+    }
+    create_1(pluto_account, customer_create_request, _options) {
+        const result = this.api.create_1(pluto_account, customer_create_request, _options);
+        return result.toPromise();
+    }
+    list(pluto_account, limit, page, sort, expand, email, _options) {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, email, _options);
+        return result.toPromise();
+    }
+    list_2(pluto_account, limit, page, sort, expand, email, _options) {
+        const result = this.api.list_2(pluto_account, limit, page, sort, expand, email, _options);
+        return result.toPromise();
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    retrieve_3(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve_3(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    update(id, pluto_account, customer_update_request, _options) {
+        const result = this.api.update(id, pluto_account, customer_update_request, _options);
+        return result.toPromise();
+    }
+    update_4(id, pluto_account, customer_update_request, _options) {
+        const result = this.api.update_4(id, pluto_account, customer_update_request, _options);
+        return result.toPromise();
+    }
+}
+exports.PromiseCustomersApi = PromiseCustomersApi;
+const ObservableAPI_4 = require("./ObservableAPI");
+class PromiseFeesApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_4.ObservableFeesApi(configuration, requestFactory, responseProcessor);
+    }
+    create(pluto_account, fee_create_request, _options) {
+        const result = this.api.create(pluto_account, fee_create_request, _options);
+        return result.toPromise();
+    }
+    create_1(pluto_account, fee_create_request, _options) {
+        const result = this.api.create_1(pluto_account, fee_create_request, _options);
+        return result.toPromise();
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    list_2(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list_2(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    retrieve_3(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve_3(id, pluto_account, expand, _options);
         return result.toPromise();
     }
 }
 exports.PromiseFeesApi = PromiseFeesApi;
-const ObservableAPI_4 = require("./ObservableAPI");
+const ObservableAPI_5 = require("./ObservableAPI");
 class PromiseInvoicesApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_4.ObservableInvoicesApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_5.ObservableInvoicesApi(configuration, requestFactory, responseProcessor);
     }
-    create(pluto_account, invoice, _options) {
-        const result = this.api.create(pluto_account, invoice, _options);
+    _delete(id, pluto_account, _options) {
+        const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
+    _delete_1(id, pluto_account, _options) {
+        const result = this.api._delete_1(id, pluto_account, _options);
+        return result.toPromise();
+    }
+    create(pluto_account, invoice_create_request, _options) {
+        const result = this.api.create(pluto_account, invoice_create_request, _options);
+        return result.toPromise();
+    }
+    create_2(pluto_account, invoice_create_request, _options) {
+        const result = this.api.create_2(pluto_account, invoice_create_request, _options);
+        return result.toPromise();
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
         return result.toPromise();
     }
     pay(id, pluto_account, _options) {
         const result = this.api.pay(id, pluto_account, _options);
         return result.toPromise();
     }
-    retrieve(id, expand, pluto_account, _options) {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
+    pay_4(id, pluto_account, _options) {
+        const result = this.api.pay_4(id, pluto_account, _options);
         return result.toPromise();
     }
-    update(id, pluto_account, invoice, _options) {
-        const result = this.api.update(id, pluto_account, invoice, _options);
+    retrieve(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    retrieve_5(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve_5(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    update(id, pluto_account, invoice_update_request, _options) {
+        const result = this.api.update(id, pluto_account, invoice_update_request, _options);
+        return result.toPromise();
+    }
+    update_6(id, pluto_account, invoice_update_request, _options) {
+        const result = this.api.update_6(id, pluto_account, invoice_update_request, _options);
         return result.toPromise();
     }
 }
 exports.PromiseInvoicesApi = PromiseInvoicesApi;
-const ObservableAPI_5 = require("./ObservableAPI");
+const ObservableAPI_6 = require("./ObservableAPI");
 class PromiseLogsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_5.ObservableLogsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_6.ObservableLogsApi(configuration, requestFactory, responseProcessor);
     }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
+    list(pluto_account, _options) {
+        const result = this.api.list(pluto_account, _options);
         return result.toPromise();
     }
-    retrieve(id, expand, pluto_account, _options) {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
+    list_1(pluto_account, _options) {
+        const result = this.api.list_1(pluto_account, _options);
+        return result.toPromise();
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    retrieve_2(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve_2(id, pluto_account, expand, _options);
         return result.toPromise();
     }
 }
 exports.PromiseLogsApi = PromiseLogsApi;
-const ObservableAPI_6 = require("./ObservableAPI");
+const ObservableAPI_7 = require("./ObservableAPI");
 class PromisePaymentIntentsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_6.ObservablePaymentIntentsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_7.ObservablePaymentIntentsApi(configuration, requestFactory, responseProcessor);
     }
-    cancel(id, pluto_account, _options) {
-        const result = this.api.cancel(id, pluto_account, _options);
+    _delete(id, pluto_account, _options) {
+        const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
-    create(pluto_account, payment_intent, _options) {
-        const result = this.api.create(pluto_account, payment_intent, _options);
+    _delete_1(id, pluto_account, _options) {
+        const result = this.api._delete_1(id, pluto_account, _options);
         return result.toPromise();
     }
-    list(pluto_account, expand, limit, page, sort, status, customer, _options) {
-        const result = this.api.list(pluto_account, expand, limit, page, sort, status, customer, _options);
+    create(pluto_account, payment_intent_create_request, _options) {
+        const result = this.api.create(pluto_account, payment_intent_create_request, _options);
+        return result.toPromise();
+    }
+    create_2(pluto_account, payment_intent_create_request, _options) {
+        const result = this.api.create_2(pluto_account, payment_intent_create_request, _options);
+        return result.toPromise();
+    }
+    list(pluto_account, limit, page, sort, expand, status, customer, _options) {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, status, customer, _options);
+        return result.toPromise();
+    }
+    list_3(pluto_account, limit, page, sort, expand, status, customer, _options) {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, status, customer, _options);
         return result.toPromise();
     }
     poll(id, pluto_account, expand, _options) {
         const result = this.api.poll(id, pluto_account, expand, _options);
         return result.toPromise();
     }
+    poll_4(id, pluto_account, expand, _options) {
+        const result = this.api.poll_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
     retrieve(id, pluto_account, expand, _options) {
         const result = this.api.retrieve(id, pluto_account, expand, _options);
         return result.toPromise();
     }
-    update(id, pluto_account, update_payment_intent_body, _options) {
-        const result = this.api.update(id, pluto_account, update_payment_intent_body, _options);
+    retrieve_5(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve_5(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    sendReceipt(id, pluto_account, _options) {
+        const result = this.api.sendReceipt(id, pluto_account, _options);
+        return result.toPromise();
+    }
+    sendReceipt_6(id, pluto_account, _options) {
+        const result = this.api.sendReceipt_6(id, pluto_account, _options);
+        return result.toPromise();
+    }
+    update(id, pluto_account, payment_intent_update_request, _options) {
+        const result = this.api.update(id, pluto_account, payment_intent_update_request, _options);
+        return result.toPromise();
+    }
+    update_7(id, pluto_account, payment_intent_update_request, _options) {
+        const result = this.api.update_7(id, pluto_account, payment_intent_update_request, _options);
         return result.toPromise();
     }
 }
 exports.PromisePaymentIntentsApi = PromisePaymentIntentsApi;
-const ObservableAPI_7 = require("./ObservableAPI");
-class PromisePayoutWalletsApi {
-    constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_7.ObservablePayoutWalletsApi(configuration, requestFactory, responseProcessor);
-    }
-    _delete(id, pluto_account, _options) {
-        const result = this.api._delete(id, pluto_account, _options);
-        return result.toPromise();
-    }
-    create(pluto_account, create_payout_wallet_body, _options) {
-        const result = this.api.create(pluto_account, create_payout_wallet_body, _options);
-        return result.toPromise();
-    }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
-        return result.toPromise();
-    }
-    retrieve(id, expand, pluto_account, _options) {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
-        return result.toPromise();
-    }
-    update(id, pluto_account, payout_wallet, _options) {
-        const result = this.api.update(id, pluto_account, payout_wallet, _options);
-        return result.toPromise();
-    }
-}
-exports.PromisePayoutWalletsApi = PromisePayoutWalletsApi;
 const ObservableAPI_8 = require("./ObservableAPI");
-class PromisePricesApi {
+class PromisePaymentLinksApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_8.ObservablePricesApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_8.ObservablePaymentLinksApi(configuration, requestFactory, responseProcessor);
     }
     _delete(id, pluto_account, _options) {
         const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
-    create(pluto_account, price, _options) {
-        const result = this.api.create(pluto_account, price, _options);
+    _delete_1(id, pluto_account, _options) {
+        const result = this.api._delete_1(id, pluto_account, _options);
         return result.toPromise();
     }
-    list(pluto_account, expand, limit, page, sort, _options) {
-        const result = this.api.list(pluto_account, expand, limit, page, sort, _options);
+    create(pluto_account, payment_link_create_request, _options) {
+        const result = this.api.create(pluto_account, payment_link_create_request, _options);
+        return result.toPromise();
+    }
+    create_2(pluto_account, payment_link_create_request, _options) {
+        const result = this.api.create_2(pluto_account, payment_link_create_request, _options);
+        return result.toPromise();
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
         return result.toPromise();
     }
     retrieve(id, pluto_account, expand, _options) {
         const result = this.api.retrieve(id, pluto_account, expand, _options);
         return result.toPromise();
     }
-    update(id, pluto_account, update_price_body, _options) {
-        const result = this.api.update(id, pluto_account, update_price_body, _options);
+    retrieve_4(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    update(id, pluto_account, payment_link_update_request, _options) {
+        const result = this.api.update(id, pluto_account, payment_link_update_request, _options);
+        return result.toPromise();
+    }
+    update_5(id, pluto_account, payment_link_update_request, _options) {
+        const result = this.api.update_5(id, pluto_account, payment_link_update_request, _options);
+        return result.toPromise();
+    }
+}
+exports.PromisePaymentLinksApi = PromisePaymentLinksApi;
+const ObservableAPI_9 = require("./ObservableAPI");
+class PromisePayoutWalletsApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_9.ObservablePayoutWalletsApi(configuration, requestFactory, responseProcessor);
+    }
+    _delete(id, pluto_account, _options) {
+        const result = this.api._delete(id, pluto_account, _options);
+        return result.toPromise();
+    }
+    _delete_1(id, pluto_account, _options) {
+        const result = this.api._delete_1(id, pluto_account, _options);
+        return result.toPromise();
+    }
+    create(pluto_account, payout_wallet_create_request, _options) {
+        const result = this.api.create(pluto_account, payout_wallet_create_request, _options);
+        return result.toPromise();
+    }
+    create_2(pluto_account, payout_wallet_create_request, _options) {
+        const result = this.api.create_2(pluto_account, payout_wallet_create_request, _options);
+        return result.toPromise();
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    retrieve_4(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    update(id, pluto_account, payout_wallet_update_request, _options) {
+        const result = this.api.update(id, pluto_account, payout_wallet_update_request, _options);
+        return result.toPromise();
+    }
+    update_5(id, pluto_account, payout_wallet_update_request, _options) {
+        const result = this.api.update_5(id, pluto_account, payout_wallet_update_request, _options);
+        return result.toPromise();
+    }
+}
+exports.PromisePayoutWalletsApi = PromisePayoutWalletsApi;
+const ObservableAPI_10 = require("./ObservableAPI");
+class PromisePricesApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_10.ObservablePricesApi(configuration, requestFactory, responseProcessor);
+    }
+    _delete(id, pluto_account, _options) {
+        const result = this.api._delete(id, pluto_account, _options);
+        return result.toPromise();
+    }
+    _delete_1(id, pluto_account, _options) {
+        const result = this.api._delete_1(id, pluto_account, _options);
+        return result.toPromise();
+    }
+    create(pluto_account, price_create_request, _options) {
+        const result = this.api.create(pluto_account, price_create_request, _options);
+        return result.toPromise();
+    }
+    create_2(pluto_account, price_create_request, _options) {
+        const result = this.api.create_2(pluto_account, price_create_request, _options);
+        return result.toPromise();
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    retrieve_4(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    update(id, pluto_account, price_update_request, _options) {
+        const result = this.api.update(id, pluto_account, price_update_request, _options);
+        return result.toPromise();
+    }
+    update_5(id, pluto_account, price_update_request, _options) {
+        const result = this.api.update_5(id, pluto_account, price_update_request, _options);
         return result.toPromise();
     }
 }
 exports.PromisePricesApi = PromisePricesApi;
-const ObservableAPI_9 = require("./ObservableAPI");
+const ObservableAPI_11 = require("./ObservableAPI");
 class PromiseProductsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_9.ObservableProductsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_11.ObservableProductsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(id, pluto_account, _options) {
         const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
-    create(pluto_account, create_product_body, _options) {
-        const result = this.api.create(pluto_account, create_product_body, _options);
+    _delete_1(id, pluto_account, _options) {
+        const result = this.api._delete_1(id, pluto_account, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
+    create(pluto_account, product_create_request, _options) {
+        const result = this.api.create(pluto_account, product_create_request, _options);
         return result.toPromise();
     }
-    retrieve(id, expand, pluto_account, _options) {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
+    create_2(pluto_account, product_create_request, _options) {
+        const result = this.api.create_2(pluto_account, product_create_request, _options);
         return result.toPromise();
     }
-    update(id, pluto_account, update_product_body, _options) {
-        const result = this.api.update(id, pluto_account, update_product_body, _options);
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    retrieve_4(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    update(id, pluto_account, product_update_request, _options) {
+        const result = this.api.update(id, pluto_account, product_update_request, _options);
+        return result.toPromise();
+    }
+    update_5(id, pluto_account, product_update_request, _options) {
+        const result = this.api.update_5(id, pluto_account, product_update_request, _options);
         return result.toPromise();
     }
 }
 exports.PromiseProductsApi = PromiseProductsApi;
-const ObservableAPI_10 = require("./ObservableAPI");
+const ObservableAPI_12 = require("./ObservableAPI");
 class PromiseSubscriptionsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_10.ObservableSubscriptionsApi(configuration, requestFactory, responseProcessor);
-    }
-    cancel(id, pluto_account, _options) {
-        const result = this.api.cancel(id, pluto_account, _options);
-        return result.toPromise();
-    }
-    create(pluto_account, subscription, _options) {
-        const result = this.api.create(pluto_account, subscription, _options);
-        return result.toPromise();
-    }
-    list(expand, limit, page, sort, pluto_account, _options) {
-        const result = this.api.list(expand, limit, page, sort, pluto_account, _options);
-        return result.toPromise();
-    }
-    retrieve(id, expand, pluto_account, _options) {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
-        return result.toPromise();
-    }
-    update(id, pluto_account, subscription, _options) {
-        const result = this.api.update(id, pluto_account, subscription, _options);
-        return result.toPromise();
-    }
-}
-exports.PromiseSubscriptionsApi = PromiseSubscriptionsApi;
-const ObservableAPI_11 = require("./ObservableAPI");
-class PromiseTransfersApi {
-    constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_11.ObservableTransfersApi(configuration, requestFactory, responseProcessor);
-    }
-    create(pluto_account, create_transfer_body, _options) {
-        const result = this.api.create(pluto_account, create_transfer_body, _options);
-        return result.toPromise();
-    }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
-        return result.toPromise();
-    }
-    retrieve(id, expand, pluto_account, _options) {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
-        return result.toPromise();
-    }
-}
-exports.PromiseTransfersApi = PromiseTransfersApi;
-const ObservableAPI_12 = require("./ObservableAPI");
-class PromiseWalletsApi {
-    constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_12.ObservableWalletsApi(configuration, requestFactory, responseProcessor);
-    }
-    _delete(id, expand, pluto_account, _options) {
-        const result = this.api._delete(id, expand, pluto_account, _options);
-        return result.toPromise();
-    }
-    create(pluto_account, create_wallet_body, _options) {
-        const result = this.api.create(pluto_account, create_wallet_body, _options);
-        return result.toPromise();
-    }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
-        return result.toPromise();
-    }
-    retrieve(id, expand, pluto_account, _options) {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
-        return result.toPromise();
-    }
-    update(id, pluto_account, update_wallet_body, _options) {
-        const result = this.api.update(id, pluto_account, update_wallet_body, _options);
-        return result.toPromise();
-    }
-}
-exports.PromiseWalletsApi = PromiseWalletsApi;
-const ObservableAPI_13 = require("./ObservableAPI");
-class PromiseWebhooksApi {
-    constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_13.ObservableWebhooksApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_12.ObservableSubscriptionsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(id, pluto_account, _options) {
         const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
-    create(pluto_account, create_webhook_body, _options) {
-        const result = this.api.create(pluto_account, create_webhook_body, _options);
+    _delete_1(id, pluto_account, _options) {
+        const result = this.api._delete_1(id, pluto_account, _options);
         return result.toPromise();
     }
-    list(limit, page, sort, expand, pluto_account, _options) {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
+    create(pluto_account, subscription_create_request, _options) {
+        const result = this.api.create(pluto_account, subscription_create_request, _options);
         return result.toPromise();
     }
-    retrieve(id, expand, pluto_account, _options) {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
+    create_2(pluto_account, subscription_create_request, _options) {
+        const result = this.api.create_2(pluto_account, subscription_create_request, _options);
         return result.toPromise();
     }
-    update(id, pluto_account, update_webhook_body, _options) {
-        const result = this.api.update(id, pluto_account, update_webhook_body, _options);
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    retrieve_4(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    update(id, pluto_account, subscription_update_request, _options) {
+        const result = this.api.update(id, pluto_account, subscription_update_request, _options);
+        return result.toPromise();
+    }
+    update_5(id, pluto_account, subscription_update_request, _options) {
+        const result = this.api.update_5(id, pluto_account, subscription_update_request, _options);
+        return result.toPromise();
+    }
+}
+exports.PromiseSubscriptionsApi = PromiseSubscriptionsApi;
+const ObservableAPI_13 = require("./ObservableAPI");
+class PromiseTransfersApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_13.ObservableTransfersApi(configuration, requestFactory, responseProcessor);
+    }
+    create(pluto_account, transfer_create_request, _options) {
+        const result = this.api.create(pluto_account, transfer_create_request, _options);
+        return result.toPromise();
+    }
+    create_1(pluto_account, transfer_create_request, _options) {
+        const result = this.api.create_1(pluto_account, transfer_create_request, _options);
+        return result.toPromise();
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    list_2(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list_2(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    retrieve_3(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve_3(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+}
+exports.PromiseTransfersApi = PromiseTransfersApi;
+const ObservableAPI_14 = require("./ObservableAPI");
+class PromiseWalletsApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_14.ObservableWalletsApi(configuration, requestFactory, responseProcessor);
+    }
+    _delete(id, pluto_account, _options) {
+        const result = this.api._delete(id, pluto_account, _options);
+        return result.toPromise();
+    }
+    _delete_1(id, pluto_account, _options) {
+        const result = this.api._delete_1(id, pluto_account, _options);
+        return result.toPromise();
+    }
+    create(pluto_account, wallet_create_request, _options) {
+        const result = this.api.create(pluto_account, wallet_create_request, _options);
+        return result.toPromise();
+    }
+    create_2(pluto_account, wallet_create_request, _options) {
+        const result = this.api.create_2(pluto_account, wallet_create_request, _options);
+        return result.toPromise();
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    retrieve_4(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    update(id, pluto_account, wallet_update_request, _options) {
+        const result = this.api.update(id, pluto_account, wallet_update_request, _options);
+        return result.toPromise();
+    }
+    update_5(id, pluto_account, wallet_update_request, _options) {
+        const result = this.api.update_5(id, pluto_account, wallet_update_request, _options);
+        return result.toPromise();
+    }
+}
+exports.PromiseWalletsApi = PromiseWalletsApi;
+const ObservableAPI_15 = require("./ObservableAPI");
+class PromiseWebhooksApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_15.ObservableWebhooksApi(configuration, requestFactory, responseProcessor);
+    }
+    _delete(id, pluto_account, _options) {
+        const result = this.api._delete(id, pluto_account, _options);
+        return result.toPromise();
+    }
+    _delete_1(id, pluto_account, _options) {
+        const result = this.api._delete_1(id, pluto_account, _options);
+        return result.toPromise();
+    }
+    create(pluto_account, webhook_create_request, _options) {
+        const result = this.api.create(pluto_account, webhook_create_request, _options);
+        return result.toPromise();
+    }
+    create_2(pluto_account, webhook_create_request, _options) {
+        const result = this.api.create_2(pluto_account, webhook_create_request, _options);
+        return result.toPromise();
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    retrieve_4(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    update(id, pluto_account, webhook_update_request, _options) {
+        const result = this.api.update(id, pluto_account, webhook_update_request, _options);
+        return result.toPromise();
+    }
+    update_5(id, pluto_account, webhook_update_request, _options) {
+        const result = this.api.update_5(id, pluto_account, webhook_update_request, _options);
         return result.toPromise();
     }
 }
