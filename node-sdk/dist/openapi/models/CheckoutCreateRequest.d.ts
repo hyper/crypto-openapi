@@ -1,7 +1,7 @@
 import { CustomerDetails } from './CustomerDetails';
 export declare class CheckoutCreateRequest {
-    'amount'?: number;
     'customer_details'?: CustomerDetails;
+    'amount'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

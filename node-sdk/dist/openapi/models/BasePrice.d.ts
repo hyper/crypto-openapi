@@ -1,8 +1,8 @@
 import { CustomAmount } from './CustomAmount';
 export declare class BasePrice {
+    'custom_amount'?: CustomAmount;
     'amount'?: number;
     'currency': string;
-    'custom_amount'?: CustomAmount;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

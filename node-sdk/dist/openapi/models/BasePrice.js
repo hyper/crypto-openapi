@@ -12,6 +12,12 @@ exports.BasePrice = BasePrice;
 BasePrice.discriminator = undefined;
 BasePrice.attributeTypeMap = [
     {
+        "name": "custom_amount",
+        "baseName": "custom_amount",
+        "type": "CustomAmount",
+        "format": ""
+    },
+    {
         "name": "amount",
         "baseName": "amount",
         "type": "number",
@@ -21,12 +27,6 @@ BasePrice.attributeTypeMap = [
         "name": "currency",
         "baseName": "currency",
         "type": "string",
-        "format": ""
-    },
-    {
-        "name": "custom_amount",
-        "baseName": "custom_amount",
-        "type": "CustomAmount",
         "format": ""
     }
 ];

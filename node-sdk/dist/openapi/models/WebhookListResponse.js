@@ -12,10 +12,10 @@ exports.WebhookListResponse = WebhookListResponse;
 WebhookListResponse.discriminator = undefined;
 WebhookListResponse.attributeTypeMap = [
     {
-        "name": "data",
-        "baseName": "data",
-        "type": "Array<IWebhook>",
-        "format": ""
+        "name": "total",
+        "baseName": "total",
+        "type": "number",
+        "format": "double"
     },
     {
         "name": "has_more",
@@ -30,10 +30,10 @@ WebhookListResponse.attributeTypeMap = [
         "format": "double"
     },
     {
-        "name": "total",
-        "baseName": "total",
-        "type": "number",
-        "format": "double"
+        "name": "data",
+        "baseName": "data",
+        "type": "Array<IWebhook>",
+        "format": ""
     }
 ];
 //# sourceMappingURL=WebhookListResponse.js.map

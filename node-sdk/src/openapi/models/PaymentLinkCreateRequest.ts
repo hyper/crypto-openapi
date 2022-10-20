@@ -15,17 +15,35 @@ import { LineItem } from './LineItem';
 import { HttpFile } from '../http/http';
 
 export class PaymentLinkCreateRequest {
+    'metadata'?: { [key: string]: any; };
+    'line_items'?: Array<LineItem>;
+    'application_fee_percent'?: number;
     'active'?: boolean;
     'after_completion'?: AfterCompletion;
-    'application_fee_percent'?: number;
     'expires_at'?: Date | number;
-    'line_items'?: Array<LineItem>;
     'max_usages'?: number;
-    'metadata'?: { [key: string]: any; };
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "{ [key: string]: any; }",
+            "format": ""
+        },
+        {
+            "name": "line_items",
+            "baseName": "line_items",
+            "type": "Array<LineItem>",
+            "format": ""
+        },
+        {
+            "name": "application_fee_percent",
+            "baseName": "application_fee_percent",
+            "type": "number",
+            "format": "double"
+        },
         {
             "name": "active",
             "baseName": "active",
@@ -39,21 +57,9 @@ export class PaymentLinkCreateRequest {
             "format": ""
         },
         {
-            "name": "application_fee_percent",
-            "baseName": "application_fee_percent",
-            "type": "number",
-            "format": "double"
-        },
-        {
             "name": "expires_at",
             "baseName": "expires_at",
             "type": "Date | number",
-            "format": ""
-        },
-        {
-            "name": "line_items",
-            "baseName": "line_items",
-            "type": "Array<LineItem>",
             "format": ""
         },
         {
@@ -61,12 +67,6 @@ export class PaymentLinkCreateRequest {
             "baseName": "max_usages",
             "type": "number",
             "format": "double"
-        },
-        {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "{ [key: string]: any; }",
-            "format": ""
         }    ];
 
     static getAttributeTypeMap() {

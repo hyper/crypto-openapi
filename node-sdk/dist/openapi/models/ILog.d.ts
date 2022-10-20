@@ -1,13 +1,13 @@
 import { IRequest } from './IRequest';
 import { IResponse } from './IResponse';
 export declare class ILog {
-    'account': string;
-    'created': number;
     'id': string;
     'object': string;
+    'created': number;
+    'test': boolean;
+    'account': string;
     'request': IRequest;
     'response': IResponse;
-    'test': boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -13,37 +13,19 @@
 import { HttpFile } from '../http/http';
 
 export class ITransfer {
-    'account': string;
-    'created': number;
-    'description'?: string;
     'id': string;
     'object': string;
-    'payment_intent': string;
-    'percent': number;
+    'created': number;
     'test': boolean;
+    'account': string;
+    'payment_intent': string;
     'wallet': string;
+    'percent': number;
+    'description'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "account",
-            "baseName": "account",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "created",
-            "baseName": "created",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "description",
-            "baseName": "description",
-            "type": "string",
-            "format": ""
-        },
         {
             "name": "id",
             "baseName": "id",
@@ -57,14 +39,8 @@ export class ITransfer {
             "format": ""
         },
         {
-            "name": "payment_intent",
-            "baseName": "payment_intent",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "percent",
-            "baseName": "percent",
+            "name": "created",
+            "baseName": "created",
             "type": "number",
             "format": "double"
         },
@@ -75,8 +51,32 @@ export class ITransfer {
             "format": ""
         },
         {
+            "name": "account",
+            "baseName": "account",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "payment_intent",
+            "baseName": "payment_intent",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "wallet",
             "baseName": "wallet",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "percent",
+            "baseName": "percent",
+            "type": "number",
+            "format": "double"
+        },
+        {
+            "name": "description",
+            "baseName": "description",
             "type": "string",
             "format": ""
         }    ];

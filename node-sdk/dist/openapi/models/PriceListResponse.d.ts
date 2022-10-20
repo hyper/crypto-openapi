@@ -1,9 +1,9 @@
 import { IPrice } from './IPrice';
 export declare class PriceListResponse {
-    'data': Array<IPrice>;
+    'total': number;
     'has_more': boolean;
     'page': number;
-    'total': number;
+    'data': Array<IPrice>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

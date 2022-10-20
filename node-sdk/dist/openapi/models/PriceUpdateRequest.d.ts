@@ -1,8 +1,9 @@
 export declare class PriceUpdateRequest {
-    'archived'?: boolean;
     'metadata'?: {
         [key: string]: any;
     };
+    'application_fee_percent'?: number;
+    'archived'?: boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

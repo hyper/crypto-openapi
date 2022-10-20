@@ -12,12 +12,6 @@ exports.TransferCreateRequest = TransferCreateRequest;
 TransferCreateRequest.discriminator = undefined;
 TransferCreateRequest.attributeTypeMap = [
     {
-        "name": "description",
-        "baseName": "description",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "payment_intent",
         "baseName": "payment_intent",
         "type": "string",
@@ -28,6 +22,12 @@ TransferCreateRequest.attributeTypeMap = [
         "baseName": "percent",
         "type": "number",
         "format": "double"
+    },
+    {
+        "name": "description",
+        "baseName": "description",
+        "type": "string",
+        "format": ""
     },
     {
         "name": "wallet",

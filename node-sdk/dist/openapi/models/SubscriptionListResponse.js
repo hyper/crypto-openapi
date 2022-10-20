@@ -12,10 +12,10 @@ exports.SubscriptionListResponse = SubscriptionListResponse;
 SubscriptionListResponse.discriminator = undefined;
 SubscriptionListResponse.attributeTypeMap = [
     {
-        "name": "data",
-        "baseName": "data",
-        "type": "Array<ISubscription>",
-        "format": ""
+        "name": "total",
+        "baseName": "total",
+        "type": "number",
+        "format": "double"
     },
     {
         "name": "has_more",
@@ -30,10 +30,10 @@ SubscriptionListResponse.attributeTypeMap = [
         "format": "double"
     },
     {
-        "name": "total",
-        "baseName": "total",
-        "type": "number",
-        "format": "double"
+        "name": "data",
+        "baseName": "data",
+        "type": "Array<ISubscription>",
+        "format": ""
     }
 ];
 //# sourceMappingURL=SubscriptionListResponse.js.map

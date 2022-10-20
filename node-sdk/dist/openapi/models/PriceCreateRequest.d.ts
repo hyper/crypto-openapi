@@ -4,17 +4,17 @@ import { Currency } from './Currency';
 import { CustomAmount } from './CustomAmount';
 export declare class PriceCreateRequest {
     'amount'?: number;
-    'application_fee_percent'?: number;
-    'archived'?: boolean;
-    'base_price'?: BasePrice;
-    'billing_period_days'?: number;
-    'chain'?: Chain;
-    'currency'?: Currency;
-    'custom_amount'?: CustomAmount;
     'metadata'?: {
         [key: string]: any;
     };
+    'chain'?: Chain;
+    'application_fee_percent'?: number;
+    'currency'?: Currency;
+    'custom_amount'?: CustomAmount;
     'product'?: string;
+    'base_price'?: BasePrice;
+    'billing_period_days'?: number;
+    'archived'?: boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

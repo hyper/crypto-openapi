@@ -24,9 +24,15 @@ IBusinessProfile.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "support_address",
-        "baseName": "support_address",
-        "type": "Address",
+        "name": "url",
+        "baseName": "url",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "support_url",
+        "baseName": "support_url",
+        "type": "string",
         "format": ""
     },
     {
@@ -42,15 +48,9 @@ IBusinessProfile.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "support_url",
-        "baseName": "support_url",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "url",
-        "baseName": "url",
-        "type": "string",
+        "name": "support_address",
+        "baseName": "support_address",
+        "type": "Address",
         "format": ""
     }
 ];

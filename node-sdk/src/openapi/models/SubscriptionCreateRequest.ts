@@ -14,20 +14,26 @@ import { LineItem } from './LineItem';
 import { HttpFile } from '../http/http';
 
 export class SubscriptionCreateRequest {
-    'cancel_at'?: Date | number;
-    'customer'?: string;
-    'line_items'?: Array<LineItem>;
     'metadata'?: { [key: string]: any; };
     'price'?: string;
+    'customer'?: string;
+    'line_items'?: Array<LineItem>;
     'trial_period_days'?: number;
+    'cancel_at'?: Date | number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "cancel_at",
-            "baseName": "cancel_at",
-            "type": "Date | number",
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "{ [key: string]: any; }",
+            "format": ""
+        },
+        {
+            "name": "price",
+            "baseName": "price",
+            "type": "string",
             "format": ""
         },
         {
@@ -43,22 +49,16 @@ export class SubscriptionCreateRequest {
             "format": ""
         },
         {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "{ [key: string]: any; }",
-            "format": ""
-        },
-        {
-            "name": "price",
-            "baseName": "price",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "trial_period_days",
             "baseName": "trial_period_days",
             "type": "number",
             "format": "double"
+        },
+        {
+            "name": "cancel_at",
+            "baseName": "cancel_at",
+            "type": "Date | number",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {

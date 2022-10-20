@@ -151,56 +151,56 @@ let body:.PaymentLinksApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // PaymentLinkCreateRequest (optional)
   payment_link_create_request: {
-    active: true,
-    after_completion: {
-      hosted_confirmation_message: "hosted_confirmation_message_example",
-      redirect_url: "redirect_url_example",
+    metadata: {
+      "key": null,
     },
-    application_fee_percent: 3.14,
-    expires_at: null,
     line_items: [
       {
         description: "description_example",
-        price: "price_example",
         price_data: {
-          account: "account_example",
-          amount: 3.14,
-          application_fee_percent: 3.14,
-          archived: true,
-          base_price: {
-            amount: 3.14,
-            currency: "currency_example",
-            custom_amount: {
-              _default: 3.14,
-              maximum: 3.14,
-              minimum: 3.14,
-            },
-          },
-          billing_period_days: 3.14,
-          chain: "eth",
+          id: "id_example",
+          object: "object_example",
           created: 3.14,
-          currency: "eth",
+          test: true,
+          account: "account_example",
+          platform_account: "platform_account_example",
+          amount: 3.14,
           custom_amount: {
             _default: 3.14,
             maximum: 3.14,
             minimum: 3.14,
           },
-          id: "id_example",
+          currency: "eth",
+          chain: "eth",
+          product: "product_example",
+          base_price: {
+            custom_amount: {
+              _default: 3.14,
+              maximum: 3.14,
+              minimum: 3.14,
+            },
+            amount: 3.14,
+            currency: "currency_example",
+          },
+          billing_period_days: 3.14,
+          application_fee_percent: 3.14,
+          archived: true,
           metadata: {
             "key": null,
           },
-          object: "object_example",
-          platform_account: "platform_account_example",
-          product: "product_example",
-          test: true,
         },
         quantity: 3.14,
+        price: "price_example",
       },
     ],
-    max_usages: 3.14,
-    metadata: {
-      "key": null,
+    application_fee_percent: 3.14,
+    active: true,
+    after_completion: {
+      hosted_confirmation_message: "hosted_confirmation_message_example",
+      redirect_url: "redirect_url_example",
     },
+    expires_at: null,
+    max_usages: 3.14,
   },
 };
 
@@ -260,56 +260,56 @@ let body:.PaymentLinksApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // PaymentLinkCreateRequest (optional)
   payment_link_create_request: {
-    active: true,
-    after_completion: {
-      hosted_confirmation_message: "hosted_confirmation_message_example",
-      redirect_url: "redirect_url_example",
+    metadata: {
+      "key": null,
     },
-    application_fee_percent: 3.14,
-    expires_at: null,
     line_items: [
       {
         description: "description_example",
-        price: "price_example",
         price_data: {
-          account: "account_example",
-          amount: 3.14,
-          application_fee_percent: 3.14,
-          archived: true,
-          base_price: {
-            amount: 3.14,
-            currency: "currency_example",
-            custom_amount: {
-              _default: 3.14,
-              maximum: 3.14,
-              minimum: 3.14,
-            },
-          },
-          billing_period_days: 3.14,
-          chain: "eth",
+          id: "id_example",
+          object: "object_example",
           created: 3.14,
-          currency: "eth",
+          test: true,
+          account: "account_example",
+          platform_account: "platform_account_example",
+          amount: 3.14,
           custom_amount: {
             _default: 3.14,
             maximum: 3.14,
             minimum: 3.14,
           },
-          id: "id_example",
+          currency: "eth",
+          chain: "eth",
+          product: "product_example",
+          base_price: {
+            custom_amount: {
+              _default: 3.14,
+              maximum: 3.14,
+              minimum: 3.14,
+            },
+            amount: 3.14,
+            currency: "currency_example",
+          },
+          billing_period_days: 3.14,
+          application_fee_percent: 3.14,
+          archived: true,
           metadata: {
             "key": null,
           },
-          object: "object_example",
-          platform_account: "platform_account_example",
-          product: "product_example",
-          test: true,
         },
         quantity: 3.14,
+        price: "price_example",
       },
     ],
-    max_usages: 3.14,
-    metadata: {
-      "key": null,
+    application_fee_percent: 3.14,
+    active: true,
+    after_completion: {
+      hosted_confirmation_message: "hosted_confirmation_message_example",
+      redirect_url: "redirect_url_example",
     },
+    expires_at: null,
+    max_usages: 3.14,
   },
 };
 
@@ -627,15 +627,15 @@ let body:.PaymentLinksApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // PaymentLinkUpdateRequest (optional)
   payment_link_update_request: {
+    metadata: {
+      "key": null,
+    },
     active: true,
     after_completion: {
       hosted_confirmation_message: "hosted_confirmation_message_example",
       redirect_url: "redirect_url_example",
     },
     expires_at: null,
-    metadata: {
-      "key": null,
-    },
   },
 };
 
@@ -699,15 +699,15 @@ let body:.PaymentLinksApiUpdate0Request = {
   pluto_account: "Pluto-Account_example",
   // PaymentLinkUpdateRequest (optional)
   payment_link_update_request: {
+    metadata: {
+      "key": null,
+    },
     active: true,
     after_completion: {
       hosted_confirmation_message: "hosted_confirmation_message_example",
       redirect_url: "redirect_url_example",
     },
     expires_at: null,
-    metadata: {
-      "key": null,
-    },
   },
 };
 

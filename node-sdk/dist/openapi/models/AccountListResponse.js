@@ -12,10 +12,10 @@ exports.AccountListResponse = AccountListResponse;
 AccountListResponse.discriminator = undefined;
 AccountListResponse.attributeTypeMap = [
     {
-        "name": "data",
-        "baseName": "data",
-        "type": "Array<IAccount>",
-        "format": ""
+        "name": "total",
+        "baseName": "total",
+        "type": "number",
+        "format": "double"
     },
     {
         "name": "has_more",
@@ -30,10 +30,10 @@ AccountListResponse.attributeTypeMap = [
         "format": "double"
     },
     {
-        "name": "total",
-        "baseName": "total",
-        "type": "number",
-        "format": "double"
+        "name": "data",
+        "baseName": "data",
+        "type": "Array<IAccount>",
+        "format": ""
     }
 ];
 //# sourceMappingURL=AccountListResponse.js.map

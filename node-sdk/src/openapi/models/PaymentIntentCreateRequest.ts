@@ -17,15 +17,15 @@ import { HttpFile } from '../http/http';
 
 export class PaymentIntentCreateRequest {
     'amount'?: number;
-    'application_fee_percent'?: number;
-    'chain'?: Chain;
-    'currency'?: Currency;
-    'customer'?: string;
-    'invoice'?: string;
-    'line_items'?: Array<LineItem>;
     'metadata'?: { [key: string]: any; };
     'price'?: string;
+    'customer'?: string;
+    'line_items'?: Array<LineItem>;
+    'invoice'?: string;
     'subscription'?: string;
+    'chain'?: Chain;
+    'application_fee_percent'?: number;
+    'currency'?: Currency;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -35,42 +35,6 @@ export class PaymentIntentCreateRequest {
             "baseName": "amount",
             "type": "number",
             "format": "double"
-        },
-        {
-            "name": "application_fee_percent",
-            "baseName": "application_fee_percent",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "Chain",
-            "format": ""
-        },
-        {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "Currency",
-            "format": ""
-        },
-        {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "invoice",
-            "baseName": "invoice",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "line_items",
-            "baseName": "line_items",
-            "type": "Array<LineItem>",
-            "format": ""
         },
         {
             "name": "metadata",
@@ -85,9 +49,45 @@ export class PaymentIntentCreateRequest {
             "format": ""
         },
         {
+            "name": "customer",
+            "baseName": "customer",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "line_items",
+            "baseName": "line_items",
+            "type": "Array<LineItem>",
+            "format": ""
+        },
+        {
+            "name": "invoice",
+            "baseName": "invoice",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "subscription",
             "baseName": "subscription",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "Chain",
+            "format": ""
+        },
+        {
+            "name": "application_fee_percent",
+            "baseName": "application_fee_percent",
+            "type": "number",
+            "format": "double"
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "Currency",
             "format": ""
         }    ];
 

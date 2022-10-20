@@ -1,8 +1,9 @@
 import { IBusinessProfile } from './IBusinessProfile';
 import { ISettings } from './ISettings';
 export declare class AccountCreateRequest {
-    'business_profile'?: IBusinessProfile;
     'settings'?: ISettings;
+    'business_profile'?: IBusinessProfile;
+    'connected_accounts'?: Array<string>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

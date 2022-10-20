@@ -12,15 +12,15 @@ exports.WalletUpdateRequest = WalletUpdateRequest;
 WalletUpdateRequest.discriminator = undefined;
 WalletUpdateRequest.attributeTypeMap = [
     {
-        "name": "address",
-        "baseName": "address",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "chain",
         "baseName": "chain",
         "type": "Chain",
+        "format": ""
+    },
+    {
+        "name": "address",
+        "baseName": "address",
+        "type": "string",
         "format": ""
     }
 ];

@@ -13,22 +13,29 @@
 import { HttpFile } from '../http/http';
 
 export class PriceUpdateRequest {
-    'archived'?: boolean;
     'metadata'?: { [key: string]: any; };
+    'application_fee_percent'?: number;
+    'archived'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "archived",
-            "baseName": "archived",
-            "type": "boolean",
-            "format": ""
-        },
-        {
             "name": "metadata",
             "baseName": "metadata",
             "type": "{ [key: string]: any; }",
+            "format": ""
+        },
+        {
+            "name": "application_fee_percent",
+            "baseName": "application_fee_percent",
+            "type": "number",
+            "format": "double"
+        },
+        {
+            "name": "archived",
+            "baseName": "archived",
+            "type": "boolean",
             "format": ""
         }    ];
 

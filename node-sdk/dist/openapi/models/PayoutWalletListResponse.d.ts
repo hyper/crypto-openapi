@@ -1,9 +1,9 @@
 import { IPayoutWallet } from './IPayoutWallet';
 export declare class PayoutWalletListResponse {
-    'data': Array<IPayoutWallet>;
+    'total': number;
     'has_more': boolean;
     'page': number;
-    'total': number;
+    'data': Array<IPayoutWallet>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

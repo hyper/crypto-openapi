@@ -1,9 +1,9 @@
 import { IPaymentLink } from './IPaymentLink';
 export declare class PaymentLinkListResponse {
-    'data': Array<IPaymentLink>;
+    'total': number;
     'has_more': boolean;
     'page': number;
-    'total': number;
+    'data': Array<IPaymentLink>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

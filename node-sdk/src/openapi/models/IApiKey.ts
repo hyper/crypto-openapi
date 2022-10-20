@@ -14,31 +14,31 @@ import { ApiKeyType } from './ApiKeyType';
 import { HttpFile } from '../http/http';
 
 export class IApiKey {
-    'account': string;
-    'admin': boolean;
-    'created': number;
     'id': string;
-    'key': string;
-    'last_used'?: Date | number;
+    'object': string;
+    'created': number;
+    'test': boolean;
+    'account': string;
     'name': string;
     'note'?: string;
-    'object': string;
-    'test': boolean;
+    'key': string;
     'type': ApiKeyType;
+    'last_used'?: Date | number;
+    'admin': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "account",
-            "baseName": "account",
+            "name": "id",
+            "baseName": "id",
             "type": "string",
             "format": ""
         },
         {
-            "name": "admin",
-            "baseName": "admin",
-            "type": "boolean",
+            "name": "object",
+            "baseName": "object",
+            "type": "string",
             "format": ""
         },
         {
@@ -48,21 +48,15 @@ export class IApiKey {
             "format": "double"
         },
         {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
+            "name": "test",
+            "baseName": "test",
+            "type": "boolean",
             "format": ""
         },
         {
-            "name": "key",
-            "baseName": "key",
+            "name": "account",
+            "baseName": "account",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "last_used",
-            "baseName": "last_used",
-            "type": "Date | number",
             "format": ""
         },
         {
@@ -78,21 +72,27 @@ export class IApiKey {
             "format": ""
         },
         {
-            "name": "object",
-            "baseName": "object",
+            "name": "key",
+            "baseName": "key",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "test",
-            "baseName": "test",
-            "type": "boolean",
             "format": ""
         },
         {
             "name": "type",
             "baseName": "type",
             "type": "ApiKeyType",
+            "format": ""
+        },
+        {
+            "name": "last_used",
+            "baseName": "last_used",
+            "type": "Date | number",
+            "format": ""
+        },
+        {
+            "name": "admin",
+            "baseName": "admin",
+            "type": "boolean",
             "format": ""
         }    ];
 

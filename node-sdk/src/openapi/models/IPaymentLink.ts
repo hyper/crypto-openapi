@@ -17,97 +17,31 @@ import { LineItem } from './LineItem';
 import { HttpFile } from '../http/http';
 
 export class IPaymentLink {
-    'account': string;
-    'active': boolean;
-    'after_completion': AfterCompletion;
-    'application_fee_percent'?: number;
-    'chain': Chain;
-    'created': number;
-    'currency': Currency;
-    'expires_at'?: Date | number;
     'id': string;
-    'line_items': Array<LineItem>;
-    'max_usages'?: number;
-    'metadata': { [key: string]: any; };
     'object': string;
-    'platform_account'?: string;
-    'remaining_stock'?: number;
+    'created': number;
     'test': boolean;
+    'account': string;
+    'platform_account'?: string;
+    'active': boolean;
     'url': string;
+    'after_completion': AfterCompletion;
+    'line_items': Array<LineItem>;
+    'currency': Currency;
+    'chain': Chain;
+    'expires_at'?: Date | number;
+    'max_usages'?: number;
+    'remaining_stock'?: number;
+    'application_fee_percent'?: number;
+    'metadata': { [key: string]: any; };
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "account",
-            "baseName": "account",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "active",
-            "baseName": "active",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "after_completion",
-            "baseName": "after_completion",
-            "type": "AfterCompletion",
-            "format": ""
-        },
-        {
-            "name": "application_fee_percent",
-            "baseName": "application_fee_percent",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "Chain",
-            "format": ""
-        },
-        {
-            "name": "created",
-            "baseName": "created",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "Currency",
-            "format": ""
-        },
-        {
-            "name": "expires_at",
-            "baseName": "expires_at",
-            "type": "Date | number",
-            "format": ""
-        },
-        {
             "name": "id",
             "baseName": "id",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "line_items",
-            "baseName": "line_items",
-            "type": "Array<LineItem>",
-            "format": ""
-        },
-        {
-            "name": "max_usages",
-            "baseName": "max_usages",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "{ [key: string]: any; }",
             "format": ""
         },
         {
@@ -117,14 +51,8 @@ export class IPaymentLink {
             "format": ""
         },
         {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "remaining_stock",
-            "baseName": "remaining_stock",
+            "name": "created",
+            "baseName": "created",
             "type": "number",
             "format": "double"
         },
@@ -135,9 +63,81 @@ export class IPaymentLink {
             "format": ""
         },
         {
+            "name": "account",
+            "baseName": "account",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "active",
+            "baseName": "active",
+            "type": "boolean",
+            "format": ""
+        },
+        {
             "name": "url",
             "baseName": "url",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "after_completion",
+            "baseName": "after_completion",
+            "type": "AfterCompletion",
+            "format": ""
+        },
+        {
+            "name": "line_items",
+            "baseName": "line_items",
+            "type": "Array<LineItem>",
+            "format": ""
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "Currency",
+            "format": ""
+        },
+        {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "Chain",
+            "format": ""
+        },
+        {
+            "name": "expires_at",
+            "baseName": "expires_at",
+            "type": "Date | number",
+            "format": ""
+        },
+        {
+            "name": "max_usages",
+            "baseName": "max_usages",
+            "type": "number",
+            "format": "double"
+        },
+        {
+            "name": "remaining_stock",
+            "baseName": "remaining_stock",
+            "type": "number",
+            "format": "double"
+        },
+        {
+            "name": "application_fee_percent",
+            "baseName": "application_fee_percent",
+            "type": "number",
+            "format": "double"
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "{ [key: string]: any; }",
             "format": ""
         }    ];
 

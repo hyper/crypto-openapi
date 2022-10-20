@@ -1,7 +1,7 @@
 export declare class ProductCreateRequest {
-    'active'?: boolean;
-    'description'?: string;
     'name'?: string;
+    'description'?: string;
+    'active'?: boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

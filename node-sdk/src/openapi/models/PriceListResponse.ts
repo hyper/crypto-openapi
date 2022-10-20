@@ -14,19 +14,19 @@ import { IPrice } from './IPrice';
 import { HttpFile } from '../http/http';
 
 export class PriceListResponse {
-    'data': Array<IPrice>;
+    'total': number;
     'has_more': boolean;
     'page': number;
-    'total': number;
+    'data': Array<IPrice>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "Array<IPrice>",
-            "format": ""
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
+            "format": "double"
         },
         {
             "name": "has_more",
@@ -41,10 +41,10 @@ export class PriceListResponse {
             "format": "double"
         },
         {
-            "name": "total",
-            "baseName": "total",
-            "type": "number",
-            "format": "double"
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<IPrice>",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {

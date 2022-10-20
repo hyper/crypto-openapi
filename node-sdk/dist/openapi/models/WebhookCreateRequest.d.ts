@@ -1,8 +1,8 @@
 import { EventType } from './EventType';
 export declare class WebhookCreateRequest {
+    'secret'?: string;
     'endpoint_url'?: string;
     'event_types'?: Array<EventType>;
-    'secret'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -12,9 +12,9 @@ exports.CustomerUpdateRequest = CustomerUpdateRequest;
 CustomerUpdateRequest.discriminator = undefined;
 CustomerUpdateRequest.attributeTypeMap = [
     {
-        "name": "billing_details",
-        "baseName": "billing_details",
-        "type": "CustomerCreateRequestBillingDetails",
+        "name": "name",
+        "baseName": "name",
+        "type": "string",
         "format": ""
     },
     {
@@ -24,21 +24,21 @@ CustomerUpdateRequest.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "{ [key: string]: any; }",
-        "format": ""
-    },
-    {
-        "name": "name",
-        "baseName": "name",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "phone",
         "baseName": "phone",
         "type": "string",
+        "format": ""
+    },
+    {
+        "name": "billing_details",
+        "baseName": "billing_details",
+        "type": "ICustomerBillingDetails",
+        "format": ""
+    },
+    {
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "{ [key: string]: any; }",
         "format": ""
     }
 ];

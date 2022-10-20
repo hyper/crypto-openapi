@@ -1,9 +1,9 @@
 import { IInvoice } from './IInvoice';
 export declare class InvoiceListResponse {
-    'data': Array<IInvoice>;
+    'total': number;
     'has_more': boolean;
     'page': number;
-    'total': number;
+    'data': Array<IInvoice>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -14,19 +14,19 @@ import { IPaymentLink } from './IPaymentLink';
 import { HttpFile } from '../http/http';
 
 export class PaymentLinkListResponse {
-    'data': Array<IPaymentLink>;
+    'total': number;
     'has_more': boolean;
     'page': number;
-    'total': number;
+    'data': Array<IPaymentLink>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "Array<IPaymentLink>",
-            "format": ""
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
+            "format": "double"
         },
         {
             "name": "has_more",
@@ -41,10 +41,10 @@ export class PaymentLinkListResponse {
             "format": "double"
         },
         {
-            "name": "total",
-            "baseName": "total",
-            "type": "number",
-            "format": "double"
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<IPaymentLink>",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {

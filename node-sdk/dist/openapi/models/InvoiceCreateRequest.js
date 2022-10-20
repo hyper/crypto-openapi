@@ -12,33 +12,9 @@ exports.InvoiceCreateRequest = InvoiceCreateRequest;
 InvoiceCreateRequest.discriminator = undefined;
 InvoiceCreateRequest.attributeTypeMap = [
     {
-        "name": "customer",
-        "baseName": "customer",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "due",
-        "baseName": "due",
-        "type": "Date | number",
-        "format": ""
-    },
-    {
-        "name": "line_items",
-        "baseName": "line_items",
-        "type": "Array<LineItem>",
-        "format": ""
-    },
-    {
         "name": "metadata",
         "baseName": "metadata",
         "type": "{ [key: string]: any; }",
-        "format": ""
-    },
-    {
-        "name": "notify",
-        "baseName": "notify",
-        "type": "boolean",
         "format": ""
     },
     {
@@ -48,10 +24,34 @@ InvoiceCreateRequest.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "customer",
+        "baseName": "customer",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "line_items",
+        "baseName": "line_items",
+        "type": "Array<LineItem>",
+        "format": ""
+    },
+    {
         "name": "trial_period_days",
         "baseName": "trial_period_days",
         "type": "number",
         "format": "double"
+    },
+    {
+        "name": "due",
+        "baseName": "due",
+        "type": "Date | number",
+        "format": ""
+    },
+    {
+        "name": "notify",
+        "baseName": "notify",
+        "type": "boolean",
+        "format": ""
     }
 ];
 //# sourceMappingURL=InvoiceCreateRequest.js.map

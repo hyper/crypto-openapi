@@ -12,16 +12,16 @@ exports.CheckoutCreateRequest = CheckoutCreateRequest;
 CheckoutCreateRequest.discriminator = undefined;
 CheckoutCreateRequest.attributeTypeMap = [
     {
-        "name": "amount",
-        "baseName": "amount",
-        "type": "number",
-        "format": "double"
-    },
-    {
         "name": "customer_details",
         "baseName": "customer_details",
         "type": "CustomerDetails",
         "format": ""
+    },
+    {
+        "name": "amount",
+        "baseName": "amount",
+        "type": "number",
+        "format": "double"
     }
 ];
 //# sourceMappingURL=CheckoutCreateRequest.js.map

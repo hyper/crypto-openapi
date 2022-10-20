@@ -12,10 +12,10 @@ exports.CustomerListResponse = CustomerListResponse;
 CustomerListResponse.discriminator = undefined;
 CustomerListResponse.attributeTypeMap = [
     {
-        "name": "data",
-        "baseName": "data",
-        "type": "Array<ICustomer>",
-        "format": ""
+        "name": "total",
+        "baseName": "total",
+        "type": "number",
+        "format": "double"
     },
     {
         "name": "has_more",
@@ -30,10 +30,10 @@ CustomerListResponse.attributeTypeMap = [
         "format": "double"
     },
     {
-        "name": "total",
-        "baseName": "total",
-        "type": "number",
-        "format": "double"
+        "name": "data",
+        "baseName": "data",
+        "type": "Array<ICustomer>",
+        "format": ""
     }
 ];
 //# sourceMappingURL=CustomerListResponse.js.map

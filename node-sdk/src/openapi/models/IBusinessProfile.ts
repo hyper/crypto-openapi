@@ -16,11 +16,11 @@ import { HttpFile } from '../http/http';
 export class IBusinessProfile {
     'name': string;
     'product_description'?: string;
-    'support_address'?: Address;
+    'url'?: string;
+    'support_url'?: string;
     'support_email'?: string;
     'support_phone'?: string;
-    'support_url'?: string;
-    'url'?: string;
+    'support_address'?: Address;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -38,9 +38,15 @@ export class IBusinessProfile {
             "format": ""
         },
         {
-            "name": "support_address",
-            "baseName": "support_address",
-            "type": "Address",
+            "name": "url",
+            "baseName": "url",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "support_url",
+            "baseName": "support_url",
+            "type": "string",
             "format": ""
         },
         {
@@ -56,15 +62,9 @@ export class IBusinessProfile {
             "format": ""
         },
         {
-            "name": "support_url",
-            "baseName": "support_url",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "url",
-            "baseName": "url",
-            "type": "string",
+            "name": "support_address",
+            "baseName": "support_address",
+            "type": "Address",
             "format": ""
         }    ];
 

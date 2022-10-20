@@ -12,15 +12,15 @@ exports.IApiKey = IApiKey;
 IApiKey.discriminator = undefined;
 IApiKey.attributeTypeMap = [
     {
-        "name": "account",
-        "baseName": "account",
+        "name": "id",
+        "baseName": "id",
         "type": "string",
         "format": ""
     },
     {
-        "name": "admin",
-        "baseName": "admin",
-        "type": "boolean",
+        "name": "object",
+        "baseName": "object",
+        "type": "string",
         "format": ""
     },
     {
@@ -30,21 +30,15 @@ IApiKey.attributeTypeMap = [
         "format": "double"
     },
     {
-        "name": "id",
-        "baseName": "id",
-        "type": "string",
+        "name": "test",
+        "baseName": "test",
+        "type": "boolean",
         "format": ""
     },
     {
-        "name": "key",
-        "baseName": "key",
+        "name": "account",
+        "baseName": "account",
         "type": "string",
-        "format": ""
-    },
-    {
-        "name": "last_used",
-        "baseName": "last_used",
-        "type": "Date | number",
         "format": ""
     },
     {
@@ -60,21 +54,27 @@ IApiKey.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "object",
-        "baseName": "object",
+        "name": "key",
+        "baseName": "key",
         "type": "string",
-        "format": ""
-    },
-    {
-        "name": "test",
-        "baseName": "test",
-        "type": "boolean",
         "format": ""
     },
     {
         "name": "type",
         "baseName": "type",
         "type": "ApiKeyType",
+        "format": ""
+    },
+    {
+        "name": "last_used",
+        "baseName": "last_used",
+        "type": "Date | number",
+        "format": ""
+    },
+    {
+        "name": "admin",
+        "baseName": "admin",
+        "type": "boolean",
         "format": ""
     }
 ];

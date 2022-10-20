@@ -1,17 +1,17 @@
 import { Headers } from './Headers';
 export declare class IRequest {
-    'api_key': string;
+    'ip': string;
+    'headers': Headers;
+    'method': string;
+    'origin': string;
     'body': {
         [key: string]: any;
     };
-    'headers': Headers;
-    'ip': string;
-    'method': string;
-    'origin': string;
+    'url': string;
+    'api_key': string;
     'query': {
         [key: string]: any;
     };
-    'url': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

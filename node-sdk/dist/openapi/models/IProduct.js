@@ -12,38 +12,8 @@ exports.IProduct = IProduct;
 IProduct.discriminator = undefined;
 IProduct.attributeTypeMap = [
     {
-        "name": "account",
-        "baseName": "account",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "active",
-        "baseName": "active",
-        "type": "boolean",
-        "format": ""
-    },
-    {
-        "name": "created",
-        "baseName": "created",
-        "type": "number",
-        "format": "double"
-    },
-    {
-        "name": "description",
-        "baseName": "description",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "id",
         "baseName": "id",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "name",
-        "baseName": "name",
         "type": "string",
         "format": ""
     },
@@ -54,15 +24,45 @@ IProduct.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "prices",
-        "baseName": "prices",
-        "type": "Array<IPrice>",
-        "format": ""
+        "name": "created",
+        "baseName": "created",
+        "type": "number",
+        "format": "double"
     },
     {
         "name": "test",
         "baseName": "test",
         "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "active",
+        "baseName": "active",
+        "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "account",
+        "baseName": "account",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "name",
+        "baseName": "name",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "description",
+        "baseName": "description",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "prices",
+        "baseName": "prices",
+        "type": "Array<IPrice>",
         "format": ""
     }
 ];

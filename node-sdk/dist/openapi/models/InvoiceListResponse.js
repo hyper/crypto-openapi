@@ -12,10 +12,10 @@ exports.InvoiceListResponse = InvoiceListResponse;
 InvoiceListResponse.discriminator = undefined;
 InvoiceListResponse.attributeTypeMap = [
     {
-        "name": "data",
-        "baseName": "data",
-        "type": "Array<IInvoice>",
-        "format": ""
+        "name": "total",
+        "baseName": "total",
+        "type": "number",
+        "format": "double"
     },
     {
         "name": "has_more",
@@ -30,10 +30,10 @@ InvoiceListResponse.attributeTypeMap = [
         "format": "double"
     },
     {
-        "name": "total",
-        "baseName": "total",
-        "type": "number",
-        "format": "double"
+        "name": "data",
+        "baseName": "data",
+        "type": "Array<IInvoice>",
+        "format": ""
     }
 ];
 //# sourceMappingURL=InvoiceListResponse.js.map

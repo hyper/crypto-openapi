@@ -15,18 +15,18 @@ import { PayoutWallet } from './PayoutWallet';
 import { HttpFile } from '../http/http';
 
 export class PayoutWalletCreateRequest {
-    'address'?: string;
-    'chain'?: Chain;
-    '_default'?: boolean;
     'type'?: PayoutWallet;
+    'chain'?: Chain;
+    'address'?: string;
+    '_default'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "address",
-            "baseName": "address",
-            "type": "string",
+            "name": "type",
+            "baseName": "type",
+            "type": "PayoutWallet",
             "format": ""
         },
         {
@@ -36,15 +36,15 @@ export class PayoutWalletCreateRequest {
             "format": ""
         },
         {
-            "name": "_default",
-            "baseName": "default",
-            "type": "boolean",
+            "name": "address",
+            "baseName": "address",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "type",
-            "baseName": "type",
-            "type": "PayoutWallet",
+            "name": "_default",
+            "baseName": "default",
+            "type": "boolean",
             "format": ""
         }    ];
 

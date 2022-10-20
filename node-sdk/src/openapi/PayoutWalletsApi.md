@@ -151,10 +151,10 @@ let body:.PayoutWalletsApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // PayoutWalletCreateRequest (optional)
   payout_wallet_create_request: {
-    address: "address_example",
-    chain: "eth",
-    _default: true,
     type: "external",
+    chain: "eth",
+    address: "address_example",
+    _default: true,
   },
 };
 
@@ -214,10 +214,10 @@ let body:.PayoutWalletsApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // PayoutWalletCreateRequest (optional)
   payout_wallet_create_request: {
-    address: "address_example",
-    chain: "eth",
-    _default: true,
     type: "external",
+    chain: "eth",
+    address: "address_example",
+    _default: true,
   },
 };
 
@@ -535,8 +535,8 @@ let body:.PayoutWalletsApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // PayoutWalletUpdateRequest (optional)
   payout_wallet_update_request: {
-    address: "address_example",
     chain: "eth",
+    address: "address_example",
     _default: true,
   },
 };
@@ -601,8 +601,8 @@ let body:.PayoutWalletsApiUpdate0Request = {
   pluto_account: "Pluto-Account_example",
   // PayoutWalletUpdateRequest (optional)
   payout_wallet_update_request: {
-    address: "address_example",
     chain: "eth",
+    address: "address_example",
     _default: true,
   },
 };

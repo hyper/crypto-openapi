@@ -12,15 +12,15 @@ exports.ITeamMember = ITeamMember;
 ITeamMember.discriminator = undefined;
 ITeamMember.attributeTypeMap = [
     {
-        "name": "owner",
-        "baseName": "owner",
-        "type": "boolean",
-        "format": ""
-    },
-    {
         "name": "user",
         "baseName": "user",
         "type": "string",
+        "format": ""
+    },
+    {
+        "name": "owner",
+        "baseName": "owner",
+        "type": "boolean",
         "format": ""
     }
 ];

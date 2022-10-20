@@ -17,7 +17,6 @@ export * from './CheckoutStatus';
 export * from './Currency';
 export * from './CustomAmount';
 export * from './CustomerCreateRequest';
-export * from './CustomerCreateRequestBillingDetails';
 export * from './CustomerDetails';
 export * from './CustomerListResponse';
 export * from './CustomerUpdateRequest';
@@ -32,6 +31,7 @@ export * from './IBranding';
 export * from './IBusinessProfile';
 export * from './ICheckout';
 export * from './ICustomer';
+export * from './ICustomerBillingDetails';
 export * from './IFee';
 export * from './IIntegrations';
 export * from './IIntegrationsFtx';
@@ -106,7 +106,6 @@ import { CheckoutStatus } from './CheckoutStatus';
 import { Currency } from './Currency';
 import { CustomAmount } from './CustomAmount';
 import { CustomerCreateRequest } from './CustomerCreateRequest';
-import { CustomerCreateRequestBillingDetails } from './CustomerCreateRequestBillingDetails';
 import { CustomerDetails } from './CustomerDetails';
 import { CustomerListResponse } from './CustomerListResponse';
 import { CustomerUpdateRequest } from './CustomerUpdateRequest';
@@ -121,6 +120,7 @@ import { IBranding } from './IBranding';
 import { IBusinessProfile } from './IBusinessProfile';
 import { ICheckout } from './ICheckout';
 import { ICustomer } from './ICustomer';
+import { ICustomerBillingDetails } from './ICustomerBillingDetails';
 import { IFee } from './IFee';
 import { IIntegrations } from './IIntegrations';
 import { IIntegrationsFtx } from './IIntegrationsFtx';
@@ -223,7 +223,6 @@ let typeMap: {[index: string]: any} = {
     "CheckoutListResponse": CheckoutListResponse,
     "CustomAmount": CustomAmount,
     "CustomerCreateRequest": CustomerCreateRequest,
-    "CustomerCreateRequestBillingDetails": CustomerCreateRequestBillingDetails,
     "CustomerDetails": CustomerDetails,
     "CustomerListResponse": CustomerListResponse,
     "CustomerUpdateRequest": CustomerUpdateRequest,
@@ -237,6 +236,7 @@ let typeMap: {[index: string]: any} = {
     "IBusinessProfile": IBusinessProfile,
     "ICheckout": ICheckout,
     "ICustomer": ICustomer,
+    "ICustomerBillingDetails": ICustomerBillingDetails,
     "IFee": IFee,
     "IIntegrations": IIntegrations,
     "IIntegrationsFtx": IIntegrationsFtx,

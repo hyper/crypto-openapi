@@ -1,14 +1,14 @@
 import { IPrice } from './IPrice';
 export declare class IProduct {
-    'account': string;
-    'active': boolean;
-    'created': number;
-    'description'?: string;
     'id': string;
-    'name': string;
     'object': string;
-    'prices'?: Array<IPrice>;
+    'created': number;
     'test': boolean;
+    'active': boolean;
+    'account': string;
+    'name': string;
+    'description'?: string;
+    'prices'?: Array<IPrice>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -13,37 +13,19 @@
 import { HttpFile } from '../http/http';
 
 export class Address {
-    'city'?: string;
-    'country'?: string;
-    'line1'?: string;
-    'line2'?: string;
-    'postal_code'?: string;
     'state'?: string;
+    'postal_code'?: string;
+    'line2'?: string;
+    'line1'?: string;
+    'country'?: string;
+    'city'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "city",
-            "baseName": "city",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "country",
-            "baseName": "country",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "line1",
-            "baseName": "line1",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "line2",
-            "baseName": "line2",
+            "name": "state",
+            "baseName": "state",
             "type": "string",
             "format": ""
         },
@@ -54,8 +36,26 @@ export class Address {
             "format": ""
         },
         {
-            "name": "state",
-            "baseName": "state",
+            "name": "line2",
+            "baseName": "line2",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "line1",
+            "baseName": "line1",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "country",
+            "baseName": "country",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "city",
+            "baseName": "city",
             "type": "string",
             "format": ""
         }    ];

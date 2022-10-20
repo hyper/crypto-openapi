@@ -1,7 +1,7 @@
 export declare class TransferCreateRequest {
-    'description'?: string;
     'payment_intent'?: string;
     'percent'?: number;
+    'description'?: string;
     'wallet'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

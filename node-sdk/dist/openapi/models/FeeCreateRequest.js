@@ -12,12 +12,6 @@ exports.FeeCreateRequest = FeeCreateRequest;
 FeeCreateRequest.discriminator = undefined;
 FeeCreateRequest.attributeTypeMap = [
     {
-        "name": "description",
-        "baseName": "description",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "payment_intent",
         "baseName": "payment_intent",
         "type": "string",
@@ -28,6 +22,12 @@ FeeCreateRequest.attributeTypeMap = [
         "baseName": "percent",
         "type": "number",
         "format": "double"
+    },
+    {
+        "name": "description",
+        "baseName": "description",
+        "type": "string",
+        "format": ""
     }
 ];
 //# sourceMappingURL=FeeCreateRequest.js.map

@@ -12,21 +12,21 @@ exports.SubscriptionUpdateRequest = SubscriptionUpdateRequest;
 SubscriptionUpdateRequest.discriminator = undefined;
 SubscriptionUpdateRequest.attributeTypeMap = [
     {
-        "name": "cancel_at",
-        "baseName": "cancel_at",
-        "type": "Date | number",
-        "format": ""
-    },
-    {
-        "name": "cancel_at_period_end",
-        "baseName": "cancel_at_period_end",
-        "type": "boolean",
-        "format": ""
-    },
-    {
         "name": "metadata",
         "baseName": "metadata",
         "type": "{ [key: string]: any; }",
+        "format": ""
+    },
+    {
+        "name": "price",
+        "baseName": "price",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "cancel_at",
+        "baseName": "cancel_at",
+        "type": "Date | number",
         "format": ""
     },
     {
@@ -36,9 +36,21 @@ SubscriptionUpdateRequest.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "price",
-        "baseName": "price",
-        "type": "string",
+        "name": "cancel_at_period_end",
+        "baseName": "cancel_at_period_end",
+        "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "current_period_start",
+        "baseName": "current_period_start",
+        "type": "Date | number",
+        "format": ""
+    },
+    {
+        "name": "current_period_end",
+        "baseName": "current_period_end",
+        "type": "Date | number",
         "format": ""
     }
 ];

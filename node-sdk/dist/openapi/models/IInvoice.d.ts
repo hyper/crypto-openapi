@@ -1,28 +1,28 @@
 import { InvoiceStatus } from './InvoiceStatus';
 import { LineItem } from './LineItem';
 export declare class IInvoice {
-    'account': string;
-    'created': number;
-    'customer': string;
-    'due'?: Date | number;
-    'hosted_invoice_url': string;
     'id': string;
-    'invoice_pdf'?: string;
+    'object': string;
+    'created': number;
+    'test': boolean;
+    'account': string;
+    'platform_account'?: string;
+    'status': InvoiceStatus;
+    'number': string;
+    'price': string;
+    'customer': string;
     'line_items': Array<LineItem>;
+    'trial_period_days': number;
+    'subscription'?: string;
+    'period_start'?: Date | number;
+    'period_end'?: Date | number;
+    'due'?: Date | number;
+    'notify': boolean;
+    'invoice_pdf'?: string;
+    'hosted_invoice_url': string;
     'metadata': {
         [key: string]: any;
     };
-    'notify': boolean;
-    'number': string;
-    'object': string;
-    'period_end'?: Date | number;
-    'period_start'?: Date | number;
-    'platform_account'?: string;
-    'price': string;
-    'status': InvoiceStatus;
-    'subscription'?: string;
-    'test': boolean;
-    'trial_period_days': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

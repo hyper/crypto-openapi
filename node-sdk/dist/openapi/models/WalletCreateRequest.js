@@ -12,8 +12,8 @@ exports.WalletCreateRequest = WalletCreateRequest;
 WalletCreateRequest.discriminator = undefined;
 WalletCreateRequest.attributeTypeMap = [
     {
-        "name": "address",
-        "baseName": "address",
+        "name": "customer",
+        "baseName": "customer",
         "type": "string",
         "format": ""
     },
@@ -24,8 +24,8 @@ WalletCreateRequest.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "customer",
-        "baseName": "customer",
+        "name": "address",
+        "baseName": "address",
         "type": "string",
         "format": ""
     }

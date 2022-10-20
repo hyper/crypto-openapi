@@ -12,6 +12,12 @@ exports.WebhookCreateRequest = WebhookCreateRequest;
 WebhookCreateRequest.discriminator = undefined;
 WebhookCreateRequest.attributeTypeMap = [
     {
+        "name": "secret",
+        "baseName": "secret",
+        "type": "string",
+        "format": ""
+    },
+    {
         "name": "endpoint_url",
         "baseName": "endpoint_url",
         "type": "string",
@@ -21,12 +27,6 @@ WebhookCreateRequest.attributeTypeMap = [
         "name": "event_types",
         "baseName": "event_types",
         "type": "Array<EventType>",
-        "format": ""
-    },
-    {
-        "name": "secret",
-        "baseName": "secret",
-        "type": "string",
         "format": ""
     }
 ];

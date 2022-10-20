@@ -12,12 +12,6 @@ exports.ISettings = ISettings;
 ISettings.discriminator = undefined;
 ISettings.attributeTypeMap = [
     {
-        "name": "billing",
-        "baseName": "billing",
-        "type": "IBilling",
-        "format": ""
-    },
-    {
         "name": "branding",
         "baseName": "branding",
         "type": "IBranding",
@@ -27,6 +21,12 @@ ISettings.attributeTypeMap = [
         "name": "payments",
         "baseName": "payments",
         "type": "IPayments",
+        "format": ""
+    },
+    {
+        "name": "billing",
+        "baseName": "billing",
+        "type": "IBilling",
         "format": ""
     }
 ];

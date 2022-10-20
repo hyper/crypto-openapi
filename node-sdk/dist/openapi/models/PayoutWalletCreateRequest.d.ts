@@ -1,10 +1,10 @@
 import { Chain } from './Chain';
 import { PayoutWallet } from './PayoutWallet';
 export declare class PayoutWalletCreateRequest {
-    'address'?: string;
-    'chain'?: Chain;
-    '_default'?: boolean;
     'type'?: PayoutWallet;
+    'chain'?: Chain;
+    'address'?: string;
+    '_default'?: boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

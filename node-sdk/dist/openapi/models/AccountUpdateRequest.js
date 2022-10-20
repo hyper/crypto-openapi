@@ -12,15 +12,15 @@ exports.AccountUpdateRequest = AccountUpdateRequest;
 AccountUpdateRequest.discriminator = undefined;
 AccountUpdateRequest.attributeTypeMap = [
     {
-        "name": "business_profile",
-        "baseName": "business_profile",
-        "type": "IBusinessProfile",
-        "format": ""
-    },
-    {
         "name": "settings",
         "baseName": "settings",
         "type": "ISettings",
+        "format": ""
+    },
+    {
+        "name": "business_profile",
+        "baseName": "business_profile",
+        "type": "IBusinessProfile",
         "format": ""
     }
 ];

@@ -1,13 +1,13 @@
 import { Chain } from './Chain';
 export declare class IWallet {
-    'account': string;
-    'address': string;
-    'chain': Chain;
-    'created': number;
-    'customer': string;
     'id': string;
     'object': string;
+    'created': number;
     'test': boolean;
+    'account': string;
+    'chain': Chain;
+    'address': string;
+    'customer': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

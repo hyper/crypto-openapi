@@ -10,74 +10,32 @@
  * Do not edit the class manually.
  */
 
-import { CustomerCreateRequestBillingDetails } from './CustomerCreateRequestBillingDetails';
+import { ICustomerBillingDetails } from './ICustomerBillingDetails';
 import { IPaymentIntent } from './IPaymentIntent';
 import { IWallet } from './IWallet';
 import { HttpFile } from '../http/http';
 
 export class ICustomer {
-    'account': string;
-    'billing_details': CustomerCreateRequestBillingDetails;
-    'created': number;
-    'email'?: string;
     'id': string;
-    'last_payment'?: IPaymentIntent;
-    'metadata': { [key: string]: any; };
-    'name'?: string;
     'object': string;
-    'payments'?: number;
-    'phone'?: string;
+    'created': number;
     'test': boolean;
+    'account': string;
+    'name'?: string;
+    'email'?: string;
+    'phone'?: string;
     'wallets': Array<IWallet>;
+    'payments'?: number;
+    'last_payment'?: IPaymentIntent;
+    'billing_details': ICustomerBillingDetails;
+    'metadata': { [key: string]: any; };
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "account",
-            "baseName": "account",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "billing_details",
-            "baseName": "billing_details",
-            "type": "CustomerCreateRequestBillingDetails",
-            "format": ""
-        },
-        {
-            "name": "created",
-            "baseName": "created",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "email",
-            "baseName": "email",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "id",
             "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "last_payment",
-            "baseName": "last_payment",
-            "type": "IPaymentIntent",
-            "format": ""
-        },
-        {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "{ [key: string]: any; }",
-            "format": ""
-        },
-        {
-            "name": "name",
-            "baseName": "name",
             "type": "string",
             "format": ""
         },
@@ -88,16 +46,10 @@ export class ICustomer {
             "format": ""
         },
         {
-            "name": "payments",
-            "baseName": "payments",
+            "name": "created",
+            "baseName": "created",
             "type": "number",
             "format": "double"
-        },
-        {
-            "name": "phone",
-            "baseName": "phone",
-            "type": "string",
-            "format": ""
         },
         {
             "name": "test",
@@ -106,9 +58,57 @@ export class ICustomer {
             "format": ""
         },
         {
+            "name": "account",
+            "baseName": "account",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "name",
+            "baseName": "name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "email",
+            "baseName": "email",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "phone",
+            "baseName": "phone",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "wallets",
             "baseName": "wallets",
             "type": "Array<IWallet>",
+            "format": ""
+        },
+        {
+            "name": "payments",
+            "baseName": "payments",
+            "type": "number",
+            "format": "double"
+        },
+        {
+            "name": "last_payment",
+            "baseName": "last_payment",
+            "type": "IPaymentIntent",
+            "format": ""
+        },
+        {
+            "name": "billing_details",
+            "baseName": "billing_details",
+            "type": "ICustomerBillingDetails",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "{ [key: string]: any; }",
             "format": ""
         }    ];
 

@@ -14,52 +14,22 @@ import { IPrice } from './IPrice';
 import { HttpFile } from '../http/http';
 
 export class IProduct {
-    'account': string;
-    'active': boolean;
-    'created': number;
-    'description'?: string;
     'id': string;
-    'name': string;
     'object': string;
-    'prices'?: Array<IPrice>;
+    'created': number;
     'test': boolean;
+    'active': boolean;
+    'account': string;
+    'name': string;
+    'description'?: string;
+    'prices'?: Array<IPrice>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "account",
-            "baseName": "account",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "active",
-            "baseName": "active",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "created",
-            "baseName": "created",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "description",
-            "baseName": "description",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "id",
             "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "name",
-            "baseName": "name",
             "type": "string",
             "format": ""
         },
@@ -70,15 +40,45 @@ export class IProduct {
             "format": ""
         },
         {
-            "name": "prices",
-            "baseName": "prices",
-            "type": "Array<IPrice>",
-            "format": ""
+            "name": "created",
+            "baseName": "created",
+            "type": "number",
+            "format": "double"
         },
         {
             "name": "test",
             "baseName": "test",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "active",
+            "baseName": "active",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "account",
+            "baseName": "account",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "name",
+            "baseName": "name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "description",
+            "baseName": "description",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "prices",
+            "baseName": "prices",
+            "type": "Array<IPrice>",
             "format": ""
         }    ];
 

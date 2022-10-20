@@ -1,14 +1,14 @@
 import { Chain } from './Chain';
 import { PayoutWallet } from './PayoutWallet';
 export declare class IPayoutWallet {
-    'account': string;
-    'address': string;
-    'chain': Chain;
-    'created': number;
-    '_default': boolean;
     'id': string;
     'object': string;
+    'created': number;
     'test': boolean;
+    'account': string;
+    'chain': Chain;
+    'address': string;
+    '_default': boolean;
     'type': PayoutWallet;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

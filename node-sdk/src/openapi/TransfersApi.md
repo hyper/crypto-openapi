@@ -31,9 +31,9 @@ let body:.TransfersApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // TransferCreateRequest (optional)
   transfer_create_request: {
-    description: "description_example",
     payment_intent: "payment_intent_example",
     percent: 3.14,
+    description: "description_example",
     wallet: "wallet_example",
   },
 };
@@ -94,9 +94,9 @@ let body:.TransfersApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // TransferCreateRequest (optional)
   transfer_create_request: {
-    description: "description_example",
     payment_intent: "payment_intent_example",
     percent: 3.14,
+    description: "description_example",
     wallet: "wallet_example",
   },
 };

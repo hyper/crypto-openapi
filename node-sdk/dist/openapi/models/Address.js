@@ -12,26 +12,8 @@ exports.Address = Address;
 Address.discriminator = undefined;
 Address.attributeTypeMap = [
     {
-        "name": "city",
-        "baseName": "city",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "country",
-        "baseName": "country",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "line1",
-        "baseName": "line1",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "line2",
-        "baseName": "line2",
+        "name": "state",
+        "baseName": "state",
         "type": "string",
         "format": ""
     },
@@ -42,8 +24,26 @@ Address.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "state",
-        "baseName": "state",
+        "name": "line2",
+        "baseName": "line2",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "line1",
+        "baseName": "line1",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "country",
+        "baseName": "country",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "city",
+        "baseName": "city",
         "type": "string",
         "format": ""
     }

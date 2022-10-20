@@ -14,23 +14,23 @@ import { CustomerDetails } from './CustomerDetails';
 import { HttpFile } from '../http/http';
 
 export class CheckoutCreateRequest {
-    'amount'?: number;
     'customer_details'?: CustomerDetails;
+    'amount'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
-            "format": "double"
-        },
-        {
             "name": "customer_details",
             "baseName": "customer_details",
             "type": "CustomerDetails",
             "format": ""
+        },
+        {
+            "name": "amount",
+            "baseName": "amount",
+            "type": "number",
+            "format": "double"
         }    ];
 
     static getAttributeTypeMap() {

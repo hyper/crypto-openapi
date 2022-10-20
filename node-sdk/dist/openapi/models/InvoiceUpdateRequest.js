@@ -12,21 +12,27 @@ exports.InvoiceUpdateRequest = InvoiceUpdateRequest;
 InvoiceUpdateRequest.discriminator = undefined;
 InvoiceUpdateRequest.attributeTypeMap = [
     {
-        "name": "due",
-        "baseName": "due",
-        "type": "Date | number",
-        "format": ""
-    },
-    {
         "name": "metadata",
         "baseName": "metadata",
         "type": "{ [key: string]: any; }",
         "format": ""
     },
     {
+        "name": "due",
+        "baseName": "due",
+        "type": "Date | number",
+        "format": ""
+    },
+    {
         "name": "notify",
         "baseName": "notify",
         "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "status",
+        "baseName": "status",
+        "type": "InvoiceStatus",
         "format": ""
     }
 ];

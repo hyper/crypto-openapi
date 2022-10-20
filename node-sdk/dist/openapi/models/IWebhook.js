@@ -12,8 +12,14 @@ exports.IWebhook = IWebhook;
 IWebhook.discriminator = undefined;
 IWebhook.attributeTypeMap = [
     {
-        "name": "account",
-        "baseName": "account",
+        "name": "id",
+        "baseName": "id",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "object",
+        "baseName": "object",
         "type": "string",
         "format": ""
     },
@@ -22,6 +28,18 @@ IWebhook.attributeTypeMap = [
         "baseName": "created",
         "type": "number",
         "format": "double"
+    },
+    {
+        "name": "test",
+        "baseName": "test",
+        "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "account",
+        "baseName": "account",
+        "type": "string",
+        "format": ""
     },
     {
         "name": "endpoint_url",
@@ -36,27 +54,9 @@ IWebhook.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "id",
-        "baseName": "id",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "object",
-        "baseName": "object",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "secret",
         "baseName": "secret",
         "type": "string",
-        "format": ""
-    },
-    {
-        "name": "test",
-        "baseName": "test",
-        "type": "boolean",
         "format": ""
     }
 ];

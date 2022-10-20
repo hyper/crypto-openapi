@@ -13,17 +13,17 @@
 import { HttpFile } from '../http/http';
 
 export class ProductUpdateRequest {
-    'active'?: boolean;
-    'description'?: string;
     'name'?: string;
+    'description'?: string;
+    'active'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "active",
-            "baseName": "active",
-            "type": "boolean",
+            "name": "name",
+            "baseName": "name",
+            "type": "string",
             "format": ""
         },
         {
@@ -33,9 +33,9 @@ export class ProductUpdateRequest {
             "format": ""
         },
         {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
+            "name": "active",
+            "baseName": "active",
+            "type": "boolean",
             "format": ""
         }    ];
 

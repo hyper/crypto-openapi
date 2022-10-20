@@ -31,9 +31,9 @@ let body:.FeesApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // FeeCreateRequest (optional)
   fee_create_request: {
-    description: "description_example",
     payment_intent: "payment_intent_example",
     percent: 3.14,
+    description: "description_example",
   },
 };
 
@@ -93,9 +93,9 @@ let body:.FeesApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // FeeCreateRequest (optional)
   fee_create_request: {
-    description: "description_example",
     payment_intent: "payment_intent_example",
     percent: 3.14,
+    description: "description_example",
   },
 };
 

@@ -12,10 +12,10 @@ exports.ApiKeyListResponse = ApiKeyListResponse;
 ApiKeyListResponse.discriminator = undefined;
 ApiKeyListResponse.attributeTypeMap = [
     {
-        "name": "data",
-        "baseName": "data",
-        "type": "Array<IApiKey>",
-        "format": ""
+        "name": "total",
+        "baseName": "total",
+        "type": "number",
+        "format": "double"
     },
     {
         "name": "has_more",
@@ -30,10 +30,10 @@ ApiKeyListResponse.attributeTypeMap = [
         "format": "double"
     },
     {
-        "name": "total",
-        "baseName": "total",
-        "type": "number",
-        "format": "double"
+        "name": "data",
+        "baseName": "data",
+        "type": "Array<IApiKey>",
+        "format": ""
     }
 ];
 //# sourceMappingURL=ApiKeyListResponse.js.map

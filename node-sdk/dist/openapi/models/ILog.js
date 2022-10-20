@@ -12,8 +12,14 @@ exports.ILog = ILog;
 ILog.discriminator = undefined;
 ILog.attributeTypeMap = [
     {
-        "name": "account",
-        "baseName": "account",
+        "name": "id",
+        "baseName": "id",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "object",
+        "baseName": "object",
         "type": "string",
         "format": ""
     },
@@ -24,14 +30,14 @@ ILog.attributeTypeMap = [
         "format": "double"
     },
     {
-        "name": "id",
-        "baseName": "id",
-        "type": "string",
+        "name": "test",
+        "baseName": "test",
+        "type": "boolean",
         "format": ""
     },
     {
-        "name": "object",
-        "baseName": "object",
+        "name": "account",
+        "baseName": "account",
         "type": "string",
         "format": ""
     },
@@ -45,12 +51,6 @@ ILog.attributeTypeMap = [
         "name": "response",
         "baseName": "response",
         "type": "IResponse",
-        "format": ""
-    },
-    {
-        "name": "test",
-        "baseName": "test",
-        "type": "boolean",
         "format": ""
     }
 ];

@@ -14,19 +14,19 @@ import { IPayoutWallet } from './IPayoutWallet';
 import { HttpFile } from '../http/http';
 
 export class PayoutWalletListResponse {
-    'data': Array<IPayoutWallet>;
+    'total': number;
     'has_more': boolean;
     'page': number;
-    'total': number;
+    'data': Array<IPayoutWallet>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "Array<IPayoutWallet>",
-            "format": ""
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
+            "format": "double"
         },
         {
             "name": "has_more",
@@ -41,10 +41,10 @@ export class PayoutWalletListResponse {
             "format": "double"
         },
         {
-            "name": "total",
-            "baseName": "total",
-            "type": "number",
-            "format": "double"
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<IPayoutWallet>",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {

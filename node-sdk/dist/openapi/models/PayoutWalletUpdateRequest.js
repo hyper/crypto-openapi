@@ -12,15 +12,15 @@ exports.PayoutWalletUpdateRequest = PayoutWalletUpdateRequest;
 PayoutWalletUpdateRequest.discriminator = undefined;
 PayoutWalletUpdateRequest.attributeTypeMap = [
     {
-        "name": "address",
-        "baseName": "address",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "chain",
         "baseName": "chain",
         "type": "Chain",
+        "format": ""
+    },
+    {
+        "name": "address",
+        "baseName": "address",
+        "type": "string",
         "format": ""
     },
     {

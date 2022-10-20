@@ -1,9 +1,9 @@
 import { ITransfer } from './ITransfer';
 export declare class TransferListResponse {
-    'data': Array<ITransfer>;
+    'total': number;
     'has_more': boolean;
     'page': number;
-    'total': number;
+    'data': Array<ITransfer>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

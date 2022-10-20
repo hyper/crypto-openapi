@@ -13,20 +13,14 @@
 import { HttpFile } from '../http/http';
 
 export class TransferCreateRequest {
-    'description'?: string;
     'payment_intent'?: string;
     'percent'?: number;
+    'description'?: string;
     'wallet'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "description",
-            "baseName": "description",
-            "type": "string",
-            "format": ""
-        },
         {
             "name": "payment_intent",
             "baseName": "payment_intent",
@@ -38,6 +32,12 @@ export class TransferCreateRequest {
             "baseName": "percent",
             "type": "number",
             "format": "double"
+        },
+        {
+            "name": "description",
+            "baseName": "description",
+            "type": "string",
+            "format": ""
         },
         {
             "name": "wallet",

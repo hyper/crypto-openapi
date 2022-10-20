@@ -2,9 +2,9 @@ import { IBilling } from './IBilling';
 import { IBranding } from './IBranding';
 import { IPayments } from './IPayments';
 export declare class ISettings {
-    'billing': IBilling;
     'branding': IBranding;
     'payments': IPayments;
+    'billing': IBilling;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

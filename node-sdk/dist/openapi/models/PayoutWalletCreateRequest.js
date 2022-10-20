@@ -12,9 +12,9 @@ exports.PayoutWalletCreateRequest = PayoutWalletCreateRequest;
 PayoutWalletCreateRequest.discriminator = undefined;
 PayoutWalletCreateRequest.attributeTypeMap = [
     {
-        "name": "address",
-        "baseName": "address",
-        "type": "string",
+        "name": "type",
+        "baseName": "type",
+        "type": "PayoutWallet",
         "format": ""
     },
     {
@@ -24,15 +24,15 @@ PayoutWalletCreateRequest.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "_default",
-        "baseName": "default",
-        "type": "boolean",
+        "name": "address",
+        "baseName": "address",
+        "type": "string",
         "format": ""
     },
     {
-        "name": "type",
-        "baseName": "type",
-        "type": "PayoutWallet",
+        "name": "_default",
+        "baseName": "default",
+        "type": "boolean",
         "format": ""
     }
 ];

@@ -1,11 +1,13 @@
 export declare class SubscriptionUpdateRequest {
-    'cancel_at'?: Date | number;
-    'cancel_at_period_end'?: boolean;
     'metadata'?: {
         [key: string]: any;
     };
-    'pause_collection'?: boolean;
     'price'?: string;
+    'cancel_at'?: Date | number;
+    'pause_collection'?: boolean;
+    'cancel_at_period_end'?: boolean;
+    'current_period_start'?: Date | number;
+    'current_period_end'?: Date | number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

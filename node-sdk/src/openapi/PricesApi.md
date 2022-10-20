@@ -152,29 +152,29 @@ let body:.PricesApiCreateRequest = {
   // PriceCreateRequest (optional)
   price_create_request: {
     amount: 3.14,
-    application_fee_percent: 3.14,
-    archived: true,
-    base_price: {
-      amount: 3.14,
-      currency: "currency_example",
-      custom_amount: {
-        _default: 3.14,
-        maximum: 3.14,
-        minimum: 3.14,
-      },
+    metadata: {
+      "key": null,
     },
-    billing_period_days: 3.14,
     chain: "eth",
+    application_fee_percent: 3.14,
     currency: "eth",
     custom_amount: {
       _default: 3.14,
       maximum: 3.14,
       minimum: 3.14,
     },
-    metadata: {
-      "key": null,
-    },
     product: "product_example",
+    base_price: {
+      custom_amount: {
+        _default: 3.14,
+        maximum: 3.14,
+        minimum: 3.14,
+      },
+      amount: 3.14,
+      currency: "currency_example",
+    },
+    billing_period_days: 3.14,
+    archived: true,
   },
 };
 
@@ -235,29 +235,29 @@ let body:.PricesApiCreate0Request = {
   // PriceCreateRequest (optional)
   price_create_request: {
     amount: 3.14,
-    application_fee_percent: 3.14,
-    archived: true,
-    base_price: {
-      amount: 3.14,
-      currency: "currency_example",
-      custom_amount: {
-        _default: 3.14,
-        maximum: 3.14,
-        minimum: 3.14,
-      },
+    metadata: {
+      "key": null,
     },
-    billing_period_days: 3.14,
     chain: "eth",
+    application_fee_percent: 3.14,
     currency: "eth",
     custom_amount: {
       _default: 3.14,
       maximum: 3.14,
       minimum: 3.14,
     },
-    metadata: {
-      "key": null,
-    },
     product: "product_example",
+    base_price: {
+      custom_amount: {
+        _default: 3.14,
+        maximum: 3.14,
+        minimum: 3.14,
+      },
+      amount: 3.14,
+      currency: "currency_example",
+    },
+    billing_period_days: 3.14,
+    archived: true,
   },
 };
 
@@ -575,10 +575,11 @@ let body:.PricesApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // PriceUpdateRequest (optional)
   price_update_request: {
-    archived: true,
     metadata: {
       "key": null,
     },
+    application_fee_percent: 3.14,
+    archived: true,
   },
 };
 
@@ -642,10 +643,11 @@ let body:.PricesApiUpdate0Request = {
   pluto_account: "Pluto-Account_example",
   // PriceUpdateRequest (optional)
   price_update_request: {
-    archived: true,
     metadata: {
       "key": null,
     },
+    application_fee_percent: 3.14,
+    archived: true,
   },
 };
 

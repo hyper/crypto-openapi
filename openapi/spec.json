@@ -22,6 +22,12 @@
           "business_profile": {
             "$ref": "#/components/schemas/IBusinessProfile"
           },
+          "connected_accounts": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "settings": {
             "$ref": "#/components/schemas/ISettings"
           }
@@ -1801,6 +1807,9 @@
           },
           "notify": {
             "type": "boolean"
+          },
+          "status": {
+            "$ref": "#/components/schemas/InvoiceStatus"
           }
         },
         "type": "object"
@@ -2158,6 +2167,10 @@
       "PriceUpdateRequest": {
         "additionalProperties": false,
         "properties": {
+          "application_fee_percent": {
+            "format": "double",
+            "type": "number"
+          },
           "archived": {
             "type": "boolean"
           },
@@ -2307,6 +2320,30 @@
           },
           "cancel_at_period_end": {
             "type": "boolean"
+          },
+          "current_period_end": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "format": "double",
+                "type": "number"
+              }
+            ]
+          },
+          "current_period_start": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "format": "double",
+                "type": "number"
+              }
+            ]
           },
           "metadata": {
             "additionalProperties": {},

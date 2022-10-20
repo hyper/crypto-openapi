@@ -14,40 +14,28 @@ import { Headers } from './Headers';
 import { HttpFile } from '../http/http';
 
 export class IRequest {
-    'api_key': string;
-    'body': { [key: string]: any; };
-    'headers': Headers;
     'ip': string;
+    'headers': Headers;
     'method': string;
     'origin': string;
-    'query': { [key: string]: any; };
+    'body': { [key: string]: any; };
     'url': string;
+    'api_key': string;
+    'query': { [key: string]: any; };
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "api_key",
-            "baseName": "api_key",
+            "name": "ip",
+            "baseName": "ip",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "body",
-            "baseName": "body",
-            "type": "{ [key: string]: any; }",
             "format": ""
         },
         {
             "name": "headers",
             "baseName": "headers",
             "type": "Headers",
-            "format": ""
-        },
-        {
-            "name": "ip",
-            "baseName": "ip",
-            "type": "string",
             "format": ""
         },
         {
@@ -63,8 +51,8 @@ export class IRequest {
             "format": ""
         },
         {
-            "name": "query",
-            "baseName": "query",
+            "name": "body",
+            "baseName": "body",
             "type": "{ [key: string]: any; }",
             "format": ""
         },
@@ -72,6 +60,18 @@ export class IRequest {
             "name": "url",
             "baseName": "url",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "api_key",
+            "baseName": "api_key",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "query",
+            "baseName": "query",
+            "type": "{ [key: string]: any; }",
             "format": ""
         }    ];
 

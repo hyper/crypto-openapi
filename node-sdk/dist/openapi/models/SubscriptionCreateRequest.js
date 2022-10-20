@@ -12,9 +12,15 @@ exports.SubscriptionCreateRequest = SubscriptionCreateRequest;
 SubscriptionCreateRequest.discriminator = undefined;
 SubscriptionCreateRequest.attributeTypeMap = [
     {
-        "name": "cancel_at",
-        "baseName": "cancel_at",
-        "type": "Date | number",
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "{ [key: string]: any; }",
+        "format": ""
+    },
+    {
+        "name": "price",
+        "baseName": "price",
+        "type": "string",
         "format": ""
     },
     {
@@ -30,22 +36,16 @@ SubscriptionCreateRequest.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "{ [key: string]: any; }",
-        "format": ""
-    },
-    {
-        "name": "price",
-        "baseName": "price",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "trial_period_days",
         "baseName": "trial_period_days",
         "type": "number",
         "format": "double"
+    },
+    {
+        "name": "cancel_at",
+        "baseName": "cancel_at",
+        "type": "Date | number",
+        "format": ""
     }
 ];
 //# sourceMappingURL=SubscriptionCreateRequest.js.map

@@ -12,27 +12,15 @@ exports.IRequest = IRequest;
 IRequest.discriminator = undefined;
 IRequest.attributeTypeMap = [
     {
-        "name": "api_key",
-        "baseName": "api_key",
+        "name": "ip",
+        "baseName": "ip",
         "type": "string",
-        "format": ""
-    },
-    {
-        "name": "body",
-        "baseName": "body",
-        "type": "{ [key: string]: any; }",
         "format": ""
     },
     {
         "name": "headers",
         "baseName": "headers",
         "type": "Headers",
-        "format": ""
-    },
-    {
-        "name": "ip",
-        "baseName": "ip",
-        "type": "string",
         "format": ""
     },
     {
@@ -48,8 +36,8 @@ IRequest.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "query",
-        "baseName": "query",
+        "name": "body",
+        "baseName": "body",
         "type": "{ [key: string]: any; }",
         "format": ""
     },
@@ -57,6 +45,18 @@ IRequest.attributeTypeMap = [
         "name": "url",
         "baseName": "url",
         "type": "string",
+        "format": ""
+    },
+    {
+        "name": "api_key",
+        "baseName": "api_key",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "query",
+        "baseName": "query",
+        "type": "{ [key: string]: any; }",
         "format": ""
     }
 ];
