@@ -15,9 +15,9 @@ import { HttpFile } from '../http/http';
 
 export class LineItem {
     'description'?: string;
+    'price': string;
     'price_data'?: IPrice;
     'quantity': number;
-    'price': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -25,6 +25,12 @@ export class LineItem {
         {
             "name": "description",
             "baseName": "description",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "price",
+            "baseName": "price",
             "type": "string",
             "format": ""
         },
@@ -39,12 +45,6 @@ export class LineItem {
             "baseName": "quantity",
             "type": "number",
             "format": "double"
-        },
-        {
-            "name": "price",
-            "baseName": "price",
-            "type": "string",
-            "format": ""
         }    ];
 
     static getAttributeTypeMap() {

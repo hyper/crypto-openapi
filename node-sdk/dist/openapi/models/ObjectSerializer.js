@@ -14,7 +14,6 @@ exports.ObjectSerializer = void 0;
 __exportStar(require("./AccountConnectRequest"), exports);
 __exportStar(require("./AccountCreateRequest"), exports);
 __exportStar(require("./AccountDashboardAccessRequest"), exports);
-__exportStar(require("./AccountDashboardAccessResponse"), exports);
 __exportStar(require("./AccountListResponse"), exports);
 __exportStar(require("./AccountUpdateRequest"), exports);
 __exportStar(require("./Address"), exports);
@@ -27,9 +26,14 @@ __exportStar(require("./Chain"), exports);
 __exportStar(require("./CheckoutCreateRequest"), exports);
 __exportStar(require("./CheckoutListResponse"), exports);
 __exportStar(require("./CheckoutStatus"), exports);
+__exportStar(require("./CouponCreateRequest"), exports);
+__exportStar(require("./CouponDuration"), exports);
+__exportStar(require("./CouponListResponse"), exports);
+__exportStar(require("./CouponUpdateRequest"), exports);
 __exportStar(require("./Currency"), exports);
 __exportStar(require("./CustomAmount"), exports);
 __exportStar(require("./CustomerCreateRequest"), exports);
+__exportStar(require("./CustomerCreateRequestBillingDetails"), exports);
 __exportStar(require("./CustomerDetails"), exports);
 __exportStar(require("./CustomerListResponse"), exports);
 __exportStar(require("./CustomerUpdateRequest"), exports);
@@ -43,8 +47,8 @@ __exportStar(require("./IBilling"), exports);
 __exportStar(require("./IBranding"), exports);
 __exportStar(require("./IBusinessProfile"), exports);
 __exportStar(require("./ICheckout"), exports);
+__exportStar(require("./ICoupon"), exports);
 __exportStar(require("./ICustomer"), exports);
-__exportStar(require("./ICustomerBillingDetails"), exports);
 __exportStar(require("./IFee"), exports);
 __exportStar(require("./IIntegrations"), exports);
 __exportStar(require("./IIntegrationsFtx"), exports);
@@ -66,6 +70,7 @@ __exportStar(require("./IWallet"), exports);
 __exportStar(require("./IWebhook"), exports);
 __exportStar(require("./InvoiceCreateRequest"), exports);
 __exportStar(require("./InvoiceListResponse"), exports);
+__exportStar(require("./InvoicePayRequest"), exports);
 __exportStar(require("./InvoiceStatus"), exports);
 __exportStar(require("./InvoiceUpdateRequest"), exports);
 __exportStar(require("./LineItem"), exports);
@@ -102,7 +107,6 @@ __exportStar(require("./WebhookUpdateRequest"), exports);
 const AccountConnectRequest_1 = require("./AccountConnectRequest");
 const AccountCreateRequest_1 = require("./AccountCreateRequest");
 const AccountDashboardAccessRequest_1 = require("./AccountDashboardAccessRequest");
-const AccountDashboardAccessResponse_1 = require("./AccountDashboardAccessResponse");
 const AccountListResponse_1 = require("./AccountListResponse");
 const AccountUpdateRequest_1 = require("./AccountUpdateRequest");
 const Address_1 = require("./Address");
@@ -112,8 +116,12 @@ const ApiKeyListResponse_1 = require("./ApiKeyListResponse");
 const BasePrice_1 = require("./BasePrice");
 const CheckoutCreateRequest_1 = require("./CheckoutCreateRequest");
 const CheckoutListResponse_1 = require("./CheckoutListResponse");
+const CouponCreateRequest_1 = require("./CouponCreateRequest");
+const CouponListResponse_1 = require("./CouponListResponse");
+const CouponUpdateRequest_1 = require("./CouponUpdateRequest");
 const CustomAmount_1 = require("./CustomAmount");
 const CustomerCreateRequest_1 = require("./CustomerCreateRequest");
+const CustomerCreateRequestBillingDetails_1 = require("./CustomerCreateRequestBillingDetails");
 const CustomerDetails_1 = require("./CustomerDetails");
 const CustomerListResponse_1 = require("./CustomerListResponse");
 const CustomerUpdateRequest_1 = require("./CustomerUpdateRequest");
@@ -126,8 +134,8 @@ const IBilling_1 = require("./IBilling");
 const IBranding_1 = require("./IBranding");
 const IBusinessProfile_1 = require("./IBusinessProfile");
 const ICheckout_1 = require("./ICheckout");
+const ICoupon_1 = require("./ICoupon");
 const ICustomer_1 = require("./ICustomer");
-const ICustomerBillingDetails_1 = require("./ICustomerBillingDetails");
 const IFee_1 = require("./IFee");
 const IIntegrations_1 = require("./IIntegrations");
 const IIntegrationsFtx_1 = require("./IIntegrationsFtx");
@@ -149,6 +157,7 @@ const IWallet_1 = require("./IWallet");
 const IWebhook_1 = require("./IWebhook");
 const InvoiceCreateRequest_1 = require("./InvoiceCreateRequest");
 const InvoiceListResponse_1 = require("./InvoiceListResponse");
+const InvoicePayRequest_1 = require("./InvoicePayRequest");
 const InvoiceUpdateRequest_1 = require("./InvoiceUpdateRequest");
 const LineItem_1 = require("./LineItem");
 const LogListResponse_1 = require("./LogListResponse");
@@ -197,6 +206,7 @@ let enumsMap = new Set([
     "ApiKeyType",
     "Chain",
     "CheckoutStatus",
+    "CouponDuration",
     "Currency",
     "EventType",
     "InvoiceStatus",
@@ -208,7 +218,6 @@ let typeMap = {
     "AccountConnectRequest": AccountConnectRequest_1.AccountConnectRequest,
     "AccountCreateRequest": AccountCreateRequest_1.AccountCreateRequest,
     "AccountDashboardAccessRequest": AccountDashboardAccessRequest_1.AccountDashboardAccessRequest,
-    "AccountDashboardAccessResponse": AccountDashboardAccessResponse_1.AccountDashboardAccessResponse,
     "AccountListResponse": AccountListResponse_1.AccountListResponse,
     "AccountUpdateRequest": AccountUpdateRequest_1.AccountUpdateRequest,
     "Address": Address_1.Address,
@@ -218,8 +227,12 @@ let typeMap = {
     "BasePrice": BasePrice_1.BasePrice,
     "CheckoutCreateRequest": CheckoutCreateRequest_1.CheckoutCreateRequest,
     "CheckoutListResponse": CheckoutListResponse_1.CheckoutListResponse,
+    "CouponCreateRequest": CouponCreateRequest_1.CouponCreateRequest,
+    "CouponListResponse": CouponListResponse_1.CouponListResponse,
+    "CouponUpdateRequest": CouponUpdateRequest_1.CouponUpdateRequest,
     "CustomAmount": CustomAmount_1.CustomAmount,
     "CustomerCreateRequest": CustomerCreateRequest_1.CustomerCreateRequest,
+    "CustomerCreateRequestBillingDetails": CustomerCreateRequestBillingDetails_1.CustomerCreateRequestBillingDetails,
     "CustomerDetails": CustomerDetails_1.CustomerDetails,
     "CustomerListResponse": CustomerListResponse_1.CustomerListResponse,
     "CustomerUpdateRequest": CustomerUpdateRequest_1.CustomerUpdateRequest,
@@ -232,8 +245,8 @@ let typeMap = {
     "IBranding": IBranding_1.IBranding,
     "IBusinessProfile": IBusinessProfile_1.IBusinessProfile,
     "ICheckout": ICheckout_1.ICheckout,
+    "ICoupon": ICoupon_1.ICoupon,
     "ICustomer": ICustomer_1.ICustomer,
-    "ICustomerBillingDetails": ICustomerBillingDetails_1.ICustomerBillingDetails,
     "IFee": IFee_1.IFee,
     "IIntegrations": IIntegrations_1.IIntegrations,
     "IIntegrationsFtx": IIntegrationsFtx_1.IIntegrationsFtx,
@@ -255,6 +268,7 @@ let typeMap = {
     "IWebhook": IWebhook_1.IWebhook,
     "InvoiceCreateRequest": InvoiceCreateRequest_1.InvoiceCreateRequest,
     "InvoiceListResponse": InvoiceListResponse_1.InvoiceListResponse,
+    "InvoicePayRequest": InvoicePayRequest_1.InvoicePayRequest,
     "InvoiceUpdateRequest": InvoiceUpdateRequest_1.InvoiceUpdateRequest,
     "LineItem": LineItem_1.LineItem,
     "LogListResponse": LogListResponse_1.LogListResponse,

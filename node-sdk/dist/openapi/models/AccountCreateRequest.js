@@ -12,12 +12,6 @@ exports.AccountCreateRequest = AccountCreateRequest;
 AccountCreateRequest.discriminator = undefined;
 AccountCreateRequest.attributeTypeMap = [
     {
-        "name": "settings",
-        "baseName": "settings",
-        "type": "ISettings",
-        "format": ""
-    },
-    {
         "name": "business_profile",
         "baseName": "business_profile",
         "type": "IBusinessProfile",
@@ -27,6 +21,12 @@ AccountCreateRequest.attributeTypeMap = [
         "name": "connected_accounts",
         "baseName": "connected_accounts",
         "type": "Array<string>",
+        "format": ""
+    },
+    {
+        "name": "settings",
+        "baseName": "settings",
+        "type": "ISettings",
         "format": ""
     }
 ];

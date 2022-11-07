@@ -13,30 +13,24 @@
 import { HttpFile } from '../http/http';
 
 export class IFee {
-    'id': string;
-    'object': string;
-    'created': number;
-    'test': boolean;
     'account': string;
-    'platform_account'?: string;
-    'internal': boolean;
-    'payment_intent': string;
-    'wallet': string;
-    'percent': number;
+    'created': number;
     'description'?: string;
+    'id': string;
+    'internal': boolean;
+    'object': string;
+    'payment_intent': string;
+    'percent': number;
+    'platform_account'?: string;
+    'test': boolean;
+    'wallet': string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "object",
-            "baseName": "object",
+            "name": "account",
+            "baseName": "account",
             "type": "string",
             "format": ""
         },
@@ -47,20 +41,14 @@ export class IFee {
             "format": "double"
         },
         {
-            "name": "test",
-            "baseName": "test",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "account",
-            "baseName": "account",
+            "name": "description",
+            "baseName": "description",
             "type": "string",
             "format": ""
         },
         {
-            "name": "platform_account",
-            "baseName": "platform_account",
+            "name": "id",
+            "baseName": "id",
             "type": "string",
             "format": ""
         },
@@ -71,14 +59,14 @@ export class IFee {
             "format": ""
         },
         {
-            "name": "payment_intent",
-            "baseName": "payment_intent",
+            "name": "object",
+            "baseName": "object",
             "type": "string",
             "format": ""
         },
         {
-            "name": "wallet",
-            "baseName": "wallet",
+            "name": "payment_intent",
+            "baseName": "payment_intent",
             "type": "string",
             "format": ""
         },
@@ -89,8 +77,20 @@ export class IFee {
             "format": "double"
         },
         {
-            "name": "description",
-            "baseName": "description",
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "test",
+            "baseName": "test",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "wallet",
+            "baseName": "wallet",
             "type": "string",
             "format": ""
         }    ];

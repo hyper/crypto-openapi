@@ -12,6 +12,24 @@ exports.ITransfer = ITransfer;
 ITransfer.discriminator = undefined;
 ITransfer.attributeTypeMap = [
     {
+        "name": "account",
+        "baseName": "account",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "created",
+        "baseName": "created",
+        "type": "number",
+        "format": "double"
+    },
+    {
+        "name": "description",
+        "baseName": "description",
+        "type": "string",
+        "format": ""
+    },
+    {
         "name": "id",
         "baseName": "id",
         "type": "string",
@@ -24,32 +42,8 @@ ITransfer.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "created",
-        "baseName": "created",
-        "type": "number",
-        "format": "double"
-    },
-    {
-        "name": "test",
-        "baseName": "test",
-        "type": "boolean",
-        "format": ""
-    },
-    {
-        "name": "account",
-        "baseName": "account",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "payment_intent",
         "baseName": "payment_intent",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "wallet",
-        "baseName": "wallet",
         "type": "string",
         "format": ""
     },
@@ -60,8 +54,14 @@ ITransfer.attributeTypeMap = [
         "format": "double"
     },
     {
-        "name": "description",
-        "baseName": "description",
+        "name": "test",
+        "baseName": "test",
+        "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "wallet",
+        "baseName": "wallet",
         "type": "string",
         "format": ""
     }

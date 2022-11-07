@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **_delete**
-> IPaymentLink _delete()
+> void | IPaymentLink _delete()
 
 
 ### Example
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentLink**
+**void | IPaymentLink**
 
 ### Authorization
 
@@ -68,14 +68,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **_delete_0**
-> IPaymentLink _delete_0()
+> void | IPaymentLink _delete_0()
 
 
 ### Example
@@ -111,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentLink**
+**void | IPaymentLink**
 
 ### Authorization
 
@@ -126,14 +127,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
-> IPaymentLink create()
+> void | IPaymentLink create()
 
 
 ### Example
@@ -151,56 +153,56 @@ let body:.PaymentLinksApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // PaymentLinkCreateRequest (optional)
   payment_link_create_request: {
-    metadata: {
-      "key": null,
-    },
-    line_items: [
-      {
-        description: "description_example",
-        price_data: {
-          id: "id_example",
-          object: "object_example",
-          created: 3.14,
-          test: true,
-          account: "account_example",
-          platform_account: "platform_account_example",
-          amount: 3.14,
-          custom_amount: {
-            _default: 3.14,
-            maximum: 3.14,
-            minimum: 3.14,
-          },
-          currency: "eth",
-          chain: "eth",
-          product: "product_example",
-          base_price: {
-            custom_amount: {
-              _default: 3.14,
-              maximum: 3.14,
-              minimum: 3.14,
-            },
-            amount: 3.14,
-            currency: "currency_example",
-          },
-          billing_period_days: 3.14,
-          application_fee_percent: 3.14,
-          archived: true,
-          metadata: {
-            "key": null,
-          },
-        },
-        quantity: 3.14,
-        price: "price_example",
-      },
-    ],
-    application_fee_percent: 3.14,
     active: true,
     after_completion: {
       hosted_confirmation_message: "hosted_confirmation_message_example",
       redirect_url: "redirect_url_example",
     },
+    application_fee_percent: 3.14,
     expires_at: null,
+    line_items: [
+      {
+        description: "description_example",
+        price: "price_example",
+        price_data: {
+          account: "account_example",
+          amount: 3.14,
+          application_fee_percent: 3.14,
+          archived: true,
+          base_price: {
+            amount: 3.14,
+            currency: "currency_example",
+            custom_amount: {
+              _default: 3.14,
+              maximum: 3.14,
+              minimum: 3.14,
+            },
+          },
+          billing_period_days: 3.14,
+          chain: "eth",
+          created: 3.14,
+          currency: "eth",
+          custom_amount: {
+            _default: 3.14,
+            maximum: 3.14,
+            minimum: 3.14,
+          },
+          id: "id_example",
+          metadata: {
+            "key": null,
+          },
+          object: "object_example",
+          platform_account: "platform_account_example",
+          product: "product_example",
+          test: true,
+        },
+        quantity: 3.14,
+      },
+    ],
     max_usages: 3.14,
+    metadata: {
+      "key": null,
+    },
   },
 };
 
@@ -220,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentLink**
+**void | IPaymentLink**
 
 ### Authorization
 
@@ -235,14 +237,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create_0**
-> IPaymentLink create_0()
+> void | IPaymentLink create_0()
 
 
 ### Example
@@ -260,56 +263,56 @@ let body:.PaymentLinksApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // PaymentLinkCreateRequest (optional)
   payment_link_create_request: {
-    metadata: {
-      "key": null,
-    },
-    line_items: [
-      {
-        description: "description_example",
-        price_data: {
-          id: "id_example",
-          object: "object_example",
-          created: 3.14,
-          test: true,
-          account: "account_example",
-          platform_account: "platform_account_example",
-          amount: 3.14,
-          custom_amount: {
-            _default: 3.14,
-            maximum: 3.14,
-            minimum: 3.14,
-          },
-          currency: "eth",
-          chain: "eth",
-          product: "product_example",
-          base_price: {
-            custom_amount: {
-              _default: 3.14,
-              maximum: 3.14,
-              minimum: 3.14,
-            },
-            amount: 3.14,
-            currency: "currency_example",
-          },
-          billing_period_days: 3.14,
-          application_fee_percent: 3.14,
-          archived: true,
-          metadata: {
-            "key": null,
-          },
-        },
-        quantity: 3.14,
-        price: "price_example",
-      },
-    ],
-    application_fee_percent: 3.14,
     active: true,
     after_completion: {
       hosted_confirmation_message: "hosted_confirmation_message_example",
       redirect_url: "redirect_url_example",
     },
+    application_fee_percent: 3.14,
     expires_at: null,
+    line_items: [
+      {
+        description: "description_example",
+        price: "price_example",
+        price_data: {
+          account: "account_example",
+          amount: 3.14,
+          application_fee_percent: 3.14,
+          archived: true,
+          base_price: {
+            amount: 3.14,
+            currency: "currency_example",
+            custom_amount: {
+              _default: 3.14,
+              maximum: 3.14,
+              minimum: 3.14,
+            },
+          },
+          billing_period_days: 3.14,
+          chain: "eth",
+          created: 3.14,
+          currency: "eth",
+          custom_amount: {
+            _default: 3.14,
+            maximum: 3.14,
+            minimum: 3.14,
+          },
+          id: "id_example",
+          metadata: {
+            "key": null,
+          },
+          object: "object_example",
+          platform_account: "platform_account_example",
+          product: "product_example",
+          test: true,
+        },
+        quantity: 3.14,
+      },
+    ],
     max_usages: 3.14,
+    metadata: {
+      "key": null,
+    },
   },
 };
 
@@ -329,7 +332,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentLink**
+**void | IPaymentLink**
 
 ### Authorization
 
@@ -344,14 +347,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> PaymentLinkListResponse list()
+> void | PaymentLinkListResponse list()
 
 
 ### Example
@@ -396,7 +400,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**PaymentLinkListResponse**
+**void | PaymentLinkListResponse**
 
 ### Authorization
 
@@ -411,14 +415,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list_0**
-> PaymentLinkListResponse list_0()
+> void | PaymentLinkListResponse list_0()
 
 
 ### Example
@@ -463,7 +468,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**PaymentLinkListResponse**
+**void | PaymentLinkListResponse**
 
 ### Authorization
 
@@ -478,14 +483,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> IPaymentLink retrieve()
+> void | IPaymentLink retrieve()
 
 
 ### Example
@@ -524,7 +530,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentLink**
+**void | IPaymentLink**
 
 ### Authorization
 
@@ -539,14 +545,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve_0**
-> IPaymentLink retrieve_0()
+> void | IPaymentLink retrieve_0()
 
 
 ### Example
@@ -585,7 +592,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentLink**
+**void | IPaymentLink**
 
 ### Authorization
 
@@ -600,14 +607,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update**
-> IPaymentLink update()
+> void | IPaymentLink update()
 
 
 ### Example
@@ -627,15 +635,15 @@ let body:.PaymentLinksApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // PaymentLinkUpdateRequest (optional)
   payment_link_update_request: {
-    metadata: {
-      "key": null,
-    },
     active: true,
     after_completion: {
       hosted_confirmation_message: "hosted_confirmation_message_example",
       redirect_url: "redirect_url_example",
     },
     expires_at: null,
+    metadata: {
+      "key": null,
+    },
   },
 };
 
@@ -656,7 +664,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentLink**
+**void | IPaymentLink**
 
 ### Authorization
 
@@ -671,7 +679,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -679,7 +688,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update_0**
-> IPaymentLink update_0()
+> void | IPaymentLink update_0()
 
 
 ### Example
@@ -699,15 +708,15 @@ let body:.PaymentLinksApiUpdate0Request = {
   pluto_account: "Pluto-Account_example",
   // PaymentLinkUpdateRequest (optional)
   payment_link_update_request: {
-    metadata: {
-      "key": null,
-    },
     active: true,
     after_completion: {
       hosted_confirmation_message: "hosted_confirmation_message_example",
       redirect_url: "redirect_url_example",
     },
     expires_at: null,
+    metadata: {
+      "key": null,
+    },
   },
 };
 
@@ -728,7 +737,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentLink**
+**void | IPaymentLink**
 
 ### Authorization
 
@@ -743,7 +752,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

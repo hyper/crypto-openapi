@@ -1,9 +1,9 @@
 import { ISubscription } from './ISubscription';
 export declare class SubscriptionListResponse {
-    'total': number;
+    'data': Array<ISubscription>;
     'has_more': boolean;
     'page': number;
-    'data': Array<ISubscription>;
+    'total': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

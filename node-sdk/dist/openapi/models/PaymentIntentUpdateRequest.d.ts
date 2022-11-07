@@ -1,8 +1,8 @@
 export declare class PaymentIntentUpdateRequest {
+    'hash'?: string;
     'metadata'?: {
         [key: string]: any;
     };
-    'hash'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

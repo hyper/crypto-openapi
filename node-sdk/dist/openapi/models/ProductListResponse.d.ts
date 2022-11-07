@@ -1,9 +1,9 @@
 import { IProduct } from './IProduct';
 export declare class ProductListResponse {
-    'total': number;
+    'data': Array<IProduct>;
     'has_more': boolean;
     'page': number;
-    'data': Array<IProduct>;
+    'total': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

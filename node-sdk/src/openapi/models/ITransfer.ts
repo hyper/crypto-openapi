@@ -13,19 +13,37 @@
 import { HttpFile } from '../http/http';
 
 export class ITransfer {
+    'account': string;
+    'created': number;
+    'description'?: string;
     'id': string;
     'object': string;
-    'created': number;
-    'test': boolean;
-    'account': string;
     'payment_intent': string;
-    'wallet': string;
     'percent': number;
-    'description'?: string;
+    'test': boolean;
+    'wallet': string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "account",
+            "baseName": "account",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "number",
+            "format": "double"
+        },
+        {
+            "name": "description",
+            "baseName": "description",
+            "type": "string",
+            "format": ""
+        },
         {
             "name": "id",
             "baseName": "id",
@@ -39,32 +57,8 @@ export class ITransfer {
             "format": ""
         },
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "test",
-            "baseName": "test",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "account",
-            "baseName": "account",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "payment_intent",
             "baseName": "payment_intent",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "wallet",
-            "baseName": "wallet",
             "type": "string",
             "format": ""
         },
@@ -75,8 +69,14 @@ export class ITransfer {
             "format": "double"
         },
         {
-            "name": "description",
-            "baseName": "description",
+            "name": "test",
+            "baseName": "test",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "wallet",
+            "baseName": "wallet",
             "type": "string",
             "format": ""
         }    ];

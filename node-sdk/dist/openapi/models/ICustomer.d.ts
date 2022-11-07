@@ -1,22 +1,22 @@
-import { ICustomerBillingDetails } from './ICustomerBillingDetails';
+import { CustomerCreateRequestBillingDetails } from './CustomerCreateRequestBillingDetails';
 import { IPaymentIntent } from './IPaymentIntent';
 import { IWallet } from './IWallet';
 export declare class ICustomer {
-    'id': string;
-    'object': string;
-    'created': number;
-    'test': boolean;
     'account': string;
-    'name'?: string;
+    'billing_details': CustomerCreateRequestBillingDetails;
+    'created': number;
     'email'?: string;
-    'phone'?: string;
-    'wallets': Array<IWallet>;
-    'payments'?: number;
+    'id': string;
     'last_payment'?: IPaymentIntent;
-    'billing_details': ICustomerBillingDetails;
     'metadata': {
         [key: string]: any;
     };
+    'name'?: string;
+    'object': string;
+    'payments'?: number;
+    'phone'?: string;
+    'test': boolean;
+    'wallets': Array<IWallet>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -1,19 +1,19 @@
 import { CheckoutStatus } from './CheckoutStatus';
 import { CustomerDetails } from './CustomerDetails';
 export declare class ICheckout {
-    'id': string;
-    'object': string;
-    'created': number;
-    'test': boolean;
     'account': string;
+    'amount': number;
+    'created': number;
+    'customer': string;
+    'customer_details': CustomerDetails;
+    'id': string;
+    'last_payment_error'?: string;
+    'object': string;
+    'payment_intent'?: string;
+    'payment_link': string;
     'platform_account'?: string;
     'status': CheckoutStatus;
-    'customer_details': CustomerDetails;
-    'amount': number;
-    'payment_link': string;
-    'payment_intent'?: string;
-    'customer': string;
-    'last_payment_error'?: string;
+    'test': boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

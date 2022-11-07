@@ -12,12 +12,6 @@ exports.PriceUpdateRequest = PriceUpdateRequest;
 PriceUpdateRequest.discriminator = undefined;
 PriceUpdateRequest.attributeTypeMap = [
     {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "{ [key: string]: any; }",
-        "format": ""
-    },
-    {
         "name": "application_fee_percent",
         "baseName": "application_fee_percent",
         "type": "number",
@@ -27,6 +21,12 @@ PriceUpdateRequest.attributeTypeMap = [
         "name": "archived",
         "baseName": "archived",
         "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "{ [key: string]: any; }",
         "format": ""
     }
 ];

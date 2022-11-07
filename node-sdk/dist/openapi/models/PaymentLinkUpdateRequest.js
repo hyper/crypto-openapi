@@ -12,12 +12,6 @@ exports.PaymentLinkUpdateRequest = PaymentLinkUpdateRequest;
 PaymentLinkUpdateRequest.discriminator = undefined;
 PaymentLinkUpdateRequest.attributeTypeMap = [
     {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "{ [key: string]: any; }",
-        "format": ""
-    },
-    {
         "name": "active",
         "baseName": "active",
         "type": "boolean",
@@ -33,6 +27,12 @@ PaymentLinkUpdateRequest.attributeTypeMap = [
         "name": "expires_at",
         "baseName": "expires_at",
         "type": "Date | number",
+        "format": ""
+    },
+    {
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "{ [key: string]: any; }",
         "format": ""
     }
 ];

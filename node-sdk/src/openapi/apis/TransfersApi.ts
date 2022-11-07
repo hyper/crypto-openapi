@@ -320,7 +320,7 @@ export class TransfersApiResponseProcessor {
      * @params response Response returned by the server for a request to create
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async create(response: ResponseContext): Promise<ITransfer > {
+     public async create(response: ResponseContext): Promise<ITransfer | void > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: ITransfer = ObjectSerializer.deserialize(
@@ -328,6 +328,9 @@ export class TransfersApiResponseProcessor {
                 "ITransfer", ""
             ) as ITransfer;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -338,10 +341,10 @@ export class TransfersApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ITransfer = ObjectSerializer.deserialize(
+            const body: ITransfer | void = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "ITransfer", ""
-            ) as ITransfer;
+                "ITransfer | void", ""
+            ) as ITransfer | void;
             return body;
         }
 
@@ -355,7 +358,7 @@ export class TransfersApiResponseProcessor {
      * @params response Response returned by the server for a request to create_1
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async create_1(response: ResponseContext): Promise<ITransfer > {
+     public async create_1(response: ResponseContext): Promise<ITransfer | void > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: ITransfer = ObjectSerializer.deserialize(
@@ -363,6 +366,9 @@ export class TransfersApiResponseProcessor {
                 "ITransfer", ""
             ) as ITransfer;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -373,10 +379,10 @@ export class TransfersApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ITransfer = ObjectSerializer.deserialize(
+            const body: ITransfer | void = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "ITransfer", ""
-            ) as ITransfer;
+                "ITransfer | void", ""
+            ) as ITransfer | void;
             return body;
         }
 
@@ -390,7 +396,7 @@ export class TransfersApiResponseProcessor {
      * @params response Response returned by the server for a request to list
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async list(response: ResponseContext): Promise<TransferListResponse > {
+     public async list(response: ResponseContext): Promise<void | TransferListResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: TransferListResponse = ObjectSerializer.deserialize(
@@ -398,6 +404,9 @@ export class TransfersApiResponseProcessor {
                 "TransferListResponse", ""
             ) as TransferListResponse;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -408,10 +417,10 @@ export class TransfersApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: TransferListResponse = ObjectSerializer.deserialize(
+            const body: void | TransferListResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "TransferListResponse", ""
-            ) as TransferListResponse;
+                "void | TransferListResponse", ""
+            ) as void | TransferListResponse;
             return body;
         }
 
@@ -425,7 +434,7 @@ export class TransfersApiResponseProcessor {
      * @params response Response returned by the server for a request to list_2
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async list_2(response: ResponseContext): Promise<TransferListResponse > {
+     public async list_2(response: ResponseContext): Promise<void | TransferListResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: TransferListResponse = ObjectSerializer.deserialize(
@@ -433,6 +442,9 @@ export class TransfersApiResponseProcessor {
                 "TransferListResponse", ""
             ) as TransferListResponse;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -443,10 +455,10 @@ export class TransfersApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: TransferListResponse = ObjectSerializer.deserialize(
+            const body: void | TransferListResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "TransferListResponse", ""
-            ) as TransferListResponse;
+                "void | TransferListResponse", ""
+            ) as void | TransferListResponse;
             return body;
         }
 
@@ -460,7 +472,7 @@ export class TransfersApiResponseProcessor {
      * @params response Response returned by the server for a request to retrieve
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async retrieve(response: ResponseContext): Promise<ITransfer > {
+     public async retrieve(response: ResponseContext): Promise<ITransfer | void > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: ITransfer = ObjectSerializer.deserialize(
@@ -468,6 +480,9 @@ export class TransfersApiResponseProcessor {
                 "ITransfer", ""
             ) as ITransfer;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
@@ -478,10 +493,10 @@ export class TransfersApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ITransfer = ObjectSerializer.deserialize(
+            const body: ITransfer | void = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "ITransfer", ""
-            ) as ITransfer;
+                "ITransfer | void", ""
+            ) as ITransfer | void;
             return body;
         }
 
@@ -495,7 +510,7 @@ export class TransfersApiResponseProcessor {
      * @params response Response returned by the server for a request to retrieve_3
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async retrieve_3(response: ResponseContext): Promise<ITransfer > {
+     public async retrieve_3(response: ResponseContext): Promise<ITransfer | void > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: ITransfer = ObjectSerializer.deserialize(
@@ -503,6 +518,9 @@ export class TransfersApiResponseProcessor {
                 "ITransfer", ""
             ) as ITransfer;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
@@ -513,10 +531,10 @@ export class TransfersApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ITransfer = ObjectSerializer.deserialize(
+            const body: ITransfer | void = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "ITransfer", ""
-            ) as ITransfer;
+                "ITransfer | void", ""
+            ) as ITransfer | void;
             return body;
         }
 

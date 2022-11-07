@@ -12,14 +12,8 @@ exports.IFee = IFee;
 IFee.discriminator = undefined;
 IFee.attributeTypeMap = [
     {
-        "name": "id",
-        "baseName": "id",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "object",
-        "baseName": "object",
+        "name": "account",
+        "baseName": "account",
         "type": "string",
         "format": ""
     },
@@ -30,20 +24,14 @@ IFee.attributeTypeMap = [
         "format": "double"
     },
     {
-        "name": "test",
-        "baseName": "test",
-        "type": "boolean",
-        "format": ""
-    },
-    {
-        "name": "account",
-        "baseName": "account",
+        "name": "description",
+        "baseName": "description",
         "type": "string",
         "format": ""
     },
     {
-        "name": "platform_account",
-        "baseName": "platform_account",
+        "name": "id",
+        "baseName": "id",
         "type": "string",
         "format": ""
     },
@@ -54,14 +42,14 @@ IFee.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "payment_intent",
-        "baseName": "payment_intent",
+        "name": "object",
+        "baseName": "object",
         "type": "string",
         "format": ""
     },
     {
-        "name": "wallet",
-        "baseName": "wallet",
+        "name": "payment_intent",
+        "baseName": "payment_intent",
         "type": "string",
         "format": ""
     },
@@ -72,8 +60,20 @@ IFee.attributeTypeMap = [
         "format": "double"
     },
     {
-        "name": "description",
-        "baseName": "description",
+        "name": "platform_account",
+        "baseName": "platform_account",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "test",
+        "baseName": "test",
+        "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "wallet",
+        "baseName": "wallet",
         "type": "string",
         "format": ""
     }

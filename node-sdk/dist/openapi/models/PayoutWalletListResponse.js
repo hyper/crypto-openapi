@@ -12,10 +12,10 @@ exports.PayoutWalletListResponse = PayoutWalletListResponse;
 PayoutWalletListResponse.discriminator = undefined;
 PayoutWalletListResponse.attributeTypeMap = [
     {
-        "name": "total",
-        "baseName": "total",
-        "type": "number",
-        "format": "double"
+        "name": "data",
+        "baseName": "data",
+        "type": "Array<IPayoutWallet>",
+        "format": ""
     },
     {
         "name": "has_more",
@@ -30,10 +30,10 @@ PayoutWalletListResponse.attributeTypeMap = [
         "format": "double"
     },
     {
-        "name": "data",
-        "baseName": "data",
-        "type": "Array<IPayoutWallet>",
-        "format": ""
+        "name": "total",
+        "baseName": "total",
+        "type": "number",
+        "format": "double"
     }
 ];
 //# sourceMappingURL=PayoutWalletListResponse.js.map

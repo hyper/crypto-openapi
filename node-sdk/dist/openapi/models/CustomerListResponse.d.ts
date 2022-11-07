@@ -1,9 +1,9 @@
 import { ICustomer } from './ICustomer';
 export declare class CustomerListResponse {
-    'total': number;
+    'data': Array<ICustomer>;
     'has_more': boolean;
     'page': number;
-    'data': Array<ICustomer>;
+    'total': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

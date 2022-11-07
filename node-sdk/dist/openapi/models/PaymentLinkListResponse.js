@@ -12,10 +12,10 @@ exports.PaymentLinkListResponse = PaymentLinkListResponse;
 PaymentLinkListResponse.discriminator = undefined;
 PaymentLinkListResponse.attributeTypeMap = [
     {
-        "name": "total",
-        "baseName": "total",
-        "type": "number",
-        "format": "double"
+        "name": "data",
+        "baseName": "data",
+        "type": "Array<IPaymentLink>",
+        "format": ""
     },
     {
         "name": "has_more",
@@ -30,10 +30,10 @@ PaymentLinkListResponse.attributeTypeMap = [
         "format": "double"
     },
     {
-        "name": "data",
-        "baseName": "data",
-        "type": "Array<IPaymentLink>",
-        "format": ""
+        "name": "total",
+        "baseName": "total",
+        "type": "number",
+        "format": "double"
     }
 ];
 //# sourceMappingURL=PaymentLinkListResponse.js.map

@@ -12,8 +12,50 @@ exports.ICustomer = ICustomer;
 ICustomer.discriminator = undefined;
 ICustomer.attributeTypeMap = [
     {
+        "name": "account",
+        "baseName": "account",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "billing_details",
+        "baseName": "billing_details",
+        "type": "CustomerCreateRequestBillingDetails",
+        "format": ""
+    },
+    {
+        "name": "created",
+        "baseName": "created",
+        "type": "number",
+        "format": "double"
+    },
+    {
+        "name": "email",
+        "baseName": "email",
+        "type": "string",
+        "format": ""
+    },
+    {
         "name": "id",
         "baseName": "id",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "last_payment",
+        "baseName": "last_payment",
+        "type": "IPaymentIntent",
+        "format": ""
+    },
+    {
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "{ [key: string]: any; }",
+        "format": ""
+    },
+    {
+        "name": "name",
+        "baseName": "name",
         "type": "string",
         "format": ""
     },
@@ -24,34 +66,10 @@ ICustomer.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "created",
-        "baseName": "created",
+        "name": "payments",
+        "baseName": "payments",
         "type": "number",
         "format": "double"
-    },
-    {
-        "name": "test",
-        "baseName": "test",
-        "type": "boolean",
-        "format": ""
-    },
-    {
-        "name": "account",
-        "baseName": "account",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "name",
-        "baseName": "name",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "email",
-        "baseName": "email",
-        "type": "string",
-        "format": ""
     },
     {
         "name": "phone",
@@ -60,33 +78,15 @@ ICustomer.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "test",
+        "baseName": "test",
+        "type": "boolean",
+        "format": ""
+    },
+    {
         "name": "wallets",
         "baseName": "wallets",
         "type": "Array<IWallet>",
-        "format": ""
-    },
-    {
-        "name": "payments",
-        "baseName": "payments",
-        "type": "number",
-        "format": "double"
-    },
-    {
-        "name": "last_payment",
-        "baseName": "last_payment",
-        "type": "IPaymentIntent",
-        "format": ""
-    },
-    {
-        "name": "billing_details",
-        "baseName": "billing_details",
-        "type": "ICustomerBillingDetails",
-        "format": ""
-    },
-    {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "{ [key: string]: any; }",
         "format": ""
     }
 ];

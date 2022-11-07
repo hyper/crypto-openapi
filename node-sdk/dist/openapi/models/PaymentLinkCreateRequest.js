@@ -12,24 +12,6 @@ exports.PaymentLinkCreateRequest = PaymentLinkCreateRequest;
 PaymentLinkCreateRequest.discriminator = undefined;
 PaymentLinkCreateRequest.attributeTypeMap = [
     {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "{ [key: string]: any; }",
-        "format": ""
-    },
-    {
-        "name": "line_items",
-        "baseName": "line_items",
-        "type": "Array<LineItem>",
-        "format": ""
-    },
-    {
-        "name": "application_fee_percent",
-        "baseName": "application_fee_percent",
-        "type": "number",
-        "format": "double"
-    },
-    {
         "name": "active",
         "baseName": "active",
         "type": "boolean",
@@ -42,9 +24,21 @@ PaymentLinkCreateRequest.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "application_fee_percent",
+        "baseName": "application_fee_percent",
+        "type": "number",
+        "format": "double"
+    },
+    {
         "name": "expires_at",
         "baseName": "expires_at",
         "type": "Date | number",
+        "format": ""
+    },
+    {
+        "name": "line_items",
+        "baseName": "line_items",
+        "type": "Array<LineItem>",
         "format": ""
     },
     {
@@ -52,6 +46,12 @@ PaymentLinkCreateRequest.attributeTypeMap = [
         "baseName": "max_usages",
         "type": "number",
         "format": "double"
+    },
+    {
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "{ [key: string]: any; }",
+        "format": ""
     }
 ];
 //# sourceMappingURL=PaymentLinkCreateRequest.js.map

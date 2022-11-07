@@ -14,16 +14,16 @@ import { Chain } from './Chain';
 import { HttpFile } from '../http/http';
 
 export class WalletCreateRequest {
-    'customer'?: string;
-    'chain'?: Chain;
     'address'?: string;
+    'chain'?: Chain;
+    'customer'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "customer",
-            "baseName": "customer",
+            "name": "address",
+            "baseName": "address",
             "type": "string",
             "format": ""
         },
@@ -34,8 +34,8 @@ export class WalletCreateRequest {
             "format": ""
         },
         {
-            "name": "address",
-            "baseName": "address",
+            "name": "customer",
+            "baseName": "customer",
             "type": "string",
             "format": ""
         }    ];

@@ -14,19 +14,13 @@ import { CustomAmount } from './CustomAmount';
 import { HttpFile } from '../http/http';
 
 export class BasePrice {
-    'custom_amount'?: CustomAmount;
     'amount'?: number;
     'currency': string;
+    'custom_amount'?: CustomAmount;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "custom_amount",
-            "baseName": "custom_amount",
-            "type": "CustomAmount",
-            "format": ""
-        },
         {
             "name": "amount",
             "baseName": "amount",
@@ -37,6 +31,12 @@ export class BasePrice {
             "name": "currency",
             "baseName": "currency",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "custom_amount",
+            "baseName": "custom_amount",
+            "type": "CustomAmount",
             "format": ""
         }    ];
 

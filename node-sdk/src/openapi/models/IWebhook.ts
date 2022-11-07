@@ -14,27 +14,21 @@ import { EventType } from './EventType';
 import { HttpFile } from '../http/http';
 
 export class IWebhook {
-    'id': string;
-    'object': string;
-    'created': number;
-    'test': boolean;
     'account': string;
+    'created': number;
     'endpoint_url': string;
     'event_types': Array<EventType>;
+    'id': string;
+    'object': string;
     'secret': string;
+    'test': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "object",
-            "baseName": "object",
+            "name": "account",
+            "baseName": "account",
             "type": "string",
             "format": ""
         },
@@ -43,18 +37,6 @@ export class IWebhook {
             "baseName": "created",
             "type": "number",
             "format": "double"
-        },
-        {
-            "name": "test",
-            "baseName": "test",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "account",
-            "baseName": "account",
-            "type": "string",
-            "format": ""
         },
         {
             "name": "endpoint_url",
@@ -69,9 +51,27 @@ export class IWebhook {
             "format": ""
         },
         {
+            "name": "id",
+            "baseName": "id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "object",
+            "baseName": "object",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "secret",
             "baseName": "secret",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "test",
+            "baseName": "test",
+            "type": "boolean",
             "format": ""
         }    ];
 

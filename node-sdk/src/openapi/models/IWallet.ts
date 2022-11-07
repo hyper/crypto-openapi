@@ -14,18 +14,48 @@ import { Chain } from './Chain';
 import { HttpFile } from '../http/http';
 
 export class IWallet {
+    'account': string;
+    'address': string;
+    'chain': Chain;
+    'created': number;
+    'customer': string;
     'id': string;
     'object': string;
-    'created': number;
     'test': boolean;
-    'account': string;
-    'chain': Chain;
-    'address': string;
-    'customer': string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "account",
+            "baseName": "account",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "address",
+            "baseName": "address",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "Chain",
+            "format": ""
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "number",
+            "format": "double"
+        },
+        {
+            "name": "customer",
+            "baseName": "customer",
+            "type": "string",
+            "format": ""
+        },
         {
             "name": "id",
             "baseName": "id",
@@ -39,39 +69,9 @@ export class IWallet {
             "format": ""
         },
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "number",
-            "format": "double"
-        },
-        {
             "name": "test",
             "baseName": "test",
             "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "account",
-            "baseName": "account",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "Chain",
-            "format": ""
-        },
-        {
-            "name": "address",
-            "baseName": "address",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string",
             "format": ""
         }    ];
 

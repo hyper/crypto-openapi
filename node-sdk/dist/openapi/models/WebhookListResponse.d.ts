@@ -1,9 +1,9 @@
 import { IWebhook } from './IWebhook';
 export declare class WebhookListResponse {
-    'total': number;
+    'data': Array<IWebhook>;
     'has_more': boolean;
     'page': number;
-    'data': Array<IWebhook>;
+    'total': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

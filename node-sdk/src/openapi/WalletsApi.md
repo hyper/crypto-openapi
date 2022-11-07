@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **_delete**
-> IWallet _delete()
+> void | IWallet _delete()
 
 
 ### Example
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IWallet**
+**void | IWallet**
 
 ### Authorization
 
@@ -68,14 +68,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **_delete_0**
-> IWallet _delete_0()
+> void | IWallet _delete_0()
 
 
 ### Example
@@ -111,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IWallet**
+**void | IWallet**
 
 ### Authorization
 
@@ -126,14 +127,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
-> IWallet create()
+> void | IWallet create()
 
 
 ### Example
@@ -151,9 +153,9 @@ let body:.WalletsApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // WalletCreateRequest (optional)
   wallet_create_request: {
-    customer: "customer_example",
-    chain: "eth",
     address: "address_example",
+    chain: "eth",
+    customer: "customer_example",
   },
 };
 
@@ -173,7 +175,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IWallet**
+**void | IWallet**
 
 ### Authorization
 
@@ -188,14 +190,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create_0**
-> IWallet create_0()
+> void | IWallet create_0()
 
 
 ### Example
@@ -213,9 +216,9 @@ let body:.WalletsApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // WalletCreateRequest (optional)
   wallet_create_request: {
-    customer: "customer_example",
-    chain: "eth",
     address: "address_example",
+    chain: "eth",
+    customer: "customer_example",
   },
 };
 
@@ -235,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IWallet**
+**void | IWallet**
 
 ### Authorization
 
@@ -250,14 +253,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> WalletListResponse list()
+> void | WalletListResponse list()
 
 
 ### Example
@@ -302,7 +306,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**WalletListResponse**
+**void | WalletListResponse**
 
 ### Authorization
 
@@ -317,14 +321,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list_0**
-> WalletListResponse list_0()
+> void | WalletListResponse list_0()
 
 
 ### Example
@@ -369,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**WalletListResponse**
+**void | WalletListResponse**
 
 ### Authorization
 
@@ -384,14 +389,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> IWallet retrieve()
+> void | IWallet retrieve()
 
 
 ### Example
@@ -430,7 +436,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IWallet**
+**void | IWallet**
 
 ### Authorization
 
@@ -445,14 +451,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve_0**
-> IWallet retrieve_0()
+> void | IWallet retrieve_0()
 
 
 ### Example
@@ -491,7 +498,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IWallet**
+**void | IWallet**
 
 ### Authorization
 
@@ -506,14 +513,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update**
-> IWallet update()
+> void | IWallet update()
 
 
 ### Example
@@ -533,8 +541,8 @@ let body:.WalletsApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // WalletUpdateRequest (optional)
   wallet_update_request: {
-    chain: "eth",
     address: "address_example",
+    chain: "eth",
   },
 };
 
@@ -555,7 +563,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IWallet**
+**void | IWallet**
 
 ### Authorization
 
@@ -570,7 +578,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -578,7 +587,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update_0**
-> IWallet update_0()
+> void | IWallet update_0()
 
 
 ### Example
@@ -598,8 +607,8 @@ let body:.WalletsApiUpdate0Request = {
   pluto_account: "Pluto-Account_example",
   // WalletUpdateRequest (optional)
   wallet_update_request: {
-    chain: "eth",
     address: "address_example",
+    chain: "eth",
   },
 };
 
@@ -620,7 +629,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IWallet**
+**void | IWallet**
 
 ### Authorization
 
@@ -635,7 +644,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

@@ -14,19 +14,19 @@ import { IProduct } from './IProduct';
 import { HttpFile } from '../http/http';
 
 export class ProductListResponse {
-    'total': number;
+    'data': Array<IProduct>;
     'has_more': boolean;
     'page': number;
-    'data': Array<IProduct>;
+    'total': number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "total",
-            "baseName": "total",
-            "type": "number",
-            "format": "double"
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<IProduct>",
+            "format": ""
         },
         {
             "name": "has_more",
@@ -41,10 +41,10 @@ export class ProductListResponse {
             "format": "double"
         },
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "Array<IProduct>",
-            "format": ""
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
+            "format": "double"
         }    ];
 
     static getAttributeTypeMap() {

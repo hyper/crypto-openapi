@@ -177,7 +177,7 @@ export class LogsApiResponseProcessor {
      * @params response Response returned by the server for a request to list
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async list(response: ResponseContext): Promise<LogListResponse > {
+     public async list(response: ResponseContext): Promise<LogListResponse | void > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: LogListResponse = ObjectSerializer.deserialize(
@@ -185,6 +185,9 @@ export class LogsApiResponseProcessor {
                 "LogListResponse", ""
             ) as LogListResponse;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -195,10 +198,10 @@ export class LogsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: LogListResponse = ObjectSerializer.deserialize(
+            const body: LogListResponse | void = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "LogListResponse", ""
-            ) as LogListResponse;
+                "LogListResponse | void", ""
+            ) as LogListResponse | void;
             return body;
         }
 
@@ -212,7 +215,7 @@ export class LogsApiResponseProcessor {
      * @params response Response returned by the server for a request to list_1
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async list_1(response: ResponseContext): Promise<LogListResponse > {
+     public async list_1(response: ResponseContext): Promise<LogListResponse | void > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: LogListResponse = ObjectSerializer.deserialize(
@@ -220,6 +223,9 @@ export class LogsApiResponseProcessor {
                 "LogListResponse", ""
             ) as LogListResponse;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -230,10 +236,10 @@ export class LogsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: LogListResponse = ObjectSerializer.deserialize(
+            const body: LogListResponse | void = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "LogListResponse", ""
-            ) as LogListResponse;
+                "LogListResponse | void", ""
+            ) as LogListResponse | void;
             return body;
         }
 
@@ -247,7 +253,7 @@ export class LogsApiResponseProcessor {
      * @params response Response returned by the server for a request to retrieve
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async retrieve(response: ResponseContext): Promise<ILog > {
+     public async retrieve(response: ResponseContext): Promise<void | ILog > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: ILog = ObjectSerializer.deserialize(
@@ -255,6 +261,9 @@ export class LogsApiResponseProcessor {
                 "ILog", ""
             ) as ILog;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -268,10 +277,10 @@ export class LogsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ILog = ObjectSerializer.deserialize(
+            const body: void | ILog = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "ILog", ""
-            ) as ILog;
+                "void | ILog", ""
+            ) as void | ILog;
             return body;
         }
 
@@ -285,7 +294,7 @@ export class LogsApiResponseProcessor {
      * @params response Response returned by the server for a request to retrieve_2
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async retrieve_2(response: ResponseContext): Promise<ILog > {
+     public async retrieve_2(response: ResponseContext): Promise<void | ILog > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: ILog = ObjectSerializer.deserialize(
@@ -293,6 +302,9 @@ export class LogsApiResponseProcessor {
                 "ILog", ""
             ) as ILog;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -306,10 +318,10 @@ export class LogsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ILog = ObjectSerializer.deserialize(
+            const body: void | ILog = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "ILog", ""
-            ) as ILog;
+                "void | ILog", ""
+            ) as void | ILog;
             return body;
         }
 

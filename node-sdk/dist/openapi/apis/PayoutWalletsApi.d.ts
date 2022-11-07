@@ -18,14 +18,14 @@ export declare class PayoutWalletsApiRequestFactory extends BaseAPIRequestFactor
     update_5(id: string, pluto_account?: string, payout_wallet_update_request?: PayoutWalletUpdateRequest, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class PayoutWalletsApiResponseProcessor {
-    _delete(response: ResponseContext): Promise<IPayoutWallet>;
-    _delete_1(response: ResponseContext): Promise<IPayoutWallet>;
-    create(response: ResponseContext): Promise<IPayoutWallet>;
-    create_2(response: ResponseContext): Promise<IPayoutWallet>;
-    list(response: ResponseContext): Promise<PayoutWalletListResponse>;
-    list_3(response: ResponseContext): Promise<PayoutWalletListResponse>;
-    retrieve(response: ResponseContext): Promise<IPayoutWallet>;
-    retrieve_4(response: ResponseContext): Promise<IPayoutWallet>;
+    _delete(response: ResponseContext): Promise<void | IPayoutWallet>;
+    _delete_1(response: ResponseContext): Promise<void | IPayoutWallet>;
+    create(response: ResponseContext): Promise<void | IPayoutWallet>;
+    create_2(response: ResponseContext): Promise<void | IPayoutWallet>;
+    list(response: ResponseContext): Promise<void | PayoutWalletListResponse>;
+    list_3(response: ResponseContext): Promise<void | PayoutWalletListResponse>;
+    retrieve(response: ResponseContext): Promise<void | IPayoutWallet>;
+    retrieve_4(response: ResponseContext): Promise<void | IPayoutWallet>;
     update(response: ResponseContext): Promise<IPayoutWallet>;
     update_5(response: ResponseContext): Promise<IPayoutWallet>;
 }

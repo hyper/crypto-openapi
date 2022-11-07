@@ -14,19 +14,19 @@ import { IPaymentIntent } from './IPaymentIntent';
 import { HttpFile } from '../http/http';
 
 export class PaymentIntentListResponse {
-    'total': number;
+    'data': Array<IPaymentIntent>;
     'has_more': boolean;
     'page': number;
-    'data': Array<IPaymentIntent>;
+    'total': number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "total",
-            "baseName": "total",
-            "type": "number",
-            "format": "double"
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<IPaymentIntent>",
+            "format": ""
         },
         {
             "name": "has_more",
@@ -41,10 +41,10 @@ export class PaymentIntentListResponse {
             "format": "double"
         },
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "Array<IPaymentIntent>",
-            "format": ""
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
+            "format": "double"
         }    ];
 
     static getAttributeTypeMap() {

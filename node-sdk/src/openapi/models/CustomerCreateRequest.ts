@@ -10,23 +10,23 @@
  * Do not edit the class manually.
  */
 
-import { ICustomerBillingDetails } from './ICustomerBillingDetails';
+import { CustomerCreateRequestBillingDetails } from './CustomerCreateRequestBillingDetails';
 import { HttpFile } from '../http/http';
 
 export class CustomerCreateRequest {
-    'name'?: string;
+    'billing_details'?: CustomerCreateRequestBillingDetails;
     'email'?: string;
-    'phone'?: string;
-    'billing_details'?: ICustomerBillingDetails;
     'metadata'?: { [key: string]: any; };
+    'name'?: string;
+    'phone'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
+            "name": "billing_details",
+            "baseName": "billing_details",
+            "type": "CustomerCreateRequestBillingDetails",
             "format": ""
         },
         {
@@ -36,21 +36,21 @@ export class CustomerCreateRequest {
             "format": ""
         },
         {
-            "name": "phone",
-            "baseName": "phone",
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "{ [key: string]: any; }",
+            "format": ""
+        },
+        {
+            "name": "name",
+            "baseName": "name",
             "type": "string",
             "format": ""
         },
         {
-            "name": "billing_details",
-            "baseName": "billing_details",
-            "type": "ICustomerBillingDetails",
-            "format": ""
-        },
-        {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "{ [key: string]: any; }",
+            "name": "phone",
+            "baseName": "phone",
+            "type": "string",
             "format": ""
         }    ];
 

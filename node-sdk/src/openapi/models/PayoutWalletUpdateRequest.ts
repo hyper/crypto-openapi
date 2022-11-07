@@ -14,23 +14,23 @@ import { Chain } from './Chain';
 import { HttpFile } from '../http/http';
 
 export class PayoutWalletUpdateRequest {
-    'chain'?: Chain;
     'address'?: string;
+    'chain'?: Chain;
     '_default'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "Chain",
-            "format": ""
-        },
-        {
             "name": "address",
             "baseName": "address",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "Chain",
             "format": ""
         },
         {

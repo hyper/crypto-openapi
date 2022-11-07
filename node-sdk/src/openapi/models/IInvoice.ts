@@ -15,39 +15,40 @@ import { LineItem } from './LineItem';
 import { HttpFile } from '../http/http';
 
 export class IInvoice {
-    'id': string;
-    'object': string;
-    'created': number;
-    'test': boolean;
     'account': string;
-    'platform_account'?: string;
-    'status': InvoiceStatus;
-    'number': string;
-    'price': string;
+    'coupon'?: string;
+    'created': number;
     'customer': string;
-    'line_items': Array<LineItem>;
-    'trial_period_days': number;
-    'subscription'?: string;
-    'period_start'?: Date | number;
-    'period_end'?: Date | number;
     'due'?: Date | number;
-    'notify': boolean;
-    'invoice_pdf'?: string;
     'hosted_invoice_url': string;
+    'id': string;
+    'invoice_pdf'?: string;
+    'line_items': Array<LineItem>;
     'metadata': { [key: string]: any; };
+    'notify': boolean;
+    'number': string;
+    'object': string;
+    'period_end'?: Date | number;
+    'period_start'?: Date | number;
+    'platform_account'?: string;
+    'price': string;
+    'status': InvoiceStatus;
+    'subscription'?: string;
+    'test': boolean;
+    'trial_period_days': number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
+            "name": "account",
+            "baseName": "account",
             "type": "string",
             "format": ""
         },
         {
-            "name": "object",
-            "baseName": "object",
+            "name": "coupon",
+            "baseName": "coupon",
             "type": "string",
             "format": ""
         },
@@ -58,44 +59,32 @@ export class IInvoice {
             "format": "double"
         },
         {
-            "name": "test",
-            "baseName": "test",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "account",
-            "baseName": "account",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "status",
-            "baseName": "status",
-            "type": "InvoiceStatus",
-            "format": ""
-        },
-        {
-            "name": "number",
-            "baseName": "number",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "price",
-            "baseName": "price",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "customer",
             "baseName": "customer",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "due",
+            "baseName": "due",
+            "type": "Date | number",
+            "format": ""
+        },
+        {
+            "name": "hosted_invoice_url",
+            "baseName": "hosted_invoice_url",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "id",
+            "baseName": "id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "invoice_pdf",
+            "baseName": "invoice_pdf",
             "type": "string",
             "format": ""
         },
@@ -106,33 +95,9 @@ export class IInvoice {
             "format": ""
         },
         {
-            "name": "trial_period_days",
-            "baseName": "trial_period_days",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "subscription",
-            "baseName": "subscription",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "period_start",
-            "baseName": "period_start",
-            "type": "Date | number",
-            "format": ""
-        },
-        {
-            "name": "period_end",
-            "baseName": "period_end",
-            "type": "Date | number",
-            "format": ""
-        },
-        {
-            "name": "due",
-            "baseName": "due",
-            "type": "Date | number",
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "{ [key: string]: any; }",
             "format": ""
         },
         {
@@ -142,22 +107,64 @@ export class IInvoice {
             "format": ""
         },
         {
-            "name": "invoice_pdf",
-            "baseName": "invoice_pdf",
+            "name": "number",
+            "baseName": "number",
             "type": "string",
             "format": ""
         },
         {
-            "name": "hosted_invoice_url",
-            "baseName": "hosted_invoice_url",
+            "name": "object",
+            "baseName": "object",
             "type": "string",
             "format": ""
         },
         {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "{ [key: string]: any; }",
+            "name": "period_end",
+            "baseName": "period_end",
+            "type": "Date | number",
             "format": ""
+        },
+        {
+            "name": "period_start",
+            "baseName": "period_start",
+            "type": "Date | number",
+            "format": ""
+        },
+        {
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "price",
+            "baseName": "price",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "InvoiceStatus",
+            "format": ""
+        },
+        {
+            "name": "subscription",
+            "baseName": "subscription",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "test",
+            "baseName": "test",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "trial_period_days",
+            "baseName": "trial_period_days",
+            "type": "number",
+            "format": "double"
         }    ];
 
     static getAttributeTypeMap() {

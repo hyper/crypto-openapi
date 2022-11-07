@@ -3,25 +3,25 @@ import { Chain } from './Chain';
 import { Currency } from './Currency';
 import { LineItem } from './LineItem';
 export declare class IPaymentLink {
-    'id': string;
-    'object': string;
-    'created': number;
-    'test': boolean;
     'account': string;
-    'platform_account'?: string;
     'active': boolean;
-    'url': string;
     'after_completion': AfterCompletion;
-    'line_items': Array<LineItem>;
-    'currency': Currency;
-    'chain': Chain;
-    'expires_at'?: Date | number;
-    'max_usages'?: number;
-    'remaining_stock'?: number;
     'application_fee_percent'?: number;
+    'chain': Chain;
+    'created': number;
+    'currency': Currency;
+    'expires_at'?: Date | number;
+    'id': string;
+    'line_items': Array<LineItem>;
+    'max_usages'?: number;
     'metadata': {
         [key: string]: any;
     };
+    'object': string;
+    'platform_account'?: string;
+    'remaining_stock'?: number;
+    'test': boolean;
+    'url': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

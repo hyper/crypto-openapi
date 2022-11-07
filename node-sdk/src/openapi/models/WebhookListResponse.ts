@@ -14,19 +14,19 @@ import { IWebhook } from './IWebhook';
 import { HttpFile } from '../http/http';
 
 export class WebhookListResponse {
-    'total': number;
+    'data': Array<IWebhook>;
     'has_more': boolean;
     'page': number;
-    'data': Array<IWebhook>;
+    'total': number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "total",
-            "baseName": "total",
-            "type": "number",
-            "format": "double"
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<IWebhook>",
+            "format": ""
         },
         {
             "name": "has_more",
@@ -41,10 +41,10 @@ export class WebhookListResponse {
             "format": "double"
         },
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "Array<IWebhook>",
-            "format": ""
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
+            "format": "double"
         }    ];
 
     static getAttributeTypeMap() {

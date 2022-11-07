@@ -14,33 +14,27 @@ import { LineItem } from './LineItem';
 import { HttpFile } from '../http/http';
 
 export class InvoiceCreateRequest {
-    'metadata'?: { [key: string]: any; };
-    'price'?: string;
     'customer'?: string;
-    'line_items'?: Array<LineItem>;
-    'trial_period_days'?: number;
     'due'?: Date | number;
+    'line_items'?: Array<LineItem>;
+    'metadata'?: { [key: string]: any; };
     'notify'?: boolean;
+    'price'?: string;
+    'trial_period_days'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "{ [key: string]: any; }",
-            "format": ""
-        },
-        {
-            "name": "price",
-            "baseName": "price",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "customer",
             "baseName": "customer",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "due",
+            "baseName": "due",
+            "type": "Date | number",
             "format": ""
         },
         {
@@ -50,15 +44,9 @@ export class InvoiceCreateRequest {
             "format": ""
         },
         {
-            "name": "trial_period_days",
-            "baseName": "trial_period_days",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "due",
-            "baseName": "due",
-            "type": "Date | number",
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "{ [key: string]: any; }",
             "format": ""
         },
         {
@@ -66,6 +54,18 @@ export class InvoiceCreateRequest {
             "baseName": "notify",
             "type": "boolean",
             "format": ""
+        },
+        {
+            "name": "price",
+            "baseName": "price",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "trial_period_days",
+            "baseName": "trial_period_days",
+            "type": "number",
+            "format": "double"
         }    ];
 
     static getAttributeTypeMap() {

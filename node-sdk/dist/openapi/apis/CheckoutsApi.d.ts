@@ -15,12 +15,12 @@ export declare class CheckoutsApiRequestFactory extends BaseAPIRequestFactory {
     retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class CheckoutsApiResponseProcessor {
-    _delete(response: ResponseContext): Promise<ICheckout>;
-    _delete_1(response: ResponseContext): Promise<ICheckout>;
-    create(response: ResponseContext): Promise<ICheckout>;
-    create_2(response: ResponseContext): Promise<ICheckout>;
-    list(response: ResponseContext): Promise<CheckoutListResponse>;
-    list_3(response: ResponseContext): Promise<CheckoutListResponse>;
-    retrieve(response: ResponseContext): Promise<ICheckout>;
-    retrieve_4(response: ResponseContext): Promise<ICheckout>;
+    _delete(response: ResponseContext): Promise<void | ICheckout>;
+    _delete_1(response: ResponseContext): Promise<void | ICheckout>;
+    create(response: ResponseContext): Promise<void | ICheckout>;
+    create_2(response: ResponseContext): Promise<void | ICheckout>;
+    list(response: ResponseContext): Promise<CheckoutListResponse | void>;
+    list_3(response: ResponseContext): Promise<CheckoutListResponse | void>;
+    retrieve(response: ResponseContext): Promise<void | ICheckout>;
+    retrieve_4(response: ResponseContext): Promise<void | ICheckout>;
 }

@@ -1,14 +1,14 @@
 import { LineItem } from './LineItem';
 export declare class InvoiceCreateRequest {
+    'customer'?: string;
+    'due'?: Date | number;
+    'line_items'?: Array<LineItem>;
     'metadata'?: {
         [key: string]: any;
     };
-    'price'?: string;
-    'customer'?: string;
-    'line_items'?: Array<LineItem>;
-    'trial_period_days'?: number;
-    'due'?: Date | number;
     'notify'?: boolean;
+    'price'?: string;
+    'trial_period_days'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

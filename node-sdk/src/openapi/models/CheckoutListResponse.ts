@@ -14,19 +14,19 @@ import { ICheckout } from './ICheckout';
 import { HttpFile } from '../http/http';
 
 export class CheckoutListResponse {
-    'total': number;
+    'data': Array<ICheckout>;
     'has_more': boolean;
     'page': number;
-    'data': Array<ICheckout>;
+    'total': number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "total",
-            "baseName": "total",
-            "type": "number",
-            "format": "double"
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<ICheckout>",
+            "format": ""
         },
         {
             "name": "has_more",
@@ -41,10 +41,10 @@ export class CheckoutListResponse {
             "format": "double"
         },
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "Array<ICheckout>",
-            "format": ""
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
+            "format": "double"
         }    ];
 
     static getAttributeTypeMap() {

@@ -12,6 +12,36 @@ exports.IWallet = IWallet;
 IWallet.discriminator = undefined;
 IWallet.attributeTypeMap = [
     {
+        "name": "account",
+        "baseName": "account",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "address",
+        "baseName": "address",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "chain",
+        "baseName": "chain",
+        "type": "Chain",
+        "format": ""
+    },
+    {
+        "name": "created",
+        "baseName": "created",
+        "type": "number",
+        "format": "double"
+    },
+    {
+        "name": "customer",
+        "baseName": "customer",
+        "type": "string",
+        "format": ""
+    },
+    {
         "name": "id",
         "baseName": "id",
         "type": "string",
@@ -24,39 +54,9 @@ IWallet.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "created",
-        "baseName": "created",
-        "type": "number",
-        "format": "double"
-    },
-    {
         "name": "test",
         "baseName": "test",
         "type": "boolean",
-        "format": ""
-    },
-    {
-        "name": "account",
-        "baseName": "account",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "chain",
-        "baseName": "chain",
-        "type": "Chain",
-        "format": ""
-    },
-    {
-        "name": "address",
-        "baseName": "address",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "customer",
-        "baseName": "customer",
-        "type": "string",
         "format": ""
     }
 ];

@@ -1,9 +1,9 @@
 import { IApiKey } from './IApiKey';
 export declare class ApiKeyListResponse {
-    'total': number;
+    'data': Array<IApiKey>;
     'has_more': boolean;
     'page': number;
-    'data': Array<IApiKey>;
+    'total': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -47,16 +47,6 @@
         "required": ["email"],
         "type": "object"
       },
-      "AccountDashboardAccessResponse": {
-        "additionalProperties": false,
-        "properties": {
-          "url": {
-            "type": "string"
-          }
-        },
-        "required": ["url"],
-        "type": "object"
-      },
       "AccountListResponse": {
         "additionalProperties": false,
         "properties": {
@@ -235,8 +225,152 @@
         "enum": ["processing", "requires_confirmation", "succeeded", "failed"],
         "type": "string"
       },
+      "CouponCreateRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "amount_off": {
+            "format": "double",
+            "type": "number"
+          },
+          "archived": {
+            "type": "boolean"
+          },
+          "chain": {
+            "$ref": "#/components/schemas/Chain"
+          },
+          "code": {
+            "type": "string"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/Currency"
+          },
+          "duration": {
+            "$ref": "#/components/schemas/CouponDuration"
+          },
+          "duration_in_days": {
+            "format": "double",
+            "type": "number"
+          },
+          "max_redemptions": {
+            "format": "double",
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "percent_off": {
+            "format": "double",
+            "type": "number"
+          },
+          "products": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "redeem_by": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "format": "double",
+                "type": "number"
+              }
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "CouponDuration": {
+        "enum": ["once", "repeating", "forever"],
+        "type": "string"
+      },
+      "CouponListResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/ICoupon"
+            },
+            "type": "array"
+          },
+          "has_more": {
+            "type": "boolean"
+          },
+          "page": {
+            "format": "double",
+            "type": "number"
+          },
+          "total": {
+            "format": "double",
+            "type": "number"
+          }
+        },
+        "required": ["total", "has_more", "page", "data"],
+        "type": "object"
+      },
+      "CouponUpdateRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "amount_off": {
+            "format": "double",
+            "type": "number"
+          },
+          "archived": {
+            "type": "boolean"
+          },
+          "chain": {
+            "$ref": "#/components/schemas/Chain"
+          },
+          "code": {
+            "type": "string"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/Currency"
+          },
+          "duration": {
+            "$ref": "#/components/schemas/CouponDuration"
+          },
+          "duration_in_days": {
+            "format": "double",
+            "type": "number"
+          },
+          "max_redemptions": {
+            "format": "double",
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "percent_off": {
+            "format": "double",
+            "type": "number"
+          },
+          "products": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "redeem_by": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "format": "double",
+                "type": "number"
+              }
+            ]
+          }
+        },
+        "type": "object"
+      },
       "Currency": {
-        "enum": ["eth", "sol", "weth", "usdc", "usdt"],
+        "enum": ["eth", "weth", "usdc", "usdt", "pltnm", "sol"],
         "type": "string"
       },
       "CustomAmount": {
@@ -359,27 +493,27 @@
           "payment_intent.created",
           "payment_intent.updated",
           "payment_intent.deleted",
-          "price.created",
-          "price.updated",
-          "price.deleted",
           "customer.created",
           "customer.updated",
           "customer.deleted",
-          "invoice.created",
-          "invoice.updated",
-          "invoice.deleted",
+          "wallet.created",
+          "wallet.updated",
+          "wallet.deleted",
+          "price.created",
+          "price.updated",
+          "price.deleted",
           "subscription.created",
           "subscription.updated",
           "subscription.deleted",
           "product.created",
           "product.updated",
           "product.deleted",
-          "wallet.created",
-          "wallet.updated",
-          "wallet.deleted",
           "api_key.created",
           "api_key.updated",
           "api_key.deleted",
+          "invoice.created",
+          "invoice.updated",
+          "invoice.deleted",
           "fee.created",
           "fee.updated",
           "fee.deleted",
@@ -714,6 +848,103 @@
         ],
         "type": "object"
       },
+      "ICoupon": {
+        "additionalProperties": false,
+        "properties": {
+          "account": {
+            "type": "string"
+          },
+          "amount_off": {
+            "format": "double",
+            "type": "number"
+          },
+          "archived": {
+            "type": "boolean"
+          },
+          "chain": {
+            "$ref": "#/components/schemas/Chain"
+          },
+          "code": {
+            "type": "string"
+          },
+          "created": {
+            "format": "double",
+            "type": "number"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/Currency"
+          },
+          "duration": {
+            "$ref": "#/components/schemas/CouponDuration"
+          },
+          "duration_in_days": {
+            "format": "double",
+            "type": "number"
+          },
+          "id": {
+            "type": "string"
+          },
+          "max_redemptions": {
+            "format": "double",
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "object": {
+            "type": "string"
+          },
+          "percent_off": {
+            "format": "double",
+            "type": "number"
+          },
+          "products": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "redeem_by": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "format": "double",
+                "type": "number"
+              }
+            ]
+          },
+          "test": {
+            "type": "boolean"
+          },
+          "times_redeemed": {
+            "format": "double",
+            "type": "number"
+          },
+          "valid": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "object",
+          "created",
+          "test",
+          "account",
+          "name",
+          "code",
+          "amount_off",
+          "percent_off",
+          "duration",
+          "times_redeemed",
+          "archived",
+          "valid",
+          "products"
+        ],
+        "type": "object"
+      },
       "ICustomer": {
         "additionalProperties": false,
         "properties": {
@@ -854,6 +1085,9 @@
         "additionalProperties": false,
         "properties": {
           "account": {
+            "type": "string"
+          },
+          "coupon": {
             "type": "string"
           },
           "created": {
@@ -1013,6 +1247,10 @@
             "format": "double",
             "type": "number"
           },
+          "amount_before_discount": {
+            "format": "double",
+            "type": "number"
+          },
           "application_fee_percent": {
             "format": "double",
             "type": "number"
@@ -1021,6 +1259,9 @@
             "$ref": "#/components/schemas/Chain"
           },
           "checkout": {
+            "type": "string"
+          },
+          "coupon": {
             "type": "string"
           },
           "created": {
@@ -1481,6 +1722,9 @@
               }
             ]
           },
+          "coupon": {
+            "type": "string"
+          },
           "created": {
             "format": "double",
             "type": "number"
@@ -1779,6 +2023,24 @@
           }
         },
         "required": ["total", "has_more", "page", "data"],
+        "type": "object"
+      },
+      "InvoicePayRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "format": "double",
+            "type": "number"
+          },
+          "coupon": {
+            "type": "string"
+          },
+          "metadata": {
+            "additionalProperties": {},
+            "properties": {},
+            "type": "object"
+          }
+        },
         "type": "object"
       },
       "InvoiceStatus": {
@@ -2574,7 +2836,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -2618,7 +2883,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -2670,7 +2938,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -2722,7 +2993,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -2779,7 +3053,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -2837,11 +3114,14 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AccountDashboardAccessResponse"
+                  "$ref": "#/components/schemas/IAccount"
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -2912,7 +3192,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -2956,7 +3239,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -3000,7 +3286,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -3050,7 +3339,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -3062,6 +3354,285 @@
         "security": [],
         "summary": "Retrieve checkout",
         "tags": ["Checkouts", "Checkouts"]
+      }
+    },
+    "/coupons": {
+      "get": {
+        "operationId": "coupons_list",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Pluto-Account",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "required": false,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "expand",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CouponListResponse"
+                }
+              }
+            },
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [],
+        "summary": "List coupons",
+        "tags": ["Coupons", "Coupons"]
+      },
+      "post": {
+        "operationId": "coupons_create",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Pluto-Account",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CouponCreateRequest"
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ICoupon"
+                }
+              }
+            },
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [],
+        "summary": "Create coupon",
+        "tags": ["Coupons", "Coupons"]
+      }
+    },
+    "/coupons/{id}": {
+      "delete": {
+        "operationId": "coupons_delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Pluto-Account",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ICoupon"
+                }
+              }
+            },
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [],
+        "summary": "Delete coupon",
+        "tags": ["Coupons", "Coupons"]
+      },
+      "get": {
+        "operationId": "coupons_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Pluto-Account",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "expand",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ICoupon"
+                }
+              }
+            },
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [],
+        "summary": "Retrieve coupon",
+        "tags": ["Coupons", "Coupons"]
+      },
+      "patch": {
+        "operationId": "coupons_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Pluto-Account",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CouponUpdateRequest"
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ICoupon"
+                }
+              }
+            },
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [],
+        "summary": "Update coupon",
+        "tags": ["Coupons", "Coupons"]
       }
     },
     "/customers": {
@@ -3129,7 +3700,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -3173,7 +3747,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -3225,7 +3802,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -3277,7 +3857,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -3351,7 +3934,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -3395,7 +3981,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -3447,7 +4036,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -3518,7 +4110,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -3562,7 +4157,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -3606,7 +4204,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -3656,7 +4257,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -3708,7 +4312,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -3746,6 +4353,16 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvoicePayRequest"
+              }
+            }
+          },
+          "required": false
+        },
         "responses": {
           "200": {
             "content": {
@@ -3755,7 +4372,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -3791,7 +4411,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -3843,7 +4466,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -3933,7 +4559,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -3977,7 +4606,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -4021,7 +4653,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -4071,7 +4706,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -4123,7 +4761,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -4178,7 +4819,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -4222,7 +4866,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -4293,7 +4940,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -4337,7 +4987,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -4381,7 +5034,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -4431,7 +5087,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -4483,7 +5142,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -4557,7 +5219,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -4601,7 +5266,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -4645,7 +5313,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -4695,7 +5366,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -4821,7 +5495,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -4865,7 +5542,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -4909,7 +5589,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -4959,7 +5642,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -5011,7 +5697,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -5085,7 +5774,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -5129,7 +5821,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -5173,7 +5868,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -5223,7 +5921,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -5275,7 +5976,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -5349,7 +6053,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -5393,7 +6100,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -5437,7 +6147,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -5487,7 +6200,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -5542,7 +6258,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -5616,7 +6335,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -5660,7 +6382,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -5712,7 +6437,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -5783,7 +6511,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -5827,7 +6558,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -5871,7 +6605,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -5921,7 +6658,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -5973,7 +6713,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -6047,7 +6790,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -6091,7 +6837,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"
@@ -6135,7 +6884,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -6185,7 +6937,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "401": {
             "description": "Unauthorized"
@@ -6237,7 +6992,10 @@
                 }
               }
             },
-            "description": "Ok"
+            "description": ""
+          },
+          "204": {
+            "description": "No content"
           },
           "400": {
             "description": "Bad Request"

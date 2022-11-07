@@ -12,27 +12,9 @@ exports.SubscriptionUpdateRequest = SubscriptionUpdateRequest;
 SubscriptionUpdateRequest.discriminator = undefined;
 SubscriptionUpdateRequest.attributeTypeMap = [
     {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "{ [key: string]: any; }",
-        "format": ""
-    },
-    {
-        "name": "price",
-        "baseName": "price",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "cancel_at",
         "baseName": "cancel_at",
         "type": "Date | number",
-        "format": ""
-    },
-    {
-        "name": "pause_collection",
-        "baseName": "pause_collection",
-        "type": "boolean",
         "format": ""
     },
     {
@@ -42,15 +24,33 @@ SubscriptionUpdateRequest.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "current_period_end",
+        "baseName": "current_period_end",
+        "type": "Date | number",
+        "format": ""
+    },
+    {
         "name": "current_period_start",
         "baseName": "current_period_start",
         "type": "Date | number",
         "format": ""
     },
     {
-        "name": "current_period_end",
-        "baseName": "current_period_end",
-        "type": "Date | number",
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "{ [key: string]: any; }",
+        "format": ""
+    },
+    {
+        "name": "pause_collection",
+        "baseName": "pause_collection",
+        "type": "boolean",
+        "format": ""
+    },
+    {
+        "name": "price",
+        "baseName": "price",
+        "type": "string",
         "format": ""
     }
 ];

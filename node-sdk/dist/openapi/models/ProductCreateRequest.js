@@ -12,9 +12,9 @@ exports.ProductCreateRequest = ProductCreateRequest;
 ProductCreateRequest.discriminator = undefined;
 ProductCreateRequest.attributeTypeMap = [
     {
-        "name": "name",
-        "baseName": "name",
-        "type": "string",
+        "name": "active",
+        "baseName": "active",
+        "type": "boolean",
         "format": ""
     },
     {
@@ -24,9 +24,9 @@ ProductCreateRequest.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "active",
-        "baseName": "active",
-        "type": "boolean",
+        "name": "name",
+        "baseName": "name",
+        "type": "string",
         "format": ""
     }
 ];

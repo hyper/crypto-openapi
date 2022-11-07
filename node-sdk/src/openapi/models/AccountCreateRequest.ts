@@ -15,19 +15,13 @@ import { ISettings } from './ISettings';
 import { HttpFile } from '../http/http';
 
 export class AccountCreateRequest {
-    'settings'?: ISettings;
     'business_profile'?: IBusinessProfile;
     'connected_accounts'?: Array<string>;
+    'settings'?: ISettings;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "settings",
-            "baseName": "settings",
-            "type": "ISettings",
-            "format": ""
-        },
         {
             "name": "business_profile",
             "baseName": "business_profile",
@@ -38,6 +32,12 @@ export class AccountCreateRequest {
             "name": "connected_accounts",
             "baseName": "connected_accounts",
             "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "settings",
+            "baseName": "settings",
+            "type": "ISettings",
             "format": ""
         }    ];
 

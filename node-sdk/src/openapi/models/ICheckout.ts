@@ -15,26 +15,62 @@ import { CustomerDetails } from './CustomerDetails';
 import { HttpFile } from '../http/http';
 
 export class ICheckout {
-    'id': string;
-    'object': string;
-    'created': number;
-    'test': boolean;
     'account': string;
+    'amount': number;
+    'created': number;
+    'customer': string;
+    'customer_details': CustomerDetails;
+    'id': string;
+    'last_payment_error'?: string;
+    'object': string;
+    'payment_intent'?: string;
+    'payment_link': string;
     'platform_account'?: string;
     'status': CheckoutStatus;
-    'customer_details': CustomerDetails;
-    'amount': number;
-    'payment_link': string;
-    'payment_intent'?: string;
-    'customer': string;
-    'last_payment_error'?: string;
+    'test': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
+            "name": "account",
+            "baseName": "account",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "amount",
+            "baseName": "amount",
+            "type": "number",
+            "format": "double"
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "number",
+            "format": "double"
+        },
+        {
+            "name": "customer",
+            "baseName": "customer",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "customer_details",
+            "baseName": "customer_details",
+            "type": "CustomerDetails",
+            "format": ""
+        },
+        {
             "name": "id",
             "baseName": "id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "last_payment_error",
+            "baseName": "last_payment_error",
             "type": "string",
             "format": ""
         },
@@ -45,20 +81,14 @@ export class ICheckout {
             "format": ""
         },
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "test",
-            "baseName": "test",
-            "type": "boolean",
+            "name": "payment_intent",
+            "baseName": "payment_intent",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "account",
-            "baseName": "account",
+            "name": "payment_link",
+            "baseName": "payment_link",
             "type": "string",
             "format": ""
         },
@@ -75,39 +105,9 @@ export class ICheckout {
             "format": ""
         },
         {
-            "name": "customer_details",
-            "baseName": "customer_details",
-            "type": "CustomerDetails",
-            "format": ""
-        },
-        {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "payment_link",
-            "baseName": "payment_link",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "payment_intent",
-            "baseName": "payment_intent",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "last_payment_error",
-            "baseName": "last_payment_error",
-            "type": "string",
+            "name": "test",
+            "baseName": "test",
+            "type": "boolean",
             "format": ""
         }    ];
 

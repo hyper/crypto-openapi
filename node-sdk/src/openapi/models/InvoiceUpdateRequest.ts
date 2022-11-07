@@ -14,8 +14,8 @@ import { InvoiceStatus } from './InvoiceStatus';
 import { HttpFile } from '../http/http';
 
 export class InvoiceUpdateRequest {
-    'metadata'?: { [key: string]: any; };
     'due'?: Date | number;
+    'metadata'?: { [key: string]: any; };
     'notify'?: boolean;
     'status'?: InvoiceStatus;
 
@@ -23,15 +23,15 @@ export class InvoiceUpdateRequest {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "{ [key: string]: any; }",
-            "format": ""
-        },
-        {
             "name": "due",
             "baseName": "due",
             "type": "Date | number",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "{ [key: string]: any; }",
             "format": ""
         },
         {

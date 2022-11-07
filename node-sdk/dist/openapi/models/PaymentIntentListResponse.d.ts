@@ -1,9 +1,9 @@
 import { IPaymentIntent } from './IPaymentIntent';
 export declare class PaymentIntentListResponse {
-    'total': number;
+    'data': Array<IPaymentIntent>;
     'has_more': boolean;
     'page': number;
-    'data': Array<IPaymentIntent>;
+    'total': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **_delete**
-> IInvoice _delete()
+> IInvoice | void _delete()
 
 
 ### Example
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IInvoice**
+**IInvoice | void**
 
 ### Authorization
 
@@ -70,14 +70,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **_delete_0**
-> IInvoice _delete_0()
+> IInvoice | void _delete_0()
 
 
 ### Example
@@ -113,7 +114,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IInvoice**
+**IInvoice | void**
 
 ### Authorization
 
@@ -128,14 +129,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
-> IInvoice create()
+> IInvoice | void create()
 
 
 ### Example
@@ -153,53 +155,53 @@ let body:.InvoicesApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // InvoiceCreateRequest (optional)
   invoice_create_request: {
-    metadata: {
-      "key": null,
-    },
-    price: "price_example",
     customer: "customer_example",
+    due: null,
     line_items: [
       {
         description: "description_example",
+        price: "price_example",
         price_data: {
-          id: "id_example",
-          object: "object_example",
-          created: 3.14,
-          test: true,
           account: "account_example",
-          platform_account: "platform_account_example",
           amount: 3.14,
-          custom_amount: {
-            _default: 3.14,
-            maximum: 3.14,
-            minimum: 3.14,
-          },
-          currency: "eth",
-          chain: "eth",
-          product: "product_example",
+          application_fee_percent: 3.14,
+          archived: true,
           base_price: {
+            amount: 3.14,
+            currency: "currency_example",
             custom_amount: {
               _default: 3.14,
               maximum: 3.14,
               minimum: 3.14,
             },
-            amount: 3.14,
-            currency: "currency_example",
           },
           billing_period_days: 3.14,
-          application_fee_percent: 3.14,
-          archived: true,
+          chain: "eth",
+          created: 3.14,
+          currency: "eth",
+          custom_amount: {
+            _default: 3.14,
+            maximum: 3.14,
+            minimum: 3.14,
+          },
+          id: "id_example",
           metadata: {
             "key": null,
           },
+          object: "object_example",
+          platform_account: "platform_account_example",
+          product: "product_example",
+          test: true,
         },
         quantity: 3.14,
-        price: "price_example",
       },
     ],
-    trial_period_days: 3.14,
-    due: null,
+    metadata: {
+      "key": null,
+    },
     notify: true,
+    price: "price_example",
+    trial_period_days: 3.14,
   },
 };
 
@@ -219,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IInvoice**
+**IInvoice | void**
 
 ### Authorization
 
@@ -234,14 +236,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create_0**
-> IInvoice create_0()
+> IInvoice | void create_0()
 
 
 ### Example
@@ -259,53 +262,53 @@ let body:.InvoicesApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // InvoiceCreateRequest (optional)
   invoice_create_request: {
-    metadata: {
-      "key": null,
-    },
-    price: "price_example",
     customer: "customer_example",
+    due: null,
     line_items: [
       {
         description: "description_example",
+        price: "price_example",
         price_data: {
-          id: "id_example",
-          object: "object_example",
-          created: 3.14,
-          test: true,
           account: "account_example",
-          platform_account: "platform_account_example",
           amount: 3.14,
-          custom_amount: {
-            _default: 3.14,
-            maximum: 3.14,
-            minimum: 3.14,
-          },
-          currency: "eth",
-          chain: "eth",
-          product: "product_example",
+          application_fee_percent: 3.14,
+          archived: true,
           base_price: {
+            amount: 3.14,
+            currency: "currency_example",
             custom_amount: {
               _default: 3.14,
               maximum: 3.14,
               minimum: 3.14,
             },
-            amount: 3.14,
-            currency: "currency_example",
           },
           billing_period_days: 3.14,
-          application_fee_percent: 3.14,
-          archived: true,
+          chain: "eth",
+          created: 3.14,
+          currency: "eth",
+          custom_amount: {
+            _default: 3.14,
+            maximum: 3.14,
+            minimum: 3.14,
+          },
+          id: "id_example",
           metadata: {
             "key": null,
           },
+          object: "object_example",
+          platform_account: "platform_account_example",
+          product: "product_example",
+          test: true,
         },
         quantity: 3.14,
-        price: "price_example",
       },
     ],
-    trial_period_days: 3.14,
-    due: null,
+    metadata: {
+      "key": null,
+    },
     notify: true,
+    price: "price_example",
+    trial_period_days: 3.14,
   },
 };
 
@@ -325,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IInvoice**
+**IInvoice | void**
 
 ### Authorization
 
@@ -340,14 +343,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> InvoiceListResponse list()
+> void | InvoiceListResponse list()
 
 
 ### Example
@@ -392,7 +396,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InvoiceListResponse**
+**void | InvoiceListResponse**
 
 ### Authorization
 
@@ -407,14 +411,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list_0**
-> InvoiceListResponse list_0()
+> void | InvoiceListResponse list_0()
 
 
 ### Example
@@ -459,7 +464,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InvoiceListResponse**
+**void | InvoiceListResponse**
 
 ### Authorization
 
@@ -474,14 +479,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **pay**
-> IPaymentIntent pay()
+> void | IPaymentIntent pay()
 
 
 ### Example
@@ -499,6 +505,14 @@ let body:.InvoicesApiPayRequest = {
   id: "id_example",
   // string (optional)
   pluto_account: "Pluto-Account_example",
+  // InvoicePayRequest (optional)
+  invoice_pay_request: {
+    amount: 3.14,
+    coupon: "coupon_example",
+    metadata: {
+      "key": null,
+    },
+  },
 };
 
 apiInstance.pay(body).then((data:any) => {
@@ -511,13 +525,14 @@ apiInstance.pay(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **invoice_pay_request** | **InvoicePayRequest**|  |
  **id** | [**string**] |  | defaults to undefined
  **pluto_account** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**IPaymentIntent**
+**void | IPaymentIntent**
 
 ### Authorization
 
@@ -525,21 +540,22 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **pay_0**
-> IPaymentIntent pay_0()
+> void | IPaymentIntent pay_0()
 
 
 ### Example
@@ -557,6 +573,14 @@ let body:.InvoicesApiPay0Request = {
   id: "id_example",
   // string (optional)
   pluto_account: "Pluto-Account_example",
+  // InvoicePayRequest (optional)
+  invoice_pay_request: {
+    amount: 3.14,
+    coupon: "coupon_example",
+    metadata: {
+      "key": null,
+    },
+  },
 };
 
 apiInstance.pay_0(body).then((data:any) => {
@@ -569,13 +593,14 @@ apiInstance.pay_0(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **invoice_pay_request** | **InvoicePayRequest**|  |
  **id** | [**string**] |  | defaults to undefined
  **pluto_account** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**IPaymentIntent**
+**void | IPaymentIntent**
 
 ### Authorization
 
@@ -583,21 +608,22 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> IInvoice retrieve()
+> IInvoice | void retrieve()
 
 
 ### Example
@@ -636,7 +662,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IInvoice**
+**IInvoice | void**
 
 ### Authorization
 
@@ -651,14 +677,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve_0**
-> IInvoice retrieve_0()
+> IInvoice | void retrieve_0()
 
 
 ### Example
@@ -697,7 +724,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IInvoice**
+**IInvoice | void**
 
 ### Authorization
 
@@ -712,14 +739,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update**
-> IInvoice update()
+> IInvoice | void update()
 
 
 ### Example
@@ -739,10 +767,10 @@ let body:.InvoicesApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // InvoiceUpdateRequest (optional)
   invoice_update_request: {
+    due: null,
     metadata: {
       "key": null,
     },
-    due: null,
     notify: true,
     status: "open",
   },
@@ -765,7 +793,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IInvoice**
+**IInvoice | void**
 
 ### Authorization
 
@@ -780,7 +808,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -788,7 +817,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update_0**
-> IInvoice update_0()
+> IInvoice | void update_0()
 
 
 ### Example
@@ -808,10 +837,10 @@ let body:.InvoicesApiUpdate0Request = {
   pluto_account: "Pluto-Account_example",
   // InvoiceUpdateRequest (optional)
   invoice_update_request: {
+    due: null,
     metadata: {
       "key": null,
     },
-    due: null,
     notify: true,
     status: "open",
   },
@@ -834,7 +863,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IInvoice**
+**IInvoice | void**
 
 ### Authorization
 
@@ -849,7 +878,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

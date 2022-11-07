@@ -18,14 +18,14 @@ export declare class SubscriptionsApiRequestFactory extends BaseAPIRequestFactor
     update_5(id: string, pluto_account?: string, subscription_update_request?: SubscriptionUpdateRequest, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class SubscriptionsApiResponseProcessor {
-    _delete(response: ResponseContext): Promise<ISubscription>;
-    _delete_1(response: ResponseContext): Promise<ISubscription>;
-    create(response: ResponseContext): Promise<ISubscription>;
-    create_2(response: ResponseContext): Promise<ISubscription>;
-    list(response: ResponseContext): Promise<SubscriptionListResponse>;
-    list_3(response: ResponseContext): Promise<SubscriptionListResponse>;
-    retrieve(response: ResponseContext): Promise<ISubscription>;
-    retrieve_4(response: ResponseContext): Promise<ISubscription>;
-    update(response: ResponseContext): Promise<ISubscription>;
-    update_5(response: ResponseContext): Promise<ISubscription>;
+    _delete(response: ResponseContext): Promise<void | ISubscription>;
+    _delete_1(response: ResponseContext): Promise<void | ISubscription>;
+    create(response: ResponseContext): Promise<void | ISubscription>;
+    create_2(response: ResponseContext): Promise<void | ISubscription>;
+    list(response: ResponseContext): Promise<void | SubscriptionListResponse>;
+    list_3(response: ResponseContext): Promise<void | SubscriptionListResponse>;
+    retrieve(response: ResponseContext): Promise<void | ISubscription>;
+    retrieve_4(response: ResponseContext): Promise<void | ISubscription>;
+    update(response: ResponseContext): Promise<void | ISubscription>;
+    update_5(response: ResponseContext): Promise<void | ISubscription>;
 }

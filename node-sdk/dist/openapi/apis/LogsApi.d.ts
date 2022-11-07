@@ -10,8 +10,8 @@ export declare class LogsApiRequestFactory extends BaseAPIRequestFactory {
     retrieve_2(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class LogsApiResponseProcessor {
-    list(response: ResponseContext): Promise<LogListResponse>;
-    list_1(response: ResponseContext): Promise<LogListResponse>;
-    retrieve(response: ResponseContext): Promise<ILog>;
-    retrieve_2(response: ResponseContext): Promise<ILog>;
+    list(response: ResponseContext): Promise<LogListResponse | void>;
+    list_1(response: ResponseContext): Promise<LogListResponse | void>;
+    retrieve(response: ResponseContext): Promise<void | ILog>;
+    retrieve_2(response: ResponseContext): Promise<void | ILog>;
 }

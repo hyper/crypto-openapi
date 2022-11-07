@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **_delete**
-> IPrice _delete()
+> void | IPrice _delete()
 
 
 ### Example
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPrice**
+**void | IPrice**
 
 ### Authorization
 
@@ -68,14 +68,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **_delete_0**
-> IPrice _delete_0()
+> void | IPrice _delete_0()
 
 
 ### Example
@@ -111,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPrice**
+**void | IPrice**
 
 ### Authorization
 
@@ -126,14 +127,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
-> IPrice create()
+> void | IPrice create()
 
 
 ### Example
@@ -152,29 +154,29 @@ let body:.PricesApiCreateRequest = {
   // PriceCreateRequest (optional)
   price_create_request: {
     amount: 3.14,
-    metadata: {
-      "key": null,
-    },
-    chain: "eth",
     application_fee_percent: 3.14,
+    archived: true,
+    base_price: {
+      amount: 3.14,
+      currency: "currency_example",
+      custom_amount: {
+        _default: 3.14,
+        maximum: 3.14,
+        minimum: 3.14,
+      },
+    },
+    billing_period_days: 3.14,
+    chain: "eth",
     currency: "eth",
     custom_amount: {
       _default: 3.14,
       maximum: 3.14,
       minimum: 3.14,
     },
-    product: "product_example",
-    base_price: {
-      custom_amount: {
-        _default: 3.14,
-        maximum: 3.14,
-        minimum: 3.14,
-      },
-      amount: 3.14,
-      currency: "currency_example",
+    metadata: {
+      "key": null,
     },
-    billing_period_days: 3.14,
-    archived: true,
+    product: "product_example",
   },
 };
 
@@ -194,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPrice**
+**void | IPrice**
 
 ### Authorization
 
@@ -209,14 +211,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create_0**
-> IPrice create_0()
+> void | IPrice create_0()
 
 
 ### Example
@@ -235,29 +238,29 @@ let body:.PricesApiCreate0Request = {
   // PriceCreateRequest (optional)
   price_create_request: {
     amount: 3.14,
-    metadata: {
-      "key": null,
-    },
-    chain: "eth",
     application_fee_percent: 3.14,
+    archived: true,
+    base_price: {
+      amount: 3.14,
+      currency: "currency_example",
+      custom_amount: {
+        _default: 3.14,
+        maximum: 3.14,
+        minimum: 3.14,
+      },
+    },
+    billing_period_days: 3.14,
+    chain: "eth",
     currency: "eth",
     custom_amount: {
       _default: 3.14,
       maximum: 3.14,
       minimum: 3.14,
     },
-    product: "product_example",
-    base_price: {
-      custom_amount: {
-        _default: 3.14,
-        maximum: 3.14,
-        minimum: 3.14,
-      },
-      amount: 3.14,
-      currency: "currency_example",
+    metadata: {
+      "key": null,
     },
-    billing_period_days: 3.14,
-    archived: true,
+    product: "product_example",
   },
 };
 
@@ -277,7 +280,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPrice**
+**void | IPrice**
 
 ### Authorization
 
@@ -292,14 +295,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> PriceListResponse list()
+> PriceListResponse | void list()
 
 
 ### Example
@@ -344,7 +348,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**PriceListResponse**
+**PriceListResponse | void**
 
 ### Authorization
 
@@ -359,14 +363,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list_0**
-> PriceListResponse list_0()
+> PriceListResponse | void list_0()
 
 
 ### Example
@@ -411,7 +416,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**PriceListResponse**
+**PriceListResponse | void**
 
 ### Authorization
 
@@ -426,14 +431,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> IPrice retrieve()
+> void | IPrice retrieve()
 
 
 ### Example
@@ -472,7 +478,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPrice**
+**void | IPrice**
 
 ### Authorization
 
@@ -487,14 +493,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve_0**
-> IPrice retrieve_0()
+> void | IPrice retrieve_0()
 
 
 ### Example
@@ -533,7 +540,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPrice**
+**void | IPrice**
 
 ### Authorization
 
@@ -548,14 +555,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update**
-> IPrice update()
+> void | IPrice update()
 
 
 ### Example
@@ -575,11 +583,11 @@ let body:.PricesApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // PriceUpdateRequest (optional)
   price_update_request: {
+    application_fee_percent: 3.14,
+    archived: true,
     metadata: {
       "key": null,
     },
-    application_fee_percent: 3.14,
-    archived: true,
   },
 };
 
@@ -600,7 +608,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPrice**
+**void | IPrice**
 
 ### Authorization
 
@@ -615,7 +623,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -623,7 +632,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update_0**
-> IPrice update_0()
+> void | IPrice update_0()
 
 
 ### Example
@@ -643,11 +652,11 @@ let body:.PricesApiUpdate0Request = {
   pluto_account: "Pluto-Account_example",
   // PriceUpdateRequest (optional)
   price_update_request: {
+    application_fee_percent: 3.14,
+    archived: true,
     metadata: {
       "key": null,
     },
-    application_fee_percent: 3.14,
-    archived: true,
   },
 };
 
@@ -668,7 +677,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPrice**
+**void | IPrice**
 
 ### Authorization
 
@@ -683,7 +692,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

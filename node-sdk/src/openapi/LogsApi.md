@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **list**
-> LogListResponse list()
+> LogListResponse | void list()
 
 
 ### Example
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**LogListResponse**
+**LogListResponse | void**
 
 ### Authorization
 
@@ -59,14 +59,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list_0**
-> LogListResponse list_0()
+> LogListResponse | void list_0()
 
 
 ### Example
@@ -99,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**LogListResponse**
+**LogListResponse | void**
 
 ### Authorization
 
@@ -114,14 +115,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> ILog retrieve()
+> void | ILog retrieve()
 
 
 ### Example
@@ -160,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ILog**
+**void | ILog**
 
 ### Authorization
 
@@ -175,7 +177,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -183,7 +186,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve_0**
-> ILog retrieve_0()
+> void | ILog retrieve_0()
 
 
 ### Example
@@ -222,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ILog**
+**void | ILog**
 
 ### Authorization
 
@@ -237,7 +240,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

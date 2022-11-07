@@ -16,12 +16,12 @@ export declare class CustomersApiRequestFactory extends BaseAPIRequestFactory {
     update_4(id: string, pluto_account?: string, customer_update_request?: CustomerUpdateRequest, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class CustomersApiResponseProcessor {
-    create(response: ResponseContext): Promise<ICustomer>;
-    create_1(response: ResponseContext): Promise<ICustomer>;
-    list(response: ResponseContext): Promise<CustomerListResponse>;
-    list_2(response: ResponseContext): Promise<CustomerListResponse>;
-    retrieve(response: ResponseContext): Promise<ICustomer>;
-    retrieve_3(response: ResponseContext): Promise<ICustomer>;
-    update(response: ResponseContext): Promise<ICustomer>;
-    update_4(response: ResponseContext): Promise<ICustomer>;
+    create(response: ResponseContext): Promise<void | ICustomer>;
+    create_1(response: ResponseContext): Promise<void | ICustomer>;
+    list(response: ResponseContext): Promise<void | CustomerListResponse>;
+    list_2(response: ResponseContext): Promise<void | CustomerListResponse>;
+    retrieve(response: ResponseContext): Promise<void | ICustomer>;
+    retrieve_3(response: ResponseContext): Promise<void | ICustomer>;
+    update(response: ResponseContext): Promise<void | ICustomer>;
+    update_4(response: ResponseContext): Promise<void | ICustomer>;
 }

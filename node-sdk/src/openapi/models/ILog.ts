@@ -15,17 +15,29 @@ import { IResponse } from './IResponse';
 import { HttpFile } from '../http/http';
 
 export class ILog {
+    'account': string;
+    'created': number;
     'id': string;
     'object': string;
-    'created': number;
-    'test': boolean;
-    'account': string;
     'request': IRequest;
     'response': IResponse;
+    'test': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "account",
+            "baseName": "account",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "number",
+            "format": "double"
+        },
         {
             "name": "id",
             "baseName": "id",
@@ -39,24 +51,6 @@ export class ILog {
             "format": ""
         },
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "test",
-            "baseName": "test",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "account",
-            "baseName": "account",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "request",
             "baseName": "request",
             "type": "IRequest",
@@ -66,6 +60,12 @@ export class ILog {
             "name": "response",
             "baseName": "response",
             "type": "IResponse",
+            "format": ""
+        },
+        {
+            "name": "test",
+            "baseName": "test",
+            "type": "boolean",
             "format": ""
         }    ];
 

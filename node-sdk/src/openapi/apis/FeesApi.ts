@@ -320,7 +320,7 @@ export class FeesApiResponseProcessor {
      * @params response Response returned by the server for a request to create
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async create(response: ResponseContext): Promise<IFee > {
+     public async create(response: ResponseContext): Promise<void | IFee > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: IFee = ObjectSerializer.deserialize(
@@ -328,6 +328,9 @@ export class FeesApiResponseProcessor {
                 "IFee", ""
             ) as IFee;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -338,10 +341,10 @@ export class FeesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: IFee = ObjectSerializer.deserialize(
+            const body: void | IFee = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "IFee", ""
-            ) as IFee;
+                "void | IFee", ""
+            ) as void | IFee;
             return body;
         }
 
@@ -355,7 +358,7 @@ export class FeesApiResponseProcessor {
      * @params response Response returned by the server for a request to create_1
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async create_1(response: ResponseContext): Promise<IFee > {
+     public async create_1(response: ResponseContext): Promise<void | IFee > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: IFee = ObjectSerializer.deserialize(
@@ -363,6 +366,9 @@ export class FeesApiResponseProcessor {
                 "IFee", ""
             ) as IFee;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -373,10 +379,10 @@ export class FeesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: IFee = ObjectSerializer.deserialize(
+            const body: void | IFee = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "IFee", ""
-            ) as IFee;
+                "void | IFee", ""
+            ) as void | IFee;
             return body;
         }
 
@@ -390,7 +396,7 @@ export class FeesApiResponseProcessor {
      * @params response Response returned by the server for a request to list
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async list(response: ResponseContext): Promise<FeeListResponse > {
+     public async list(response: ResponseContext): Promise<void | FeeListResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: FeeListResponse = ObjectSerializer.deserialize(
@@ -398,6 +404,9 @@ export class FeesApiResponseProcessor {
                 "FeeListResponse", ""
             ) as FeeListResponse;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -408,10 +417,10 @@ export class FeesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: FeeListResponse = ObjectSerializer.deserialize(
+            const body: void | FeeListResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "FeeListResponse", ""
-            ) as FeeListResponse;
+                "void | FeeListResponse", ""
+            ) as void | FeeListResponse;
             return body;
         }
 
@@ -425,7 +434,7 @@ export class FeesApiResponseProcessor {
      * @params response Response returned by the server for a request to list_2
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async list_2(response: ResponseContext): Promise<FeeListResponse > {
+     public async list_2(response: ResponseContext): Promise<void | FeeListResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: FeeListResponse = ObjectSerializer.deserialize(
@@ -433,6 +442,9 @@ export class FeesApiResponseProcessor {
                 "FeeListResponse", ""
             ) as FeeListResponse;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -443,10 +455,10 @@ export class FeesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: FeeListResponse = ObjectSerializer.deserialize(
+            const body: void | FeeListResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "FeeListResponse", ""
-            ) as FeeListResponse;
+                "void | FeeListResponse", ""
+            ) as void | FeeListResponse;
             return body;
         }
 
@@ -460,7 +472,7 @@ export class FeesApiResponseProcessor {
      * @params response Response returned by the server for a request to retrieve
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async retrieve(response: ResponseContext): Promise<IFee > {
+     public async retrieve(response: ResponseContext): Promise<void | IFee > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: IFee = ObjectSerializer.deserialize(
@@ -468,6 +480,9 @@ export class FeesApiResponseProcessor {
                 "IFee", ""
             ) as IFee;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
@@ -478,10 +493,10 @@ export class FeesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: IFee = ObjectSerializer.deserialize(
+            const body: void | IFee = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "IFee", ""
-            ) as IFee;
+                "void | IFee", ""
+            ) as void | IFee;
             return body;
         }
 
@@ -495,7 +510,7 @@ export class FeesApiResponseProcessor {
      * @params response Response returned by the server for a request to retrieve_3
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async retrieve_3(response: ResponseContext): Promise<IFee > {
+     public async retrieve_3(response: ResponseContext): Promise<void | IFee > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: IFee = ObjectSerializer.deserialize(
@@ -503,6 +518,9 @@ export class FeesApiResponseProcessor {
                 "IFee", ""
             ) as IFee;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
@@ -513,10 +531,10 @@ export class FeesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: IFee = ObjectSerializer.deserialize(
+            const body: void | IFee = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "IFee", ""
-            ) as IFee;
+                "void | IFee", ""
+            ) as void | IFee;
             return body;
         }
 

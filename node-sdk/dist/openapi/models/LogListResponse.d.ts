@@ -1,9 +1,9 @@
 import { ILog } from './ILog';
 export declare class LogListResponse {
-    'total': number;
+    'data': Array<ILog>;
     'has_more': boolean;
     'page': number;
-    'data': Array<ILog>;
+    'total': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

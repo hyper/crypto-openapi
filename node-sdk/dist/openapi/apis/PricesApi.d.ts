@@ -18,14 +18,14 @@ export declare class PricesApiRequestFactory extends BaseAPIRequestFactory {
     update_5(id: string, pluto_account?: string, price_update_request?: PriceUpdateRequest, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class PricesApiResponseProcessor {
-    _delete(response: ResponseContext): Promise<IPrice>;
-    _delete_1(response: ResponseContext): Promise<IPrice>;
-    create(response: ResponseContext): Promise<IPrice>;
-    create_2(response: ResponseContext): Promise<IPrice>;
-    list(response: ResponseContext): Promise<PriceListResponse>;
-    list_3(response: ResponseContext): Promise<PriceListResponse>;
-    retrieve(response: ResponseContext): Promise<IPrice>;
-    retrieve_4(response: ResponseContext): Promise<IPrice>;
-    update(response: ResponseContext): Promise<IPrice>;
-    update_5(response: ResponseContext): Promise<IPrice>;
+    _delete(response: ResponseContext): Promise<void | IPrice>;
+    _delete_1(response: ResponseContext): Promise<void | IPrice>;
+    create(response: ResponseContext): Promise<void | IPrice>;
+    create_2(response: ResponseContext): Promise<void | IPrice>;
+    list(response: ResponseContext): Promise<PriceListResponse | void>;
+    list_3(response: ResponseContext): Promise<PriceListResponse | void>;
+    retrieve(response: ResponseContext): Promise<void | IPrice>;
+    retrieve_4(response: ResponseContext): Promise<void | IPrice>;
+    update(response: ResponseContext): Promise<void | IPrice>;
+    update_5(response: ResponseContext): Promise<void | IPrice>;
 }

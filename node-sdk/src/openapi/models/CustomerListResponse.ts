@@ -14,19 +14,19 @@ import { ICustomer } from './ICustomer';
 import { HttpFile } from '../http/http';
 
 export class CustomerListResponse {
-    'total': number;
+    'data': Array<ICustomer>;
     'has_more': boolean;
     'page': number;
-    'data': Array<ICustomer>;
+    'total': number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "total",
-            "baseName": "total",
-            "type": "number",
-            "format": "double"
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<ICustomer>",
+            "format": ""
         },
         {
             "name": "has_more",
@@ -41,10 +41,10 @@ export class CustomerListResponse {
             "format": "double"
         },
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "Array<ICustomer>",
-            "format": ""
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
+            "format": "double"
         }    ];
 
     static getAttributeTypeMap() {

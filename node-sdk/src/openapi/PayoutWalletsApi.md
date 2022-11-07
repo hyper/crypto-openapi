@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **_delete**
-> IPayoutWallet _delete()
+> void | IPayoutWallet _delete()
 
 
 ### Example
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPayoutWallet**
+**void | IPayoutWallet**
 
 ### Authorization
 
@@ -68,14 +68,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **_delete_0**
-> IPayoutWallet _delete_0()
+> void | IPayoutWallet _delete_0()
 
 
 ### Example
@@ -111,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPayoutWallet**
+**void | IPayoutWallet**
 
 ### Authorization
 
@@ -126,14 +127,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
-> IPayoutWallet create()
+> void | IPayoutWallet create()
 
 
 ### Example
@@ -151,10 +153,10 @@ let body:.PayoutWalletsApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // PayoutWalletCreateRequest (optional)
   payout_wallet_create_request: {
-    type: "external",
-    chain: "eth",
     address: "address_example",
+    chain: "eth",
     _default: true,
+    type: "external",
   },
 };
 
@@ -174,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPayoutWallet**
+**void | IPayoutWallet**
 
 ### Authorization
 
@@ -189,14 +191,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create_0**
-> IPayoutWallet create_0()
+> void | IPayoutWallet create_0()
 
 
 ### Example
@@ -214,10 +217,10 @@ let body:.PayoutWalletsApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // PayoutWalletCreateRequest (optional)
   payout_wallet_create_request: {
-    type: "external",
-    chain: "eth",
     address: "address_example",
+    chain: "eth",
     _default: true,
+    type: "external",
   },
 };
 
@@ -237,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPayoutWallet**
+**void | IPayoutWallet**
 
 ### Authorization
 
@@ -252,14 +255,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> PayoutWalletListResponse list()
+> void | PayoutWalletListResponse list()
 
 
 ### Example
@@ -304,7 +308,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**PayoutWalletListResponse**
+**void | PayoutWalletListResponse**
 
 ### Authorization
 
@@ -319,14 +323,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list_0**
-> PayoutWalletListResponse list_0()
+> void | PayoutWalletListResponse list_0()
 
 
 ### Example
@@ -371,7 +376,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**PayoutWalletListResponse**
+**void | PayoutWalletListResponse**
 
 ### Authorization
 
@@ -386,14 +391,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> IPayoutWallet retrieve()
+> void | IPayoutWallet retrieve()
 
 
 ### Example
@@ -432,7 +438,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPayoutWallet**
+**void | IPayoutWallet**
 
 ### Authorization
 
@@ -447,14 +453,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve_0**
-> IPayoutWallet retrieve_0()
+> void | IPayoutWallet retrieve_0()
 
 
 ### Example
@@ -493,7 +500,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPayoutWallet**
+**void | IPayoutWallet**
 
 ### Authorization
 
@@ -508,7 +515,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
@@ -535,8 +543,8 @@ let body:.PayoutWalletsApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // PayoutWalletUpdateRequest (optional)
   payout_wallet_update_request: {
-    chain: "eth",
     address: "address_example",
+    chain: "eth",
     _default: true,
   },
 };
@@ -601,8 +609,8 @@ let body:.PayoutWalletsApiUpdate0Request = {
   pluto_account: "Pluto-Account_example",
   // PayoutWalletUpdateRequest (optional)
   payout_wallet_update_request: {
-    chain: "eth",
     address: "address_example",
+    chain: "eth",
     _default: true,
   },
 };

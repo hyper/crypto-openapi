@@ -5,7 +5,6 @@ import { Configuration} from '../configuration'
 import { AccountConnectRequest } from '../models/AccountConnectRequest';
 import { AccountCreateRequest } from '../models/AccountCreateRequest';
 import { AccountDashboardAccessRequest } from '../models/AccountDashboardAccessRequest';
-import { AccountDashboardAccessResponse } from '../models/AccountDashboardAccessResponse';
 import { AccountListResponse } from '../models/AccountListResponse';
 import { AccountUpdateRequest } from '../models/AccountUpdateRequest';
 import { Address } from '../models/Address';
@@ -18,9 +17,14 @@ import { Chain } from '../models/Chain';
 import { CheckoutCreateRequest } from '../models/CheckoutCreateRequest';
 import { CheckoutListResponse } from '../models/CheckoutListResponse';
 import { CheckoutStatus } from '../models/CheckoutStatus';
+import { CouponCreateRequest } from '../models/CouponCreateRequest';
+import { CouponDuration } from '../models/CouponDuration';
+import { CouponListResponse } from '../models/CouponListResponse';
+import { CouponUpdateRequest } from '../models/CouponUpdateRequest';
 import { Currency } from '../models/Currency';
 import { CustomAmount } from '../models/CustomAmount';
 import { CustomerCreateRequest } from '../models/CustomerCreateRequest';
+import { CustomerCreateRequestBillingDetails } from '../models/CustomerCreateRequestBillingDetails';
 import { CustomerDetails } from '../models/CustomerDetails';
 import { CustomerListResponse } from '../models/CustomerListResponse';
 import { CustomerUpdateRequest } from '../models/CustomerUpdateRequest';
@@ -34,8 +38,8 @@ import { IBilling } from '../models/IBilling';
 import { IBranding } from '../models/IBranding';
 import { IBusinessProfile } from '../models/IBusinessProfile';
 import { ICheckout } from '../models/ICheckout';
+import { ICoupon } from '../models/ICoupon';
 import { ICustomer } from '../models/ICustomer';
-import { ICustomerBillingDetails } from '../models/ICustomerBillingDetails';
 import { IFee } from '../models/IFee';
 import { IIntegrations } from '../models/IIntegrations';
 import { IIntegrationsFtx } from '../models/IIntegrationsFtx';
@@ -57,6 +61,7 @@ import { IWallet } from '../models/IWallet';
 import { IWebhook } from '../models/IWebhook';
 import { InvoiceCreateRequest } from '../models/InvoiceCreateRequest';
 import { InvoiceListResponse } from '../models/InvoiceListResponse';
+import { InvoicePayRequest } from '../models/InvoicePayRequest';
 import { InvoiceStatus } from '../models/InvoiceStatus';
 import { InvoiceUpdateRequest } from '../models/InvoiceUpdateRequest';
 import { LineItem } from '../models/LineItem';
@@ -381,7 +386,7 @@ export class ObjectAccountsApi {
      * Connect account
      * @param param the request object
      */
-    public connect(param: AccountsApiConnectRequest, options?: Configuration): Promise<IAccount> {
+    public connect(param: AccountsApiConnectRequest, options?: Configuration): Promise<void | IAccount> {
         return this.api.connect(param.id, param.pluto_account, param.account_connect_request,  options).toPromise();
     }
 
@@ -389,7 +394,7 @@ export class ObjectAccountsApi {
      * Connect account
      * @param param the request object
      */
-    public connect_1(param: AccountsApiConnect0Request, options?: Configuration): Promise<IAccount> {
+    public connect_1(param: AccountsApiConnect0Request, options?: Configuration): Promise<void | IAccount> {
         return this.api.connect_1(param.id, param.pluto_account, param.account_connect_request,  options).toPromise();
     }
 
@@ -397,7 +402,7 @@ export class ObjectAccountsApi {
      * Create account
      * @param param the request object
      */
-    public create(param: AccountsApiCreateRequest = {}, options?: Configuration): Promise<IAccount> {
+    public create(param: AccountsApiCreateRequest = {}, options?: Configuration): Promise<void | IAccount> {
         return this.api.create(param.pluto_account, param.account_create_request,  options).toPromise();
     }
 
@@ -405,7 +410,7 @@ export class ObjectAccountsApi {
      * Create account
      * @param param the request object
      */
-    public create_2(param: AccountsApiCreate0Request = {}, options?: Configuration): Promise<IAccount> {
+    public create_2(param: AccountsApiCreate0Request = {}, options?: Configuration): Promise<void | IAccount> {
         return this.api.create_2(param.pluto_account, param.account_create_request,  options).toPromise();
     }
 
@@ -413,7 +418,7 @@ export class ObjectAccountsApi {
      * Get dashboard access to account
      * @param param the request object
      */
-    public dashboardAccess(param: AccountsApiDashboardAccessRequest, options?: Configuration): Promise<AccountDashboardAccessResponse> {
+    public dashboardAccess(param: AccountsApiDashboardAccessRequest, options?: Configuration): Promise<void | IAccount> {
         return this.api.dashboardAccess(param.id, param.pluto_account, param.expand, param.account_dashboard_access_request,  options).toPromise();
     }
 
@@ -421,7 +426,7 @@ export class ObjectAccountsApi {
      * Get dashboard access to account
      * @param param the request object
      */
-    public dashboardAccess_3(param: AccountsApiDashboardAccess0Request, options?: Configuration): Promise<AccountDashboardAccessResponse> {
+    public dashboardAccess_3(param: AccountsApiDashboardAccess0Request, options?: Configuration): Promise<void | IAccount> {
         return this.api.dashboardAccess_3(param.id, param.pluto_account, param.expand, param.account_dashboard_access_request,  options).toPromise();
     }
 
@@ -429,7 +434,7 @@ export class ObjectAccountsApi {
      * List accounts
      * @param param the request object
      */
-    public list(param: AccountsApiListRequest = {}, options?: Configuration): Promise<AccountListResponse> {
+    public list(param: AccountsApiListRequest = {}, options?: Configuration): Promise<AccountListResponse | void> {
         return this.api.list(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -437,7 +442,7 @@ export class ObjectAccountsApi {
      * List accounts
      * @param param the request object
      */
-    public list_4(param: AccountsApiList0Request = {}, options?: Configuration): Promise<AccountListResponse> {
+    public list_4(param: AccountsApiList0Request = {}, options?: Configuration): Promise<AccountListResponse | void> {
         return this.api.list_4(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -445,7 +450,7 @@ export class ObjectAccountsApi {
      * Update account
      * @param param the request object
      */
-    public patch(param: AccountsApiPatchRequest, options?: Configuration): Promise<IAccount> {
+    public patch(param: AccountsApiPatchRequest, options?: Configuration): Promise<void | IAccount> {
         return this.api.patch(param.id, param.pluto_account, param.account_update_request,  options).toPromise();
     }
 
@@ -453,7 +458,7 @@ export class ObjectAccountsApi {
      * Update account
      * @param param the request object
      */
-    public patch_5(param: AccountsApiPatch0Request, options?: Configuration): Promise<IAccount> {
+    public patch_5(param: AccountsApiPatch0Request, options?: Configuration): Promise<void | IAccount> {
         return this.api.patch_5(param.id, param.pluto_account, param.account_update_request,  options).toPromise();
     }
 
@@ -461,7 +466,7 @@ export class ObjectAccountsApi {
      * Retrieve account
      * @param param the request object
      */
-    public retrieve(param: AccountsApiRetrieveRequest, options?: Configuration): Promise<IAccount> {
+    public retrieve(param: AccountsApiRetrieveRequest, options?: Configuration): Promise<void | IAccount> {
         return this.api.retrieve(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -469,7 +474,7 @@ export class ObjectAccountsApi {
      * Retrieve account
      * @param param the request object
      */
-    public retrieve_6(param: AccountsApiRetrieve0Request, options?: Configuration): Promise<IAccount> {
+    public retrieve_6(param: AccountsApiRetrieve0Request, options?: Configuration): Promise<void | IAccount> {
         return this.api.retrieve_6(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -657,7 +662,7 @@ export class ObjectCheckoutsApi {
      * Fail checkout
      * @param param the request object
      */
-    public _delete(param: CheckoutsApiDeleteRequest, options?: Configuration): Promise<ICheckout> {
+    public _delete(param: CheckoutsApiDeleteRequest, options?: Configuration): Promise<void | ICheckout> {
         return this.api._delete(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -665,7 +670,7 @@ export class ObjectCheckoutsApi {
      * Fail checkout
      * @param param the request object
      */
-    public _delete_1(param: CheckoutsApiDelete0Request, options?: Configuration): Promise<ICheckout> {
+    public _delete_1(param: CheckoutsApiDelete0Request, options?: Configuration): Promise<void | ICheckout> {
         return this.api._delete_1(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -673,7 +678,7 @@ export class ObjectCheckoutsApi {
      * Create checkout
      * @param param the request object
      */
-    public create(param: CheckoutsApiCreateRequest = {}, options?: Configuration): Promise<ICheckout> {
+    public create(param: CheckoutsApiCreateRequest = {}, options?: Configuration): Promise<void | ICheckout> {
         return this.api.create(param.pluto_account, param.checkout_create_request,  options).toPromise();
     }
 
@@ -681,7 +686,7 @@ export class ObjectCheckoutsApi {
      * Create checkout
      * @param param the request object
      */
-    public create_2(param: CheckoutsApiCreate0Request = {}, options?: Configuration): Promise<ICheckout> {
+    public create_2(param: CheckoutsApiCreate0Request = {}, options?: Configuration): Promise<void | ICheckout> {
         return this.api.create_2(param.pluto_account, param.checkout_create_request,  options).toPromise();
     }
 
@@ -689,7 +694,7 @@ export class ObjectCheckoutsApi {
      * List checkouts
      * @param param the request object
      */
-    public list(param: CheckoutsApiListRequest = {}, options?: Configuration): Promise<CheckoutListResponse> {
+    public list(param: CheckoutsApiListRequest = {}, options?: Configuration): Promise<CheckoutListResponse | void> {
         return this.api.list(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -697,7 +702,7 @@ export class ObjectCheckoutsApi {
      * List checkouts
      * @param param the request object
      */
-    public list_3(param: CheckoutsApiList0Request = {}, options?: Configuration): Promise<CheckoutListResponse> {
+    public list_3(param: CheckoutsApiList0Request = {}, options?: Configuration): Promise<CheckoutListResponse | void> {
         return this.api.list_3(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -705,7 +710,7 @@ export class ObjectCheckoutsApi {
      * Retrieve checkout
      * @param param the request object
      */
-    public retrieve(param: CheckoutsApiRetrieveRequest, options?: Configuration): Promise<ICheckout> {
+    public retrieve(param: CheckoutsApiRetrieveRequest, options?: Configuration): Promise<void | ICheckout> {
         return this.api.retrieve(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -713,8 +718,310 @@ export class ObjectCheckoutsApi {
      * Retrieve checkout
      * @param param the request object
      */
-    public retrieve_4(param: CheckoutsApiRetrieve0Request, options?: Configuration): Promise<ICheckout> {
+    public retrieve_4(param: CheckoutsApiRetrieve0Request, options?: Configuration): Promise<void | ICheckout> {
         return this.api.retrieve_4(param.id, param.pluto_account, param.expand,  options).toPromise();
+    }
+
+}
+
+import { ObservableCouponsApi } from "./ObservableAPI";
+import { CouponsApiRequestFactory, CouponsApiResponseProcessor} from "../apis/CouponsApi";
+
+export interface CouponsApiDeleteRequest {
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApi_delete
+     */
+    id: string
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApi_delete
+     */
+    pluto_account?: string
+}
+
+export interface CouponsApiDelete0Request {
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApi_delete_1
+     */
+    id: string
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApi_delete_1
+     */
+    pluto_account?: string
+}
+
+export interface CouponsApiCreateRequest {
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApicreate
+     */
+    pluto_account?: string
+    /**
+     * 
+     * @type CouponCreateRequest
+     * @memberof CouponsApicreate
+     */
+    coupon_create_request?: CouponCreateRequest
+}
+
+export interface CouponsApiCreate0Request {
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApicreate_2
+     */
+    pluto_account?: string
+    /**
+     * 
+     * @type CouponCreateRequest
+     * @memberof CouponsApicreate_2
+     */
+    coupon_create_request?: CouponCreateRequest
+}
+
+export interface CouponsApiListRequest {
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApilist
+     */
+    pluto_account?: string
+    /**
+     * 
+     * @type number
+     * @memberof CouponsApilist
+     */
+    limit?: number
+    /**
+     * 
+     * @type number
+     * @memberof CouponsApilist
+     */
+    page?: number
+    /**
+     * 
+     * @type number
+     * @memberof CouponsApilist
+     */
+    sort?: number
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApilist
+     */
+    expand?: string
+}
+
+export interface CouponsApiList0Request {
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApilist_3
+     */
+    pluto_account?: string
+    /**
+     * 
+     * @type number
+     * @memberof CouponsApilist_3
+     */
+    limit?: number
+    /**
+     * 
+     * @type number
+     * @memberof CouponsApilist_3
+     */
+    page?: number
+    /**
+     * 
+     * @type number
+     * @memberof CouponsApilist_3
+     */
+    sort?: number
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApilist_3
+     */
+    expand?: string
+}
+
+export interface CouponsApiRetrieveRequest {
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApiretrieve
+     */
+    id: string
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApiretrieve
+     */
+    pluto_account?: string
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApiretrieve
+     */
+    expand?: string
+}
+
+export interface CouponsApiRetrieve0Request {
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApiretrieve_4
+     */
+    id: string
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApiretrieve_4
+     */
+    pluto_account?: string
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApiretrieve_4
+     */
+    expand?: string
+}
+
+export interface CouponsApiUpdateRequest {
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApiupdate
+     */
+    id: string
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApiupdate
+     */
+    pluto_account?: string
+    /**
+     * 
+     * @type CouponUpdateRequest
+     * @memberof CouponsApiupdate
+     */
+    coupon_update_request?: CouponUpdateRequest
+}
+
+export interface CouponsApiUpdate0Request {
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApiupdate_5
+     */
+    id: string
+    /**
+     * 
+     * @type string
+     * @memberof CouponsApiupdate_5
+     */
+    pluto_account?: string
+    /**
+     * 
+     * @type CouponUpdateRequest
+     * @memberof CouponsApiupdate_5
+     */
+    coupon_update_request?: CouponUpdateRequest
+}
+
+export class ObjectCouponsApi {
+    private api: ObservableCouponsApi
+
+    public constructor(configuration: Configuration, requestFactory?: CouponsApiRequestFactory, responseProcessor?: CouponsApiResponseProcessor) {
+        this.api = new ObservableCouponsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Delete coupon
+     * @param param the request object
+     */
+    public _delete(param: CouponsApiDeleteRequest, options?: Configuration): Promise<ICoupon | void> {
+        return this.api._delete(param.id, param.pluto_account,  options).toPromise();
+    }
+
+    /**
+     * Delete coupon
+     * @param param the request object
+     */
+    public _delete_1(param: CouponsApiDelete0Request, options?: Configuration): Promise<ICoupon | void> {
+        return this.api._delete_1(param.id, param.pluto_account,  options).toPromise();
+    }
+
+    /**
+     * Create coupon
+     * @param param the request object
+     */
+    public create(param: CouponsApiCreateRequest = {}, options?: Configuration): Promise<ICoupon | void> {
+        return this.api.create(param.pluto_account, param.coupon_create_request,  options).toPromise();
+    }
+
+    /**
+     * Create coupon
+     * @param param the request object
+     */
+    public create_2(param: CouponsApiCreate0Request = {}, options?: Configuration): Promise<ICoupon | void> {
+        return this.api.create_2(param.pluto_account, param.coupon_create_request,  options).toPromise();
+    }
+
+    /**
+     * List coupons
+     * @param param the request object
+     */
+    public list(param: CouponsApiListRequest = {}, options?: Configuration): Promise<void | CouponListResponse> {
+        return this.api.list(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
+    }
+
+    /**
+     * List coupons
+     * @param param the request object
+     */
+    public list_3(param: CouponsApiList0Request = {}, options?: Configuration): Promise<void | CouponListResponse> {
+        return this.api.list_3(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
+    }
+
+    /**
+     * Retrieve coupon
+     * @param param the request object
+     */
+    public retrieve(param: CouponsApiRetrieveRequest, options?: Configuration): Promise<ICoupon | void> {
+        return this.api.retrieve(param.id, param.pluto_account, param.expand,  options).toPromise();
+    }
+
+    /**
+     * Retrieve coupon
+     * @param param the request object
+     */
+    public retrieve_4(param: CouponsApiRetrieve0Request, options?: Configuration): Promise<ICoupon | void> {
+        return this.api.retrieve_4(param.id, param.pluto_account, param.expand,  options).toPromise();
+    }
+
+    /**
+     * Update coupon
+     * @param param the request object
+     */
+    public update(param: CouponsApiUpdateRequest, options?: Configuration): Promise<ICoupon | void> {
+        return this.api.update(param.id, param.pluto_account, param.coupon_update_request,  options).toPromise();
+    }
+
+    /**
+     * Update coupon
+     * @param param the request object
+     */
+    public update_5(param: CouponsApiUpdate0Request, options?: Configuration): Promise<ICoupon | void> {
+        return this.api.update_5(param.id, param.pluto_account, param.coupon_update_request,  options).toPromise();
     }
 
 }
@@ -925,7 +1232,7 @@ export class ObjectCustomersApi {
      * Create customer
      * @param param the request object
      */
-    public create(param: CustomersApiCreateRequest = {}, options?: Configuration): Promise<ICustomer> {
+    public create(param: CustomersApiCreateRequest = {}, options?: Configuration): Promise<void | ICustomer> {
         return this.api.create(param.pluto_account, param.customer_create_request,  options).toPromise();
     }
 
@@ -933,7 +1240,7 @@ export class ObjectCustomersApi {
      * Create customer
      * @param param the request object
      */
-    public create_1(param: CustomersApiCreate0Request = {}, options?: Configuration): Promise<ICustomer> {
+    public create_1(param: CustomersApiCreate0Request = {}, options?: Configuration): Promise<void | ICustomer> {
         return this.api.create_1(param.pluto_account, param.customer_create_request,  options).toPromise();
     }
 
@@ -941,7 +1248,7 @@ export class ObjectCustomersApi {
      * List customers
      * @param param the request object
      */
-    public list(param: CustomersApiListRequest = {}, options?: Configuration): Promise<CustomerListResponse> {
+    public list(param: CustomersApiListRequest = {}, options?: Configuration): Promise<void | CustomerListResponse> {
         return this.api.list(param.pluto_account, param.limit, param.page, param.sort, param.expand, param.email,  options).toPromise();
     }
 
@@ -949,7 +1256,7 @@ export class ObjectCustomersApi {
      * List customers
      * @param param the request object
      */
-    public list_2(param: CustomersApiList0Request = {}, options?: Configuration): Promise<CustomerListResponse> {
+    public list_2(param: CustomersApiList0Request = {}, options?: Configuration): Promise<void | CustomerListResponse> {
         return this.api.list_2(param.pluto_account, param.limit, param.page, param.sort, param.expand, param.email,  options).toPromise();
     }
 
@@ -957,7 +1264,7 @@ export class ObjectCustomersApi {
      * Retrieve customer
      * @param param the request object
      */
-    public retrieve(param: CustomersApiRetrieveRequest, options?: Configuration): Promise<ICustomer> {
+    public retrieve(param: CustomersApiRetrieveRequest, options?: Configuration): Promise<void | ICustomer> {
         return this.api.retrieve(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -965,7 +1272,7 @@ export class ObjectCustomersApi {
      * Retrieve customer
      * @param param the request object
      */
-    public retrieve_3(param: CustomersApiRetrieve0Request, options?: Configuration): Promise<ICustomer> {
+    public retrieve_3(param: CustomersApiRetrieve0Request, options?: Configuration): Promise<void | ICustomer> {
         return this.api.retrieve_3(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -973,7 +1280,7 @@ export class ObjectCustomersApi {
      * Update customer
      * @param param the request object
      */
-    public update(param: CustomersApiUpdateRequest, options?: Configuration): Promise<ICustomer> {
+    public update(param: CustomersApiUpdateRequest, options?: Configuration): Promise<void | ICustomer> {
         return this.api.update(param.id, param.pluto_account, param.customer_update_request,  options).toPromise();
     }
 
@@ -981,7 +1288,7 @@ export class ObjectCustomersApi {
      * Update customer
      * @param param the request object
      */
-    public update_4(param: CustomersApiUpdate0Request, options?: Configuration): Promise<ICustomer> {
+    public update_4(param: CustomersApiUpdate0Request, options?: Configuration): Promise<void | ICustomer> {
         return this.api.update_4(param.id, param.pluto_account, param.customer_update_request,  options).toPromise();
     }
 
@@ -1139,7 +1446,7 @@ export class ObjectFeesApi {
      * Create fee
      * @param param the request object
      */
-    public create(param: FeesApiCreateRequest = {}, options?: Configuration): Promise<IFee> {
+    public create(param: FeesApiCreateRequest = {}, options?: Configuration): Promise<void | IFee> {
         return this.api.create(param.pluto_account, param.fee_create_request,  options).toPromise();
     }
 
@@ -1147,7 +1454,7 @@ export class ObjectFeesApi {
      * Create fee
      * @param param the request object
      */
-    public create_1(param: FeesApiCreate0Request = {}, options?: Configuration): Promise<IFee> {
+    public create_1(param: FeesApiCreate0Request = {}, options?: Configuration): Promise<void | IFee> {
         return this.api.create_1(param.pluto_account, param.fee_create_request,  options).toPromise();
     }
 
@@ -1155,7 +1462,7 @@ export class ObjectFeesApi {
      * List fees
      * @param param the request object
      */
-    public list(param: FeesApiListRequest = {}, options?: Configuration): Promise<FeeListResponse> {
+    public list(param: FeesApiListRequest = {}, options?: Configuration): Promise<void | FeeListResponse> {
         return this.api.list(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -1163,7 +1470,7 @@ export class ObjectFeesApi {
      * List fees
      * @param param the request object
      */
-    public list_2(param: FeesApiList0Request = {}, options?: Configuration): Promise<FeeListResponse> {
+    public list_2(param: FeesApiList0Request = {}, options?: Configuration): Promise<void | FeeListResponse> {
         return this.api.list_2(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -1171,7 +1478,7 @@ export class ObjectFeesApi {
      * Retrieve fee
      * @param param the request object
      */
-    public retrieve(param: FeesApiRetrieveRequest, options?: Configuration): Promise<IFee> {
+    public retrieve(param: FeesApiRetrieveRequest, options?: Configuration): Promise<void | IFee> {
         return this.api.retrieve(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -1179,7 +1486,7 @@ export class ObjectFeesApi {
      * Retrieve fee
      * @param param the request object
      */
-    public retrieve_3(param: FeesApiRetrieve0Request, options?: Configuration): Promise<IFee> {
+    public retrieve_3(param: FeesApiRetrieve0Request, options?: Configuration): Promise<void | IFee> {
         return this.api.retrieve_3(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -1327,6 +1634,12 @@ export interface InvoicesApiPayRequest {
      * @memberof InvoicesApipay
      */
     pluto_account?: string
+    /**
+     * 
+     * @type InvoicePayRequest
+     * @memberof InvoicesApipay
+     */
+    invoice_pay_request?: InvoicePayRequest
 }
 
 export interface InvoicesApiPay0Request {
@@ -1342,6 +1655,12 @@ export interface InvoicesApiPay0Request {
      * @memberof InvoicesApipay_4
      */
     pluto_account?: string
+    /**
+     * 
+     * @type InvoicePayRequest
+     * @memberof InvoicesApipay_4
+     */
+    invoice_pay_request?: InvoicePayRequest
 }
 
 export interface InvoicesApiRetrieveRequest {
@@ -1439,7 +1758,7 @@ export class ObjectInvoicesApi {
      * Delete invoice
      * @param param the request object
      */
-    public _delete(param: InvoicesApiDeleteRequest, options?: Configuration): Promise<IInvoice> {
+    public _delete(param: InvoicesApiDeleteRequest, options?: Configuration): Promise<IInvoice | void> {
         return this.api._delete(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -1447,7 +1766,7 @@ export class ObjectInvoicesApi {
      * Delete invoice
      * @param param the request object
      */
-    public _delete_1(param: InvoicesApiDelete0Request, options?: Configuration): Promise<IInvoice> {
+    public _delete_1(param: InvoicesApiDelete0Request, options?: Configuration): Promise<IInvoice | void> {
         return this.api._delete_1(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -1455,7 +1774,7 @@ export class ObjectInvoicesApi {
      * Create invoice
      * @param param the request object
      */
-    public create(param: InvoicesApiCreateRequest = {}, options?: Configuration): Promise<IInvoice> {
+    public create(param: InvoicesApiCreateRequest = {}, options?: Configuration): Promise<IInvoice | void> {
         return this.api.create(param.pluto_account, param.invoice_create_request,  options).toPromise();
     }
 
@@ -1463,7 +1782,7 @@ export class ObjectInvoicesApi {
      * Create invoice
      * @param param the request object
      */
-    public create_2(param: InvoicesApiCreate0Request = {}, options?: Configuration): Promise<IInvoice> {
+    public create_2(param: InvoicesApiCreate0Request = {}, options?: Configuration): Promise<IInvoice | void> {
         return this.api.create_2(param.pluto_account, param.invoice_create_request,  options).toPromise();
     }
 
@@ -1471,7 +1790,7 @@ export class ObjectInvoicesApi {
      * List invoices
      * @param param the request object
      */
-    public list(param: InvoicesApiListRequest = {}, options?: Configuration): Promise<InvoiceListResponse> {
+    public list(param: InvoicesApiListRequest = {}, options?: Configuration): Promise<void | InvoiceListResponse> {
         return this.api.list(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -1479,7 +1798,7 @@ export class ObjectInvoicesApi {
      * List invoices
      * @param param the request object
      */
-    public list_3(param: InvoicesApiList0Request = {}, options?: Configuration): Promise<InvoiceListResponse> {
+    public list_3(param: InvoicesApiList0Request = {}, options?: Configuration): Promise<void | InvoiceListResponse> {
         return this.api.list_3(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -1487,23 +1806,23 @@ export class ObjectInvoicesApi {
      * Pay invoice
      * @param param the request object
      */
-    public pay(param: InvoicesApiPayRequest, options?: Configuration): Promise<IPaymentIntent> {
-        return this.api.pay(param.id, param.pluto_account,  options).toPromise();
+    public pay(param: InvoicesApiPayRequest, options?: Configuration): Promise<void | IPaymentIntent> {
+        return this.api.pay(param.id, param.pluto_account, param.invoice_pay_request,  options).toPromise();
     }
 
     /**
      * Pay invoice
      * @param param the request object
      */
-    public pay_4(param: InvoicesApiPay0Request, options?: Configuration): Promise<IPaymentIntent> {
-        return this.api.pay_4(param.id, param.pluto_account,  options).toPromise();
+    public pay_4(param: InvoicesApiPay0Request, options?: Configuration): Promise<void | IPaymentIntent> {
+        return this.api.pay_4(param.id, param.pluto_account, param.invoice_pay_request,  options).toPromise();
     }
 
     /**
      * Retrieve invoice
      * @param param the request object
      */
-    public retrieve(param: InvoicesApiRetrieveRequest, options?: Configuration): Promise<IInvoice> {
+    public retrieve(param: InvoicesApiRetrieveRequest, options?: Configuration): Promise<IInvoice | void> {
         return this.api.retrieve(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -1511,7 +1830,7 @@ export class ObjectInvoicesApi {
      * Retrieve invoice
      * @param param the request object
      */
-    public retrieve_5(param: InvoicesApiRetrieve0Request, options?: Configuration): Promise<IInvoice> {
+    public retrieve_5(param: InvoicesApiRetrieve0Request, options?: Configuration): Promise<IInvoice | void> {
         return this.api.retrieve_5(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -1519,7 +1838,7 @@ export class ObjectInvoicesApi {
      * Update invoice
      * @param param the request object
      */
-    public update(param: InvoicesApiUpdateRequest, options?: Configuration): Promise<IInvoice> {
+    public update(param: InvoicesApiUpdateRequest, options?: Configuration): Promise<IInvoice | void> {
         return this.api.update(param.id, param.pluto_account, param.invoice_update_request,  options).toPromise();
     }
 
@@ -1527,7 +1846,7 @@ export class ObjectInvoicesApi {
      * Update invoice
      * @param param the request object
      */
-    public update_6(param: InvoicesApiUpdate0Request, options?: Configuration): Promise<IInvoice> {
+    public update_6(param: InvoicesApiUpdate0Request, options?: Configuration): Promise<IInvoice | void> {
         return this.api.update_6(param.id, param.pluto_account, param.invoice_update_request,  options).toPromise();
     }
 
@@ -1607,7 +1926,7 @@ export class ObjectLogsApi {
      * List logs
      * @param param the request object
      */
-    public list(param: LogsApiListRequest = {}, options?: Configuration): Promise<LogListResponse> {
+    public list(param: LogsApiListRequest = {}, options?: Configuration): Promise<LogListResponse | void> {
         return this.api.list(param.pluto_account,  options).toPromise();
     }
 
@@ -1615,7 +1934,7 @@ export class ObjectLogsApi {
      * List logs
      * @param param the request object
      */
-    public list_1(param: LogsApiList0Request = {}, options?: Configuration): Promise<LogListResponse> {
+    public list_1(param: LogsApiList0Request = {}, options?: Configuration): Promise<LogListResponse | void> {
         return this.api.list_1(param.pluto_account,  options).toPromise();
     }
 
@@ -1623,7 +1942,7 @@ export class ObjectLogsApi {
      * Retrieve log
      * @param param the request object
      */
-    public retrieve(param: LogsApiRetrieveRequest, options?: Configuration): Promise<ILog> {
+    public retrieve(param: LogsApiRetrieveRequest, options?: Configuration): Promise<void | ILog> {
         return this.api.retrieve(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -1631,7 +1950,7 @@ export class ObjectLogsApi {
      * Retrieve log
      * @param param the request object
      */
-    public retrieve_2(param: LogsApiRetrieve0Request, options?: Configuration): Promise<ILog> {
+    public retrieve_2(param: LogsApiRetrieve0Request, options?: Configuration): Promise<void | ILog> {
         return this.api.retrieve_2(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -1957,7 +2276,7 @@ export class ObjectPaymentIntentsApi {
      * Delete payment intent
      * @param param the request object
      */
-    public _delete(param: PaymentIntentsApiDeleteRequest, options?: Configuration): Promise<IPaymentIntent> {
+    public _delete(param: PaymentIntentsApiDeleteRequest, options?: Configuration): Promise<void | IPaymentIntent> {
         return this.api._delete(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -1965,7 +2284,7 @@ export class ObjectPaymentIntentsApi {
      * Delete payment intent
      * @param param the request object
      */
-    public _delete_1(param: PaymentIntentsApiDelete0Request, options?: Configuration): Promise<IPaymentIntent> {
+    public _delete_1(param: PaymentIntentsApiDelete0Request, options?: Configuration): Promise<void | IPaymentIntent> {
         return this.api._delete_1(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -1973,7 +2292,7 @@ export class ObjectPaymentIntentsApi {
      * Create payment intent
      * @param param the request object
      */
-    public create(param: PaymentIntentsApiCreateRequest = {}, options?: Configuration): Promise<IPaymentIntent> {
+    public create(param: PaymentIntentsApiCreateRequest = {}, options?: Configuration): Promise<void | IPaymentIntent> {
         return this.api.create(param.pluto_account, param.payment_intent_create_request,  options).toPromise();
     }
 
@@ -1981,7 +2300,7 @@ export class ObjectPaymentIntentsApi {
      * Create payment intent
      * @param param the request object
      */
-    public create_2(param: PaymentIntentsApiCreate0Request = {}, options?: Configuration): Promise<IPaymentIntent> {
+    public create_2(param: PaymentIntentsApiCreate0Request = {}, options?: Configuration): Promise<void | IPaymentIntent> {
         return this.api.create_2(param.pluto_account, param.payment_intent_create_request,  options).toPromise();
     }
 
@@ -1989,7 +2308,7 @@ export class ObjectPaymentIntentsApi {
      * List payment intents
      * @param param the request object
      */
-    public list(param: PaymentIntentsApiListRequest = {}, options?: Configuration): Promise<PaymentIntentListResponse> {
+    public list(param: PaymentIntentsApiListRequest = {}, options?: Configuration): Promise<PaymentIntentListResponse | void> {
         return this.api.list(param.pluto_account, param.limit, param.page, param.sort, param.expand, param.status, param.customer,  options).toPromise();
     }
 
@@ -1997,7 +2316,7 @@ export class ObjectPaymentIntentsApi {
      * List payment intents
      * @param param the request object
      */
-    public list_3(param: PaymentIntentsApiList0Request = {}, options?: Configuration): Promise<PaymentIntentListResponse> {
+    public list_3(param: PaymentIntentsApiList0Request = {}, options?: Configuration): Promise<PaymentIntentListResponse | void> {
         return this.api.list_3(param.pluto_account, param.limit, param.page, param.sort, param.expand, param.status, param.customer,  options).toPromise();
     }
 
@@ -2005,7 +2324,7 @@ export class ObjectPaymentIntentsApi {
      * Poll payment intent
      * @param param the request object
      */
-    public poll(param: PaymentIntentsApiPollRequest, options?: Configuration): Promise<IPaymentIntent> {
+    public poll(param: PaymentIntentsApiPollRequest, options?: Configuration): Promise<void | IPaymentIntent> {
         return this.api.poll(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -2013,7 +2332,7 @@ export class ObjectPaymentIntentsApi {
      * Poll payment intent
      * @param param the request object
      */
-    public poll_4(param: PaymentIntentsApiPoll0Request, options?: Configuration): Promise<IPaymentIntent> {
+    public poll_4(param: PaymentIntentsApiPoll0Request, options?: Configuration): Promise<void | IPaymentIntent> {
         return this.api.poll_4(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -2021,7 +2340,7 @@ export class ObjectPaymentIntentsApi {
      * Retrieve payment intent
      * @param param the request object
      */
-    public retrieve(param: PaymentIntentsApiRetrieveRequest, options?: Configuration): Promise<IPaymentIntent> {
+    public retrieve(param: PaymentIntentsApiRetrieveRequest, options?: Configuration): Promise<void | IPaymentIntent> {
         return this.api.retrieve(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -2029,7 +2348,7 @@ export class ObjectPaymentIntentsApi {
      * Retrieve payment intent
      * @param param the request object
      */
-    public retrieve_5(param: PaymentIntentsApiRetrieve0Request, options?: Configuration): Promise<IPaymentIntent> {
+    public retrieve_5(param: PaymentIntentsApiRetrieve0Request, options?: Configuration): Promise<void | IPaymentIntent> {
         return this.api.retrieve_5(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -2037,7 +2356,7 @@ export class ObjectPaymentIntentsApi {
      * Send payment intent receipt
      * @param param the request object
      */
-    public sendReceipt(param: PaymentIntentsApiSendReceiptRequest, options?: Configuration): Promise<IPaymentIntent> {
+    public sendReceipt(param: PaymentIntentsApiSendReceiptRequest, options?: Configuration): Promise<void | IPaymentIntent> {
         return this.api.sendReceipt(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -2045,7 +2364,7 @@ export class ObjectPaymentIntentsApi {
      * Send payment intent receipt
      * @param param the request object
      */
-    public sendReceipt_6(param: PaymentIntentsApiSendReceipt0Request, options?: Configuration): Promise<IPaymentIntent> {
+    public sendReceipt_6(param: PaymentIntentsApiSendReceipt0Request, options?: Configuration): Promise<void | IPaymentIntent> {
         return this.api.sendReceipt_6(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -2053,7 +2372,7 @@ export class ObjectPaymentIntentsApi {
      * Update payment intent
      * @param param the request object
      */
-    public update(param: PaymentIntentsApiUpdateRequest, options?: Configuration): Promise<IPaymentIntent> {
+    public update(param: PaymentIntentsApiUpdateRequest, options?: Configuration): Promise<void | IPaymentIntent> {
         return this.api.update(param.id, param.pluto_account, param.payment_intent_update_request,  options).toPromise();
     }
 
@@ -2061,7 +2380,7 @@ export class ObjectPaymentIntentsApi {
      * Update payment intent
      * @param param the request object
      */
-    public update_7(param: PaymentIntentsApiUpdate0Request, options?: Configuration): Promise<IPaymentIntent> {
+    public update_7(param: PaymentIntentsApiUpdate0Request, options?: Configuration): Promise<void | IPaymentIntent> {
         return this.api.update_7(param.id, param.pluto_account, param.payment_intent_update_request,  options).toPromise();
     }
 
@@ -2291,7 +2610,7 @@ export class ObjectPaymentLinksApi {
      * Delete payment link
      * @param param the request object
      */
-    public _delete(param: PaymentLinksApiDeleteRequest, options?: Configuration): Promise<IPaymentLink> {
+    public _delete(param: PaymentLinksApiDeleteRequest, options?: Configuration): Promise<void | IPaymentLink> {
         return this.api._delete(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -2299,7 +2618,7 @@ export class ObjectPaymentLinksApi {
      * Delete payment link
      * @param param the request object
      */
-    public _delete_1(param: PaymentLinksApiDelete0Request, options?: Configuration): Promise<IPaymentLink> {
+    public _delete_1(param: PaymentLinksApiDelete0Request, options?: Configuration): Promise<void | IPaymentLink> {
         return this.api._delete_1(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -2307,7 +2626,7 @@ export class ObjectPaymentLinksApi {
      * Create payment link
      * @param param the request object
      */
-    public create(param: PaymentLinksApiCreateRequest = {}, options?: Configuration): Promise<IPaymentLink> {
+    public create(param: PaymentLinksApiCreateRequest = {}, options?: Configuration): Promise<void | IPaymentLink> {
         return this.api.create(param.pluto_account, param.payment_link_create_request,  options).toPromise();
     }
 
@@ -2315,7 +2634,7 @@ export class ObjectPaymentLinksApi {
      * Create payment link
      * @param param the request object
      */
-    public create_2(param: PaymentLinksApiCreate0Request = {}, options?: Configuration): Promise<IPaymentLink> {
+    public create_2(param: PaymentLinksApiCreate0Request = {}, options?: Configuration): Promise<void | IPaymentLink> {
         return this.api.create_2(param.pluto_account, param.payment_link_create_request,  options).toPromise();
     }
 
@@ -2323,7 +2642,7 @@ export class ObjectPaymentLinksApi {
      * List payment links
      * @param param the request object
      */
-    public list(param: PaymentLinksApiListRequest = {}, options?: Configuration): Promise<PaymentLinkListResponse> {
+    public list(param: PaymentLinksApiListRequest = {}, options?: Configuration): Promise<void | PaymentLinkListResponse> {
         return this.api.list(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -2331,7 +2650,7 @@ export class ObjectPaymentLinksApi {
      * List payment links
      * @param param the request object
      */
-    public list_3(param: PaymentLinksApiList0Request = {}, options?: Configuration): Promise<PaymentLinkListResponse> {
+    public list_3(param: PaymentLinksApiList0Request = {}, options?: Configuration): Promise<void | PaymentLinkListResponse> {
         return this.api.list_3(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -2339,7 +2658,7 @@ export class ObjectPaymentLinksApi {
      * Retrieve payment link
      * @param param the request object
      */
-    public retrieve(param: PaymentLinksApiRetrieveRequest, options?: Configuration): Promise<IPaymentLink> {
+    public retrieve(param: PaymentLinksApiRetrieveRequest, options?: Configuration): Promise<void | IPaymentLink> {
         return this.api.retrieve(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -2347,7 +2666,7 @@ export class ObjectPaymentLinksApi {
      * Retrieve payment link
      * @param param the request object
      */
-    public retrieve_4(param: PaymentLinksApiRetrieve0Request, options?: Configuration): Promise<IPaymentLink> {
+    public retrieve_4(param: PaymentLinksApiRetrieve0Request, options?: Configuration): Promise<void | IPaymentLink> {
         return this.api.retrieve_4(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -2355,7 +2674,7 @@ export class ObjectPaymentLinksApi {
      * Update payment link
      * @param param the request object
      */
-    public update(param: PaymentLinksApiUpdateRequest, options?: Configuration): Promise<IPaymentLink> {
+    public update(param: PaymentLinksApiUpdateRequest, options?: Configuration): Promise<void | IPaymentLink> {
         return this.api.update(param.id, param.pluto_account, param.payment_link_update_request,  options).toPromise();
     }
 
@@ -2363,7 +2682,7 @@ export class ObjectPaymentLinksApi {
      * Update payment link
      * @param param the request object
      */
-    public update_5(param: PaymentLinksApiUpdate0Request, options?: Configuration): Promise<IPaymentLink> {
+    public update_5(param: PaymentLinksApiUpdate0Request, options?: Configuration): Promise<void | IPaymentLink> {
         return this.api.update_5(param.id, param.pluto_account, param.payment_link_update_request,  options).toPromise();
     }
 
@@ -2593,7 +2912,7 @@ export class ObjectPayoutWalletsApi {
      * Delete payout wallet
      * @param param the request object
      */
-    public _delete(param: PayoutWalletsApiDeleteRequest, options?: Configuration): Promise<IPayoutWallet> {
+    public _delete(param: PayoutWalletsApiDeleteRequest, options?: Configuration): Promise<void | IPayoutWallet> {
         return this.api._delete(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -2601,7 +2920,7 @@ export class ObjectPayoutWalletsApi {
      * Delete payout wallet
      * @param param the request object
      */
-    public _delete_1(param: PayoutWalletsApiDelete0Request, options?: Configuration): Promise<IPayoutWallet> {
+    public _delete_1(param: PayoutWalletsApiDelete0Request, options?: Configuration): Promise<void | IPayoutWallet> {
         return this.api._delete_1(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -2609,7 +2928,7 @@ export class ObjectPayoutWalletsApi {
      * Create payout wallet
      * @param param the request object
      */
-    public create(param: PayoutWalletsApiCreateRequest = {}, options?: Configuration): Promise<IPayoutWallet> {
+    public create(param: PayoutWalletsApiCreateRequest = {}, options?: Configuration): Promise<void | IPayoutWallet> {
         return this.api.create(param.pluto_account, param.payout_wallet_create_request,  options).toPromise();
     }
 
@@ -2617,7 +2936,7 @@ export class ObjectPayoutWalletsApi {
      * Create payout wallet
      * @param param the request object
      */
-    public create_2(param: PayoutWalletsApiCreate0Request = {}, options?: Configuration): Promise<IPayoutWallet> {
+    public create_2(param: PayoutWalletsApiCreate0Request = {}, options?: Configuration): Promise<void | IPayoutWallet> {
         return this.api.create_2(param.pluto_account, param.payout_wallet_create_request,  options).toPromise();
     }
 
@@ -2625,7 +2944,7 @@ export class ObjectPayoutWalletsApi {
      * List payout wallets
      * @param param the request object
      */
-    public list(param: PayoutWalletsApiListRequest = {}, options?: Configuration): Promise<PayoutWalletListResponse> {
+    public list(param: PayoutWalletsApiListRequest = {}, options?: Configuration): Promise<void | PayoutWalletListResponse> {
         return this.api.list(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -2633,7 +2952,7 @@ export class ObjectPayoutWalletsApi {
      * List payout wallets
      * @param param the request object
      */
-    public list_3(param: PayoutWalletsApiList0Request = {}, options?: Configuration): Promise<PayoutWalletListResponse> {
+    public list_3(param: PayoutWalletsApiList0Request = {}, options?: Configuration): Promise<void | PayoutWalletListResponse> {
         return this.api.list_3(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -2641,7 +2960,7 @@ export class ObjectPayoutWalletsApi {
      * Retrieve payout wallet
      * @param param the request object
      */
-    public retrieve(param: PayoutWalletsApiRetrieveRequest, options?: Configuration): Promise<IPayoutWallet> {
+    public retrieve(param: PayoutWalletsApiRetrieveRequest, options?: Configuration): Promise<void | IPayoutWallet> {
         return this.api.retrieve(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -2649,7 +2968,7 @@ export class ObjectPayoutWalletsApi {
      * Retrieve payout wallet
      * @param param the request object
      */
-    public retrieve_4(param: PayoutWalletsApiRetrieve0Request, options?: Configuration): Promise<IPayoutWallet> {
+    public retrieve_4(param: PayoutWalletsApiRetrieve0Request, options?: Configuration): Promise<void | IPayoutWallet> {
         return this.api.retrieve_4(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -2895,7 +3214,7 @@ export class ObjectPricesApi {
      * Delete price
      * @param param the request object
      */
-    public _delete(param: PricesApiDeleteRequest, options?: Configuration): Promise<IPrice> {
+    public _delete(param: PricesApiDeleteRequest, options?: Configuration): Promise<void | IPrice> {
         return this.api._delete(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -2903,7 +3222,7 @@ export class ObjectPricesApi {
      * Delete price
      * @param param the request object
      */
-    public _delete_1(param: PricesApiDelete0Request, options?: Configuration): Promise<IPrice> {
+    public _delete_1(param: PricesApiDelete0Request, options?: Configuration): Promise<void | IPrice> {
         return this.api._delete_1(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -2911,7 +3230,7 @@ export class ObjectPricesApi {
      * Create price
      * @param param the request object
      */
-    public create(param: PricesApiCreateRequest = {}, options?: Configuration): Promise<IPrice> {
+    public create(param: PricesApiCreateRequest = {}, options?: Configuration): Promise<void | IPrice> {
         return this.api.create(param.pluto_account, param.price_create_request,  options).toPromise();
     }
 
@@ -2919,7 +3238,7 @@ export class ObjectPricesApi {
      * Create price
      * @param param the request object
      */
-    public create_2(param: PricesApiCreate0Request = {}, options?: Configuration): Promise<IPrice> {
+    public create_2(param: PricesApiCreate0Request = {}, options?: Configuration): Promise<void | IPrice> {
         return this.api.create_2(param.pluto_account, param.price_create_request,  options).toPromise();
     }
 
@@ -2927,7 +3246,7 @@ export class ObjectPricesApi {
      * List prices
      * @param param the request object
      */
-    public list(param: PricesApiListRequest = {}, options?: Configuration): Promise<PriceListResponse> {
+    public list(param: PricesApiListRequest = {}, options?: Configuration): Promise<PriceListResponse | void> {
         return this.api.list(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -2935,7 +3254,7 @@ export class ObjectPricesApi {
      * List prices
      * @param param the request object
      */
-    public list_3(param: PricesApiList0Request = {}, options?: Configuration): Promise<PriceListResponse> {
+    public list_3(param: PricesApiList0Request = {}, options?: Configuration): Promise<PriceListResponse | void> {
         return this.api.list_3(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -2943,7 +3262,7 @@ export class ObjectPricesApi {
      * Retrieve price
      * @param param the request object
      */
-    public retrieve(param: PricesApiRetrieveRequest, options?: Configuration): Promise<IPrice> {
+    public retrieve(param: PricesApiRetrieveRequest, options?: Configuration): Promise<void | IPrice> {
         return this.api.retrieve(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -2951,7 +3270,7 @@ export class ObjectPricesApi {
      * Retrieve price
      * @param param the request object
      */
-    public retrieve_4(param: PricesApiRetrieve0Request, options?: Configuration): Promise<IPrice> {
+    public retrieve_4(param: PricesApiRetrieve0Request, options?: Configuration): Promise<void | IPrice> {
         return this.api.retrieve_4(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -2959,7 +3278,7 @@ export class ObjectPricesApi {
      * Update price
      * @param param the request object
      */
-    public update(param: PricesApiUpdateRequest, options?: Configuration): Promise<IPrice> {
+    public update(param: PricesApiUpdateRequest, options?: Configuration): Promise<void | IPrice> {
         return this.api.update(param.id, param.pluto_account, param.price_update_request,  options).toPromise();
     }
 
@@ -2967,7 +3286,7 @@ export class ObjectPricesApi {
      * Update price
      * @param param the request object
      */
-    public update_5(param: PricesApiUpdate0Request, options?: Configuration): Promise<IPrice> {
+    public update_5(param: PricesApiUpdate0Request, options?: Configuration): Promise<void | IPrice> {
         return this.api.update_5(param.id, param.pluto_account, param.price_update_request,  options).toPromise();
     }
 
@@ -3197,7 +3516,7 @@ export class ObjectProductsApi {
      * Delete product
      * @param param the request object
      */
-    public _delete(param: ProductsApiDeleteRequest, options?: Configuration): Promise<IProduct> {
+    public _delete(param: ProductsApiDeleteRequest, options?: Configuration): Promise<void | IProduct> {
         return this.api._delete(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -3205,7 +3524,7 @@ export class ObjectProductsApi {
      * Delete product
      * @param param the request object
      */
-    public _delete_1(param: ProductsApiDelete0Request, options?: Configuration): Promise<IProduct> {
+    public _delete_1(param: ProductsApiDelete0Request, options?: Configuration): Promise<void | IProduct> {
         return this.api._delete_1(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -3213,7 +3532,7 @@ export class ObjectProductsApi {
      * Create product
      * @param param the request object
      */
-    public create(param: ProductsApiCreateRequest = {}, options?: Configuration): Promise<IProduct> {
+    public create(param: ProductsApiCreateRequest = {}, options?: Configuration): Promise<void | IProduct> {
         return this.api.create(param.pluto_account, param.product_create_request,  options).toPromise();
     }
 
@@ -3221,7 +3540,7 @@ export class ObjectProductsApi {
      * Create product
      * @param param the request object
      */
-    public create_2(param: ProductsApiCreate0Request = {}, options?: Configuration): Promise<IProduct> {
+    public create_2(param: ProductsApiCreate0Request = {}, options?: Configuration): Promise<void | IProduct> {
         return this.api.create_2(param.pluto_account, param.product_create_request,  options).toPromise();
     }
 
@@ -3229,7 +3548,7 @@ export class ObjectProductsApi {
      * List products
      * @param param the request object
      */
-    public list(param: ProductsApiListRequest = {}, options?: Configuration): Promise<ProductListResponse> {
+    public list(param: ProductsApiListRequest = {}, options?: Configuration): Promise<ProductListResponse | void> {
         return this.api.list(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -3237,7 +3556,7 @@ export class ObjectProductsApi {
      * List products
      * @param param the request object
      */
-    public list_3(param: ProductsApiList0Request = {}, options?: Configuration): Promise<ProductListResponse> {
+    public list_3(param: ProductsApiList0Request = {}, options?: Configuration): Promise<ProductListResponse | void> {
         return this.api.list_3(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -3245,7 +3564,7 @@ export class ObjectProductsApi {
      * Retrieve product
      * @param param the request object
      */
-    public retrieve(param: ProductsApiRetrieveRequest, options?: Configuration): Promise<IProduct> {
+    public retrieve(param: ProductsApiRetrieveRequest, options?: Configuration): Promise<void | IProduct> {
         return this.api.retrieve(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -3253,7 +3572,7 @@ export class ObjectProductsApi {
      * Retrieve product
      * @param param the request object
      */
-    public retrieve_4(param: ProductsApiRetrieve0Request, options?: Configuration): Promise<IProduct> {
+    public retrieve_4(param: ProductsApiRetrieve0Request, options?: Configuration): Promise<void | IProduct> {
         return this.api.retrieve_4(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -3261,7 +3580,7 @@ export class ObjectProductsApi {
      * Update product
      * @param param the request object
      */
-    public update(param: ProductsApiUpdateRequest, options?: Configuration): Promise<IProduct> {
+    public update(param: ProductsApiUpdateRequest, options?: Configuration): Promise<void | IProduct> {
         return this.api.update(param.id, param.pluto_account, param.product_update_request,  options).toPromise();
     }
 
@@ -3269,7 +3588,7 @@ export class ObjectProductsApi {
      * Update product
      * @param param the request object
      */
-    public update_5(param: ProductsApiUpdate0Request, options?: Configuration): Promise<IProduct> {
+    public update_5(param: ProductsApiUpdate0Request, options?: Configuration): Promise<void | IProduct> {
         return this.api.update_5(param.id, param.pluto_account, param.product_update_request,  options).toPromise();
     }
 
@@ -3499,7 +3818,7 @@ export class ObjectSubscriptionsApi {
      * Delete subscription
      * @param param the request object
      */
-    public _delete(param: SubscriptionsApiDeleteRequest, options?: Configuration): Promise<ISubscription> {
+    public _delete(param: SubscriptionsApiDeleteRequest, options?: Configuration): Promise<void | ISubscription> {
         return this.api._delete(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -3507,7 +3826,7 @@ export class ObjectSubscriptionsApi {
      * Delete subscription
      * @param param the request object
      */
-    public _delete_1(param: SubscriptionsApiDelete0Request, options?: Configuration): Promise<ISubscription> {
+    public _delete_1(param: SubscriptionsApiDelete0Request, options?: Configuration): Promise<void | ISubscription> {
         return this.api._delete_1(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -3515,7 +3834,7 @@ export class ObjectSubscriptionsApi {
      * Create subscription
      * @param param the request object
      */
-    public create(param: SubscriptionsApiCreateRequest = {}, options?: Configuration): Promise<ISubscription> {
+    public create(param: SubscriptionsApiCreateRequest = {}, options?: Configuration): Promise<void | ISubscription> {
         return this.api.create(param.pluto_account, param.subscription_create_request,  options).toPromise();
     }
 
@@ -3523,7 +3842,7 @@ export class ObjectSubscriptionsApi {
      * Create subscription
      * @param param the request object
      */
-    public create_2(param: SubscriptionsApiCreate0Request = {}, options?: Configuration): Promise<ISubscription> {
+    public create_2(param: SubscriptionsApiCreate0Request = {}, options?: Configuration): Promise<void | ISubscription> {
         return this.api.create_2(param.pluto_account, param.subscription_create_request,  options).toPromise();
     }
 
@@ -3531,7 +3850,7 @@ export class ObjectSubscriptionsApi {
      * List subscriptions
      * @param param the request object
      */
-    public list(param: SubscriptionsApiListRequest = {}, options?: Configuration): Promise<SubscriptionListResponse> {
+    public list(param: SubscriptionsApiListRequest = {}, options?: Configuration): Promise<void | SubscriptionListResponse> {
         return this.api.list(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -3539,7 +3858,7 @@ export class ObjectSubscriptionsApi {
      * List subscriptions
      * @param param the request object
      */
-    public list_3(param: SubscriptionsApiList0Request = {}, options?: Configuration): Promise<SubscriptionListResponse> {
+    public list_3(param: SubscriptionsApiList0Request = {}, options?: Configuration): Promise<void | SubscriptionListResponse> {
         return this.api.list_3(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -3547,7 +3866,7 @@ export class ObjectSubscriptionsApi {
      * Retrieve subscription
      * @param param the request object
      */
-    public retrieve(param: SubscriptionsApiRetrieveRequest, options?: Configuration): Promise<ISubscription> {
+    public retrieve(param: SubscriptionsApiRetrieveRequest, options?: Configuration): Promise<void | ISubscription> {
         return this.api.retrieve(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -3555,7 +3874,7 @@ export class ObjectSubscriptionsApi {
      * Retrieve subscription
      * @param param the request object
      */
-    public retrieve_4(param: SubscriptionsApiRetrieve0Request, options?: Configuration): Promise<ISubscription> {
+    public retrieve_4(param: SubscriptionsApiRetrieve0Request, options?: Configuration): Promise<void | ISubscription> {
         return this.api.retrieve_4(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -3563,7 +3882,7 @@ export class ObjectSubscriptionsApi {
      * Update subscription
      * @param param the request object
      */
-    public update(param: SubscriptionsApiUpdateRequest, options?: Configuration): Promise<ISubscription> {
+    public update(param: SubscriptionsApiUpdateRequest, options?: Configuration): Promise<void | ISubscription> {
         return this.api.update(param.id, param.pluto_account, param.subscription_update_request,  options).toPromise();
     }
 
@@ -3571,7 +3890,7 @@ export class ObjectSubscriptionsApi {
      * Update subscription
      * @param param the request object
      */
-    public update_5(param: SubscriptionsApiUpdate0Request, options?: Configuration): Promise<ISubscription> {
+    public update_5(param: SubscriptionsApiUpdate0Request, options?: Configuration): Promise<void | ISubscription> {
         return this.api.update_5(param.id, param.pluto_account, param.subscription_update_request,  options).toPromise();
     }
 
@@ -3729,7 +4048,7 @@ export class ObjectTransfersApi {
      * Create transfer
      * @param param the request object
      */
-    public create(param: TransfersApiCreateRequest = {}, options?: Configuration): Promise<ITransfer> {
+    public create(param: TransfersApiCreateRequest = {}, options?: Configuration): Promise<ITransfer | void> {
         return this.api.create(param.pluto_account, param.transfer_create_request,  options).toPromise();
     }
 
@@ -3737,7 +4056,7 @@ export class ObjectTransfersApi {
      * Create transfer
      * @param param the request object
      */
-    public create_1(param: TransfersApiCreate0Request = {}, options?: Configuration): Promise<ITransfer> {
+    public create_1(param: TransfersApiCreate0Request = {}, options?: Configuration): Promise<ITransfer | void> {
         return this.api.create_1(param.pluto_account, param.transfer_create_request,  options).toPromise();
     }
 
@@ -3745,7 +4064,7 @@ export class ObjectTransfersApi {
      * List transfers
      * @param param the request object
      */
-    public list(param: TransfersApiListRequest = {}, options?: Configuration): Promise<TransferListResponse> {
+    public list(param: TransfersApiListRequest = {}, options?: Configuration): Promise<void | TransferListResponse> {
         return this.api.list(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -3753,7 +4072,7 @@ export class ObjectTransfersApi {
      * List transfers
      * @param param the request object
      */
-    public list_2(param: TransfersApiList0Request = {}, options?: Configuration): Promise<TransferListResponse> {
+    public list_2(param: TransfersApiList0Request = {}, options?: Configuration): Promise<void | TransferListResponse> {
         return this.api.list_2(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -3761,7 +4080,7 @@ export class ObjectTransfersApi {
      * Retrieve transfer
      * @param param the request object
      */
-    public retrieve(param: TransfersApiRetrieveRequest, options?: Configuration): Promise<ITransfer> {
+    public retrieve(param: TransfersApiRetrieveRequest, options?: Configuration): Promise<ITransfer | void> {
         return this.api.retrieve(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -3769,7 +4088,7 @@ export class ObjectTransfersApi {
      * Retrieve transfer
      * @param param the request object
      */
-    public retrieve_3(param: TransfersApiRetrieve0Request, options?: Configuration): Promise<ITransfer> {
+    public retrieve_3(param: TransfersApiRetrieve0Request, options?: Configuration): Promise<ITransfer | void> {
         return this.api.retrieve_3(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -3999,7 +4318,7 @@ export class ObjectWalletsApi {
      * Delete wallet
      * @param param the request object
      */
-    public _delete(param: WalletsApiDeleteRequest, options?: Configuration): Promise<IWallet> {
+    public _delete(param: WalletsApiDeleteRequest, options?: Configuration): Promise<void | IWallet> {
         return this.api._delete(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -4007,7 +4326,7 @@ export class ObjectWalletsApi {
      * Delete wallet
      * @param param the request object
      */
-    public _delete_1(param: WalletsApiDelete0Request, options?: Configuration): Promise<IWallet> {
+    public _delete_1(param: WalletsApiDelete0Request, options?: Configuration): Promise<void | IWallet> {
         return this.api._delete_1(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -4015,7 +4334,7 @@ export class ObjectWalletsApi {
      * Create wallet
      * @param param the request object
      */
-    public create(param: WalletsApiCreateRequest = {}, options?: Configuration): Promise<IWallet> {
+    public create(param: WalletsApiCreateRequest = {}, options?: Configuration): Promise<void | IWallet> {
         return this.api.create(param.pluto_account, param.wallet_create_request,  options).toPromise();
     }
 
@@ -4023,7 +4342,7 @@ export class ObjectWalletsApi {
      * Create wallet
      * @param param the request object
      */
-    public create_2(param: WalletsApiCreate0Request = {}, options?: Configuration): Promise<IWallet> {
+    public create_2(param: WalletsApiCreate0Request = {}, options?: Configuration): Promise<void | IWallet> {
         return this.api.create_2(param.pluto_account, param.wallet_create_request,  options).toPromise();
     }
 
@@ -4031,7 +4350,7 @@ export class ObjectWalletsApi {
      * List wallets
      * @param param the request object
      */
-    public list(param: WalletsApiListRequest = {}, options?: Configuration): Promise<WalletListResponse> {
+    public list(param: WalletsApiListRequest = {}, options?: Configuration): Promise<void | WalletListResponse> {
         return this.api.list(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -4039,7 +4358,7 @@ export class ObjectWalletsApi {
      * List wallets
      * @param param the request object
      */
-    public list_3(param: WalletsApiList0Request = {}, options?: Configuration): Promise<WalletListResponse> {
+    public list_3(param: WalletsApiList0Request = {}, options?: Configuration): Promise<void | WalletListResponse> {
         return this.api.list_3(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -4047,7 +4366,7 @@ export class ObjectWalletsApi {
      * Retrieve wallet
      * @param param the request object
      */
-    public retrieve(param: WalletsApiRetrieveRequest, options?: Configuration): Promise<IWallet> {
+    public retrieve(param: WalletsApiRetrieveRequest, options?: Configuration): Promise<void | IWallet> {
         return this.api.retrieve(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -4055,7 +4374,7 @@ export class ObjectWalletsApi {
      * Retrieve wallet
      * @param param the request object
      */
-    public retrieve_4(param: WalletsApiRetrieve0Request, options?: Configuration): Promise<IWallet> {
+    public retrieve_4(param: WalletsApiRetrieve0Request, options?: Configuration): Promise<void | IWallet> {
         return this.api.retrieve_4(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -4063,7 +4382,7 @@ export class ObjectWalletsApi {
      * Update wallet
      * @param param the request object
      */
-    public update(param: WalletsApiUpdateRequest, options?: Configuration): Promise<IWallet> {
+    public update(param: WalletsApiUpdateRequest, options?: Configuration): Promise<void | IWallet> {
         return this.api.update(param.id, param.pluto_account, param.wallet_update_request,  options).toPromise();
     }
 
@@ -4071,7 +4390,7 @@ export class ObjectWalletsApi {
      * Update wallet
      * @param param the request object
      */
-    public update_5(param: WalletsApiUpdate0Request, options?: Configuration): Promise<IWallet> {
+    public update_5(param: WalletsApiUpdate0Request, options?: Configuration): Promise<void | IWallet> {
         return this.api.update_5(param.id, param.pluto_account, param.wallet_update_request,  options).toPromise();
     }
 
@@ -4301,7 +4620,7 @@ export class ObjectWebhooksApi {
      * Delete webhook
      * @param param the request object
      */
-    public _delete(param: WebhooksApiDeleteRequest, options?: Configuration): Promise<IWebhook> {
+    public _delete(param: WebhooksApiDeleteRequest, options?: Configuration): Promise<void | IWebhook> {
         return this.api._delete(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -4309,7 +4628,7 @@ export class ObjectWebhooksApi {
      * Delete webhook
      * @param param the request object
      */
-    public _delete_1(param: WebhooksApiDelete0Request, options?: Configuration): Promise<IWebhook> {
+    public _delete_1(param: WebhooksApiDelete0Request, options?: Configuration): Promise<void | IWebhook> {
         return this.api._delete_1(param.id, param.pluto_account,  options).toPromise();
     }
 
@@ -4317,7 +4636,7 @@ export class ObjectWebhooksApi {
      * Create webhook
      * @param param the request object
      */
-    public create(param: WebhooksApiCreateRequest = {}, options?: Configuration): Promise<IWebhook> {
+    public create(param: WebhooksApiCreateRequest = {}, options?: Configuration): Promise<void | IWebhook> {
         return this.api.create(param.pluto_account, param.webhook_create_request,  options).toPromise();
     }
 
@@ -4325,7 +4644,7 @@ export class ObjectWebhooksApi {
      * Create webhook
      * @param param the request object
      */
-    public create_2(param: WebhooksApiCreate0Request = {}, options?: Configuration): Promise<IWebhook> {
+    public create_2(param: WebhooksApiCreate0Request = {}, options?: Configuration): Promise<void | IWebhook> {
         return this.api.create_2(param.pluto_account, param.webhook_create_request,  options).toPromise();
     }
 
@@ -4333,7 +4652,7 @@ export class ObjectWebhooksApi {
      * List webhooks
      * @param param the request object
      */
-    public list(param: WebhooksApiListRequest = {}, options?: Configuration): Promise<WebhookListResponse> {
+    public list(param: WebhooksApiListRequest = {}, options?: Configuration): Promise<void | WebhookListResponse> {
         return this.api.list(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -4341,7 +4660,7 @@ export class ObjectWebhooksApi {
      * List webhooks
      * @param param the request object
      */
-    public list_3(param: WebhooksApiList0Request = {}, options?: Configuration): Promise<WebhookListResponse> {
+    public list_3(param: WebhooksApiList0Request = {}, options?: Configuration): Promise<void | WebhookListResponse> {
         return this.api.list_3(param.pluto_account, param.limit, param.page, param.sort, param.expand,  options).toPromise();
     }
 
@@ -4349,7 +4668,7 @@ export class ObjectWebhooksApi {
      * Retrieve webhook
      * @param param the request object
      */
-    public retrieve(param: WebhooksApiRetrieveRequest, options?: Configuration): Promise<IWebhook> {
+    public retrieve(param: WebhooksApiRetrieveRequest, options?: Configuration): Promise<void | IWebhook> {
         return this.api.retrieve(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -4357,7 +4676,7 @@ export class ObjectWebhooksApi {
      * Retrieve webhook
      * @param param the request object
      */
-    public retrieve_4(param: WebhooksApiRetrieve0Request, options?: Configuration): Promise<IWebhook> {
+    public retrieve_4(param: WebhooksApiRetrieve0Request, options?: Configuration): Promise<void | IWebhook> {
         return this.api.retrieve_4(param.id, param.pluto_account, param.expand,  options).toPromise();
     }
 
@@ -4365,7 +4684,7 @@ export class ObjectWebhooksApi {
      * Update webhook
      * @param param the request object
      */
-    public update(param: WebhooksApiUpdateRequest, options?: Configuration): Promise<IWebhook> {
+    public update(param: WebhooksApiUpdateRequest, options?: Configuration): Promise<void | IWebhook> {
         return this.api.update(param.id, param.pluto_account, param.webhook_update_request,  options).toPromise();
     }
 
@@ -4373,7 +4692,7 @@ export class ObjectWebhooksApi {
      * Update webhook
      * @param param the request object
      */
-    public update_5(param: WebhooksApiUpdate0Request, options?: Configuration): Promise<IWebhook> {
+    public update_5(param: WebhooksApiUpdate0Request, options?: Configuration): Promise<void | IWebhook> {
         return this.api.update_5(param.id, param.pluto_account, param.webhook_update_request,  options).toPromise();
     }
 

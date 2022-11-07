@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **_delete**
-> ISubscription _delete()
+> void | ISubscription _delete()
 
 
 ### Example
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ISubscription**
+**void | ISubscription**
 
 ### Authorization
 
@@ -68,14 +68,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **_delete_0**
-> ISubscription _delete_0()
+> void | ISubscription _delete_0()
 
 
 ### Example
@@ -111,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ISubscription**
+**void | ISubscription**
 
 ### Authorization
 
@@ -126,14 +127,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
-> ISubscription create()
+> void | ISubscription create()
 
 
 ### Example
@@ -151,52 +153,52 @@ let body:.SubscriptionsApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // SubscriptionCreateRequest (optional)
   subscription_create_request: {
-    metadata: {
-      "key": null,
-    },
-    price: "price_example",
+    cancel_at: null,
     customer: "customer_example",
     line_items: [
       {
         description: "description_example",
+        price: "price_example",
         price_data: {
-          id: "id_example",
-          object: "object_example",
-          created: 3.14,
-          test: true,
           account: "account_example",
-          platform_account: "platform_account_example",
           amount: 3.14,
-          custom_amount: {
-            _default: 3.14,
-            maximum: 3.14,
-            minimum: 3.14,
-          },
-          currency: "eth",
-          chain: "eth",
-          product: "product_example",
+          application_fee_percent: 3.14,
+          archived: true,
           base_price: {
+            amount: 3.14,
+            currency: "currency_example",
             custom_amount: {
               _default: 3.14,
               maximum: 3.14,
               minimum: 3.14,
             },
-            amount: 3.14,
-            currency: "currency_example",
           },
           billing_period_days: 3.14,
-          application_fee_percent: 3.14,
-          archived: true,
+          chain: "eth",
+          created: 3.14,
+          currency: "eth",
+          custom_amount: {
+            _default: 3.14,
+            maximum: 3.14,
+            minimum: 3.14,
+          },
+          id: "id_example",
           metadata: {
             "key": null,
           },
+          object: "object_example",
+          platform_account: "platform_account_example",
+          product: "product_example",
+          test: true,
         },
         quantity: 3.14,
-        price: "price_example",
       },
     ],
+    metadata: {
+      "key": null,
+    },
+    price: "price_example",
     trial_period_days: 3.14,
-    cancel_at: null,
   },
 };
 
@@ -216,7 +218,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ISubscription**
+**void | ISubscription**
 
 ### Authorization
 
@@ -231,14 +233,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create_0**
-> ISubscription create_0()
+> void | ISubscription create_0()
 
 
 ### Example
@@ -256,52 +259,52 @@ let body:.SubscriptionsApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // SubscriptionCreateRequest (optional)
   subscription_create_request: {
-    metadata: {
-      "key": null,
-    },
-    price: "price_example",
+    cancel_at: null,
     customer: "customer_example",
     line_items: [
       {
         description: "description_example",
+        price: "price_example",
         price_data: {
-          id: "id_example",
-          object: "object_example",
-          created: 3.14,
-          test: true,
           account: "account_example",
-          platform_account: "platform_account_example",
           amount: 3.14,
-          custom_amount: {
-            _default: 3.14,
-            maximum: 3.14,
-            minimum: 3.14,
-          },
-          currency: "eth",
-          chain: "eth",
-          product: "product_example",
+          application_fee_percent: 3.14,
+          archived: true,
           base_price: {
+            amount: 3.14,
+            currency: "currency_example",
             custom_amount: {
               _default: 3.14,
               maximum: 3.14,
               minimum: 3.14,
             },
-            amount: 3.14,
-            currency: "currency_example",
           },
           billing_period_days: 3.14,
-          application_fee_percent: 3.14,
-          archived: true,
+          chain: "eth",
+          created: 3.14,
+          currency: "eth",
+          custom_amount: {
+            _default: 3.14,
+            maximum: 3.14,
+            minimum: 3.14,
+          },
+          id: "id_example",
           metadata: {
             "key": null,
           },
+          object: "object_example",
+          platform_account: "platform_account_example",
+          product: "product_example",
+          test: true,
         },
         quantity: 3.14,
-        price: "price_example",
       },
     ],
+    metadata: {
+      "key": null,
+    },
+    price: "price_example",
     trial_period_days: 3.14,
-    cancel_at: null,
   },
 };
 
@@ -321,7 +324,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ISubscription**
+**void | ISubscription**
 
 ### Authorization
 
@@ -336,14 +339,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> SubscriptionListResponse list()
+> void | SubscriptionListResponse list()
 
 
 ### Example
@@ -388,7 +392,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**SubscriptionListResponse**
+**void | SubscriptionListResponse**
 
 ### Authorization
 
@@ -403,14 +407,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list_0**
-> SubscriptionListResponse list_0()
+> void | SubscriptionListResponse list_0()
 
 
 ### Example
@@ -455,7 +460,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**SubscriptionListResponse**
+**void | SubscriptionListResponse**
 
 ### Authorization
 
@@ -470,14 +475,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> ISubscription retrieve()
+> void | ISubscription retrieve()
 
 
 ### Example
@@ -516,7 +522,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ISubscription**
+**void | ISubscription**
 
 ### Authorization
 
@@ -531,7 +537,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -539,7 +546,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve_0**
-> ISubscription retrieve_0()
+> void | ISubscription retrieve_0()
 
 
 ### Example
@@ -578,7 +585,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ISubscription**
+**void | ISubscription**
 
 ### Authorization
 
@@ -593,7 +600,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -601,7 +609,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update**
-> ISubscription update()
+> void | ISubscription update()
 
 
 ### Example
@@ -621,15 +629,15 @@ let body:.SubscriptionsApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // SubscriptionUpdateRequest (optional)
   subscription_update_request: {
+    cancel_at: null,
+    cancel_at_period_end: true,
+    current_period_end: null,
+    current_period_start: null,
     metadata: {
       "key": null,
     },
-    price: "price_example",
-    cancel_at: null,
     pause_collection: true,
-    cancel_at_period_end: true,
-    current_period_start: null,
-    current_period_end: null,
+    price: "price_example",
   },
 };
 
@@ -650,7 +658,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ISubscription**
+**void | ISubscription**
 
 ### Authorization
 
@@ -665,7 +673,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -673,7 +682,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update_0**
-> ISubscription update_0()
+> void | ISubscription update_0()
 
 
 ### Example
@@ -693,15 +702,15 @@ let body:.SubscriptionsApiUpdate0Request = {
   pluto_account: "Pluto-Account_example",
   // SubscriptionUpdateRequest (optional)
   subscription_update_request: {
+    cancel_at: null,
+    cancel_at_period_end: true,
+    current_period_end: null,
+    current_period_start: null,
     metadata: {
       "key": null,
     },
-    price: "price_example",
-    cancel_at: null,
     pause_collection: true,
-    cancel_at_period_end: true,
-    current_period_start: null,
-    current_period_end: null,
+    price: "price_example",
   },
 };
 
@@ -722,7 +731,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ISubscription**
+**void | ISubscription**
 
 ### Authorization
 
@@ -737,7 +746,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

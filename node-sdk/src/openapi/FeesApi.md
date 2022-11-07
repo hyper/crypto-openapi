@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **create**
-> IFee create()
+> void | IFee create()
 
 
 ### Example
@@ -31,9 +31,9 @@ let body:.FeesApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // FeeCreateRequest (optional)
   fee_create_request: {
+    description: "description_example",
     payment_intent: "payment_intent_example",
     percent: 3.14,
-    description: "description_example",
   },
 };
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IFee**
+**void | IFee**
 
 ### Authorization
 
@@ -68,14 +68,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create_0**
-> IFee create_0()
+> void | IFee create_0()
 
 
 ### Example
@@ -93,9 +94,9 @@ let body:.FeesApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // FeeCreateRequest (optional)
   fee_create_request: {
+    description: "description_example",
     payment_intent: "payment_intent_example",
     percent: 3.14,
-    description: "description_example",
   },
 };
 
@@ -115,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IFee**
+**void | IFee**
 
 ### Authorization
 
@@ -130,14 +131,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> FeeListResponse list()
+> void | FeeListResponse list()
 
 
 ### Example
@@ -182,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**FeeListResponse**
+**void | FeeListResponse**
 
 ### Authorization
 
@@ -197,14 +199,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list_0**
-> FeeListResponse list_0()
+> void | FeeListResponse list_0()
 
 
 ### Example
@@ -249,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**FeeListResponse**
+**void | FeeListResponse**
 
 ### Authorization
 
@@ -264,14 +267,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> IFee retrieve()
+> void | IFee retrieve()
 
 
 ### Example
@@ -310,7 +314,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IFee**
+**void | IFee**
 
 ### Authorization
 
@@ -325,14 +329,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve_0**
-> IFee retrieve_0()
+> void | IFee retrieve_0()
 
 
 ### Example
@@ -371,7 +376,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IFee**
+**void | IFee**
 
 ### Authorization
 
@@ -386,7 +391,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 

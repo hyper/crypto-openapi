@@ -50,6 +50,7 @@ class Pluto {
             },
         });
         this.accounts = new AccountsApiLayer(config);
+        this.coupons = new CouponsApiLayer(config);
         this.customers = new CustomersApiLayer(config);
         this.fees = new FeesApiLayer(config);
         this.invoices = new InvoicesApiLayer(config);
@@ -82,6 +83,36 @@ class AccountsApiLayer {
     update(id, data, options) {
         return __awaiter(this, void 0, void 0, function* () {
             return this.api.patch(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { account_update_request: data }));
+        });
+    }
+    list(params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.list(Object.assign(Object.assign({}, convertCasing_1.default(options)), params));
+        });
+    }
+}
+class CouponsApiLayer {
+    constructor(config) {
+        this.api = new index_1.CouponsApi(config);
+    }
+    create(data, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.create(Object.assign(Object.assign({}, convertCasing_1.default(options)), { coupon_create_request: data }));
+        });
+    }
+    retrieve(id, params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.retrieve(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), params));
+        });
+    }
+    update(id, data, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api.update(Object.assign(Object.assign({ id }, convertCasing_1.default(options)), { coupon_update_request: data }));
+        });
+    }
+    delete(id, params, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.api._delete(Object.assign({ id }, convertCasing_1.default(options)));
         });
     }
     list(params, options) {

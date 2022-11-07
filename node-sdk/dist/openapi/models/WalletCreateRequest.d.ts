@@ -1,8 +1,8 @@
 import { Chain } from './Chain';
 export declare class WalletCreateRequest {
-    'customer'?: string;
-    'chain'?: Chain;
     'address'?: string;
+    'chain'?: Chain;
+    'customer'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

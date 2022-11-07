@@ -1,9 +1,9 @@
 import { ICheckout } from './ICheckout';
 export declare class CheckoutListResponse {
-    'total': number;
+    'data': Array<ICheckout>;
     'has_more': boolean;
     'page': number;
-    'data': Array<ICheckout>;
+    'total': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

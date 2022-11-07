@@ -13,22 +13,22 @@
 import { HttpFile } from '../http/http';
 
 export class PaymentIntentUpdateRequest {
-    'metadata'?: { [key: string]: any; };
     'hash'?: string;
+    'metadata'?: { [key: string]: any; };
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "{ [key: string]: any; }",
-            "format": ""
-        },
-        {
             "name": "hash",
             "baseName": "hash",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "{ [key: string]: any; }",
             "format": ""
         }    ];
 

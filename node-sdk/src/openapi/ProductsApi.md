@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **_delete**
-> IProduct _delete()
+> void | IProduct _delete()
 
 
 ### Example
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IProduct**
+**void | IProduct**
 
 ### Authorization
 
@@ -68,14 +68,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **_delete_0**
-> IProduct _delete_0()
+> void | IProduct _delete_0()
 
 
 ### Example
@@ -111,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IProduct**
+**void | IProduct**
 
 ### Authorization
 
@@ -126,14 +127,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
-> IProduct create()
+> void | IProduct create()
 
 
 ### Example
@@ -151,9 +153,9 @@ let body:.ProductsApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // ProductCreateRequest (optional)
   product_create_request: {
-    name: "name_example",
-    description: "description_example",
     active: true,
+    description: "description_example",
+    name: "name_example",
   },
 };
 
@@ -173,7 +175,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IProduct**
+**void | IProduct**
 
 ### Authorization
 
@@ -188,14 +190,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create_0**
-> IProduct create_0()
+> void | IProduct create_0()
 
 
 ### Example
@@ -213,9 +216,9 @@ let body:.ProductsApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // ProductCreateRequest (optional)
   product_create_request: {
-    name: "name_example",
-    description: "description_example",
     active: true,
+    description: "description_example",
+    name: "name_example",
   },
 };
 
@@ -235,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IProduct**
+**void | IProduct**
 
 ### Authorization
 
@@ -250,14 +253,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> ProductListResponse list()
+> ProductListResponse | void list()
 
 
 ### Example
@@ -302,7 +306,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ProductListResponse**
+**ProductListResponse | void**
 
 ### Authorization
 
@@ -317,14 +321,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list_0**
-> ProductListResponse list_0()
+> ProductListResponse | void list_0()
 
 
 ### Example
@@ -369,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ProductListResponse**
+**ProductListResponse | void**
 
 ### Authorization
 
@@ -384,14 +389,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> IProduct retrieve()
+> void | IProduct retrieve()
 
 
 ### Example
@@ -430,7 +436,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IProduct**
+**void | IProduct**
 
 ### Authorization
 
@@ -445,14 +451,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve_0**
-> IProduct retrieve_0()
+> void | IProduct retrieve_0()
 
 
 ### Example
@@ -491,7 +498,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IProduct**
+**void | IProduct**
 
 ### Authorization
 
@@ -506,14 +513,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update**
-> IProduct update()
+> void | IProduct update()
 
 
 ### Example
@@ -533,9 +541,9 @@ let body:.ProductsApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // ProductUpdateRequest (optional)
   product_update_request: {
-    name: "name_example",
-    description: "description_example",
     active: true,
+    description: "description_example",
+    name: "name_example",
   },
 };
 
@@ -556,7 +564,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IProduct**
+**void | IProduct**
 
 ### Authorization
 
@@ -571,7 +579,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -579,7 +588,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update_0**
-> IProduct update_0()
+> void | IProduct update_0()
 
 
 ### Example
@@ -599,9 +608,9 @@ let body:.ProductsApiUpdate0Request = {
   pluto_account: "Pluto-Account_example",
   // ProductUpdateRequest (optional)
   product_update_request: {
-    name: "name_example",
-    description: "description_example",
     active: true,
+    description: "description_example",
+    name: "name_example",
   },
 };
 
@@ -622,7 +631,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IProduct**
+**void | IProduct**
 
 ### Authorization
 
@@ -637,7 +646,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

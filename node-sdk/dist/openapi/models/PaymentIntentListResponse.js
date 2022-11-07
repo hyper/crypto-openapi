@@ -12,10 +12,10 @@ exports.PaymentIntentListResponse = PaymentIntentListResponse;
 PaymentIntentListResponse.discriminator = undefined;
 PaymentIntentListResponse.attributeTypeMap = [
     {
-        "name": "total",
-        "baseName": "total",
-        "type": "number",
-        "format": "double"
+        "name": "data",
+        "baseName": "data",
+        "type": "Array<IPaymentIntent>",
+        "format": ""
     },
     {
         "name": "has_more",
@@ -30,10 +30,10 @@ PaymentIntentListResponse.attributeTypeMap = [
         "format": "double"
     },
     {
-        "name": "data",
-        "baseName": "data",
-        "type": "Array<IPaymentIntent>",
-        "format": ""
+        "name": "total",
+        "baseName": "total",
+        "type": "number",
+        "format": "double"
     }
 ];
 //# sourceMappingURL=PaymentIntentListResponse.js.map

@@ -14,19 +14,19 @@ import { IApiKey } from './IApiKey';
 import { HttpFile } from '../http/http';
 
 export class ApiKeyListResponse {
-    'total': number;
+    'data': Array<IApiKey>;
     'has_more': boolean;
     'page': number;
-    'data': Array<IApiKey>;
+    'total': number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "total",
-            "baseName": "total",
-            "type": "number",
-            "format": "double"
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<IApiKey>",
+            "format": ""
         },
         {
             "name": "has_more",
@@ -41,10 +41,10 @@ export class ApiKeyListResponse {
             "format": "double"
         },
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "Array<IApiKey>",
-            "format": ""
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
+            "format": "double"
         }    ];
 
     static getAttributeTypeMap() {

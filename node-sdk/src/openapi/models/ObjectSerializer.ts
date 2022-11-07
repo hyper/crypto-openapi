@@ -1,7 +1,6 @@
 export * from './AccountConnectRequest';
 export * from './AccountCreateRequest';
 export * from './AccountDashboardAccessRequest';
-export * from './AccountDashboardAccessResponse';
 export * from './AccountListResponse';
 export * from './AccountUpdateRequest';
 export * from './Address';
@@ -14,9 +13,14 @@ export * from './Chain';
 export * from './CheckoutCreateRequest';
 export * from './CheckoutListResponse';
 export * from './CheckoutStatus';
+export * from './CouponCreateRequest';
+export * from './CouponDuration';
+export * from './CouponListResponse';
+export * from './CouponUpdateRequest';
 export * from './Currency';
 export * from './CustomAmount';
 export * from './CustomerCreateRequest';
+export * from './CustomerCreateRequestBillingDetails';
 export * from './CustomerDetails';
 export * from './CustomerListResponse';
 export * from './CustomerUpdateRequest';
@@ -30,8 +34,8 @@ export * from './IBilling';
 export * from './IBranding';
 export * from './IBusinessProfile';
 export * from './ICheckout';
+export * from './ICoupon';
 export * from './ICustomer';
-export * from './ICustomerBillingDetails';
 export * from './IFee';
 export * from './IIntegrations';
 export * from './IIntegrationsFtx';
@@ -53,6 +57,7 @@ export * from './IWallet';
 export * from './IWebhook';
 export * from './InvoiceCreateRequest';
 export * from './InvoiceListResponse';
+export * from './InvoicePayRequest';
 export * from './InvoiceStatus';
 export * from './InvoiceUpdateRequest';
 export * from './LineItem';
@@ -90,7 +95,6 @@ export * from './WebhookUpdateRequest';
 import { AccountConnectRequest } from './AccountConnectRequest';
 import { AccountCreateRequest } from './AccountCreateRequest';
 import { AccountDashboardAccessRequest } from './AccountDashboardAccessRequest';
-import { AccountDashboardAccessResponse } from './AccountDashboardAccessResponse';
 import { AccountListResponse } from './AccountListResponse';
 import { AccountUpdateRequest } from './AccountUpdateRequest';
 import { Address } from './Address';
@@ -103,9 +107,14 @@ import { Chain } from './Chain';
 import { CheckoutCreateRequest } from './CheckoutCreateRequest';
 import { CheckoutListResponse } from './CheckoutListResponse';
 import { CheckoutStatus } from './CheckoutStatus';
+import { CouponCreateRequest } from './CouponCreateRequest';
+import { CouponDuration } from './CouponDuration';
+import { CouponListResponse } from './CouponListResponse';
+import { CouponUpdateRequest } from './CouponUpdateRequest';
 import { Currency } from './Currency';
 import { CustomAmount } from './CustomAmount';
 import { CustomerCreateRequest } from './CustomerCreateRequest';
+import { CustomerCreateRequestBillingDetails } from './CustomerCreateRequestBillingDetails';
 import { CustomerDetails } from './CustomerDetails';
 import { CustomerListResponse } from './CustomerListResponse';
 import { CustomerUpdateRequest } from './CustomerUpdateRequest';
@@ -119,8 +128,8 @@ import { IBilling } from './IBilling';
 import { IBranding } from './IBranding';
 import { IBusinessProfile } from './IBusinessProfile';
 import { ICheckout } from './ICheckout';
+import { ICoupon } from './ICoupon';
 import { ICustomer } from './ICustomer';
-import { ICustomerBillingDetails } from './ICustomerBillingDetails';
 import { IFee } from './IFee';
 import { IIntegrations } from './IIntegrations';
 import { IIntegrationsFtx } from './IIntegrationsFtx';
@@ -142,6 +151,7 @@ import { IWallet } from './IWallet';
 import { IWebhook } from './IWebhook';
 import { InvoiceCreateRequest } from './InvoiceCreateRequest';
 import { InvoiceListResponse } from './InvoiceListResponse';
+import { InvoicePayRequest } from './InvoicePayRequest';
 import { InvoiceStatus } from './InvoiceStatus';
 import { InvoiceUpdateRequest } from './InvoiceUpdateRequest';
 import { LineItem } from './LineItem';
@@ -199,6 +209,7 @@ let enumsMap: Set<string> = new Set<string>([
     "ApiKeyType",
     "Chain",
     "CheckoutStatus",
+    "CouponDuration",
     "Currency",
     "EventType",
     "InvoiceStatus",
@@ -211,7 +222,6 @@ let typeMap: {[index: string]: any} = {
     "AccountConnectRequest": AccountConnectRequest,
     "AccountCreateRequest": AccountCreateRequest,
     "AccountDashboardAccessRequest": AccountDashboardAccessRequest,
-    "AccountDashboardAccessResponse": AccountDashboardAccessResponse,
     "AccountListResponse": AccountListResponse,
     "AccountUpdateRequest": AccountUpdateRequest,
     "Address": Address,
@@ -221,8 +231,12 @@ let typeMap: {[index: string]: any} = {
     "BasePrice": BasePrice,
     "CheckoutCreateRequest": CheckoutCreateRequest,
     "CheckoutListResponse": CheckoutListResponse,
+    "CouponCreateRequest": CouponCreateRequest,
+    "CouponListResponse": CouponListResponse,
+    "CouponUpdateRequest": CouponUpdateRequest,
     "CustomAmount": CustomAmount,
     "CustomerCreateRequest": CustomerCreateRequest,
+    "CustomerCreateRequestBillingDetails": CustomerCreateRequestBillingDetails,
     "CustomerDetails": CustomerDetails,
     "CustomerListResponse": CustomerListResponse,
     "CustomerUpdateRequest": CustomerUpdateRequest,
@@ -235,8 +249,8 @@ let typeMap: {[index: string]: any} = {
     "IBranding": IBranding,
     "IBusinessProfile": IBusinessProfile,
     "ICheckout": ICheckout,
+    "ICoupon": ICoupon,
     "ICustomer": ICustomer,
-    "ICustomerBillingDetails": ICustomerBillingDetails,
     "IFee": IFee,
     "IIntegrations": IIntegrations,
     "IIntegrationsFtx": IIntegrationsFtx,
@@ -258,6 +272,7 @@ let typeMap: {[index: string]: any} = {
     "IWebhook": IWebhook,
     "InvoiceCreateRequest": InvoiceCreateRequest,
     "InvoiceListResponse": InvoiceListResponse,
+    "InvoicePayRequest": InvoicePayRequest,
     "InvoiceUpdateRequest": InvoiceUpdateRequest,
     "LineItem": LineItem,
     "LogListResponse": LogListResponse,

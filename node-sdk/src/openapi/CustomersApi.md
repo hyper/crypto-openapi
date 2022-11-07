@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **create**
-> ICustomer create()
+> void | ICustomer create()
 
 
 ### Example
@@ -33,22 +33,22 @@ let body:.CustomersApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // CustomerCreateRequest (optional)
   customer_create_request: {
-    name: "name_example",
-    email: "email_example",
-    phone: "phone_example",
     billing_details: {
       address: {
-        state: "state_example",
-        postal_code: "postal_code_example",
-        line2: "line2_example",
-        line1: "line1_example",
-        country: "country_example",
         city: "city_example",
+        country: "country_example",
+        line1: "line1_example",
+        line2: "line2_example",
+        postal_code: "postal_code_example",
+        state: "state_example",
       },
     },
+    email: "email_example",
     metadata: {
       "key": null,
     },
+    name: "name_example",
+    phone: "phone_example",
   },
 };
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ICustomer**
+**void | ICustomer**
 
 ### Authorization
 
@@ -83,14 +83,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create_0**
-> ICustomer create_0()
+> void | ICustomer create_0()
 
 
 ### Example
@@ -108,22 +109,22 @@ let body:.CustomersApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // CustomerCreateRequest (optional)
   customer_create_request: {
-    name: "name_example",
-    email: "email_example",
-    phone: "phone_example",
     billing_details: {
       address: {
-        state: "state_example",
-        postal_code: "postal_code_example",
-        line2: "line2_example",
-        line1: "line1_example",
-        country: "country_example",
         city: "city_example",
+        country: "country_example",
+        line1: "line1_example",
+        line2: "line2_example",
+        postal_code: "postal_code_example",
+        state: "state_example",
       },
     },
+    email: "email_example",
     metadata: {
       "key": null,
     },
+    name: "name_example",
+    phone: "phone_example",
   },
 };
 
@@ -143,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ICustomer**
+**void | ICustomer**
 
 ### Authorization
 
@@ -158,14 +159,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> CustomerListResponse list()
+> void | CustomerListResponse list()
 
 
 ### Example
@@ -213,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**CustomerListResponse**
+**void | CustomerListResponse**
 
 ### Authorization
 
@@ -228,14 +230,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list_0**
-> CustomerListResponse list_0()
+> void | CustomerListResponse list_0()
 
 
 ### Example
@@ -283,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**CustomerListResponse**
+**void | CustomerListResponse**
 
 ### Authorization
 
@@ -298,14 +301,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> ICustomer retrieve()
+> void | ICustomer retrieve()
 
 
 ### Example
@@ -344,7 +348,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ICustomer**
+**void | ICustomer**
 
 ### Authorization
 
@@ -359,14 +363,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve_0**
-> ICustomer retrieve_0()
+> void | ICustomer retrieve_0()
 
 
 ### Example
@@ -405,7 +410,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ICustomer**
+**void | ICustomer**
 
 ### Authorization
 
@@ -420,14 +425,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update**
-> ICustomer update()
+> void | ICustomer update()
 
 
 ### Example
@@ -447,22 +453,22 @@ let body:.CustomersApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // CustomerUpdateRequest (optional)
   customer_update_request: {
-    name: "name_example",
-    email: "email_example",
-    phone: "phone_example",
     billing_details: {
       address: {
-        state: "state_example",
-        postal_code: "postal_code_example",
-        line2: "line2_example",
-        line1: "line1_example",
-        country: "country_example",
         city: "city_example",
+        country: "country_example",
+        line1: "line1_example",
+        line2: "line2_example",
+        postal_code: "postal_code_example",
+        state: "state_example",
       },
     },
+    email: "email_example",
     metadata: {
       "key": null,
     },
+    name: "name_example",
+    phone: "phone_example",
   },
 };
 
@@ -483,7 +489,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ICustomer**
+**void | ICustomer**
 
 ### Authorization
 
@@ -498,7 +504,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -506,7 +513,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update_0**
-> ICustomer update_0()
+> void | ICustomer update_0()
 
 
 ### Example
@@ -526,22 +533,22 @@ let body:.CustomersApiUpdate0Request = {
   pluto_account: "Pluto-Account_example",
   // CustomerUpdateRequest (optional)
   customer_update_request: {
-    name: "name_example",
-    email: "email_example",
-    phone: "phone_example",
     billing_details: {
       address: {
-        state: "state_example",
-        postal_code: "postal_code_example",
-        line2: "line2_example",
-        line1: "line1_example",
-        country: "country_example",
         city: "city_example",
+        country: "country_example",
+        line1: "line1_example",
+        line2: "line2_example",
+        postal_code: "postal_code_example",
+        state: "state_example",
       },
     },
+    email: "email_example",
     metadata: {
       "key": null,
     },
+    name: "name_example",
+    phone: "phone_example",
   },
 };
 
@@ -562,7 +569,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ICustomer**
+**void | ICustomer**
 
 ### Authorization
 
@@ -577,7 +584,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

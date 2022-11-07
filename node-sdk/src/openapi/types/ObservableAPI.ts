@@ -6,7 +6,6 @@ import {mergeMap, map} from  '../rxjsStub';
 import { AccountConnectRequest } from '../models/AccountConnectRequest';
 import { AccountCreateRequest } from '../models/AccountCreateRequest';
 import { AccountDashboardAccessRequest } from '../models/AccountDashboardAccessRequest';
-import { AccountDashboardAccessResponse } from '../models/AccountDashboardAccessResponse';
 import { AccountListResponse } from '../models/AccountListResponse';
 import { AccountUpdateRequest } from '../models/AccountUpdateRequest';
 import { Address } from '../models/Address';
@@ -19,9 +18,14 @@ import { Chain } from '../models/Chain';
 import { CheckoutCreateRequest } from '../models/CheckoutCreateRequest';
 import { CheckoutListResponse } from '../models/CheckoutListResponse';
 import { CheckoutStatus } from '../models/CheckoutStatus';
+import { CouponCreateRequest } from '../models/CouponCreateRequest';
+import { CouponDuration } from '../models/CouponDuration';
+import { CouponListResponse } from '../models/CouponListResponse';
+import { CouponUpdateRequest } from '../models/CouponUpdateRequest';
 import { Currency } from '../models/Currency';
 import { CustomAmount } from '../models/CustomAmount';
 import { CustomerCreateRequest } from '../models/CustomerCreateRequest';
+import { CustomerCreateRequestBillingDetails } from '../models/CustomerCreateRequestBillingDetails';
 import { CustomerDetails } from '../models/CustomerDetails';
 import { CustomerListResponse } from '../models/CustomerListResponse';
 import { CustomerUpdateRequest } from '../models/CustomerUpdateRequest';
@@ -35,8 +39,8 @@ import { IBilling } from '../models/IBilling';
 import { IBranding } from '../models/IBranding';
 import { IBusinessProfile } from '../models/IBusinessProfile';
 import { ICheckout } from '../models/ICheckout';
+import { ICoupon } from '../models/ICoupon';
 import { ICustomer } from '../models/ICustomer';
-import { ICustomerBillingDetails } from '../models/ICustomerBillingDetails';
 import { IFee } from '../models/IFee';
 import { IIntegrations } from '../models/IIntegrations';
 import { IIntegrationsFtx } from '../models/IIntegrationsFtx';
@@ -58,6 +62,7 @@ import { IWallet } from '../models/IWallet';
 import { IWebhook } from '../models/IWebhook';
 import { InvoiceCreateRequest } from '../models/InvoiceCreateRequest';
 import { InvoiceListResponse } from '../models/InvoiceListResponse';
+import { InvoicePayRequest } from '../models/InvoicePayRequest';
 import { InvoiceStatus } from '../models/InvoiceStatus';
 import { InvoiceUpdateRequest } from '../models/InvoiceUpdateRequest';
 import { LineItem } from '../models/LineItem';
@@ -114,7 +119,7 @@ export class ObservableAccountsApi {
      * @param pluto_account 
      * @param account_connect_request 
      */
-    public connect(id: string, pluto_account?: string, account_connect_request?: AccountConnectRequest, _options?: Configuration): Observable<IAccount> {
+    public connect(id: string, pluto_account?: string, account_connect_request?: AccountConnectRequest, _options?: Configuration): Observable<void | IAccount> {
         const requestContextPromise = this.requestFactory.connect(id, pluto_account, account_connect_request, _options);
 
         // build promise chain
@@ -139,7 +144,7 @@ export class ObservableAccountsApi {
      * @param pluto_account 
      * @param account_connect_request 
      */
-    public connect_1(id: string, pluto_account?: string, account_connect_request?: AccountConnectRequest, _options?: Configuration): Observable<IAccount> {
+    public connect_1(id: string, pluto_account?: string, account_connect_request?: AccountConnectRequest, _options?: Configuration): Observable<void | IAccount> {
         const requestContextPromise = this.requestFactory.connect_1(id, pluto_account, account_connect_request, _options);
 
         // build promise chain
@@ -163,7 +168,7 @@ export class ObservableAccountsApi {
      * @param pluto_account 
      * @param account_create_request 
      */
-    public create(pluto_account?: string, account_create_request?: AccountCreateRequest, _options?: Configuration): Observable<IAccount> {
+    public create(pluto_account?: string, account_create_request?: AccountCreateRequest, _options?: Configuration): Observable<void | IAccount> {
         const requestContextPromise = this.requestFactory.create(pluto_account, account_create_request, _options);
 
         // build promise chain
@@ -187,7 +192,7 @@ export class ObservableAccountsApi {
      * @param pluto_account 
      * @param account_create_request 
      */
-    public create_2(pluto_account?: string, account_create_request?: AccountCreateRequest, _options?: Configuration): Observable<IAccount> {
+    public create_2(pluto_account?: string, account_create_request?: AccountCreateRequest, _options?: Configuration): Observable<void | IAccount> {
         const requestContextPromise = this.requestFactory.create_2(pluto_account, account_create_request, _options);
 
         // build promise chain
@@ -213,7 +218,7 @@ export class ObservableAccountsApi {
      * @param expand 
      * @param account_dashboard_access_request 
      */
-    public dashboardAccess(id: string, pluto_account?: string, expand?: string, account_dashboard_access_request?: AccountDashboardAccessRequest, _options?: Configuration): Observable<AccountDashboardAccessResponse> {
+    public dashboardAccess(id: string, pluto_account?: string, expand?: string, account_dashboard_access_request?: AccountDashboardAccessRequest, _options?: Configuration): Observable<void | IAccount> {
         const requestContextPromise = this.requestFactory.dashboardAccess(id, pluto_account, expand, account_dashboard_access_request, _options);
 
         // build promise chain
@@ -239,7 +244,7 @@ export class ObservableAccountsApi {
      * @param expand 
      * @param account_dashboard_access_request 
      */
-    public dashboardAccess_3(id: string, pluto_account?: string, expand?: string, account_dashboard_access_request?: AccountDashboardAccessRequest, _options?: Configuration): Observable<AccountDashboardAccessResponse> {
+    public dashboardAccess_3(id: string, pluto_account?: string, expand?: string, account_dashboard_access_request?: AccountDashboardAccessRequest, _options?: Configuration): Observable<void | IAccount> {
         const requestContextPromise = this.requestFactory.dashboardAccess_3(id, pluto_account, expand, account_dashboard_access_request, _options);
 
         // build promise chain
@@ -266,7 +271,7 @@ export class ObservableAccountsApi {
      * @param sort 
      * @param expand 
      */
-    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<AccountListResponse> {
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<AccountListResponse | void> {
         const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -293,7 +298,7 @@ export class ObservableAccountsApi {
      * @param sort 
      * @param expand 
      */
-    public list_4(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<AccountListResponse> {
+    public list_4(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<AccountListResponse | void> {
         const requestContextPromise = this.requestFactory.list_4(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -318,7 +323,7 @@ export class ObservableAccountsApi {
      * @param pluto_account 
      * @param account_update_request 
      */
-    public patch(id: string, pluto_account?: string, account_update_request?: AccountUpdateRequest, _options?: Configuration): Observable<IAccount> {
+    public patch(id: string, pluto_account?: string, account_update_request?: AccountUpdateRequest, _options?: Configuration): Observable<void | IAccount> {
         const requestContextPromise = this.requestFactory.patch(id, pluto_account, account_update_request, _options);
 
         // build promise chain
@@ -343,7 +348,7 @@ export class ObservableAccountsApi {
      * @param pluto_account 
      * @param account_update_request 
      */
-    public patch_5(id: string, pluto_account?: string, account_update_request?: AccountUpdateRequest, _options?: Configuration): Observable<IAccount> {
+    public patch_5(id: string, pluto_account?: string, account_update_request?: AccountUpdateRequest, _options?: Configuration): Observable<void | IAccount> {
         const requestContextPromise = this.requestFactory.patch_5(id, pluto_account, account_update_request, _options);
 
         // build promise chain
@@ -368,7 +373,7 @@ export class ObservableAccountsApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IAccount> {
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IAccount> {
         const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -393,7 +398,7 @@ export class ObservableAccountsApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve_6(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IAccount> {
+    public retrieve_6(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IAccount> {
         const requestContextPromise = this.requestFactory.retrieve_6(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -435,7 +440,7 @@ export class ObservableCheckoutsApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<ICheckout> {
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void | ICheckout> {
         const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
@@ -459,7 +464,7 @@ export class ObservableCheckoutsApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<ICheckout> {
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<void | ICheckout> {
         const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
 
         // build promise chain
@@ -483,7 +488,7 @@ export class ObservableCheckoutsApi {
      * @param pluto_account 
      * @param checkout_create_request 
      */
-    public create(pluto_account?: string, checkout_create_request?: CheckoutCreateRequest, _options?: Configuration): Observable<ICheckout> {
+    public create(pluto_account?: string, checkout_create_request?: CheckoutCreateRequest, _options?: Configuration): Observable<void | ICheckout> {
         const requestContextPromise = this.requestFactory.create(pluto_account, checkout_create_request, _options);
 
         // build promise chain
@@ -507,7 +512,7 @@ export class ObservableCheckoutsApi {
      * @param pluto_account 
      * @param checkout_create_request 
      */
-    public create_2(pluto_account?: string, checkout_create_request?: CheckoutCreateRequest, _options?: Configuration): Observable<ICheckout> {
+    public create_2(pluto_account?: string, checkout_create_request?: CheckoutCreateRequest, _options?: Configuration): Observable<void | ICheckout> {
         const requestContextPromise = this.requestFactory.create_2(pluto_account, checkout_create_request, _options);
 
         // build promise chain
@@ -534,7 +539,7 @@ export class ObservableCheckoutsApi {
      * @param sort 
      * @param expand 
      */
-    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<CheckoutListResponse> {
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<CheckoutListResponse | void> {
         const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -561,7 +566,7 @@ export class ObservableCheckoutsApi {
      * @param sort 
      * @param expand 
      */
-    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<CheckoutListResponse> {
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<CheckoutListResponse | void> {
         const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -586,7 +591,7 @@ export class ObservableCheckoutsApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ICheckout> {
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | ICheckout> {
         const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -611,7 +616,7 @@ export class ObservableCheckoutsApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ICheckout> {
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | ICheckout> {
         const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -627,6 +632,274 @@ export class ObservableCheckoutsApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve_4(rsp)));
+            }));
+    }
+
+}
+
+import { CouponsApiRequestFactory, CouponsApiResponseProcessor} from "../apis/CouponsApi";
+export class ObservableCouponsApi {
+    private requestFactory: CouponsApiRequestFactory;
+    private responseProcessor: CouponsApiResponseProcessor;
+    private configuration: Configuration;
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: CouponsApiRequestFactory,
+        responseProcessor?: CouponsApiResponseProcessor
+    ) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new CouponsApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new CouponsApiResponseProcessor();
+    }
+
+    /**
+     * Delete coupon
+     * @param id 
+     * @param pluto_account 
+     */
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<ICoupon | void> {
+        const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor._delete(rsp)));
+            }));
+    }
+
+    /**
+     * Delete coupon
+     * @param id 
+     * @param pluto_account 
+     */
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<ICoupon | void> {
+        const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor._delete_1(rsp)));
+            }));
+    }
+
+    /**
+     * Create coupon
+     * @param pluto_account 
+     * @param coupon_create_request 
+     */
+    public create(pluto_account?: string, coupon_create_request?: CouponCreateRequest, _options?: Configuration): Observable<ICoupon | void> {
+        const requestContextPromise = this.requestFactory.create(pluto_account, coupon_create_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create(rsp)));
+            }));
+    }
+
+    /**
+     * Create coupon
+     * @param pluto_account 
+     * @param coupon_create_request 
+     */
+    public create_2(pluto_account?: string, coupon_create_request?: CouponCreateRequest, _options?: Configuration): Observable<ICoupon | void> {
+        const requestContextPromise = this.requestFactory.create_2(pluto_account, coupon_create_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.create_2(rsp)));
+            }));
+    }
+
+    /**
+     * List coupons
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<void | CouponListResponse> {
+        const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list(rsp)));
+            }));
+    }
+
+    /**
+     * List coupons
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<void | CouponListResponse> {
+        const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.list_3(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve coupon
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ICoupon | void> {
+        const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieve coupon
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ICoupon | void> {
+        const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.retrieve_4(rsp)));
+            }));
+    }
+
+    /**
+     * Update coupon
+     * @param id 
+     * @param pluto_account 
+     * @param coupon_update_request 
+     */
+    public update(id: string, pluto_account?: string, coupon_update_request?: CouponUpdateRequest, _options?: Configuration): Observable<ICoupon | void> {
+        const requestContextPromise = this.requestFactory.update(id, pluto_account, coupon_update_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update(rsp)));
+            }));
+    }
+
+    /**
+     * Update coupon
+     * @param id 
+     * @param pluto_account 
+     * @param coupon_update_request 
+     */
+    public update_5(id: string, pluto_account?: string, coupon_update_request?: CouponUpdateRequest, _options?: Configuration): Observable<ICoupon | void> {
+        const requestContextPromise = this.requestFactory.update_5(id, pluto_account, coupon_update_request, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.update_5(rsp)));
             }));
     }
 
@@ -653,7 +926,7 @@ export class ObservableCustomersApi {
      * @param pluto_account 
      * @param customer_create_request 
      */
-    public create(pluto_account?: string, customer_create_request?: CustomerCreateRequest, _options?: Configuration): Observable<ICustomer> {
+    public create(pluto_account?: string, customer_create_request?: CustomerCreateRequest, _options?: Configuration): Observable<void | ICustomer> {
         const requestContextPromise = this.requestFactory.create(pluto_account, customer_create_request, _options);
 
         // build promise chain
@@ -677,7 +950,7 @@ export class ObservableCustomersApi {
      * @param pluto_account 
      * @param customer_create_request 
      */
-    public create_1(pluto_account?: string, customer_create_request?: CustomerCreateRequest, _options?: Configuration): Observable<ICustomer> {
+    public create_1(pluto_account?: string, customer_create_request?: CustomerCreateRequest, _options?: Configuration): Observable<void | ICustomer> {
         const requestContextPromise = this.requestFactory.create_1(pluto_account, customer_create_request, _options);
 
         // build promise chain
@@ -705,7 +978,7 @@ export class ObservableCustomersApi {
      * @param expand 
      * @param email 
      */
-    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, email?: string, _options?: Configuration): Observable<CustomerListResponse> {
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, email?: string, _options?: Configuration): Observable<void | CustomerListResponse> {
         const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, email, _options);
 
         // build promise chain
@@ -733,7 +1006,7 @@ export class ObservableCustomersApi {
      * @param expand 
      * @param email 
      */
-    public list_2(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, email?: string, _options?: Configuration): Observable<CustomerListResponse> {
+    public list_2(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, email?: string, _options?: Configuration): Observable<void | CustomerListResponse> {
         const requestContextPromise = this.requestFactory.list_2(pluto_account, limit, page, sort, expand, email, _options);
 
         // build promise chain
@@ -758,7 +1031,7 @@ export class ObservableCustomersApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ICustomer> {
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | ICustomer> {
         const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -783,7 +1056,7 @@ export class ObservableCustomersApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve_3(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ICustomer> {
+    public retrieve_3(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | ICustomer> {
         const requestContextPromise = this.requestFactory.retrieve_3(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -808,7 +1081,7 @@ export class ObservableCustomersApi {
      * @param pluto_account 
      * @param customer_update_request 
      */
-    public update(id: string, pluto_account?: string, customer_update_request?: CustomerUpdateRequest, _options?: Configuration): Observable<ICustomer> {
+    public update(id: string, pluto_account?: string, customer_update_request?: CustomerUpdateRequest, _options?: Configuration): Observable<void | ICustomer> {
         const requestContextPromise = this.requestFactory.update(id, pluto_account, customer_update_request, _options);
 
         // build promise chain
@@ -833,7 +1106,7 @@ export class ObservableCustomersApi {
      * @param pluto_account 
      * @param customer_update_request 
      */
-    public update_4(id: string, pluto_account?: string, customer_update_request?: CustomerUpdateRequest, _options?: Configuration): Observable<ICustomer> {
+    public update_4(id: string, pluto_account?: string, customer_update_request?: CustomerUpdateRequest, _options?: Configuration): Observable<void | ICustomer> {
         const requestContextPromise = this.requestFactory.update_4(id, pluto_account, customer_update_request, _options);
 
         // build promise chain
@@ -875,7 +1148,7 @@ export class ObservableFeesApi {
      * @param pluto_account 
      * @param fee_create_request 
      */
-    public create(pluto_account?: string, fee_create_request?: FeeCreateRequest, _options?: Configuration): Observable<IFee> {
+    public create(pluto_account?: string, fee_create_request?: FeeCreateRequest, _options?: Configuration): Observable<void | IFee> {
         const requestContextPromise = this.requestFactory.create(pluto_account, fee_create_request, _options);
 
         // build promise chain
@@ -899,7 +1172,7 @@ export class ObservableFeesApi {
      * @param pluto_account 
      * @param fee_create_request 
      */
-    public create_1(pluto_account?: string, fee_create_request?: FeeCreateRequest, _options?: Configuration): Observable<IFee> {
+    public create_1(pluto_account?: string, fee_create_request?: FeeCreateRequest, _options?: Configuration): Observable<void | IFee> {
         const requestContextPromise = this.requestFactory.create_1(pluto_account, fee_create_request, _options);
 
         // build promise chain
@@ -926,7 +1199,7 @@ export class ObservableFeesApi {
      * @param sort 
      * @param expand 
      */
-    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<FeeListResponse> {
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<void | FeeListResponse> {
         const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -953,7 +1226,7 @@ export class ObservableFeesApi {
      * @param sort 
      * @param expand 
      */
-    public list_2(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<FeeListResponse> {
+    public list_2(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<void | FeeListResponse> {
         const requestContextPromise = this.requestFactory.list_2(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -978,7 +1251,7 @@ export class ObservableFeesApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IFee> {
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IFee> {
         const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -1003,7 +1276,7 @@ export class ObservableFeesApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve_3(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IFee> {
+    public retrieve_3(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IFee> {
         const requestContextPromise = this.requestFactory.retrieve_3(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -1045,7 +1318,7 @@ export class ObservableInvoicesApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<IInvoice> {
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<IInvoice | void> {
         const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
@@ -1069,7 +1342,7 @@ export class ObservableInvoicesApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<IInvoice> {
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<IInvoice | void> {
         const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
 
         // build promise chain
@@ -1093,7 +1366,7 @@ export class ObservableInvoicesApi {
      * @param pluto_account 
      * @param invoice_create_request 
      */
-    public create(pluto_account?: string, invoice_create_request?: InvoiceCreateRequest, _options?: Configuration): Observable<IInvoice> {
+    public create(pluto_account?: string, invoice_create_request?: InvoiceCreateRequest, _options?: Configuration): Observable<IInvoice | void> {
         const requestContextPromise = this.requestFactory.create(pluto_account, invoice_create_request, _options);
 
         // build promise chain
@@ -1117,7 +1390,7 @@ export class ObservableInvoicesApi {
      * @param pluto_account 
      * @param invoice_create_request 
      */
-    public create_2(pluto_account?: string, invoice_create_request?: InvoiceCreateRequest, _options?: Configuration): Observable<IInvoice> {
+    public create_2(pluto_account?: string, invoice_create_request?: InvoiceCreateRequest, _options?: Configuration): Observable<IInvoice | void> {
         const requestContextPromise = this.requestFactory.create_2(pluto_account, invoice_create_request, _options);
 
         // build promise chain
@@ -1144,7 +1417,7 @@ export class ObservableInvoicesApi {
      * @param sort 
      * @param expand 
      */
-    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<InvoiceListResponse> {
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<void | InvoiceListResponse> {
         const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -1171,7 +1444,7 @@ export class ObservableInvoicesApi {
      * @param sort 
      * @param expand 
      */
-    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<InvoiceListResponse> {
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<void | InvoiceListResponse> {
         const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -1194,9 +1467,10 @@ export class ObservableInvoicesApi {
      * Pay invoice
      * @param id 
      * @param pluto_account 
+     * @param invoice_pay_request 
      */
-    public pay(id: string, pluto_account?: string, _options?: Configuration): Observable<IPaymentIntent> {
-        const requestContextPromise = this.requestFactory.pay(id, pluto_account, _options);
+    public pay(id: string, pluto_account?: string, invoice_pay_request?: InvoicePayRequest, _options?: Configuration): Observable<void | IPaymentIntent> {
+        const requestContextPromise = this.requestFactory.pay(id, pluto_account, invoice_pay_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1218,9 +1492,10 @@ export class ObservableInvoicesApi {
      * Pay invoice
      * @param id 
      * @param pluto_account 
+     * @param invoice_pay_request 
      */
-    public pay_4(id: string, pluto_account?: string, _options?: Configuration): Observable<IPaymentIntent> {
-        const requestContextPromise = this.requestFactory.pay_4(id, pluto_account, _options);
+    public pay_4(id: string, pluto_account?: string, invoice_pay_request?: InvoicePayRequest, _options?: Configuration): Observable<void | IPaymentIntent> {
+        const requestContextPromise = this.requestFactory.pay_4(id, pluto_account, invoice_pay_request, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1244,7 +1519,7 @@ export class ObservableInvoicesApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IInvoice> {
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IInvoice | void> {
         const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -1269,7 +1544,7 @@ export class ObservableInvoicesApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve_5(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IInvoice> {
+    public retrieve_5(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IInvoice | void> {
         const requestContextPromise = this.requestFactory.retrieve_5(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -1294,7 +1569,7 @@ export class ObservableInvoicesApi {
      * @param pluto_account 
      * @param invoice_update_request 
      */
-    public update(id: string, pluto_account?: string, invoice_update_request?: InvoiceUpdateRequest, _options?: Configuration): Observable<IInvoice> {
+    public update(id: string, pluto_account?: string, invoice_update_request?: InvoiceUpdateRequest, _options?: Configuration): Observable<IInvoice | void> {
         const requestContextPromise = this.requestFactory.update(id, pluto_account, invoice_update_request, _options);
 
         // build promise chain
@@ -1319,7 +1594,7 @@ export class ObservableInvoicesApi {
      * @param pluto_account 
      * @param invoice_update_request 
      */
-    public update_6(id: string, pluto_account?: string, invoice_update_request?: InvoiceUpdateRequest, _options?: Configuration): Observable<IInvoice> {
+    public update_6(id: string, pluto_account?: string, invoice_update_request?: InvoiceUpdateRequest, _options?: Configuration): Observable<IInvoice | void> {
         const requestContextPromise = this.requestFactory.update_6(id, pluto_account, invoice_update_request, _options);
 
         // build promise chain
@@ -1360,7 +1635,7 @@ export class ObservableLogsApi {
      * List logs
      * @param pluto_account 
      */
-    public list(pluto_account?: string, _options?: Configuration): Observable<LogListResponse> {
+    public list(pluto_account?: string, _options?: Configuration): Observable<LogListResponse | void> {
         const requestContextPromise = this.requestFactory.list(pluto_account, _options);
 
         // build promise chain
@@ -1383,7 +1658,7 @@ export class ObservableLogsApi {
      * List logs
      * @param pluto_account 
      */
-    public list_1(pluto_account?: string, _options?: Configuration): Observable<LogListResponse> {
+    public list_1(pluto_account?: string, _options?: Configuration): Observable<LogListResponse | void> {
         const requestContextPromise = this.requestFactory.list_1(pluto_account, _options);
 
         // build promise chain
@@ -1408,7 +1683,7 @@ export class ObservableLogsApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ILog> {
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | ILog> {
         const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -1433,7 +1708,7 @@ export class ObservableLogsApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve_2(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ILog> {
+    public retrieve_2(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | ILog> {
         const requestContextPromise = this.requestFactory.retrieve_2(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -1475,7 +1750,7 @@ export class ObservablePaymentIntentsApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<IPaymentIntent> {
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void | IPaymentIntent> {
         const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
@@ -1499,7 +1774,7 @@ export class ObservablePaymentIntentsApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<IPaymentIntent> {
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<void | IPaymentIntent> {
         const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
 
         // build promise chain
@@ -1523,7 +1798,7 @@ export class ObservablePaymentIntentsApi {
      * @param pluto_account 
      * @param payment_intent_create_request 
      */
-    public create(pluto_account?: string, payment_intent_create_request?: PaymentIntentCreateRequest, _options?: Configuration): Observable<IPaymentIntent> {
+    public create(pluto_account?: string, payment_intent_create_request?: PaymentIntentCreateRequest, _options?: Configuration): Observable<void | IPaymentIntent> {
         const requestContextPromise = this.requestFactory.create(pluto_account, payment_intent_create_request, _options);
 
         // build promise chain
@@ -1547,7 +1822,7 @@ export class ObservablePaymentIntentsApi {
      * @param pluto_account 
      * @param payment_intent_create_request 
      */
-    public create_2(pluto_account?: string, payment_intent_create_request?: PaymentIntentCreateRequest, _options?: Configuration): Observable<IPaymentIntent> {
+    public create_2(pluto_account?: string, payment_intent_create_request?: PaymentIntentCreateRequest, _options?: Configuration): Observable<void | IPaymentIntent> {
         const requestContextPromise = this.requestFactory.create_2(pluto_account, payment_intent_create_request, _options);
 
         // build promise chain
@@ -1576,7 +1851,7 @@ export class ObservablePaymentIntentsApi {
      * @param status 
      * @param customer 
      */
-    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, status?: string, customer?: string, _options?: Configuration): Observable<PaymentIntentListResponse> {
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, status?: string, customer?: string, _options?: Configuration): Observable<PaymentIntentListResponse | void> {
         const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, status, customer, _options);
 
         // build promise chain
@@ -1605,7 +1880,7 @@ export class ObservablePaymentIntentsApi {
      * @param status 
      * @param customer 
      */
-    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, status?: string, customer?: string, _options?: Configuration): Observable<PaymentIntentListResponse> {
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, status?: string, customer?: string, _options?: Configuration): Observable<PaymentIntentListResponse | void> {
         const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, status, customer, _options);
 
         // build promise chain
@@ -1630,7 +1905,7 @@ export class ObservablePaymentIntentsApi {
      * @param pluto_account 
      * @param expand 
      */
-    public poll(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPaymentIntent> {
+    public poll(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IPaymentIntent> {
         const requestContextPromise = this.requestFactory.poll(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -1655,7 +1930,7 @@ export class ObservablePaymentIntentsApi {
      * @param pluto_account 
      * @param expand 
      */
-    public poll_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPaymentIntent> {
+    public poll_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IPaymentIntent> {
         const requestContextPromise = this.requestFactory.poll_4(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -1680,7 +1955,7 @@ export class ObservablePaymentIntentsApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPaymentIntent> {
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IPaymentIntent> {
         const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -1705,7 +1980,7 @@ export class ObservablePaymentIntentsApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve_5(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPaymentIntent> {
+    public retrieve_5(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IPaymentIntent> {
         const requestContextPromise = this.requestFactory.retrieve_5(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -1729,7 +2004,7 @@ export class ObservablePaymentIntentsApi {
      * @param id 
      * @param pluto_account 
      */
-    public sendReceipt(id: string, pluto_account?: string, _options?: Configuration): Observable<IPaymentIntent> {
+    public sendReceipt(id: string, pluto_account?: string, _options?: Configuration): Observable<void | IPaymentIntent> {
         const requestContextPromise = this.requestFactory.sendReceipt(id, pluto_account, _options);
 
         // build promise chain
@@ -1753,7 +2028,7 @@ export class ObservablePaymentIntentsApi {
      * @param id 
      * @param pluto_account 
      */
-    public sendReceipt_6(id: string, pluto_account?: string, _options?: Configuration): Observable<IPaymentIntent> {
+    public sendReceipt_6(id: string, pluto_account?: string, _options?: Configuration): Observable<void | IPaymentIntent> {
         const requestContextPromise = this.requestFactory.sendReceipt_6(id, pluto_account, _options);
 
         // build promise chain
@@ -1778,7 +2053,7 @@ export class ObservablePaymentIntentsApi {
      * @param pluto_account 
      * @param payment_intent_update_request 
      */
-    public update(id: string, pluto_account?: string, payment_intent_update_request?: PaymentIntentUpdateRequest, _options?: Configuration): Observable<IPaymentIntent> {
+    public update(id: string, pluto_account?: string, payment_intent_update_request?: PaymentIntentUpdateRequest, _options?: Configuration): Observable<void | IPaymentIntent> {
         const requestContextPromise = this.requestFactory.update(id, pluto_account, payment_intent_update_request, _options);
 
         // build promise chain
@@ -1803,7 +2078,7 @@ export class ObservablePaymentIntentsApi {
      * @param pluto_account 
      * @param payment_intent_update_request 
      */
-    public update_7(id: string, pluto_account?: string, payment_intent_update_request?: PaymentIntentUpdateRequest, _options?: Configuration): Observable<IPaymentIntent> {
+    public update_7(id: string, pluto_account?: string, payment_intent_update_request?: PaymentIntentUpdateRequest, _options?: Configuration): Observable<void | IPaymentIntent> {
         const requestContextPromise = this.requestFactory.update_7(id, pluto_account, payment_intent_update_request, _options);
 
         // build promise chain
@@ -1845,7 +2120,7 @@ export class ObservablePaymentLinksApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<IPaymentLink> {
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void | IPaymentLink> {
         const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
@@ -1869,7 +2144,7 @@ export class ObservablePaymentLinksApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<IPaymentLink> {
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<void | IPaymentLink> {
         const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
 
         // build promise chain
@@ -1893,7 +2168,7 @@ export class ObservablePaymentLinksApi {
      * @param pluto_account 
      * @param payment_link_create_request 
      */
-    public create(pluto_account?: string, payment_link_create_request?: PaymentLinkCreateRequest, _options?: Configuration): Observable<IPaymentLink> {
+    public create(pluto_account?: string, payment_link_create_request?: PaymentLinkCreateRequest, _options?: Configuration): Observable<void | IPaymentLink> {
         const requestContextPromise = this.requestFactory.create(pluto_account, payment_link_create_request, _options);
 
         // build promise chain
@@ -1917,7 +2192,7 @@ export class ObservablePaymentLinksApi {
      * @param pluto_account 
      * @param payment_link_create_request 
      */
-    public create_2(pluto_account?: string, payment_link_create_request?: PaymentLinkCreateRequest, _options?: Configuration): Observable<IPaymentLink> {
+    public create_2(pluto_account?: string, payment_link_create_request?: PaymentLinkCreateRequest, _options?: Configuration): Observable<void | IPaymentLink> {
         const requestContextPromise = this.requestFactory.create_2(pluto_account, payment_link_create_request, _options);
 
         // build promise chain
@@ -1944,7 +2219,7 @@ export class ObservablePaymentLinksApi {
      * @param sort 
      * @param expand 
      */
-    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<PaymentLinkListResponse> {
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<void | PaymentLinkListResponse> {
         const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -1971,7 +2246,7 @@ export class ObservablePaymentLinksApi {
      * @param sort 
      * @param expand 
      */
-    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<PaymentLinkListResponse> {
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<void | PaymentLinkListResponse> {
         const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -1996,7 +2271,7 @@ export class ObservablePaymentLinksApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPaymentLink> {
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IPaymentLink> {
         const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -2021,7 +2296,7 @@ export class ObservablePaymentLinksApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPaymentLink> {
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IPaymentLink> {
         const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -2046,7 +2321,7 @@ export class ObservablePaymentLinksApi {
      * @param pluto_account 
      * @param payment_link_update_request 
      */
-    public update(id: string, pluto_account?: string, payment_link_update_request?: PaymentLinkUpdateRequest, _options?: Configuration): Observable<IPaymentLink> {
+    public update(id: string, pluto_account?: string, payment_link_update_request?: PaymentLinkUpdateRequest, _options?: Configuration): Observable<void | IPaymentLink> {
         const requestContextPromise = this.requestFactory.update(id, pluto_account, payment_link_update_request, _options);
 
         // build promise chain
@@ -2071,7 +2346,7 @@ export class ObservablePaymentLinksApi {
      * @param pluto_account 
      * @param payment_link_update_request 
      */
-    public update_5(id: string, pluto_account?: string, payment_link_update_request?: PaymentLinkUpdateRequest, _options?: Configuration): Observable<IPaymentLink> {
+    public update_5(id: string, pluto_account?: string, payment_link_update_request?: PaymentLinkUpdateRequest, _options?: Configuration): Observable<void | IPaymentLink> {
         const requestContextPromise = this.requestFactory.update_5(id, pluto_account, payment_link_update_request, _options);
 
         // build promise chain
@@ -2113,7 +2388,7 @@ export class ObservablePayoutWalletsApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<IPayoutWallet> {
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void | IPayoutWallet> {
         const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
@@ -2137,7 +2412,7 @@ export class ObservablePayoutWalletsApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<IPayoutWallet> {
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<void | IPayoutWallet> {
         const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
 
         // build promise chain
@@ -2161,7 +2436,7 @@ export class ObservablePayoutWalletsApi {
      * @param pluto_account 
      * @param payout_wallet_create_request 
      */
-    public create(pluto_account?: string, payout_wallet_create_request?: PayoutWalletCreateRequest, _options?: Configuration): Observable<IPayoutWallet> {
+    public create(pluto_account?: string, payout_wallet_create_request?: PayoutWalletCreateRequest, _options?: Configuration): Observable<void | IPayoutWallet> {
         const requestContextPromise = this.requestFactory.create(pluto_account, payout_wallet_create_request, _options);
 
         // build promise chain
@@ -2185,7 +2460,7 @@ export class ObservablePayoutWalletsApi {
      * @param pluto_account 
      * @param payout_wallet_create_request 
      */
-    public create_2(pluto_account?: string, payout_wallet_create_request?: PayoutWalletCreateRequest, _options?: Configuration): Observable<IPayoutWallet> {
+    public create_2(pluto_account?: string, payout_wallet_create_request?: PayoutWalletCreateRequest, _options?: Configuration): Observable<void | IPayoutWallet> {
         const requestContextPromise = this.requestFactory.create_2(pluto_account, payout_wallet_create_request, _options);
 
         // build promise chain
@@ -2212,7 +2487,7 @@ export class ObservablePayoutWalletsApi {
      * @param sort 
      * @param expand 
      */
-    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<PayoutWalletListResponse> {
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<void | PayoutWalletListResponse> {
         const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -2239,7 +2514,7 @@ export class ObservablePayoutWalletsApi {
      * @param sort 
      * @param expand 
      */
-    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<PayoutWalletListResponse> {
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<void | PayoutWalletListResponse> {
         const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -2264,7 +2539,7 @@ export class ObservablePayoutWalletsApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPayoutWallet> {
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IPayoutWallet> {
         const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -2289,7 +2564,7 @@ export class ObservablePayoutWalletsApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPayoutWallet> {
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IPayoutWallet> {
         const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -2381,7 +2656,7 @@ export class ObservablePricesApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<IPrice> {
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void | IPrice> {
         const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
@@ -2405,7 +2680,7 @@ export class ObservablePricesApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<IPrice> {
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<void | IPrice> {
         const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
 
         // build promise chain
@@ -2429,7 +2704,7 @@ export class ObservablePricesApi {
      * @param pluto_account 
      * @param price_create_request 
      */
-    public create(pluto_account?: string, price_create_request?: PriceCreateRequest, _options?: Configuration): Observable<IPrice> {
+    public create(pluto_account?: string, price_create_request?: PriceCreateRequest, _options?: Configuration): Observable<void | IPrice> {
         const requestContextPromise = this.requestFactory.create(pluto_account, price_create_request, _options);
 
         // build promise chain
@@ -2453,7 +2728,7 @@ export class ObservablePricesApi {
      * @param pluto_account 
      * @param price_create_request 
      */
-    public create_2(pluto_account?: string, price_create_request?: PriceCreateRequest, _options?: Configuration): Observable<IPrice> {
+    public create_2(pluto_account?: string, price_create_request?: PriceCreateRequest, _options?: Configuration): Observable<void | IPrice> {
         const requestContextPromise = this.requestFactory.create_2(pluto_account, price_create_request, _options);
 
         // build promise chain
@@ -2480,7 +2755,7 @@ export class ObservablePricesApi {
      * @param sort 
      * @param expand 
      */
-    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<PriceListResponse> {
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<PriceListResponse | void> {
         const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -2507,7 +2782,7 @@ export class ObservablePricesApi {
      * @param sort 
      * @param expand 
      */
-    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<PriceListResponse> {
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<PriceListResponse | void> {
         const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -2532,7 +2807,7 @@ export class ObservablePricesApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPrice> {
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IPrice> {
         const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -2557,7 +2832,7 @@ export class ObservablePricesApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IPrice> {
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IPrice> {
         const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -2582,7 +2857,7 @@ export class ObservablePricesApi {
      * @param pluto_account 
      * @param price_update_request 
      */
-    public update(id: string, pluto_account?: string, price_update_request?: PriceUpdateRequest, _options?: Configuration): Observable<IPrice> {
+    public update(id: string, pluto_account?: string, price_update_request?: PriceUpdateRequest, _options?: Configuration): Observable<void | IPrice> {
         const requestContextPromise = this.requestFactory.update(id, pluto_account, price_update_request, _options);
 
         // build promise chain
@@ -2607,7 +2882,7 @@ export class ObservablePricesApi {
      * @param pluto_account 
      * @param price_update_request 
      */
-    public update_5(id: string, pluto_account?: string, price_update_request?: PriceUpdateRequest, _options?: Configuration): Observable<IPrice> {
+    public update_5(id: string, pluto_account?: string, price_update_request?: PriceUpdateRequest, _options?: Configuration): Observable<void | IPrice> {
         const requestContextPromise = this.requestFactory.update_5(id, pluto_account, price_update_request, _options);
 
         // build promise chain
@@ -2649,7 +2924,7 @@ export class ObservableProductsApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<IProduct> {
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void | IProduct> {
         const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
@@ -2673,7 +2948,7 @@ export class ObservableProductsApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<IProduct> {
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<void | IProduct> {
         const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
 
         // build promise chain
@@ -2697,7 +2972,7 @@ export class ObservableProductsApi {
      * @param pluto_account 
      * @param product_create_request 
      */
-    public create(pluto_account?: string, product_create_request?: ProductCreateRequest, _options?: Configuration): Observable<IProduct> {
+    public create(pluto_account?: string, product_create_request?: ProductCreateRequest, _options?: Configuration): Observable<void | IProduct> {
         const requestContextPromise = this.requestFactory.create(pluto_account, product_create_request, _options);
 
         // build promise chain
@@ -2721,7 +2996,7 @@ export class ObservableProductsApi {
      * @param pluto_account 
      * @param product_create_request 
      */
-    public create_2(pluto_account?: string, product_create_request?: ProductCreateRequest, _options?: Configuration): Observable<IProduct> {
+    public create_2(pluto_account?: string, product_create_request?: ProductCreateRequest, _options?: Configuration): Observable<void | IProduct> {
         const requestContextPromise = this.requestFactory.create_2(pluto_account, product_create_request, _options);
 
         // build promise chain
@@ -2748,7 +3023,7 @@ export class ObservableProductsApi {
      * @param sort 
      * @param expand 
      */
-    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<ProductListResponse> {
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<ProductListResponse | void> {
         const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -2775,7 +3050,7 @@ export class ObservableProductsApi {
      * @param sort 
      * @param expand 
      */
-    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<ProductListResponse> {
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<ProductListResponse | void> {
         const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -2800,7 +3075,7 @@ export class ObservableProductsApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IProduct> {
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IProduct> {
         const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -2825,7 +3100,7 @@ export class ObservableProductsApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IProduct> {
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IProduct> {
         const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -2850,7 +3125,7 @@ export class ObservableProductsApi {
      * @param pluto_account 
      * @param product_update_request 
      */
-    public update(id: string, pluto_account?: string, product_update_request?: ProductUpdateRequest, _options?: Configuration): Observable<IProduct> {
+    public update(id: string, pluto_account?: string, product_update_request?: ProductUpdateRequest, _options?: Configuration): Observable<void | IProduct> {
         const requestContextPromise = this.requestFactory.update(id, pluto_account, product_update_request, _options);
 
         // build promise chain
@@ -2875,7 +3150,7 @@ export class ObservableProductsApi {
      * @param pluto_account 
      * @param product_update_request 
      */
-    public update_5(id: string, pluto_account?: string, product_update_request?: ProductUpdateRequest, _options?: Configuration): Observable<IProduct> {
+    public update_5(id: string, pluto_account?: string, product_update_request?: ProductUpdateRequest, _options?: Configuration): Observable<void | IProduct> {
         const requestContextPromise = this.requestFactory.update_5(id, pluto_account, product_update_request, _options);
 
         // build promise chain
@@ -2917,7 +3192,7 @@ export class ObservableSubscriptionsApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<ISubscription> {
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void | ISubscription> {
         const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
@@ -2941,7 +3216,7 @@ export class ObservableSubscriptionsApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<ISubscription> {
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<void | ISubscription> {
         const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
 
         // build promise chain
@@ -2965,7 +3240,7 @@ export class ObservableSubscriptionsApi {
      * @param pluto_account 
      * @param subscription_create_request 
      */
-    public create(pluto_account?: string, subscription_create_request?: SubscriptionCreateRequest, _options?: Configuration): Observable<ISubscription> {
+    public create(pluto_account?: string, subscription_create_request?: SubscriptionCreateRequest, _options?: Configuration): Observable<void | ISubscription> {
         const requestContextPromise = this.requestFactory.create(pluto_account, subscription_create_request, _options);
 
         // build promise chain
@@ -2989,7 +3264,7 @@ export class ObservableSubscriptionsApi {
      * @param pluto_account 
      * @param subscription_create_request 
      */
-    public create_2(pluto_account?: string, subscription_create_request?: SubscriptionCreateRequest, _options?: Configuration): Observable<ISubscription> {
+    public create_2(pluto_account?: string, subscription_create_request?: SubscriptionCreateRequest, _options?: Configuration): Observable<void | ISubscription> {
         const requestContextPromise = this.requestFactory.create_2(pluto_account, subscription_create_request, _options);
 
         // build promise chain
@@ -3016,7 +3291,7 @@ export class ObservableSubscriptionsApi {
      * @param sort 
      * @param expand 
      */
-    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<SubscriptionListResponse> {
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<void | SubscriptionListResponse> {
         const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -3043,7 +3318,7 @@ export class ObservableSubscriptionsApi {
      * @param sort 
      * @param expand 
      */
-    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<SubscriptionListResponse> {
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<void | SubscriptionListResponse> {
         const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -3068,7 +3343,7 @@ export class ObservableSubscriptionsApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ISubscription> {
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | ISubscription> {
         const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -3093,7 +3368,7 @@ export class ObservableSubscriptionsApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ISubscription> {
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | ISubscription> {
         const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -3118,7 +3393,7 @@ export class ObservableSubscriptionsApi {
      * @param pluto_account 
      * @param subscription_update_request 
      */
-    public update(id: string, pluto_account?: string, subscription_update_request?: SubscriptionUpdateRequest, _options?: Configuration): Observable<ISubscription> {
+    public update(id: string, pluto_account?: string, subscription_update_request?: SubscriptionUpdateRequest, _options?: Configuration): Observable<void | ISubscription> {
         const requestContextPromise = this.requestFactory.update(id, pluto_account, subscription_update_request, _options);
 
         // build promise chain
@@ -3143,7 +3418,7 @@ export class ObservableSubscriptionsApi {
      * @param pluto_account 
      * @param subscription_update_request 
      */
-    public update_5(id: string, pluto_account?: string, subscription_update_request?: SubscriptionUpdateRequest, _options?: Configuration): Observable<ISubscription> {
+    public update_5(id: string, pluto_account?: string, subscription_update_request?: SubscriptionUpdateRequest, _options?: Configuration): Observable<void | ISubscription> {
         const requestContextPromise = this.requestFactory.update_5(id, pluto_account, subscription_update_request, _options);
 
         // build promise chain
@@ -3185,7 +3460,7 @@ export class ObservableTransfersApi {
      * @param pluto_account 
      * @param transfer_create_request 
      */
-    public create(pluto_account?: string, transfer_create_request?: TransferCreateRequest, _options?: Configuration): Observable<ITransfer> {
+    public create(pluto_account?: string, transfer_create_request?: TransferCreateRequest, _options?: Configuration): Observable<ITransfer | void> {
         const requestContextPromise = this.requestFactory.create(pluto_account, transfer_create_request, _options);
 
         // build promise chain
@@ -3209,7 +3484,7 @@ export class ObservableTransfersApi {
      * @param pluto_account 
      * @param transfer_create_request 
      */
-    public create_1(pluto_account?: string, transfer_create_request?: TransferCreateRequest, _options?: Configuration): Observable<ITransfer> {
+    public create_1(pluto_account?: string, transfer_create_request?: TransferCreateRequest, _options?: Configuration): Observable<ITransfer | void> {
         const requestContextPromise = this.requestFactory.create_1(pluto_account, transfer_create_request, _options);
 
         // build promise chain
@@ -3236,7 +3511,7 @@ export class ObservableTransfersApi {
      * @param sort 
      * @param expand 
      */
-    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<TransferListResponse> {
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<void | TransferListResponse> {
         const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -3263,7 +3538,7 @@ export class ObservableTransfersApi {
      * @param sort 
      * @param expand 
      */
-    public list_2(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<TransferListResponse> {
+    public list_2(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<void | TransferListResponse> {
         const requestContextPromise = this.requestFactory.list_2(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -3288,7 +3563,7 @@ export class ObservableTransfersApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ITransfer> {
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ITransfer | void> {
         const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -3313,7 +3588,7 @@ export class ObservableTransfersApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve_3(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ITransfer> {
+    public retrieve_3(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<ITransfer | void> {
         const requestContextPromise = this.requestFactory.retrieve_3(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -3355,7 +3630,7 @@ export class ObservableWalletsApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<IWallet> {
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void | IWallet> {
         const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
@@ -3379,7 +3654,7 @@ export class ObservableWalletsApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<IWallet> {
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<void | IWallet> {
         const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
 
         // build promise chain
@@ -3403,7 +3678,7 @@ export class ObservableWalletsApi {
      * @param pluto_account 
      * @param wallet_create_request 
      */
-    public create(pluto_account?: string, wallet_create_request?: WalletCreateRequest, _options?: Configuration): Observable<IWallet> {
+    public create(pluto_account?: string, wallet_create_request?: WalletCreateRequest, _options?: Configuration): Observable<void | IWallet> {
         const requestContextPromise = this.requestFactory.create(pluto_account, wallet_create_request, _options);
 
         // build promise chain
@@ -3427,7 +3702,7 @@ export class ObservableWalletsApi {
      * @param pluto_account 
      * @param wallet_create_request 
      */
-    public create_2(pluto_account?: string, wallet_create_request?: WalletCreateRequest, _options?: Configuration): Observable<IWallet> {
+    public create_2(pluto_account?: string, wallet_create_request?: WalletCreateRequest, _options?: Configuration): Observable<void | IWallet> {
         const requestContextPromise = this.requestFactory.create_2(pluto_account, wallet_create_request, _options);
 
         // build promise chain
@@ -3454,7 +3729,7 @@ export class ObservableWalletsApi {
      * @param sort 
      * @param expand 
      */
-    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<WalletListResponse> {
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<void | WalletListResponse> {
         const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -3481,7 +3756,7 @@ export class ObservableWalletsApi {
      * @param sort 
      * @param expand 
      */
-    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<WalletListResponse> {
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<void | WalletListResponse> {
         const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -3506,7 +3781,7 @@ export class ObservableWalletsApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IWallet> {
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IWallet> {
         const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -3531,7 +3806,7 @@ export class ObservableWalletsApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IWallet> {
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IWallet> {
         const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -3556,7 +3831,7 @@ export class ObservableWalletsApi {
      * @param pluto_account 
      * @param wallet_update_request 
      */
-    public update(id: string, pluto_account?: string, wallet_update_request?: WalletUpdateRequest, _options?: Configuration): Observable<IWallet> {
+    public update(id: string, pluto_account?: string, wallet_update_request?: WalletUpdateRequest, _options?: Configuration): Observable<void | IWallet> {
         const requestContextPromise = this.requestFactory.update(id, pluto_account, wallet_update_request, _options);
 
         // build promise chain
@@ -3581,7 +3856,7 @@ export class ObservableWalletsApi {
      * @param pluto_account 
      * @param wallet_update_request 
      */
-    public update_5(id: string, pluto_account?: string, wallet_update_request?: WalletUpdateRequest, _options?: Configuration): Observable<IWallet> {
+    public update_5(id: string, pluto_account?: string, wallet_update_request?: WalletUpdateRequest, _options?: Configuration): Observable<void | IWallet> {
         const requestContextPromise = this.requestFactory.update_5(id, pluto_account, wallet_update_request, _options);
 
         // build promise chain
@@ -3623,7 +3898,7 @@ export class ObservableWebhooksApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<IWebhook> {
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Observable<void | IWebhook> {
         const requestContextPromise = this.requestFactory._delete(id, pluto_account, _options);
 
         // build promise chain
@@ -3647,7 +3922,7 @@ export class ObservableWebhooksApi {
      * @param id 
      * @param pluto_account 
      */
-    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<IWebhook> {
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Observable<void | IWebhook> {
         const requestContextPromise = this.requestFactory._delete_1(id, pluto_account, _options);
 
         // build promise chain
@@ -3671,7 +3946,7 @@ export class ObservableWebhooksApi {
      * @param pluto_account 
      * @param webhook_create_request 
      */
-    public create(pluto_account?: string, webhook_create_request?: WebhookCreateRequest, _options?: Configuration): Observable<IWebhook> {
+    public create(pluto_account?: string, webhook_create_request?: WebhookCreateRequest, _options?: Configuration): Observable<void | IWebhook> {
         const requestContextPromise = this.requestFactory.create(pluto_account, webhook_create_request, _options);
 
         // build promise chain
@@ -3695,7 +3970,7 @@ export class ObservableWebhooksApi {
      * @param pluto_account 
      * @param webhook_create_request 
      */
-    public create_2(pluto_account?: string, webhook_create_request?: WebhookCreateRequest, _options?: Configuration): Observable<IWebhook> {
+    public create_2(pluto_account?: string, webhook_create_request?: WebhookCreateRequest, _options?: Configuration): Observable<void | IWebhook> {
         const requestContextPromise = this.requestFactory.create_2(pluto_account, webhook_create_request, _options);
 
         // build promise chain
@@ -3722,7 +3997,7 @@ export class ObservableWebhooksApi {
      * @param sort 
      * @param expand 
      */
-    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<WebhookListResponse> {
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<void | WebhookListResponse> {
         const requestContextPromise = this.requestFactory.list(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -3749,7 +4024,7 @@ export class ObservableWebhooksApi {
      * @param sort 
      * @param expand 
      */
-    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<WebhookListResponse> {
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Observable<void | WebhookListResponse> {
         const requestContextPromise = this.requestFactory.list_3(pluto_account, limit, page, sort, expand, _options);
 
         // build promise chain
@@ -3774,7 +4049,7 @@ export class ObservableWebhooksApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IWebhook> {
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IWebhook> {
         const requestContextPromise = this.requestFactory.retrieve(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -3799,7 +4074,7 @@ export class ObservableWebhooksApi {
      * @param pluto_account 
      * @param expand 
      */
-    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<IWebhook> {
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Observable<void | IWebhook> {
         const requestContextPromise = this.requestFactory.retrieve_4(id, pluto_account, expand, _options);
 
         // build promise chain
@@ -3824,7 +4099,7 @@ export class ObservableWebhooksApi {
      * @param pluto_account 
      * @param webhook_update_request 
      */
-    public update(id: string, pluto_account?: string, webhook_update_request?: WebhookUpdateRequest, _options?: Configuration): Observable<IWebhook> {
+    public update(id: string, pluto_account?: string, webhook_update_request?: WebhookUpdateRequest, _options?: Configuration): Observable<void | IWebhook> {
         const requestContextPromise = this.requestFactory.update(id, pluto_account, webhook_update_request, _options);
 
         // build promise chain
@@ -3849,7 +4124,7 @@ export class ObservableWebhooksApi {
      * @param pluto_account 
      * @param webhook_update_request 
      */
-    public update_5(id: string, pluto_account?: string, webhook_update_request?: WebhookUpdateRequest, _options?: Configuration): Observable<IWebhook> {
+    public update_5(id: string, pluto_account?: string, webhook_update_request?: WebhookUpdateRequest, _options?: Configuration): Observable<void | IWebhook> {
         const requestContextPromise = this.requestFactory.update_5(id, pluto_account, webhook_update_request, _options);
 
         // build promise chain

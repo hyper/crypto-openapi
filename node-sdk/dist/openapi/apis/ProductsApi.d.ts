@@ -18,14 +18,14 @@ export declare class ProductsApiRequestFactory extends BaseAPIRequestFactory {
     update_5(id: string, pluto_account?: string, product_update_request?: ProductUpdateRequest, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class ProductsApiResponseProcessor {
-    _delete(response: ResponseContext): Promise<IProduct>;
-    _delete_1(response: ResponseContext): Promise<IProduct>;
-    create(response: ResponseContext): Promise<IProduct>;
-    create_2(response: ResponseContext): Promise<IProduct>;
-    list(response: ResponseContext): Promise<ProductListResponse>;
-    list_3(response: ResponseContext): Promise<ProductListResponse>;
-    retrieve(response: ResponseContext): Promise<IProduct>;
-    retrieve_4(response: ResponseContext): Promise<IProduct>;
-    update(response: ResponseContext): Promise<IProduct>;
-    update_5(response: ResponseContext): Promise<IProduct>;
+    _delete(response: ResponseContext): Promise<void | IProduct>;
+    _delete_1(response: ResponseContext): Promise<void | IProduct>;
+    create(response: ResponseContext): Promise<void | IProduct>;
+    create_2(response: ResponseContext): Promise<void | IProduct>;
+    list(response: ResponseContext): Promise<ProductListResponse | void>;
+    list_3(response: ResponseContext): Promise<ProductListResponse | void>;
+    retrieve(response: ResponseContext): Promise<void | IProduct>;
+    retrieve_4(response: ResponseContext): Promise<void | IProduct>;
+    update(response: ResponseContext): Promise<void | IProduct>;
+    update_5(response: ResponseContext): Promise<void | IProduct>;
 }

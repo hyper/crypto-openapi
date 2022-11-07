@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObjectWebhooksApi = exports.ObjectWalletsApi = exports.ObjectTransfersApi = exports.ObjectSubscriptionsApi = exports.ObjectProductsApi = exports.ObjectPricesApi = exports.ObjectPayoutWalletsApi = exports.ObjectPaymentLinksApi = exports.ObjectPaymentIntentsApi = exports.ObjectLogsApi = exports.ObjectInvoicesApi = exports.ObjectFeesApi = exports.ObjectCustomersApi = exports.ObjectCheckoutsApi = exports.ObjectAccountsApi = void 0;
+exports.ObjectWebhooksApi = exports.ObjectWalletsApi = exports.ObjectTransfersApi = exports.ObjectSubscriptionsApi = exports.ObjectProductsApi = exports.ObjectPricesApi = exports.ObjectPayoutWalletsApi = exports.ObjectPaymentLinksApi = exports.ObjectPaymentIntentsApi = exports.ObjectLogsApi = exports.ObjectInvoicesApi = exports.ObjectFeesApi = exports.ObjectCustomersApi = exports.ObjectCouponsApi = exports.ObjectCheckoutsApi = exports.ObjectAccountsApi = void 0;
 const ObservableAPI_1 = require("./ObservableAPI");
 class ObjectAccountsApi {
     constructor(configuration, requestFactory, responseProcessor) {
@@ -76,9 +76,46 @@ class ObjectCheckoutsApi {
 }
 exports.ObjectCheckoutsApi = ObjectCheckoutsApi;
 const ObservableAPI_3 = require("./ObservableAPI");
+class ObjectCouponsApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_3.ObservableCouponsApi(configuration, requestFactory, responseProcessor);
+    }
+    _delete(param, options) {
+        return this.api._delete(param.id, param.pluto_account, options).toPromise();
+    }
+    _delete_1(param, options) {
+        return this.api._delete_1(param.id, param.pluto_account, options).toPromise();
+    }
+    create(param = {}, options) {
+        return this.api.create(param.pluto_account, param.coupon_create_request, options).toPromise();
+    }
+    create_2(param = {}, options) {
+        return this.api.create_2(param.pluto_account, param.coupon_create_request, options).toPromise();
+    }
+    list(param = {}, options) {
+        return this.api.list(param.pluto_account, param.limit, param.page, param.sort, param.expand, options).toPromise();
+    }
+    list_3(param = {}, options) {
+        return this.api.list_3(param.pluto_account, param.limit, param.page, param.sort, param.expand, options).toPromise();
+    }
+    retrieve(param, options) {
+        return this.api.retrieve(param.id, param.pluto_account, param.expand, options).toPromise();
+    }
+    retrieve_4(param, options) {
+        return this.api.retrieve_4(param.id, param.pluto_account, param.expand, options).toPromise();
+    }
+    update(param, options) {
+        return this.api.update(param.id, param.pluto_account, param.coupon_update_request, options).toPromise();
+    }
+    update_5(param, options) {
+        return this.api.update_5(param.id, param.pluto_account, param.coupon_update_request, options).toPromise();
+    }
+}
+exports.ObjectCouponsApi = ObjectCouponsApi;
+const ObservableAPI_4 = require("./ObservableAPI");
 class ObjectCustomersApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_3.ObservableCustomersApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_4.ObservableCustomersApi(configuration, requestFactory, responseProcessor);
     }
     create(param = {}, options) {
         return this.api.create(param.pluto_account, param.customer_create_request, options).toPromise();
@@ -106,10 +143,10 @@ class ObjectCustomersApi {
     }
 }
 exports.ObjectCustomersApi = ObjectCustomersApi;
-const ObservableAPI_4 = require("./ObservableAPI");
+const ObservableAPI_5 = require("./ObservableAPI");
 class ObjectFeesApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_4.ObservableFeesApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_5.ObservableFeesApi(configuration, requestFactory, responseProcessor);
     }
     create(param = {}, options) {
         return this.api.create(param.pluto_account, param.fee_create_request, options).toPromise();
@@ -131,10 +168,10 @@ class ObjectFeesApi {
     }
 }
 exports.ObjectFeesApi = ObjectFeesApi;
-const ObservableAPI_5 = require("./ObservableAPI");
+const ObservableAPI_6 = require("./ObservableAPI");
 class ObjectInvoicesApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_5.ObservableInvoicesApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_6.ObservableInvoicesApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
         return this.api._delete(param.id, param.pluto_account, options).toPromise();
@@ -155,10 +192,10 @@ class ObjectInvoicesApi {
         return this.api.list_3(param.pluto_account, param.limit, param.page, param.sort, param.expand, options).toPromise();
     }
     pay(param, options) {
-        return this.api.pay(param.id, param.pluto_account, options).toPromise();
+        return this.api.pay(param.id, param.pluto_account, param.invoice_pay_request, options).toPromise();
     }
     pay_4(param, options) {
-        return this.api.pay_4(param.id, param.pluto_account, options).toPromise();
+        return this.api.pay_4(param.id, param.pluto_account, param.invoice_pay_request, options).toPromise();
     }
     retrieve(param, options) {
         return this.api.retrieve(param.id, param.pluto_account, param.expand, options).toPromise();
@@ -174,10 +211,10 @@ class ObjectInvoicesApi {
     }
 }
 exports.ObjectInvoicesApi = ObjectInvoicesApi;
-const ObservableAPI_6 = require("./ObservableAPI");
+const ObservableAPI_7 = require("./ObservableAPI");
 class ObjectLogsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_6.ObservableLogsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_7.ObservableLogsApi(configuration, requestFactory, responseProcessor);
     }
     list(param = {}, options) {
         return this.api.list(param.pluto_account, options).toPromise();
@@ -193,10 +230,10 @@ class ObjectLogsApi {
     }
 }
 exports.ObjectLogsApi = ObjectLogsApi;
-const ObservableAPI_7 = require("./ObservableAPI");
+const ObservableAPI_8 = require("./ObservableAPI");
 class ObjectPaymentIntentsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_7.ObservablePaymentIntentsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_8.ObservablePaymentIntentsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
         return this.api._delete(param.id, param.pluto_account, options).toPromise();
@@ -242,10 +279,10 @@ class ObjectPaymentIntentsApi {
     }
 }
 exports.ObjectPaymentIntentsApi = ObjectPaymentIntentsApi;
-const ObservableAPI_8 = require("./ObservableAPI");
+const ObservableAPI_9 = require("./ObservableAPI");
 class ObjectPaymentLinksApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_8.ObservablePaymentLinksApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_9.ObservablePaymentLinksApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
         return this.api._delete(param.id, param.pluto_account, options).toPromise();
@@ -279,10 +316,10 @@ class ObjectPaymentLinksApi {
     }
 }
 exports.ObjectPaymentLinksApi = ObjectPaymentLinksApi;
-const ObservableAPI_9 = require("./ObservableAPI");
+const ObservableAPI_10 = require("./ObservableAPI");
 class ObjectPayoutWalletsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_9.ObservablePayoutWalletsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_10.ObservablePayoutWalletsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
         return this.api._delete(param.id, param.pluto_account, options).toPromise();
@@ -316,10 +353,10 @@ class ObjectPayoutWalletsApi {
     }
 }
 exports.ObjectPayoutWalletsApi = ObjectPayoutWalletsApi;
-const ObservableAPI_10 = require("./ObservableAPI");
+const ObservableAPI_11 = require("./ObservableAPI");
 class ObjectPricesApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_10.ObservablePricesApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_11.ObservablePricesApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
         return this.api._delete(param.id, param.pluto_account, options).toPromise();
@@ -353,10 +390,10 @@ class ObjectPricesApi {
     }
 }
 exports.ObjectPricesApi = ObjectPricesApi;
-const ObservableAPI_11 = require("./ObservableAPI");
+const ObservableAPI_12 = require("./ObservableAPI");
 class ObjectProductsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_11.ObservableProductsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_12.ObservableProductsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
         return this.api._delete(param.id, param.pluto_account, options).toPromise();
@@ -390,10 +427,10 @@ class ObjectProductsApi {
     }
 }
 exports.ObjectProductsApi = ObjectProductsApi;
-const ObservableAPI_12 = require("./ObservableAPI");
+const ObservableAPI_13 = require("./ObservableAPI");
 class ObjectSubscriptionsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_12.ObservableSubscriptionsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_13.ObservableSubscriptionsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
         return this.api._delete(param.id, param.pluto_account, options).toPromise();
@@ -427,10 +464,10 @@ class ObjectSubscriptionsApi {
     }
 }
 exports.ObjectSubscriptionsApi = ObjectSubscriptionsApi;
-const ObservableAPI_13 = require("./ObservableAPI");
+const ObservableAPI_14 = require("./ObservableAPI");
 class ObjectTransfersApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_13.ObservableTransfersApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_14.ObservableTransfersApi(configuration, requestFactory, responseProcessor);
     }
     create(param = {}, options) {
         return this.api.create(param.pluto_account, param.transfer_create_request, options).toPromise();
@@ -452,10 +489,10 @@ class ObjectTransfersApi {
     }
 }
 exports.ObjectTransfersApi = ObjectTransfersApi;
-const ObservableAPI_14 = require("./ObservableAPI");
+const ObservableAPI_15 = require("./ObservableAPI");
 class ObjectWalletsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_14.ObservableWalletsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_15.ObservableWalletsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
         return this.api._delete(param.id, param.pluto_account, options).toPromise();
@@ -489,10 +526,10 @@ class ObjectWalletsApi {
     }
 }
 exports.ObjectWalletsApi = ObjectWalletsApi;
-const ObservableAPI_15 = require("./ObservableAPI");
+const ObservableAPI_16 = require("./ObservableAPI");
 class ObjectWebhooksApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_15.ObservableWebhooksApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_16.ObservableWebhooksApi(configuration, requestFactory, responseProcessor);
     }
     _delete(param, options) {
         return this.api._delete(param.id, param.pluto_account, options).toPromise();

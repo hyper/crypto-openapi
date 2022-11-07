@@ -2,11 +2,13 @@ import { Configuration } from '../configuration';
 import { AccountConnectRequest } from '../models/AccountConnectRequest';
 import { AccountCreateRequest } from '../models/AccountCreateRequest';
 import { AccountDashboardAccessRequest } from '../models/AccountDashboardAccessRequest';
-import { AccountDashboardAccessResponse } from '../models/AccountDashboardAccessResponse';
 import { AccountListResponse } from '../models/AccountListResponse';
 import { AccountUpdateRequest } from '../models/AccountUpdateRequest';
 import { CheckoutCreateRequest } from '../models/CheckoutCreateRequest';
 import { CheckoutListResponse } from '../models/CheckoutListResponse';
+import { CouponCreateRequest } from '../models/CouponCreateRequest';
+import { CouponListResponse } from '../models/CouponListResponse';
+import { CouponUpdateRequest } from '../models/CouponUpdateRequest';
 import { CustomerCreateRequest } from '../models/CustomerCreateRequest';
 import { CustomerListResponse } from '../models/CustomerListResponse';
 import { CustomerUpdateRequest } from '../models/CustomerUpdateRequest';
@@ -14,6 +16,7 @@ import { FeeCreateRequest } from '../models/FeeCreateRequest';
 import { FeeListResponse } from '../models/FeeListResponse';
 import { IAccount } from '../models/IAccount';
 import { ICheckout } from '../models/ICheckout';
+import { ICoupon } from '../models/ICoupon';
 import { ICustomer } from '../models/ICustomer';
 import { IFee } from '../models/IFee';
 import { IInvoice } from '../models/IInvoice';
@@ -29,6 +32,7 @@ import { IWallet } from '../models/IWallet';
 import { IWebhook } from '../models/IWebhook';
 import { InvoiceCreateRequest } from '../models/InvoiceCreateRequest';
 import { InvoiceListResponse } from '../models/InvoiceListResponse';
+import { InvoicePayRequest } from '../models/InvoicePayRequest';
 import { InvoiceUpdateRequest } from '../models/InvoiceUpdateRequest';
 import { LogListResponse } from '../models/LogListResponse';
 import { PaymentIntentCreateRequest } from '../models/PaymentIntentCreateRequest';
@@ -125,18 +129,18 @@ export interface AccountsApiRetrieve0Request {
 export declare class ObjectAccountsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: AccountsApiRequestFactory, responseProcessor?: AccountsApiResponseProcessor);
-    connect(param: AccountsApiConnectRequest, options?: Configuration): Promise<IAccount>;
-    connect_1(param: AccountsApiConnect0Request, options?: Configuration): Promise<IAccount>;
-    create(param?: AccountsApiCreateRequest, options?: Configuration): Promise<IAccount>;
-    create_2(param?: AccountsApiCreate0Request, options?: Configuration): Promise<IAccount>;
-    dashboardAccess(param: AccountsApiDashboardAccessRequest, options?: Configuration): Promise<AccountDashboardAccessResponse>;
-    dashboardAccess_3(param: AccountsApiDashboardAccess0Request, options?: Configuration): Promise<AccountDashboardAccessResponse>;
-    list(param?: AccountsApiListRequest, options?: Configuration): Promise<AccountListResponse>;
-    list_4(param?: AccountsApiList0Request, options?: Configuration): Promise<AccountListResponse>;
-    patch(param: AccountsApiPatchRequest, options?: Configuration): Promise<IAccount>;
-    patch_5(param: AccountsApiPatch0Request, options?: Configuration): Promise<IAccount>;
-    retrieve(param: AccountsApiRetrieveRequest, options?: Configuration): Promise<IAccount>;
-    retrieve_6(param: AccountsApiRetrieve0Request, options?: Configuration): Promise<IAccount>;
+    connect(param: AccountsApiConnectRequest, options?: Configuration): Promise<void | IAccount>;
+    connect_1(param: AccountsApiConnect0Request, options?: Configuration): Promise<void | IAccount>;
+    create(param?: AccountsApiCreateRequest, options?: Configuration): Promise<void | IAccount>;
+    create_2(param?: AccountsApiCreate0Request, options?: Configuration): Promise<void | IAccount>;
+    dashboardAccess(param: AccountsApiDashboardAccessRequest, options?: Configuration): Promise<void | IAccount>;
+    dashboardAccess_3(param: AccountsApiDashboardAccess0Request, options?: Configuration): Promise<void | IAccount>;
+    list(param?: AccountsApiListRequest, options?: Configuration): Promise<AccountListResponse | void>;
+    list_4(param?: AccountsApiList0Request, options?: Configuration): Promise<AccountListResponse | void>;
+    patch(param: AccountsApiPatchRequest, options?: Configuration): Promise<void | IAccount>;
+    patch_5(param: AccountsApiPatch0Request, options?: Configuration): Promise<void | IAccount>;
+    retrieve(param: AccountsApiRetrieveRequest, options?: Configuration): Promise<void | IAccount>;
+    retrieve_6(param: AccountsApiRetrieve0Request, options?: Configuration): Promise<void | IAccount>;
 }
 import { CheckoutsApiRequestFactory, CheckoutsApiResponseProcessor } from "../apis/CheckoutsApi";
 export interface CheckoutsApiDeleteRequest {
@@ -182,14 +186,79 @@ export interface CheckoutsApiRetrieve0Request {
 export declare class ObjectCheckoutsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: CheckoutsApiRequestFactory, responseProcessor?: CheckoutsApiResponseProcessor);
-    _delete(param: CheckoutsApiDeleteRequest, options?: Configuration): Promise<ICheckout>;
-    _delete_1(param: CheckoutsApiDelete0Request, options?: Configuration): Promise<ICheckout>;
-    create(param?: CheckoutsApiCreateRequest, options?: Configuration): Promise<ICheckout>;
-    create_2(param?: CheckoutsApiCreate0Request, options?: Configuration): Promise<ICheckout>;
-    list(param?: CheckoutsApiListRequest, options?: Configuration): Promise<CheckoutListResponse>;
-    list_3(param?: CheckoutsApiList0Request, options?: Configuration): Promise<CheckoutListResponse>;
-    retrieve(param: CheckoutsApiRetrieveRequest, options?: Configuration): Promise<ICheckout>;
-    retrieve_4(param: CheckoutsApiRetrieve0Request, options?: Configuration): Promise<ICheckout>;
+    _delete(param: CheckoutsApiDeleteRequest, options?: Configuration): Promise<void | ICheckout>;
+    _delete_1(param: CheckoutsApiDelete0Request, options?: Configuration): Promise<void | ICheckout>;
+    create(param?: CheckoutsApiCreateRequest, options?: Configuration): Promise<void | ICheckout>;
+    create_2(param?: CheckoutsApiCreate0Request, options?: Configuration): Promise<void | ICheckout>;
+    list(param?: CheckoutsApiListRequest, options?: Configuration): Promise<CheckoutListResponse | void>;
+    list_3(param?: CheckoutsApiList0Request, options?: Configuration): Promise<CheckoutListResponse | void>;
+    retrieve(param: CheckoutsApiRetrieveRequest, options?: Configuration): Promise<void | ICheckout>;
+    retrieve_4(param: CheckoutsApiRetrieve0Request, options?: Configuration): Promise<void | ICheckout>;
+}
+import { CouponsApiRequestFactory, CouponsApiResponseProcessor } from "../apis/CouponsApi";
+export interface CouponsApiDeleteRequest {
+    id: string;
+    pluto_account?: string;
+}
+export interface CouponsApiDelete0Request {
+    id: string;
+    pluto_account?: string;
+}
+export interface CouponsApiCreateRequest {
+    pluto_account?: string;
+    coupon_create_request?: CouponCreateRequest;
+}
+export interface CouponsApiCreate0Request {
+    pluto_account?: string;
+    coupon_create_request?: CouponCreateRequest;
+}
+export interface CouponsApiListRequest {
+    pluto_account?: string;
+    limit?: number;
+    page?: number;
+    sort?: number;
+    expand?: string;
+}
+export interface CouponsApiList0Request {
+    pluto_account?: string;
+    limit?: number;
+    page?: number;
+    sort?: number;
+    expand?: string;
+}
+export interface CouponsApiRetrieveRequest {
+    id: string;
+    pluto_account?: string;
+    expand?: string;
+}
+export interface CouponsApiRetrieve0Request {
+    id: string;
+    pluto_account?: string;
+    expand?: string;
+}
+export interface CouponsApiUpdateRequest {
+    id: string;
+    pluto_account?: string;
+    coupon_update_request?: CouponUpdateRequest;
+}
+export interface CouponsApiUpdate0Request {
+    id: string;
+    pluto_account?: string;
+    coupon_update_request?: CouponUpdateRequest;
+}
+export declare class ObjectCouponsApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: CouponsApiRequestFactory, responseProcessor?: CouponsApiResponseProcessor);
+    _delete(param: CouponsApiDeleteRequest, options?: Configuration): Promise<ICoupon | void>;
+    _delete_1(param: CouponsApiDelete0Request, options?: Configuration): Promise<ICoupon | void>;
+    create(param?: CouponsApiCreateRequest, options?: Configuration): Promise<ICoupon | void>;
+    create_2(param?: CouponsApiCreate0Request, options?: Configuration): Promise<ICoupon | void>;
+    list(param?: CouponsApiListRequest, options?: Configuration): Promise<void | CouponListResponse>;
+    list_3(param?: CouponsApiList0Request, options?: Configuration): Promise<void | CouponListResponse>;
+    retrieve(param: CouponsApiRetrieveRequest, options?: Configuration): Promise<ICoupon | void>;
+    retrieve_4(param: CouponsApiRetrieve0Request, options?: Configuration): Promise<ICoupon | void>;
+    update(param: CouponsApiUpdateRequest, options?: Configuration): Promise<ICoupon | void>;
+    update_5(param: CouponsApiUpdate0Request, options?: Configuration): Promise<ICoupon | void>;
 }
 import { CustomersApiRequestFactory, CustomersApiResponseProcessor } from "../apis/CustomersApi";
 export interface CustomersApiCreateRequest {
@@ -239,14 +308,14 @@ export interface CustomersApiUpdate0Request {
 export declare class ObjectCustomersApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: CustomersApiRequestFactory, responseProcessor?: CustomersApiResponseProcessor);
-    create(param?: CustomersApiCreateRequest, options?: Configuration): Promise<ICustomer>;
-    create_1(param?: CustomersApiCreate0Request, options?: Configuration): Promise<ICustomer>;
-    list(param?: CustomersApiListRequest, options?: Configuration): Promise<CustomerListResponse>;
-    list_2(param?: CustomersApiList0Request, options?: Configuration): Promise<CustomerListResponse>;
-    retrieve(param: CustomersApiRetrieveRequest, options?: Configuration): Promise<ICustomer>;
-    retrieve_3(param: CustomersApiRetrieve0Request, options?: Configuration): Promise<ICustomer>;
-    update(param: CustomersApiUpdateRequest, options?: Configuration): Promise<ICustomer>;
-    update_4(param: CustomersApiUpdate0Request, options?: Configuration): Promise<ICustomer>;
+    create(param?: CustomersApiCreateRequest, options?: Configuration): Promise<void | ICustomer>;
+    create_1(param?: CustomersApiCreate0Request, options?: Configuration): Promise<void | ICustomer>;
+    list(param?: CustomersApiListRequest, options?: Configuration): Promise<void | CustomerListResponse>;
+    list_2(param?: CustomersApiList0Request, options?: Configuration): Promise<void | CustomerListResponse>;
+    retrieve(param: CustomersApiRetrieveRequest, options?: Configuration): Promise<void | ICustomer>;
+    retrieve_3(param: CustomersApiRetrieve0Request, options?: Configuration): Promise<void | ICustomer>;
+    update(param: CustomersApiUpdateRequest, options?: Configuration): Promise<void | ICustomer>;
+    update_4(param: CustomersApiUpdate0Request, options?: Configuration): Promise<void | ICustomer>;
 }
 import { FeesApiRequestFactory, FeesApiResponseProcessor } from "../apis/FeesApi";
 export interface FeesApiCreateRequest {
@@ -284,12 +353,12 @@ export interface FeesApiRetrieve0Request {
 export declare class ObjectFeesApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: FeesApiRequestFactory, responseProcessor?: FeesApiResponseProcessor);
-    create(param?: FeesApiCreateRequest, options?: Configuration): Promise<IFee>;
-    create_1(param?: FeesApiCreate0Request, options?: Configuration): Promise<IFee>;
-    list(param?: FeesApiListRequest, options?: Configuration): Promise<FeeListResponse>;
-    list_2(param?: FeesApiList0Request, options?: Configuration): Promise<FeeListResponse>;
-    retrieve(param: FeesApiRetrieveRequest, options?: Configuration): Promise<IFee>;
-    retrieve_3(param: FeesApiRetrieve0Request, options?: Configuration): Promise<IFee>;
+    create(param?: FeesApiCreateRequest, options?: Configuration): Promise<void | IFee>;
+    create_1(param?: FeesApiCreate0Request, options?: Configuration): Promise<void | IFee>;
+    list(param?: FeesApiListRequest, options?: Configuration): Promise<void | FeeListResponse>;
+    list_2(param?: FeesApiList0Request, options?: Configuration): Promise<void | FeeListResponse>;
+    retrieve(param: FeesApiRetrieveRequest, options?: Configuration): Promise<void | IFee>;
+    retrieve_3(param: FeesApiRetrieve0Request, options?: Configuration): Promise<void | IFee>;
 }
 import { InvoicesApiRequestFactory, InvoicesApiResponseProcessor } from "../apis/InvoicesApi";
 export interface InvoicesApiDeleteRequest {
@@ -325,10 +394,12 @@ export interface InvoicesApiList0Request {
 export interface InvoicesApiPayRequest {
     id: string;
     pluto_account?: string;
+    invoice_pay_request?: InvoicePayRequest;
 }
 export interface InvoicesApiPay0Request {
     id: string;
     pluto_account?: string;
+    invoice_pay_request?: InvoicePayRequest;
 }
 export interface InvoicesApiRetrieveRequest {
     id: string;
@@ -353,18 +424,18 @@ export interface InvoicesApiUpdate0Request {
 export declare class ObjectInvoicesApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: InvoicesApiRequestFactory, responseProcessor?: InvoicesApiResponseProcessor);
-    _delete(param: InvoicesApiDeleteRequest, options?: Configuration): Promise<IInvoice>;
-    _delete_1(param: InvoicesApiDelete0Request, options?: Configuration): Promise<IInvoice>;
-    create(param?: InvoicesApiCreateRequest, options?: Configuration): Promise<IInvoice>;
-    create_2(param?: InvoicesApiCreate0Request, options?: Configuration): Promise<IInvoice>;
-    list(param?: InvoicesApiListRequest, options?: Configuration): Promise<InvoiceListResponse>;
-    list_3(param?: InvoicesApiList0Request, options?: Configuration): Promise<InvoiceListResponse>;
-    pay(param: InvoicesApiPayRequest, options?: Configuration): Promise<IPaymentIntent>;
-    pay_4(param: InvoicesApiPay0Request, options?: Configuration): Promise<IPaymentIntent>;
-    retrieve(param: InvoicesApiRetrieveRequest, options?: Configuration): Promise<IInvoice>;
-    retrieve_5(param: InvoicesApiRetrieve0Request, options?: Configuration): Promise<IInvoice>;
-    update(param: InvoicesApiUpdateRequest, options?: Configuration): Promise<IInvoice>;
-    update_6(param: InvoicesApiUpdate0Request, options?: Configuration): Promise<IInvoice>;
+    _delete(param: InvoicesApiDeleteRequest, options?: Configuration): Promise<IInvoice | void>;
+    _delete_1(param: InvoicesApiDelete0Request, options?: Configuration): Promise<IInvoice | void>;
+    create(param?: InvoicesApiCreateRequest, options?: Configuration): Promise<IInvoice | void>;
+    create_2(param?: InvoicesApiCreate0Request, options?: Configuration): Promise<IInvoice | void>;
+    list(param?: InvoicesApiListRequest, options?: Configuration): Promise<void | InvoiceListResponse>;
+    list_3(param?: InvoicesApiList0Request, options?: Configuration): Promise<void | InvoiceListResponse>;
+    pay(param: InvoicesApiPayRequest, options?: Configuration): Promise<void | IPaymentIntent>;
+    pay_4(param: InvoicesApiPay0Request, options?: Configuration): Promise<void | IPaymentIntent>;
+    retrieve(param: InvoicesApiRetrieveRequest, options?: Configuration): Promise<IInvoice | void>;
+    retrieve_5(param: InvoicesApiRetrieve0Request, options?: Configuration): Promise<IInvoice | void>;
+    update(param: InvoicesApiUpdateRequest, options?: Configuration): Promise<IInvoice | void>;
+    update_6(param: InvoicesApiUpdate0Request, options?: Configuration): Promise<IInvoice | void>;
 }
 import { LogsApiRequestFactory, LogsApiResponseProcessor } from "../apis/LogsApi";
 export interface LogsApiListRequest {
@@ -386,10 +457,10 @@ export interface LogsApiRetrieve0Request {
 export declare class ObjectLogsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: LogsApiRequestFactory, responseProcessor?: LogsApiResponseProcessor);
-    list(param?: LogsApiListRequest, options?: Configuration): Promise<LogListResponse>;
-    list_1(param?: LogsApiList0Request, options?: Configuration): Promise<LogListResponse>;
-    retrieve(param: LogsApiRetrieveRequest, options?: Configuration): Promise<ILog>;
-    retrieve_2(param: LogsApiRetrieve0Request, options?: Configuration): Promise<ILog>;
+    list(param?: LogsApiListRequest, options?: Configuration): Promise<LogListResponse | void>;
+    list_1(param?: LogsApiList0Request, options?: Configuration): Promise<LogListResponse | void>;
+    retrieve(param: LogsApiRetrieveRequest, options?: Configuration): Promise<void | ILog>;
+    retrieve_2(param: LogsApiRetrieve0Request, options?: Configuration): Promise<void | ILog>;
 }
 import { PaymentIntentsApiRequestFactory, PaymentIntentsApiResponseProcessor } from "../apis/PaymentIntentsApi";
 export interface PaymentIntentsApiDeleteRequest {
@@ -467,20 +538,20 @@ export interface PaymentIntentsApiUpdate0Request {
 export declare class ObjectPaymentIntentsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: PaymentIntentsApiRequestFactory, responseProcessor?: PaymentIntentsApiResponseProcessor);
-    _delete(param: PaymentIntentsApiDeleteRequest, options?: Configuration): Promise<IPaymentIntent>;
-    _delete_1(param: PaymentIntentsApiDelete0Request, options?: Configuration): Promise<IPaymentIntent>;
-    create(param?: PaymentIntentsApiCreateRequest, options?: Configuration): Promise<IPaymentIntent>;
-    create_2(param?: PaymentIntentsApiCreate0Request, options?: Configuration): Promise<IPaymentIntent>;
-    list(param?: PaymentIntentsApiListRequest, options?: Configuration): Promise<PaymentIntentListResponse>;
-    list_3(param?: PaymentIntentsApiList0Request, options?: Configuration): Promise<PaymentIntentListResponse>;
-    poll(param: PaymentIntentsApiPollRequest, options?: Configuration): Promise<IPaymentIntent>;
-    poll_4(param: PaymentIntentsApiPoll0Request, options?: Configuration): Promise<IPaymentIntent>;
-    retrieve(param: PaymentIntentsApiRetrieveRequest, options?: Configuration): Promise<IPaymentIntent>;
-    retrieve_5(param: PaymentIntentsApiRetrieve0Request, options?: Configuration): Promise<IPaymentIntent>;
-    sendReceipt(param: PaymentIntentsApiSendReceiptRequest, options?: Configuration): Promise<IPaymentIntent>;
-    sendReceipt_6(param: PaymentIntentsApiSendReceipt0Request, options?: Configuration): Promise<IPaymentIntent>;
-    update(param: PaymentIntentsApiUpdateRequest, options?: Configuration): Promise<IPaymentIntent>;
-    update_7(param: PaymentIntentsApiUpdate0Request, options?: Configuration): Promise<IPaymentIntent>;
+    _delete(param: PaymentIntentsApiDeleteRequest, options?: Configuration): Promise<void | IPaymentIntent>;
+    _delete_1(param: PaymentIntentsApiDelete0Request, options?: Configuration): Promise<void | IPaymentIntent>;
+    create(param?: PaymentIntentsApiCreateRequest, options?: Configuration): Promise<void | IPaymentIntent>;
+    create_2(param?: PaymentIntentsApiCreate0Request, options?: Configuration): Promise<void | IPaymentIntent>;
+    list(param?: PaymentIntentsApiListRequest, options?: Configuration): Promise<PaymentIntentListResponse | void>;
+    list_3(param?: PaymentIntentsApiList0Request, options?: Configuration): Promise<PaymentIntentListResponse | void>;
+    poll(param: PaymentIntentsApiPollRequest, options?: Configuration): Promise<void | IPaymentIntent>;
+    poll_4(param: PaymentIntentsApiPoll0Request, options?: Configuration): Promise<void | IPaymentIntent>;
+    retrieve(param: PaymentIntentsApiRetrieveRequest, options?: Configuration): Promise<void | IPaymentIntent>;
+    retrieve_5(param: PaymentIntentsApiRetrieve0Request, options?: Configuration): Promise<void | IPaymentIntent>;
+    sendReceipt(param: PaymentIntentsApiSendReceiptRequest, options?: Configuration): Promise<void | IPaymentIntent>;
+    sendReceipt_6(param: PaymentIntentsApiSendReceipt0Request, options?: Configuration): Promise<void | IPaymentIntent>;
+    update(param: PaymentIntentsApiUpdateRequest, options?: Configuration): Promise<void | IPaymentIntent>;
+    update_7(param: PaymentIntentsApiUpdate0Request, options?: Configuration): Promise<void | IPaymentIntent>;
 }
 import { PaymentLinksApiRequestFactory, PaymentLinksApiResponseProcessor } from "../apis/PaymentLinksApi";
 export interface PaymentLinksApiDeleteRequest {
@@ -536,16 +607,16 @@ export interface PaymentLinksApiUpdate0Request {
 export declare class ObjectPaymentLinksApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: PaymentLinksApiRequestFactory, responseProcessor?: PaymentLinksApiResponseProcessor);
-    _delete(param: PaymentLinksApiDeleteRequest, options?: Configuration): Promise<IPaymentLink>;
-    _delete_1(param: PaymentLinksApiDelete0Request, options?: Configuration): Promise<IPaymentLink>;
-    create(param?: PaymentLinksApiCreateRequest, options?: Configuration): Promise<IPaymentLink>;
-    create_2(param?: PaymentLinksApiCreate0Request, options?: Configuration): Promise<IPaymentLink>;
-    list(param?: PaymentLinksApiListRequest, options?: Configuration): Promise<PaymentLinkListResponse>;
-    list_3(param?: PaymentLinksApiList0Request, options?: Configuration): Promise<PaymentLinkListResponse>;
-    retrieve(param: PaymentLinksApiRetrieveRequest, options?: Configuration): Promise<IPaymentLink>;
-    retrieve_4(param: PaymentLinksApiRetrieve0Request, options?: Configuration): Promise<IPaymentLink>;
-    update(param: PaymentLinksApiUpdateRequest, options?: Configuration): Promise<IPaymentLink>;
-    update_5(param: PaymentLinksApiUpdate0Request, options?: Configuration): Promise<IPaymentLink>;
+    _delete(param: PaymentLinksApiDeleteRequest, options?: Configuration): Promise<void | IPaymentLink>;
+    _delete_1(param: PaymentLinksApiDelete0Request, options?: Configuration): Promise<void | IPaymentLink>;
+    create(param?: PaymentLinksApiCreateRequest, options?: Configuration): Promise<void | IPaymentLink>;
+    create_2(param?: PaymentLinksApiCreate0Request, options?: Configuration): Promise<void | IPaymentLink>;
+    list(param?: PaymentLinksApiListRequest, options?: Configuration): Promise<void | PaymentLinkListResponse>;
+    list_3(param?: PaymentLinksApiList0Request, options?: Configuration): Promise<void | PaymentLinkListResponse>;
+    retrieve(param: PaymentLinksApiRetrieveRequest, options?: Configuration): Promise<void | IPaymentLink>;
+    retrieve_4(param: PaymentLinksApiRetrieve0Request, options?: Configuration): Promise<void | IPaymentLink>;
+    update(param: PaymentLinksApiUpdateRequest, options?: Configuration): Promise<void | IPaymentLink>;
+    update_5(param: PaymentLinksApiUpdate0Request, options?: Configuration): Promise<void | IPaymentLink>;
 }
 import { PayoutWalletsApiRequestFactory, PayoutWalletsApiResponseProcessor } from "../apis/PayoutWalletsApi";
 export interface PayoutWalletsApiDeleteRequest {
@@ -601,14 +672,14 @@ export interface PayoutWalletsApiUpdate0Request {
 export declare class ObjectPayoutWalletsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: PayoutWalletsApiRequestFactory, responseProcessor?: PayoutWalletsApiResponseProcessor);
-    _delete(param: PayoutWalletsApiDeleteRequest, options?: Configuration): Promise<IPayoutWallet>;
-    _delete_1(param: PayoutWalletsApiDelete0Request, options?: Configuration): Promise<IPayoutWallet>;
-    create(param?: PayoutWalletsApiCreateRequest, options?: Configuration): Promise<IPayoutWallet>;
-    create_2(param?: PayoutWalletsApiCreate0Request, options?: Configuration): Promise<IPayoutWallet>;
-    list(param?: PayoutWalletsApiListRequest, options?: Configuration): Promise<PayoutWalletListResponse>;
-    list_3(param?: PayoutWalletsApiList0Request, options?: Configuration): Promise<PayoutWalletListResponse>;
-    retrieve(param: PayoutWalletsApiRetrieveRequest, options?: Configuration): Promise<IPayoutWallet>;
-    retrieve_4(param: PayoutWalletsApiRetrieve0Request, options?: Configuration): Promise<IPayoutWallet>;
+    _delete(param: PayoutWalletsApiDeleteRequest, options?: Configuration): Promise<void | IPayoutWallet>;
+    _delete_1(param: PayoutWalletsApiDelete0Request, options?: Configuration): Promise<void | IPayoutWallet>;
+    create(param?: PayoutWalletsApiCreateRequest, options?: Configuration): Promise<void | IPayoutWallet>;
+    create_2(param?: PayoutWalletsApiCreate0Request, options?: Configuration): Promise<void | IPayoutWallet>;
+    list(param?: PayoutWalletsApiListRequest, options?: Configuration): Promise<void | PayoutWalletListResponse>;
+    list_3(param?: PayoutWalletsApiList0Request, options?: Configuration): Promise<void | PayoutWalletListResponse>;
+    retrieve(param: PayoutWalletsApiRetrieveRequest, options?: Configuration): Promise<void | IPayoutWallet>;
+    retrieve_4(param: PayoutWalletsApiRetrieve0Request, options?: Configuration): Promise<void | IPayoutWallet>;
     update(param: PayoutWalletsApiUpdateRequest, options?: Configuration): Promise<IPayoutWallet>;
     update_5(param: PayoutWalletsApiUpdate0Request, options?: Configuration): Promise<IPayoutWallet>;
 }
@@ -666,16 +737,16 @@ export interface PricesApiUpdate0Request {
 export declare class ObjectPricesApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: PricesApiRequestFactory, responseProcessor?: PricesApiResponseProcessor);
-    _delete(param: PricesApiDeleteRequest, options?: Configuration): Promise<IPrice>;
-    _delete_1(param: PricesApiDelete0Request, options?: Configuration): Promise<IPrice>;
-    create(param?: PricesApiCreateRequest, options?: Configuration): Promise<IPrice>;
-    create_2(param?: PricesApiCreate0Request, options?: Configuration): Promise<IPrice>;
-    list(param?: PricesApiListRequest, options?: Configuration): Promise<PriceListResponse>;
-    list_3(param?: PricesApiList0Request, options?: Configuration): Promise<PriceListResponse>;
-    retrieve(param: PricesApiRetrieveRequest, options?: Configuration): Promise<IPrice>;
-    retrieve_4(param: PricesApiRetrieve0Request, options?: Configuration): Promise<IPrice>;
-    update(param: PricesApiUpdateRequest, options?: Configuration): Promise<IPrice>;
-    update_5(param: PricesApiUpdate0Request, options?: Configuration): Promise<IPrice>;
+    _delete(param: PricesApiDeleteRequest, options?: Configuration): Promise<void | IPrice>;
+    _delete_1(param: PricesApiDelete0Request, options?: Configuration): Promise<void | IPrice>;
+    create(param?: PricesApiCreateRequest, options?: Configuration): Promise<void | IPrice>;
+    create_2(param?: PricesApiCreate0Request, options?: Configuration): Promise<void | IPrice>;
+    list(param?: PricesApiListRequest, options?: Configuration): Promise<PriceListResponse | void>;
+    list_3(param?: PricesApiList0Request, options?: Configuration): Promise<PriceListResponse | void>;
+    retrieve(param: PricesApiRetrieveRequest, options?: Configuration): Promise<void | IPrice>;
+    retrieve_4(param: PricesApiRetrieve0Request, options?: Configuration): Promise<void | IPrice>;
+    update(param: PricesApiUpdateRequest, options?: Configuration): Promise<void | IPrice>;
+    update_5(param: PricesApiUpdate0Request, options?: Configuration): Promise<void | IPrice>;
 }
 import { ProductsApiRequestFactory, ProductsApiResponseProcessor } from "../apis/ProductsApi";
 export interface ProductsApiDeleteRequest {
@@ -731,16 +802,16 @@ export interface ProductsApiUpdate0Request {
 export declare class ObjectProductsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: ProductsApiRequestFactory, responseProcessor?: ProductsApiResponseProcessor);
-    _delete(param: ProductsApiDeleteRequest, options?: Configuration): Promise<IProduct>;
-    _delete_1(param: ProductsApiDelete0Request, options?: Configuration): Promise<IProduct>;
-    create(param?: ProductsApiCreateRequest, options?: Configuration): Promise<IProduct>;
-    create_2(param?: ProductsApiCreate0Request, options?: Configuration): Promise<IProduct>;
-    list(param?: ProductsApiListRequest, options?: Configuration): Promise<ProductListResponse>;
-    list_3(param?: ProductsApiList0Request, options?: Configuration): Promise<ProductListResponse>;
-    retrieve(param: ProductsApiRetrieveRequest, options?: Configuration): Promise<IProduct>;
-    retrieve_4(param: ProductsApiRetrieve0Request, options?: Configuration): Promise<IProduct>;
-    update(param: ProductsApiUpdateRequest, options?: Configuration): Promise<IProduct>;
-    update_5(param: ProductsApiUpdate0Request, options?: Configuration): Promise<IProduct>;
+    _delete(param: ProductsApiDeleteRequest, options?: Configuration): Promise<void | IProduct>;
+    _delete_1(param: ProductsApiDelete0Request, options?: Configuration): Promise<void | IProduct>;
+    create(param?: ProductsApiCreateRequest, options?: Configuration): Promise<void | IProduct>;
+    create_2(param?: ProductsApiCreate0Request, options?: Configuration): Promise<void | IProduct>;
+    list(param?: ProductsApiListRequest, options?: Configuration): Promise<ProductListResponse | void>;
+    list_3(param?: ProductsApiList0Request, options?: Configuration): Promise<ProductListResponse | void>;
+    retrieve(param: ProductsApiRetrieveRequest, options?: Configuration): Promise<void | IProduct>;
+    retrieve_4(param: ProductsApiRetrieve0Request, options?: Configuration): Promise<void | IProduct>;
+    update(param: ProductsApiUpdateRequest, options?: Configuration): Promise<void | IProduct>;
+    update_5(param: ProductsApiUpdate0Request, options?: Configuration): Promise<void | IProduct>;
 }
 import { SubscriptionsApiRequestFactory, SubscriptionsApiResponseProcessor } from "../apis/SubscriptionsApi";
 export interface SubscriptionsApiDeleteRequest {
@@ -796,16 +867,16 @@ export interface SubscriptionsApiUpdate0Request {
 export declare class ObjectSubscriptionsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: SubscriptionsApiRequestFactory, responseProcessor?: SubscriptionsApiResponseProcessor);
-    _delete(param: SubscriptionsApiDeleteRequest, options?: Configuration): Promise<ISubscription>;
-    _delete_1(param: SubscriptionsApiDelete0Request, options?: Configuration): Promise<ISubscription>;
-    create(param?: SubscriptionsApiCreateRequest, options?: Configuration): Promise<ISubscription>;
-    create_2(param?: SubscriptionsApiCreate0Request, options?: Configuration): Promise<ISubscription>;
-    list(param?: SubscriptionsApiListRequest, options?: Configuration): Promise<SubscriptionListResponse>;
-    list_3(param?: SubscriptionsApiList0Request, options?: Configuration): Promise<SubscriptionListResponse>;
-    retrieve(param: SubscriptionsApiRetrieveRequest, options?: Configuration): Promise<ISubscription>;
-    retrieve_4(param: SubscriptionsApiRetrieve0Request, options?: Configuration): Promise<ISubscription>;
-    update(param: SubscriptionsApiUpdateRequest, options?: Configuration): Promise<ISubscription>;
-    update_5(param: SubscriptionsApiUpdate0Request, options?: Configuration): Promise<ISubscription>;
+    _delete(param: SubscriptionsApiDeleteRequest, options?: Configuration): Promise<void | ISubscription>;
+    _delete_1(param: SubscriptionsApiDelete0Request, options?: Configuration): Promise<void | ISubscription>;
+    create(param?: SubscriptionsApiCreateRequest, options?: Configuration): Promise<void | ISubscription>;
+    create_2(param?: SubscriptionsApiCreate0Request, options?: Configuration): Promise<void | ISubscription>;
+    list(param?: SubscriptionsApiListRequest, options?: Configuration): Promise<void | SubscriptionListResponse>;
+    list_3(param?: SubscriptionsApiList0Request, options?: Configuration): Promise<void | SubscriptionListResponse>;
+    retrieve(param: SubscriptionsApiRetrieveRequest, options?: Configuration): Promise<void | ISubscription>;
+    retrieve_4(param: SubscriptionsApiRetrieve0Request, options?: Configuration): Promise<void | ISubscription>;
+    update(param: SubscriptionsApiUpdateRequest, options?: Configuration): Promise<void | ISubscription>;
+    update_5(param: SubscriptionsApiUpdate0Request, options?: Configuration): Promise<void | ISubscription>;
 }
 import { TransfersApiRequestFactory, TransfersApiResponseProcessor } from "../apis/TransfersApi";
 export interface TransfersApiCreateRequest {
@@ -843,12 +914,12 @@ export interface TransfersApiRetrieve0Request {
 export declare class ObjectTransfersApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: TransfersApiRequestFactory, responseProcessor?: TransfersApiResponseProcessor);
-    create(param?: TransfersApiCreateRequest, options?: Configuration): Promise<ITransfer>;
-    create_1(param?: TransfersApiCreate0Request, options?: Configuration): Promise<ITransfer>;
-    list(param?: TransfersApiListRequest, options?: Configuration): Promise<TransferListResponse>;
-    list_2(param?: TransfersApiList0Request, options?: Configuration): Promise<TransferListResponse>;
-    retrieve(param: TransfersApiRetrieveRequest, options?: Configuration): Promise<ITransfer>;
-    retrieve_3(param: TransfersApiRetrieve0Request, options?: Configuration): Promise<ITransfer>;
+    create(param?: TransfersApiCreateRequest, options?: Configuration): Promise<ITransfer | void>;
+    create_1(param?: TransfersApiCreate0Request, options?: Configuration): Promise<ITransfer | void>;
+    list(param?: TransfersApiListRequest, options?: Configuration): Promise<void | TransferListResponse>;
+    list_2(param?: TransfersApiList0Request, options?: Configuration): Promise<void | TransferListResponse>;
+    retrieve(param: TransfersApiRetrieveRequest, options?: Configuration): Promise<ITransfer | void>;
+    retrieve_3(param: TransfersApiRetrieve0Request, options?: Configuration): Promise<ITransfer | void>;
 }
 import { WalletsApiRequestFactory, WalletsApiResponseProcessor } from "../apis/WalletsApi";
 export interface WalletsApiDeleteRequest {
@@ -904,16 +975,16 @@ export interface WalletsApiUpdate0Request {
 export declare class ObjectWalletsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: WalletsApiRequestFactory, responseProcessor?: WalletsApiResponseProcessor);
-    _delete(param: WalletsApiDeleteRequest, options?: Configuration): Promise<IWallet>;
-    _delete_1(param: WalletsApiDelete0Request, options?: Configuration): Promise<IWallet>;
-    create(param?: WalletsApiCreateRequest, options?: Configuration): Promise<IWallet>;
-    create_2(param?: WalletsApiCreate0Request, options?: Configuration): Promise<IWallet>;
-    list(param?: WalletsApiListRequest, options?: Configuration): Promise<WalletListResponse>;
-    list_3(param?: WalletsApiList0Request, options?: Configuration): Promise<WalletListResponse>;
-    retrieve(param: WalletsApiRetrieveRequest, options?: Configuration): Promise<IWallet>;
-    retrieve_4(param: WalletsApiRetrieve0Request, options?: Configuration): Promise<IWallet>;
-    update(param: WalletsApiUpdateRequest, options?: Configuration): Promise<IWallet>;
-    update_5(param: WalletsApiUpdate0Request, options?: Configuration): Promise<IWallet>;
+    _delete(param: WalletsApiDeleteRequest, options?: Configuration): Promise<void | IWallet>;
+    _delete_1(param: WalletsApiDelete0Request, options?: Configuration): Promise<void | IWallet>;
+    create(param?: WalletsApiCreateRequest, options?: Configuration): Promise<void | IWallet>;
+    create_2(param?: WalletsApiCreate0Request, options?: Configuration): Promise<void | IWallet>;
+    list(param?: WalletsApiListRequest, options?: Configuration): Promise<void | WalletListResponse>;
+    list_3(param?: WalletsApiList0Request, options?: Configuration): Promise<void | WalletListResponse>;
+    retrieve(param: WalletsApiRetrieveRequest, options?: Configuration): Promise<void | IWallet>;
+    retrieve_4(param: WalletsApiRetrieve0Request, options?: Configuration): Promise<void | IWallet>;
+    update(param: WalletsApiUpdateRequest, options?: Configuration): Promise<void | IWallet>;
+    update_5(param: WalletsApiUpdate0Request, options?: Configuration): Promise<void | IWallet>;
 }
 import { WebhooksApiRequestFactory, WebhooksApiResponseProcessor } from "../apis/WebhooksApi";
 export interface WebhooksApiDeleteRequest {
@@ -969,14 +1040,14 @@ export interface WebhooksApiUpdate0Request {
 export declare class ObjectWebhooksApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: WebhooksApiRequestFactory, responseProcessor?: WebhooksApiResponseProcessor);
-    _delete(param: WebhooksApiDeleteRequest, options?: Configuration): Promise<IWebhook>;
-    _delete_1(param: WebhooksApiDelete0Request, options?: Configuration): Promise<IWebhook>;
-    create(param?: WebhooksApiCreateRequest, options?: Configuration): Promise<IWebhook>;
-    create_2(param?: WebhooksApiCreate0Request, options?: Configuration): Promise<IWebhook>;
-    list(param?: WebhooksApiListRequest, options?: Configuration): Promise<WebhookListResponse>;
-    list_3(param?: WebhooksApiList0Request, options?: Configuration): Promise<WebhookListResponse>;
-    retrieve(param: WebhooksApiRetrieveRequest, options?: Configuration): Promise<IWebhook>;
-    retrieve_4(param: WebhooksApiRetrieve0Request, options?: Configuration): Promise<IWebhook>;
-    update(param: WebhooksApiUpdateRequest, options?: Configuration): Promise<IWebhook>;
-    update_5(param: WebhooksApiUpdate0Request, options?: Configuration): Promise<IWebhook>;
+    _delete(param: WebhooksApiDeleteRequest, options?: Configuration): Promise<void | IWebhook>;
+    _delete_1(param: WebhooksApiDelete0Request, options?: Configuration): Promise<void | IWebhook>;
+    create(param?: WebhooksApiCreateRequest, options?: Configuration): Promise<void | IWebhook>;
+    create_2(param?: WebhooksApiCreate0Request, options?: Configuration): Promise<void | IWebhook>;
+    list(param?: WebhooksApiListRequest, options?: Configuration): Promise<void | WebhookListResponse>;
+    list_3(param?: WebhooksApiList0Request, options?: Configuration): Promise<void | WebhookListResponse>;
+    retrieve(param: WebhooksApiRetrieveRequest, options?: Configuration): Promise<void | IWebhook>;
+    retrieve_4(param: WebhooksApiRetrieve0Request, options?: Configuration): Promise<void | IWebhook>;
+    update(param: WebhooksApiUpdateRequest, options?: Configuration): Promise<void | IWebhook>;
+    update_5(param: WebhooksApiUpdate0Request, options?: Configuration): Promise<void | IWebhook>;
 }

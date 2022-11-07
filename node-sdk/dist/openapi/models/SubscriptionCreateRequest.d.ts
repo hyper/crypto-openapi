@@ -1,13 +1,13 @@
 import { LineItem } from './LineItem';
 export declare class SubscriptionCreateRequest {
+    'cancel_at'?: Date | number;
+    'customer'?: string;
+    'line_items'?: Array<LineItem>;
     'metadata'?: {
         [key: string]: any;
     };
     'price'?: string;
-    'customer'?: string;
-    'line_items'?: Array<LineItem>;
     'trial_period_days'?: number;
-    'cancel_at'?: Date | number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

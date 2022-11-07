@@ -1,7 +1,7 @@
 export declare class FeeCreateRequest {
+    'description'?: string;
     'payment_intent'?: string;
     'percent'?: number;
-    'description'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -12,9 +12,9 @@ exports.CustomerCreateRequest = CustomerCreateRequest;
 CustomerCreateRequest.discriminator = undefined;
 CustomerCreateRequest.attributeTypeMap = [
     {
-        "name": "name",
-        "baseName": "name",
-        "type": "string",
+        "name": "billing_details",
+        "baseName": "billing_details",
+        "type": "CustomerCreateRequestBillingDetails",
         "format": ""
     },
     {
@@ -24,21 +24,21 @@ CustomerCreateRequest.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "phone",
-        "baseName": "phone",
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "{ [key: string]: any; }",
+        "format": ""
+    },
+    {
+        "name": "name",
+        "baseName": "name",
         "type": "string",
         "format": ""
     },
     {
-        "name": "billing_details",
-        "baseName": "billing_details",
-        "type": "ICustomerBillingDetails",
-        "format": ""
-    },
-    {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "{ [key: string]: any; }",
+        "name": "phone",
+        "baseName": "phone",
+        "type": "string",
         "format": ""
     }
 ];

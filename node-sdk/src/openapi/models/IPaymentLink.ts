@@ -17,60 +17,30 @@ import { LineItem } from './LineItem';
 import { HttpFile } from '../http/http';
 
 export class IPaymentLink {
-    'id': string;
-    'object': string;
-    'created': number;
-    'test': boolean;
     'account': string;
-    'platform_account'?: string;
     'active': boolean;
-    'url': string;
     'after_completion': AfterCompletion;
-    'line_items': Array<LineItem>;
-    'currency': Currency;
-    'chain': Chain;
-    'expires_at'?: Date | number;
-    'max_usages'?: number;
-    'remaining_stock'?: number;
     'application_fee_percent'?: number;
+    'chain': Chain;
+    'created': number;
+    'currency': Currency;
+    'expires_at'?: Date | number;
+    'id': string;
+    'line_items': Array<LineItem>;
+    'max_usages'?: number;
     'metadata': { [key: string]: any; };
+    'object': string;
+    'platform_account'?: string;
+    'remaining_stock'?: number;
+    'test': boolean;
+    'url': string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "object",
-            "baseName": "object",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "created",
-            "baseName": "created",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "test",
-            "baseName": "test",
-            "type": "boolean",
-            "format": ""
-        },
-        {
             "name": "account",
             "baseName": "account",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "platform_account",
-            "baseName": "platform_account",
             "type": "string",
             "format": ""
         },
@@ -81,33 +51,33 @@ export class IPaymentLink {
             "format": ""
         },
         {
-            "name": "url",
-            "baseName": "url",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "after_completion",
             "baseName": "after_completion",
             "type": "AfterCompletion",
             "format": ""
         },
         {
-            "name": "line_items",
-            "baseName": "line_items",
-            "type": "Array<LineItem>",
-            "format": ""
-        },
-        {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "Currency",
-            "format": ""
+            "name": "application_fee_percent",
+            "baseName": "application_fee_percent",
+            "type": "number",
+            "format": "double"
         },
         {
             "name": "chain",
             "baseName": "chain",
             "type": "Chain",
+            "format": ""
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "number",
+            "format": "double"
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "Currency",
             "format": ""
         },
         {
@@ -117,10 +87,40 @@ export class IPaymentLink {
             "format": ""
         },
         {
+            "name": "id",
+            "baseName": "id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "line_items",
+            "baseName": "line_items",
+            "type": "Array<LineItem>",
+            "format": ""
+        },
+        {
             "name": "max_usages",
             "baseName": "max_usages",
             "type": "number",
             "format": "double"
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "{ [key: string]: any; }",
+            "format": ""
+        },
+        {
+            "name": "object",
+            "baseName": "object",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string",
+            "format": ""
         },
         {
             "name": "remaining_stock",
@@ -129,15 +129,15 @@ export class IPaymentLink {
             "format": "double"
         },
         {
-            "name": "application_fee_percent",
-            "baseName": "application_fee_percent",
-            "type": "number",
-            "format": "double"
+            "name": "test",
+            "baseName": "test",
+            "type": "boolean",
+            "format": ""
         },
         {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "{ [key: string]: any; }",
+            "name": "url",
+            "baseName": "url",
+            "type": "string",
             "format": ""
         }    ];
 

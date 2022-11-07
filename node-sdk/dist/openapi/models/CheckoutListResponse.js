@@ -12,10 +12,10 @@ exports.CheckoutListResponse = CheckoutListResponse;
 CheckoutListResponse.discriminator = undefined;
 CheckoutListResponse.attributeTypeMap = [
     {
-        "name": "total",
-        "baseName": "total",
-        "type": "number",
-        "format": "double"
+        "name": "data",
+        "baseName": "data",
+        "type": "Array<ICheckout>",
+        "format": ""
     },
     {
         "name": "has_more",
@@ -30,10 +30,10 @@ CheckoutListResponse.attributeTypeMap = [
         "format": "double"
     },
     {
-        "name": "data",
-        "baseName": "data",
-        "type": "Array<ICheckout>",
-        "format": ""
+        "name": "total",
+        "baseName": "total",
+        "type": "number",
+        "format": "double"
     }
 ];
 //# sourceMappingURL=CheckoutListResponse.js.map

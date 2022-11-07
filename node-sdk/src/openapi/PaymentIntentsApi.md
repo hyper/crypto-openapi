@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 
 # **_delete**
-> IPaymentIntent _delete()
+> void | IPaymentIntent _delete()
 
 
 ### Example
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentIntent**
+**void | IPaymentIntent**
 
 ### Authorization
 
@@ -72,14 +72,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **_delete_0**
-> IPaymentIntent _delete_0()
+> void | IPaymentIntent _delete_0()
 
 
 ### Example
@@ -115,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentIntent**
+**void | IPaymentIntent**
 
 ### Authorization
 
@@ -130,14 +131,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
-> IPaymentIntent create()
+> void | IPaymentIntent create()
 
 
 ### Example
@@ -156,55 +158,55 @@ let body:.PaymentIntentsApiCreateRequest = {
   // PaymentIntentCreateRequest (optional)
   payment_intent_create_request: {
     amount: 3.14,
-    metadata: {
-      "key": null,
-    },
-    price: "price_example",
+    application_fee_percent: 3.14,
+    chain: "eth",
+    currency: "eth",
     customer: "customer_example",
+    invoice: "invoice_example",
     line_items: [
       {
         description: "description_example",
+        price: "price_example",
         price_data: {
-          id: "id_example",
-          object: "object_example",
-          created: 3.14,
-          test: true,
           account: "account_example",
-          platform_account: "platform_account_example",
           amount: 3.14,
-          custom_amount: {
-            _default: 3.14,
-            maximum: 3.14,
-            minimum: 3.14,
-          },
-          currency: "eth",
-          chain: "eth",
-          product: "product_example",
+          application_fee_percent: 3.14,
+          archived: true,
           base_price: {
+            amount: 3.14,
+            currency: "currency_example",
             custom_amount: {
               _default: 3.14,
               maximum: 3.14,
               minimum: 3.14,
             },
-            amount: 3.14,
-            currency: "currency_example",
           },
           billing_period_days: 3.14,
-          application_fee_percent: 3.14,
-          archived: true,
+          chain: "eth",
+          created: 3.14,
+          currency: "eth",
+          custom_amount: {
+            _default: 3.14,
+            maximum: 3.14,
+            minimum: 3.14,
+          },
+          id: "id_example",
           metadata: {
             "key": null,
           },
+          object: "object_example",
+          platform_account: "platform_account_example",
+          product: "product_example",
+          test: true,
         },
         quantity: 3.14,
-        price: "price_example",
       },
     ],
-    invoice: "invoice_example",
+    metadata: {
+      "key": null,
+    },
+    price: "price_example",
     subscription: "subscription_example",
-    chain: "eth",
-    application_fee_percent: 3.14,
-    currency: "eth",
   },
 };
 
@@ -224,7 +226,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentIntent**
+**void | IPaymentIntent**
 
 ### Authorization
 
@@ -239,14 +241,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create_0**
-> IPaymentIntent create_0()
+> void | IPaymentIntent create_0()
 
 
 ### Example
@@ -265,55 +268,55 @@ let body:.PaymentIntentsApiCreate0Request = {
   // PaymentIntentCreateRequest (optional)
   payment_intent_create_request: {
     amount: 3.14,
-    metadata: {
-      "key": null,
-    },
-    price: "price_example",
+    application_fee_percent: 3.14,
+    chain: "eth",
+    currency: "eth",
     customer: "customer_example",
+    invoice: "invoice_example",
     line_items: [
       {
         description: "description_example",
+        price: "price_example",
         price_data: {
-          id: "id_example",
-          object: "object_example",
-          created: 3.14,
-          test: true,
           account: "account_example",
-          platform_account: "platform_account_example",
           amount: 3.14,
-          custom_amount: {
-            _default: 3.14,
-            maximum: 3.14,
-            minimum: 3.14,
-          },
-          currency: "eth",
-          chain: "eth",
-          product: "product_example",
+          application_fee_percent: 3.14,
+          archived: true,
           base_price: {
+            amount: 3.14,
+            currency: "currency_example",
             custom_amount: {
               _default: 3.14,
               maximum: 3.14,
               minimum: 3.14,
             },
-            amount: 3.14,
-            currency: "currency_example",
           },
           billing_period_days: 3.14,
-          application_fee_percent: 3.14,
-          archived: true,
+          chain: "eth",
+          created: 3.14,
+          currency: "eth",
+          custom_amount: {
+            _default: 3.14,
+            maximum: 3.14,
+            minimum: 3.14,
+          },
+          id: "id_example",
           metadata: {
             "key": null,
           },
+          object: "object_example",
+          platform_account: "platform_account_example",
+          product: "product_example",
+          test: true,
         },
         quantity: 3.14,
-        price: "price_example",
       },
     ],
-    invoice: "invoice_example",
+    metadata: {
+      "key": null,
+    },
+    price: "price_example",
     subscription: "subscription_example",
-    chain: "eth",
-    application_fee_percent: 3.14,
-    currency: "eth",
   },
 };
 
@@ -333,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentIntent**
+**void | IPaymentIntent**
 
 ### Authorization
 
@@ -348,14 +351,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> PaymentIntentListResponse list()
+> PaymentIntentListResponse | void list()
 
 
 ### Example
@@ -406,7 +410,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**PaymentIntentListResponse**
+**PaymentIntentListResponse | void**
 
 ### Authorization
 
@@ -421,14 +425,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list_0**
-> PaymentIntentListResponse list_0()
+> PaymentIntentListResponse | void list_0()
 
 
 ### Example
@@ -479,7 +484,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**PaymentIntentListResponse**
+**PaymentIntentListResponse | void**
 
 ### Authorization
 
@@ -494,14 +499,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **poll**
-> IPaymentIntent poll()
+> void | IPaymentIntent poll()
 
 
 ### Example
@@ -540,7 +546,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentIntent**
+**void | IPaymentIntent**
 
 ### Authorization
 
@@ -555,14 +561,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **poll_0**
-> IPaymentIntent poll_0()
+> void | IPaymentIntent poll_0()
 
 
 ### Example
@@ -601,7 +608,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentIntent**
+**void | IPaymentIntent**
 
 ### Authorization
 
@@ -616,14 +623,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> IPaymentIntent retrieve()
+> void | IPaymentIntent retrieve()
 
 
 ### Example
@@ -662,7 +670,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentIntent**
+**void | IPaymentIntent**
 
 ### Authorization
 
@@ -677,14 +685,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve_0**
-> IPaymentIntent retrieve_0()
+> void | IPaymentIntent retrieve_0()
 
 
 ### Example
@@ -723,7 +732,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentIntent**
+**void | IPaymentIntent**
 
 ### Authorization
 
@@ -738,14 +747,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **sendReceipt**
-> IPaymentIntent sendReceipt()
+> void | IPaymentIntent sendReceipt()
 
 
 ### Example
@@ -781,7 +791,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentIntent**
+**void | IPaymentIntent**
 
 ### Authorization
 
@@ -796,14 +806,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **sendReceipt_0**
-> IPaymentIntent sendReceipt_0()
+> void | IPaymentIntent sendReceipt_0()
 
 
 ### Example
@@ -839,7 +850,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentIntent**
+**void | IPaymentIntent**
 
 ### Authorization
 
@@ -854,14 +865,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update**
-> IPaymentIntent update()
+> void | IPaymentIntent update()
 
 
 ### Example
@@ -881,10 +893,10 @@ let body:.PaymentIntentsApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // PaymentIntentUpdateRequest (optional)
   payment_intent_update_request: {
+    hash: "hash_example",
     metadata: {
       "key": null,
     },
-    hash: "hash_example",
   },
 };
 
@@ -905,7 +917,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentIntent**
+**void | IPaymentIntent**
 
 ### Authorization
 
@@ -920,7 +932,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -928,7 +941,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update_0**
-> IPaymentIntent update_0()
+> void | IPaymentIntent update_0()
 
 
 ### Example
@@ -948,10 +961,10 @@ let body:.PaymentIntentsApiUpdate0Request = {
   pluto_account: "Pluto-Account_example",
   // PaymentIntentUpdateRequest (optional)
   payment_intent_update_request: {
+    hash: "hash_example",
     metadata: {
       "key": null,
     },
-    hash: "hash_example",
   },
 };
 
@@ -972,7 +985,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IPaymentIntent**
+**void | IPaymentIntent**
 
 ### Authorization
 
@@ -987,7 +1000,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

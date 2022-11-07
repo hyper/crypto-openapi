@@ -1,15 +1,15 @@
 export declare class IFee {
-    'id': string;
-    'object': string;
-    'created': number;
-    'test': boolean;
     'account': string;
-    'platform_account'?: string;
-    'internal': boolean;
-    'payment_intent': string;
-    'wallet': string;
-    'percent': number;
+    'created': number;
     'description'?: string;
+    'id': string;
+    'internal': boolean;
+    'object': string;
+    'payment_intent': string;
+    'percent': number;
+    'platform_account'?: string;
+    'test': boolean;
+    'wallet': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

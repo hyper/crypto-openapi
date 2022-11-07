@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **create**
-> ITransfer create()
+> ITransfer | void create()
 
 
 ### Example
@@ -31,9 +31,9 @@ let body:.TransfersApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // TransferCreateRequest (optional)
   transfer_create_request: {
+    description: "description_example",
     payment_intent: "payment_intent_example",
     percent: 3.14,
-    description: "description_example",
     wallet: "wallet_example",
   },
 };
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ITransfer**
+**ITransfer | void**
 
 ### Authorization
 
@@ -69,14 +69,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create_0**
-> ITransfer create_0()
+> ITransfer | void create_0()
 
 
 ### Example
@@ -94,9 +95,9 @@ let body:.TransfersApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // TransferCreateRequest (optional)
   transfer_create_request: {
+    description: "description_example",
     payment_intent: "payment_intent_example",
     percent: 3.14,
-    description: "description_example",
     wallet: "wallet_example",
   },
 };
@@ -117,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ITransfer**
+**ITransfer | void**
 
 ### Authorization
 
@@ -132,14 +133,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> TransferListResponse list()
+> void | TransferListResponse list()
 
 
 ### Example
@@ -184,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**TransferListResponse**
+**void | TransferListResponse**
 
 ### Authorization
 
@@ -199,14 +201,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list_0**
-> TransferListResponse list_0()
+> void | TransferListResponse list_0()
 
 
 ### Example
@@ -251,7 +254,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**TransferListResponse**
+**void | TransferListResponse**
 
 ### Authorization
 
@@ -266,14 +269,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> ITransfer retrieve()
+> ITransfer | void retrieve()
 
 
 ### Example
@@ -312,7 +316,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ITransfer**
+**ITransfer | void**
 
 ### Authorization
 
@@ -327,14 +331,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve_0**
-> ITransfer retrieve_0()
+> ITransfer | void retrieve_0()
 
 
 ### Example
@@ -373,7 +378,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ITransfer**
+**ITransfer | void**
 
 ### Authorization
 
@@ -388,7 +393,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 

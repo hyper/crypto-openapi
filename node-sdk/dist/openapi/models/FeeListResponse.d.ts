@@ -1,9 +1,9 @@
 import { IFee } from './IFee';
 export declare class FeeListResponse {
-    'total': number;
+    'data': Array<IFee>;
     'has_more': boolean;
     'page': number;
-    'data': Array<IFee>;
+    'total': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

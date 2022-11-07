@@ -1,13 +1,13 @@
 export declare class ITransfer {
+    'account': string;
+    'created': number;
+    'description'?: string;
     'id': string;
     'object': string;
-    'created': number;
-    'test': boolean;
-    'account': string;
     'payment_intent': string;
-    'wallet': string;
     'percent': number;
-    'description'?: string;
+    'test': boolean;
+    'wallet': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

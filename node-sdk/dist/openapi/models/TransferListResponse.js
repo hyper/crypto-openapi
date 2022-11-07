@@ -12,10 +12,10 @@ exports.TransferListResponse = TransferListResponse;
 TransferListResponse.discriminator = undefined;
 TransferListResponse.attributeTypeMap = [
     {
-        "name": "total",
-        "baseName": "total",
-        "type": "number",
-        "format": "double"
+        "name": "data",
+        "baseName": "data",
+        "type": "Array<ITransfer>",
+        "format": ""
     },
     {
         "name": "has_more",
@@ -30,10 +30,10 @@ TransferListResponse.attributeTypeMap = [
         "format": "double"
     },
     {
-        "name": "data",
-        "baseName": "data",
-        "type": "Array<ITransfer>",
-        "format": ""
+        "name": "total",
+        "baseName": "total",
+        "type": "number",
+        "format": "double"
     }
 ];
 //# sourceMappingURL=TransferListResponse.js.map

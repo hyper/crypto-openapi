@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **connect**
-> IAccount connect()
+> void | IAccount connect()
 
 
 ### Example
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IAccount**
+**void | IAccount**
 
 ### Authorization
 
@@ -75,14 +75,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **connect_0**
-> IAccount connect_0()
+> void | IAccount connect_0()
 
 
 ### Example
@@ -123,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IAccount**
+**void | IAccount**
 
 ### Authorization
 
@@ -138,14 +139,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
-> IAccount create()
+> void | IAccount create()
 
 
 ### Example
@@ -163,7 +165,29 @@ let body:.AccountsApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // AccountCreateRequest (optional)
   account_create_request: {
+    business_profile: {
+      name: "name_example",
+      product_description: "product_description_example",
+      support_address: {
+        city: "city_example",
+        country: "country_example",
+        line1: "line1_example",
+        line2: "line2_example",
+        postal_code: "postal_code_example",
+        state: "state_example",
+      },
+      support_email: "support_email_example",
+      support_phone: "support_phone_example",
+      support_url: "support_url_example",
+      url: "url_example",
+    },
+    connected_accounts: [
+      "connected_accounts_example",
+    ],
     settings: {
+      billing: {
+        retry_period_days: 3.14,
+      },
       branding: {
         logo: "logo_example",
       },
@@ -171,29 +195,7 @@ let body:.AccountsApiCreateRequest = {
         invoice_prefix: "invoice_prefix_example",
         invoice_reminder_frequency: 3.14,
       },
-      billing: {
-        retry_period_days: 3.14,
-      },
     },
-    business_profile: {
-      name: "name_example",
-      product_description: "product_description_example",
-      url: "url_example",
-      support_url: "support_url_example",
-      support_email: "support_email_example",
-      support_phone: "support_phone_example",
-      support_address: {
-        state: "state_example",
-        postal_code: "postal_code_example",
-        line2: "line2_example",
-        line1: "line1_example",
-        country: "country_example",
-        city: "city_example",
-      },
-    },
-    connected_accounts: [
-      "connected_accounts_example",
-    ],
   },
 };
 
@@ -213,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IAccount**
+**void | IAccount**
 
 ### Authorization
 
@@ -228,14 +230,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create_0**
-> IAccount create_0()
+> void | IAccount create_0()
 
 
 ### Example
@@ -253,7 +256,29 @@ let body:.AccountsApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // AccountCreateRequest (optional)
   account_create_request: {
+    business_profile: {
+      name: "name_example",
+      product_description: "product_description_example",
+      support_address: {
+        city: "city_example",
+        country: "country_example",
+        line1: "line1_example",
+        line2: "line2_example",
+        postal_code: "postal_code_example",
+        state: "state_example",
+      },
+      support_email: "support_email_example",
+      support_phone: "support_phone_example",
+      support_url: "support_url_example",
+      url: "url_example",
+    },
+    connected_accounts: [
+      "connected_accounts_example",
+    ],
     settings: {
+      billing: {
+        retry_period_days: 3.14,
+      },
       branding: {
         logo: "logo_example",
       },
@@ -261,29 +286,7 @@ let body:.AccountsApiCreate0Request = {
         invoice_prefix: "invoice_prefix_example",
         invoice_reminder_frequency: 3.14,
       },
-      billing: {
-        retry_period_days: 3.14,
-      },
     },
-    business_profile: {
-      name: "name_example",
-      product_description: "product_description_example",
-      url: "url_example",
-      support_url: "support_url_example",
-      support_email: "support_email_example",
-      support_phone: "support_phone_example",
-      support_address: {
-        state: "state_example",
-        postal_code: "postal_code_example",
-        line2: "line2_example",
-        line1: "line1_example",
-        country: "country_example",
-        city: "city_example",
-      },
-    },
-    connected_accounts: [
-      "connected_accounts_example",
-    ],
   },
 };
 
@@ -303,7 +306,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IAccount**
+**void | IAccount**
 
 ### Authorization
 
@@ -318,14 +321,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **dashboardAccess**
-> AccountDashboardAccessResponse dashboardAccess()
+> void | IAccount dashboardAccess()
 
 
 ### Example
@@ -370,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**AccountDashboardAccessResponse**
+**void | IAccount**
 
 ### Authorization
 
@@ -385,14 +389,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **dashboardAccess_0**
-> AccountDashboardAccessResponse dashboardAccess_0()
+> void | IAccount dashboardAccess_0()
 
 
 ### Example
@@ -437,7 +442,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**AccountDashboardAccessResponse**
+**void | IAccount**
 
 ### Authorization
 
@@ -452,14 +457,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> AccountListResponse list()
+> AccountListResponse | void list()
 
 
 ### Example
@@ -504,7 +510,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**AccountListResponse**
+**AccountListResponse | void**
 
 ### Authorization
 
@@ -519,14 +525,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list_0**
-> AccountListResponse list_0()
+> AccountListResponse | void list_0()
 
 
 ### Example
@@ -571,7 +578,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**AccountListResponse**
+**AccountListResponse | void**
 
 ### Authorization
 
@@ -586,14 +593,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **patch**
-> IAccount patch()
+> void | IAccount patch()
 
 
 ### Example
@@ -613,32 +621,32 @@ let body:.AccountsApiPatchRequest = {
   pluto_account: "Pluto-Account_example",
   // AccountUpdateRequest (optional)
   account_update_request: {
+    business_profile: {
+      name: "name_example",
+      product_description: "product_description_example",
+      support_address: {
+        city: "city_example",
+        country: "country_example",
+        line1: "line1_example",
+        line2: "line2_example",
+        postal_code: "postal_code_example",
+        state: "state_example",
+      },
+      support_email: "support_email_example",
+      support_phone: "support_phone_example",
+      support_url: "support_url_example",
+      url: "url_example",
+    },
     settings: {
+      billing: {
+        retry_period_days: 3.14,
+      },
       branding: {
         logo: "logo_example",
       },
       payments: {
         invoice_prefix: "invoice_prefix_example",
         invoice_reminder_frequency: 3.14,
-      },
-      billing: {
-        retry_period_days: 3.14,
-      },
-    },
-    business_profile: {
-      name: "name_example",
-      product_description: "product_description_example",
-      url: "url_example",
-      support_url: "support_url_example",
-      support_email: "support_email_example",
-      support_phone: "support_phone_example",
-      support_address: {
-        state: "state_example",
-        postal_code: "postal_code_example",
-        line2: "line2_example",
-        line1: "line1_example",
-        country: "country_example",
-        city: "city_example",
       },
     },
   },
@@ -661,7 +669,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IAccount**
+**void | IAccount**
 
 ### Authorization
 
@@ -676,7 +684,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -684,7 +693,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **patch_0**
-> IAccount patch_0()
+> void | IAccount patch_0()
 
 
 ### Example
@@ -704,32 +713,32 @@ let body:.AccountsApiPatch0Request = {
   pluto_account: "Pluto-Account_example",
   // AccountUpdateRequest (optional)
   account_update_request: {
+    business_profile: {
+      name: "name_example",
+      product_description: "product_description_example",
+      support_address: {
+        city: "city_example",
+        country: "country_example",
+        line1: "line1_example",
+        line2: "line2_example",
+        postal_code: "postal_code_example",
+        state: "state_example",
+      },
+      support_email: "support_email_example",
+      support_phone: "support_phone_example",
+      support_url: "support_url_example",
+      url: "url_example",
+    },
     settings: {
+      billing: {
+        retry_period_days: 3.14,
+      },
       branding: {
         logo: "logo_example",
       },
       payments: {
         invoice_prefix: "invoice_prefix_example",
         invoice_reminder_frequency: 3.14,
-      },
-      billing: {
-        retry_period_days: 3.14,
-      },
-    },
-    business_profile: {
-      name: "name_example",
-      product_description: "product_description_example",
-      url: "url_example",
-      support_url: "support_url_example",
-      support_email: "support_email_example",
-      support_phone: "support_phone_example",
-      support_address: {
-        state: "state_example",
-        postal_code: "postal_code_example",
-        line2: "line2_example",
-        line1: "line1_example",
-        country: "country_example",
-        city: "city_example",
       },
     },
   },
@@ -752,7 +761,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IAccount**
+**void | IAccount**
 
 ### Authorization
 
@@ -767,7 +776,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -775,7 +785,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> IAccount retrieve()
+> void | IAccount retrieve()
 
 
 ### Example
@@ -814,7 +824,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IAccount**
+**void | IAccount**
 
 ### Authorization
 
@@ -829,14 +839,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve_0**
-> IAccount retrieve_0()
+> void | IAccount retrieve_0()
 
 
 ### Example
@@ -875,7 +886,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IAccount**
+**void | IAccount**
 
 ### Authorization
 
@@ -890,7 +901,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 

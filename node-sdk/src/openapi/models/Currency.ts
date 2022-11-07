@@ -12,4 +12,4 @@
 
 import { HttpFile } from '../http/http';
 
-export type Currency = "eth" | "sol" | "weth" | "usdc" | "usdt" ;
+export type Currency = "eth" | "weth" | "usdc" | "usdt" | "pltnm" | "sol" ;

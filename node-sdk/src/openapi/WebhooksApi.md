@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **_delete**
-> IWebhook _delete()
+> void | IWebhook _delete()
 
 
 ### Example
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IWebhook**
+**void | IWebhook**
 
 ### Authorization
 
@@ -68,14 +68,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **_delete_0**
-> IWebhook _delete_0()
+> void | IWebhook _delete_0()
 
 
 ### Example
@@ -111,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IWebhook**
+**void | IWebhook**
 
 ### Authorization
 
@@ -126,14 +127,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
-> IWebhook create()
+> void | IWebhook create()
 
 
 ### Example
@@ -151,11 +153,11 @@ let body:.WebhooksApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // WebhookCreateRequest (optional)
   webhook_create_request: {
-    secret: "secret_example",
     endpoint_url: "endpoint_url_example",
     event_types: [
       "account.created",
     ],
+    secret: "secret_example",
   },
 };
 
@@ -175,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IWebhook**
+**void | IWebhook**
 
 ### Authorization
 
@@ -190,14 +192,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create_0**
-> IWebhook create_0()
+> void | IWebhook create_0()
 
 
 ### Example
@@ -215,11 +218,11 @@ let body:.WebhooksApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // WebhookCreateRequest (optional)
   webhook_create_request: {
-    secret: "secret_example",
     endpoint_url: "endpoint_url_example",
     event_types: [
       "account.created",
     ],
+    secret: "secret_example",
   },
 };
 
@@ -239,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IWebhook**
+**void | IWebhook**
 
 ### Authorization
 
@@ -254,14 +257,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> WebhookListResponse list()
+> void | WebhookListResponse list()
 
 
 ### Example
@@ -306,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**WebhookListResponse**
+**void | WebhookListResponse**
 
 ### Authorization
 
@@ -321,14 +325,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list_0**
-> WebhookListResponse list_0()
+> void | WebhookListResponse list_0()
 
 
 ### Example
@@ -373,7 +378,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**WebhookListResponse**
+**void | WebhookListResponse**
 
 ### Authorization
 
@@ -388,14 +393,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> IWebhook retrieve()
+> void | IWebhook retrieve()
 
 
 ### Example
@@ -434,7 +440,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IWebhook**
+**void | IWebhook**
 
 ### Authorization
 
@@ -449,14 +455,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve_0**
-> IWebhook retrieve_0()
+> void | IWebhook retrieve_0()
 
 
 ### Example
@@ -495,7 +502,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IWebhook**
+**void | IWebhook**
 
 ### Authorization
 
@@ -510,14 +517,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update**
-> IWebhook update()
+> void | IWebhook update()
 
 
 ### Example
@@ -560,7 +568,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IWebhook**
+**void | IWebhook**
 
 ### Authorization
 
@@ -575,7 +583,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
@@ -583,7 +592,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **update_0**
-> IWebhook update_0()
+> void | IWebhook update_0()
 
 
 ### Example
@@ -626,7 +635,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**IWebhook**
+**void | IWebhook**
 
 ### Authorization
 
@@ -641,7 +650,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |

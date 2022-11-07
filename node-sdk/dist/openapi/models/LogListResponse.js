@@ -12,10 +12,10 @@ exports.LogListResponse = LogListResponse;
 LogListResponse.discriminator = undefined;
 LogListResponse.attributeTypeMap = [
     {
-        "name": "total",
-        "baseName": "total",
-        "type": "number",
-        "format": "double"
+        "name": "data",
+        "baseName": "data",
+        "type": "Array<ILog>",
+        "format": ""
     },
     {
         "name": "has_more",
@@ -30,10 +30,10 @@ LogListResponse.attributeTypeMap = [
         "format": "double"
     },
     {
-        "name": "data",
-        "baseName": "data",
-        "type": "Array<ILog>",
-        "format": ""
+        "name": "total",
+        "baseName": "total",
+        "type": "number",
+        "format": "double"
     }
 ];
 //# sourceMappingURL=LogListResponse.js.map

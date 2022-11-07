@@ -1,1 +1,1 @@
-export declare type Currency = "eth" | "sol" | "weth" | "usdc" | "usdt";
+export declare type Currency = "eth" | "weth" | "usdc" | "usdt" | "pltnm" | "sol";

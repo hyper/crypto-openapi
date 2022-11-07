@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PromiseWebhooksApi = exports.PromiseWalletsApi = exports.PromiseTransfersApi = exports.PromiseSubscriptionsApi = exports.PromiseProductsApi = exports.PromisePricesApi = exports.PromisePayoutWalletsApi = exports.PromisePaymentLinksApi = exports.PromisePaymentIntentsApi = exports.PromiseLogsApi = exports.PromiseInvoicesApi = exports.PromiseFeesApi = exports.PromiseCustomersApi = exports.PromiseCheckoutsApi = exports.PromiseAccountsApi = void 0;
+exports.PromiseWebhooksApi = exports.PromiseWalletsApi = exports.PromiseTransfersApi = exports.PromiseSubscriptionsApi = exports.PromiseProductsApi = exports.PromisePricesApi = exports.PromisePayoutWalletsApi = exports.PromisePaymentLinksApi = exports.PromisePaymentIntentsApi = exports.PromiseLogsApi = exports.PromiseInvoicesApi = exports.PromiseFeesApi = exports.PromiseCustomersApi = exports.PromiseCouponsApi = exports.PromiseCheckoutsApi = exports.PromiseAccountsApi = void 0;
 const ObservableAPI_1 = require("./ObservableAPI");
 class PromiseAccountsApi {
     constructor(configuration, requestFactory, responseProcessor) {
@@ -96,9 +96,56 @@ class PromiseCheckoutsApi {
 }
 exports.PromiseCheckoutsApi = PromiseCheckoutsApi;
 const ObservableAPI_3 = require("./ObservableAPI");
+class PromiseCouponsApi {
+    constructor(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_3.ObservableCouponsApi(configuration, requestFactory, responseProcessor);
+    }
+    _delete(id, pluto_account, _options) {
+        const result = this.api._delete(id, pluto_account, _options);
+        return result.toPromise();
+    }
+    _delete_1(id, pluto_account, _options) {
+        const result = this.api._delete_1(id, pluto_account, _options);
+        return result.toPromise();
+    }
+    create(pluto_account, coupon_create_request, _options) {
+        const result = this.api.create(pluto_account, coupon_create_request, _options);
+        return result.toPromise();
+    }
+    create_2(pluto_account, coupon_create_request, _options) {
+        const result = this.api.create_2(pluto_account, coupon_create_request, _options);
+        return result.toPromise();
+    }
+    list(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    list_3(pluto_account, limit, page, sort, expand, _options) {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+    retrieve(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    retrieve_4(id, pluto_account, expand, _options) {
+        const result = this.api.retrieve_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+    update(id, pluto_account, coupon_update_request, _options) {
+        const result = this.api.update(id, pluto_account, coupon_update_request, _options);
+        return result.toPromise();
+    }
+    update_5(id, pluto_account, coupon_update_request, _options) {
+        const result = this.api.update_5(id, pluto_account, coupon_update_request, _options);
+        return result.toPromise();
+    }
+}
+exports.PromiseCouponsApi = PromiseCouponsApi;
+const ObservableAPI_4 = require("./ObservableAPI");
 class PromiseCustomersApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_3.ObservableCustomersApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_4.ObservableCustomersApi(configuration, requestFactory, responseProcessor);
     }
     create(pluto_account, customer_create_request, _options) {
         const result = this.api.create(pluto_account, customer_create_request, _options);
@@ -134,10 +181,10 @@ class PromiseCustomersApi {
     }
 }
 exports.PromiseCustomersApi = PromiseCustomersApi;
-const ObservableAPI_4 = require("./ObservableAPI");
+const ObservableAPI_5 = require("./ObservableAPI");
 class PromiseFeesApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_4.ObservableFeesApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_5.ObservableFeesApi(configuration, requestFactory, responseProcessor);
     }
     create(pluto_account, fee_create_request, _options) {
         const result = this.api.create(pluto_account, fee_create_request, _options);
@@ -165,10 +212,10 @@ class PromiseFeesApi {
     }
 }
 exports.PromiseFeesApi = PromiseFeesApi;
-const ObservableAPI_5 = require("./ObservableAPI");
+const ObservableAPI_6 = require("./ObservableAPI");
 class PromiseInvoicesApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_5.ObservableInvoicesApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_6.ObservableInvoicesApi(configuration, requestFactory, responseProcessor);
     }
     _delete(id, pluto_account, _options) {
         const result = this.api._delete(id, pluto_account, _options);
@@ -194,12 +241,12 @@ class PromiseInvoicesApi {
         const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
         return result.toPromise();
     }
-    pay(id, pluto_account, _options) {
-        const result = this.api.pay(id, pluto_account, _options);
+    pay(id, pluto_account, invoice_pay_request, _options) {
+        const result = this.api.pay(id, pluto_account, invoice_pay_request, _options);
         return result.toPromise();
     }
-    pay_4(id, pluto_account, _options) {
-        const result = this.api.pay_4(id, pluto_account, _options);
+    pay_4(id, pluto_account, invoice_pay_request, _options) {
+        const result = this.api.pay_4(id, pluto_account, invoice_pay_request, _options);
         return result.toPromise();
     }
     retrieve(id, pluto_account, expand, _options) {
@@ -220,10 +267,10 @@ class PromiseInvoicesApi {
     }
 }
 exports.PromiseInvoicesApi = PromiseInvoicesApi;
-const ObservableAPI_6 = require("./ObservableAPI");
+const ObservableAPI_7 = require("./ObservableAPI");
 class PromiseLogsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_6.ObservableLogsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_7.ObservableLogsApi(configuration, requestFactory, responseProcessor);
     }
     list(pluto_account, _options) {
         const result = this.api.list(pluto_account, _options);
@@ -243,10 +290,10 @@ class PromiseLogsApi {
     }
 }
 exports.PromiseLogsApi = PromiseLogsApi;
-const ObservableAPI_7 = require("./ObservableAPI");
+const ObservableAPI_8 = require("./ObservableAPI");
 class PromisePaymentIntentsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_7.ObservablePaymentIntentsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_8.ObservablePaymentIntentsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(id, pluto_account, _options) {
         const result = this.api._delete(id, pluto_account, _options);
@@ -306,10 +353,10 @@ class PromisePaymentIntentsApi {
     }
 }
 exports.PromisePaymentIntentsApi = PromisePaymentIntentsApi;
-const ObservableAPI_8 = require("./ObservableAPI");
+const ObservableAPI_9 = require("./ObservableAPI");
 class PromisePaymentLinksApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_8.ObservablePaymentLinksApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_9.ObservablePaymentLinksApi(configuration, requestFactory, responseProcessor);
     }
     _delete(id, pluto_account, _options) {
         const result = this.api._delete(id, pluto_account, _options);
@@ -353,10 +400,10 @@ class PromisePaymentLinksApi {
     }
 }
 exports.PromisePaymentLinksApi = PromisePaymentLinksApi;
-const ObservableAPI_9 = require("./ObservableAPI");
+const ObservableAPI_10 = require("./ObservableAPI");
 class PromisePayoutWalletsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_9.ObservablePayoutWalletsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_10.ObservablePayoutWalletsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(id, pluto_account, _options) {
         const result = this.api._delete(id, pluto_account, _options);
@@ -400,10 +447,10 @@ class PromisePayoutWalletsApi {
     }
 }
 exports.PromisePayoutWalletsApi = PromisePayoutWalletsApi;
-const ObservableAPI_10 = require("./ObservableAPI");
+const ObservableAPI_11 = require("./ObservableAPI");
 class PromisePricesApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_10.ObservablePricesApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_11.ObservablePricesApi(configuration, requestFactory, responseProcessor);
     }
     _delete(id, pluto_account, _options) {
         const result = this.api._delete(id, pluto_account, _options);
@@ -447,10 +494,10 @@ class PromisePricesApi {
     }
 }
 exports.PromisePricesApi = PromisePricesApi;
-const ObservableAPI_11 = require("./ObservableAPI");
+const ObservableAPI_12 = require("./ObservableAPI");
 class PromiseProductsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_11.ObservableProductsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_12.ObservableProductsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(id, pluto_account, _options) {
         const result = this.api._delete(id, pluto_account, _options);
@@ -494,10 +541,10 @@ class PromiseProductsApi {
     }
 }
 exports.PromiseProductsApi = PromiseProductsApi;
-const ObservableAPI_12 = require("./ObservableAPI");
+const ObservableAPI_13 = require("./ObservableAPI");
 class PromiseSubscriptionsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_12.ObservableSubscriptionsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_13.ObservableSubscriptionsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(id, pluto_account, _options) {
         const result = this.api._delete(id, pluto_account, _options);
@@ -541,10 +588,10 @@ class PromiseSubscriptionsApi {
     }
 }
 exports.PromiseSubscriptionsApi = PromiseSubscriptionsApi;
-const ObservableAPI_13 = require("./ObservableAPI");
+const ObservableAPI_14 = require("./ObservableAPI");
 class PromiseTransfersApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_13.ObservableTransfersApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_14.ObservableTransfersApi(configuration, requestFactory, responseProcessor);
     }
     create(pluto_account, transfer_create_request, _options) {
         const result = this.api.create(pluto_account, transfer_create_request, _options);
@@ -572,10 +619,10 @@ class PromiseTransfersApi {
     }
 }
 exports.PromiseTransfersApi = PromiseTransfersApi;
-const ObservableAPI_14 = require("./ObservableAPI");
+const ObservableAPI_15 = require("./ObservableAPI");
 class PromiseWalletsApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_14.ObservableWalletsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_15.ObservableWalletsApi(configuration, requestFactory, responseProcessor);
     }
     _delete(id, pluto_account, _options) {
         const result = this.api._delete(id, pluto_account, _options);
@@ -619,10 +666,10 @@ class PromiseWalletsApi {
     }
 }
 exports.PromiseWalletsApi = PromiseWalletsApi;
-const ObservableAPI_15 = require("./ObservableAPI");
+const ObservableAPI_16 = require("./ObservableAPI");
 class PromiseWebhooksApi {
     constructor(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_15.ObservableWebhooksApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_16.ObservableWebhooksApi(configuration, requestFactory, responseProcessor);
     }
     _delete(id, pluto_account, _options) {
         const result = this.api._delete(id, pluto_account, _options);

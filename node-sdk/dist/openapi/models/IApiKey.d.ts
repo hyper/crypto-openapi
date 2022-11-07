@@ -1,16 +1,16 @@
 import { ApiKeyType } from './ApiKeyType';
 export declare class IApiKey {
-    'id': string;
-    'object': string;
-    'created': number;
-    'test': boolean;
     'account': string;
+    'admin': boolean;
+    'created': number;
+    'id': string;
+    'key': string;
+    'last_used'?: Date | number;
     'name': string;
     'note'?: string;
-    'key': string;
+    'object': string;
+    'test': boolean;
     'type': ApiKeyType;
-    'last_used'?: Date | number;
-    'admin': boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -12,10 +12,10 @@ exports.PriceListResponse = PriceListResponse;
 PriceListResponse.discriminator = undefined;
 PriceListResponse.attributeTypeMap = [
     {
-        "name": "total",
-        "baseName": "total",
-        "type": "number",
-        "format": "double"
+        "name": "data",
+        "baseName": "data",
+        "type": "Array<IPrice>",
+        "format": ""
     },
     {
         "name": "has_more",
@@ -30,10 +30,10 @@ PriceListResponse.attributeTypeMap = [
         "format": "double"
     },
     {
-        "name": "data",
-        "baseName": "data",
-        "type": "Array<IPrice>",
-        "format": ""
+        "name": "total",
+        "baseName": "total",
+        "type": "number",
+        "format": "double"
     }
 ];
 //# sourceMappingURL=PriceListResponse.js.map

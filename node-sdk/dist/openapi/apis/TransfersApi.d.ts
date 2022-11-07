@@ -13,10 +13,10 @@ export declare class TransfersApiRequestFactory extends BaseAPIRequestFactory {
     retrieve_3(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class TransfersApiResponseProcessor {
-    create(response: ResponseContext): Promise<ITransfer>;
-    create_1(response: ResponseContext): Promise<ITransfer>;
-    list(response: ResponseContext): Promise<TransferListResponse>;
-    list_2(response: ResponseContext): Promise<TransferListResponse>;
-    retrieve(response: ResponseContext): Promise<ITransfer>;
-    retrieve_3(response: ResponseContext): Promise<ITransfer>;
+    create(response: ResponseContext): Promise<ITransfer | void>;
+    create_1(response: ResponseContext): Promise<ITransfer | void>;
+    list(response: ResponseContext): Promise<void | TransferListResponse>;
+    list_2(response: ResponseContext): Promise<void | TransferListResponse>;
+    retrieve(response: ResponseContext): Promise<ITransfer | void>;
+    retrieve_3(response: ResponseContext): Promise<ITransfer | void>;
 }

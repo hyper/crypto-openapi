@@ -14,41 +14,23 @@ import { IPrice } from './IPrice';
 import { HttpFile } from '../http/http';
 
 export class IProduct {
-    'id': string;
-    'object': string;
-    'created': number;
-    'test': boolean;
-    'active': boolean;
     'account': string;
-    'name': string;
+    'active': boolean;
+    'created': number;
     'description'?: string;
+    'id': string;
+    'name': string;
+    'object': string;
     'prices'?: Array<IPrice>;
+    'test': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
+            "name": "account",
+            "baseName": "account",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "object",
-            "baseName": "object",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "created",
-            "baseName": "created",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "test",
-            "baseName": "test",
-            "type": "boolean",
             "format": ""
         },
         {
@@ -58,8 +40,20 @@ export class IProduct {
             "format": ""
         },
         {
-            "name": "account",
-            "baseName": "account",
+            "name": "created",
+            "baseName": "created",
+            "type": "number",
+            "format": "double"
+        },
+        {
+            "name": "description",
+            "baseName": "description",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "id",
+            "baseName": "id",
             "type": "string",
             "format": ""
         },
@@ -70,8 +64,8 @@ export class IProduct {
             "format": ""
         },
         {
-            "name": "description",
-            "baseName": "description",
+            "name": "object",
+            "baseName": "object",
             "type": "string",
             "format": ""
         },
@@ -79,6 +73,12 @@ export class IProduct {
             "name": "prices",
             "baseName": "prices",
             "type": "Array<IPrice>",
+            "format": ""
+        },
+        {
+            "name": "test",
+            "baseName": "test",
+            "type": "boolean",
             "format": ""
         }    ];
 

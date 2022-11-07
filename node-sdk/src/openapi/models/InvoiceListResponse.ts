@@ -14,19 +14,19 @@ import { IInvoice } from './IInvoice';
 import { HttpFile } from '../http/http';
 
 export class InvoiceListResponse {
-    'total': number;
+    'data': Array<IInvoice>;
     'has_more': boolean;
     'page': number;
-    'data': Array<IInvoice>;
+    'total': number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "total",
-            "baseName": "total",
-            "type": "number",
-            "format": "double"
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<IInvoice>",
+            "format": ""
         },
         {
             "name": "has_more",
@@ -41,10 +41,10 @@ export class InvoiceListResponse {
             "format": "double"
         },
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "Array<IInvoice>",
-            "format": ""
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
+            "format": "double"
         }    ];
 
     static getAttributeTypeMap() {

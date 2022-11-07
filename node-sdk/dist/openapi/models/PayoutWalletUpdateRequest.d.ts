@@ -1,7 +1,7 @@
 import { Chain } from './Chain';
 export declare class PayoutWalletUpdateRequest {
-    'chain'?: Chain;
     'address'?: string;
+    'chain'?: Chain;
     '_default'?: boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

@@ -13,10 +13,10 @@ export declare class FeesApiRequestFactory extends BaseAPIRequestFactory {
     retrieve_3(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class FeesApiResponseProcessor {
-    create(response: ResponseContext): Promise<IFee>;
-    create_1(response: ResponseContext): Promise<IFee>;
-    list(response: ResponseContext): Promise<FeeListResponse>;
-    list_2(response: ResponseContext): Promise<FeeListResponse>;
-    retrieve(response: ResponseContext): Promise<IFee>;
-    retrieve_3(response: ResponseContext): Promise<IFee>;
+    create(response: ResponseContext): Promise<void | IFee>;
+    create_1(response: ResponseContext): Promise<void | IFee>;
+    list(response: ResponseContext): Promise<void | FeeListResponse>;
+    list_2(response: ResponseContext): Promise<void | FeeListResponse>;
+    retrieve(response: ResponseContext): Promise<void | IFee>;
+    retrieve_3(response: ResponseContext): Promise<void | IFee>;
 }

@@ -18,6 +18,12 @@ LineItem.attributeTypeMap = [
         "format": ""
     },
     {
+        "name": "price",
+        "baseName": "price",
+        "type": "string",
+        "format": ""
+    },
+    {
         "name": "price_data",
         "baseName": "price_data",
         "type": "IPrice",
@@ -28,12 +34,6 @@ LineItem.attributeTypeMap = [
         "baseName": "quantity",
         "type": "number",
         "format": "double"
-    },
-    {
-        "name": "price",
-        "baseName": "price",
-        "type": "string",
-        "format": ""
     }
 ];
 //# sourceMappingURL=LineItem.js.map

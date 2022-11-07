@@ -16,13 +16,19 @@ import { IPayments } from './IPayments';
 import { HttpFile } from '../http/http';
 
 export class ISettings {
+    'billing': IBilling;
     'branding': IBranding;
     'payments': IPayments;
-    'billing': IBilling;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "billing",
+            "baseName": "billing",
+            "type": "IBilling",
+            "format": ""
+        },
         {
             "name": "branding",
             "baseName": "branding",
@@ -33,12 +39,6 @@ export class ISettings {
             "name": "payments",
             "baseName": "payments",
             "type": "IPayments",
-            "format": ""
-        },
-        {
-            "name": "billing",
-            "baseName": "billing",
-            "type": "IBilling",
             "format": ""
         }    ];
 

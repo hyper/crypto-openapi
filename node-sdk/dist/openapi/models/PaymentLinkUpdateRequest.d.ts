@@ -1,11 +1,11 @@
 import { AfterCompletion } from './AfterCompletion';
 export declare class PaymentLinkUpdateRequest {
-    'metadata'?: {
-        [key: string]: any;
-    };
     'active'?: boolean;
     'after_completion'?: AfterCompletion;
     'expires_at'?: Date | number;
+    'metadata'?: {
+        [key: string]: any;
+    };
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -1,6 +1,6 @@
 export declare class ITeamMember {
-    'user': string;
     'owner': boolean;
+    'user': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

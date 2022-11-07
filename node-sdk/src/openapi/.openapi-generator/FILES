@@ -1,5 +1,6 @@
 AccountsApi.md
 CheckoutsApi.md
+CouponsApi.md
 CustomersApi.md
 FeesApi.md
 InvoicesApi.md
@@ -15,6 +16,7 @@ WalletsApi.md
 WebhooksApi.md
 apis/AccountsApi.ts
 apis/CheckoutsApi.ts
+apis/CouponsApi.ts
 apis/CustomersApi.ts
 apis/FeesApi.ts
 apis/InvoicesApi.ts
@@ -37,7 +39,6 @@ middleware.ts
 models/AccountConnectRequest.ts
 models/AccountCreateRequest.ts
 models/AccountDashboardAccessRequest.ts
-models/AccountDashboardAccessResponse.ts
 models/AccountListResponse.ts
 models/AccountUpdateRequest.ts
 models/Address.ts
@@ -50,9 +51,14 @@ models/Chain.ts
 models/CheckoutCreateRequest.ts
 models/CheckoutListResponse.ts
 models/CheckoutStatus.ts
+models/CouponCreateRequest.ts
+models/CouponDuration.ts
+models/CouponListResponse.ts
+models/CouponUpdateRequest.ts
 models/Currency.ts
 models/CustomAmount.ts
 models/CustomerCreateRequest.ts
+models/CustomerCreateRequestBillingDetails.ts
 models/CustomerDetails.ts
 models/CustomerListResponse.ts
 models/CustomerUpdateRequest.ts
@@ -66,8 +72,8 @@ models/IBilling.ts
 models/IBranding.ts
 models/IBusinessProfile.ts
 models/ICheckout.ts
+models/ICoupon.ts
 models/ICustomer.ts
-models/ICustomerBillingDetails.ts
 models/IFee.ts
 models/IIntegrations.ts
 models/IIntegrationsFtx.ts
@@ -89,6 +95,7 @@ models/IWallet.ts
 models/IWebhook.ts
 models/InvoiceCreateRequest.ts
 models/InvoiceListResponse.ts
+models/InvoicePayRequest.ts
 models/InvoiceStatus.ts
 models/InvoiceUpdateRequest.ts
 models/LineItem.ts

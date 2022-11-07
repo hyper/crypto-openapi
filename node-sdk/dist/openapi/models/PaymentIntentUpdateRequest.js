@@ -12,15 +12,15 @@ exports.PaymentIntentUpdateRequest = PaymentIntentUpdateRequest;
 PaymentIntentUpdateRequest.discriminator = undefined;
 PaymentIntentUpdateRequest.attributeTypeMap = [
     {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "{ [key: string]: any; }",
-        "format": ""
-    },
-    {
         "name": "hash",
         "baseName": "hash",
         "type": "string",
+        "format": ""
+    },
+    {
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "{ [key: string]: any; }",
         "format": ""
     }
 ];

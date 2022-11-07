@@ -499,7 +499,7 @@ export class WalletsApiResponseProcessor {
      * @params response Response returned by the server for a request to _delete
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async _delete(response: ResponseContext): Promise<IWallet > {
+     public async _delete(response: ResponseContext): Promise<void | IWallet > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: IWallet = ObjectSerializer.deserialize(
@@ -507,6 +507,9 @@ export class WalletsApiResponseProcessor {
                 "IWallet", ""
             ) as IWallet;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
@@ -517,10 +520,10 @@ export class WalletsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: IWallet = ObjectSerializer.deserialize(
+            const body: void | IWallet = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "IWallet", ""
-            ) as IWallet;
+                "void | IWallet", ""
+            ) as void | IWallet;
             return body;
         }
 
@@ -534,7 +537,7 @@ export class WalletsApiResponseProcessor {
      * @params response Response returned by the server for a request to _delete_1
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async _delete_1(response: ResponseContext): Promise<IWallet > {
+     public async _delete_1(response: ResponseContext): Promise<void | IWallet > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: IWallet = ObjectSerializer.deserialize(
@@ -542,6 +545,9 @@ export class WalletsApiResponseProcessor {
                 "IWallet", ""
             ) as IWallet;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
@@ -552,10 +558,10 @@ export class WalletsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: IWallet = ObjectSerializer.deserialize(
+            const body: void | IWallet = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "IWallet", ""
-            ) as IWallet;
+                "void | IWallet", ""
+            ) as void | IWallet;
             return body;
         }
 
@@ -569,7 +575,7 @@ export class WalletsApiResponseProcessor {
      * @params response Response returned by the server for a request to create
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async create(response: ResponseContext): Promise<IWallet > {
+     public async create(response: ResponseContext): Promise<void | IWallet > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: IWallet = ObjectSerializer.deserialize(
@@ -577,6 +583,9 @@ export class WalletsApiResponseProcessor {
                 "IWallet", ""
             ) as IWallet;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -587,10 +596,10 @@ export class WalletsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: IWallet = ObjectSerializer.deserialize(
+            const body: void | IWallet = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "IWallet", ""
-            ) as IWallet;
+                "void | IWallet", ""
+            ) as void | IWallet;
             return body;
         }
 
@@ -604,7 +613,7 @@ export class WalletsApiResponseProcessor {
      * @params response Response returned by the server for a request to create_2
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async create_2(response: ResponseContext): Promise<IWallet > {
+     public async create_2(response: ResponseContext): Promise<void | IWallet > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: IWallet = ObjectSerializer.deserialize(
@@ -612,6 +621,9 @@ export class WalletsApiResponseProcessor {
                 "IWallet", ""
             ) as IWallet;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -622,10 +634,10 @@ export class WalletsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: IWallet = ObjectSerializer.deserialize(
+            const body: void | IWallet = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "IWallet", ""
-            ) as IWallet;
+                "void | IWallet", ""
+            ) as void | IWallet;
             return body;
         }
 
@@ -639,7 +651,7 @@ export class WalletsApiResponseProcessor {
      * @params response Response returned by the server for a request to list
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async list(response: ResponseContext): Promise<WalletListResponse > {
+     public async list(response: ResponseContext): Promise<void | WalletListResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: WalletListResponse = ObjectSerializer.deserialize(
@@ -647,6 +659,9 @@ export class WalletsApiResponseProcessor {
                 "WalletListResponse", ""
             ) as WalletListResponse;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -657,10 +672,10 @@ export class WalletsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: WalletListResponse = ObjectSerializer.deserialize(
+            const body: void | WalletListResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "WalletListResponse", ""
-            ) as WalletListResponse;
+                "void | WalletListResponse", ""
+            ) as void | WalletListResponse;
             return body;
         }
 
@@ -674,7 +689,7 @@ export class WalletsApiResponseProcessor {
      * @params response Response returned by the server for a request to list_3
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async list_3(response: ResponseContext): Promise<WalletListResponse > {
+     public async list_3(response: ResponseContext): Promise<void | WalletListResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: WalletListResponse = ObjectSerializer.deserialize(
@@ -682,6 +697,9 @@ export class WalletsApiResponseProcessor {
                 "WalletListResponse", ""
             ) as WalletListResponse;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -692,10 +710,10 @@ export class WalletsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: WalletListResponse = ObjectSerializer.deserialize(
+            const body: void | WalletListResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "WalletListResponse", ""
-            ) as WalletListResponse;
+                "void | WalletListResponse", ""
+            ) as void | WalletListResponse;
             return body;
         }
 
@@ -709,7 +727,7 @@ export class WalletsApiResponseProcessor {
      * @params response Response returned by the server for a request to retrieve
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async retrieve(response: ResponseContext): Promise<IWallet > {
+     public async retrieve(response: ResponseContext): Promise<void | IWallet > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: IWallet = ObjectSerializer.deserialize(
@@ -717,6 +735,9 @@ export class WalletsApiResponseProcessor {
                 "IWallet", ""
             ) as IWallet;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
@@ -727,10 +748,10 @@ export class WalletsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: IWallet = ObjectSerializer.deserialize(
+            const body: void | IWallet = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "IWallet", ""
-            ) as IWallet;
+                "void | IWallet", ""
+            ) as void | IWallet;
             return body;
         }
 
@@ -744,7 +765,7 @@ export class WalletsApiResponseProcessor {
      * @params response Response returned by the server for a request to retrieve_4
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async retrieve_4(response: ResponseContext): Promise<IWallet > {
+     public async retrieve_4(response: ResponseContext): Promise<void | IWallet > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: IWallet = ObjectSerializer.deserialize(
@@ -752,6 +773,9 @@ export class WalletsApiResponseProcessor {
                 "IWallet", ""
             ) as IWallet;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
@@ -762,10 +786,10 @@ export class WalletsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: IWallet = ObjectSerializer.deserialize(
+            const body: void | IWallet = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "IWallet", ""
-            ) as IWallet;
+                "void | IWallet", ""
+            ) as void | IWallet;
             return body;
         }
 
@@ -779,7 +803,7 @@ export class WalletsApiResponseProcessor {
      * @params response Response returned by the server for a request to update
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async update(response: ResponseContext): Promise<IWallet > {
+     public async update(response: ResponseContext): Promise<void | IWallet > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: IWallet = ObjectSerializer.deserialize(
@@ -787,6 +811,9 @@ export class WalletsApiResponseProcessor {
                 "IWallet", ""
             ) as IWallet;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -800,10 +827,10 @@ export class WalletsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: IWallet = ObjectSerializer.deserialize(
+            const body: void | IWallet = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "IWallet", ""
-            ) as IWallet;
+                "void | IWallet", ""
+            ) as void | IWallet;
             return body;
         }
 
@@ -817,7 +844,7 @@ export class WalletsApiResponseProcessor {
      * @params response Response returned by the server for a request to update_5
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async update_5(response: ResponseContext): Promise<IWallet > {
+     public async update_5(response: ResponseContext): Promise<void | IWallet > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: IWallet = ObjectSerializer.deserialize(
@@ -825,6 +852,9 @@ export class WalletsApiResponseProcessor {
                 "IWallet", ""
             ) as IWallet;
             return body;
+        }
+        if (isCodeInRange("204", response.httpStatusCode)) {
+            return;
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Bad Request", undefined, response.headers);
@@ -838,10 +868,10 @@ export class WalletsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: IWallet = ObjectSerializer.deserialize(
+            const body: void | IWallet = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "IWallet", ""
-            ) as IWallet;
+                "void | IWallet", ""
+            ) as void | IWallet;
             return body;
         }
 

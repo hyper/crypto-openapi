@@ -12,15 +12,15 @@ exports.InvoiceUpdateRequest = InvoiceUpdateRequest;
 InvoiceUpdateRequest.discriminator = undefined;
 InvoiceUpdateRequest.attributeTypeMap = [
     {
-        "name": "metadata",
-        "baseName": "metadata",
-        "type": "{ [key: string]: any; }",
-        "format": ""
-    },
-    {
         "name": "due",
         "baseName": "due",
         "type": "Date | number",
+        "format": ""
+    },
+    {
+        "name": "metadata",
+        "baseName": "metadata",
+        "type": "{ [key: string]: any; }",
         "format": ""
     },
     {

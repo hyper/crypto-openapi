@@ -18,6 +18,42 @@ PaymentIntentCreateRequest.attributeTypeMap = [
         "format": "double"
     },
     {
+        "name": "application_fee_percent",
+        "baseName": "application_fee_percent",
+        "type": "number",
+        "format": "double"
+    },
+    {
+        "name": "chain",
+        "baseName": "chain",
+        "type": "Chain",
+        "format": ""
+    },
+    {
+        "name": "currency",
+        "baseName": "currency",
+        "type": "Currency",
+        "format": ""
+    },
+    {
+        "name": "customer",
+        "baseName": "customer",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "invoice",
+        "baseName": "invoice",
+        "type": "string",
+        "format": ""
+    },
+    {
+        "name": "line_items",
+        "baseName": "line_items",
+        "type": "Array<LineItem>",
+        "format": ""
+    },
+    {
         "name": "metadata",
         "baseName": "metadata",
         "type": "{ [key: string]: any; }",
@@ -30,45 +66,9 @@ PaymentIntentCreateRequest.attributeTypeMap = [
         "format": ""
     },
     {
-        "name": "customer",
-        "baseName": "customer",
-        "type": "string",
-        "format": ""
-    },
-    {
-        "name": "line_items",
-        "baseName": "line_items",
-        "type": "Array<LineItem>",
-        "format": ""
-    },
-    {
-        "name": "invoice",
-        "baseName": "invoice",
-        "type": "string",
-        "format": ""
-    },
-    {
         "name": "subscription",
         "baseName": "subscription",
         "type": "string",
-        "format": ""
-    },
-    {
-        "name": "chain",
-        "baseName": "chain",
-        "type": "Chain",
-        "format": ""
-    },
-    {
-        "name": "application_fee_percent",
-        "baseName": "application_fee_percent",
-        "type": "number",
-        "format": "double"
-    },
-    {
-        "name": "currency",
-        "baseName": "currency",
-        "type": "Currency",
         "format": ""
     }
 ];

@@ -1,12 +1,12 @@
-import { ICustomerBillingDetails } from './ICustomerBillingDetails';
+import { CustomerCreateRequestBillingDetails } from './CustomerCreateRequestBillingDetails';
 export declare class CustomerUpdateRequest {
-    'name'?: string;
+    'billing_details'?: CustomerCreateRequestBillingDetails;
     'email'?: string;
-    'phone'?: string;
-    'billing_details'?: ICustomerBillingDetails;
     'metadata'?: {
         [key: string]: any;
     };
+    'name'?: string;
+    'phone'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

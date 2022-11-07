@@ -108,6 +108,9 @@ class LogsApiResponseProcessor {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "LogListResponse", "");
                 return body;
             }
+            if (util_1.isCodeInRange("204", response.httpStatusCode)) {
+                return;
+            }
             if (util_1.isCodeInRange("400", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Bad Request", undefined, response.headers);
             }
@@ -115,7 +118,7 @@ class LogsApiResponseProcessor {
                 throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "LogListResponse", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "LogListResponse | void", "");
                 return body;
             }
             throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);
@@ -128,6 +131,9 @@ class LogsApiResponseProcessor {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "LogListResponse", "");
                 return body;
             }
+            if (util_1.isCodeInRange("204", response.httpStatusCode)) {
+                return;
+            }
             if (util_1.isCodeInRange("400", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Bad Request", undefined, response.headers);
             }
@@ -135,7 +141,7 @@ class LogsApiResponseProcessor {
                 throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "LogListResponse", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "LogListResponse | void", "");
                 return body;
             }
             throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);
@@ -148,6 +154,9 @@ class LogsApiResponseProcessor {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ILog", "");
                 return body;
             }
+            if (util_1.isCodeInRange("204", response.httpStatusCode)) {
+                return;
+            }
             if (util_1.isCodeInRange("400", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Bad Request", undefined, response.headers);
             }
@@ -158,7 +167,7 @@ class LogsApiResponseProcessor {
                 throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ILog", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "void | ILog", "");
                 return body;
             }
             throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);
@@ -171,6 +180,9 @@ class LogsApiResponseProcessor {
                 const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ILog", "");
                 return body;
             }
+            if (util_1.isCodeInRange("204", response.httpStatusCode)) {
+                return;
+            }
             if (util_1.isCodeInRange("400", response.httpStatusCode)) {
                 throw new exception_1.ApiException(response.httpStatusCode, "Bad Request", undefined, response.headers);
             }
@@ -181,7 +193,7 @@ class LogsApiResponseProcessor {
                 throw new exception_1.ApiException(response.httpStatusCode, "Not Found", undefined, response.headers);
             }
             if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "ILog", "");
+                const body = ObjectSerializer_1.ObjectSerializer.deserialize(ObjectSerializer_1.ObjectSerializer.parse(yield response.body.text(), contentType), "void | ILog", "");
                 return body;
             }
             throw new exception_1.ApiException(response.httpStatusCode, "Unknown API Status Code!", yield response.getBodyAsAny(), response.headers);

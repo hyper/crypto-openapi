@@ -18,14 +18,14 @@ export declare class WebhooksApiRequestFactory extends BaseAPIRequestFactory {
     update_5(id: string, pluto_account?: string, webhook_update_request?: WebhookUpdateRequest, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class WebhooksApiResponseProcessor {
-    _delete(response: ResponseContext): Promise<IWebhook>;
-    _delete_1(response: ResponseContext): Promise<IWebhook>;
-    create(response: ResponseContext): Promise<IWebhook>;
-    create_2(response: ResponseContext): Promise<IWebhook>;
-    list(response: ResponseContext): Promise<WebhookListResponse>;
-    list_3(response: ResponseContext): Promise<WebhookListResponse>;
-    retrieve(response: ResponseContext): Promise<IWebhook>;
-    retrieve_4(response: ResponseContext): Promise<IWebhook>;
-    update(response: ResponseContext): Promise<IWebhook>;
-    update_5(response: ResponseContext): Promise<IWebhook>;
+    _delete(response: ResponseContext): Promise<void | IWebhook>;
+    _delete_1(response: ResponseContext): Promise<void | IWebhook>;
+    create(response: ResponseContext): Promise<void | IWebhook>;
+    create_2(response: ResponseContext): Promise<void | IWebhook>;
+    list(response: ResponseContext): Promise<void | WebhookListResponse>;
+    list_3(response: ResponseContext): Promise<void | WebhookListResponse>;
+    retrieve(response: ResponseContext): Promise<void | IWebhook>;
+    retrieve_4(response: ResponseContext): Promise<void | IWebhook>;
+    update(response: ResponseContext): Promise<void | IWebhook>;
+    update_5(response: ResponseContext): Promise<void | IWebhook>;
 }

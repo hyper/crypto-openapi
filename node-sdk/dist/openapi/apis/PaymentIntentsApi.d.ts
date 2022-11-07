@@ -22,18 +22,18 @@ export declare class PaymentIntentsApiRequestFactory extends BaseAPIRequestFacto
     update_7(id: string, pluto_account?: string, payment_intent_update_request?: PaymentIntentUpdateRequest, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class PaymentIntentsApiResponseProcessor {
-    _delete(response: ResponseContext): Promise<IPaymentIntent>;
-    _delete_1(response: ResponseContext): Promise<IPaymentIntent>;
-    create(response: ResponseContext): Promise<IPaymentIntent>;
-    create_2(response: ResponseContext): Promise<IPaymentIntent>;
-    list(response: ResponseContext): Promise<PaymentIntentListResponse>;
-    list_3(response: ResponseContext): Promise<PaymentIntentListResponse>;
-    poll(response: ResponseContext): Promise<IPaymentIntent>;
-    poll_4(response: ResponseContext): Promise<IPaymentIntent>;
-    retrieve(response: ResponseContext): Promise<IPaymentIntent>;
-    retrieve_5(response: ResponseContext): Promise<IPaymentIntent>;
-    sendReceipt(response: ResponseContext): Promise<IPaymentIntent>;
-    sendReceipt_6(response: ResponseContext): Promise<IPaymentIntent>;
-    update(response: ResponseContext): Promise<IPaymentIntent>;
-    update_7(response: ResponseContext): Promise<IPaymentIntent>;
+    _delete(response: ResponseContext): Promise<void | IPaymentIntent>;
+    _delete_1(response: ResponseContext): Promise<void | IPaymentIntent>;
+    create(response: ResponseContext): Promise<void | IPaymentIntent>;
+    create_2(response: ResponseContext): Promise<void | IPaymentIntent>;
+    list(response: ResponseContext): Promise<PaymentIntentListResponse | void>;
+    list_3(response: ResponseContext): Promise<PaymentIntentListResponse | void>;
+    poll(response: ResponseContext): Promise<void | IPaymentIntent>;
+    poll_4(response: ResponseContext): Promise<void | IPaymentIntent>;
+    retrieve(response: ResponseContext): Promise<void | IPaymentIntent>;
+    retrieve_5(response: ResponseContext): Promise<void | IPaymentIntent>;
+    sendReceipt(response: ResponseContext): Promise<void | IPaymentIntent>;
+    sendReceipt_6(response: ResponseContext): Promise<void | IPaymentIntent>;
+    update(response: ResponseContext): Promise<void | IPaymentIntent>;
+    update_7(response: ResponseContext): Promise<void | IPaymentIntent>;
 }

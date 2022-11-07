@@ -102,6 +102,14 @@ import {
   IWebhook,
   WebhookListResponse,
   SubscriptionsApiDeleteRequest,
+  CouponsApi,
+  CouponsApiCreateRequest,
+  ICoupon,
+  CouponsApiRetrieveRequest,
+  CouponsApiUpdateRequest,
+  CouponsApiDeleteRequest,
+  CouponsApiListRequest,
+  CouponListResponse,
 } from './openapi/index';
 import convertCasing from './helpers/convertCasing';
 export * from './openapi/models/all';
@@ -128,6 +136,7 @@ export interface PlutoOptions {
 export class Pluto {
   public readonly accounts: AccountsApiLayer;
   public readonly customers: CustomersApiLayer;
+  public readonly coupons: CouponsApiLayer;
   public readonly fees: FeesApiLayer;
   public readonly invoices: InvoicesApiLayer;
   public readonly logs: LogsApiLayer;
@@ -158,6 +167,7 @@ export class Pluto {
     });
 
     this.accounts = new AccountsApiLayer(config);
+    this.coupons = new CouponsApiLayer(config);
     this.customers = new CustomersApiLayer(config);
     this.fees = new FeesApiLayer(config);
     this.invoices = new InvoicesApiLayer(config);
@@ -183,7 +193,7 @@ class AccountsApiLayer {
   public async create(
     data: AccountsApiCreateRequest['account_create_request'],
     options?: { plutoAccount?: string }
-  ): Promise<IAccount> {
+  ): Promise<void | IAccount> {
     return this.api.create({ ...convertCasing(options), account_create_request: data });
   }
 
@@ -191,7 +201,7 @@ class AccountsApiLayer {
     id: string,
     params?: Omit<AccountsApiRetrieveRequest, 'pluto_account' | 'id'>,
     options?: { plutoAccount?: string }
-  ): Promise<IAccount> {
+  ): Promise<void | IAccount> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
   }
 
@@ -199,14 +209,60 @@ class AccountsApiLayer {
     id: string,
     data: AccountsApiPatchRequest['account_update_request'],
     options?: { plutoAccount?: string }
-  ): Promise<IAccount> {
+  ): Promise<void | IAccount> {
     return this.api.patch({ id, ...convertCasing(options), account_update_request: data });
   }
 
   public async list(
     params?: Omit<AccountsApiListRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<AccountListResponse> {
+  ): Promise<void | AccountListResponse> {
+    return this.api.list({ ...convertCasing(options), ...params });
+  }
+}
+
+class CouponsApiLayer {
+  private readonly api: CouponsApi;
+
+  constructor(config: Configuration) {
+    this.api = new CouponsApi(config);
+  }
+
+  public async create(
+    data: CouponsApiCreateRequest['coupon_create_request'],
+    options?: { plutoAccount?: string }
+  ): Promise<void | ICoupon> {
+    return this.api.create({ ...convertCasing(options), coupon_create_request: data });
+  }
+
+  public async retrieve(
+    id: string,
+    params?: Omit<CouponsApiRetrieveRequest, 'pluto_account' | 'id'>,
+    options?: { plutoAccount?: string }
+  ): Promise<void | ICoupon> {
+    return this.api.retrieve({ id, ...convertCasing(options), ...params });
+  }
+
+  public async update(
+    id: string,
+    data: CouponsApiUpdateRequest['coupon_update_request'],
+    options?: { plutoAccount?: string }
+  ): Promise<void | ICoupon> {
+    return this.api.update({ id, ...convertCasing(options), coupon_update_request: data });
+  }
+
+  public async delete(
+    id: string,
+    params: Omit<CouponsApiDeleteRequest, 'pluto_account'>,
+    options?: { plutoAccount?: string }
+  ): Promise<void | ICoupon> {
+    return this.api._delete({ id, ...convertCasing(options) });
+  }
+
+  public async list(
+    params?: Omit<CouponsApiListRequest, 'pluto_account'>,
+    options?: { plutoAccount?: string }
+  ): Promise<void | CouponListResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
 }
@@ -221,7 +277,7 @@ class CustomersApiLayer {
   public async create(
     data: CustomersApiCreateRequest['customer_create_request'],
     options?: { plutoAccount?: string }
-  ): Promise<ICustomer> {
+  ): Promise<void | ICustomer> {
     return this.api.create({ ...convertCasing(options), customer_create_request: data });
   }
 
@@ -229,7 +285,7 @@ class CustomersApiLayer {
     id: string,
     params?: Omit<CustomersApiRetrieveRequest, 'pluto_account' | 'id'>,
     options?: { plutoAccount?: string }
-  ): Promise<ICustomer> {
+  ): Promise<void | ICustomer> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
   }
 
@@ -237,14 +293,14 @@ class CustomersApiLayer {
     id: string,
     data: CustomersApiUpdateRequest['customer_update_request'],
     options?: { plutoAccount?: string }
-  ): Promise<ICustomer> {
+  ): Promise<void | ICustomer> {
     return this.api.update({ id, ...convertCasing(options), customer_update_request: data });
   }
 
   public async list(
     params?: Omit<CustomersApiListRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<CustomerListResponse> {
+  ): Promise<void | CustomerListResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
 }
@@ -259,7 +315,7 @@ class FeesApiLayer {
   public async create(
     data: FeesApiCreateRequest['fee_create_request'],
     options?: { plutoAccount?: string }
-  ): Promise<IFee> {
+  ): Promise<void | IFee> {
     return this.api.create({ ...convertCasing(options), fee_create_request: data });
   }
 
@@ -267,14 +323,14 @@ class FeesApiLayer {
     id: string,
     params?: Omit<FeesApiRetrieveRequest, 'pluto_account' | 'id'>,
     options?: { plutoAccount?: string }
-  ): Promise<IFee> {
+  ): Promise<void | IFee> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
   }
 
   public async list(
     params?: Omit<FeesApiListRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<FeeListResponse> {
+  ): Promise<void | FeeListResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
 }
@@ -289,7 +345,7 @@ class InvoicesApiLayer {
   public async create(
     data: InvoicesApiCreateRequest['invoice_create_request'],
     options?: { plutoAccount?: string }
-  ): Promise<IInvoice> {
+  ): Promise<void | IInvoice> {
     return this.api.create({ ...convertCasing(options), invoice_create_request: data });
   }
 
@@ -297,7 +353,7 @@ class InvoicesApiLayer {
     id: string,
     params?: Omit<InvoicesApiRetrieveRequest, 'pluto_account' | 'id'>,
     options?: { plutoAccount?: string }
-  ): Promise<IInvoice> {
+  ): Promise<void | IInvoice> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
   }
 
@@ -305,14 +361,14 @@ class InvoicesApiLayer {
     id: string,
     data: InvoicesApiUpdateRequest['invoice_update_request'],
     options?: { plutoAccount?: string }
-  ): Promise<IInvoice> {
+  ): Promise<void | IInvoice> {
     return this.api.update({ id, ...convertCasing(options), invoice_update_request: data });
   }
 
   public async list(
     params?: Omit<InvoicesApiListRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<InvoiceListResponse> {
+  ): Promise<void | InvoiceListResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
 
@@ -320,7 +376,7 @@ class InvoicesApiLayer {
     id: string,
     params?: Omit<InvoicesApiPayRequest, 'pluto_account' | 'id'>,
     options?: { plutoAccount?: string }
-  ): Promise<IPaymentIntent> {
+  ): Promise<void | IPaymentIntent> {
     return this.api.pay({ id, ...convertCasing(options), ...params });
   }
 }
@@ -336,14 +392,14 @@ class LogsApiLayer {
     id: string,
     params?: Omit<LogsApiRetrieveRequest, 'pluto_account' | 'id'>,
     options?: { plutoAccount?: string }
-  ): Promise<ILog> {
+  ): Promise<void | ILog> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
   }
 
   public async list(
     params?: Omit<LogsApiListRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<LogListResponse> {
+  ): Promise<void | LogListResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
 }
@@ -358,7 +414,7 @@ class PricesApiLayer {
   public async create(
     data: PricesApiCreateRequest['price_create_request'],
     options?: { plutoAccount?: string }
-  ): Promise<IPrice> {
+  ): Promise<void | IPrice> {
     return this.api.create({ ...convertCasing(options), price_create_request: data });
   }
 
@@ -366,7 +422,7 @@ class PricesApiLayer {
     id: string,
     params?: Omit<PricesApiRetrieveRequest, 'pluto_account' | 'id'>,
     options?: { plutoAccount?: string }
-  ): Promise<IPrice> {
+  ): Promise<void | IPrice> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
   }
 
@@ -374,14 +430,14 @@ class PricesApiLayer {
     id: string,
     data: PricesApiUpdateRequest['price_update_request'],
     options?: { plutoAccount?: string }
-  ): Promise<IPrice> {
+  ): Promise<void | IPrice> {
     return this.api.update({ id, ...convertCasing(options), price_update_request: data });
   }
 
   public async list(
     params?: Omit<PricesApiListRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<PriceListResponse> {
+  ): Promise<void | PriceListResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
 
@@ -389,7 +445,7 @@ class PricesApiLayer {
     id: string,
     params: Omit<PricesApiDeleteRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<IPrice> {
+  ): Promise<void | IPrice> {
     return this.api._delete({ id, ...convertCasing(options) });
   }
 }
@@ -404,7 +460,7 @@ class ProductsApiLayer {
   public async create(
     data: ProductsApiCreateRequest['product_create_request'],
     options?: { plutoAccount?: string }
-  ): Promise<IProduct> {
+  ): Promise<void | IProduct> {
     return this.api.create({ ...convertCasing(options), product_create_request: data });
   }
 
@@ -412,7 +468,7 @@ class ProductsApiLayer {
     id: string,
     params?: Omit<ProductsApiRetrieveRequest, 'pluto_account' | 'id'>,
     options?: { plutoAccount?: string }
-  ): Promise<IProduct> {
+  ): Promise<void | IProduct> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
   }
 
@@ -420,14 +476,14 @@ class ProductsApiLayer {
     id: string,
     data: ProductsApiUpdateRequest['product_update_request'],
     options?: { plutoAccount?: string }
-  ): Promise<IProduct> {
+  ): Promise<void | IProduct> {
     return this.api.update({ id, ...convertCasing(options), product_update_request: data });
   }
 
   public async list(
     params?: Omit<ProductsApiListRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<ProductListResponse> {
+  ): Promise<void | ProductListResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
 
@@ -435,7 +491,7 @@ class ProductsApiLayer {
     id: string,
     params: Omit<ProductsApiDeleteRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<IProduct> {
+  ): Promise<void | IProduct> {
     return this.api._delete({ id, ...convertCasing(options) });
   }
 }
@@ -450,7 +506,7 @@ class PayoutWalletsApiLayer {
   public async create(
     data: PayoutWalletsApiCreateRequest['payout_wallet_create_request'],
     options?: { plutoAccount?: string }
-  ): Promise<IPayoutWallet> {
+  ): Promise<void | IPayoutWallet> {
     return this.api.create({ ...convertCasing(options), payout_wallet_create_request: data });
   }
 
@@ -458,7 +514,7 @@ class PayoutWalletsApiLayer {
     id: string,
     params?: Omit<PayoutWalletsApiRetrieveRequest, 'pluto_account' | 'id'>,
     options?: { plutoAccount?: string }
-  ): Promise<IPayoutWallet> {
+  ): Promise<void | IPayoutWallet> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
   }
 
@@ -473,7 +529,7 @@ class PayoutWalletsApiLayer {
   public async list(
     params?: Omit<PayoutWalletsApiListRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<PayoutWalletListResponse> {
+  ): Promise<void | PayoutWalletListResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
 
@@ -481,7 +537,7 @@ class PayoutWalletsApiLayer {
     id: string,
     params: Omit<PayoutWalletsApiDeleteRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<IPayoutWallet> {
+  ): Promise<void | IPayoutWallet> {
     return this.api._delete({ id, ...convertCasing(options) });
   }
 }
@@ -496,7 +552,7 @@ class SubscriptionsApiLayer {
   public async create(
     data: SubscriptionsApiCreateRequest['subscription_create_request'],
     options?: { plutoAccount?: string }
-  ): Promise<ISubscription> {
+  ): Promise<void | ISubscription> {
     return this.api.create({ ...convertCasing(options), subscription_create_request: data });
   }
 
@@ -504,7 +560,7 @@ class SubscriptionsApiLayer {
     id: string,
     params?: Omit<SubscriptionsApiRetrieveRequest, 'pluto_account' | 'id'>,
     options?: { plutoAccount?: string }
-  ): Promise<ISubscription> {
+  ): Promise<void | ISubscription> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
   }
 
@@ -512,14 +568,14 @@ class SubscriptionsApiLayer {
     id: string,
     data: SubscriptionsApiUpdateRequest['subscription_update_request'],
     options?: { plutoAccount?: string }
-  ): Promise<ISubscription> {
+  ): Promise<void | ISubscription> {
     return this.api.update({ id, ...convertCasing(options), subscription_update_request: data });
   }
 
   public async list(
     params?: Omit<SubscriptionsApiListRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<SubscriptionListResponse> {
+  ): Promise<void | SubscriptionListResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
 
@@ -527,7 +583,7 @@ class SubscriptionsApiLayer {
     id: string,
     params: Omit<SubscriptionsApiDeleteRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<ISubscription> {
+  ): Promise<void | ISubscription> {
     return this.api._delete({ id, ...convertCasing(options) });
   }
 }
@@ -542,7 +598,7 @@ class PaymentIntentsApiLayer {
   public async create(
     data: PaymentIntentsApiCreateRequest['payment_intent_create_request'],
     options?: { plutoAccount?: string }
-  ): Promise<IPaymentIntent> {
+  ): Promise<void | IPaymentIntent> {
     return this.api.create({ ...convertCasing(options), payment_intent_create_request: data });
   }
 
@@ -550,7 +606,7 @@ class PaymentIntentsApiLayer {
     id: string,
     params?: Omit<PaymentIntentsApiRetrieveRequest, 'pluto_account' | 'id'>,
     options?: { plutoAccount?: string }
-  ): Promise<IPaymentIntent> {
+  ): Promise<void | IPaymentIntent> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
   }
 
@@ -558,14 +614,14 @@ class PaymentIntentsApiLayer {
     id: string,
     data: PaymentIntentsApiUpdateRequest['payment_intent_update_request'],
     options?: { plutoAccount?: string }
-  ): Promise<IPaymentIntent> {
+  ): Promise<void | IPaymentIntent> {
     return this.api.update({ id, ...convertCasing(options), payment_intent_update_request: data });
   }
 
   public async list(
     params?: Omit<PaymentIntentsApiListRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<PaymentIntentListResponse> {
+  ): Promise<void | PaymentIntentListResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
 
@@ -573,7 +629,7 @@ class PaymentIntentsApiLayer {
     id: string,
     params?: Omit<PaymentIntentsApiPollRequest, 'pluto_account' | 'id'>,
     options?: { plutoAccount?: string }
-  ): Promise<IPaymentIntent> {
+  ): Promise<void | IPaymentIntent> {
     return this.api.poll({ id, ...convertCasing(options), ...params });
   }
 
@@ -581,7 +637,7 @@ class PaymentIntentsApiLayer {
     id: string,
     params: Omit<PaymentIntentsApiDeleteRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<IPaymentIntent> {
+  ): Promise<void | IPaymentIntent> {
     return this.api._delete({ id, ...convertCasing(options) });
   }
 }
@@ -596,7 +652,7 @@ class TransfersApiLayer {
   public async create(
     data: TransfersApiCreateRequest['transfer_create_request'],
     options?: { plutoAccount?: string }
-  ): Promise<ITransfer> {
+  ): Promise<void | ITransfer> {
     return this.api.create({ ...convertCasing(options), transfer_create_request: data });
   }
 
@@ -604,14 +660,14 @@ class TransfersApiLayer {
     id: string,
     params?: Omit<TransfersApiRetrieveRequest, 'pluto_account' | 'id'>,
     options?: { plutoAccount?: string }
-  ): Promise<ITransfer> {
+  ): Promise<void | ITransfer> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
   }
 
   public async list(
     params?: Omit<TransfersApiListRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<TransferListResponse> {
+  ): Promise<void | TransferListResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
 }
@@ -626,7 +682,7 @@ class WalletsApiLayer {
   public async create(
     data: WalletsApiCreateRequest['wallet_create_request'],
     options?: { plutoAccount?: string }
-  ): Promise<IWallet> {
+  ): Promise<void | IWallet> {
     return this.api.create({ ...convertCasing(options), wallet_create_request: data });
   }
 
@@ -634,7 +690,7 @@ class WalletsApiLayer {
     id: string,
     params?: Omit<WalletsApiRetrieveRequest, 'pluto_account' | 'id'>,
     options?: { plutoAccount?: string }
-  ): Promise<IWallet> {
+  ): Promise<void | IWallet> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
   }
 
@@ -642,14 +698,14 @@ class WalletsApiLayer {
     id: string,
     data: WalletsApiUpdateRequest['wallet_update_request'],
     options?: { plutoAccount?: string }
-  ): Promise<IWallet> {
+  ): Promise<void | IWallet> {
     return this.api.update({ id, ...convertCasing(options), wallet_update_request: data });
   }
 
   public async list(
     params?: Omit<WalletsApiListRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<WalletListResponse> {
+  ): Promise<void | WalletListResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
 
@@ -657,7 +713,7 @@ class WalletsApiLayer {
     id: string,
     params: Omit<WalletsApiDeleteRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<IWallet> {
+  ): Promise<void | IWallet> {
     return this.api._delete({ id, ...convertCasing(options) });
   }
 }
@@ -672,7 +728,7 @@ class WebhooksApiLayer {
   public async create(
     data: WebhooksApiCreateRequest['webhook_create_request'],
     options?: { plutoAccount?: string }
-  ): Promise<IWebhook> {
+  ): Promise<void | IWebhook> {
     return this.api.create({ ...convertCasing(options), webhook_create_request: data });
   }
 
@@ -680,7 +736,7 @@ class WebhooksApiLayer {
     id: string,
     params?: Omit<WebhooksApiRetrieveRequest, 'pluto_account' | 'id'>,
     options?: { plutoAccount?: string }
-  ): Promise<IWebhook> {
+  ): Promise<void | IWebhook> {
     return this.api.retrieve({ id, ...convertCasing(options), ...params });
   }
 
@@ -688,14 +744,14 @@ class WebhooksApiLayer {
     id: string,
     data: WebhooksApiUpdateRequest['webhook_update_request'],
     options?: { plutoAccount?: string }
-  ): Promise<IWebhook> {
+  ): Promise<void | IWebhook> {
     return this.api.update({ id, ...convertCasing(options), webhook_update_request: data });
   }
 
   public async list(
     params?: Omit<WebhooksApiListRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<WebhookListResponse> {
+  ): Promise<void | WebhookListResponse> {
     return this.api.list({ ...convertCasing(options), ...params });
   }
 
@@ -703,7 +759,7 @@ class WebhooksApiLayer {
     id: string,
     params: Omit<WebhooksApiDeleteRequest, 'pluto_account'>,
     options?: { plutoAccount?: string }
-  ): Promise<IWebhook> {
+  ): Promise<void | IWebhook> {
     return this.api._delete({ id, ...convertCasing(options) });
   }
 }

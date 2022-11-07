@@ -16,38 +16,57 @@ import { SubscriptionStatus } from './SubscriptionStatus';
 import { HttpFile } from '../http/http';
 
 export class ISubscription {
-    'id': string;
-    'object': string;
-    'created': number;
-    'test': boolean;
     'account': string;
+    'cancel_at'?: Date | number;
+    'cancel_at_period_end': boolean;
+    'canceled_at'?: Date | number;
+    'coupon'?: string;
+    'created': number;
+    'current_period_end': Date | number;
+    'current_period_start': Date | number;
+    'customer': string;
+    'id': string;
+    'latest_invoice': IInvoice;
+    'line_items': Array<LineItem>;
+    'metadata': { [key: string]: any; };
+    'object': string;
+    'pause_collection': boolean;
     'platform_account'?: string;
     'price': string;
-    'line_items': Array<LineItem>;
-    'trial_period_days': number;
-    'customer': string;
     'status': SubscriptionStatus;
-    'current_period_start': Date | number;
-    'current_period_end': Date | number;
-    'cancel_at_period_end': boolean;
-    'pause_collection': boolean;
-    'cancel_at'?: Date | number;
-    'canceled_at'?: Date | number;
-    'latest_invoice': IInvoice;
-    'metadata': { [key: string]: any; };
+    'test': boolean;
+    'trial_period_days': number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
+            "name": "account",
+            "baseName": "account",
             "type": "string",
             "format": ""
         },
         {
-            "name": "object",
-            "baseName": "object",
+            "name": "cancel_at",
+            "baseName": "cancel_at",
+            "type": "Date | number",
+            "format": ""
+        },
+        {
+            "name": "cancel_at_period_end",
+            "baseName": "cancel_at_period_end",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "canceled_at",
+            "baseName": "canceled_at",
+            "type": "Date | number",
+            "format": ""
+        },
+        {
+            "name": "coupon",
+            "baseName": "coupon",
             "type": "string",
             "format": ""
         },
@@ -58,15 +77,57 @@ export class ISubscription {
             "format": "double"
         },
         {
-            "name": "test",
-            "baseName": "test",
-            "type": "boolean",
+            "name": "current_period_end",
+            "baseName": "current_period_end",
+            "type": "Date | number",
             "format": ""
         },
         {
-            "name": "account",
-            "baseName": "account",
+            "name": "current_period_start",
+            "baseName": "current_period_start",
+            "type": "Date | number",
+            "format": ""
+        },
+        {
+            "name": "customer",
+            "baseName": "customer",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "id",
+            "baseName": "id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "latest_invoice",
+            "baseName": "latest_invoice",
+            "type": "IInvoice",
+            "format": ""
+        },
+        {
+            "name": "line_items",
+            "baseName": "line_items",
+            "type": "Array<LineItem>",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "{ [key: string]: any; }",
+            "format": ""
+        },
+        {
+            "name": "object",
+            "baseName": "object",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "pause_collection",
+            "baseName": "pause_collection",
+            "type": "boolean",
             "format": ""
         },
         {
@@ -82,9 +143,15 @@ export class ISubscription {
             "format": ""
         },
         {
-            "name": "line_items",
-            "baseName": "line_items",
-            "type": "Array<LineItem>",
+            "name": "status",
+            "baseName": "status",
+            "type": "SubscriptionStatus",
+            "format": ""
+        },
+        {
+            "name": "test",
+            "baseName": "test",
+            "type": "boolean",
             "format": ""
         },
         {
@@ -92,66 +159,6 @@ export class ISubscription {
             "baseName": "trial_period_days",
             "type": "number",
             "format": "double"
-        },
-        {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "status",
-            "baseName": "status",
-            "type": "SubscriptionStatus",
-            "format": ""
-        },
-        {
-            "name": "current_period_start",
-            "baseName": "current_period_start",
-            "type": "Date | number",
-            "format": ""
-        },
-        {
-            "name": "current_period_end",
-            "baseName": "current_period_end",
-            "type": "Date | number",
-            "format": ""
-        },
-        {
-            "name": "cancel_at_period_end",
-            "baseName": "cancel_at_period_end",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "pause_collection",
-            "baseName": "pause_collection",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "cancel_at",
-            "baseName": "cancel_at",
-            "type": "Date | number",
-            "format": ""
-        },
-        {
-            "name": "canceled_at",
-            "baseName": "canceled_at",
-            "type": "Date | number",
-            "format": ""
-        },
-        {
-            "name": "latest_invoice",
-            "baseName": "latest_invoice",
-            "type": "IInvoice",
-            "format": ""
-        },
-        {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "{ [key: string]: any; }",
-            "format": ""
         }    ];
 
     static getAttributeTypeMap() {

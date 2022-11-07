@@ -18,15 +18,15 @@ import { HttpFile } from '../http/http';
 
 export class PriceCreateRequest {
     'amount'?: number;
-    'metadata'?: { [key: string]: any; };
-    'chain'?: Chain;
     'application_fee_percent'?: number;
-    'currency'?: Currency;
-    'custom_amount'?: CustomAmount;
-    'product'?: string;
+    'archived'?: boolean;
     'base_price'?: BasePrice;
     'billing_period_days'?: number;
-    'archived'?: boolean;
+    'chain'?: Chain;
+    'currency'?: Currency;
+    'custom_amount'?: CustomAmount;
+    'metadata'?: { [key: string]: any; };
+    'product'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -38,39 +38,15 @@ export class PriceCreateRequest {
             "format": "double"
         },
         {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "{ [key: string]: any; }",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "Chain",
-            "format": ""
-        },
-        {
             "name": "application_fee_percent",
             "baseName": "application_fee_percent",
             "type": "number",
             "format": "double"
         },
         {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "Currency",
-            "format": ""
-        },
-        {
-            "name": "custom_amount",
-            "baseName": "custom_amount",
-            "type": "CustomAmount",
-            "format": ""
-        },
-        {
-            "name": "product",
-            "baseName": "product",
-            "type": "string",
+            "name": "archived",
+            "baseName": "archived",
+            "type": "boolean",
             "format": ""
         },
         {
@@ -86,9 +62,33 @@ export class PriceCreateRequest {
             "format": "double"
         },
         {
-            "name": "archived",
-            "baseName": "archived",
-            "type": "boolean",
+            "name": "chain",
+            "baseName": "chain",
+            "type": "Chain",
+            "format": ""
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "Currency",
+            "format": ""
+        },
+        {
+            "name": "custom_amount",
+            "baseName": "custom_amount",
+            "type": "CustomAmount",
+            "format": ""
+        },
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "{ [key: string]: any; }",
+            "format": ""
+        },
+        {
+            "name": "product",
+            "baseName": "product",
+            "type": "string",
             "format": ""
         }    ];
 

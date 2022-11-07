@@ -1,9 +1,9 @@
 import { IAccount } from './IAccount';
 export declare class AccountListResponse {
-    'total': number;
+    'data': Array<IAccount>;
     'has_more': boolean;
     'page': number;
-    'data': Array<IAccount>;
+    'total': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

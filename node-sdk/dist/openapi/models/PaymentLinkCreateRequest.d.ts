@@ -1,15 +1,15 @@
 import { AfterCompletion } from './AfterCompletion';
 import { LineItem } from './LineItem';
 export declare class PaymentLinkCreateRequest {
+    'active'?: boolean;
+    'after_completion'?: AfterCompletion;
+    'application_fee_percent'?: number;
+    'expires_at'?: Date | number;
+    'line_items'?: Array<LineItem>;
+    'max_usages'?: number;
     'metadata'?: {
         [key: string]: any;
     };
-    'line_items'?: Array<LineItem>;
-    'application_fee_percent'?: number;
-    'active'?: boolean;
-    'after_completion'?: AfterCompletion;
-    'expires_at'?: Date | number;
-    'max_usages'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

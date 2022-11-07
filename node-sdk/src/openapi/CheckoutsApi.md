@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **_delete**
-> ICheckout _delete()
+> void | ICheckout _delete()
 
 
 ### Example
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ICheckout**
+**void | ICheckout**
 
 ### Authorization
 
@@ -66,14 +66,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **_delete_0**
-> ICheckout _delete_0()
+> void | ICheckout _delete_0()
 
 
 ### Example
@@ -109,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ICheckout**
+**void | ICheckout**
 
 ### Authorization
 
@@ -124,14 +125,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
-> ICheckout create()
+> void | ICheckout create()
 
 
 ### Example
@@ -149,11 +151,11 @@ let body:.CheckoutsApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // CheckoutCreateRequest (optional)
   checkout_create_request: {
+    amount: 3.14,
     customer_details: {
       email: "email_example",
       name: "name_example",
     },
-    amount: 3.14,
   },
 };
 
@@ -173,7 +175,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ICheckout**
+**void | ICheckout**
 
 ### Authorization
 
@@ -188,14 +190,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create_0**
-> ICheckout create_0()
+> void | ICheckout create_0()
 
 
 ### Example
@@ -213,11 +216,11 @@ let body:.CheckoutsApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // CheckoutCreateRequest (optional)
   checkout_create_request: {
+    amount: 3.14,
     customer_details: {
       email: "email_example",
       name: "name_example",
     },
-    amount: 3.14,
   },
 };
 
@@ -237,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ICheckout**
+**void | ICheckout**
 
 ### Authorization
 
@@ -252,14 +255,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> CheckoutListResponse list()
+> CheckoutListResponse | void list()
 
 
 ### Example
@@ -304,7 +308,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**CheckoutListResponse**
+**CheckoutListResponse | void**
 
 ### Authorization
 
@@ -319,14 +323,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list_0**
-> CheckoutListResponse list_0()
+> CheckoutListResponse | void list_0()
 
 
 ### Example
@@ -371,7 +376,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**CheckoutListResponse**
+**CheckoutListResponse | void**
 
 ### Authorization
 
@@ -386,14 +391,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> ICheckout retrieve()
+> void | ICheckout retrieve()
 
 
 ### Example
@@ -432,7 +438,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ICheckout**
+**void | ICheckout**
 
 ### Authorization
 
@@ -447,14 +453,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve_0**
-> ICheckout retrieve_0()
+> void | ICheckout retrieve_0()
 
 
 ### Example
@@ -493,7 +500,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ICheckout**
+**void | ICheckout**
 
 ### Authorization
 
@@ -508,7 +515,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Ok |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 
