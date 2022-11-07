@@ -4,72 +4,16 @@ All URIs are relative to *http://localhost:7070/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**_delete**](FeesApi.md#_delete) | **DELETE** /fees/{id} | Delete Fee By Id
-[**create**](FeesApi.md#create) | **POST** /fees | Create Fee
-[**list**](FeesApi.md#list) | **GET** /fees | List Fees
-[**retrieve**](FeesApi.md#retrieve) | **GET** /fees/{id} | Retrieve Fee By Id
+[**create**](FeesApi.md#create) | **POST** /fees | Create fee
+[**create_0**](FeesApi.md#create_0) | **POST** /fees | Create fee
+[**list**](FeesApi.md#list) | **GET** /fees | List fees
+[**list_0**](FeesApi.md#list_0) | **GET** /fees | List fees
+[**retrieve**](FeesApi.md#retrieve) | **GET** /fees/{id} | Retrieve fee
+[**retrieve_0**](FeesApi.md#retrieve_0) | **GET** /fees/{id} | Retrieve fee
 
-
-# **_delete**
-> void _delete()
-
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .FeesApi(configuration);
-
-let body:.FeesApiDeleteRequest = {
-  // string
-  id: "id_example",
-  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
-  pluto_account: "Pluto-Account_example",
-};
-
-apiInstance._delete(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**string**] |  | defaults to undefined
- **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
-
-
-### Return type
-
-**void**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**401** | Unauthorized |  -  |
-**404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **create**
-> Fee create()
+> void | IFee create()
 
 
 ### Example
@@ -83,14 +27,13 @@ const configuration = .createConfiguration();
 const apiInstance = new .FeesApi(configuration);
 
 let body:.FeesApiCreateRequest = {
-  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  // string (optional)
   pluto_account: "Pluto-Account_example",
-  // CreateFeeBody (optional)
-  create_fee_body: {
+  // FeeCreateRequest (optional)
+  fee_create_request: {
     description: "description_example",
-    invoice: "invoice_example",
+    payment_intent: "payment_intent_example",
     percent: 3.14,
-    wallet: "wallet_example",
   },
 };
 
@@ -104,13 +47,13 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_fee_body** | **CreateFeeBody**|  |
- **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
+ **fee_create_request** | **FeeCreateRequest**|  |
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**Fee**
+**void | IFee**
 
 ### Authorization
 
@@ -125,14 +68,78 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **create_0**
+> void | IFee create_0()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .FeesApi(configuration);
+
+let body:.FeesApiCreate0Request = {
+  // string (optional)
+  pluto_account: "Pluto-Account_example",
+  // FeeCreateRequest (optional)
+  fee_create_request: {
+    description: "description_example",
+    payment_intent: "payment_intent_example",
+    percent: 3.14,
+  },
+};
+
+apiInstance.create_0(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fee_create_request** | **FeeCreateRequest**|  |
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**void | IFee**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> ListFeesResponse list()
+> void | FeeListResponse list()
 
 
 ### Example
@@ -146,16 +153,16 @@ const configuration = .createConfiguration();
 const apiInstance = new .FeesApi(configuration);
 
 let body:.FeesApiListRequest = {
-  // number | A limit on the number of objects to be returned between 1 and 100. (optional)
-  limit: 3.14,
-  // number | Index of the page to be returned in a paginated response. (optional)
-  page: 3.14,
-  // any | Specifies whether documents are sorted in an ascending or descending order. (optional)
-  sort: null,
-  // string | Specifies which fields to populate in the response. (optional)
-  expand: "expand_example",
-  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  // string (optional)
   pluto_account: "Pluto-Account_example",
+  // number (optional)
+  limit: 3.14,
+  // number (optional)
+  page: 3.14,
+  // number (optional)
+  sort: 3.14,
+  // string (optional)
+  expand: "expand_example",
 };
 
 apiInstance.list(body).then((data:any) => {
@@ -168,16 +175,16 @@ apiInstance.list(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | [**number**] | A limit on the number of objects to be returned between 1 and 100. | (optional) defaults to undefined
- **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
- **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
- **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
+ **limit** | [**number**] |  | (optional) defaults to undefined
+ **page** | [**number**] |  | (optional) defaults to undefined
+ **sort** | [**number**] |  | (optional) defaults to undefined
+ **expand** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**ListFeesResponse**
+**void | FeeListResponse**
 
 ### Authorization
 
@@ -192,14 +199,83 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
-**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **list_0**
+> void | FeeListResponse list_0()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .FeesApi(configuration);
+
+let body:.FeesApiList0Request = {
+  // string (optional)
+  pluto_account: "Pluto-Account_example",
+  // number (optional)
+  limit: 3.14,
+  // number (optional)
+  page: 3.14,
+  // number (optional)
+  sort: 3.14,
+  // string (optional)
+  expand: "expand_example",
+};
+
+apiInstance.list_0(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
+ **limit** | [**number**] |  | (optional) defaults to undefined
+ **page** | [**number**] |  | (optional) defaults to undefined
+ **sort** | [**number**] |  | (optional) defaults to undefined
+ **expand** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**void | FeeListResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**204** | No content |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> Fee retrieve()
+> void | IFee retrieve()
 
 
 ### Example
@@ -215,10 +291,10 @@ const apiInstance = new .FeesApi(configuration);
 let body:.FeesApiRetrieveRequest = {
   // string
   id: "id_example",
-  // string | Specifies which fields to populate in the response. (optional)
-  expand: "expand_example",
-  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  // string (optional)
   pluto_account: "Pluto-Account_example",
+  // string (optional)
+  expand: "expand_example",
 };
 
 apiInstance.retrieve(body).then((data:any) => {
@@ -232,13 +308,13 @@ apiInstance.retrieve(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
+ **expand** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**Fee**
+**void | IFee**
 
 ### Authorization
 
@@ -253,7 +329,70 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **retrieve_0**
+> void | IFee retrieve_0()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .FeesApi(configuration);
+
+let body:.FeesApiRetrieve0Request = {
+  // string
+  id: "id_example",
+  // string (optional)
+  pluto_account: "Pluto-Account_example",
+  // string (optional)
+  expand: "expand_example",
+};
+
+apiInstance.retrieve_0(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**string**] |  | defaults to undefined
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
+ **expand** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**void | IFee**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 

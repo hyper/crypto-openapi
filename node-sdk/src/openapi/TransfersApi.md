@@ -4,13 +4,16 @@ All URIs are relative to *http://localhost:7070/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](TransfersApi.md#create) | **POST** /transfers | Create Transfer
-[**list**](TransfersApi.md#list) | **GET** /transfers | List Transfers
-[**retrieve**](TransfersApi.md#retrieve) | **GET** /transfers/{id} | Retrieve Transfer By ID
+[**create**](TransfersApi.md#create) | **POST** /transfers | Create transfer
+[**create_0**](TransfersApi.md#create_0) | **POST** /transfers | Create transfer
+[**list**](TransfersApi.md#list) | **GET** /transfers | List transfers
+[**list_0**](TransfersApi.md#list_0) | **GET** /transfers | List transfers
+[**retrieve**](TransfersApi.md#retrieve) | **GET** /transfers/{id} | Retrieve transfer
+[**retrieve_0**](TransfersApi.md#retrieve_0) | **GET** /transfers/{id} | Retrieve transfer
 
 
 # **create**
-> Transfer create()
+> ITransfer | void create()
 
 
 ### Example
@@ -24,15 +27,14 @@ const configuration = .createConfiguration();
 const apiInstance = new .TransfersApi(configuration);
 
 let body:.TransfersApiCreateRequest = {
-  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  // string (optional)
   pluto_account: "Pluto-Account_example",
-  // CreateTransferBody (optional)
-  create_transfer_body: {
-    account: "account_example",
+  // TransferCreateRequest (optional)
+  transfer_create_request: {
     description: "description_example",
-    invoice: "invoice_example",
-    percent: 1,
-    wallet: "wallet_example",
+    payment_intent: "payment_intent_example",
+    percent: 3.14,
+    wallet: null,
   },
 };
 
@@ -46,13 +48,13 @@ apiInstance.create(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_transfer_body** | **CreateTransferBody**|  |
- **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
+ **transfer_create_request** | **TransferCreateRequest**|  |
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**Transfer**
+**ITransfer | void**
 
 ### Authorization
 
@@ -67,14 +69,79 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **create_0**
+> ITransfer | void create_0()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .TransfersApi(configuration);
+
+let body:.TransfersApiCreate0Request = {
+  // string (optional)
+  pluto_account: "Pluto-Account_example",
+  // TransferCreateRequest (optional)
+  transfer_create_request: {
+    description: "description_example",
+    payment_intent: "payment_intent_example",
+    percent: 3.14,
+    wallet: null,
+  },
+};
+
+apiInstance.create_0(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **transfer_create_request** | **TransferCreateRequest**|  |
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**ITransfer | void**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**204** | No content |  -  |
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **list**
-> ListTransfersResponse list()
+> void | TransferListResponse list()
 
 
 ### Example
@@ -88,16 +155,16 @@ const configuration = .createConfiguration();
 const apiInstance = new .TransfersApi(configuration);
 
 let body:.TransfersApiListRequest = {
-  // number | A limit on the number of objects to be returned between 1 and 100. (optional)
-  limit: 3.14,
-  // number | Index of the page to be returned in a paginated response. (optional)
-  page: 3.14,
-  // any | Specifies whether documents are sorted in an ascending or descending order. (optional)
-  sort: null,
-  // string | Specifies which fields to populate in the response. (optional)
-  expand: "expand_example",
-  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  // string (optional)
   pluto_account: "Pluto-Account_example",
+  // number (optional)
+  limit: 3.14,
+  // number (optional)
+  page: 3.14,
+  // number (optional)
+  sort: 3.14,
+  // string (optional)
+  expand: "expand_example",
 };
 
 apiInstance.list(body).then((data:any) => {
@@ -110,16 +177,16 @@ apiInstance.list(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | [**number**] | A limit on the number of objects to be returned between 1 and 100. | (optional) defaults to undefined
- **page** | [**number**] | Index of the page to be returned in a paginated response. | (optional) defaults to undefined
- **sort** | **any** | Specifies whether documents are sorted in an ascending or descending order. | (optional) defaults to undefined
- **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
+ **limit** | [**number**] |  | (optional) defaults to undefined
+ **page** | [**number**] |  | (optional) defaults to undefined
+ **sort** | [**number**] |  | (optional) defaults to undefined
+ **expand** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**ListTransfersResponse**
+**void | TransferListResponse**
 
 ### Authorization
 
@@ -134,14 +201,83 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
-**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **list_0**
+> void | TransferListResponse list_0()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .TransfersApi(configuration);
+
+let body:.TransfersApiList0Request = {
+  // string (optional)
+  pluto_account: "Pluto-Account_example",
+  // number (optional)
+  limit: 3.14,
+  // number (optional)
+  page: 3.14,
+  // number (optional)
+  sort: 3.14,
+  // string (optional)
+  expand: "expand_example",
+};
+
+apiInstance.list_0(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
+ **limit** | [**number**] |  | (optional) defaults to undefined
+ **page** | [**number**] |  | (optional) defaults to undefined
+ **sort** | [**number**] |  | (optional) defaults to undefined
+ **expand** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**void | TransferListResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**204** | No content |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **retrieve**
-> Transfer retrieve()
+> ITransfer | void retrieve()
 
 
 ### Example
@@ -157,10 +293,10 @@ const apiInstance = new .TransfersApi(configuration);
 let body:.TransfersApiRetrieveRequest = {
   // string
   id: "id_example",
-  // string | Specifies which fields to populate in the response. (optional)
-  expand: "expand_example",
-  // string | The ID of the connected Pluto account you are making a request on behalf on. (optional)
+  // string (optional)
   pluto_account: "Pluto-Account_example",
+  // string (optional)
+  expand: "expand_example",
 };
 
 apiInstance.retrieve(body).then((data:any) => {
@@ -174,13 +310,13 @@ apiInstance.retrieve(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
- **expand** | [**string**] | Specifies which fields to populate in the response. | (optional) defaults to undefined
- **pluto_account** | [**string**] | The ID of the connected Pluto account you are making a request on behalf on. | (optional) defaults to undefined
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
+ **expand** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**Transfer**
+**ITransfer | void**
 
 ### Authorization
 
@@ -195,7 +331,70 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** |  |  -  |
+**204** | No content |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **retrieve_0**
+> ITransfer | void retrieve_0()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .TransfersApi(configuration);
+
+let body:.TransfersApiRetrieve0Request = {
+  // string
+  id: "id_example",
+  // string (optional)
+  pluto_account: "Pluto-Account_example",
+  // string (optional)
+  expand: "expand_example",
+};
+
+apiInstance.retrieve_0(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**string**] |  | defaults to undefined
+ **pluto_account** | [**string**] |  | (optional) defaults to undefined
+ **expand** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**ITransfer | void**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**204** | No content |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 

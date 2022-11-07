@@ -2,88 +2,100 @@ import { ResponseContext, RequestContext, HttpFile } from '../http/http';
 import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
-import { Account } from '../models/Account';
-import { AccountAllOf } from '../models/AccountAllOf';
-import { AccountAllOfBusinessProfile } from '../models/AccountAllOfBusinessProfile';
-import { AccountAllOfIntegrations } from '../models/AccountAllOfIntegrations';
-import { AccountAllOfIntegrationsFtx } from '../models/AccountAllOfIntegrationsFtx';
-import { AccountAllOfSettings } from '../models/AccountAllOfSettings';
-import { AccountAllOfSettingsBilling } from '../models/AccountAllOfSettingsBilling';
-import { AccountAllOfSettingsBranding } from '../models/AccountAllOfSettingsBranding';
-import { AccountAllOfSettingsPayments } from '../models/AccountAllOfSettingsPayments';
-import { AccountAllOfTeam } from '../models/AccountAllOfTeam';
+import { AccountConnectRequest } from '../models/AccountConnectRequest';
+import { AccountCreateRequest } from '../models/AccountCreateRequest';
+import { AccountDashboardAccessRequest } from '../models/AccountDashboardAccessRequest';
+import { AccountDashboardAccessResponse } from '../models/AccountDashboardAccessResponse';
+import { AccountListResponse } from '../models/AccountListResponse';
+import { AccountUpdateRequest } from '../models/AccountUpdateRequest';
 import { Address } from '../models/Address';
-import { ApiKey } from '../models/ApiKey';
-import { ApiKeyAllOf } from '../models/ApiKeyAllOf';
-import { Checkout } from '../models/Checkout';
-import { CheckoutAllOf } from '../models/CheckoutAllOf';
-import { CheckoutAllOfCustomerDetails } from '../models/CheckoutAllOfCustomerDetails';
-import { CreateCustomerBody } from '../models/CreateCustomerBody';
-import { CreateFeeBody } from '../models/CreateFeeBody';
-import { CreatePayoutWalletBody } from '../models/CreatePayoutWalletBody';
-import { CreateProductBody } from '../models/CreateProductBody';
-import { CreateTransferBody } from '../models/CreateTransferBody';
-import { CreateWalletBody } from '../models/CreateWalletBody';
-import { CreateWebhookBody } from '../models/CreateWebhookBody';
-import { Customer } from '../models/Customer';
-import { CustomerAllOf } from '../models/CustomerAllOf';
-import { CustomerAllOfBillingDetails } from '../models/CustomerAllOfBillingDetails';
-import { CustomersBillingDetails } from '../models/CustomersBillingDetails';
-import { CustomersBillingDetailsAddress } from '../models/CustomersBillingDetailsAddress';
-import { CustomersIdBillingDetails } from '../models/CustomersIdBillingDetails';
-import { CustomersIdBillingDetailsAddress } from '../models/CustomersIdBillingDetailsAddress';
-import { Fee } from '../models/Fee';
-import { FeeAllOf } from '../models/FeeAllOf';
-import { InlineResponse400 } from '../models/InlineResponse400';
-import { InlineResponse400Error } from '../models/InlineResponse400Error';
-import { Invoice } from '../models/Invoice';
-import { InvoiceAllOf } from '../models/InvoiceAllOf';
+import { AfterCompletion } from '../models/AfterCompletion';
+import { ApiKeyCreateRequest } from '../models/ApiKeyCreateRequest';
+import { ApiKeyListResponse } from '../models/ApiKeyListResponse';
+import { ApiKeyType } from '../models/ApiKeyType';
+import { BasePrice } from '../models/BasePrice';
+import { Chain } from '../models/Chain';
+import { CheckoutCreateRequest } from '../models/CheckoutCreateRequest';
+import { CheckoutListResponse } from '../models/CheckoutListResponse';
+import { CheckoutStatus } from '../models/CheckoutStatus';
+import { CouponCreateRequest } from '../models/CouponCreateRequest';
+import { CouponDuration } from '../models/CouponDuration';
+import { CouponListResponse } from '../models/CouponListResponse';
+import { CouponUpdateRequest } from '../models/CouponUpdateRequest';
+import { Currency } from '../models/Currency';
+import { CustomAmount } from '../models/CustomAmount';
+import { CustomerCreateRequest } from '../models/CustomerCreateRequest';
+import { CustomerCreateRequestBillingDetails } from '../models/CustomerCreateRequestBillingDetails';
+import { CustomerDetails } from '../models/CustomerDetails';
+import { CustomerListResponse } from '../models/CustomerListResponse';
+import { CustomerUpdateRequest } from '../models/CustomerUpdateRequest';
+import { EventType } from '../models/EventType';
+import { FeeCreateRequest } from '../models/FeeCreateRequest';
+import { FeeListResponse } from '../models/FeeListResponse';
+import { Headers } from '../models/Headers';
+import { IAccount } from '../models/IAccount';
+import { IApiKey } from '../models/IApiKey';
+import { IBilling } from '../models/IBilling';
+import { IBranding } from '../models/IBranding';
+import { IBusinessProfile } from '../models/IBusinessProfile';
+import { ICheckout } from '../models/ICheckout';
+import { ICoupon } from '../models/ICoupon';
+import { ICustomer } from '../models/ICustomer';
+import { IFee } from '../models/IFee';
+import { IIntegrations } from '../models/IIntegrations';
+import { IIntegrationsFtx } from '../models/IIntegrationsFtx';
+import { IInvoice } from '../models/IInvoice';
+import { ILog } from '../models/ILog';
+import { IPaymentIntent } from '../models/IPaymentIntent';
+import { IPaymentLink } from '../models/IPaymentLink';
+import { IPayments } from '../models/IPayments';
+import { IPayoutWallet } from '../models/IPayoutWallet';
+import { IPrice } from '../models/IPrice';
+import { IProduct } from '../models/IProduct';
+import { IRequest } from '../models/IRequest';
+import { IResponse } from '../models/IResponse';
+import { ISettings } from '../models/ISettings';
+import { ISubscription } from '../models/ISubscription';
+import { ITeamMember } from '../models/ITeamMember';
+import { ITransfer } from '../models/ITransfer';
+import { IWallet } from '../models/IWallet';
+import { IWebhook } from '../models/IWebhook';
+import { InvoiceCreateRequest } from '../models/InvoiceCreateRequest';
+import { InvoiceListResponse } from '../models/InvoiceListResponse';
+import { InvoicePayRequest } from '../models/InvoicePayRequest';
+import { InvoiceStatus } from '../models/InvoiceStatus';
+import { InvoiceUpdateRequest } from '../models/InvoiceUpdateRequest';
 import { LineItem } from '../models/LineItem';
-import { ListAccountsResponse } from '../models/ListAccountsResponse';
-import { ListCustomersResponse } from '../models/ListCustomersResponse';
-import { ListFeesResponse } from '../models/ListFeesResponse';
-import { ListInvoicesResponse } from '../models/ListInvoicesResponse';
-import { ListLogsResponse } from '../models/ListLogsResponse';
-import { ListPaymentIntentsResponse } from '../models/ListPaymentIntentsResponse';
-import { ListPayoutWalletsResponse } from '../models/ListPayoutWalletsResponse';
-import { ListPricesResponse } from '../models/ListPricesResponse';
-import { ListProductsResponse } from '../models/ListProductsResponse';
-import { ListSubscriptionsResponse } from '../models/ListSubscriptionsResponse';
-import { ListTransfersResponse } from '../models/ListTransfersResponse';
-import { ListWalletsResponse } from '../models/ListWalletsResponse';
-import { ListWebhooksResponse } from '../models/ListWebhooksResponse';
-import { Log } from '../models/Log';
-import { LogAllOf } from '../models/LogAllOf';
-import { Model } from '../models/Model';
-import { Notification } from '../models/Notification';
-import { NotificationAllOf } from '../models/NotificationAllOf';
-import { PaymentIntent } from '../models/PaymentIntent';
-import { PaymentIntentAllOf } from '../models/PaymentIntentAllOf';
-import { PaymentLink } from '../models/PaymentLink';
-import { PaymentLinkAllOf } from '../models/PaymentLinkAllOf';
-import { PaymentLinkAllOfAfterCompletion } from '../models/PaymentLinkAllOfAfterCompletion';
+import { LogListResponse } from '../models/LogListResponse';
+import { PaymentIntentCreateRequest } from '../models/PaymentIntentCreateRequest';
+import { PaymentIntentListResponse } from '../models/PaymentIntentListResponse';
+import { PaymentIntentStatus } from '../models/PaymentIntentStatus';
+import { PaymentIntentUpdateRequest } from '../models/PaymentIntentUpdateRequest';
+import { PaymentLinkCreateRequest } from '../models/PaymentLinkCreateRequest';
+import { PaymentLinkListResponse } from '../models/PaymentLinkListResponse';
+import { PaymentLinkUpdateRequest } from '../models/PaymentLinkUpdateRequest';
 import { PayoutWallet } from '../models/PayoutWallet';
-import { PayoutWalletAllOf } from '../models/PayoutWalletAllOf';
-import { Price } from '../models/Price';
-import { PriceAllOf } from '../models/PriceAllOf';
-import { PriceAllOfBasePrice } from '../models/PriceAllOfBasePrice';
-import { PriceAllOfCustomAmount } from '../models/PriceAllOfCustomAmount';
-import { Product } from '../models/Product';
-import { ProductAllOf } from '../models/ProductAllOf';
-import { Subscription } from '../models/Subscription';
-import { SubscriptionAllOf } from '../models/SubscriptionAllOf';
-import { Transfer } from '../models/Transfer';
-import { TransferAllOf } from '../models/TransferAllOf';
-import { UpdateCustomerBody } from '../models/UpdateCustomerBody';
-import { UpdatePaymentIntentBody } from '../models/UpdatePaymentIntentBody';
-import { UpdatePriceBody } from '../models/UpdatePriceBody';
-import { UpdateProductBody } from '../models/UpdateProductBody';
-import { UpdateWalletBody } from '../models/UpdateWalletBody';
-import { UpdateWebhookBody } from '../models/UpdateWebhookBody';
-import { Wallet } from '../models/Wallet';
-import { WalletAllOf } from '../models/WalletAllOf';
-import { Webhook } from '../models/Webhook';
-import { WebhookAllOf } from '../models/WebhookAllOf';
+import { PayoutWalletCreateRequest } from '../models/PayoutWalletCreateRequest';
+import { PayoutWalletListResponse } from '../models/PayoutWalletListResponse';
+import { PayoutWalletUpdateRequest } from '../models/PayoutWalletUpdateRequest';
+import { PriceCreateRequest } from '../models/PriceCreateRequest';
+import { PriceListResponse } from '../models/PriceListResponse';
+import { PriceUpdateRequest } from '../models/PriceUpdateRequest';
+import { ProductCreateRequest } from '../models/ProductCreateRequest';
+import { ProductListResponse } from '../models/ProductListResponse';
+import { ProductUpdateRequest } from '../models/ProductUpdateRequest';
+import { SubscriptionCreateRequest } from '../models/SubscriptionCreateRequest';
+import { SubscriptionListResponse } from '../models/SubscriptionListResponse';
+import { SubscriptionStatus } from '../models/SubscriptionStatus';
+import { SubscriptionUpdateRequest } from '../models/SubscriptionUpdateRequest';
+import { TransferCreateRequest } from '../models/TransferCreateRequest';
+import { TransferListResponse } from '../models/TransferListResponse';
+import { WalletCreateRequest } from '../models/WalletCreateRequest';
+import { WalletListResponse } from '../models/WalletListResponse';
+import { WalletUpdateRequest } from '../models/WalletUpdateRequest';
+import { WebhookCreateRequest } from '../models/WebhookCreateRequest';
+import { WebhookListResponse } from '../models/WebhookListResponse';
+import { WebhookUpdateRequest } from '../models/WebhookUpdateRequest';
 import { ObservableAccountsApi } from './ObservableAPI';
 
 import { AccountsApiRequestFactory, AccountsApiResponseProcessor} from "../apis/AccountsApi";
@@ -99,47 +111,374 @@ export class PromiseAccountsApi {
     }
 
     /**
-     * Create Account
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param account 
-     */
-    public create(pluto_account?: string, account?: Account, _options?: Configuration): Promise<Account> {
-        const result = this.api.create(pluto_account, account, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * List Accounts
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListAccountsResponse> {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Retrieve Account By Id
+     * Connect account
      * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
+     * @param account_connect_request 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Account> {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
+    public connect(id: string, pluto_account?: string, account_connect_request?: AccountConnectRequest, _options?: Configuration): Promise<void | IAccount> {
+        const result = this.api.connect(id, pluto_account, account_connect_request, _options);
         return result.toPromise();
     }
 
     /**
-     * Update Account By Id
+     * Connect account
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param account 
+     * @param pluto_account 
+     * @param account_connect_request 
      */
-    public update(id: string, pluto_account?: string, account?: Account, _options?: Configuration): Promise<Account> {
-        const result = this.api.update(id, pluto_account, account, _options);
+    public connect_1(id: string, pluto_account?: string, account_connect_request?: AccountConnectRequest, _options?: Configuration): Promise<void | IAccount> {
+        const result = this.api.connect_1(id, pluto_account, account_connect_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create account
+     * @param pluto_account 
+     * @param account_create_request 
+     */
+    public create(pluto_account?: string, account_create_request?: AccountCreateRequest, _options?: Configuration): Promise<void | IAccount> {
+        const result = this.api.create(pluto_account, account_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create account
+     * @param pluto_account 
+     * @param account_create_request 
+     */
+    public create_2(pluto_account?: string, account_create_request?: AccountCreateRequest, _options?: Configuration): Promise<void | IAccount> {
+        const result = this.api.create_2(pluto_account, account_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Get dashboard access to account
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     * @param account_dashboard_access_request 
+     */
+    public dashboardAccess(id: string, pluto_account?: string, expand?: string, account_dashboard_access_request?: AccountDashboardAccessRequest, _options?: Configuration): Promise<void | AccountDashboardAccessResponse> {
+        const result = this.api.dashboardAccess(id, pluto_account, expand, account_dashboard_access_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Get dashboard access to account
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     * @param account_dashboard_access_request 
+     */
+    public dashboardAccess_3(id: string, pluto_account?: string, expand?: string, account_dashboard_access_request?: AccountDashboardAccessRequest, _options?: Configuration): Promise<void | AccountDashboardAccessResponse> {
+        const result = this.api.dashboardAccess_3(id, pluto_account, expand, account_dashboard_access_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List accounts
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<AccountListResponse | void> {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List accounts
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list_4(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<AccountListResponse | void> {
+        const result = this.api.list_4(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update account
+     * @param id 
+     * @param pluto_account 
+     * @param account_update_request 
+     */
+    public patch(id: string, pluto_account?: string, account_update_request?: AccountUpdateRequest, _options?: Configuration): Promise<void | IAccount> {
+        const result = this.api.patch(id, pluto_account, account_update_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update account
+     * @param id 
+     * @param pluto_account 
+     * @param account_update_request 
+     */
+    public patch_5(id: string, pluto_account?: string, account_update_request?: AccountUpdateRequest, _options?: Configuration): Promise<void | IAccount> {
+        const result = this.api.patch_5(id, pluto_account, account_update_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve account
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IAccount> {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve account
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve_6(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IAccount> {
+        const result = this.api.retrieve_6(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservableCheckoutsApi } from './ObservableAPI';
+
+import { CheckoutsApiRequestFactory, CheckoutsApiResponseProcessor} from "../apis/CheckoutsApi";
+export class PromiseCheckoutsApi {
+    private api: ObservableCheckoutsApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: CheckoutsApiRequestFactory,
+        responseProcessor?: CheckoutsApiResponseProcessor
+    ) {
+        this.api = new ObservableCheckoutsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Fail checkout
+     * @param id 
+     * @param pluto_account 
+     */
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void | ICheckout> {
+        const result = this.api._delete(id, pluto_account, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Fail checkout
+     * @param id 
+     * @param pluto_account 
+     */
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Promise<void | ICheckout> {
+        const result = this.api._delete_1(id, pluto_account, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create checkout
+     * @param pluto_account 
+     * @param checkout_create_request 
+     */
+    public create(pluto_account?: string, checkout_create_request?: CheckoutCreateRequest, _options?: Configuration): Promise<void | ICheckout> {
+        const result = this.api.create(pluto_account, checkout_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create checkout
+     * @param pluto_account 
+     * @param checkout_create_request 
+     */
+    public create_2(pluto_account?: string, checkout_create_request?: CheckoutCreateRequest, _options?: Configuration): Promise<void | ICheckout> {
+        const result = this.api.create_2(pluto_account, checkout_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List checkouts
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<CheckoutListResponse | void> {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List checkouts
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<CheckoutListResponse | void> {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve checkout
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | ICheckout> {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve checkout
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | ICheckout> {
+        const result = this.api.retrieve_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservableCouponsApi } from './ObservableAPI';
+
+import { CouponsApiRequestFactory, CouponsApiResponseProcessor} from "../apis/CouponsApi";
+export class PromiseCouponsApi {
+    private api: ObservableCouponsApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: CouponsApiRequestFactory,
+        responseProcessor?: CouponsApiResponseProcessor
+    ) {
+        this.api = new ObservableCouponsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Delete coupon
+     * @param id 
+     * @param pluto_account 
+     */
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<ICoupon | void> {
+        const result = this.api._delete(id, pluto_account, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Delete coupon
+     * @param id 
+     * @param pluto_account 
+     */
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Promise<ICoupon | void> {
+        const result = this.api._delete_1(id, pluto_account, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create coupon
+     * @param pluto_account 
+     * @param coupon_create_request 
+     */
+    public create(pluto_account?: string, coupon_create_request?: CouponCreateRequest, _options?: Configuration): Promise<ICoupon | void> {
+        const result = this.api.create(pluto_account, coupon_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create coupon
+     * @param pluto_account 
+     * @param coupon_create_request 
+     */
+    public create_2(pluto_account?: string, coupon_create_request?: CouponCreateRequest, _options?: Configuration): Promise<ICoupon | void> {
+        const result = this.api.create_2(pluto_account, coupon_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List coupons
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<void | CouponListResponse> {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List coupons
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<void | CouponListResponse> {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve coupon
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<ICoupon | void> {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve coupon
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<ICoupon | void> {
+        const result = this.api.retrieve_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update coupon
+     * @param id 
+     * @param pluto_account 
+     * @param coupon_update_request 
+     */
+    public update(id: string, pluto_account?: string, coupon_update_request?: CouponUpdateRequest, _options?: Configuration): Promise<ICoupon | void> {
+        const result = this.api.update(id, pluto_account, coupon_update_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update coupon
+     * @param id 
+     * @param pluto_account 
+     * @param coupon_update_request 
+     */
+    public update_5(id: string, pluto_account?: string, coupon_update_request?: CouponUpdateRequest, _options?: Configuration): Promise<ICoupon | void> {
+        const result = this.api.update_5(id, pluto_account, coupon_update_request, _options);
         return result.toPromise();
     }
 
@@ -163,48 +502,94 @@ export class PromiseCustomersApi {
     }
 
     /**
-     * Create Customer
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param create_customer_body 
+     * Create customer
+     * @param pluto_account 
+     * @param customer_create_request 
      */
-    public create(pluto_account?: string, create_customer_body?: CreateCustomerBody, _options?: Configuration): Promise<Customer> {
-        const result = this.api.create(pluto_account, create_customer_body, _options);
+    public create(pluto_account?: string, customer_create_request?: CustomerCreateRequest, _options?: Configuration): Promise<void | ICustomer> {
+        const result = this.api.create(pluto_account, customer_create_request, _options);
         return result.toPromise();
     }
 
     /**
-     * List Customers
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param email Email of the customer.
+     * Create customer
+     * @param pluto_account 
+     * @param customer_create_request 
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, email?: string, _options?: Configuration): Promise<ListCustomersResponse> {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, email, _options);
+    public create_1(pluto_account?: string, customer_create_request?: CustomerCreateRequest, _options?: Configuration): Promise<void | ICustomer> {
+        const result = this.api.create_1(pluto_account, customer_create_request, _options);
         return result.toPromise();
     }
 
     /**
-     * Retrieve Customer By Id
+     * List customers
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     * @param email 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, email?: string, _options?: Configuration): Promise<void | CustomerListResponse> {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, email, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List customers
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     * @param email 
+     */
+    public list_2(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, email?: string, _options?: Configuration): Promise<void | CustomerListResponse> {
+        const result = this.api.list_2(pluto_account, limit, page, sort, expand, email, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve customer
      * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
+     * @param expand 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Customer> {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | ICustomer> {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
         return result.toPromise();
     }
 
     /**
-     * Update Customer By Id
+     * Retrieve customer
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param update_customer_body 
+     * @param pluto_account 
+     * @param expand 
      */
-    public update(id: string, pluto_account?: string, update_customer_body?: UpdateCustomerBody, _options?: Configuration): Promise<Customer> {
-        const result = this.api.update(id, pluto_account, update_customer_body, _options);
+    public retrieve_3(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | ICustomer> {
+        const result = this.api.retrieve_3(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update customer
+     * @param id 
+     * @param pluto_account 
+     * @param customer_update_request 
+     */
+    public update(id: string, pluto_account?: string, customer_update_request?: CustomerUpdateRequest, _options?: Configuration): Promise<void | ICustomer> {
+        const result = this.api.update(id, pluto_account, customer_update_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update customer
+     * @param id 
+     * @param pluto_account 
+     * @param customer_update_request 
+     */
+    public update_4(id: string, pluto_account?: string, customer_update_request?: CustomerUpdateRequest, _options?: Configuration): Promise<void | ICustomer> {
+        const result = this.api.update_4(id, pluto_account, customer_update_request, _options);
         return result.toPromise();
     }
 
@@ -228,46 +613,70 @@ export class PromiseFeesApi {
     }
 
     /**
-     * Delete Fee By Id
+     * Create fee
+     * @param pluto_account 
+     * @param fee_create_request 
+     */
+    public create(pluto_account?: string, fee_create_request?: FeeCreateRequest, _options?: Configuration): Promise<void | IFee> {
+        const result = this.api.create(pluto_account, fee_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create fee
+     * @param pluto_account 
+     * @param fee_create_request 
+     */
+    public create_1(pluto_account?: string, fee_create_request?: FeeCreateRequest, _options?: Configuration): Promise<void | IFee> {
+        const result = this.api.create_1(pluto_account, fee_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List fees
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<void | FeeListResponse> {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List fees
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list_2(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<void | FeeListResponse> {
+        const result = this.api.list_2(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve fee
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
+     * @param expand 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void> {
-        const result = this.api._delete(id, pluto_account, _options);
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IFee> {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
         return result.toPromise();
     }
 
     /**
-     * Create Fee
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param create_fee_body 
-     */
-    public create(pluto_account?: string, create_fee_body?: CreateFeeBody, _options?: Configuration): Promise<Fee> {
-        const result = this.api.create(pluto_account, create_fee_body, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * List Fees
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListFeesResponse> {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Retrieve Fee By Id
+     * Retrieve fee
      * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
+     * @param expand 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Fee> {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
+    public retrieve_3(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IFee> {
+        const result = this.api.retrieve_3(id, pluto_account, expand, _options);
         return result.toPromise();
     }
 
@@ -291,57 +700,134 @@ export class PromiseInvoicesApi {
     }
 
     /**
-     * Create Invoice
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param invoice 
-     */
-    public create(pluto_account?: string, invoice?: Invoice, _options?: Configuration): Promise<Invoice> {
-        const result = this.api.create(pluto_account, invoice, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * List Invoices
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListInvoicesResponse> {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Pay Invoice
+     * Delete invoice
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public pay(id: string, pluto_account?: string, _options?: Configuration): Promise<PaymentIntent> {
-        const result = this.api.pay(id, pluto_account, _options);
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<IInvoice | void> {
+        const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
-     * Retrieve Invoice By Id
+     * Delete invoice
      * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Invoice> {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Promise<IInvoice | void> {
+        const result = this.api._delete_1(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
-     * Update Invoice By Id
-     * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param invoice 
+     * Create invoice
+     * @param pluto_account 
+     * @param invoice_create_request 
      */
-    public update(id: string, pluto_account?: string, invoice?: Invoice, _options?: Configuration): Promise<Invoice> {
-        const result = this.api.update(id, pluto_account, invoice, _options);
+    public create(pluto_account?: string, invoice_create_request?: InvoiceCreateRequest, _options?: Configuration): Promise<IInvoice | void> {
+        const result = this.api.create(pluto_account, invoice_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create invoice
+     * @param pluto_account 
+     * @param invoice_create_request 
+     */
+    public create_2(pluto_account?: string, invoice_create_request?: InvoiceCreateRequest, _options?: Configuration): Promise<IInvoice | void> {
+        const result = this.api.create_2(pluto_account, invoice_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List invoices
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<void | InvoiceListResponse> {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List invoices
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<void | InvoiceListResponse> {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Pay invoice
+     * @param id 
+     * @param pluto_account 
+     * @param invoice_pay_request 
+     */
+    public pay(id: string, pluto_account?: string, invoice_pay_request?: InvoicePayRequest, _options?: Configuration): Promise<void | IPaymentIntent> {
+        const result = this.api.pay(id, pluto_account, invoice_pay_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Pay invoice
+     * @param id 
+     * @param pluto_account 
+     * @param invoice_pay_request 
+     */
+    public pay_4(id: string, pluto_account?: string, invoice_pay_request?: InvoicePayRequest, _options?: Configuration): Promise<void | IPaymentIntent> {
+        const result = this.api.pay_4(id, pluto_account, invoice_pay_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve invoice
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<IInvoice | void> {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve invoice
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve_5(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<IInvoice | void> {
+        const result = this.api.retrieve_5(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update invoice
+     * @param id 
+     * @param pluto_account 
+     * @param invoice_update_request 
+     */
+    public update(id: string, pluto_account?: string, invoice_update_request?: InvoiceUpdateRequest, _options?: Configuration): Promise<IInvoice | void> {
+        const result = this.api.update(id, pluto_account, invoice_update_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update invoice
+     * @param id 
+     * @param pluto_account 
+     * @param invoice_update_request 
+     */
+    public update_6(id: string, pluto_account?: string, invoice_update_request?: InvoiceUpdateRequest, _options?: Configuration): Promise<IInvoice | void> {
+        const result = this.api.update_6(id, pluto_account, invoice_update_request, _options);
         return result.toPromise();
     }
 
@@ -365,26 +851,42 @@ export class PromiseLogsApi {
     }
 
     /**
-     * List Logs
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * List logs
+     * @param pluto_account 
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListLogsResponse> {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
+    public list(pluto_account?: string, _options?: Configuration): Promise<LogListResponse | void> {
+        const result = this.api.list(pluto_account, _options);
         return result.toPromise();
     }
 
     /**
-     * Retrieve Log By Id
-     * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * List logs
+     * @param pluto_account 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Log> {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
+    public list_1(pluto_account?: string, _options?: Configuration): Promise<LogListResponse | void> {
+        const result = this.api.list_1(pluto_account, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve log
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | ILog> {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve log
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve_2(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | ILog> {
+        const result = this.api.retrieve_2(id, pluto_account, expand, _options);
         return result.toPromise();
     }
 
@@ -408,70 +910,287 @@ export class PromisePaymentIntentsApi {
     }
 
     /**
-     * Cancel Payment Intent
+     * Delete payment intent
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public cancel(id: string, pluto_account?: string, _options?: Configuration): Promise<PaymentIntent> {
-        const result = this.api.cancel(id, pluto_account, _options);
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void | IPaymentIntent> {
+        const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
-     * Create Payment Intent
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param payment_intent 
-     */
-    public create(pluto_account?: string, payment_intent?: PaymentIntent, _options?: Configuration): Promise<PaymentIntent> {
-        const result = this.api.create(pluto_account, payment_intent, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * List Payment Intents
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param status The status of the payment intent to filter by.
-     * @param customer The ID of the customer on the payment intent to filter by.
-     */
-    public list(pluto_account?: string, expand?: string, limit?: number, page?: number, sort?: any, status?: 'processing' | 'succeeded' | 'failed' | 'canceled', customer?: string, _options?: Configuration): Promise<ListPaymentIntentsResponse> {
-        const result = this.api.list(pluto_account, expand, limit, page, sort, status, customer, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Poll Payment Intent
+     * Delete payment intent
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
+     * @param pluto_account 
      */
-    public poll(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<PaymentIntent> {
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Promise<void | IPaymentIntent> {
+        const result = this.api._delete_1(id, pluto_account, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create payment intent
+     * @param pluto_account 
+     * @param payment_intent_create_request 
+     */
+    public create(pluto_account?: string, payment_intent_create_request?: PaymentIntentCreateRequest, _options?: Configuration): Promise<void | IPaymentIntent> {
+        const result = this.api.create(pluto_account, payment_intent_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create payment intent
+     * @param pluto_account 
+     * @param payment_intent_create_request 
+     */
+    public create_2(pluto_account?: string, payment_intent_create_request?: PaymentIntentCreateRequest, _options?: Configuration): Promise<void | IPaymentIntent> {
+        const result = this.api.create_2(pluto_account, payment_intent_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List payment intents
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     * @param status 
+     * @param customer 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, status?: string, customer?: string, _options?: Configuration): Promise<PaymentIntentListResponse | void> {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, status, customer, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List payment intents
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     * @param status 
+     * @param customer 
+     */
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, status?: string, customer?: string, _options?: Configuration): Promise<PaymentIntentListResponse | void> {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, status, customer, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Poll payment intent
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public poll(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IPaymentIntent> {
         const result = this.api.poll(id, pluto_account, expand, _options);
         return result.toPromise();
     }
 
     /**
-     * Retrieve Payment Intent
+     * Poll payment intent
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
+     * @param pluto_account 
+     * @param expand 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<PaymentIntent> {
+    public poll_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IPaymentIntent> {
+        const result = this.api.poll_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve payment intent
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IPaymentIntent> {
         const result = this.api.retrieve(id, pluto_account, expand, _options);
         return result.toPromise();
     }
 
     /**
-     * Update Payment Intent
+     * Retrieve payment intent
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param update_payment_intent_body 
+     * @param pluto_account 
+     * @param expand 
      */
-    public update(id: string, pluto_account?: string, update_payment_intent_body?: UpdatePaymentIntentBody, _options?: Configuration): Promise<PaymentIntent> {
-        const result = this.api.update(id, pluto_account, update_payment_intent_body, _options);
+    public retrieve_5(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IPaymentIntent> {
+        const result = this.api.retrieve_5(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Send payment intent receipt
+     * @param id 
+     * @param pluto_account 
+     */
+    public sendReceipt(id: string, pluto_account?: string, _options?: Configuration): Promise<void | IPaymentIntent> {
+        const result = this.api.sendReceipt(id, pluto_account, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Send payment intent receipt
+     * @param id 
+     * @param pluto_account 
+     */
+    public sendReceipt_6(id: string, pluto_account?: string, _options?: Configuration): Promise<void | IPaymentIntent> {
+        const result = this.api.sendReceipt_6(id, pluto_account, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update payment intent
+     * @param id 
+     * @param pluto_account 
+     * @param payment_intent_update_request 
+     */
+    public update(id: string, pluto_account?: string, payment_intent_update_request?: PaymentIntentUpdateRequest, _options?: Configuration): Promise<void | IPaymentIntent> {
+        const result = this.api.update(id, pluto_account, payment_intent_update_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update payment intent
+     * @param id 
+     * @param pluto_account 
+     * @param payment_intent_update_request 
+     */
+    public update_7(id: string, pluto_account?: string, payment_intent_update_request?: PaymentIntentUpdateRequest, _options?: Configuration): Promise<void | IPaymentIntent> {
+        const result = this.api.update_7(id, pluto_account, payment_intent_update_request, _options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservablePaymentLinksApi } from './ObservableAPI';
+
+import { PaymentLinksApiRequestFactory, PaymentLinksApiResponseProcessor} from "../apis/PaymentLinksApi";
+export class PromisePaymentLinksApi {
+    private api: ObservablePaymentLinksApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: PaymentLinksApiRequestFactory,
+        responseProcessor?: PaymentLinksApiResponseProcessor
+    ) {
+        this.api = new ObservablePaymentLinksApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Delete payment link
+     * @param id 
+     * @param pluto_account 
+     */
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void | IPaymentLink> {
+        const result = this.api._delete(id, pluto_account, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Delete payment link
+     * @param id 
+     * @param pluto_account 
+     */
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Promise<void | IPaymentLink> {
+        const result = this.api._delete_1(id, pluto_account, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create payment link
+     * @param pluto_account 
+     * @param payment_link_create_request 
+     */
+    public create(pluto_account?: string, payment_link_create_request?: PaymentLinkCreateRequest, _options?: Configuration): Promise<void | IPaymentLink> {
+        const result = this.api.create(pluto_account, payment_link_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create payment link
+     * @param pluto_account 
+     * @param payment_link_create_request 
+     */
+    public create_2(pluto_account?: string, payment_link_create_request?: PaymentLinkCreateRequest, _options?: Configuration): Promise<void | IPaymentLink> {
+        const result = this.api.create_2(pluto_account, payment_link_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List payment links
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<void | PaymentLinkListResponse> {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List payment links
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<void | PaymentLinkListResponse> {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve payment link
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IPaymentLink> {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve payment link
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IPaymentLink> {
+        const result = this.api.retrieve_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update payment link
+     * @param id 
+     * @param pluto_account 
+     * @param payment_link_update_request 
+     */
+    public update(id: string, pluto_account?: string, payment_link_update_request?: PaymentLinkUpdateRequest, _options?: Configuration): Promise<void | IPaymentLink> {
+        const result = this.api.update(id, pluto_account, payment_link_update_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update payment link
+     * @param id 
+     * @param pluto_account 
+     * @param payment_link_update_request 
+     */
+    public update_5(id: string, pluto_account?: string, payment_link_update_request?: PaymentLinkUpdateRequest, _options?: Configuration): Promise<void | IPaymentLink> {
+        const result = this.api.update_5(id, pluto_account, payment_link_update_request, _options);
         return result.toPromise();
     }
 
@@ -495,57 +1214,112 @@ export class PromisePayoutWalletsApi {
     }
 
     /**
-     * Delete Payout Wallet By ID
+     * Delete payout wallet
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void> {
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void | IPayoutWallet> {
         const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
-     * Create Payout Wallets
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param create_payout_wallet_body 
-     */
-    public create(pluto_account?: string, create_payout_wallet_body?: CreatePayoutWalletBody, _options?: Configuration): Promise<PayoutWallet> {
-        const result = this.api.create(pluto_account, create_payout_wallet_body, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * List Payout Wallets
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListPayoutWalletsResponse> {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Retrieve Payout Wallet By ID
+     * Delete payout wallet
      * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<PayoutWallet> {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Promise<void | IPayoutWallet> {
+        const result = this.api._delete_1(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
-     * Update Payout Wallet By ID
-     * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param payout_wallet 
+     * Create payout wallet
+     * @param pluto_account 
+     * @param payout_wallet_create_request 
      */
-    public update(id: string, pluto_account?: string, payout_wallet?: PayoutWallet, _options?: Configuration): Promise<PayoutWallet> {
-        const result = this.api.update(id, pluto_account, payout_wallet, _options);
+    public create(pluto_account?: string, payout_wallet_create_request?: PayoutWalletCreateRequest, _options?: Configuration): Promise<void | IPayoutWallet> {
+        const result = this.api.create(pluto_account, payout_wallet_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create payout wallet
+     * @param pluto_account 
+     * @param payout_wallet_create_request 
+     */
+    public create_2(pluto_account?: string, payout_wallet_create_request?: PayoutWalletCreateRequest, _options?: Configuration): Promise<void | IPayoutWallet> {
+        const result = this.api.create_2(pluto_account, payout_wallet_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List payout wallets
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<void | PayoutWalletListResponse> {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List payout wallets
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<void | PayoutWalletListResponse> {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve payout wallet
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IPayoutWallet> {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve payout wallet
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IPayoutWallet> {
+        const result = this.api.retrieve_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update payout wallet
+     * @param id 
+     * @param pluto_account 
+     * @param payout_wallet_update_request 
+     */
+    public update(id: string, pluto_account?: string, payout_wallet_update_request?: PayoutWalletUpdateRequest, _options?: Configuration): Promise<IPayoutWallet> {
+        const result = this.api.update(id, pluto_account, payout_wallet_update_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update payout wallet
+     * @param id 
+     * @param pluto_account 
+     * @param payout_wallet_update_request 
+     */
+    public update_5(id: string, pluto_account?: string, payout_wallet_update_request?: PayoutWalletUpdateRequest, _options?: Configuration): Promise<IPayoutWallet> {
+        const result = this.api.update_5(id, pluto_account, payout_wallet_update_request, _options);
         return result.toPromise();
     }
 
@@ -569,57 +1343,112 @@ export class PromisePricesApi {
     }
 
     /**
-     * Delete Price
+     * Delete price
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void> {
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void | IPrice> {
         const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
-     * Create Price
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param price 
-     */
-    public create(pluto_account?: string, price?: Price, _options?: Configuration): Promise<Price> {
-        const result = this.api.create(pluto_account, price, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * List Prices
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     */
-    public list(pluto_account?: string, expand?: string, limit?: number, page?: number, sort?: any, _options?: Configuration): Promise<ListPricesResponse> {
-        const result = this.api.list(pluto_account, expand, limit, page, sort, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Retrieve Price
+     * Delete price
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param expand Specifies which fields to populate in the response.
+     * @param pluto_account 
      */
-    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<Price> {
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Promise<void | IPrice> {
+        const result = this.api._delete_1(id, pluto_account, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create price
+     * @param pluto_account 
+     * @param price_create_request 
+     */
+    public create(pluto_account?: string, price_create_request?: PriceCreateRequest, _options?: Configuration): Promise<void | IPrice> {
+        const result = this.api.create(pluto_account, price_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create price
+     * @param pluto_account 
+     * @param price_create_request 
+     */
+    public create_2(pluto_account?: string, price_create_request?: PriceCreateRequest, _options?: Configuration): Promise<void | IPrice> {
+        const result = this.api.create_2(pluto_account, price_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List prices
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<PriceListResponse | void> {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List prices
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<PriceListResponse | void> {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve price
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IPrice> {
         const result = this.api.retrieve(id, pluto_account, expand, _options);
         return result.toPromise();
     }
 
     /**
-     * Update Price
+     * Retrieve price
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param update_price_body 
+     * @param pluto_account 
+     * @param expand 
      */
-    public update(id: string, pluto_account?: string, update_price_body?: UpdatePriceBody, _options?: Configuration): Promise<Price> {
-        const result = this.api.update(id, pluto_account, update_price_body, _options);
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IPrice> {
+        const result = this.api.retrieve_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update price
+     * @param id 
+     * @param pluto_account 
+     * @param price_update_request 
+     */
+    public update(id: string, pluto_account?: string, price_update_request?: PriceUpdateRequest, _options?: Configuration): Promise<void | IPrice> {
+        const result = this.api.update(id, pluto_account, price_update_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update price
+     * @param id 
+     * @param pluto_account 
+     * @param price_update_request 
+     */
+    public update_5(id: string, pluto_account?: string, price_update_request?: PriceUpdateRequest, _options?: Configuration): Promise<void | IPrice> {
+        const result = this.api.update_5(id, pluto_account, price_update_request, _options);
         return result.toPromise();
     }
 
@@ -643,57 +1472,112 @@ export class PromiseProductsApi {
     }
 
     /**
-     * Delete Product By Id
+     * Delete product
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void> {
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void | IProduct> {
         const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
-     * Create Product
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param create_product_body 
-     */
-    public create(pluto_account?: string, create_product_body?: CreateProductBody, _options?: Configuration): Promise<Product> {
-        const result = this.api.create(pluto_account, create_product_body, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * List Products
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListProductsResponse> {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Retrieve Product By Id
+     * Delete product
      * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Product> {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Promise<void | IProduct> {
+        const result = this.api._delete_1(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
-     * Update Product By Id
-     * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param update_product_body 
+     * Create product
+     * @param pluto_account 
+     * @param product_create_request 
      */
-    public update(id: string, pluto_account?: string, update_product_body?: UpdateProductBody, _options?: Configuration): Promise<Product> {
-        const result = this.api.update(id, pluto_account, update_product_body, _options);
+    public create(pluto_account?: string, product_create_request?: ProductCreateRequest, _options?: Configuration): Promise<void | IProduct> {
+        const result = this.api.create(pluto_account, product_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create product
+     * @param pluto_account 
+     * @param product_create_request 
+     */
+    public create_2(pluto_account?: string, product_create_request?: ProductCreateRequest, _options?: Configuration): Promise<void | IProduct> {
+        const result = this.api.create_2(pluto_account, product_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List products
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<ProductListResponse | void> {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List products
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<ProductListResponse | void> {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve product
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IProduct> {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve product
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IProduct> {
+        const result = this.api.retrieve_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update product
+     * @param id 
+     * @param pluto_account 
+     * @param product_update_request 
+     */
+    public update(id: string, pluto_account?: string, product_update_request?: ProductUpdateRequest, _options?: Configuration): Promise<void | IProduct> {
+        const result = this.api.update(id, pluto_account, product_update_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update product
+     * @param id 
+     * @param pluto_account 
+     * @param product_update_request 
+     */
+    public update_5(id: string, pluto_account?: string, product_update_request?: ProductUpdateRequest, _options?: Configuration): Promise<void | IProduct> {
+        const result = this.api.update_5(id, pluto_account, product_update_request, _options);
         return result.toPromise();
     }
 
@@ -717,57 +1601,112 @@ export class PromiseSubscriptionsApi {
     }
 
     /**
-     * Cancel Subscription
+     * Delete subscription
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public cancel(id: string, pluto_account?: string, _options?: Configuration): Promise<Subscription> {
-        const result = this.api.cancel(id, pluto_account, _options);
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void | ISubscription> {
+        const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
-     * Create Subscription
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param subscription 
-     */
-    public create(pluto_account?: string, subscription?: Subscription, _options?: Configuration): Promise<Subscription> {
-        const result = this.api.create(pluto_account, subscription, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * List Subscriptions
-     * @param expand Specifies which fields to populate in the response.
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     */
-    public list(expand?: string, limit?: number, page?: number, sort?: any, pluto_account?: string, _options?: Configuration): Promise<ListSubscriptionsResponse> {
-        const result = this.api.list(expand, limit, page, sort, pluto_account, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Retrieve Subscription
+     * Delete subscription
      * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Subscription> {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Promise<void | ISubscription> {
+        const result = this.api._delete_1(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
-     * Update Subscription
-     * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param subscription 
+     * Create subscription
+     * @param pluto_account 
+     * @param subscription_create_request 
      */
-    public update(id: string, pluto_account?: string, subscription?: Subscription, _options?: Configuration): Promise<Subscription> {
-        const result = this.api.update(id, pluto_account, subscription, _options);
+    public create(pluto_account?: string, subscription_create_request?: SubscriptionCreateRequest, _options?: Configuration): Promise<void | ISubscription> {
+        const result = this.api.create(pluto_account, subscription_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create subscription
+     * @param pluto_account 
+     * @param subscription_create_request 
+     */
+    public create_2(pluto_account?: string, subscription_create_request?: SubscriptionCreateRequest, _options?: Configuration): Promise<void | ISubscription> {
+        const result = this.api.create_2(pluto_account, subscription_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List subscriptions
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<void | SubscriptionListResponse> {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List subscriptions
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<void | SubscriptionListResponse> {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve subscription
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | ISubscription> {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve subscription
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | ISubscription> {
+        const result = this.api.retrieve_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update subscription
+     * @param id 
+     * @param pluto_account 
+     * @param subscription_update_request 
+     */
+    public update(id: string, pluto_account?: string, subscription_update_request?: SubscriptionUpdateRequest, _options?: Configuration): Promise<void | ISubscription> {
+        const result = this.api.update(id, pluto_account, subscription_update_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update subscription
+     * @param id 
+     * @param pluto_account 
+     * @param subscription_update_request 
+     */
+    public update_5(id: string, pluto_account?: string, subscription_update_request?: SubscriptionUpdateRequest, _options?: Configuration): Promise<void | ISubscription> {
+        const result = this.api.update_5(id, pluto_account, subscription_update_request, _options);
         return result.toPromise();
     }
 
@@ -791,36 +1730,70 @@ export class PromiseTransfersApi {
     }
 
     /**
-     * Create Transfer
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param create_transfer_body 
+     * Create transfer
+     * @param pluto_account 
+     * @param transfer_create_request 
      */
-    public create(pluto_account?: string, create_transfer_body?: CreateTransferBody, _options?: Configuration): Promise<Transfer> {
-        const result = this.api.create(pluto_account, create_transfer_body, _options);
+    public create(pluto_account?: string, transfer_create_request?: TransferCreateRequest, _options?: Configuration): Promise<ITransfer | void> {
+        const result = this.api.create(pluto_account, transfer_create_request, _options);
         return result.toPromise();
     }
 
     /**
-     * List Transfers
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * Create transfer
+     * @param pluto_account 
+     * @param transfer_create_request 
      */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListTransfersResponse> {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
+    public create_1(pluto_account?: string, transfer_create_request?: TransferCreateRequest, _options?: Configuration): Promise<ITransfer | void> {
+        const result = this.api.create_1(pluto_account, transfer_create_request, _options);
         return result.toPromise();
     }
 
     /**
-     * Retrieve Transfer By ID
+     * List transfers
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<void | TransferListResponse> {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List transfers
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list_2(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<void | TransferListResponse> {
+        const result = this.api.list_2(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve transfer
      * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
+     * @param expand 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Transfer> {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<ITransfer | void> {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve transfer
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve_3(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<ITransfer | void> {
+        const result = this.api.retrieve_3(id, pluto_account, expand, _options);
         return result.toPromise();
     }
 
@@ -844,58 +1817,112 @@ export class PromiseWalletsApi {
     }
 
     /**
-     * Delete Wallet By Id
+     * Delete wallet
      * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public _delete(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<void> {
-        const result = this.api._delete(id, expand, pluto_account, _options);
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void | IWallet> {
+        const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
-     * Create Wallet
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param create_wallet_body 
-     */
-    public create(pluto_account?: string, create_wallet_body?: CreateWalletBody, _options?: Configuration): Promise<Wallet> {
-        const result = this.api.create(pluto_account, create_wallet_body, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * List Wallets
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListWalletsResponse> {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Retrieve Wallet By Id
+     * Delete wallet
      * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Wallet> {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Promise<void | IWallet> {
+        const result = this.api._delete_1(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
-     * Update Wallet By Id
-     * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param update_wallet_body 
+     * Create wallet
+     * @param pluto_account 
+     * @param wallet_create_request 
      */
-    public update(id: string, pluto_account?: string, update_wallet_body?: UpdateWalletBody, _options?: Configuration): Promise<Wallet> {
-        const result = this.api.update(id, pluto_account, update_wallet_body, _options);
+    public create(pluto_account?: string, wallet_create_request?: WalletCreateRequest, _options?: Configuration): Promise<void | IWallet> {
+        const result = this.api.create(pluto_account, wallet_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create wallet
+     * @param pluto_account 
+     * @param wallet_create_request 
+     */
+    public create_2(pluto_account?: string, wallet_create_request?: WalletCreateRequest, _options?: Configuration): Promise<void | IWallet> {
+        const result = this.api.create_2(pluto_account, wallet_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List wallets
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<void | WalletListResponse> {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List wallets
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<void | WalletListResponse> {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve wallet
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IWallet> {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve wallet
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IWallet> {
+        const result = this.api.retrieve_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update wallet
+     * @param id 
+     * @param pluto_account 
+     * @param wallet_update_request 
+     */
+    public update(id: string, pluto_account?: string, wallet_update_request?: WalletUpdateRequest, _options?: Configuration): Promise<void | IWallet> {
+        const result = this.api.update(id, pluto_account, wallet_update_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update wallet
+     * @param id 
+     * @param pluto_account 
+     * @param wallet_update_request 
+     */
+    public update_5(id: string, pluto_account?: string, wallet_update_request?: WalletUpdateRequest, _options?: Configuration): Promise<void | IWallet> {
+        const result = this.api.update_5(id, pluto_account, wallet_update_request, _options);
         return result.toPromise();
     }
 
@@ -919,57 +1946,112 @@ export class PromiseWebhooksApi {
     }
 
     /**
-     * Delete Webhook By Id
+     * Delete webhook
      * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void> {
+    public _delete(id: string, pluto_account?: string, _options?: Configuration): Promise<void | IWebhook> {
         const result = this.api._delete(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
-     * Create Webhook
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param create_webhook_body 
-     */
-    public create(pluto_account?: string, create_webhook_body?: CreateWebhookBody, _options?: Configuration): Promise<Webhook> {
-        const result = this.api.create(pluto_account, create_webhook_body, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * List Webhooks
-     * @param limit A limit on the number of objects to be returned between 1 and 100.
-     * @param page Index of the page to be returned in a paginated response.
-     * @param sort Specifies whether documents are sorted in an ascending or descending order.
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     */
-    public list(limit?: number, page?: number, sort?: any, expand?: string, pluto_account?: string, _options?: Configuration): Promise<ListWebhooksResponse> {
-        const result = this.api.list(limit, page, sort, expand, pluto_account, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Retrieve Webhook By Id
+     * Delete webhook
      * @param id 
-     * @param expand Specifies which fields to populate in the response.
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
+     * @param pluto_account 
      */
-    public retrieve(id: string, expand?: string, pluto_account?: string, _options?: Configuration): Promise<Webhook> {
-        const result = this.api.retrieve(id, expand, pluto_account, _options);
+    public _delete_1(id: string, pluto_account?: string, _options?: Configuration): Promise<void | IWebhook> {
+        const result = this.api._delete_1(id, pluto_account, _options);
         return result.toPromise();
     }
 
     /**
-     * Update Webhook By Id
-     * @param id 
-     * @param pluto_account The ID of the connected Pluto account you are making a request on behalf on.
-     * @param update_webhook_body 
+     * Create webhook
+     * @param pluto_account 
+     * @param webhook_create_request 
      */
-    public update(id: string, pluto_account?: string, update_webhook_body?: UpdateWebhookBody, _options?: Configuration): Promise<Webhook> {
-        const result = this.api.update(id, pluto_account, update_webhook_body, _options);
+    public create(pluto_account?: string, webhook_create_request?: WebhookCreateRequest, _options?: Configuration): Promise<void | IWebhook> {
+        const result = this.api.create(pluto_account, webhook_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Create webhook
+     * @param pluto_account 
+     * @param webhook_create_request 
+     */
+    public create_2(pluto_account?: string, webhook_create_request?: WebhookCreateRequest, _options?: Configuration): Promise<void | IWebhook> {
+        const result = this.api.create_2(pluto_account, webhook_create_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List webhooks
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<void | WebhookListResponse> {
+        const result = this.api.list(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * List webhooks
+     * @param pluto_account 
+     * @param limit 
+     * @param page 
+     * @param sort 
+     * @param expand 
+     */
+    public list_3(pluto_account?: string, limit?: number, page?: number, sort?: number, expand?: string, _options?: Configuration): Promise<void | WebhookListResponse> {
+        const result = this.api.list_3(pluto_account, limit, page, sort, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve webhook
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IWebhook> {
+        const result = this.api.retrieve(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Retrieve webhook
+     * @param id 
+     * @param pluto_account 
+     * @param expand 
+     */
+    public retrieve_4(id: string, pluto_account?: string, expand?: string, _options?: Configuration): Promise<void | IWebhook> {
+        const result = this.api.retrieve_4(id, pluto_account, expand, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update webhook
+     * @param id 
+     * @param pluto_account 
+     * @param webhook_update_request 
+     */
+    public update(id: string, pluto_account?: string, webhook_update_request?: WebhookUpdateRequest, _options?: Configuration): Promise<void | IWebhook> {
+        const result = this.api.update(id, pluto_account, webhook_update_request, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Update webhook
+     * @param id 
+     * @param pluto_account 
+     * @param webhook_update_request 
+     */
+    public update_5(id: string, pluto_account?: string, webhook_update_request?: WebhookUpdateRequest, _options?: Configuration): Promise<void | IWebhook> {
+        const result = this.api.update_5(id, pluto_account, webhook_update_request, _options);
         return result.toPromise();
     }
 
