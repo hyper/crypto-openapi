@@ -39,6 +39,7 @@ middleware.ts
 models/AccountConnectRequest.ts
 models/AccountCreateRequest.ts
 models/AccountDashboardAccessRequest.ts
+models/AccountDashboardAccessResponse.ts
 models/AccountListResponse.ts
 models/AccountUpdateRequest.ts
 models/Address.ts

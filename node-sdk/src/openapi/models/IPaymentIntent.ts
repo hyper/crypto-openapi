@@ -12,12 +12,14 @@
 
 import { Chain } from './Chain';
 import { Currency } from './Currency';
+import { IFee } from './IFee';
+import { ITransfer } from './ITransfer';
 import { LineItem } from './LineItem';
 import { PaymentIntentStatus } from './PaymentIntentStatus';
 import { HttpFile } from '../http/http';
 
 export class IPaymentIntent {
-    'account': string;
+    'account': string | IAccount;
     'amount': number;
     'amount_before_discount'?: number;
     'application_fee_percent'?: number;
@@ -28,6 +30,7 @@ export class IPaymentIntent {
     'currency': Currency;
     'customer': string;
     'exchange_rate': number;
+    'fees': Array<IFee>;
     'hash'?: string;
     'id': string;
     'invoice'?: string;
@@ -41,6 +44,7 @@ export class IPaymentIntent {
     'status': PaymentIntentStatus;
     'subscription'?: string;
     'test': boolean;
+    'transfers': Array<ITransfer>;
     'usd_amount': number;
     'wallet'?: string;
 
@@ -50,7 +54,7 @@ export class IPaymentIntent {
         {
             "name": "account",
             "baseName": "account",
-            "type": "string",
+            "type": "string | IAccount",
             "format": ""
         },
         {
@@ -112,6 +116,12 @@ export class IPaymentIntent {
             "baseName": "exchange_rate",
             "type": "number",
             "format": "double"
+        },
+        {
+            "name": "fees",
+            "baseName": "fees",
+            "type": "Array<IFee>",
+            "format": ""
         },
         {
             "name": "hash",
@@ -189,6 +199,12 @@ export class IPaymentIntent {
             "name": "test",
             "baseName": "test",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "transfers",
+            "baseName": "transfers",
+            "type": "Array<ITransfer>",
             "format": ""
         },
         {

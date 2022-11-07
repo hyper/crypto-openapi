@@ -23,7 +23,7 @@ export class IFee {
     'percent': number;
     'platform_account'?: string;
     'test': boolean;
-    'wallet': string;
+    'wallet': string | IWallet;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -91,7 +91,7 @@ export class IFee {
         {
             "name": "wallet",
             "baseName": "wallet",
-            "type": "string",
+            "type": "string | IWallet",
             "format": ""
         }    ];
 

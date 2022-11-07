@@ -21,7 +21,7 @@ export class ITransfer {
     'payment_intent': string;
     'percent': number;
     'test': boolean;
-    'wallet': string;
+    'wallet': string | IWallet;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -77,7 +77,7 @@ export class ITransfer {
         {
             "name": "wallet",
             "baseName": "wallet",
-            "type": "string",
+            "type": "string | IWallet",
             "format": ""
         }    ];
 

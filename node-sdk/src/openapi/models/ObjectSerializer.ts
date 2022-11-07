@@ -1,6 +1,7 @@
 export * from './AccountConnectRequest';
 export * from './AccountCreateRequest';
 export * from './AccountDashboardAccessRequest';
+export * from './AccountDashboardAccessResponse';
 export * from './AccountListResponse';
 export * from './AccountUpdateRequest';
 export * from './Address';
@@ -95,6 +96,7 @@ export * from './WebhookUpdateRequest';
 import { AccountConnectRequest } from './AccountConnectRequest';
 import { AccountCreateRequest } from './AccountCreateRequest';
 import { AccountDashboardAccessRequest } from './AccountDashboardAccessRequest';
+import { AccountDashboardAccessResponse } from './AccountDashboardAccessResponse';
 import { AccountListResponse } from './AccountListResponse';
 import { AccountUpdateRequest } from './AccountUpdateRequest';
 import { Address } from './Address';
@@ -222,6 +224,7 @@ let typeMap: {[index: string]: any} = {
     "AccountConnectRequest": AccountConnectRequest,
     "AccountCreateRequest": AccountCreateRequest,
     "AccountDashboardAccessRequest": AccountDashboardAccessRequest,
+    "AccountDashboardAccessResponse": AccountDashboardAccessResponse,
     "AccountListResponse": AccountListResponse,
     "AccountUpdateRequest": AccountUpdateRequest,
     "Address": Address,

@@ -47,6 +47,16 @@
         "required": ["email"],
         "type": "object"
       },
+      "AccountDashboardAccessResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": ["url"],
+        "type": "object"
+      },
       "AccountListResponse": {
         "additionalProperties": false,
         "properties": {
@@ -370,7 +380,7 @@
         "type": "object"
       },
       "Currency": {
-        "enum": ["eth", "weth", "usdc", "usdt", "pltnm", "sol"],
+        "enum": ["eth", "sol", "weth", "usdc", "usdt", "pltnm"],
         "type": "string"
       },
       "CustomAmount": {
@@ -642,6 +652,12 @@
           "parent_account": {
             "type": "string"
           },
+          "payout_wallets": {
+            "items": {
+              "$ref": "#/components/schemas/IPayoutWallet"
+            },
+            "type": "array"
+          },
           "platform_account": {
             "type": "boolean"
           },
@@ -677,7 +693,8 @@
           "verified",
           "business_profile",
           "settings",
-          "integrations"
+          "integrations",
+          "payout_wallets"
         ],
         "type": "object"
       },
@@ -1049,7 +1066,14 @@
             "type": "boolean"
           },
           "wallet": {
-            "type": "string"
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/IWallet"
+              }
+            ]
           }
         },
         "required": [
@@ -1241,7 +1265,14 @@
         "additionalProperties": false,
         "properties": {
           "account": {
-            "type": "string"
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/IAccount"
+              }
+            ]
           },
           "amount": {
             "format": "double",
@@ -1277,6 +1308,12 @@
           "exchange_rate": {
             "format": "double",
             "type": "number"
+          },
+          "fees": {
+            "items": {
+              "$ref": "#/components/schemas/IFee"
+            },
+            "type": "array"
           },
           "hash": {
             "type": "string"
@@ -1322,6 +1359,12 @@
           "test": {
             "type": "boolean"
           },
+          "transfers": {
+            "items": {
+              "$ref": "#/components/schemas/ITransfer"
+            },
+            "type": "array"
+          },
           "usd_amount": {
             "format": "double",
             "type": "number"
@@ -1344,6 +1387,8 @@
           "usd_amount",
           "exchange_rate",
           "currency",
+          "fees",
+          "transfers",
           "metadata"
         ],
         "type": "object"
@@ -1859,7 +1904,14 @@
             "type": "boolean"
           },
           "wallet": {
-            "type": "string"
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/IWallet"
+              }
+            ]
           }
         },
         "required": [
@@ -2635,7 +2687,14 @@
             "type": "number"
           },
           "wallet": {
-            "type": "string"
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/IWallet"
+              }
+            ]
           }
         },
         "type": "object"
@@ -3114,7 +3173,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/IAccount"
+                  "$ref": "#/components/schemas/AccountDashboardAccessResponse"
                 }
               }
             },

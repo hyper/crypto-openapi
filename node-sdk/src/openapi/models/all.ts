@@ -1,6 +1,7 @@
 export * from './AccountConnectRequest'
 export * from './AccountCreateRequest'
 export * from './AccountDashboardAccessRequest'
+export * from './AccountDashboardAccessResponse'
 export * from './AccountListResponse'
 export * from './AccountUpdateRequest'
 export * from './Address'

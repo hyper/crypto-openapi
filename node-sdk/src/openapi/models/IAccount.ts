@@ -13,6 +13,7 @@
 import { IBranding } from './IBranding';
 import { IBusinessProfile } from './IBusinessProfile';
 import { IIntegrations } from './IIntegrations';
+import { IPayoutWallet } from './IPayoutWallet';
 import { ISettings } from './ISettings';
 import { ITeamMember } from './ITeamMember';
 import { HttpFile } from '../http/http';
@@ -28,6 +29,7 @@ export class IAccount {
     'invoice_prefix'?: string;
     'object': string;
     'parent_account'?: string;
+    'payout_wallets': Array<IPayoutWallet>;
     'platform_account': boolean;
     'settings': ISettings;
     'team': Array<ITeamMember>;
@@ -96,6 +98,12 @@ export class IAccount {
             "name": "parent_account",
             "baseName": "parent_account",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "payout_wallets",
+            "baseName": "payout_wallets",
+            "type": "Array<IPayoutWallet>",
             "format": ""
         },
         {

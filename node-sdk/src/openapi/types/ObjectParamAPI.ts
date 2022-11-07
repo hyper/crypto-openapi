@@ -5,6 +5,7 @@ import { Configuration} from '../configuration'
 import { AccountConnectRequest } from '../models/AccountConnectRequest';
 import { AccountCreateRequest } from '../models/AccountCreateRequest';
 import { AccountDashboardAccessRequest } from '../models/AccountDashboardAccessRequest';
+import { AccountDashboardAccessResponse } from '../models/AccountDashboardAccessResponse';
 import { AccountListResponse } from '../models/AccountListResponse';
 import { AccountUpdateRequest } from '../models/AccountUpdateRequest';
 import { Address } from '../models/Address';
@@ -418,7 +419,7 @@ export class ObjectAccountsApi {
      * Get dashboard access to account
      * @param param the request object
      */
-    public dashboardAccess(param: AccountsApiDashboardAccessRequest, options?: Configuration): Promise<void | IAccount> {
+    public dashboardAccess(param: AccountsApiDashboardAccessRequest, options?: Configuration): Promise<void | AccountDashboardAccessResponse> {
         return this.api.dashboardAccess(param.id, param.pluto_account, param.expand, param.account_dashboard_access_request,  options).toPromise();
     }
 
@@ -426,7 +427,7 @@ export class ObjectAccountsApi {
      * Get dashboard access to account
      * @param param the request object
      */
-    public dashboardAccess_3(param: AccountsApiDashboardAccess0Request, options?: Configuration): Promise<void | IAccount> {
+    public dashboardAccess_3(param: AccountsApiDashboardAccess0Request, options?: Configuration): Promise<void | AccountDashboardAccessResponse> {
         return this.api.dashboardAccess_3(param.id, param.pluto_account, param.expand, param.account_dashboard_access_request,  options).toPromise();
     }
 

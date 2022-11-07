@@ -16,7 +16,7 @@ export class TransferCreateRequest {
     'description'?: string;
     'payment_intent'?: string;
     'percent'?: number;
-    'wallet'?: string;
+    'wallet'?: string | IWallet;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -42,7 +42,7 @@ export class TransferCreateRequest {
         {
             "name": "wallet",
             "baseName": "wallet",
-            "type": "string",
+            "type": "string | IWallet",
             "format": ""
         }    ];
 

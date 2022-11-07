@@ -329,7 +329,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **dashboardAccess**
-> void | IAccount dashboardAccess()
+> void | AccountDashboardAccessResponse dashboardAccess()
 
 
 ### Example
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void | IAccount**
+**void | AccountDashboardAccessResponse**
 
 ### Authorization
 
@@ -397,7 +397,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **dashboardAccess_0**
-> void | IAccount dashboardAccess_0()
+> void | AccountDashboardAccessResponse dashboardAccess_0()
 
 
 ### Example
@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**void | IAccount**
+**void | AccountDashboardAccessResponse**
 
 ### Authorization
 

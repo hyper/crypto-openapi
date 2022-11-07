@@ -11,6 +11,7 @@ import {SecurityAuthentication} from '../auth/auth';
 import { AccountConnectRequest } from '../models/AccountConnectRequest';
 import { AccountCreateRequest } from '../models/AccountCreateRequest';
 import { AccountDashboardAccessRequest } from '../models/AccountDashboardAccessRequest';
+import { AccountDashboardAccessResponse } from '../models/AccountDashboardAccessResponse';
 import { AccountListResponse } from '../models/AccountListResponse';
 import { AccountUpdateRequest } from '../models/AccountUpdateRequest';
 import { IAccount } from '../models/IAccount';
@@ -795,13 +796,13 @@ export class AccountsApiResponseProcessor {
      * @params response Response returned by the server for a request to dashboardAccess
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async dashboardAccess(response: ResponseContext): Promise<void | IAccount > {
+     public async dashboardAccess(response: ResponseContext): Promise<void | AccountDashboardAccessResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: IAccount = ObjectSerializer.deserialize(
+            const body: AccountDashboardAccessResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "IAccount", ""
-            ) as IAccount;
+                "AccountDashboardAccessResponse", ""
+            ) as AccountDashboardAccessResponse;
             return body;
         }
         if (isCodeInRange("204", response.httpStatusCode)) {
@@ -816,10 +817,10 @@ export class AccountsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void | IAccount = ObjectSerializer.deserialize(
+            const body: void | AccountDashboardAccessResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "void | IAccount", ""
-            ) as void | IAccount;
+                "void | AccountDashboardAccessResponse", ""
+            ) as void | AccountDashboardAccessResponse;
             return body;
         }
 
@@ -833,13 +834,13 @@ export class AccountsApiResponseProcessor {
      * @params response Response returned by the server for a request to dashboardAccess_3
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async dashboardAccess_3(response: ResponseContext): Promise<void | IAccount > {
+     public async dashboardAccess_3(response: ResponseContext): Promise<void | AccountDashboardAccessResponse > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: IAccount = ObjectSerializer.deserialize(
+            const body: AccountDashboardAccessResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "IAccount", ""
-            ) as IAccount;
+                "AccountDashboardAccessResponse", ""
+            ) as AccountDashboardAccessResponse;
             return body;
         }
         if (isCodeInRange("204", response.httpStatusCode)) {
@@ -854,10 +855,10 @@ export class AccountsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void | IAccount = ObjectSerializer.deserialize(
+            const body: void | AccountDashboardAccessResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "void | IAccount", ""
-            ) as void | IAccount;
+                "void | AccountDashboardAccessResponse", ""
+            ) as void | AccountDashboardAccessResponse;
             return body;
         }
 
