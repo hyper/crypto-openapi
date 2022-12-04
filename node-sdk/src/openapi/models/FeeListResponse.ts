@@ -14,19 +14,19 @@ import { IFee } from './IFee';
 import { HttpFile } from '../http/http';
 
 export class FeeListResponse {
-    'data': Array<IFee>;
+    'total': number;
     'has_more': boolean;
     'page': number;
-    'total': number;
+    'data': Array<IFee>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "Array<IFee>",
-            "format": ""
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
+            "format": "double"
         },
         {
             "name": "has_more",
@@ -41,10 +41,10 @@ export class FeeListResponse {
             "format": "double"
         },
         {
-            "name": "total",
-            "baseName": "total",
-            "type": "number",
-            "format": "double"
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<IFee>",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {

@@ -151,11 +151,11 @@ let body:.CheckoutsApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // CheckoutCreateRequest (optional)
   checkout_create_request: {
-    amount: 3.14,
     customer_details: {
       email: "email_example",
       name: "name_example",
     },
+    amount: 3.14,
   },
 };
 
@@ -216,11 +216,11 @@ let body:.CheckoutsApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // CheckoutCreateRequest (optional)
   checkout_create_request: {
-    amount: 3.14,
     customer_details: {
       email: "email_example",
       name: "name_example",
     },
+    amount: 3.14,
   },
 };
 

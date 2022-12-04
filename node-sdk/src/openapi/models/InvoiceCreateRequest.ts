@@ -15,12 +15,13 @@ import { HttpFile } from '../http/http';
 
 export class InvoiceCreateRequest {
     'customer'?: string;
-    'due'?: Date | number;
-    'line_items'?: Array<LineItem>;
     'metadata'?: { [key: string]: any; };
-    'notify'?: boolean;
     'price'?: string;
+    'coupon'?: string;
+    'line_items'?: Array<LineItem>;
     'trial_period_days'?: number;
+    'due'?: Date | number;
+    'notify'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -32,27 +33,9 @@ export class InvoiceCreateRequest {
             "format": ""
         },
         {
-            "name": "due",
-            "baseName": "due",
-            "type": "Date | number",
-            "format": ""
-        },
-        {
-            "name": "line_items",
-            "baseName": "line_items",
-            "type": "Array<LineItem>",
-            "format": ""
-        },
-        {
             "name": "metadata",
             "baseName": "metadata",
             "type": "{ [key: string]: any; }",
-            "format": ""
-        },
-        {
-            "name": "notify",
-            "baseName": "notify",
-            "type": "boolean",
             "format": ""
         },
         {
@@ -62,10 +45,34 @@ export class InvoiceCreateRequest {
             "format": ""
         },
         {
+            "name": "coupon",
+            "baseName": "coupon",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "line_items",
+            "baseName": "line_items",
+            "type": "Array<LineItem>",
+            "format": ""
+        },
+        {
             "name": "trial_period_days",
             "baseName": "trial_period_days",
             "type": "number",
             "format": "double"
+        },
+        {
+            "name": "due",
+            "baseName": "due",
+            "type": "Date | number",
+            "format": ""
+        },
+        {
+            "name": "notify",
+            "baseName": "notify",
+            "type": "boolean",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {

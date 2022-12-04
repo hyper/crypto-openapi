@@ -153,11 +153,11 @@ let body:.WebhooksApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // WebhookCreateRequest (optional)
   webhook_create_request: {
+    secret: "secret_example",
     endpoint_url: "endpoint_url_example",
     event_types: [
       "account.created",
     ],
-    secret: "secret_example",
   },
 };
 
@@ -218,11 +218,11 @@ let body:.WebhooksApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // WebhookCreateRequest (optional)
   webhook_create_request: {
+    secret: "secret_example",
     endpoint_url: "endpoint_url_example",
     event_types: [
       "account.created",
     ],
-    secret: "secret_example",
   },
 };
 

@@ -59,7 +59,6 @@ models/CouponUpdateRequest.ts
 models/Currency.ts
 models/CustomAmount.ts
 models/CustomerCreateRequest.ts
-models/CustomerCreateRequestBillingDetails.ts
 models/CustomerDetails.ts
 models/CustomerListResponse.ts
 models/CustomerUpdateRequest.ts
@@ -75,6 +74,7 @@ models/IBusinessProfile.ts
 models/ICheckout.ts
 models/ICoupon.ts
 models/ICustomer.ts
+models/ICustomerBillingDetails.ts
 models/IFee.ts
 models/IIntegrations.ts
 models/IIntegrationsFtx.ts

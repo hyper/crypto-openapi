@@ -156,52 +156,53 @@ let body:.InvoicesApiCreateRequest = {
   // InvoiceCreateRequest (optional)
   invoice_create_request: {
     customer: "customer_example",
-    due: null,
+    metadata: {
+      "key": null,
+    },
+    price: "price_example",
+    coupon: "coupon_example",
     line_items: [
       {
         description: "description_example",
-        price: "price_example",
         price_data: {
-          account: "account_example",
-          amount: 3.14,
-          application_fee_percent: 3.14,
-          archived: true,
-          base_price: {
-            amount: 3.14,
-            currency: "currency_example",
-            custom_amount: {
-              _default: 3.14,
-              maximum: 3.14,
-              minimum: 3.14,
-            },
-          },
-          billing_period_days: 3.14,
-          chain: "eth",
+          id: "id_example",
+          object: "object_example",
           created: 3.14,
-          currency: "eth",
+          test: true,
+          account: "account_example",
+          platform_account: "platform_account_example",
+          amount: 3.14,
           custom_amount: {
             _default: 3.14,
             maximum: 3.14,
             minimum: 3.14,
           },
-          id: "id_example",
+          currency: "eth",
+          chain: "eth",
+          product: "product_example",
+          base_price: {
+            custom_amount: {
+              _default: 3.14,
+              maximum: 3.14,
+              minimum: 3.14,
+            },
+            amount: 3.14,
+            currency: "currency_example",
+          },
+          billing_period_days: 3.14,
+          application_fee_percent: 3.14,
+          archived: true,
           metadata: {
             "key": null,
           },
-          object: "object_example",
-          platform_account: "platform_account_example",
-          product: "product_example",
-          test: true,
         },
         quantity: 3.14,
+        price: "price_example",
       },
     ],
-    metadata: {
-      "key": null,
-    },
-    notify: true,
-    price: "price_example",
     trial_period_days: 3.14,
+    due: null,
+    notify: true,
   },
 };
 
@@ -263,52 +264,53 @@ let body:.InvoicesApiCreate0Request = {
   // InvoiceCreateRequest (optional)
   invoice_create_request: {
     customer: "customer_example",
-    due: null,
+    metadata: {
+      "key": null,
+    },
+    price: "price_example",
+    coupon: "coupon_example",
     line_items: [
       {
         description: "description_example",
-        price: "price_example",
         price_data: {
-          account: "account_example",
-          amount: 3.14,
-          application_fee_percent: 3.14,
-          archived: true,
-          base_price: {
-            amount: 3.14,
-            currency: "currency_example",
-            custom_amount: {
-              _default: 3.14,
-              maximum: 3.14,
-              minimum: 3.14,
-            },
-          },
-          billing_period_days: 3.14,
-          chain: "eth",
+          id: "id_example",
+          object: "object_example",
           created: 3.14,
-          currency: "eth",
+          test: true,
+          account: "account_example",
+          platform_account: "platform_account_example",
+          amount: 3.14,
           custom_amount: {
             _default: 3.14,
             maximum: 3.14,
             minimum: 3.14,
           },
-          id: "id_example",
+          currency: "eth",
+          chain: "eth",
+          product: "product_example",
+          base_price: {
+            custom_amount: {
+              _default: 3.14,
+              maximum: 3.14,
+              minimum: 3.14,
+            },
+            amount: 3.14,
+            currency: "currency_example",
+          },
+          billing_period_days: 3.14,
+          application_fee_percent: 3.14,
+          archived: true,
           metadata: {
             "key": null,
           },
-          object: "object_example",
-          platform_account: "platform_account_example",
-          product: "product_example",
-          test: true,
         },
         quantity: 3.14,
+        price: "price_example",
       },
     ],
-    metadata: {
-      "key": null,
-    },
-    notify: true,
-    price: "price_example",
     trial_period_days: 3.14,
+    due: null,
+    notify: true,
   },
 };
 
@@ -508,10 +510,10 @@ let body:.InvoicesApiPayRequest = {
   // InvoicePayRequest (optional)
   invoice_pay_request: {
     amount: 3.14,
-    coupon: "coupon_example",
     metadata: {
       "key": null,
     },
+    coupon: "coupon_example",
   },
 };
 
@@ -576,10 +578,10 @@ let body:.InvoicesApiPay0Request = {
   // InvoicePayRequest (optional)
   invoice_pay_request: {
     amount: 3.14,
-    coupon: "coupon_example",
     metadata: {
       "key": null,
     },
+    coupon: "coupon_example",
   },
 };
 
@@ -767,12 +769,12 @@ let body:.InvoicesApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // InvoiceUpdateRequest (optional)
   invoice_update_request: {
-    due: null,
+    status: "open",
     metadata: {
       "key": null,
     },
+    due: null,
     notify: true,
-    status: "open",
   },
 };
 
@@ -837,12 +839,12 @@ let body:.InvoicesApiUpdate0Request = {
   pluto_account: "Pluto-Account_example",
   // InvoiceUpdateRequest (optional)
   invoice_update_request: {
-    due: null,
+    status: "open",
     metadata: {
       "key": null,
     },
+    due: null,
     notify: true,
-    status: "open",
   },
 };
 

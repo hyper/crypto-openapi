@@ -19,42 +19,132 @@ import { PaymentIntentStatus } from './PaymentIntentStatus';
 import { HttpFile } from '../http/http';
 
 export class IPaymentIntent {
-    'account': string | IAccount;
+    'id': string;
+    'object': string;
+    'created': number;
+    'test': boolean;
+    'account': string;
+    'platform_account'?: string;
+    'hash'?: string;
+    'invoice'?: string;
+    'subscription'?: string;
+    'checkout'?: string;
+    'price'?: string;
+    'line_items': Array<LineItem>;
+    'customer': string;
+    'wallet'?: string;
+    'status': PaymentIntentStatus;
+    'chain': Chain;
     'amount': number;
     'amount_before_discount'?: number;
-    'application_fee_percent'?: number;
-    'chain': Chain;
-    'checkout'?: string;
     'coupon'?: string;
-    'created': number;
-    'currency': Currency;
-    'customer': string;
-    'exchange_rate': number;
-    'fees': Array<IFee>;
-    'hash'?: string;
-    'id': string;
-    'invoice'?: string;
-    'last_payment_error'?: string;
-    'line_items': Array<LineItem>;
-    'metadata': { [key: string]: any; };
-    'object': string;
-    'platform_account'?: string;
-    'price'?: string;
-    'receipt_pdf'?: string;
-    'status': PaymentIntentStatus;
-    'subscription'?: string;
-    'test': boolean;
-    'transfers': Array<ITransfer>;
     'usd_amount': number;
-    'wallet'?: string;
+    'exchange_rate': number;
+    'application_fee_percent'?: number;
+    'currency': Currency;
+    'last_payment_error'?: string;
+    'receipt_pdf'?: string;
+    'fees': Array<IFee>;
+    'transfers': Array<ITransfer>;
+    'metadata': { [key: string]: any; };
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
+            "name": "id",
+            "baseName": "id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "object",
+            "baseName": "object",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "number",
+            "format": "double"
+        },
+        {
+            "name": "test",
+            "baseName": "test",
+            "type": "boolean",
+            "format": ""
+        },
+        {
             "name": "account",
             "baseName": "account",
-            "type": "string | IAccount",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "platform_account",
+            "baseName": "platform_account",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "hash",
+            "baseName": "hash",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "invoice",
+            "baseName": "invoice",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "subscription",
+            "baseName": "subscription",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "checkout",
+            "baseName": "checkout",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "price",
+            "baseName": "price",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "line_items",
+            "baseName": "line_items",
+            "type": "Array<LineItem>",
+            "format": ""
+        },
+        {
+            "name": "customer",
+            "baseName": "customer",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "wallet",
+            "baseName": "wallet",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "PaymentIntentStatus",
+            "format": ""
+        },
+        {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "Chain",
             "format": ""
         },
         {
@@ -70,32 +160,26 @@ export class IPaymentIntent {
             "format": "double"
         },
         {
-            "name": "application_fee_percent",
-            "baseName": "application_fee_percent",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "Chain",
-            "format": ""
-        },
-        {
-            "name": "checkout",
-            "baseName": "checkout",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "coupon",
             "baseName": "coupon",
             "type": "string",
             "format": ""
         },
         {
-            "name": "created",
-            "baseName": "created",
+            "name": "usd_amount",
+            "baseName": "usd_amount",
+            "type": "number",
+            "format": "double"
+        },
+        {
+            "name": "exchange_rate",
+            "baseName": "exchange_rate",
+            "type": "number",
+            "format": "double"
+        },
+        {
+            "name": "application_fee_percent",
+            "baseName": "application_fee_percent",
             "type": "number",
             "format": "double"
         },
@@ -106,74 +190,8 @@ export class IPaymentIntent {
             "format": ""
         },
         {
-            "name": "customer",
-            "baseName": "customer",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "exchange_rate",
-            "baseName": "exchange_rate",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "fees",
-            "baseName": "fees",
-            "type": "Array<IFee>",
-            "format": ""
-        },
-        {
-            "name": "hash",
-            "baseName": "hash",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "invoice",
-            "baseName": "invoice",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "last_payment_error",
             "baseName": "last_payment_error",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "line_items",
-            "baseName": "line_items",
-            "type": "Array<LineItem>",
-            "format": ""
-        },
-        {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "{ [key: string]: any; }",
-            "format": ""
-        },
-        {
-            "name": "object",
-            "baseName": "object",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "platform_account",
-            "baseName": "platform_account",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "price",
-            "baseName": "price",
             "type": "string",
             "format": ""
         },
@@ -184,21 +202,9 @@ export class IPaymentIntent {
             "format": ""
         },
         {
-            "name": "status",
-            "baseName": "status",
-            "type": "PaymentIntentStatus",
-            "format": ""
-        },
-        {
-            "name": "subscription",
-            "baseName": "subscription",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "test",
-            "baseName": "test",
-            "type": "boolean",
+            "name": "fees",
+            "baseName": "fees",
+            "type": "Array<IFee>",
             "format": ""
         },
         {
@@ -208,15 +214,9 @@ export class IPaymentIntent {
             "format": ""
         },
         {
-            "name": "usd_amount",
-            "baseName": "usd_amount",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "wallet",
-            "baseName": "wallet",
-            "type": "string",
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "{ [key: string]: any; }",
             "format": ""
         }    ];
 

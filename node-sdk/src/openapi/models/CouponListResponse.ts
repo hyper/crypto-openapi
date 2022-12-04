@@ -14,19 +14,19 @@ import { ICoupon } from './ICoupon';
 import { HttpFile } from '../http/http';
 
 export class CouponListResponse {
-    'data': Array<ICoupon>;
+    'total': number;
     'has_more': boolean;
     'page': number;
-    'total': number;
+    'data': Array<ICoupon>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "Array<ICoupon>",
-            "format": ""
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
+            "format": "double"
         },
         {
             "name": "has_more",
@@ -41,10 +41,10 @@ export class CouponListResponse {
             "format": "double"
         },
         {
-            "name": "total",
-            "baseName": "total",
-            "type": "number",
-            "format": "double"
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<ICoupon>",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {

@@ -16,38 +16,26 @@ import { Currency } from './Currency';
 import { HttpFile } from '../http/http';
 
 export class CouponCreateRequest {
-    'amount_off'?: number;
-    'archived'?: boolean;
-    'chain'?: Chain;
+    'name'?: string;
     'code'?: string;
+    'amount_off'?: number;
+    'percent_off'?: number;
     'currency'?: Currency;
+    'chain'?: Chain;
     'duration'?: CouponDuration;
     'duration_in_days'?: number;
     'max_redemptions'?: number;
-    'name'?: string;
-    'percent_off'?: number;
-    'products'?: Array<string>;
     'redeem_by'?: Date | number;
+    'archived'?: boolean;
+    'products'?: Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "amount_off",
-            "baseName": "amount_off",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "archived",
-            "baseName": "archived",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "Chain",
+            "name": "name",
+            "baseName": "name",
+            "type": "string",
             "format": ""
         },
         {
@@ -57,9 +45,27 @@ export class CouponCreateRequest {
             "format": ""
         },
         {
+            "name": "amount_off",
+            "baseName": "amount_off",
+            "type": "number",
+            "format": "double"
+        },
+        {
+            "name": "percent_off",
+            "baseName": "percent_off",
+            "type": "number",
+            "format": "double"
+        },
+        {
             "name": "currency",
             "baseName": "currency",
             "type": "Currency",
+            "format": ""
+        },
+        {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "Chain",
             "format": ""
         },
         {
@@ -81,27 +87,21 @@ export class CouponCreateRequest {
             "format": "double"
         },
         {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
+            "name": "redeem_by",
+            "baseName": "redeem_by",
+            "type": "Date | number",
             "format": ""
         },
         {
-            "name": "percent_off",
-            "baseName": "percent_off",
-            "type": "number",
-            "format": "double"
+            "name": "archived",
+            "baseName": "archived",
+            "type": "boolean",
+            "format": ""
         },
         {
             "name": "products",
             "baseName": "products",
             "type": "Array<string>",
-            "format": ""
-        },
-        {
-            "name": "redeem_by",
-            "baseName": "redeem_by",
-            "type": "Date | number",
             "format": ""
         }    ];
 

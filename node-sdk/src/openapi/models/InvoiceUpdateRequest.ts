@@ -14,18 +14,18 @@ import { InvoiceStatus } from './InvoiceStatus';
 import { HttpFile } from '../http/http';
 
 export class InvoiceUpdateRequest {
-    'due'?: Date | number;
-    'metadata'?: { [key: string]: any; };
-    'notify'?: boolean;
     'status'?: InvoiceStatus;
+    'metadata'?: { [key: string]: any; };
+    'due'?: Date | number;
+    'notify'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "due",
-            "baseName": "due",
-            "type": "Date | number",
+            "name": "status",
+            "baseName": "status",
+            "type": "InvoiceStatus",
             "format": ""
         },
         {
@@ -35,15 +35,15 @@ export class InvoiceUpdateRequest {
             "format": ""
         },
         {
-            "name": "notify",
-            "baseName": "notify",
-            "type": "boolean",
+            "name": "due",
+            "baseName": "due",
+            "type": "Date | number",
             "format": ""
         },
         {
-            "name": "status",
-            "baseName": "status",
-            "type": "InvoiceStatus",
+            "name": "notify",
+            "baseName": "notify",
+            "type": "boolean",
             "format": ""
         }    ];
 

@@ -14,13 +14,19 @@ import { EventType } from './EventType';
 import { HttpFile } from '../http/http';
 
 export class WebhookCreateRequest {
+    'secret'?: string;
     'endpoint_url'?: string;
     'event_types'?: Array<EventType>;
-    'secret'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "secret",
+            "baseName": "secret",
+            "type": "string",
+            "format": ""
+        },
         {
             "name": "endpoint_url",
             "baseName": "endpoint_url",
@@ -31,12 +37,6 @@ export class WebhookCreateRequest {
             "name": "event_types",
             "baseName": "event_types",
             "type": "Array<EventType>",
-            "format": ""
-        },
-        {
-            "name": "secret",
-            "baseName": "secret",
-            "type": "string",
             "format": ""
         }    ];
 

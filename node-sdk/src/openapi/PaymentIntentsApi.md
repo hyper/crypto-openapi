@@ -158,55 +158,56 @@ let body:.PaymentIntentsApiCreateRequest = {
   // PaymentIntentCreateRequest (optional)
   payment_intent_create_request: {
     amount: 3.14,
-    application_fee_percent: 3.14,
-    chain: "eth",
-    currency: "eth",
     customer: "customer_example",
-    invoice: "invoice_example",
+    currency: "eth",
+    chain: "eth",
+    metadata: {
+      "key": null,
+    },
+    price: "price_example",
+    coupon: "coupon_example",
     line_items: [
       {
         description: "description_example",
-        price: "price_example",
         price_data: {
-          account: "account_example",
-          amount: 3.14,
-          application_fee_percent: 3.14,
-          archived: true,
-          base_price: {
-            amount: 3.14,
-            currency: "currency_example",
-            custom_amount: {
-              _default: 3.14,
-              maximum: 3.14,
-              minimum: 3.14,
-            },
-          },
-          billing_period_days: 3.14,
-          chain: "eth",
+          id: "id_example",
+          object: "object_example",
           created: 3.14,
-          currency: "eth",
+          test: true,
+          account: "account_example",
+          platform_account: "platform_account_example",
+          amount: 3.14,
           custom_amount: {
             _default: 3.14,
             maximum: 3.14,
             minimum: 3.14,
           },
-          id: "id_example",
+          currency: "eth",
+          chain: "eth",
+          product: "product_example",
+          base_price: {
+            custom_amount: {
+              _default: 3.14,
+              maximum: 3.14,
+              minimum: 3.14,
+            },
+            amount: 3.14,
+            currency: "currency_example",
+          },
+          billing_period_days: 3.14,
+          application_fee_percent: 3.14,
+          archived: true,
           metadata: {
             "key": null,
           },
-          object: "object_example",
-          platform_account: "platform_account_example",
-          product: "product_example",
-          test: true,
         },
         quantity: 3.14,
+        price: "price_example",
       },
     ],
-    metadata: {
-      "key": null,
-    },
-    price: "price_example",
     subscription: "subscription_example",
+    application_fee_percent: 3.14,
+    invoice: "invoice_example",
   },
 };
 
@@ -268,55 +269,56 @@ let body:.PaymentIntentsApiCreate0Request = {
   // PaymentIntentCreateRequest (optional)
   payment_intent_create_request: {
     amount: 3.14,
-    application_fee_percent: 3.14,
-    chain: "eth",
-    currency: "eth",
     customer: "customer_example",
-    invoice: "invoice_example",
+    currency: "eth",
+    chain: "eth",
+    metadata: {
+      "key": null,
+    },
+    price: "price_example",
+    coupon: "coupon_example",
     line_items: [
       {
         description: "description_example",
-        price: "price_example",
         price_data: {
-          account: "account_example",
-          amount: 3.14,
-          application_fee_percent: 3.14,
-          archived: true,
-          base_price: {
-            amount: 3.14,
-            currency: "currency_example",
-            custom_amount: {
-              _default: 3.14,
-              maximum: 3.14,
-              minimum: 3.14,
-            },
-          },
-          billing_period_days: 3.14,
-          chain: "eth",
+          id: "id_example",
+          object: "object_example",
           created: 3.14,
-          currency: "eth",
+          test: true,
+          account: "account_example",
+          platform_account: "platform_account_example",
+          amount: 3.14,
           custom_amount: {
             _default: 3.14,
             maximum: 3.14,
             minimum: 3.14,
           },
-          id: "id_example",
+          currency: "eth",
+          chain: "eth",
+          product: "product_example",
+          base_price: {
+            custom_amount: {
+              _default: 3.14,
+              maximum: 3.14,
+              minimum: 3.14,
+            },
+            amount: 3.14,
+            currency: "currency_example",
+          },
+          billing_period_days: 3.14,
+          application_fee_percent: 3.14,
+          archived: true,
           metadata: {
             "key": null,
           },
-          object: "object_example",
-          platform_account: "platform_account_example",
-          product: "product_example",
-          test: true,
         },
         quantity: 3.14,
+        price: "price_example",
       },
     ],
-    metadata: {
-      "key": null,
-    },
-    price: "price_example",
     subscription: "subscription_example",
+    application_fee_percent: 3.14,
+    invoice: "invoice_example",
   },
 };
 
@@ -893,10 +895,10 @@ let body:.PaymentIntentsApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // PaymentIntentUpdateRequest (optional)
   payment_intent_update_request: {
-    hash: "hash_example",
     metadata: {
       "key": null,
     },
+    hash: "hash_example",
   },
 };
 
@@ -961,10 +963,10 @@ let body:.PaymentIntentsApiUpdate0Request = {
   pluto_account: "Pluto-Account_example",
   // PaymentIntentUpdateRequest (optional)
   payment_intent_update_request: {
-    hash: "hash_example",
     metadata: {
       "key": null,
     },
+    hash: "hash_example",
   },
 };
 

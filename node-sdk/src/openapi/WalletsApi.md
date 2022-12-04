@@ -153,9 +153,9 @@ let body:.WalletsApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // WalletCreateRequest (optional)
   wallet_create_request: {
-    address: "address_example",
-    chain: "eth",
     customer: "customer_example",
+    chain: "eth",
+    address: "address_example",
   },
 };
 
@@ -216,9 +216,9 @@ let body:.WalletsApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // WalletCreateRequest (optional)
   wallet_create_request: {
-    address: "address_example",
-    chain: "eth",
     customer: "customer_example",
+    chain: "eth",
+    address: "address_example",
   },
 };
 
@@ -541,8 +541,8 @@ let body:.WalletsApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // WalletUpdateRequest (optional)
   wallet_update_request: {
-    address: "address_example",
     chain: "eth",
+    address: "address_example",
   },
 };
 
@@ -607,8 +607,8 @@ let body:.WalletsApiUpdate0Request = {
   pluto_account: "Pluto-Account_example",
   // WalletUpdateRequest (optional)
   wallet_update_request: {
-    address: "address_example",
     chain: "eth",
+    address: "address_example",
   },
 };
 

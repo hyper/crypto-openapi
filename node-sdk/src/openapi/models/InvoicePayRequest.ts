@@ -14,8 +14,8 @@ import { HttpFile } from '../http/http';
 
 export class InvoicePayRequest {
     'amount'?: number;
-    'coupon'?: string;
     'metadata'?: { [key: string]: any; };
+    'coupon'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -27,15 +27,15 @@ export class InvoicePayRequest {
             "format": "double"
         },
         {
-            "name": "coupon",
-            "baseName": "coupon",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "metadata",
             "baseName": "metadata",
             "type": "{ [key: string]: any; }",
+            "format": ""
+        },
+        {
+            "name": "coupon",
+            "baseName": "coupon",
+            "type": "string",
             "format": ""
         }    ];
 

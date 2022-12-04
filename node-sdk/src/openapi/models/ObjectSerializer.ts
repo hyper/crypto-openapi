@@ -21,7 +21,6 @@ export * from './CouponUpdateRequest';
 export * from './Currency';
 export * from './CustomAmount';
 export * from './CustomerCreateRequest';
-export * from './CustomerCreateRequestBillingDetails';
 export * from './CustomerDetails';
 export * from './CustomerListResponse';
 export * from './CustomerUpdateRequest';
@@ -37,6 +36,7 @@ export * from './IBusinessProfile';
 export * from './ICheckout';
 export * from './ICoupon';
 export * from './ICustomer';
+export * from './ICustomerBillingDetails';
 export * from './IFee';
 export * from './IIntegrations';
 export * from './IIntegrationsFtx';
@@ -116,7 +116,6 @@ import { CouponUpdateRequest } from './CouponUpdateRequest';
 import { Currency } from './Currency';
 import { CustomAmount } from './CustomAmount';
 import { CustomerCreateRequest } from './CustomerCreateRequest';
-import { CustomerCreateRequestBillingDetails } from './CustomerCreateRequestBillingDetails';
 import { CustomerDetails } from './CustomerDetails';
 import { CustomerListResponse } from './CustomerListResponse';
 import { CustomerUpdateRequest } from './CustomerUpdateRequest';
@@ -132,6 +131,7 @@ import { IBusinessProfile } from './IBusinessProfile';
 import { ICheckout } from './ICheckout';
 import { ICoupon } from './ICoupon';
 import { ICustomer } from './ICustomer';
+import { ICustomerBillingDetails } from './ICustomerBillingDetails';
 import { IFee } from './IFee';
 import { IIntegrations } from './IIntegrations';
 import { IIntegrationsFtx } from './IIntegrationsFtx';
@@ -239,7 +239,6 @@ let typeMap: {[index: string]: any} = {
     "CouponUpdateRequest": CouponUpdateRequest,
     "CustomAmount": CustomAmount,
     "CustomerCreateRequest": CustomerCreateRequest,
-    "CustomerCreateRequestBillingDetails": CustomerCreateRequestBillingDetails,
     "CustomerDetails": CustomerDetails,
     "CustomerListResponse": CustomerListResponse,
     "CustomerUpdateRequest": CustomerUpdateRequest,
@@ -254,6 +253,7 @@ let typeMap: {[index: string]: any} = {
     "ICheckout": ICheckout,
     "ICoupon": ICoupon,
     "ICustomer": ICustomer,
+    "ICustomerBillingDetails": ICustomerBillingDetails,
     "IFee": IFee,
     "IIntegrations": IIntegrations,
     "IIntegrationsFtx": IIntegrationsFtx,

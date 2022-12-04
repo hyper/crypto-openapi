@@ -33,22 +33,22 @@ let body:.CustomersApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // CustomerCreateRequest (optional)
   customer_create_request: {
+    name: "name_example",
+    email: "email_example",
+    phone: "phone_example",
     billing_details: {
       address: {
-        city: "city_example",
-        country: "country_example",
-        line1: "line1_example",
-        line2: "line2_example",
-        postal_code: "postal_code_example",
         state: "state_example",
+        postal_code: "postal_code_example",
+        line2: "line2_example",
+        line1: "line1_example",
+        country: "country_example",
+        city: "city_example",
       },
     },
-    email: "email_example",
     metadata: {
       "key": null,
     },
-    name: "name_example",
-    phone: "phone_example",
   },
 };
 
@@ -109,22 +109,22 @@ let body:.CustomersApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // CustomerCreateRequest (optional)
   customer_create_request: {
+    name: "name_example",
+    email: "email_example",
+    phone: "phone_example",
     billing_details: {
       address: {
-        city: "city_example",
-        country: "country_example",
-        line1: "line1_example",
-        line2: "line2_example",
-        postal_code: "postal_code_example",
         state: "state_example",
+        postal_code: "postal_code_example",
+        line2: "line2_example",
+        line1: "line1_example",
+        country: "country_example",
+        city: "city_example",
       },
     },
-    email: "email_example",
     metadata: {
       "key": null,
     },
-    name: "name_example",
-    phone: "phone_example",
   },
 };
 
@@ -453,22 +453,22 @@ let body:.CustomersApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // CustomerUpdateRequest (optional)
   customer_update_request: {
+    name: "name_example",
+    email: "email_example",
+    phone: "phone_example",
     billing_details: {
       address: {
-        city: "city_example",
-        country: "country_example",
-        line1: "line1_example",
-        line2: "line2_example",
-        postal_code: "postal_code_example",
         state: "state_example",
+        postal_code: "postal_code_example",
+        line2: "line2_example",
+        line1: "line1_example",
+        country: "country_example",
+        city: "city_example",
       },
     },
-    email: "email_example",
     metadata: {
       "key": null,
     },
-    name: "name_example",
-    phone: "phone_example",
   },
 };
 
@@ -533,22 +533,22 @@ let body:.CustomersApiUpdate0Request = {
   pluto_account: "Pluto-Account_example",
   // CustomerUpdateRequest (optional)
   customer_update_request: {
+    name: "name_example",
+    email: "email_example",
+    phone: "phone_example",
     billing_details: {
       address: {
-        city: "city_example",
-        country: "country_example",
-        line1: "line1_example",
-        line2: "line2_example",
-        postal_code: "postal_code_example",
         state: "state_example",
+        postal_code: "postal_code_example",
+        line2: "line2_example",
+        line1: "line1_example",
+        country: "country_example",
+        city: "city_example",
       },
     },
-    email: "email_example",
     metadata: {
       "key": null,
     },
-    name: "name_example",
-    phone: "phone_example",
   },
 };
 

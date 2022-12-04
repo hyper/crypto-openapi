@@ -15,8 +15,8 @@ import { HttpFile } from '../http/http';
 export class TransferCreateRequest {
     'description'?: string;
     'payment_intent'?: string;
+    'wallet'?: string;
     'percent'?: number;
-    'wallet'?: string | IWallet;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -34,16 +34,16 @@ export class TransferCreateRequest {
             "format": ""
         },
         {
+            "name": "wallet",
+            "baseName": "wallet",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "percent",
             "baseName": "percent",
             "type": "number",
             "format": "double"
-        },
-        {
-            "name": "wallet",
-            "baseName": "wallet",
-            "type": "string | IWallet",
-            "format": ""
         }    ];
 
     static getAttributeTypeMap() {

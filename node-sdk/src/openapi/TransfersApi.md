@@ -33,8 +33,8 @@ let body:.TransfersApiCreateRequest = {
   transfer_create_request: {
     description: "description_example",
     payment_intent: "payment_intent_example",
+    wallet: "wallet_example",
     percent: 3.14,
-    wallet: null,
   },
 };
 
@@ -97,8 +97,8 @@ let body:.TransfersApiCreate0Request = {
   transfer_create_request: {
     description: "description_example",
     payment_intent: "payment_intent_example",
+    wallet: "wallet_example",
     percent: 3.14,
-    wallet: null,
   },
 };
 

@@ -15,22 +15,22 @@ import { ISettings } from './ISettings';
 import { HttpFile } from '../http/http';
 
 export class AccountUpdateRequest {
-    'business_profile'?: IBusinessProfile;
     'settings'?: ISettings;
+    'business_profile'?: IBusinessProfile;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "business_profile",
-            "baseName": "business_profile",
-            "type": "IBusinessProfile",
-            "format": ""
-        },
-        {
             "name": "settings",
             "baseName": "settings",
             "type": "ISettings",
+            "format": ""
+        },
+        {
+            "name": "business_profile",
+            "baseName": "business_profile",
+            "type": "IBusinessProfile",
             "format": ""
         }    ];
 

@@ -153,9 +153,9 @@ let body:.ProductsApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // ProductCreateRequest (optional)
   product_create_request: {
-    active: true,
-    description: "description_example",
     name: "name_example",
+    description: "description_example",
+    active: true,
   },
 };
 
@@ -216,9 +216,9 @@ let body:.ProductsApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // ProductCreateRequest (optional)
   product_create_request: {
-    active: true,
-    description: "description_example",
     name: "name_example",
+    description: "description_example",
+    active: true,
   },
 };
 
@@ -541,9 +541,9 @@ let body:.ProductsApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // ProductUpdateRequest (optional)
   product_update_request: {
-    active: true,
-    description: "description_example",
     name: "name_example",
+    description: "description_example",
+    active: true,
   },
 };
 
@@ -608,9 +608,9 @@ let body:.ProductsApiUpdate0Request = {
   pluto_account: "Pluto-Account_example",
   // ProductUpdateRequest (optional)
   product_update_request: {
-    active: true,
-    description: "description_example",
     name: "name_example",
+    description: "description_example",
+    active: true,
   },
 };
 

@@ -1066,14 +1066,7 @@
             "type": "boolean"
           },
           "wallet": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/components/schemas/IWallet"
-              }
-            ]
+            "type": "string"
           }
         },
         "required": [
@@ -1265,14 +1258,7 @@
         "additionalProperties": false,
         "properties": {
           "account": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/components/schemas/IAccount"
-              }
-            ]
+            "type": "string"
           },
           "amount": {
             "format": "double",
@@ -1904,14 +1890,7 @@
             "type": "boolean"
           },
           "wallet": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/components/schemas/IWallet"
-              }
-            ]
+            "type": "string"
           }
         },
         "required": [
@@ -2014,6 +1993,9 @@
       "InvoiceCreateRequest": {
         "additionalProperties": false,
         "properties": {
+          "coupon": {
+            "type": "string"
+          },
           "customer": {
             "type": "string"
           },
@@ -2184,6 +2166,9 @@
           },
           "chain": {
             "$ref": "#/components/schemas/Chain"
+          },
+          "coupon": {
+            "type": "string"
           },
           "currency": {
             "$ref": "#/components/schemas/Currency"
@@ -2565,6 +2550,9 @@
               }
             ]
           },
+          "coupon": {
+            "type": "string"
+          },
           "customer": {
             "type": "string"
           },
@@ -2687,14 +2675,7 @@
             "type": "number"
           },
           "wallet": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/components/schemas/IWallet"
-              }
-            ]
+            "type": "string"
           }
         },
         "type": "object"

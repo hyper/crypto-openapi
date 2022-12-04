@@ -16,56 +16,38 @@ import { Currency } from './Currency';
 import { HttpFile } from '../http/http';
 
 export class ICoupon {
-    'account': string;
-    'amount_off': number;
-    'archived': boolean;
-    'chain'?: Chain;
-    'code': string;
+    'id': string;
+    'object': string;
     'created': number;
+    'test': boolean;
+    'account': string;
+    'name': string;
+    'code': string;
+    'amount_off': number;
+    'percent_off': number;
     'currency'?: Currency;
+    'chain'?: Chain;
     'duration': CouponDuration;
     'duration_in_days'?: number;
-    'id': string;
     'max_redemptions'?: number;
-    'name': string;
-    'object': string;
-    'percent_off': number;
-    'products': Array<string>;
-    'redeem_by'?: Date | number;
-    'test': boolean;
     'times_redeemed': number;
+    'redeem_by'?: Date | number;
+    'archived': boolean;
     'valid': boolean;
+    'products': Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "account",
-            "baseName": "account",
+            "name": "id",
+            "baseName": "id",
             "type": "string",
             "format": ""
         },
         {
-            "name": "amount_off",
-            "baseName": "amount_off",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "archived",
-            "baseName": "archived",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "chain",
-            "baseName": "chain",
-            "type": "Chain",
-            "format": ""
-        },
-        {
-            "name": "code",
-            "baseName": "code",
+            "name": "object",
+            "baseName": "object",
             "type": "string",
             "format": ""
         },
@@ -76,9 +58,51 @@ export class ICoupon {
             "format": "double"
         },
         {
+            "name": "test",
+            "baseName": "test",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "account",
+            "baseName": "account",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "name",
+            "baseName": "name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "code",
+            "baseName": "code",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "amount_off",
+            "baseName": "amount_off",
+            "type": "number",
+            "format": "double"
+        },
+        {
+            "name": "percent_off",
+            "baseName": "percent_off",
+            "type": "number",
+            "format": "double"
+        },
+        {
             "name": "currency",
             "baseName": "currency",
             "type": "Currency",
+            "format": ""
+        },
+        {
+            "name": "chain",
+            "baseName": "chain",
+            "type": "Chain",
             "format": ""
         },
         {
@@ -94,52 +118,10 @@ export class ICoupon {
             "format": "double"
         },
         {
-            "name": "id",
-            "baseName": "id",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "max_redemptions",
             "baseName": "max_redemptions",
             "type": "number",
             "format": "double"
-        },
-        {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "object",
-            "baseName": "object",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "percent_off",
-            "baseName": "percent_off",
-            "type": "number",
-            "format": "double"
-        },
-        {
-            "name": "products",
-            "baseName": "products",
-            "type": "Array<string>",
-            "format": ""
-        },
-        {
-            "name": "redeem_by",
-            "baseName": "redeem_by",
-            "type": "Date | number",
-            "format": ""
-        },
-        {
-            "name": "test",
-            "baseName": "test",
-            "type": "boolean",
-            "format": ""
         },
         {
             "name": "times_redeemed",
@@ -148,9 +130,27 @@ export class ICoupon {
             "format": "double"
         },
         {
+            "name": "redeem_by",
+            "baseName": "redeem_by",
+            "type": "Date | number",
+            "format": ""
+        },
+        {
+            "name": "archived",
+            "baseName": "archived",
+            "type": "boolean",
+            "format": ""
+        },
+        {
             "name": "valid",
             "baseName": "valid",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "products",
+            "baseName": "products",
+            "type": "Array<string>",
             "format": ""
         }    ];
 

@@ -153,20 +153,20 @@ let body:.CouponsApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // CouponCreateRequest (optional)
   coupon_create_request: {
-    amount_off: 3.14,
-    archived: true,
-    chain: "eth",
+    name: "name_example",
     code: "code_example",
+    amount_off: 3.14,
+    percent_off: 3.14,
     currency: "eth",
+    chain: "eth",
     duration: "once",
     duration_in_days: 3.14,
     max_redemptions: 3.14,
-    name: "name_example",
-    percent_off: 3.14,
+    redeem_by: null,
+    archived: true,
     products: [
       "products_example",
     ],
-    redeem_by: null,
   },
 };
 
@@ -227,20 +227,20 @@ let body:.CouponsApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // CouponCreateRequest (optional)
   coupon_create_request: {
-    amount_off: 3.14,
-    archived: true,
-    chain: "eth",
+    name: "name_example",
     code: "code_example",
+    amount_off: 3.14,
+    percent_off: 3.14,
     currency: "eth",
+    chain: "eth",
     duration: "once",
     duration_in_days: 3.14,
     max_redemptions: 3.14,
-    name: "name_example",
-    percent_off: 3.14,
+    redeem_by: null,
+    archived: true,
     products: [
       "products_example",
     ],
-    redeem_by: null,
   },
 };
 
@@ -563,20 +563,20 @@ let body:.CouponsApiUpdateRequest = {
   pluto_account: "Pluto-Account_example",
   // CouponUpdateRequest (optional)
   coupon_update_request: {
-    amount_off: 3.14,
-    archived: true,
-    chain: "eth",
+    name: "name_example",
     code: "code_example",
+    amount_off: 3.14,
+    percent_off: 3.14,
     currency: "eth",
+    chain: "eth",
     duration: "once",
     duration_in_days: 3.14,
     max_redemptions: 3.14,
-    name: "name_example",
-    percent_off: 3.14,
+    redeem_by: null,
+    archived: true,
     products: [
       "products_example",
     ],
-    redeem_by: null,
   },
 };
 
@@ -641,20 +641,20 @@ let body:.CouponsApiUpdate0Request = {
   pluto_account: "Pluto-Account_example",
   // CouponUpdateRequest (optional)
   coupon_update_request: {
-    amount_off: 3.14,
-    archived: true,
-    chain: "eth",
+    name: "name_example",
     code: "code_example",
+    amount_off: 3.14,
+    percent_off: 3.14,
     currency: "eth",
+    chain: "eth",
     duration: "once",
     duration_in_days: 3.14,
     max_redemptions: 3.14,
-    name: "name_example",
-    percent_off: 3.14,
+    redeem_by: null,
+    archived: true,
     products: [
       "products_example",
     ],
-    redeem_by: null,
   },
 };
 

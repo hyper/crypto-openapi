@@ -14,14 +14,20 @@ import { AfterCompletion } from './AfterCompletion';
 import { HttpFile } from '../http/http';
 
 export class PaymentLinkUpdateRequest {
+    'metadata'?: { [key: string]: any; };
     'active'?: boolean;
     'after_completion'?: AfterCompletion;
     'expires_at'?: Date | number;
-    'metadata'?: { [key: string]: any; };
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "{ [key: string]: any; }",
+            "format": ""
+        },
         {
             "name": "active",
             "baseName": "active",
@@ -38,12 +44,6 @@ export class PaymentLinkUpdateRequest {
             "name": "expires_at",
             "baseName": "expires_at",
             "type": "Date | number",
-            "format": ""
-        },
-        {
-            "name": "metadata",
-            "baseName": "metadata",
-            "type": "{ [key: string]: any; }",
             "format": ""
         }    ];
 

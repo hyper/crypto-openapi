@@ -165,29 +165,7 @@ let body:.AccountsApiCreateRequest = {
   pluto_account: "Pluto-Account_example",
   // AccountCreateRequest (optional)
   account_create_request: {
-    business_profile: {
-      name: "name_example",
-      product_description: "product_description_example",
-      support_address: {
-        city: "city_example",
-        country: "country_example",
-        line1: "line1_example",
-        line2: "line2_example",
-        postal_code: "postal_code_example",
-        state: "state_example",
-      },
-      support_email: "support_email_example",
-      support_phone: "support_phone_example",
-      support_url: "support_url_example",
-      url: "url_example",
-    },
-    connected_accounts: [
-      "connected_accounts_example",
-    ],
     settings: {
-      billing: {
-        retry_period_days: 3.14,
-      },
       branding: {
         logo: "logo_example",
       },
@@ -195,7 +173,29 @@ let body:.AccountsApiCreateRequest = {
         invoice_prefix: "invoice_prefix_example",
         invoice_reminder_frequency: 3.14,
       },
+      billing: {
+        retry_period_days: 3.14,
+      },
     },
+    business_profile: {
+      name: "name_example",
+      product_description: "product_description_example",
+      url: "url_example",
+      support_url: "support_url_example",
+      support_email: "support_email_example",
+      support_phone: "support_phone_example",
+      support_address: {
+        state: "state_example",
+        postal_code: "postal_code_example",
+        line2: "line2_example",
+        line1: "line1_example",
+        country: "country_example",
+        city: "city_example",
+      },
+    },
+    connected_accounts: [
+      "connected_accounts_example",
+    ],
   },
 };
 
@@ -256,29 +256,7 @@ let body:.AccountsApiCreate0Request = {
   pluto_account: "Pluto-Account_example",
   // AccountCreateRequest (optional)
   account_create_request: {
-    business_profile: {
-      name: "name_example",
-      product_description: "product_description_example",
-      support_address: {
-        city: "city_example",
-        country: "country_example",
-        line1: "line1_example",
-        line2: "line2_example",
-        postal_code: "postal_code_example",
-        state: "state_example",
-      },
-      support_email: "support_email_example",
-      support_phone: "support_phone_example",
-      support_url: "support_url_example",
-      url: "url_example",
-    },
-    connected_accounts: [
-      "connected_accounts_example",
-    ],
     settings: {
-      billing: {
-        retry_period_days: 3.14,
-      },
       branding: {
         logo: "logo_example",
       },
@@ -286,7 +264,29 @@ let body:.AccountsApiCreate0Request = {
         invoice_prefix: "invoice_prefix_example",
         invoice_reminder_frequency: 3.14,
       },
+      billing: {
+        retry_period_days: 3.14,
+      },
     },
+    business_profile: {
+      name: "name_example",
+      product_description: "product_description_example",
+      url: "url_example",
+      support_url: "support_url_example",
+      support_email: "support_email_example",
+      support_phone: "support_phone_example",
+      support_address: {
+        state: "state_example",
+        postal_code: "postal_code_example",
+        line2: "line2_example",
+        line1: "line1_example",
+        country: "country_example",
+        city: "city_example",
+      },
+    },
+    connected_accounts: [
+      "connected_accounts_example",
+    ],
   },
 };
 
@@ -621,32 +621,32 @@ let body:.AccountsApiPatchRequest = {
   pluto_account: "Pluto-Account_example",
   // AccountUpdateRequest (optional)
   account_update_request: {
-    business_profile: {
-      name: "name_example",
-      product_description: "product_description_example",
-      support_address: {
-        city: "city_example",
-        country: "country_example",
-        line1: "line1_example",
-        line2: "line2_example",
-        postal_code: "postal_code_example",
-        state: "state_example",
-      },
-      support_email: "support_email_example",
-      support_phone: "support_phone_example",
-      support_url: "support_url_example",
-      url: "url_example",
-    },
     settings: {
-      billing: {
-        retry_period_days: 3.14,
-      },
       branding: {
         logo: "logo_example",
       },
       payments: {
         invoice_prefix: "invoice_prefix_example",
         invoice_reminder_frequency: 3.14,
+      },
+      billing: {
+        retry_period_days: 3.14,
+      },
+    },
+    business_profile: {
+      name: "name_example",
+      product_description: "product_description_example",
+      url: "url_example",
+      support_url: "support_url_example",
+      support_email: "support_email_example",
+      support_phone: "support_phone_example",
+      support_address: {
+        state: "state_example",
+        postal_code: "postal_code_example",
+        line2: "line2_example",
+        line1: "line1_example",
+        country: "country_example",
+        city: "city_example",
       },
     },
   },
@@ -713,32 +713,32 @@ let body:.AccountsApiPatch0Request = {
   pluto_account: "Pluto-Account_example",
   // AccountUpdateRequest (optional)
   account_update_request: {
-    business_profile: {
-      name: "name_example",
-      product_description: "product_description_example",
-      support_address: {
-        city: "city_example",
-        country: "country_example",
-        line1: "line1_example",
-        line2: "line2_example",
-        postal_code: "postal_code_example",
-        state: "state_example",
-      },
-      support_email: "support_email_example",
-      support_phone: "support_phone_example",
-      support_url: "support_url_example",
-      url: "url_example",
-    },
     settings: {
-      billing: {
-        retry_period_days: 3.14,
-      },
       branding: {
         logo: "logo_example",
       },
       payments: {
         invoice_prefix: "invoice_prefix_example",
         invoice_reminder_frequency: 3.14,
+      },
+      billing: {
+        retry_period_days: 3.14,
+      },
+    },
+    business_profile: {
+      name: "name_example",
+      product_description: "product_description_example",
+      url: "url_example",
+      support_url: "support_url_example",
+      support_email: "support_email_example",
+      support_phone: "support_phone_example",
+      support_address: {
+        state: "state_example",
+        postal_code: "postal_code_example",
+        line2: "line2_example",
+        line1: "line1_example",
+        country: "country_example",
+        city: "city_example",
       },
     },
   },

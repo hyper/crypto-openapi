@@ -14,19 +14,19 @@ import { IAccount } from './IAccount';
 import { HttpFile } from '../http/http';
 
 export class AccountListResponse {
-    'data': Array<IAccount>;
+    'total': number;
     'has_more': boolean;
     'page': number;
-    'total': number;
+    'data': Array<IAccount>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "Array<IAccount>",
-            "format": ""
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
+            "format": "double"
         },
         {
             "name": "has_more",
@@ -41,10 +41,10 @@ export class AccountListResponse {
             "format": "double"
         },
         {
-            "name": "total",
-            "baseName": "total",
-            "type": "number",
-            "format": "double"
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<IAccount>",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {

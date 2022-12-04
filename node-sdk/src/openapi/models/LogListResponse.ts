@@ -14,19 +14,19 @@ import { ILog } from './ILog';
 import { HttpFile } from '../http/http';
 
 export class LogListResponse {
-    'data': Array<ILog>;
+    'total': number;
     'has_more': boolean;
     'page': number;
-    'total': number;
+    'data': Array<ILog>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "Array<ILog>",
-            "format": ""
+            "name": "total",
+            "baseName": "total",
+            "type": "number",
+            "format": "double"
         },
         {
             "name": "has_more",
@@ -41,10 +41,10 @@ export class LogListResponse {
             "format": "double"
         },
         {
-            "name": "total",
-            "baseName": "total",
-            "type": "number",
-            "format": "double"
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<ILog>",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {

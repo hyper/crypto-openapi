@@ -14,17 +14,17 @@ import { Chain } from './Chain';
 import { HttpFile } from '../http/http';
 
 export class PayoutWalletUpdateRequest {
-    'address'?: string;
-    'chain'?: Chain;
     '_default'?: boolean;
+    'chain'?: Chain;
+    'address'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "address",
-            "baseName": "address",
-            "type": "string",
+            "name": "_default",
+            "baseName": "default",
+            "type": "boolean",
             "format": ""
         },
         {
@@ -34,9 +34,9 @@ export class PayoutWalletUpdateRequest {
             "format": ""
         },
         {
-            "name": "_default",
-            "baseName": "default",
-            "type": "boolean",
+            "name": "address",
+            "baseName": "address",
+            "type": "string",
             "format": ""
         }    ];
 
